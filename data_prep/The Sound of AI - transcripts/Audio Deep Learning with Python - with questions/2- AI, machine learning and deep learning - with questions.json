@@ -1,0 +1,1462 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new video in the Deep Learning for Rode with Python series. In this video, we're gonna have an overview at artificial intelligence, machine learning and deep learning. These are some of the uh topics that we're gonna be covering during the video. So we're gonna define artificial intelligence and see the relationship with machine learning and deep learning. And then we're going to talk about a number of different machine learning flavors or paradigms like supervised, unsupervised and reinforcement learning. Then we're gonna get into de defining deep learning and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "7.73",
+            "questions": [
+                "1. What is the main focus of the video in the Deep Learning for Rode with Python series?",
+                "2. How are artificial intelligence, machine learning, and deep learning related to each other?",
+                "3. What are the different paradigms of machine learning mentioned in the video?",
+                "4. Can you explain the concept of supervised learning?",
+                "5. What is unsupervised learning and how does it differ from supervised learning?",
+                "6. What is reinforcement learning and what role does it play in machine learning?",
+                "7. How does deep learning differ from traditional machine learning?",
+                "8. What are some key definitions provided in the video regarding deep learning?",
+                "9. What potential applications of deep learning are discussed in the context of audio and music technology?",
+                "10. What topics will be covered in the video related to machine learning and deep learning?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "define artificial intelligence and see the relationship with machine learning and deep learning. And then we're going to talk about a number of different machine learning flavors or paradigms like supervised, unsupervised and reinforcement learning. Then we're gonna get into de defining deep learning and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "24.459",
+            "questions": [
+                "1. What is the definition of artificial intelligence?",
+                "2. How do machine learning and deep learning relate to artificial intelligence?",
+                "3. What are the different paradigms of machine learning mentioned in the text?",
+                "4. Can you explain the differences between supervised, unsupervised, and reinforcement learning?",
+                "5. What is the definition of deep learning?",
+                "6. How does traditional machine learning differ from deep learning?",
+                "7. What are some possible applications of deep learning in audio technology?",
+                "8. In what ways can deep learning be applied within music technology?",
+                "9. Why are the terms artificial intelligence, machine learning, and deep learning sometimes used interchangeably?",
+                "10. What is the hierarchical relationship between artificial intelligence, machine learning, and deep learning?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "44.38",
+            "questions": [
+                "1. What is the relationship between artificial intelligence, machine learning, and deep learning?",
+                "2. How are the terms artificial intelligence and machine learning often used interchangeably?",
+                "3. What is the significance of deep learning within the field of machine learning?",
+                "4. How can artificial intelligence be defined?",
+                "5. What role does machine learning play in the broader context of artificial intelligence?",
+                "6. What are some examples of algorithms used in machine learning?",
+                "7. Why is deep learning considered a subset of machine learning?",
+                "8. What possible applications of deep learning in audio and music technology are mentioned?",
+                "9. How does the hierarchy of artificial intelligence, machine learning, and deep learning work?",
+                "10. What are the implications of understanding the differences between traditional machine learning and deep learning?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "68.98",
+            "questions": [
+                "1. What is the relationship between artificial intelligence, machine learning, and deep learning?",
+                "2. How does artificial intelligence differ from machine learning?",
+                "3. What is the definition of artificial intelligence according to Russell and Norvig?",
+                "4. In what book is the definition of artificial intelligence by Russell and Norvig found?",
+                "5. How is machine learning categorized within the field of artificial intelligence?",
+                "6. What is deep learning in relation to machine learning?",
+                "7. Why is the book \"Artificial Intelligence: A Modern Approach\" considered significant in the field of AI?",
+                "8. Can you provide examples of algorithms used in machine learning?",
+                "9. How do the terms artificial intelligence and machine learning get used interchangeably in discussions?",
+                "10. What are some implications of understanding the hierarchy of AI, machine learning, and deep learning?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "91.36",
+            "questions": [
+                "1. What is the relationship between machine learning and artificial intelligence?",
+                "2. How is deep learning categorized within the field of machine learning?",
+                "3. Who are the authors of the book \"Artificial Intelligence: A Modern Approach\"?",
+                "4. What is the definition of artificial intelligence provided by Russell and Norvig?",
+                "5. What do Russell and Norvig mean by \"intelligent agents\" in their definition of AI?",
+                "6. How do intelligent agents interact with their environment according to Russell and Norvig?",
+                "7. In what way does the book \"Artificial Intelligence: A Modern Approach\" serve as a foundational text for the field of AI?",
+                "8. Can you explain the concept of \"percept\" in the context of artificial intelligence?",
+                "9. What actions do intelligent agents take to affect their environment according to the definition provided?",
+                "10. Why is it important to understand the broader context of AI beyond just machine learning?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "113.93",
+            "questions": [
+                "1. Who are the authors of the book considered a \"Bible\" for artificial intelligence?",
+                "2. What is the title of the book written by Russell and Norvig?",
+                "3. How do Russell and Norvig define artificial intelligence?",
+                "4. What role do percepts play in the functioning of intelligent agents, according to Russell and Norvig?",
+                "5. What actions do intelligent agents take in relation to their environment?",
+                "6. How do Russell and Norvig describe the process of creating intelligent agents?",
+                "7. What is the significance of understanding what constitutes an \"intelligent agent\" in the context of AI?",
+                "8. In what ways does the definition of AI shift towards the concept of intelligence itself?",
+                "9. Why might the definition of artificial intelligence be considered both a science and an art?",
+                "10. How do the definitions provided by Russell and Norvig relate to contemporary understandings of AI?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "130.104",
+            "questions": [
+                "1. What is the primary focus of Russell and Norvig in relation to artificial intelligence?",
+                "2. How do intelligent agents interact with their environment?",
+                "3. What distinguishes an intelligent agent from other types of agents?",
+                "4. What does the term \"rational agent\" refer to in the context of artificial intelligence?",
+                "5. How is the definition of artificial intelligence evolving according to the text?",
+                "6. What are the key characteristics that define an intelligent agent?",
+                "7. In what ways do intelligent agents take actions that affect their environment?",
+                "8. Why is understanding rationality important in the study of intelligent agents?",
+                "9. How does the concept of an intelligent agent relate to the broader field of artificial intelligence?",
+                "10. What questions arise from the shifting definitions of artificial intelligence and intelligent agents?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well, rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "147.059",
+            "questions": [
+                "1. What is the relationship between building intelligent agents and the fields of science and art?",
+                "2. How is the definition of artificial intelligence evolving in relation to intelligent agents?",
+                "3. What constitutes an intelligent agent in the context of artificial intelligence?",
+                "4. How does the concept of a rational agent fit into the definition of intelligent agents?",
+                "5. What does rationality mean in the context of an intelligent agent?",
+                "6. How do beliefs influence the actions of a rational agent?",
+                "7. What are some examples of goals that an intelligent agent might seek to achieve?",
+                "8. How do intelligent agents develop strategies to achieve their goals?",
+                "9. In what ways might the definition of artificial intelligence continue to shift in the future?",
+                "10. What implications does the definition of rationality have for the design of intelligent agents?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well, rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right?",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "163.529",
+            "questions": [
+                "1. What is an intelligent agent in the field of AI?  ",
+                "2. How is an intelligent agent defined in relation to rationality?  ",
+                "3. What does rationality mean in the context of intelligent agents?  ",
+                "4. How does a rational agent act to achieve its goals?  ",
+                "5. What role do beliefs play in the actions of a rational agent?  ",
+                "6. How does context influence the behavior of a rational agent?  ",
+                "7. What strategies do rational agents build to achieve their goals?  ",
+                "8. In what ways can an agent optimize its actions to meet its objectives?  ",
+                "9. How has the definition of AI been evolving over time?  ",
+                "10. What is the significance of understanding rationality in AI development?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right? So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "188.699",
+            "questions": [
+                "1. What does rationality entail in the context of achieving goals?",
+                "2. How does a rational agent optimize its actions?",
+                "3. What role do beliefs play in the rational decision-making process?",
+                "4. How can context influence the strategies a rational agent employs?",
+                "5. What is the distinction between artificial intelligence and machine learning?",
+                "6. What are some examples of AI techniques mentioned in the text?",
+                "7. How do evolutionary algorithms relate to concepts from biology?",
+                "8. What are genetic algorithms, and how do they function within AI?",
+                "9. Why is it important to understand different AI techniques beyond machine learning?",
+                "10. In what ways might rationality apply to artificial intelligence systems?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right? So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "206.22",
+            "questions": [
+                "1. What defines a rational agent in the context of achieving goals?",
+                "2. How does artificial intelligence differ from machine learning?",
+                "3. What are evolutionary algorithms and how do they relate to biology?",
+                "4. Can you explain the concept of genetic algorithms within artificial intelligence?",
+                "5. What role do expert systems play in decision-making processes?",
+                "6. How do rule-based systems function in solving problems?",
+                "7. What are search algorithms, and why are they important in AI?",
+                "8. What is the A* algorithm, and in what contexts is it commonly used?",
+                "9. What are some other AI techniques or algorithms not mentioned in the text?",
+                "10. How do the various AI techniques contribute to the optimization of actions by rational agents?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "225.0",
+            "questions": [
+                "1. What are some techniques and algorithms associated with artificial intelligence besides machine learning?",
+                "2. How do evolutionary algorithms relate to concepts from biology?",
+                "3. What is the role of expert systems in artificial intelligence?",
+                "4. Can you explain what search algorithms are and provide an example?",
+                "5. How is the A* algorithm used in video games?",
+                "6. In what contexts are expert systems utilized for decision-making?",
+                "7. What distinguishes machine learning from other artificial intelligence techniques?",
+                "8. Are there more artificial intelligence algorithms that were not mentioned in the text?",
+                "9. How do genetic algorithms fit into the category of evolutionary algorithms?",
+                "10. What types of problems can search algorithms help to solve?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right. So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "250.24",
+            "questions": [
+                "1. What are expert systems and how do they utilize rules for decision-making?",
+                "2. Can you explain what search algorithms are and provide an example of one?",
+                "3. How is the A* algorithm commonly used in video games?",
+                "4. What is the relationship between machine learning and artificial intelligence?",
+                "5. How does machine learning enable a computer to perform tasks without explicit instructions?",
+                "6. What role does data play in the process of machine learning?",
+                "7. In what ways do developers differ in their approach to programming when using machine learning compared to traditional programming?",
+                "8. What are some other techniques or algorithms within the field of artificial intelligence besides machine learning?",
+                "9. How can machine learning be applied to solve real-world problems?",
+                "10. What are the main characteristics that define machine learning as a subset of artificial intelligence?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right. So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program, uh the ML program to figure the rules by itself using data.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "275.48",
+            "questions": [
+                "1. What is the role of artificial intelligence in video games, particularly in pathfinding?",
+                "2. How does machine learning differ from other techniques and algorithms in artificial intelligence?",
+                "3. What is the definition of machine learning (ML)?",
+                "4. How does a computer using machine learning perform tasks without explicit instructions?",
+                "5. In what way does machine learning enable a computer to learn from data?",
+                "6. Why do developers and researchers allow machine learning programs to figure out rules on their own?",
+                "7. What are some examples of tasks that machine learning can perform?",
+                "8. How does the concept of learning from data apply to problem-solving in machine learning?",
+                "9. Can you explain the relationship between machine learning and artificial intelligence?",
+                "10. What are some potential applications of machine learning beyond video games?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program, uh the ML program to figure the rules by itself using data. Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "300.89",
+            "questions": [
+                "1. What is machine learning (ML)?",
+                "2. How does a computer perform tasks in machine learning?",
+                "3. How does machine learning differ from traditional AI systems like expert systems?",
+                "4. What role does data play in the process of machine learning?",
+                "5. In machine learning, who provides the rules for solving a problem?",
+                "6. Can you explain the concept of onset detection in audio analysis?",
+                "7. What are some common applications of machine learning in audio analysis or music AI?",
+                "8. How does the learning process in machine learning differ from explicit programming?",
+                "9. What is the significance of allowing a machine learning program to figure out rules by itself?",
+                "10. What are the implications of using machine learning for tasks that were traditionally handled by expert systems?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "uh the ML program to figure the rules by itself using data. Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection. And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "330.459",
+            "questions": [
+                "1. What is the primary function of the ML program mentioned in the text?",
+                "2. How does machine learning differ from traditional AI systems like expert systems?",
+                "3. What specific task is highlighted in the context of audio analysis and AI music?",
+                "4. What is the goal of onset detection in music analysis?",
+                "5. How would you describe the process of identifying the start of a musical note?",
+                "6. What type of data is used for onset detection in the given example?",
+                "7. Can you explain what a waveform is in the context of music analysis?",
+                "8. Why is onset detection considered a common task in audio analysis?",
+                "9. What are some potential applications of onset detection in the music industry?",
+                "10. How might machine learning improve the accuracy of onset detection compared to traditional methods?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection. And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "336.649",
+            "questions": [
+                "1. What is the main focus of the text regarding machine learning and traditional AI systems?",
+                "2. What is onset detection in the context of audio analysis?",
+                "3. How is onset detection relevant to music?",
+                "4. What is the primary task involved in onset detection?",
+                "5. How does one identify the start of a musical note in a melody?",
+                "6. What does the waveform represent in the context of onset detection?",
+                "7. What do the peaks on the y-axis of the waveform indicate?",
+                "8. How are time and amplitude represented in the waveform described in the text?",
+                "9. Why is understanding the concept of onset detection important for AI music applications?",
+                "10. How does machine learning differ from expert systems in the context of audio analysis?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "362.279",
+            "questions": [
+                "1. What is the primary objective of the onset detection task in music analysis?",
+                "2. How do you define the start of a musical note within a melody?",
+                "3. In the context of waveforms, what does a burst in energy represent?",
+                "4. What two axes are typically used to represent a waveform in onset detection?",
+                "5. How is amplitude related to the concept of loudness in a waveform?",
+                "6. What does the X axis represent in the waveform analysis discussed in the text?",
+                "7. How can machine learning be applied to the problem of onset detection in music?",
+                "8. What role does an expert system play in identifying onsets within a waveform?",
+                "9. What visual indicators in a waveform might suggest the presence of a musical note?",
+                "10. Why is it important to identify the onset of musical notes in a melody?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "384.049",
+            "questions": [
+                "1. What is represented on the y-axis of the waveform described in the text?",
+                "2. How is the concept of \"burst in energy\" related to the identification of events in the waveform?",
+                "3. What does the presence of peaks on the y-axis indicate about the waveform?",
+                "4. How does the x-axis of the waveform differ from the y-axis?",
+                "5. What is the significance of amplitude in the context of the waveform?",
+                "6. What role does machine learning play in solving the problem of identifying onsets in the waveform?",
+                "7. What is an expert system, and how does it function in identifying onsets?",
+                "8. What is an example of a rule that could be hardwired into the expert system to detect onsets?",
+                "9. How do the concepts of amplitude and time interact in the waveform analysis?",
+                "10. Why is it important to identify onsets in a waveform?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right. So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "413.459",
+            "questions": [
+                "1. What does a burst in energy indicate in the context of the waveform?",
+                "2. How can machine learning be applied to identify onsets in waveforms?",
+                "3. What is an expert system, and how does it differ from other machine learning approaches?",
+                "4. What are some examples of rules that could be hardwired into an expert system for onset detection?",
+                "5. How does the amplitude of a waveform relate to the identification of onsets?",
+                "6. What specific amplitude values were mentioned as indicative of a potential onset?",
+                "7. How do developers provide rules to an expert system for identifying events?",
+                "8. What are the potential outcomes of applying a basic rule for onset detection in a waveform?",
+                "9. In what ways can the results of an expert system be validated or tested?",
+                "10. What challenges might arise when using hardcoded rules in an expert system for waveform analysis?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right. So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here, like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "440.23",
+            "questions": [
+                "1. What is the purpose of hardwiring rules into the system?",
+                "2. How does the system identify onsets based on the rules provided by developers?",
+                "3. What specific rule is suggested for identifying onsets related to amplitude?",
+                "4. What are the threshold values mentioned for amplitude in the rule?",
+                "5. How does the identification of onsets result in visible markers, such as vertical bars in red?",
+                "6. Are there instances where the system fails to identify certain onsets? If so, what causes this?",
+                "7. What might be the implications of setting the amplitude threshold too high or too low?",
+                "8. Can you provide examples of other rules that could be used to identify onsets?",
+                "9. How does the visual representation of results help in understanding the system's performance?",
+                "10. What challenges might developers face when defining rules for onset identification?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here, like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "462.029",
+            "questions": [
+                "1. What does the y-axis represent in the context of this analysis?",
+                "2. What is the significance of an amplitude greater than 0.2 or less than minus 0.2?",
+                "3. How are the results visually represented in the analysis?",
+                "4. What color is used to identify the significant events in the results?",
+                "5. Why are smaller outbursts of energy not identified by the basic rule?",
+                "6. What limitations does the simple rule have in identifying certain events?",
+                "7. How does the expert-based approach differ from the basic rule mentioned?",
+                "8. What role do the rules provided to the system play in its learning process?",
+                "9. How does the system learn from the instructions given by the experts?",
+                "10. What is the overall goal of using this amplitude-based identification method?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do, right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "490.489",
+            "questions": [
+                "1. What is the significance of the vertical bars in red mentioned in the text?",
+                "2. Why can't certain smaller outbursts of energy be identified according to the text?",
+                "3. What is the threshold amplitude mentioned for identifying outbursts of energy?",
+                "4. How does the expert-based approach differ from the machine learning approach discussed in the text?",
+                "5. What role do the provided rules play in the system's learning process?",
+                "6. How does the machine learning system learn from the instructions given to it?",
+                "7. What is the high-level overview of the machine learning approach to solving the problem?",
+                "8. What are the advantages of using a machine learning route over a simple rule-based system?",
+                "9. How does the text describe the machine learning system metaphorically?",
+                "10. What kind of data does the machine learning system require to function effectively?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do, right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here, we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "504.44",
+            "questions": [
+                "1. What is the significance of the amplitude being less than 0.2 in the context of the text?",
+                "2. How does the expert-based approach differ from the machine learning approach mentioned in the text?",
+                "3. What kind of rules were provided to the system in the expert-based approach?",
+                "4. How does the machine learning system learn from the provided data?",
+                "5. What types of data samples are used to train the machine learning system?",
+                "6. What does the term \"onsets\" refer to in the context of the waveforms discussed?",
+                "7. How does labeling the onsets in the data contribute to the learning process of the system?",
+                "8. What challenges might arise when using a simple rule to cover outbursts of energy?",
+                "9. How might the machine learning approach improve the identification of waveforms compared to the expert-based approach?",
+                "10. What role does the \"nice robot\" play in the machine learning process described in the text?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here, we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "531.45",
+            "questions": [
+                "1. What alternative method is suggested for solving the problem discussed in the text?  ",
+                "2. How does the machine learning system approach the problem?  ",
+                "3. What type of data is provided to the machine learning system?  ",
+                "4. What are the characteristics of the waveforms mentioned in the text?  ",
+                "5. What does it mean for the onsets to be \"labeled\"?  ",
+                "6. How does the machine learning system derive rules from the provided data?  ",
+                "7. Are any predefined rules given to the machine learning system?  ",
+                "8. What is the expected outcome when the machine learning system processes the data?  ",
+                "9. What role does abstraction play in the machine learning process described?  ",
+                "10. Why is it important that the data provided to the machine learning system includes identified onsets?  "
+            ]
+        },
+        {
+            "id": 25,
+            "text": "we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules. And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "554.71",
+            "questions": [
+                "1. What type of data is being provided to the machine learning system?",
+                "2. How are the waveforms in the dataset labeled?",
+                "3. What is the significance of the identified onsets in the data?",
+                "4. How does the machine learning system use the provided data?",
+                "5. Are any rules provided to the machine learning system before training?",
+                "6. What is the primary goal of passing data to the machine learning system?",
+                "7. Can you explain what is meant by the term \"learning\" in the context of machine learning?",
+                "8. What is the relationship between data and rule derivation in this machine learning process?",
+                "9. How is the process of training a machine learning system described in the text?",
+                "10. What does the author imply about the completeness of the machine learning workflow?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules. And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "581.494",
+            "questions": [
+                "1. What is the primary function of a machine learning system in the described process?",
+                "2. How does the machine learning system derive rules from the provided data?",
+                "3. What is meant by the term \"learning\" in the context of machine learning?",
+                "4. Why are no predefined rules provided to the machine learning system?",
+                "5. What are the two main phases of the machine learning workflow mentioned in the text?",
+                "6. What happens during the training phase of a machine learning system?",
+                "7. What is inference in the context of machine learning?",
+                "8. How does the machine learning system handle new waveforms it has never encountered before?",
+                "9. What is the expected outcome when the machine learning model analyzes new data?",
+                "10. Can you explain the significance of identifying onsets in the machine learning process?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "608.539",
+            "questions": [
+                "1. What is the initial step in the machine learning process described in the text?",
+                "2. What is the purpose of providing the machine learning system with a new waveform?",
+                "3. How does the machine learning approach differ from traditional AI approaches based on expert rules?",
+                "4. What is the term used to describe the process of using a trained machine learning system?",
+                "5. What outcome is hoped for when the machine learning model is given a new waveform?",
+                "6. How many different paradigms or flavors of machine learning are mentioned in the text?",
+                "7. What are the two main phases of the machine learning workflow outlined in the text?",
+                "8. Can the machine learning model identify onsets that it has never encountered before?",
+                "9. What is meant by \"inference setting\" in the context of machine learning?",
+                "10. Why is the process of learning considered only half of the machine learning workflow?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three, but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "620.369",
+            "questions": [
+                "1. What is the initial step mentioned in the text before using the system for inference?",
+                "2. How does the machine learning system interact with new waveforms that it has never seen before?",
+                "3. What is the goal of the machine learning model when it analyzes new waveforms?",
+                "4. How does the machine learning approach differ from traditional AI approaches based on expert rules?",
+                "5. What are the three main paradigms of machine learning mentioned in the text?",
+                "6. Which machine learning paradigm will be the primary focus throughout the series?",
+                "7. Can you explain the concept of supervised learning as mentioned in the text?",
+                "8. What are the other two paradigms of machine learning referenced alongside supervised learning?",
+                "9. How does unsupervised learning differ from supervised learning?",
+                "10. What role does reinforcement learning play in the context of the discussion?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three, but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning. So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "650.26",
+            "questions": [
+                "1. What is the primary difference between machine learning and traditional AI approaches?",
+                "2. How many different paradigms of machine learning are mentioned in the text?",
+                "3. What is the main focus of the series referenced in the text?",
+                "4. What type of learning is described as involving labeled data for training?",
+                "5. Can you name the three types of machine learning approaches mentioned?",
+                "6. What is unsupervised learning in the context of machine learning?",
+                "7. How does reinforcement learning differ from supervised learning?",
+                "8. What role do labeled datasets play in supervised learning?",
+                "9. Why might one choose a machine learning approach over a traditional expert rules approach?",
+                "10. What is the significance of the term \"paradigms or flavors\" in relation to machine learning?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning. So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "669.14",
+            "questions": [
+                "1. What are the three main types of learning in machine learning mentioned in the text?",
+                "2. What is the primary focus of the series described in the text?",
+                "3. How does supervised learning differ from unsupervised learning?",
+                "4. What type of data is provided during supervised learning?",
+                "5. What does it mean for data to be labeled in the context of supervised learning?",
+                "6. What kind of information is included in the training dataset for supervised learning?",
+                "7. What is the significance of the \"onsets\" mentioned in the text?",
+                "8. How does the machine learning model utilize the training data in supervised learning?",
+                "9. What role do annotations play in the supervised learning process?",
+                "10. Can you explain what reinforcement learning is based on the text?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "689.405",
+            "questions": [
+                "1. What is supervised learning in the context of machine learning?",
+                "2. What type of data is provided to the machine learning model during supervised learning?",
+                "3. How is labeled data defined in the context of supervised learning?",
+                "4. What are onsets in the training data set mentioned in the text?",
+                "5. How does the machine learning system use the provided data and solutions to learn?",
+                "6. What role do annotations play in the training data for supervised learning?",
+                "7. How does the machine learning model adjust its weights during the learning process?",
+                "8. In what way does the system match raw data against the solutions provided?",
+                "9. Why is supervised learning considered a specific paradigm within machine learning?",
+                "10. What aspects of supervised learning will be the focus of the discussion?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm. But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "710.09",
+            "questions": [
+                "1. What type of data is being annotated in the system described?",
+                "2. How does the machine learning system utilize the waveform and onsets?",
+                "3. What is the primary focus of the system discussed in the text?",
+                "4. How does the supervised learning process work in this context?",
+                "5. What is the role of samples in the machine learning system?",
+                "6. What is the main difference between supervised and unsupervised learning?",
+                "7. How does unsupervised learning function with unstructured or unlabeled data?",
+                "8. Can you provide an example of how unsupervised learning might be applied?",
+                "9. What are the advantages of using supervised learning over unsupervised learning?",
+                "10. In what scenarios would unsupervised learning be more beneficial than supervised learning?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm. But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you, yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right?",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "730.955",
+            "questions": [
+                "1. What is the primary function of the machine learning system described in the text?",
+                "2. How does the system learn rules and adjust its weights?",
+                "3. What is the definition of supervised learning as mentioned in the text?",
+                "4. What is the main focus of the discussion in the text regarding machine learning paradigms?",
+                "5. What is the alternative to supervised learning when labeled data is not available?",
+                "6. How does unsupervised learning differ from supervised learning?",
+                "7. Can you give an example of data that might be used in unsupervised learning, as illustrated in the text?",
+                "8. What challenge does the algorithm face in the unsupervised learning scenario described?",
+                "9. Why is it important for the algorithm to process unstructured data in unsupervised learning?",
+                "10. How does the lack of labels affect the algorithm's ability to classify data in unsupervised learning?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you, yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right? And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "760.4",
+            "questions": [
+                "1. What is unsupervised learning and how does it differ from supervised learning?",
+                "2. What type of data does an unsupervised learning model work with?",
+                "3. Can you provide an example of a dataset used in unsupervised learning?",
+                "4. How does an unsupervised learning algorithm identify patterns in unstructured data?",
+                "5. What are some common algorithms used in unsupervised learning?",
+                "6. How does the absence of labeled data impact the learning process in unsupervised learning?",
+                "7. What is the significance of clustering in unsupervised learning?",
+                "8. In the example given, how would an unsupervised learning model differentiate between apples and oranges?",
+                "9. What challenges might arise when using unsupervised learning on complex datasets?",
+                "10. How can the results of unsupervised learning be applied in real-world scenarios?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right? And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "787.38",
+            "questions": [
+                "1. What is the primary function of the algorithm mentioned in the text?",
+                "2. How does the algorithm differentiate between apples and oranges in the data?",
+                "3. What type of machine learning does the text primarily discuss?",
+                "4. What is the significance of using unsupervised algorithms in data analysis?",
+                "5. How does the algorithm learn to separate data without prior labels?",
+                "6. Why might it be beneficial to use an algorithm on unstructured and unlabeled data?",
+                "7. What is the role of clustering in the context of the algorithm discussed?",
+                "8. Can you explain what reinforcement learning is based on the text?",
+                "9. What challenges might arise when working with unstructured data?",
+                "10. How does the lack of labels affect the performance of the algorithm?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "810.27",
+            "questions": [
+                "1. What types of algorithms are mentioned for dividing unstructured data?",
+                "2. How does the system create clusters from unstructured data?",
+                "3. What is the primary function of the algorithm in separating data?",
+                "4. Why is it advantageous to use unsupervised algorithms for unlabelled data?",
+                "5. What is reinforcement learning, according to the text?",
+                "6. Who or what is described as the \"rational agent\" in reinforcement learning?",
+                "7. How does the agent learn in a virtual environment?",
+                "8. What role do rewards and punishments play in reinforcement learning?",
+                "9. What does the term \"long simulations\" refer to in the context of reinforcement learning?",
+                "10. How does the process of reinforcement learning differ from unsupervised learning?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning, uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "833.09",
+            "questions": [
+                "1. What is the role of the algorithm in separating unlabeled data?",
+                "2. Why is the ability to work with unlabeled data considered handy?",
+                "3. What is reinforcement learning, and how does it differ from other types of machine learning?",
+                "4. Who or what is referred to as the \"agent\" in reinforcement learning scenarios?",
+                "5. How does the agent in reinforcement learning learn through rewards and punishments?",
+                "6. What type of environments does the agent operate in during reinforcement learning?",
+                "7. Can you explain the concept of long simulations in the context of reinforcement learning?",
+                "8. What is AlphaZero, and why is it significant in the study of reinforcement learning?",
+                "9. How did AlphaZero train itself in the games of chess, shogi, or Go?",
+                "10. What does it mean for an agent to play against itself in reinforcement learning?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning, uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "862.5",
+            "questions": [
+                "1. What is a rational agent in the context of virtual environments?",
+                "2. How does an agent learn through rewards and punishments in reinforcement learning?",
+                "3. What is AlphaZero, and who developed this reinforcement learning model?",
+                "4. In which games did AlphaZero train itself to learn strategies?",
+                "5. How does AlphaZero learn to play chess without prior knowledge of the game?",
+                "6. What is the significance of an agent playing against itself in the training process?",
+                "7. How does the concept of long simulations contribute to the learning process of an agent?",
+                "8. What basic knowledge does AlphaZero require to begin learning a game like chess?",
+                "9. How does reinforcement learning differ from other types of machine learning?",
+                "10. What are some potential applications of reinforcement learning models like AlphaZero beyond games?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "890.88",
+            "questions": [
+                "1. What is AlphaZero and who developed it?",
+                "2. How did AlphaZero learn to play chess, shogi, and go?",
+                "3. What unique training method does AlphaZero use?",
+                "4. How long did it take for AlphaZero to master chess?",
+                "5. What prior knowledge was given to AlphaZero about chess?",
+                "6. In what way does AlphaZero play against itself?",
+                "7. Has AlphaZero been used for games other than chess?",
+                "8. What level of proficiency did AlphaZero achieve in chess?",
+                "9. What is the significance of AlphaZero's learning process?",
+                "10. How does AlphaZero's algorithm contribute to its performance in different board games?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "918.659",
+            "questions": [
+                "1. How did the system learn to play chess from scratch?",
+                "2. What knowledge was initially provided to the system about chess?",
+                "3. In what time frame did AlphaZero master chess to a superhuman level?",
+                "4. What is the significance of AlphaZero's ability to play chess against itself?",
+                "5. What other board game, besides chess, has the same algorithm been used for?",
+                "6. How did AlphaZero perform against other top AI systems in chess and Go?",
+                "7. What was the name of the chess software that AlphaZero defeated?",
+                "8. Why is AlphaZero's achievement considered amazing?",
+                "9. What does the term \"superhuman level\" refer to in the context of AlphaZero's chess performance?",
+                "10. How does AlphaZero's learning process differ from traditional chess engines?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "938.4",
+            "questions": [
+                "1. How quickly was AlphaZero able to master chess?",
+                "2. What algorithm did DeepMind use for both chess and Go?",
+                "3. What other board game, besides chess, is mentioned in relation to AlphaZero?",
+                "4. How did AlphaZero perform against other top AI systems in chess and Go?",
+                "5. Who was the reigning champion chess software that AlphaZero competed against?",
+                "6. What significance does AlphaZero's victory over Stockfish hold?",
+                "7. Can you provide more details on AlphaZero's results in competitions?",
+                "8. What insights does the article mentioned in the text provide about chess and Go?",
+                "9. What advancements in AI does AlphaZero represent in the context of board games?",
+                "10. How does AlphaZero's performance challenge traditional views of AI in gaming?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "967.58",
+            "questions": [
+                "1. What is AlphaZero and what games does it compete in?",
+                "2. How did AlphaZero perform against Stockfish in chess?",
+                "3. At what time was Stockfish considered the world chess champion for software?",
+                "4. What is the significance of reinforcement learning in the context of AlphaZero?",
+                "5. How does an agent learn to behave in its environment according to the text?",
+                "6. What strategies does AlphaZero learn to use while playing chess and Go?",
+                "7. Where can readers find more information about AlphaZero?",
+                "8. What does the article linked in the description aim to shed light on?",
+                "9. How does AlphaZero's approach to learning differ from traditional chess engines?",
+                "10. What are the implications of AlphaZero's success for the future of AI in games?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "995.13",
+            "questions": [
+                "1. What is the main topic discussed in the text?",
+                "2. What game is mentioned alongside chess in the context of AlphaZero?",
+                "3. How does the article contribute to our understanding of chess and Go?",
+                "4. What is the role of the agent in reinforcement learning?",
+                "5. What are the two types of feedback that the agent receives during training?",
+                "6. How does the agent learn to behave in its environment?",
+                "7. Why is the text primarily focusing on supervised learning?",
+                "8. Is there a link provided for further reading on AlphaZero?",
+                "9. What does the agent receive as rewards for performing well?",
+                "10. What is the significance of reinforcement learning in the context of strategy games?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly, right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1007.19",
+            "questions": [
+                "1. What is the main focus of the article mentioned in the description?",
+                "2. How is an agent trained in reinforcement learning?",
+                "3. What role do rewards and punishments play in the learning process of an agent?",
+                "4. What type of learning will be the primary focus of the discussion?",
+                "5. Can you name some popular algorithms used in machine learning?",
+                "6. What is logistic regression and how is it used in machine learning?",
+                "7. How does linear regression differ from logistic regression?",
+                "8. What does KNN stand for, and what is its primary function in machine learning?",
+                "9. What are support vector machines used for in machine learning?",
+                "10. Why is it important to understand different algorithms in machine learning?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly, right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1029.65",
+            "questions": [
+                "1. What is the primary focus of the discussion in the text?",
+                "2. How does the agent receive feedback in the described system?",
+                "3. What are the two types of feedback mentioned for the agent's performance?",
+                "4. Can you name some of the popular machine learning algorithms listed in the text?",
+                "5. What does KNN stand for in the context of machine learning algorithms?",
+                "6. Why are neural networks described as \"very, very fashionable\" at the moment?",
+                "7. What is the difference between supervised learning and other types of learning in machine learning?",
+                "8. What does the term \"support vector machines\" refer to?",
+                "9. How many algorithms are mentioned in the text as popular options for machine learning?",
+                "10. What does the text imply about the variety of machine learning algorithms available?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1046.448",
+            "questions": [
+                "1. What are some of the different algorithms associated with machine learning?",
+                "2. Which machine learning algorithms are considered the most popular?",
+                "3. How does logistic regression differ from linear regression?",
+                "4. What is the function of the random forest algorithm in machine learning?",
+                "5. Can you explain what KNN or K nearest neighbors is?",
+                "6. What are support vector machines, and how do they work?",
+                "7. Why are neural networks currently considered a fashionable algorithm in machine learning?",
+                "8. What is the basic structure of a neural network?",
+                "9. How are neurons arranged in a neural network?",
+                "10. What topics will be covered in future videos regarding neural networks?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1073.06",
+            "questions": [
+                "1. What is the current trend in algorithms mentioned in the text?",
+                "2. How is a neural network defined in the context of the text?",
+                "3. What are the basic components that make up a neural network?",
+                "4. What is the function of the input layer in a neural network?",
+                "5. What role do the hidden layers play in a neural network?",
+                "6. Why does the text suggest not going into details about neural networks at this time?",
+                "7. What does the text imply about the structure of a neural network?",
+                "8. How do neurons function within a neural network according to the text?",
+                "9. What will be covered in the upcoming videos regarding neural networks?",
+                "10. Why is it important to understand the structure of neural networks?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1091.829",
+            "questions": [
+                "1. What is the basic structure of a neural network?",
+                "2. How many layers are typically found in a neural network?",
+                "3. What is the purpose of the input layer in a neural network?",
+                "4. What role does the hidden layer play in processing information?",
+                "5. What is the function of the output layer in a neural network?",
+                "6. Why are neural networks considered machine learning algorithms?",
+                "7. How do neurons act within a neural network?",
+                "8. What distinguishes deep learning from other types of machine learning?",
+                "9. Will the details of neural networks be discussed in future videos?",
+                "10. What types of data are typically provided to the input layer?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning. So deep learning itself is a subset of machine learning as we've seen",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1114.65",
+            "questions": [
+                "1. What are the different layers in a neural network?",
+                "2. What is the function of the input layer in a neural network?",
+                "3. How does the hidden layer contribute to the processing of information in a neural network?",
+                "4. What is the purpose of the output layer in a neural network?",
+                "5. Why are neural networks considered machine learning algorithms?",
+                "6. How does deep learning relate to machine learning?",
+                "7. What role do neurons play in a neural network?",
+                "8. Can you explain the significance of each layer in a neural network?",
+                "9. What differentiates deep learning from other machine learning methods?",
+                "10. How does the structure of neural networks enable them to make inferences?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning. So deep learning itself is a subset of machine learning as we've seen and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1139.694",
+            "questions": [
+                "1. What is the function of the output layer in a neural network?",
+                "2. How are neural networks categorized within the field of machine learning?",
+                "3. What distinguishes deep learning from traditional machine learning?",
+                "4. What defines a deep neural network?",
+                "5. How many hidden layers must a neural network have to be considered \"deep\"?",
+                "6. What types of problems can deep neural networks be used to solve?",
+                "7. What is the relationship between deep learning and neural networks?",
+                "8. Why are deep neural networks preferred for complex problem-solving?",
+                "9. What will be the focus of the video series mentioned in the text?",
+                "10. Can you explain the significance of hidden layers in deep neural networks?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "So deep learning itself is a subset of machine learning as we've seen and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1165.05",
+            "questions": [
+                "1. What is deep learning a subset of?",
+                "2. What distinguishes a deep neural network from a regular neural network?",
+                "3. How many hidden layers does a deep neural network typically have?",
+                "4. What types of problems are deep neural networks used to solve?",
+                "5. What will be covered in the series of videos mentioned in the text?",
+                "6. What are some different flavors of neural networks that will be explored?",
+                "7. What is one key difference between traditional machine learning and deep learning?",
+                "8. What process is emphasized in traditional machine learning that differs from deep learning?",
+                "9. What role do deep neural networks play in the context of deep learning?",
+                "10. Why is feature engineering important in traditional machine learning?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering. Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1170.92",
+            "questions": [
+                "1. What is a deep neural network?",
+                "2. How many hidden layers does a deep neural network have?",
+                "3. What is the primary focus of the series of videos mentioned in the text?",
+                "4. What are some applications of deep neural networks?",
+                "5. What is the main difference between traditional machine learning and deep learning?",
+                "6. What role does feature engineering play in traditional machine learning?",
+                "7. How does the approach of deep learning differ from traditional machine learning?",
+                "8. What does \"end to end\" mean in the context of deep learning?",
+                "9. Why might the differences between traditional machine learning and deep learning be challenging to understand?",
+                "10. What can viewers expect to see in the series of videos regarding neural networks?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering. Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1198.099",
+            "questions": [
+                "1. What are deep neural nets, and what are some of their different flavors?",
+                "2. How do traditional machine learning and deep learning differ in terms of feature engineering?",
+                "3. What does \"end to end\" approach mean in the context of deep learning?",
+                "4. Can you explain the concept of feature engineering in traditional machine learning?",
+                "5. What role does labeled data play in supervised learning?",
+                "6. How does a machine learning algorithm learn from data in a supervised learning scenario?",
+                "7. Why might feature engineering be considered a more complex process in traditional machine learning?",
+                "8. What are some challenges associated with understanding the differences between traditional machine learning and deep learning?",
+                "9. How does the extraction of rules from data differ between traditional machine learning and deep learning?",
+                "10. What implications do the differences between traditional machine learning and deep learning have for data scientists?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1222.31",
+            "questions": [
+                "1. What is the primary difference between deep learning and traditional machine learning approaches?",
+                "2. How does deep learning utilize an end-to-end approach?",
+                "3. Why is feature engineering significant in supervised learning?",
+                "4. What role does labeled data play in the learning process of machine learning algorithms?",
+                "5. What does the term \"supervised learning\" refer to in the context of machine learning?",
+                "6. Can you explain what is meant by extracting rules from data in supervised learning?",
+                "7. What is the example given regarding the extraction of onsets from waveforms?",
+                "8. How do support vector machines relate to traditional machine learning methods?",
+                "9. What challenges might arise when understanding the concepts of deep learning versus traditional machine learning?",
+                "10. Why might feature engineering be intentionally overlooked in some discussions about supervised learning?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1236.229",
+            "questions": [
+                "1. What is the role of feature engineering in supervised learning?",
+                "2. How does a machine learning algorithm learn from labeled data?",
+                "3. What are some examples of traditional machine learning algorithms mentioned in the text?",
+                "4. What is meant by \"extracting onsets\" from waveforms?",
+                "5. What specific features can be extracted from waveforms?",
+                "6. How do features extracted from data influence the performance of machine learning algorithms?",
+                "7. What is the significance of zero crossing rates in feature extraction?",
+                "8. How does spectral flux contribute to the analysis of waveforms?",
+                "9. Why is feature engineering considered an important part of traditional machine learning?",
+                "10. What steps are involved in the process of feature extraction before passing data to a machine learning algorithm?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1263.689",
+            "questions": [
+                "1. What is the significance of feature engineering in traditional machine learning?",
+                "2. How does the process of extracting onsets from waveforms relate to machine learning algorithms?",
+                "3. What are some examples of traditional machine learning algorithms mentioned in the text?",
+                "4. What specific features can be extracted from a waveform for analysis?",
+                "5. How do zero crossing rates contribute to the analysis of waveforms?",
+                "6. What role does spectral flux play in feature extraction from audio signals?",
+                "7. Why is it important to extract features before passing them to a machine learning algorithm?",
+                "8. What is the expected outcome of using extracted features in a machine learning algorithm?",
+                "9. Can you explain the relationship between feature extraction and the performance of machine learning models?",
+                "10. What challenges might arise during the feature extraction process in traditional machine learning?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1290.719",
+            "questions": [
+                "1. What is the process of extracting features from data in machine learning algorithms?",
+                "2. Can you name some examples of features that can be extracted from a waveform?",
+                "3. How do extracted features contribute to the performance of a machine learning algorithm?",
+                "4. What is the significance of feature engineering in traditional machine learning?",
+                "5. Why is it important to understand which features are important for a specific problem?",
+                "6. What is the relationship between raw data and the feature extraction process?",
+                "7. How do the extracted features facilitate training and inference in machine learning?",
+                "8. What role does the machine learning algorithm play after features are extracted?",
+                "9. Can you explain what is meant by a classification problem in the context of machine learning?",
+                "10. How does the machine learning algorithm determine the rules for classification based on extracted features?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1316.849",
+            "questions": [
+                "1. What is the primary goal of the machine learning algorithm mentioned in the text?",
+                "2. How does feature engineering play a role in traditional machine learning?",
+                "3. Why is it essential to understand which features are important when solving a classification problem?",
+                "4. What is the difference between traditional machine learning and deep learning in terms of data processing?",
+                "5. How does deep learning utilize raw data compared to traditional approaches?",
+                "6. What does the term \"end to end approach\" refer to in the context of deep learning?",
+                "7. What are the steps involved in traditional machine learning from raw data to inference?",
+                "8. In what way does deep learning simplify the process of handling data compared to feature extraction?",
+                "9. What are the potential advantages of using deep learning over traditional machine learning techniques?",
+                "10. Can you explain what is meant by \"feature extraction\" in machine learning?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1325.56",
+            "questions": [
+                "1. What is the significance of feature engineering in traditional machine learning?",
+                "2. How are features extracted from raw data for training in traditional machine learning?",
+                "3. What is the primary difference in data handling between traditional machine learning and deep learning?",
+                "4. What does the term \"end to end approach\" refer to in the context of deep learning?",
+                "5. How does deep learning handle raw data compared to traditional machine learning?",
+                "6. What is the role of the deep learning model in determining rules for classification or regression tasks?",
+                "7. Why is it important to understand which features are important for a classification problem?",
+                "8. What are the potential advantages of using deep learning over traditional machine learning?",
+                "9. In deep learning, what processes occur after raw data is passed to the machine learning algorithm?",
+                "10. How does the deep learning model adjust its weights during training?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1355.8",
+            "questions": [
+                "1. What is the main difference between deep learning and traditional machine learning in terms of data processing?",
+                "2. How does the end-to-end approach in deep learning work?",
+                "3. What does passing raw data directly to a machine learning algorithm entail?",
+                "4. Why is feature extraction not necessary in deep learning?",
+                "5. How does a deep learning model determine rules and adjust weights without feature engineering?",
+                "6. What types of tasks can deep learning models perform, such as classification or regression?",
+                "7. In the context of onset detection, what type of data is passed into the deep learning system?",
+                "8. Can you explain the term \"feature engineering\" in traditional machine learning?",
+                "9. What are the implications of using raw data versus extracted features for machine learning algorithms?",
+                "10. How does the approach of passing the whole waveform directly into the system affect the outcome in onset detection?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system. And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data,",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1383.989",
+            "questions": [
+                "1. What is the primary function of a deep learning model in classification or regression tasks?",
+                "2. How does deep learning differ from traditional machine learning in terms of feature extraction?",
+                "3. What is meant by \"feature engineering\" in the context of traditional machine learning?",
+                "4. Why is deep learning referred to as an end-to-end approach?",
+                "5. How is the raw data utilized in deep learning models?",
+                "6. What type of data was passed into the system for onset detection?",
+                "7. What are the implications of allowing the model to learn directly from raw data?",
+                "8. In what ways does a deep learning model discover patterns in data?",
+                "9. How does the process of changing weights in deep learning models contribute to their performance?",
+                "10. What advantages might deep learning have over traditional machine learning methods?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system. And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data, right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1399.81",
+            "questions": [
+                "1. What is the primary difference between feature engineering in traditional machine learning and the approach used in deep learning?",
+                "2. How does deep learning utilize raw data in comparison to traditional machine learning?",
+                "3. What is meant by an \"end to end\" approach in the context of deep learning?",
+                "4. In the case of onset detection, how is the waveform data processed in deep learning?",
+                "5. Why is feature extraction considered unnecessary in deep learning models?",
+                "6. What are the implications of using small datasets in traditional machine learning versus the large datasets required for deep learning?",
+                "7. How does deep learning discover patterns in data compared to traditional machine learning methods?",
+                "8. Can you explain why deep learning models are said to learn directly from raw data?",
+                "9. What additional differences exist between traditional machine learning and deep learning beyond feature engineering?",
+                "10. Why is a larger volume of samples necessary for effective deep learning model training?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data, right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1428.219",
+            "questions": [
+                "1. What is the primary characteristic of an end-to-end approach in machine learning?",
+                "2. How does the feature engineering process differ between traditional machine learning and deep learning?",
+                "3. What is the minimum data set size generally required for traditional machine learning?",
+                "4. Why is deep learning considered to require larger data sets compared to traditional machine learning?",
+                "5. How many samples are typically needed for deep learning to be effective?",
+                "6. In what way is traditional machine learning less computationally intensive than deep learning?",
+                "7. What types of problems are traditional machine learning methods ideally suited for?",
+                "8. Why might deep learning be preferred for more complex problems?",
+                "9. What role does pattern discovery play in the end-to-end approach of machine learning?",
+                "10. How do the computational resource requirements of traditional machine learning compare to those of deep learning?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right?",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1448.579",
+            "questions": [
+                "1. What is the primary difference between feature engineering and end-to-end approaches in machine learning?",
+                "2. How does the size of the data set required for traditional machine learning compare to that needed for deep learning?",
+                "3. Why is deep learning considered more resource-intensive than traditional machine learning?",
+                "4. What types of problems are traditional machine learning methods ideal for?",
+                "5. In what scenarios is deep learning particularly effective?",
+                "6. Can you provide examples of complex problems that deep learning excels at solving?",
+                "7. How do traditional machine learning and deep learning differ in their computational demands?",
+                "8. What are some common applications of deep learning in audio AI problems?",
+                "9. Why might traditional machine learning struggle with tasks like image recognition?",
+                "10. How does the amount of data influence the choice between traditional machine learning and deep learning methods?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right? So and",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1478.505",
+            "questions": [
+                "1. What are the main differences between traditional machine learning and deep learning in terms of computational intensity?",
+                "2. Why is traditional machine learning considered ideal for relatively simple problems?",
+                "3. What types of problems are best suited for deep learning applications?",
+                "4. Can you provide examples of complex problems that deep learning excels at solving?",
+                "5. How does deep learning perform in image recognition tasks compared to traditional machine learning?",
+                "6. What are some AI problems related to audio that deep learning is effective in addressing?",
+                "7. In what ways does deep learning handle speech recognition differently than traditional machine learning?",
+                "8. Why might traditional machine learning struggle with certain complex problems?",
+                "9. How do the resource requirements of deep learning impact its use in practical applications?",
+                "10. What factors make deep learning a better choice for genre classification in audio analysis?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right? So and so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1508.689",
+            "questions": [
+                "1. What type of problems is deep learning particularly effective at solving?",
+                "2. How does deep learning compare to traditional machine learning in terms of performance?",
+                "3. Can you provide examples of applications where deep learning excels?",
+                "4. What are some challenges traditional machine learning faces that deep learning can address?",
+                "5. In what scenarios might traditional machine learning be preferred over deep learning?",
+                "6. Why might traditional machine learning approaches be considered cheaper and quicker?",
+                "7. What is the significance of image recognition in the context of deep learning?",
+                "8. How does deep learning handle audio-related AI problems like speech recognition?",
+                "9. What factors should be considered when deciding whether to use deep learning or traditional machine learning?",
+                "10. Are there specific types of data or problems where deep learning is not the best choice?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "So and so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1537.489",
+            "questions": [
+                "1. What are the key differences between traditional machine learning and deep learning?",
+                "2. When is it advisable to use deep learning over traditional machine learning?",
+                "3. Why might traditional machine learning approaches be preferred initially?",
+                "4. What are the advantages of using traditional machine learning methods?",
+                "5. In what scenarios is deep learning considered a better option?",
+                "6. How does the size of a data set influence the choice between machine learning and deep learning?",
+                "7. What types of problems may prompt a shift from traditional machine learning to deep learning?",
+                "8. Are there specific characteristics of data sets that make deep learning more suitable?",
+                "9. What are the potential drawbacks of using deep learning?",
+                "10. Can traditional machine learning ever outperform deep learning in certain situations?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1539.9",
+            "questions": [
+                "1. What are the main differences between traditional machine learning and deep learning?",
+                "2. When is it advisable to use deep learning over traditional machine learning?",
+                "3. Why might traditional machine learning approaches be preferred initially?",
+                "4. What characteristics define a \"very large data set\" in the context of deep learning?",
+                "5. In what scenarios might traditional machine learning fail, prompting the use of deep learning?",
+                "6. What kind of computational resources are necessary for implementing deep learning?",
+                "7. Why are GPUs specifically mentioned as important for deep learning?",
+                "8. What expertise is required to effectively work with deep learning?",
+                "9. Can deep learning be considered the best solution for all machine learning problems?",
+                "10. How do the costs and speed of traditional machine learning compare to deep learning?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1563.339",
+            "questions": [
+                "1. When is it advisable to use deep learning over traditional machine learning?",
+                "2. What characteristics of a data set suggest that deep learning algorithms would be more effective?",
+                "3. In what scenarios might traditional machine learning fail, prompting the use of deep learning?",
+                "4. Why is access to extensive computational resources important for deep learning?",
+                "5. What specific type of computational resource is mentioned as essential for deep learning?",
+                "6. What expertise is necessary for effectively using deep learning techniques?",
+                "7. How can deep learning models be influenced by parameter tweaking?",
+                "8. What complexities are associated with deep learning that may require specialized knowledge?",
+                "9. What specific applications in audio and music could benefit from deep learning?",
+                "10. How does the complexity of a problem impact the decision to use deep learning?"
+            ]
+        },
+        {
+            "id": 70,
+            "text": "you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1590.65",
+            "questions": [
+                "1. What computational resources are necessary for deep learning applications in audio?",
+                "2. Why is expertise important when tackling deep learning problems?",
+                "3. What are some common challenges associated with deep learning in audio applications?",
+                "4. How can tweaking parameters affect the performance of deep learning models?",
+                "5. What specific tasks can deep learning be applied to in the field of audio and music?",
+                "6. How does deep learning facilitate speech recognition?",
+                "7. In what ways can deep learning be used to classify emotions from voice analysis?",
+                "8. What role does deep learning play in music recognition?",
+                "9. What are the implications of using deep learning for audio tasks in various industries?",
+                "10. How does a good understanding of deep learning concepts impact the success of audio-related projects?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition. And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song?",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1610.77",
+            "questions": [
+                "1. What is the importance of tweaking parameters in deep learning models?",
+                "2. What specific applications of deep learning in audio music are mentioned in the text?",
+                "3. How can deep learning be utilized for speech recognition?",
+                "4. In what ways can emotions be classified using voice analysis?",
+                "5. What is music information retrieval in the context of deep learning?",
+                "6. How can deep learning help in identifying different music genres?",
+                "7. What role does deep learning play in understanding the types of instruments in a song?",
+                "8. How can deep learning be used for mood classification in music?",
+                "9. What criteria might be used to determine if a song is happy or sad using deep learning?",
+                "10. Why is a good understanding of deep learning important for working with audio music applications?"
+            ]
+        },
+        {
+            "id": 72,
+            "text": "uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition. And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song? And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1638.5",
+            "questions": [
+                "1. What tasks can deep learning be used for in audio music applications?",
+                "2. How can deep learning be applied to speech recognition?",
+                "3. In what ways can deep learning classify emotions based on voice analysis?",
+                "4. What is music information retrieval in the context of deep learning?",
+                "5. How can deep learning help in extracting or classifying music genres?",
+                "6. What role does deep learning play in identifying different types of instruments in a song?",
+                "7. How is mood classification performed using deep learning techniques in music?",
+                "8. What methods are used to determine whether a song is happy or sad using deep learning?",
+                "9. How does deep learning facilitate music tagging for different songs?",
+                "10. What personal experiences does the speaker mention regarding their work with deep learning at Melo Drive?"
+            ]
+        },
+        {
+            "id": 73,
+            "text": "And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song? And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive. So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1662.109",
+            "questions": [
+                "1. What is music information retrieval and how does it relate to deep learning?",
+                "2. How can deep learning be used to classify music genres?",
+                "3. In what ways can deep learning help in understanding the different types of instruments in a song?",
+                "4. What is the purpose of mood classification in music, and how is it implemented using deep learning?",
+                "5. How can deep learning assist in deciding whether a song is happy or sad?",
+                "6. What does music tagging involve, and how is deep learning applied in this process?",
+                "7. What is the significance of music generation using deep learning?",
+                "8. How does the training of a model for music generation work?",
+                "9. What are some potential future applications of deep learning in music that the speaker hopes to explore?",
+                "10. What are the key takeaway points mentioned at the end of the video?"
+            ]
+        },
+        {
+            "id": 74,
+            "text": "And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive. So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1687.819",
+            "questions": [
+                "1. What is the primary application of deep learning mentioned in the text?",
+                "2. How does deep learning contribute to music tagging?",
+                "3. What is the most exciting aspect of the work done at Melo Drive?",
+                "4. How does the model for music generation function according to the text?",
+                "5. What are the expectations for deep learning applications in music in the future?",
+                "6. How is artificial intelligence defined in the text?",
+                "7. What are the goals of rational agents in the context of artificial intelligence?",
+                "8. What is the significance of the environment and beliefs in the functioning of artificial intelligence?",
+                "9. What takeaway points are emphasized towards the end of the video?",
+                "10. Why is music generation through deep learning described as \"super exciting\"?"
+            ]
+        },
+        {
+            "id": 75,
+            "text": "So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in. So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1703.81",
+            "questions": [
+                "1. What is the application of deep learning in music generation?",
+                "2. How does a model generate music by itself?",
+                "3. Why is the concept of music generation using deep learning considered exciting?",
+                "4. What are some key takeaway points mentioned towards the end of the video?",
+                "5. How is artificial intelligence defined in the text?",
+                "6. What distinguishes artificial intelligence from machine learning?",
+                "7. Why is it considered a mistake to use AI and ML interchangeably?",
+                "8. What are some different flavors of machine learning mentioned in the text?",
+                "9. What is the role of rational agents in the context of artificial intelligence?",
+                "10. How does the environment and beliefs influence the goals of rational agents?"
+            ]
+        },
+        {
+            "id": 76,
+            "text": "first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in. So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning. Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1733.15",
+            "questions": [
+                "1. What is the definition of artificial intelligence according to the text?  ",
+                "2. How is machine learning related to artificial intelligence?  ",
+                "3. Why is it incorrect to use artificial intelligence and machine learning interchangeably?  ",
+                "4. What are the different flavors of machine learning mentioned in the text?  ",
+                "5. Which type of machine learning will be the primary focus?  ",
+                "6. Can you name the three types of machine learning discussed?  ",
+                "7. What algorithms are mentioned in relation to machine learning?  ",
+                "8. What is the significance of neural networks in the context of machine learning?  ",
+                "9. What are the key components that rational agents consider to achieve their goals?  ",
+                "10. Why might it be considered annoying when people confuse AI with ML?  "
+            ]
+        },
+        {
+            "id": 77,
+            "text": "So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning. Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1749.849",
+            "questions": [
+                "1. What is the relationship between machine learning and artificial intelligence?",
+                "2. Why is it incorrect to use the terms AI and ML interchangeably?",
+                "3. What are the different flavors of machine learning mentioned in the text?",
+                "4. What type of learning does the text indicate will be the primary focus?",
+                "5. What are the three main types of machine learning mentioned?",
+                "6. Can you name some algorithms associated with machine learning?",
+                "7. What is the significance of neural networks in machine learning?",
+                "8. How do deep neural networks differ from regular neural networks?",
+                "9. What does deep learning represent in relation to machine learning?",
+                "10. What is a hidden layer in the context of neural networks?"
+            ]
+        },
+        {
+            "id": 78,
+            "text": "Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning. And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1771.66",
+            "questions": [
+                "1. What are the three main types of learning mentioned in the text?",
+                "2. Which type of learning is the primary focus of the discussion?",
+                "3. What are some algorithms associated with machine learning?",
+                "4. How are neural networks related to deep learning?",
+                "5. What characterizes a deep neural network?",
+                "6. Why is deep learning considered a subset of machine learning?",
+                "7. What advice is given regarding the use of deep learning?",
+                "8. What should one try before moving on to deep learning solutions?",
+                "9. What are two specific algorithms mentioned that might be attempted before deep learning?",
+                "10. Why is it suggested not to use deep learning as a first choice solution?"
+            ]
+        },
+        {
+            "id": 79,
+            "text": "and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning. And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So uh this was it like for this video. So in the next video, we're gonna talk about neurons which are the units which make up neural networks and we are gonna be",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1797.729",
+            "questions": [
+                "1. What role do neural networks play in deep learning?",
+                "2. How do deep neural networks differ from regular neural networks?",
+                "3. What is the relationship between deep learning and machine learning?",
+                "4. Why is deep learning considered fashionable in current technology trends?",
+                "5. When should one consider using deep learning over simpler models?",
+                "6. What are some examples of simpler models that can be tried before deep learning?",
+                "7. What advice is given regarding the use of deep learning as a solution?",
+                "8. What will be discussed in the next video mentioned in the text?",
+                "9. What are neurons in the context of neural networks?",
+                "10. How many hidden layers must a neural network have to be classified as a deep neural network?"
+            ]
+        },
+        {
+            "id": 80,
+            "text": "And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So uh this was it like for this video. So in the next video, we're gonna talk about neurons which are the units which make up neural networks and we are gonna be coding a neuron from scratch ourselves. So thank you very much for watching this video. And if you liked it, you can subscribe and please like it and I'll see you next time. Cheers.",
+            "video": "2- AI, machine learning and deep learning",
+            "start_time": "1814.81",
+            "questions": [
+                "1. Why is deep learning considered fashionable nowadays?",
+                "2. What is the recommended approach before using deep learning according to the text?",
+                "3. What should be tried first before moving on to deep learning?",
+                "4. What are some examples of simpler models mentioned in the text?",
+                "5. Why is it advised not to use deep learning as a go-to solution?",
+                "6. What topic will be discussed in the next video?",
+                "7. What are neurons in the context of neural networks?",
+                "8. What is the intent behind coding a neuron from scratch in the next video?",
+                "9. How does the speaker encourage viewer engagement at the end of the video?",
+                "10. What is the overall message of the video regarding the use of complex models like deep learning?"
+            ]
+        }
+    ]
+}

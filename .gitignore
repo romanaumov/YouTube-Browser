@@ -1,3 +1,7 @@
+data_prep/config/AMAZON_APPLICATION_CREDENTIALS.json
+*.mp3
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

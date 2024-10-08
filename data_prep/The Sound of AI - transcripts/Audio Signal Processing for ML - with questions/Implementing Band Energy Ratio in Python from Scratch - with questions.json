@@ -1,0 +1,1858 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time, we looked at the theory behind a few frequency domain audio features. This time, I'm gonna implement one of those from scratch in Python. And the one that I'll be implementing is called band energy ratio. I'm not gonna get too much into the the theoretical details of this because I've done this like in the previous video. So if you find yourself not understanding what I'm talking about, just go back to my previous video which should be over here. OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "0.31",
+            "questions": [
+                "1. What is the main topic of the video in the audio signal processing series?",
+                "2. Which audio feature is being implemented in this video?",
+                "3. Why is the presenter not going into theoretical details in this video?",
+                "4. What should viewers do if they don't understand the content of this video?",
+                "5. How has the presenter structured the code implementation in the notebook?",
+                "6. What programming language is being used for the implementation in this video?",
+                "7. What is the purpose of the band energy ratio in audio signal processing?",
+                "8. How does this video relate to the previous one in the series?",
+                "9. What has the presenter already implemented in the notebook before starting the new implementation?",
+                "10. What can viewers expect to learn from this video?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "I'll be implementing is called band energy ratio. I'm not gonna get too much into the the theoretical details of this because I've done this like in the previous video. So if you find yourself not understanding what I'm talking about, just go back to my previous video which should be over here. OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down. OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "16.704",
+            "questions": [
+                "1. What is the main topic being implemented in the video?",
+                "2. Why does the speaker choose not to delve into theoretical details in this video?",
+                "3. What should viewers do if they find themselves confused about the content?",
+                "4. What type of notebook is the speaker referring to?",
+                "5. Why has the speaker already implemented some code before the video?",
+                "6. What libraries does the speaker import at the beginning of the implementation?",
+                "7. How many audio files does the speaker mention working with?",
+                "8. Which song by the Red Hot Chili Peppers is referenced in the video?",
+                "9. Who is the composer of the classical music piece mentioned in the text?",
+                "10. What does the speaker plan to do after loading the audio files?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down. OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too. So, yeah, this is a lush string",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "33.34",
+            "questions": [
+                "1. What type of code has been implemented in the notebook?",
+                "2. Why did the speaker choose not to type out the code from scratch?",
+                "3. Which libraries are imported at the beginning of the notebook?",
+                "4. What type of audio files is the speaker working with?",
+                "5. Which song by the Red Hot Chili Peppers is mentioned in the text?",
+                "6. Who is the composer of the classical music piece referenced?",
+                "7. How many audio files does the speaker have for today's work?",
+                "8. What is the title of the classical music piece mentioned?",
+                "9. What does the speaker mean by \"we've heard this time and again throughout the series\"?",
+                "10. What kind of music does the speaker describe as \"lush string\"?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too. So, yeah, this is a lush string driven orchestra piece by uh the PC.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "48.79",
+            "questions": [
+                "1. What is the first step mentioned in the process of working with audio files?",
+                "2. Which libraries are imported at the beginning of the process?",
+                "3. What type of audio files is the speaker working with?",
+                "4. Which band's song is mentioned in the text?",
+                "5. How many audio files does the speaker have for today's work?",
+                "6. Who is the composer of the classical music piece mentioned?",
+                "7. What is the musical style of the classical piece referenced?",
+                "8. What does the speaker imply about the red hot chili peppers song?",
+                "9. How does the speaker describe the orchestral piece by Claude De Bey?",
+                "10. What is the purpose of listening to the audio files mentioned in the text?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "So, yeah, this is a lush string driven orchestra piece by uh the PC. And here we have the song by the red hot chili peppers.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "77.279",
+            "questions": [
+                "1. What type of musical piece is described in the text?",
+                "2. Which instruments are primarily featured in the described orchestra piece?",
+                "3. Who is the artist mentioned in relation to the orchestra piece?",
+                "4. What genre of music do the Red Hot Chili Peppers typically perform?",
+                "5. How does the text describe the string-driven aspect of the musical piece?",
+                "6. Is there a specific song by the Red Hot Chili Peppers mentioned in the text?",
+                "7. What emotion or atmosphere might the lush string-driven orchestra piece convey?",
+                "8. How might the style of the orchestra piece differ from the music of the Red Hot Chili Peppers?",
+                "9. Who might be the intended audience for the lush orchestra piece?",
+                "10. What could be the significance of mentioning both the orchestra piece and the Red Hot Chili Peppers in the same context?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "driven orchestra piece by uh the PC. And here we have the song by the red hot chili peppers. OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "81.599",
+            "questions": [
+                "1. What type of music piece is mentioned in the text?",
+                "2. Which band is referenced in the text?",
+                "3. What is the process described for loading audio files?",
+                "4. What audio library is used to load the files?",
+                "5. What does the term \"waveform\" refer to in the context of audio?",
+                "6. What is the sample rate mentioned in the text?",
+                "7. What does a sample rate of 22,050 Hertz indicate about the audio quality?",
+                "8. What might \"Empire Ray\" refer to in this context?",
+                "9. What is the significance of the phrase \"you get the idea, right?\" in the text?",
+                "10. How does the speaker describe their workflow for handling audio files?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "And here we have the song by the red hot chili peppers. OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "86.51",
+            "questions": [
+                "1. What song by the Red Hot Chili Peppers is being referenced?",
+                "2. What library is used to load the audio files?",
+                "3. What is the sample rate mentioned in the text?",
+                "4. What type of features are being extracted from the audio?",
+                "5. How is the spectrogram obtained in the process described?",
+                "6. What function from the library is used to create the spectrogram?",
+                "7. What constants are required to be passed into the function for obtaining the spectrogram?",
+                "8. What does the term \"frequency domain features\" refer to in this context?",
+                "9. Can you explain what a spectrogram is?",
+                "10. What is the significance of the frame size and hop size in generating a spectrogram?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "93.18",
+            "questions": [
+                "1. What is the purpose of loading audio files using Librosa?",
+                "2. What is the sample rate mentioned in the text?",
+                "3. What type of features are being extracted from the audio files?",
+                "4. What function from Librosa is used to extract the spectrogram?",
+                "5. What parameters are passed to the Librosa function to obtain the spectrogram?",
+                "6. What does a spectrogram represent in audio analysis?",
+                "7. What is the significance of the short time Fourier transform (STFT) in this context?",
+                "8. Where can one find additional resources or videos on spectrograms and STFT?",
+                "9. What is the next step mentioned after obtaining the spectrogram?",
+                "10. What specific audio tracks are referenced when discussing the extraction of the spectrogram?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "117.029",
+            "questions": [
+                "1. What is a frequency domain feature mentioned in the text?",
+                "2. How is the spectrogram extracted according to the text?",
+                "3. What function from the Libros library is used to obtain the spectrogram?",
+                "4. What constants are passed into the Libros.stft function?",
+                "5. Which two musical pieces are mentioned in the context of obtaining the spectrogram?",
+                "6. What is a spectrogram, and how is it related to the short-time Fourier transform?",
+                "7. Where can one find additional resources on spectrograms and short-time Fourier transforms?",
+                "8. What is the next topic of focus after extracting the spectrogram in the text?",
+                "9. What does the author plan to calculate after discussing the spectrogram?",
+                "10. How does the author use markdown in the process described?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok. So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "145.964",
+            "questions": [
+                "1. What is the short time Fourier transform, and how is it relevant to the topic discussed?",
+                "2. Why does the speaker suggest checking out previous videos in the series?",
+                "3. What is the band energy ratio, and how is it defined in the context of the video?",
+                "4. What formula is used to calculate the band energy ratio at a given frame?",
+                "5. What does the term \"split frequency F capture\" refer to in the discussion?",
+                "6. How does the speaker plan to illustrate the calculation of the band energy ratio?",
+                "7. What are the implications of understanding the band energy ratio in video analysis?",
+                "8. In what ways might the band energy ratio be applied in practical scenarios?",
+                "9. How does the structure of the video series contribute to the viewer's understanding of the topic?",
+                "10. What additional information or context is provided in the previous video about the band energy ratio?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok. So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "167.679",
+            "questions": [
+                "1. What is the definition of the band energy ratio as mentioned in the text?",
+                "2. How is the band energy ratio at time two calculated?",
+                "3. What is the significance of the split frequency F capture F in the context of the band energy ratio?",
+                "4. How does the split frequency determine the classification of frequencies into higher and lower categories?",
+                "5. What happens to frequencies that are above the split frequency?",
+                "6. What happens to frequencies that are below the split frequency?",
+                "7. Can the split frequency be represented as a continuous frequency in Hertz?",
+                "8. What are some examples of continuous frequencies mentioned in the text?",
+                "9. How does the information in the previous video relate to the current discussion of the band energy ratio?",
+                "10. Why is it important to understand the threshold set by the split frequency in analyzing frequencies?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "180.96",
+            "questions": [
+                "1. What is the band energy ratio and how is it defined?",
+                "2. How is the band energy ratio calculated at a given time frame?",
+                "3. What is the significance of the split frequency \\( F_{\\text{capture}} \\) in the context of band energy ratio?",
+                "4. How does the split frequency help differentiate between higher and lower frequencies?",
+                "5. Why is it important to map continuous frequencies to discrete frequency bins in a spectrogram?",
+                "6. What challenges arise when dealing with continuous frequencies in the context of a spectrogram?",
+                "7. What will the newly defined function, referred to as \"calculate split,\" accomplish?",
+                "8. How are discrete frequency bins represented in a spectrogram?",
+                "9. Can you provide an example of continuous frequencies that might be used in this context?",
+                "10. What is the relationship between the band energy ratio and the frequencies used in the analysis?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "205.949",
+            "questions": [
+                "1. What is the purpose of determining the split frequency in the context of frequencies?",
+                "2. How are frequencies categorized in relation to the split frequency?",
+                "3. What types of frequencies are considered higher frequencies?",
+                "4. What types of frequencies are considered lower frequencies?",
+                "5. Why is it necessary to map continuous frequencies to discrete frequency bins?",
+                "6. What continuous frequency examples are provided in the text?",
+                "7. What is the name of the function that will be defined to calculate the split frequency bin?",
+                "8. What parameters does the function to calculate the split frequency bin accept?",
+                "9. What role does the sample rate play in the function for calculating the split frequency bin?",
+                "10. How does the spectrogram represent frequencies, according to the text?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "231.22",
+            "questions": [
+                "1. What are the discrete values in a spectrogram referred to as?",
+                "2. Why is it necessary to map continuous frequencies onto discrete frequency bins?",
+                "3. What is the name of the function being defined in the text?",
+                "4. What parameters does the function 'calculate split frequency bin' accept?",
+                "5. What is the first step in the process of calculating the frequency range in a spectrogram?",
+                "6. How do you determine the frequency range captured in a spectrogram?",
+                "7. What does the term \"sample rate\" refer to in the context of the function?",
+                "8. Can you explain what a frequency bin is in a spectrogram?",
+                "9. Why is it important to understand the frequency range when working with a spectrogram?",
+                "10. What example is mentioned to illustrate the concept of frequency range in the spectrogram?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "256.239",
+            "questions": [
+                "1. What parameters does the function accept for processing the spectrogram?",
+                "2. How do you determine the frequency range captured in the spectrogram?",
+                "3. What is the significance of the split frequency in the function?",
+                "4. What role does the sample rate play in the function's processing of the spectrogram?",
+                "5. Can you explain the structure of the spectrogram in terms of its dimensions?",
+                "6. How many frequency bins are present in the described spectrogram?",
+                "7. What is meant by the shape of the spectrogram being a two-dimensional array?",
+                "8. Why is it important to understand the frequency range of a spectrogram?",
+                "9. What steps are involved in calculating the frequency range from the spectrogram?",
+                "10. How might the information from the BC spectrogram be utilized in practical applications?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "277.6",
+            "questions": [
+                "1. What is the first step in calculating the frequency range in a spectrogram?",
+                "2. How do we determine the frequency range that is captured in the spectrogram?",
+                "3. What is the significance of the shape of the spectrogram in understanding frequency ranges?",
+                "4. What does the number 1025 represent in the context of the spectrogram?",
+                "5. How are the frequency bins related to the overall frequency range in a spectrogram?",
+                "6. What does it mean for the spectrogram to be described as a two-dimensional array?",
+                "7. Why is it important to know the correspondence between frequency bins and frequency range?",
+                "8. Can you explain how to calculate the frequency range from the number of frequency bins?",
+                "9. What role does the BC spectrogram play in this explanation?",
+                "10. What information do we need to understand the frequency range captured in a spectrogram?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "307.279",
+            "questions": [
+                "1. What is the shape of the spectrogram described in the text?",
+                "2. How many frequency bins are mentioned in the spectrogram?",
+                "3. What does the number 1025 represent in the context of the spectrogram?",
+                "4. How is the frequency range related to the frequency bins in the spectrogram?",
+                "5. What is the significance of the first dimension in the spectrogram?",
+                "6. How does the spectrogram reduce its frequency range from the sample range?",
+                "7. What does \"NICS frequency\" refer to in the context of the spectrogram?",
+                "8. Why is it important to understand the correspondence between frequency bins and frequency range?",
+                "9. What is the general structure of a spectrogram as described in the text?",
+                "10. Can you explain how to obtain the frequency range from the number of frequency bins?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "329.739",
+            "questions": [
+                "1. What are frequency bins and how are they measured?",
+                "2. How many frequency bins are mentioned in the text?",
+                "3. What does the term \"frequency range\" refer to in this context?",
+                "4. How does the spectrogram affect the frequency range from the sample range?",
+                "5. What is the significance of dividing the sample rate by two?",
+                "6. What is meant by calculating the delta frequency between adjacent bins?",
+                "7. How do you determine the movement in continuous frequency when transitioning between frequency bins?",
+                "8. What is the relationship between frequency bins and the continuous frequency spectrum?",
+                "9. Why is it important to understand the delta frequency between bins?",
+                "10. What steps are involved in calculating the frequency range corresponding to 1025 frequency bins?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency delta per bin",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "348.269",
+            "questions": [
+                "1. What is the significance of reducing the frequency range from the sample range?",
+                "2. How is the NICS frequency determined in this context?",
+                "3. What calculation is used to obtain the NICS frequency from the sample rate?",
+                "4. What does the delta frequency represent in the analysis of frequency bins?",
+                "5. How do you calculate the delta frequency between two adjacent bins?",
+                "6. What is meant by \"moving from frequency bin three to frequency bin four\"?",
+                "7. Why is it important to understand the movement in continuous frequency between bins?",
+                "8. What role does the sample rate play in determining the delta frequency?",
+                "9. Can you explain the concept of frequency bins in this context?",
+                "10. What is the formula for calculating the frequency delta per bin?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency delta per bin is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "359.049",
+            "questions": [
+                "1. What is the significance of calculating the delta frequency between two adjacent bins?",
+                "2. How do you determine the delta frequency when moving from frequency bin three to frequency bin four?",
+                "3. What formula is used to calculate the frequency delta per bin?",
+                "4. How is the frequency range utilized in the calculation of delta frequency?",
+                "5. What role do frequency bins play in the analysis of continuous frequency?",
+                "6. How can one obtain the total number of frequency bins from the spectrogram?",
+                "7. What does the spectrogram dot shape command return in this context?",
+                "8. Why is it important to understand the relationship between frequency bins and continuous frequency?",
+                "9. What is the first step mentioned before calculating the delta frequency?",
+                "10. How does the sample rate relate to the calculation of delta frequency?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "delta per bin is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "389.44",
+            "questions": [
+                "1. What is the formula for calculating delta per bin?",
+                "2. How can delta per bin be derived from the spectrogram?",
+                "3. What does the term \"frequency range\" refer to in this context?",
+                "4. How do you determine the total number of frequency bins in a spectrogram?",
+                "5. What is the significance of the first dimension in the spectrogram's shape?",
+                "6. How is the split frequency bin defined in the text?",
+                "7. What information can be obtained from the spectrogram regarding frequency bins?",
+                "8. Why is it important to know the frequency delta for each bin?",
+                "9. What role does the spectrogram play in calculating the split frequency bin?",
+                "10. What steps are involved in preparing to calculate the split frequency bin?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "393.839",
+            "questions": [
+                "1. How is the frequency delta calculated in relation to the spectrogram?",
+                "2. What does the term \"total number of frequency bins\" refer to in the context of the spectrogram?",
+                "3. How do we obtain the number of bins from the spectrogram?",
+                "4. What is the significance of the first dimension in the spectrogram's shape?",
+                "5. How is the split frequency bin determined in the process described?",
+                "6. What unit is the split frequency given in?",
+                "7. How does the frequency delta per bin influence the calculation of the split frequency bin?",
+                "8. What does it mean to map a continuous frequency onto a frequency bin?",
+                "9. Why is it important to identify the closest frequency bin when calculating the split frequency?",
+                "10. What role does the spectrogram play in determining frequency-related calculations?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "409.489",
+            "questions": [
+                "1. What is the relationship between the first dimension and the number of bins in the spectrogram?",
+                "2. How is the frequency delta for each bin determined?",
+                "3. What is the formula for calculating the split frequency bin?",
+                "4. In what units is the split frequency given?",
+                "5. How do you map a continuous frequency onto the closest frequency bin?",
+                "6. What challenges arise when dividing the split frequency by the frequency delta per bin?",
+                "7. Why might the result of the frequency to frequency delta per bin calculation be a float number?",
+                "8. What are frequency bins and how are they represented?",
+                "9. Why is it important to map the split frequency to the closest frequency bin?",
+                "10. What implications does having a float number have for the representation of frequency bins?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "434.359",
+            "questions": [
+                "1. What is the split frequency and how is it measured?",
+                "2. How is the split frequency divided in the context of frequency bins?",
+                "3. What does it mean to map a continuous frequency onto a frequency bin?",
+                "4. Why might the result of dividing the split frequency by frequency delta per bin be a float number?",
+                "5. Why is it not possible to use a frequency bin that is a float, such as 10.4?",
+                "6. What is the significance of rounding numbers in the context of frequency bins?",
+                "7. How can the NP dot floor function be utilized in this scenario?",
+                "8. What are the implications of using integer frequency bins in frequency mapping?",
+                "9. What challenges arise when dealing with frequency values that do not correspond to integer bins?",
+                "10. How does the concept of frequency delta per bin influence the mapping process?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "461.839",
+            "questions": [
+                "1. What is the significance of frequency bins in the context of the text?",
+                "2. Why can't a frequency bin equal to 10.4 be used?",
+                "3. What is meant by \"frequency to frequency delta per bin\"?",
+                "4. How does one round a float number to an integer in this context?",
+                "5. What function can be used to round numbers down according to the text?",
+                "6. Can the NP dot floor function produce an integer from a float number greater than 10?",
+                "7. What is the expected output when applying the floor function to the number 10.4?",
+                "8. Why is rounding necessary when dealing with frequency bins?",
+                "9. What does the term \"critic\" refer to in this text?",
+                "10. How does rounding affect the accuracy of frequency bin representation?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "477.195",
+            "questions": [
+                "1. What is the purpose of having a critic in the context of the script?",
+                "2. Why can't a frequency bin equal to 10.4 be used?",
+                "3. What do we need to do with numbers like 10.4 to make them usable?",
+                "4. What function can be used to round numbers down in this context?",
+                "5. How does the NP dot floor function operate on decimal numbers?",
+                "6. What result do you get when applying the floor function to 10.4?",
+                "7. What output does the floor function provide when applied to 10.9?",
+                "8. Why is it important to round numbers to integer values in this scenario?",
+                "9. What is the significance of using float numbers after rounding?",
+                "10. Can you provide an example of a situation where rounding down is necessary?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10 0.0 like this. OK? So here we have the split frequency bin. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "505.079",
+            "questions": [
+                "1. What is the primary function described in the text?",
+                "2. How does the function handle rounding of numbers?",
+                "3. What happens to the number 10.4 when the floor function is applied?",
+                "4. What result do you get when applying the floor function to the number 10.9?",
+                "5. In what format does the function return the rounded number?",
+                "6. Is the function capable of rounding numbers up, down, or both?",
+                "7. What is the significance of the term \"floor\" in this context?",
+                "8. Can you provide an example of a number less than 10 that would be affected by the floor function?",
+                "9. How does the floor function treat whole numbers compared to decimal numbers?",
+                "10. What is meant by \"split frequency bin\" in the text?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10 0.0 like this. OK? So here we have the split frequency bin. So now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "523.59",
+            "questions": [
+                "1. What type of number do you receive when processing the data?",
+                "2. How is the float number represented in the example given?",
+                "3. What happens when you input the value 10.9?",
+                "4. What is meant by \"split frequency bin\" in this context?",
+                "5. Why is it necessary to cast the float number to another type?",
+                "6. What type are you casting the float number to?",
+                "7. What does the term \"IND\" refer to in this scenario?",
+                "8. Can you provide an example of another float number and its representation?",
+                "9. What implications does casting have on the data being returned?",
+                "10. How does the casting process affect the overall functionality in the given context?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "0.0 like this. OK? So here we have the split frequency bin. So now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND. OK. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "532.809",
+            "questions": [
+                "1. What is meant by \"split frequency bin\" in the context of this text?",
+                "2. Why is it important to cast a float number to an integer (IND)?",
+                "3. How can one return the split frequency bin after processing it?",
+                "4. What are the implications of working with float numbers versus integers in this scenario?",
+                "5. What kind of data or values might be contained within the split frequency bin?",
+                "6. In what situations might you need to use a split frequency bin?",
+                "7. What programming language or context might this text be referring to?",
+                "8. Are there any potential errors that could arise during the casting process from float to integer?",
+                "9. What might be the purpose of returning only a specific type of data (like an integer) from a function?",
+                "10. How does the process described in the text relate to data processing or analysis?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND. OK. So this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "540.01",
+            "questions": [
+                "1. What is being returned in the text?",
+                "2. What type of number is being discussed in the text?",
+                "3. What does the text suggest we should cast the float number to?",
+                "4. Which function is mentioned for calculating split frequency bins?",
+                "5. What is the input required for the function to calculate split frequency bins?",
+                "6. What is the value of the split frequency mentioned in the text?",
+                "7. What type of data structure is expected to be returned from the function call?",
+                "8. How does the spectrogram relate to the calculation of split frequency bins?",
+                "9. Why is 2000 Hertz considered a suitable value for the split frequency?",
+                "10. What context or application might this calculation of split frequency bins be used in?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "OK. So this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "549.349",
+            "questions": [
+                "1. What is the purpose of the \"split frequency bin\" in the context of the text?",
+                "2. How do you calculate the split frequency bin according to the text?",
+                "3. What type of data is being processed as indicated by the mention of \"spectrogram\"?",
+                "4. What is the specific frequency used for the split frequency in this scenario?",
+                "5. Why is 2000 Hertz considered a suitable split frequency?",
+                "6. What sampling rate is mentioned in the text, and how does it relate to the process?",
+                "7. What does the acronym \"PC\" stand for in reference to the spectrogram?",
+                "8. Is there a default sampling rate mentioned, and if so, what is it?",
+                "9. What is the significance of using a default sampling rate in this context?",
+                "10. Can you explain the relationship between the spectrogram and the split frequency bin mentioned in the text?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050. And now let's print this",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "552.52",
+            "questions": [
+                "1. What is the purpose of calculating the split frequency bin?",
+                "2. What frequency is being used as the split frequency in this process?",
+                "3. What does the term \"spectrogram\" refer to in this context?",
+                "4. What is the default sample rate mentioned in the text?",
+                "5. How do we initiate the calculation of the split frequency bin?",
+                "6. What is the significance of using 2000 Hertz as the split frequency?",
+                "7. What function is suggested to be used for passing the PC spectrogram?",
+                "8. What output is expected after printing the results of the calculation?",
+                "9. Why might the default sample rate of 22,050 be chosen for this task?",
+                "10. Can you explain what a spectrogram is and how it relates to split frequency?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050. And now let's print this split frequency bin like this. And as you can see, OK. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "579.63",
+            "questions": [
+                "1. What is meant by \"split frequency\" in this context?",
+                "2. What sample rate is being used in the example?",
+                "3. Why is the default sample rate set to 22,050?",
+                "4. How can the split frequency bin be printed in the given example?",
+                "5. What does the term \"bin\" refer to in relation to split frequency?",
+                "6. What might be the implications of using a sample rate of 22,050?",
+                "7. Are there any alternatives to the default sample rate mentioned?",
+                "8. How does changing the split frequency affect the output?",
+                "9. What are the potential applications of using split frequency in audio processing?",
+                "10. Can you explain the significance of the phrase \"as the sample reach\" in the context provided?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "And now let's print this split frequency bin like this. And as you can see, OK. So uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK?",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "587.109",
+            "questions": [
+                "1. What does the term \"split frequency\" refer to in the context of this text?",
+                "2. How is the 2000 Hertz split frequency represented in the frequency bin?",
+                "3. What is the significance of the frequency bin labeled 100 and 85?",
+                "4. How many frequency bins are mentioned in the spectrogram?",
+                "5. What is the total number of frequency bins in the spectrogram?",
+                "6. What process is being described when mapping the split frequency onto the frequency bin?",
+                "7. What might be the visual representation of the frequency bins in a spectrogram?",
+                "8. Why is it important to note the specific frequency of 2000 Hertz in this context?",
+                "9. Can you explain how frequency bins are used in analyzing audio signals?",
+                "10. What might be the implications of having 1025 frequency bins in the spectrogram?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "split frequency bin like this. And as you can see, OK. So uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK? So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "591.409",
+            "questions": [
+                "1. What is the significance of splitting the frequency bin in the context of the text?",
+                "2. How is the 2000 Hertz frequency represented in the frequency bins mentioned?",
+                "3. What is the total number of frequency bins in the spectrogram discussed in the text?",
+                "4. What parameters does the function for calculating the band energy ratio require?",
+                "5. What is the purpose of calculating the band energy ratio according to the text?",
+                "6. How are frequency bins numbered in the spectrogram mentioned in the passage?",
+                "7. What does the term \"spectrogram\" refer to in the context of this text?",
+                "8. Why might the author emphasize the importance of understanding the mapping of frequencies to bins?",
+                "9. What does the author mean by \"we can now move on\" in the text?",
+                "10. What is the next step after defining the band energy ratio function as indicated in the passage?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK? So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram, it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "597.429",
+            "questions": [
+                "1. What is the split frequency mentioned in the text?",
+                "2. How many frequency bins are there in the spectrogram referenced in the text?",
+                "3. What are the values of the frequency bins that correspond to the 2000 Hertz split frequency?",
+                "4. What is the purpose of calculating the band energy ratio as described in the text?",
+                "5. What three parameters does the function for calculating the band energy ratio accept?",
+                "6. What is the first step in calculating the band energy ratio according to the text?",
+                "7. How is the split frequency bin determined in the function?",
+                "8. What is the significance of the sample rate mentioned in the context of the function?",
+                "9. How does the band energy ratio relate to the spectrogram?",
+                "10. What programming concept is implied by the phrase \"let's write the function here\"?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram, it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "614.76",
+            "questions": [
+                "1. What is the purpose of calculating the um band energy ratio as mentioned in the text?",
+                "2. What are the three parameters that the function for the band energy ratio receives?",
+                "3. How do the parameters of the band energy ratio function relate to the calculated frequency bin?",
+                "4. What is the first step in the process of calculating the um band energy ratio?",
+                "5. Which function is used to obtain the split frequency bin?",
+                "6. What arguments do we need to pass into the function that calculates the split frequency bin?",
+                "7. What type of output does the function for calculating the split frequency bin return?",
+                "8. Why is it important to have the correct split frequency bin when calculating the um band energy ratio?",
+                "9. How does the knowledge from earlier in the text contribute to the calculation of the band energy ratio?",
+                "10. Can you describe the relationship between the spectrogram and the um band energy ratio calculation?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK?",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "643.669",
+            "questions": [
+                "1. What is the significance of the split frequency in the context of this text?  ",
+                "2. How is the sample rate denoted in the provided text?  ",
+                "3. What function is mentioned for calculating the split frequency bin?  ",
+                "4. What arguments need to be passed to the function for calculating the split frequency bin?  ",
+                "5. What does the newly implemented function return after processing the arguments?  ",
+                "6. What is the next step after obtaining the split frequency bin?  ",
+                "7. What is a power spectrogram, and how is it relevant to the text?  ",
+                "8. Why is it important for the split frequency and sample rate to be the same?  ",
+                "9. What can be inferred about the ease of using the implemented function mentioned in the text?  ",
+                "10. What is the relationship between the calculated frequency bin and the split frequency?  "
+            ]
+        },
+        {
+            "id": 38,
+            "text": "do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK? And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "665.789",
+            "questions": [
+                "1. What is the purpose of the newly implemented function mentioned in the text?",
+                "2. What arguments are being passed to the function called \"calculator splits frequency bin\"?",
+                "3. What does the function return after processing the provided arguments?",
+                "4. What is the next step after obtaining the expected split frequency bin?",
+                "5. Why is the power spectrogram important in this context?",
+                "6. How is the power spectrogram related to the magnitude spectrogram?",
+                "7. What does the formula \"MT of N squared\" represent in the context of the power spectrogram?",
+                "8. How does the text suggest recalling information from previous discussions about spectrograms?",
+                "9. What can be inferred about the relationship between frequency bins and power spectrograms?",
+                "10. What might be the implications of using the power spectrogram in analysis?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK? And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram. Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "679.75",
+            "questions": [
+                "1. What is the significance of the expected split frequency bin mentioned in the text?",
+                "2. Why is the transition to the power spectrogram important in this context?",
+                "3. How does the text describe the relationship between the magnitude spectrogram and the power spectrogram?",
+                "4. What formula is referenced from \"last B,\" and how is it relevant to the discussion?",
+                "5. What does the term \"MT of N squared\" refer to in the context of the power spectrogram?",
+                "6. How is the magnitude spectrogram calculated for a given frame?",
+                "7. What does squaring the magnitude spectrogram imply about the data being analyzed?",
+                "8. In what way does the power spectrogram differ from the magnitude spectrogram?",
+                "9. What are the potential applications or implications of using a power spectrogram?",
+                "10. Can you explain the concept of a \"frequency bin\" as mentioned in the text?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram. Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "696.429",
+            "questions": [
+                "1. What is the primary focus of the text regarding spectrograms?",
+                "2. How is the magnitude spectrogram related to the power spectrogram?",
+                "3. What does the expression \"MT of N squared\" represent in the context of the text?",
+                "4. Why do we square the magnitude spectrogram to obtain the power spectrogram?",
+                "5. What is the significance of calculating the power at each point in time and frequency bin?",
+                "6. How does the process of moving from magnitude to power affect the analysis of spectrograms?",
+                "7. What initial step does the author suggest for calculating the power spectrogram?",
+                "8. What does the term \"frame\" refer to in the context of the text?",
+                "9. Why might it be beneficial to calculate the power spectrogram only once initially?",
+                "10. What role does the frequency bin play in the analysis described in the text?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram. And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "717.309",
+            "questions": [
+                "1. What is the relationship between the power spectrogram and the magnitude spectrogram?",
+                "2. How do you transition from the magnitude spectrogram to the power spectrogram?",
+                "3. What does squaring the magnitude spectrogram represent in this context?",
+                "4. Why might it be beneficial to calculate power only once initially instead of at each point in time and frequency bin?",
+                "5. What does the term \"groan frequency bin\" refer to?",
+                "6. What mathematical operation is used to obtain the absolute value of the complex values in the spectrogram?",
+                "7. How does applying the absolute value to the spectrogram help in creating the power spectrogram?",
+                "8. What programming library is mentioned for performing operations on the spectrogram?",
+                "9. What is the significance of using `NPI.dot` in the process described?",
+                "10. Can you explain the process of moving from complex values to a power spectrogram in detail?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram. And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram. And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "732.734",
+            "questions": [
+                "1. What is the initial process described for calculating the power in the spectrogram?",
+                "2. How is the power spectrogram derived from the complex values of the spectrogram?",
+                "3. What function is used to apply the absolute value to the spectrogram?",
+                "4. What will be the result if only the absolute value is applied to the spectrogram?",
+                "5. Why is squaring the magnitude important in the context of obtaining the power spectrogram?",
+                "6. What additional step is mentioned that needs to be applied when calculating the band energy ratio?",
+                "7. How does the process of moving to the power spectrogram differ from calculating power at each point in time and frequency bin?",
+                "8. What programming library is hinted at for use in calculating the power spectrogram?",
+                "9. What is the significance of the term \"band energy ratio\" in the context of the power spectrogram?",
+                "10. Can you explain the relationship between magnitude spectrogram and power spectrogram?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram. And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame. So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "752.53",
+            "questions": [
+                "1. What is the initial data representation used in the process described in the text?",
+                "2. How do you obtain the magnitude spectrogram from the complex values of the spectrogram?",
+                "3. What function is used to apply the absolute value to the spectrogram?",
+                "4. What is the next step after obtaining the magnitude spectrogram to derive the power spectrogram?",
+                "5. Why is squaring the magnitude spectrogram necessary?",
+                "6. What additional calculation is mentioned that requires iteration through the power spectrogram?",
+                "7. How is the power spectrogram structured in terms of dimensions?",
+                "8. What are the two dimensions of the spectrogram, and what do they represent?",
+                "9. Why is it important to iterate frame by frame through the power spectrogram?",
+                "10. What is the purpose of calculating the band energy ratio in this context?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame. So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension. So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "773.9",
+            "questions": [
+                "1. What is the purpose of squaring the magnitude spectrogram?",
+                "2. What type of spectrogram is obtained after squaring the magnitude spectrogram?",
+                "3. What additional calculation is mentioned that needs to be performed on the power spectrogram?",
+                "4. How do we iterate through the power spectrogram according to the text?",
+                "5. What dimensions make up the shape of the spectrogram described?",
+                "6. What does the first dimension of the spectrogram represent?",
+                "7. What does the second dimension of the spectrogram represent?",
+                "8. How are frequency bins related to the structure of the spectrogram?",
+                "9. What is meant by \"calculating the band energy ratio\" in this context?",
+                "10. How does the iteration through the spectrogram differ from iterating through the power spectrogram?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension. So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "796.549",
+            "questions": [
+                "1. What is the purpose of iterating through the power spectrogram frame by frame?",
+                "2. How is the shape of the spectrogram described in the text?",
+                "3. What are the two dimensions of the spectrogram mentioned in the passage?",
+                "4. What does the first dimension of the spectrogram represent?",
+                "5. What does the second dimension of the spectrogram represent?",
+                "6. How do you iterate through the spectrogram based on time?",
+                "7. What mathematical operation is suggested to manipulate the spectrogram for time-based iteration?",
+                "8. What is meant by \"transpose\" in the context of the spectrogram?",
+                "9. How is the variable `W spec transpose` defined in relation to the original spectrogram?",
+                "10. What does the notation `BC spec.dot.T` imply about the operation being performed?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "823.02",
+            "questions": [
+                "1. What are frequency bins in the context of a spectrogram?",
+                "2. How do frames relate to the spectrogram and its analysis?",
+                "3. What is the purpose of iterating through a spectrogram or power spectrogram?",
+                "4. What does it mean to transpose a spectrogram?",
+                "5. How is the transpose of a matrix represented in code?",
+                "6. What is the significance of the term \"W spec transpose\" in the provided text?",
+                "7. What does \"BC spec dot capital T\" refer to in the context of transposing a spectrogram?",
+                "8. How does transposing a spectrogram affect its shape?",
+                "9. What is the relationship between the spectrogram and time?",
+                "10. Why is it important to analyze the shape of the spectrogram after transposing it?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here, you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "835.84",
+            "questions": [
+                "1. What is meant by \"inverting\" or taking the transpose of a spectrogram?",
+                "2. How do you represent the transpose of a spectrogram mathematically in the text?",
+                "3. What does W spec transpose signify in the context of the spectrogram?",
+                "4. What operation is performed on BC spec to obtain its transpose?",
+                "5. How does the shape of the transposed spectrogram change compared to the original?",
+                "6. What dimensions are mentioned in relation to the transposed spectrogram?",
+                "7. What is the significance of the time dimension in the transposed spectrogram?",
+                "8. How are the number of frames related to the time dimension in the spectrogram?",
+                "9. What is the desired outcome for the power spectrogram as mentioned in the text?",
+                "10. Why is it important to consider the dimensions of the spectrogram when taking its transpose?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here, you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram. So we'll do like this. A power spectrum is equal to power",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "864.349",
+            "questions": [
+                "1. What is the transpose of a spectrogram, and how is it related to a matrix NR A?",
+                "2. How does transposing a spectrogram affect its dimensions?",
+                "3. What are the two dimensions discussed in relation to the spectrogram?",
+                "4. What is the significance of having the time dimension first after transposing the spectrogram?",
+                "5. How is the number of frames represented in the transposed spectrogram?",
+                "6. What does the term \"frequency\" refer to in the context of a spectrogram?",
+                "7. What is a power spectrogram, and how is it calculated?",
+                "8. How does the power spectrum relate to the concept of power in this context?",
+                "9. Why is it important to understand the shape and dimensions of a spectrogram?",
+                "10. What are potential applications of analyzing a power spectrogram?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram. So we'll do like this. A power spectrum is equal to power spec",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "877.539",
+            "questions": [
+                "1. What does the term \"inversion of these two dimensions\" refer to in the context of the text?",
+                "2. How is the time dimension represented in the power spectrogram?",
+                "3. What is meant by \"the number of frames\" in relation to the time dimension?",
+                "4. How is frequency defined as the second dimension in the power spectrogram?",
+                "5. What is the significance of the power spectrum in the context provided?",
+                "6. What does the phrase \"power spec\" indicate in the process described?",
+                "7. How are the dimensions of time and frequency utilized together in a power spectrogram?",
+                "8. What is the relationship between frames and frequency in the power spectrum?",
+                "9. Can you explain the process of creating a power spectrogram based on the text?",
+                "10. What are the potential applications of a power spectrogram in analysis?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "So we'll do like this. A power spectrum is equal to power spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "894.44",
+            "questions": [
+                "1. What is the relationship between the power spectrum and power spec dot capital T?",
+                "2. How is the transfer of the power spectrum represented in this context?",
+                "3. What does the term \"power spectrum\" refer to in this text?",
+                "4. What does \"power spec dot capital T\" signify in this equation?",
+                "5. Why is it important to understand the transfer of the power spectrum?",
+                "6. What are the implications of the power spectrum in practical applications?",
+                "7. Can you explain the process of creating a power spectrum as mentioned in the text?",
+                "8. What are some potential uses for the power spectrum in scientific research?",
+                "9. How does the concept of transfer apply to the power spectrum?",
+                "10. What assumptions are made when discussing the power spectrum in this context?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "902.479",
+            "questions": [
+                "1. What is the purpose of creating an empty list in the context of the text?",
+                "2. How is the band energy ratio described in terms of its nature as a feature?",
+                "3. What does the transfer of the power spectrum refer to in this context?",
+                "4. Why is the band energy ratio considered a frame-based feature?",
+                "5. How will the empty list be utilized in the process described in the text?",
+                "6. What does \"caching\" refer to in the context of storing the band energy ratio?",
+                "7. In which scenarios might the band energy ratio be important for analysis?",
+                "8. What does the text imply about the relationship between frames and the band energy ratio?",
+                "9. Can you explain what is meant by \"each frame\" in the context of this discussion?",
+                "10. What steps might follow after creating the list to store the band energy ratios?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "904.78",
+            "questions": [
+                "1. What is the purpose of creating an empty list in the context of the band energy ratio?",
+                "2. How is the band energy ratio defined in relation to frames?",
+                "3. What type of feature is the band energy ratio considered to be?",
+                "4. What will be stored in the variable named \"band energy ratio\"?",
+                "5. How will the band energy ratio be calculated for each frame?",
+                "6. What is the significance of iterating through all the frames in the power spectrogram?",
+                "7. Why is it important to cache the band energy ratio for each frame?",
+                "8. What does the term \"power spectrum\" refer to in this context?",
+                "9. How does the band energy ratio relate to audio analysis?",
+                "10. What is the expected output after processing the frames in the power spectrogram?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram. I'd say we'll do four frequencies",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "917.95",
+            "questions": [
+                "1. What is the purpose of the empty list mentioned in the text?  ",
+                "2. How is the band energy ratio described in the context of frame features?  ",
+                "3. For what purpose will the band energy ratio be cached?  ",
+                "4. How does the text suggest handling the band energy ratio for each frame?  ",
+                "5. What type of data structure is used to store the band energy ratio?  ",
+                "6. How many frequencies are mentioned for iteration through the frames?  ",
+                "7. What does the term \"power spectrogram\" refer to in the context of the text?  ",
+                "8. What is the significance of the band energy ratio as a feature?  ",
+                "9. In what way will the iteration through frames be conducted?  ",
+                "10. Why is it important to calculate the band energy ratio for each frame?  "
+            ]
+        },
+        {
+            "id": 54,
+            "text": "a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram. I'd say we'll do four frequencies and frame",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "936.5",
+            "questions": [
+                "1. What is the purpose of calculating a band energy ratio for each frame?",
+                "2. How is the band energy ratio stored for each frame?",
+                "3. What variable is used to cache the band energy ratio?",
+                "4. How many frequencies are being considered for each frame?",
+                "5. What is the significance of iterating through all the frames in the power spectrogram?",
+                "6. What data structure is used to return the list of questions?",
+                "7. How does the band energy ratio relate to the overall analysis of the power spectrogram?",
+                "8. Are there any specific methods or algorithms used to calculate the band energy ratio?",
+                "9. What information can be derived from analyzing the band energy ratio across multiple frames?",
+                "10. What might be the next steps after calculating the band energy ratio for each frame?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "I'd say we'll do four frequencies and frame uh in power",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "955.69",
+            "questions": [
+                "1. What are the four frequencies mentioned in the text?",
+                "2. How will the frequencies be framed in power?",
+                "3. What is the significance of using four frequencies?",
+                "4. Can you explain the process of framing in power?",
+                "5. What applications might these frequencies be used for?",
+                "6. Are there any specific challenges associated with framing in power?",
+                "7. How do the chosen frequencies interact with each other?",
+                "8. What criteria were used to select these four frequencies?",
+                "9. Is there a particular field or industry this approach applies to?",
+                "10. What outcomes are expected from using the four frequencies framed in power?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "and frame uh in power spectrogram.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "962.26",
+            "questions": [
+                "1. What is a power spectrogram?",
+                "2. How is a power spectrogram created?",
+                "3. What information does a power spectrogram provide?",
+                "4. In what fields is a power spectrogram commonly used?",
+                "5. What are the key components of a power spectrogram?",
+                "6. How does a power spectrogram differ from a regular spectrogram?",
+                "7. What types of signals can be analyzed using a power spectrogram?",
+                "8. Can you explain the significance of the frame in a power spectrogram?",
+                "9. What are some limitations of using power spectrograms?",
+                "10. How can the results from a power spectrogram be interpreted?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "uh in power spectrogram. So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "966.63",
+            "questions": [
+                "1. What is the purpose of iterating through all the frames in the power spectrogram?",
+                "2. How do we obtain the values for each frequency in the spectrogram?",
+                "3. What does the term \"band energy ratio\" refer to in this context?",
+                "4. Why is it important to calculate the band energy ratio for each frame?",
+                "5. What information can be derived from the power spectrogram?",
+                "6. How does the band energy ratio relate to the frequencies being analyzed?",
+                "7. What are the steps involved in calculating the band energy ratio?",
+                "8. What tools or methods can be used to visualize the power spectrogram?",
+                "9. How can the results of the band energy ratio calculation be applied in real-world scenarios?",
+                "10. What challenges might arise when processing the power spectrogram data?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "spectrogram. So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "970.14",
+            "questions": [
+                "1. What is the main objective mentioned in the text regarding the spectrogram?",
+                "2. How are the frames being processed according to the text?",
+                "3. What specific value is being extracted for each frequency?",
+                "4. What is the significance of calculating the band energy ratio?",
+                "5. What two components are needed to calculate the band energy ratio?",
+                "6. How is the numerator defined in the context of the calculation?",
+                "7. What does the text imply about the straightforwardness of the calculations?",
+                "8. What are the \"lower energies\" referring to in this context?",
+                "9. Why is it important to iterate through all the frames in the spectrogram?",
+                "10. What might be the next steps after calculating the band energy ratio based on the text?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies and the denominator corresponds to the sum of the power in the higher frequencies.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "973.07",
+            "questions": [
+                "1. What is the main goal of the process described in the text?",
+                "2. What are the two main components that need to be calculated for each frame?",
+                "3. How is the numerator defined in the calculation of the band energy ratio?",
+                "4. What does the denominator represent in the context of the band energy ratio?",
+                "5. What is meant by \"iterating through all the frames\" in the process?",
+                "6. How does the concept of \"lower energies\" relate to the numerator in the calculation?",
+                "7. What role do \"higher frequencies\" play in determining the denominator?",
+                "8. Why might it be important to calculate the band energy ratio for each frame?",
+                "9. What does the phrase \"let me put a password time being\" imply in the context of the text?",
+                "10. What challenges might arise when calculating the band energy ratio for multiple frames?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies and the denominator corresponds to the sum of the power in the higher frequencies. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "996.5",
+            "questions": [
+                "1. What is the purpose of putting a password temporarily?",
+                "2. What two items are being calculated in the process?",
+                "3. How is the numerator defined in the context of this calculation?",
+                "4. What does the denominator represent in this calculation?",
+                "5. What type of energies are included in the numerator?",
+                "6. What type of frequencies are considered for the denominator?",
+                "7. Can you explain the significance of the power in lower energies?",
+                "8. Why is it important to differentiate between lower energies and higher frequencies?",
+                "9. What mathematical operation is used to find the numerator and denominator?",
+                "10. How might the results of this calculation be used in a practical application?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "and the denominator corresponds to the sum of the power in the higher frequencies. So let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1022.169",
+            "questions": [
+                "1. What does the denominator correspond to in the given text?",
+                "2. How are higher frequencies related to the calculation discussed?",
+                "3. What method is suggested for calculating power in low frequencies?",
+                "4. What function is proposed for use in the calculations?",
+                "5. What argument is passed to the NP dot Sun function?",
+                "6. What type of frequencies are mentioned in the text?",
+                "7. What does the text imply about the importance of higher frequencies?",
+                "8. How does the text suggest we handle the frequencies?",
+                "9. Is there a specific programming language or library referenced in the text?",
+                "10. What is the general topic being discussed in the text?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "So let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra here.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1029.77",
+            "questions": [
+                "1. What are power low frequencies?",
+                "2. How do we calculate power low frequencies?",
+                "3. What does \"NP dot Sun\" refer to in this context?",
+                "4. What is the significance of passing frequencies into the calculation?",
+                "5. Are there specific applications for power low frequencies?",
+                "6. What parameters are needed to use \"NP dot Sun\" for calculations?",
+                "7. What other methods can be used to calculate frequencies?",
+                "8. Can you explain the term \"infra\" mentioned in the text?",
+                "9. What is the importance of frequency analysis in data processing?",
+                "10. How does the choice of frequencies affect the results of the calculation?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra here. But we want",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1031.708",
+            "questions": [
+                "1. What are power low frequencies?",
+                "2. How do we calculate power low frequencies?",
+                "3. What function can be used to calculate frequencies in this context?",
+                "4. What does the NP dot Sun function do?",
+                "5. What is the significance of passing frequencies into the NP dot Sun function?",
+                "6. What is meant by \"return only list of questions\" in this context?",
+                "7. Are there any specific examples of power low frequencies?",
+                "8. How do power low frequencies relate to other types of frequencies?",
+                "9. Can the NP dot Sun function handle different data types for frequencies?",
+                "10. What are some practical applications of calculating power low frequencies?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "here. But we want some across all the values or across all the frequencies. But rather",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1053.4",
+            "questions": [
+                "1. What specific values are being referred to in the text?",
+                "2. How are the frequencies relevant to the discussion?",
+                "3. What is the significance of wanting \"some across all the values\"?",
+                "4. What alternatives are implied by the phrase \"But rather\"?",
+                "5. What context is missing that would clarify the focus on values and frequencies?",
+                "6. Are there specific examples of values or frequencies mentioned elsewhere in the text?",
+                "7. What is the main objective of wanting to return only a list?",
+                "8. How might the request for \"some across all the values\" impact the outcome?",
+                "9. What implications does the phrasing \"return only\" have for the information being sought?",
+                "10. In what ways could the discussion of values and frequencies be expanded upon?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "But we want some across all the values or across all the frequencies. But rather just take the first uh frequency bins up to the split frequency",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1055.13",
+            "questions": [
+                "1. What is meant by \"across all the values\" in this context?",
+                "2. How do we define the \"split frequency\" mentioned in the text?",
+                "3. Why is it important to focus on the first frequency bins?",
+                "4. What criteria are used to select the frequency bins up to the split frequency?",
+                "5. How does the concept of frequency bins relate to the overall analysis?",
+                "6. What are the potential implications of not considering all frequencies?",
+                "7. Can you explain the significance of the term \"return only\" in this context?",
+                "8. What methods can be used to analyze the values across the frequency bins?",
+                "9. How might the results differ if we included frequencies beyond the split frequency?",
+                "10. What applications might benefit from analyzing data within the specified frequency range?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "some across all the values or across all the frequencies. But rather just take the first uh frequency bins up to the split frequency then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1057.609",
+            "questions": [
+                "1. What is meant by \"frequency bins\" in the context of this text?",
+                "2. How does the concept of \"split frequency\" relate to the summation of values?",
+                "3. Why is it easier to sum the power for high frequencies compared to low frequencies?",
+                "4. What specific values are being summed across the frequency bins?",
+                "5. Can you explain the significance of summing power in this context?",
+                "6. How does the summation process differ between low and high frequencies?",
+                "7. What implications does the \"first frequency bins\" have on the analysis?",
+                "8. In what scenarios might one focus only on high frequencies versus low frequencies?",
+                "9. What are the potential applications of analyzing power across different frequency bins?",
+                "10. How might the results differ if all frequency values were included instead of just up to the split frequency?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "just take the first uh frequency bins up to the split frequency then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1064.51",
+            "questions": [
+                "1. What is meant by \"split frequency\" in the context of frequency bins?",
+                "2. How are the frequency bins divided into low and high frequencies?",
+                "3. What process is used to sum the power values for high frequencies?",
+                "4. Can you explain the significance of the \"first frequency bins\" mentioned in the text?",
+                "5. How do you determine the starting point for slicing the frequency bins?",
+                "6. What does \"the last frequency bin\" refer to in the context of the spectrum?",
+                "7. Why is it important to consider both low and high frequency power values?",
+                "8. What are the implications of analyzing power across different frequency bins?",
+                "9. How does the concept of frequency bins apply in practical applications?",
+                "10. What challenges might arise when summing values across frequency bins?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin. OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1074.0",
+            "questions": [
+                "1. What is the focus of the discussion in the text?",
+                "2. How are high frequencies defined in the context of this text?",
+                "3. What is meant by \"summing the values for the power at all the different frequency bins\"?",
+                "4. What is the significance of the \"split frequency bin\" mentioned in the text?",
+                "5. How is the highest frequency bin relevant to the calculations described?",
+                "6. What two elements are being discussed in relation to the formula?",
+                "7. What operation is performed to obtain the band energy ratio?",
+                "8. What does the term \"band energy ratio\" refer to in this context?",
+                "9. How does the text suggest handling the data for high frequencies?",
+                "10. What is the final result of the calculations described in the text?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin. OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1098.18",
+            "questions": [
+                "1. What is the significance of the split frequency bin in the context of the spectrum?",
+                "2. How do you determine the range of frequency bins to analyze?",
+                "3. What are the two elements mentioned in the formula?",
+                "4. How is the band energy ratio calculated according to the text?",
+                "5. What does the numerator represent in the band energy ratio formula?",
+                "6. What does the denominator represent in the band energy ratio formula?",
+                "7. What types of frequencies are considered low frequencies in this context?",
+                "8. What types of frequencies are considered high frequencies in this context?",
+                "9. Why is it important to sum the power for both low and high frequencies?",
+                "10. What is the final step after obtaining the numerator and denominator in the calculation?"
+            ]
+        },
+        {
+            "id": 70,
+            "text": "OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So the next step here is to just uh append",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1115.579",
+            "questions": [
+                "1. What are the two elements mentioned in the formula?",
+                "2. How do you calculate the band energy ratio?",
+                "3. What is the significance of the numerator in the formula?",
+                "4. What does the denominator represent in the band energy ratio calculation?",
+                "5. How is the power of low frequencies determined?",
+                "6. What is meant by the sum of the power for high frequencies?",
+                "7. What is the next step after calculating the band energy ratio?",
+                "8. Why is it important to divide the low frequency power by the high frequency power?",
+                "9. Can you explain what is meant by \"current frame\" in this context?",
+                "10. What would happen if you did not perform the division in the formula?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So the next step here is to just uh append the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1143.099",
+            "questions": [
+                "1. What is the significance of low frequencies in relation to high frequencies in the context of this text?",
+                "2. How is the band energy ratio calculated in this process?",
+                "3. What does \"appending the band energy ratio\" entail in the current frame?",
+                "4. Why is it important to capture the value of the band energy ratio?",
+                "5. What role does the sum of the power for high frequencies play in this calculation?",
+                "6. What might the implications be of dividing low frequencies by high frequencies?",
+                "7. In what context is the term \"current frame\" used in this text?",
+                "8. What kind of data might the band energy ratio list contain?",
+                "9. How does the process described contribute to the overall analysis of frequencies?",
+                "10. What are potential applications of the band energy ratio in audio analysis?"
+            ]
+        },
+        {
+            "id": 72,
+            "text": "the next step here is to just uh append the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1154.949",
+            "questions": [
+                "1. What is the purpose of appending the band energy ratio for the current frame?",
+                "2. How is the band energy ratio for the current frame accessed in the process?",
+                "3. What data structure is being used to store the band energy ratios?",
+                "4. Why is it necessary to cast the list to a NPI array?",
+                "5. What function is used to append the current frame's band energy ratio to the existing list?",
+                "6. What does the acronym \"NPI\" refer to in this context?",
+                "7. What will happen if the band energy ratio for the current frame is not appended correctly?",
+                "8. Can you explain the significance of the band energy ratio in this context?",
+                "9. What programming language is likely being used in this text?",
+                "10. What does \"uh\" signify in the context of the text?"
+            ]
+        },
+        {
+            "id": 73,
+            "text": "the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1161.349",
+            "questions": [
+                "1. What is the purpose of calculating the band energy ratio for the current frame?",
+                "2. How is the band energy ratio for the current frame added to the list?",
+                "3. What method is used to convert the list of band energy ratios into a NPI array?",
+                "4. What parameters are passed to the function that calculates the band energy ratio?",
+                "5. How is the spectrogram referenced in relation to the band energy ratio calculation?",
+                "6. What is the significance of the term \"BC\" in the context of this text?",
+                "7. Which library is suggested for creating an array from the list of band energy ratios?",
+                "8. What does \"uh\" signify in the text, and how does it appear to affect the flow of the explanation?",
+                "9. What is the expected output after calling the calculator for band energy ratio?",
+                "10. How does the text indicate the readiness to see if the calculation works?"
+            ]
+        },
+        {
+            "id": 74,
+            "text": "uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1174.719",
+            "questions": [
+                "1. What is the purpose of the band energy ratio in the current frame?",
+                "2. How do you append the band energy ratio to a list?",
+                "3. What function is used to create an NPI array from the band energy ratio list?",
+                "4. What is the significance of the variable 'BC' in the context of the band energy ratio?",
+                "5. How is the spectrogram defined for calculating the band energy ratio?",
+                "6. What value is specified for the split frequency in the calculation?",
+                "7. Why is a split frequency of 2000 considered acceptable?",
+                "8. What does the term 'sample rate' refer to in this context?",
+                "9. How do you call the function to calculate the band energy ratio?",
+                "10. What is the expected output after casting the band energy ratio list to an NPI array?"
+            ]
+        },
+        {
+            "id": 75,
+            "text": "energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it, uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1202.28",
+            "questions": [
+                "1. What is the main objective of the speaker in the text?",
+                "2. What is the specific term used to describe the measurement being calculated?",
+                "3. What input is required to calculate the band energy ratio?",
+                "4. What is the spectrogram referred to in the text?",
+                "5. What split frequency is mentioned for the calculation?",
+                "6. Is the specified split frequency considered acceptable according to the speaker?",
+                "7. What is the default sample rate mentioned when loading the waveform?",
+                "8. How does the speaker refer to the sample rate in the context of the calculation?",
+                "9. What does the acronym \"Sa Mle\" likely refer to in this context?",
+                "10. What steps are involved in obtaining the band energy ratio as described by the speaker?"
+            ]
+        },
+        {
+            "id": 76,
+            "text": "then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it, uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr over here",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1230.839",
+            "questions": [
+                "1. What is the specified split frequency mentioned in the text?",
+                "2. Why is the split frequency of 2000 considered acceptable?",
+                "3. What is the default sample rate that was retrieved when loading the waveform?",
+                "4. What does \"sr\" refer to in the context of this text?",
+                "5. How does the split frequency relate to the sample rate?",
+                "6. What does the author mean by \"totally fine\" in relation to the split frequency?",
+                "7. Can you explain the process of loading the waveform as mentioned in the text?",
+                "8. How might the sample rate impact the quality of the waveform?",
+                "9. What are the implications of using a split frequency of 2000 in this context?",
+                "10. Are there any alternatives to the specified split frequency or sample rate that could be considered?"
+            ]
+        },
+        {
+            "id": 77,
+            "text": "uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr over here like this,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1248.39",
+            "questions": [
+                "1. What is the default sample rate mentioned in the waveform?",
+                "2. What does \"sr\" refer to in the context of the waveform?",
+                "3. How does the sample rate affect the quality of the waveform?",
+                "4. What might be the implications of using a sample rate of 22 versus another rate?",
+                "5. Are there any specific reasons to choose a different sample rate than the default?",
+                "6. What does \"uh\" indicate about the speaker's confidence or thought process?",
+                "7. What type of waveform is being discussed in the text?",
+                "8. How can one change the sample rate from the default setting?",
+                "9. What effects might changing the sample rate have on audio playback?",
+                "10. What is the significance of the numbers \"2050\" in the context provided?"
+            ]
+        },
+        {
+            "id": 78,
+            "text": "over here like this, ok? So now let's take a look at the band's energy ratio",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1258.27",
+            "questions": [
+                "1. What does the term \"energy ratio\" refer to in the context of the band?",
+                "2. How can we measure the band's energy ratio?",
+                "3. Why is the energy ratio important for evaluating a band's performance?",
+                "4. What factors contribute to a band's overall energy ratio?",
+                "5. How might a band increase its energy ratio during a performance?",
+                "6. Can the energy ratio vary between different songs in a band's setlist?",
+                "7. How does the audience's response affect the band's energy ratio?",
+                "8. What role does the band's genre play in determining its energy ratio?",
+                "9. Are there any specific techniques or strategies that can enhance a band's energy ratio?",
+                "10. How does the band's energy ratio compare to other bands in the same genre?"
+            ]
+        },
+        {
+            "id": 79,
+            "text": "like this, ok? So now let's take a look at the band's energy ratio um shape.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1261.189",
+            "questions": [
+                "1. What is meant by the term \"energy ratio\" in the context of the band?",
+                "2. How does the shape of the band's performance relate to its energy ratio?",
+                "3. Can you explain how the band's energy ratio is measured?",
+                "4. In what ways can the band's energy ratio affect their overall performance?",
+                "5. What factors contribute to a higher or lower energy ratio for the band?",
+                "6. How does the band's energy ratio compare to other bands in the same genre?",
+                "7. What are some examples of how the band's shape can influence their energy ratio?",
+                "8. How important is the energy ratio to the band's success?",
+                "9. Are there any specific techniques the band uses to enhance their energy ratio?",
+                "10. How can fans perceive the band's energy ratio during a live performance?"
+            ]
+        },
+        {
+            "id": 80,
+            "text": "ok? So now let's take a look at the band's energy ratio um shape. Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1263.17",
+            "questions": [
+                "1. What is the energy ratio shape of the band being discussed?",
+                "2. How many items are in the numpy array mentioned?",
+                "3. What dimensionality does the numpy array have?",
+                "4. Why is it confirmed that the numpy array is correct?",
+                "5. What specific characteristics does the numpy array possess?",
+                "6. Can you explain the significance of the number 1292 in this context?",
+                "7. What does the term \"numpy array\" refer to in this discussion?",
+                "8. How does the concept of energy ratio relate to the band being analyzed?",
+                "9. What might be the implications of having a one-dimensional numpy array?",
+                "10. How does the speaker verify the correctness of the numpy array?"
+            ]
+        },
+        {
+            "id": 81,
+            "text": "um shape. Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1270.109",
+            "questions": [
+                "1. What type of array is being discussed in the text?",
+                "2. How many items are there in the numpy array mentioned?",
+                "3. What is the dimensionality of the numpy array?",
+                "4. Why is the numpy array considered correct?",
+                "5. What is being compared to the numpy array in the text?",
+                "6. What does the first dimension of the spectrogram represent?",
+                "7. How does the time dimension of the spectrogram relate to the numpy array?",
+                "8. What is the significance of the number 1292 in the context of the text?",
+                "9. What type of spectrogram is referred to in the discussion?",
+                "10. How does the energy ratio array relate to the spectrogram?"
+            ]
+        },
+        {
+            "id": 82,
+            "text": "Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array. And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1274.68",
+            "questions": [
+                "1. What is the dimensionality of the numpy array mentioned in the text?",
+                "2. How many items are present in the numpy array?",
+                "3. Why is the numpy array considered correct according to the text?",
+                "4. What relationship does the time dimension of the spectrogram have with the numpy array?",
+                "5. How many frames are represented in the spectrum based on the description?",
+                "6. What specific values are being obtained from the different frames in the spectrum?",
+                "7. What is the significance of the band energy ratio mentioned in the text?",
+                "8. What is meant by \"transpo spectrogram\" in the context of the discussion?",
+                "9. How does the spent energy ratio relate to the time dimension?",
+                "10. What action does the speaker intend to take after discussing the numpy array?"
+            ]
+        },
+        {
+            "id": 83,
+            "text": "here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array. And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot chili pepper,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1293.25",
+            "questions": [
+                "1. What type of spectrogram is being discussed in the text?",
+                "2. What is the significance of the time dimension being equal to 1292?",
+                "3. How does the time dimension relate to the spent energy ratio array?",
+                "4. What does the text mean by \"values for all the different frames\" in the spectrum?",
+                "5. What is being sought after in the analysis of the spectrogram?",
+                "6. Who is the artist mentioned in relation to the band energy ratio?",
+                "7. What is the purpose of calculating the band energy ratio?",
+                "8. How does the transpo spectrogram differ from other types of spectrograms?",
+                "9. What kind of data is being analyzed in the spectrogram?",
+                "10. Why is it important to match the time dimension with the spent energy ratio array?"
+            ]
+        },
+        {
+            "id": 84,
+            "text": "And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot chili pepper, red hots",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1309.869",
+            "questions": [
+                "1. What values are being obtained for the different frames in the spectrum?",
+                "2. What was the objective of obtaining values for the spectrum frames?",
+                "3. What is the next step mentioned after obtaining the spectrum values?",
+                "4. What specific band energy ratio is being calculated?",
+                "5. Which band or artist is being referenced in the text?",
+                "6. What does \"band energy ratio\" refer to in this context?",
+                "7. How are the values for the frames in the spectrum relevant to the analysis?",
+                "8. What does the term \"red hots\" refer to in the text?",
+                "9. Why is it important to calculate the band energy ratio for the specified artist?",
+                "10. What implications do the obtained values have for the overall analysis?"
+            ]
+        },
+        {
+            "id": 85,
+            "text": "chili pepper, red hots song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1328.859",
+            "questions": [
+                "1. What is the significance of the chili pepper in relation to the Red Hots song?",
+                "2. What is meant by \"passing the red hot spectrogram\"?",
+                "3. Why is it important to visualize the bent energy ratio curves?",
+                "4. What are bent energy ratio curves used for in music analysis?",
+                "5. How can comparing energy ratio curves across different genres provide insights?",
+                "6. What genres are being compared in the analysis mentioned?",
+                "7. What conclusions can be drawn from analyzing the sp energy ratio curves?",
+                "8. How does the energy ratio of the Red Hots song differ from other genres?",
+                "9. What tools or methods are used to visualize these energy ratio curves?",
+                "10. What are some potential applications of understanding energy ratio curves in music?"
+            ]
+        },
+        {
+            "id": 86,
+            "text": "red hots song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case, music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1330.65",
+            "questions": [
+                "1. What is the main focus of the discussion in the text?",
+                "2. What type of curves does the author intend to visualize?",
+                "3. How does the author plan to compare energy ratio curves?",
+                "4. What two genres of music are being compared in the analysis?",
+                "5. What is the significance of the \"red hot spectrogram\" mentioned in the text?",
+                "6. What does the term \"bent energy ratio curves\" refer to?",
+                "7. What is the purpose of adding blocks in the visualization process?",
+                "8. Why might the author want to draw conclusions about energy ratio curves in different music genres?",
+                "9. What steps does the author mention taking before visualizing the curves?",
+                "10. How might the findings of this analysis contribute to the understanding of music genres?"
+            ]
+        },
+        {
+            "id": 87,
+            "text": "song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case, music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1333.839",
+            "questions": [
+                "1. What is the purpose of passing the red hot spectrogram in the context of the song?",
+                "2. What does the author intend to visualize using the bent energy ratio curves?",
+                "3. How does the author plan to compare the energy ratio curves?",
+                "4. What two genres of music are being compared in the analysis?",
+                "5. What is the first step mentioned for creating a figure in the visualization process?",
+                "6. What command is used to initiate the creation of a figure?",
+                "7. Why is it important to compare sp energy ratio curves in different music genres?",
+                "8. What does the author mean by \"adding a few blocks\" in the context of the visualization?",
+                "9. What type of plot does the author seem to be working with in the visualization?",
+                "10. What specific curves are being referenced for comparison in the text?"
+            ]
+        },
+        {
+            "id": 88,
+            "text": "music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1358.959",
+            "questions": [
+                "1. What are the two main types of music mentioned in the text?",
+                "2. What is the purpose of adding blocks in the context of the text?",
+                "3. How is the figure size specified in the plotting command?",
+                "4. What command is used to create a figure in the provided text?",
+                "5. What are the dimensions set for the figure size?",
+                "6. What is the first value that needs to be passed for the X axis in the plot?",
+                "7. What does the Y axis represent in the plotting command?",
+                "8. How many parameters are mentioned for the plot command?",
+                "9. What does the abbreviation \"A G ratio\" refer to in the context of the text?",
+                "10. What programming language or library is being referenced in the text?"
+            ]
+        },
+        {
+            "id": 89,
+            "text": "bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1377.01",
+            "questions": [
+                "1. What is the first step mentioned in the process of creating a figure?",
+                "2. What function is used to create a figure in the text?",
+                "3. What figure size is specified in the instructions?",
+                "4. Which function is called to create a plot after the figure?",
+                "5. How many values need to be passed to the plot function according to the text?",
+                "6. What value is assigned to the X axis in the plot?",
+                "7. What does the Y axis represent in the plot?",
+                "8. Why is an optional color mentioned in the context of the plot?",
+                "9. What are the two different curves referenced for identification in the plot?",
+                "10. What is the purpose of the band energy ratio array in this context?"
+            ]
+        },
+        {
+            "id": 90,
+            "text": "size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt. OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK?",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1391.959",
+            "questions": [
+                "1. What dimensions are being set for the plot in the text?",
+                "2. What function is being used to create the plot?",
+                "3. What variable is specified for the X axis in the plot?",
+                "4. What data is used for the Y axis in the plot?",
+                "5. What is the purpose of the optional color parameter in the plot function?",
+                "6. Which two entities are being distinguished by color in the plot?",
+                "7. What placeholder is mentioned in the text for the time variable?",
+                "8. What color is assigned to the BC data in the plot?",
+                "9. Is the variable 't' defined before it is used in the plot function?",
+                "10. What type of data does the band energy ratio array represent?"
+            ]
+        },
+        {
+            "id": 91,
+            "text": "um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt. OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK? So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1413.81",
+            "questions": [
+                "1. What is the purpose of the band energy ratio array mentioned in the text?",
+                "2. How does the optional color help in identifying the two different curves?",
+                "3. What is represented on the Y axis for the BC data?",
+                "4. Why is \"t\" considered a placeholder in the context?",
+                "5. What color is assigned to the BC data in the example?",
+                "6. How does the text suggest treating the red hot chili pepper song data?",
+                "7. What does the term \"relative band to energy ratio\" refer to in this context?",
+                "8. What steps are outlined for creating the curves for the BC and red hot chili pepper data?",
+                "9. Why might it be important to differentiate between the two curves?",
+                "10. What do the terms \"BC\" and \"red hot chili pepper\" signify in this analysis?"
+            ]
+        },
+        {
+            "id": 92,
+            "text": "OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK? So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1426.01",
+            "questions": [
+                "1. What is the first step mentioned in the text regarding the variable 't'?",
+                "2. How is the band energy ratio for the BC represented in the graph?",
+                "3. What color is assigned to the BC in the graph?",
+                "4. What song is referenced alongside the BC in the text?",
+                "5. How is the relative band to energy ratio array described for the red hot chili pepper song?",
+                "6. What color is used to represent the red hot chili pepper song in the graph?",
+                "7. What command is used to display the plot at the end of the process?",
+                "8. What error occurs when the author attempts to execute the code?",
+                "9. Why does the error occur related to the variable 't'?",
+                "10. What action does the author intend to take to define the variable 't'?"
+            ]
+        },
+        {
+            "id": 93,
+            "text": "So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T. So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1446.16",
+            "questions": [
+                "1. What is the purpose of passing the relative band to energy ratio array in the context of the Red Hot Chili Peppers song?",
+                "2. What color is set for the plot in the described process?",
+                "3. What command is used to display the plot after setting it up?",
+                "4. What error occurs when trying to execute the code without defining 'T'?",
+                "5. Why is it necessary to implement a value for 'T' before running the code?",
+                "6. What is the first step mentioned in the process of finding 'T'?",
+                "7. How is 'frames' defined in the context of the code?",
+                "8. What function is used to determine the length of the 'say bear' in the code?",
+                "9. What does the term 'range' refer to in this programming context?",
+                "10. What issue might arise if 'frames' is not correctly defined before executing the plot?"
+            ]
+        },
+        {
+            "id": 94,
+            "text": "uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T. So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1456.52",
+            "questions": [
+                "1. What color is being set in the code snippet?",
+                "2. What error occurs when the code is executed without defining T?",
+                "3. What is the first action the author intends to take to resolve the error?",
+                "4. How is the variable 'frames' defined in the code?",
+                "5. What does the length of the BC band energy ratio array correspond to?",
+                "6. How many arrays are mentioned in relation to the variable 'frames'?",
+                "7. What is the purpose of the 'plot dot show' command in the code?",
+                "8. Which two bands are mentioned in relation to the BC and the red hot chili pepper?",
+                "9. What library is referenced for implementing the variable T?",
+                "10. What is the overall goal of the code being discussed?"
+            ]
+        },
+        {
+            "id": 95,
+            "text": "So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres. And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1484.589",
+            "questions": [
+                "1. What does the term \"frames\" refer to in the context of the text?",
+                "2. How is the length of the BC band energy ratio array determined?",
+                "3. Why is it stated that the length for the BC and the Red Hot Chili Peppers is equal?",
+                "4. What is the significance of the variable \"frames\" in the implementation discussed?",
+                "5. What utility function does Libres provide that is mentioned in the text?",
+                "6. What arguments are required by the Libres utility function \"frames to time\"?",
+                "7. How does the author plan to use the value of the variable \"frames\"?",
+                "8. What is the relationship between frames and time in the context of this implementation?",
+                "9. Why might the author choose to focus on just one length for both BC and Red Hot Chili Peppers?",
+                "10. What steps does the author outline for moving on after defining the frames?"
+            ]
+        },
+        {
+            "id": 96,
+            "text": "the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres. And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1499.38",
+            "questions": [
+                "1. What is the BC band energy ratio uh array used for?",
+                "2. How does the length of the array relate to the BC and the Red Hot Chili Peppers?",
+                "3. What variable is being referred to when mentioning \"frames\"?",
+                "4. What is the purpose of using the Libres utility function mentioned in the text?",
+                "5. What arguments are needed for the Libres function \"frames to time\"?",
+                "6. How is the hop length defined in the context of this discussion?",
+                "7. What is the value of the hop size constant, and why is it considered traditional?",
+                "8. What does the function \"frames to time\" calculate in relation to the frames?",
+                "9. How does the author intend to demonstrate the output of the function?",
+                "10. What challenges might arise when implementing the Libres function in this context?"
+            ]
+        },
+        {
+            "id": 97,
+            "text": "And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So uh here T",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1522.979",
+            "questions": [
+                "1. What is the utility function mentioned in the text?",
+                "2. What arguments are required for the frames function?",
+                "3. What is the constant value specified for hop length?",
+                "4. What is the significance of the hop size value of 512 in this context?",
+                "5. How does the frames function relate to time?",
+                "6. What does the frames function return?",
+                "7. Why is the hop length important in the context of the frames function?",
+                "8. Can you explain how the value of time is determined at each frame?",
+                "9. What might be a traditional use case for the specified hop size?",
+                "10. How does the author demonstrate the functionality of the frames utility?"
+            ]
+        },
+        {
+            "id": 98,
+            "text": "um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So uh here T is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1540.569",
+            "questions": [
+                "1. What constant is used to specify the hop length in the text?",
+                "2. What is the value of the hop size mentioned in the text?",
+                "3. How many frames are represented in the array T?",
+                "4. What does the array T represent in the context of the text?",
+                "5. How is the value of time at each frame determined according to the text?",
+                "6. What two songs are mentioned in relation to plotting the band energy ratio?",
+                "7. What process is described for converting values in the context of the frames?",
+                "8. Why is the hop length important in the analysis discussed in the text?",
+                "9. What does the term \"band energy ratio\" refer to in this context?",
+                "10. What is the significance of the number 1292 in the text?"
+            ]
+        },
+        {
+            "id": 99,
+            "text": "uh here T is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs. So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1568.17",
+            "questions": [
+                "1. What is the length of the array T?",
+                "2. How many frames are represented in the array T?",
+                "3. What is being converted in relation to the frames in T?",
+                "4. What does the band energy ratio represent in the context of the two songs?",
+                "5. Which color represents the band energy ratio for the BC piece?",
+                "6. Which color represents the band energy ratio for the Red Hot Chili Peppers song?",
+                "7. How does the band energy ratio of the BC piece compare to that of the Red Hot Chili Peppers?",
+                "8. Is the band energy ratio generally higher for classical music compared to other genres?",
+                "9. What is the significance of the hop length mentioned in the text?",
+                "10. What can be inferred from the stark difference in band energy ratios between the two songs?"
+            ]
+        },
+        {
+            "id": 100,
+            "text": "is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs. So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1570.88",
+            "questions": [
+                "1. What is the length of the array T mentioned in the text?  ",
+                "2. How is the relative time calculated for each frame in the context of the energy ratio analysis?  ",
+                "3. What are the colors representing the band energy ratios for the two songs in the plot?  ",
+                "4. Which song has a higher band energy ratio, the BC piece or the Red Hot Chili Peppers song?  ",
+                "5. What is the typical trend observed when comparing classical music with rock music regarding energy ratios?  ",
+                "6. In classical music, where is most of the energy concentrated in the spectrum?  ",
+                "7. How does the energy distribution in rock music differ from that in classical music?  ",
+                "8. What types of sounds in rock music contribute to the energy in the higher end of the spectrum?  ",
+                "9. Why might rock music have a more balanced distribution of energy compared to classical music?  ",
+                "10. What implications can be drawn from the differences in energy ratios between classical and rock music?"
+            ]
+        },
+        {
+            "id": 101,
+            "text": "So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music. OK. So uh by now, you should be able to have, well, you should have like a very deep understanding of band energy ratio, how to calculate it from scratch with Python. And you probably also have an idea of how bent energy ratio like works in different genres, which is great. So that's all really for today. So next time we'll be uh looking into the remaining two frequency to all your features and how to like implement,",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1598.81",
+            "questions": [
+                "1. What does the band energy ratio indicate in music analysis?",
+                "2. How does the band energy ratio for the BC piece compare to that of the Red Hot Chili Peppers?",
+                "3. Why is the band energy ratio typically higher in classical music compared to rock music?",
+                "4. What characteristics of classical music contribute to its lower energy concentration?",
+                "5. How does the distribution of energy in rock music differ from that in classical music?",
+                "6. What role do noisy sounds, such as snares, play in the energy distribution of rock music?",
+                "7. What programming language is mentioned for calculating band energy ratio from scratch?",
+                "8. What should students have a deep understanding of by the end of the session?",
+                "9. What will the next session focus on regarding frequency features?",
+                "10. Why is it important to compare energy ratios across different music genres?"
+            ]
+        },
+        {
+            "id": 102,
+            "text": "with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music. OK. So uh by now, you should be able to have, well, you should have like a very deep understanding of band energy ratio, how to calculate it from scratch with Python. And you probably also have an idea of how bent energy ratio like works in different genres, which is great. So that's all really for today. So next time we'll be uh looking into the remaining two frequency to all your features and how to like implement, but we won't implement them from scratch, but rather we'll be using uh Li Breza for uh implementing them. So if you've enjoyed the video, please leave a like if you haven't subscribed and want more content like this, please uh subscribe to the channel and I guess I'll see you next time. Cheers.",
+            "video": "Implementing Band Energy Ratio in Python from Scratch",
+            "start_time": "1625.27",
+            "questions": [
+                "1. What is the primary focus of energy distribution in classical music compared to rock music?",
+                "2. How does the presence of noisy sounds in rock music affect its energy distribution?",
+                "3. What is the significance of the term \"band energy ratio\" in music analysis?",
+                "4. How can one calculate the band energy ratio using Python?",
+                "5. What insights can be gained about band energy ratio across different music genres?",
+                "6. What are the remaining two frequency features mentioned for future discussion?",
+                "7. What tool will be used for implementing the remaining frequency features instead of doing it from scratch?",
+                "8. What action does the speaker encourage viewers to take if they enjoyed the video?",
+                "9. What does the speaker suggest viewers do if they want more content like the one presented?",
+                "10. What is the overall topic of the video discussed in the text?"
+            ]
+        }
+    ]
+}

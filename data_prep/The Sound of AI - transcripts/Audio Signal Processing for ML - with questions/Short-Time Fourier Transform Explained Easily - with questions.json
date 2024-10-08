@@ -1,0 +1,1624 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we extracted the discrete fourier transform with Python and li browser from a bunch of audio files. This time we are back to theory specifically, we'll be addressing a key topic in A I audio, the short time fourier transform. So why is the short time four so important? Well, that's because it enables us to extract spectrograms and spectrograms are really the probably the most important feature that you can feed to deep learning audio models. But before we get into the in and out of the of the short time period transform, I want to remind you once again about the sound of the Eye Slack community on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "0.23",
+            "questions": [
+                "1. What is the main topic of the video in the audio signal processing for machine learning series?  ",
+                "2. What did the previous video cover regarding audio files?  ",
+                "3. Why is the short time Fourier transform considered a key topic in AI audio?  ",
+                "4. How does the short time Fourier transform help in extracting spectrograms?  ",
+                "5. Why are spectrograms important for deep learning audio models?  ",
+                "6. What will be discussed in the video regarding the short time Fourier transform?  ",
+                "7. What is the purpose of the Sound of the Eye Slack community?  ",
+                "8. What types of interests can people find in the Sound of the Eye Slack community?  ",
+                "9. How can members of the Slack community benefit from joining?  ",
+                "10. Where can viewers find the sign-up link for the Sound of the Eye Slack community?  "
+            ]
+        },
+        {
+            "id": 1,
+            "text": "so important? Well, that's because it enables us to extract spectrograms and spectrograms are really the probably the most important feature that you can feed to deep learning audio models. But before we get into the in and out of the of the short time period transform, I want to remind you once again about the sound of the Eye Slack community on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "26.2",
+            "questions": [
+                "1. Why are spectrograms considered the most important feature for deep learning audio models?",
+                "2. What is the significance of the short time period transform in audio analysis?",
+                "3. How can the Eye Slack community benefit individuals interested in AI music and audio?",
+                "4. What types of projects can members of the Eye Slack community share or seek feedback on?",
+                "5. Where can one find the sign-up link for the Eye Slack community mentioned in the text?",
+                "6. What is the discrete Fourier transform (DFT) and why is it important in audio processing?",
+                "7. Is there a detailed explanation of the discrete Fourier transform available, and where can it be found?",
+                "8. What topics related to audio digital signal processing are discussed within the Eye Slack community?",
+                "9. How does participating in the Eye Slack community facilitate networking among members?",
+                "10. What type of content can one expect in the video mentioned about the discrete Fourier transform?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "52.36",
+            "questions": [
+                "1. What types of interests can you find in the community mentioned in the text?",
+                "2. How can members of the community engage with each other?",
+                "3. What is the purpose of the sign-up link provided in the description?",
+                "4. What mathematical concept is introduced before discussing the SDFT?",
+                "5. What is the discrete Fourier transform (DFT) used for in signal processing?",
+                "6. Why does the speaker choose not to go into detail about the discrete Fourier transform in this segment?",
+                "7. What does the speaker suggest viewers check out for more information on the discrete Fourier transform?",
+                "8. What is the starting point of the process described in relation to the signal?",
+                "9. What is the output of applying the discrete Fourier transform to a time-domain signal?",
+                "10. How does the output of the discrete transform help in analyzing the original signal?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal. And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "76.595",
+            "questions": [
+                "1. What is the main topic being discussed before the introduction of the SDFT?  ",
+                "2. What does SDFT stand for?  ",
+                "3. What is the discrete Fourier transform used for in signal processing?  ",
+                "4. Why does the speaker mention having a separate video on the discrete Fourier transform?  ",
+                "5. What is the significance of starting with a signal in the time domain?  ",
+                "6. How does the discrete transform affect the original signal?  ",
+                "7. What type of output is typically generated after applying the discrete transform to a signal?  ",
+                "8. What is meant by a \"magnitude spectrum\"?  ",
+                "9. Why is the magnitude spectrum described as a \"still image\"?  ",
+                "10. What information does the magnitude spectrum provide about the frequency components of the original signal?  "
+            ]
+        },
+        {
+            "id": 4,
+            "text": "what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal. And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal. And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "101.029",
+            "questions": [
+                "1. What is the significance of understanding the high-level intuition in signal processing?",
+                "2. How does the discrete transform affect a signal in the time domain?",
+                "3. What does the resulting magnitude spectrum represent?",
+                "4. Why is the magnitude spectrum described as a \"still image\"?",
+                "5. What limitations arise from having a still image of the frequency components?",
+                "6. How does averaging the frequency components across the whole duration of the signal present a problem?",
+                "7. What information is lost when we average the presence of frequency components over time?",
+                "8. Why is it important to know when specific frequency components are present in the signal?",
+                "9. How does the evolution of frequency components relate to the analysis of audio data?",
+                "10. What are potential methods to overcome the limitations presented by the still image of the magnitude spectrum?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal. And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "123.87",
+            "questions": [
+                "1. What is the main limitation of using a magnitude spectrum as described in the text?",
+                "2. How does the text describe a magnitude spectrum in relation to audio signals?",
+                "3. Why is it important to understand the evolution of frequency components over time in audio data?",
+                "4. What problem arises from averaging frequency components across the entire duration of a signal?",
+                "5. What does the term \"short time Fourier transform\" refer to in the context of the text?",
+                "6. How does the short time Fourier transform aim to improve the analysis of audio signals compared to a still image?",
+                "7. In what way does the text compare a magnitude spectrum to a video?",
+                "8. What does the author imply about the nature of audio data?",
+                "9. Why is it insufficient to know only which frequency components are present in a signal?",
+                "10. What is the significance of transitioning from a still image to a dynamic representation in audio analysis?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "146.889",
+            "questions": [
+                "1. What is the main problem identified in the text regarding frequency components in a signal?",
+                "2. Why is it important to know how frequency components evolve over time in audio data?",
+                "3. What is the purpose of the short time Fourier transform mentioned in the text?",
+                "4. How does the short time Fourier transform differ from a standard Fourier transform?",
+                "5. What are the small segments of the signal referred to as in the context of the short time Fourier transform?",
+                "6. What type of transform is applied to each frame in the short time Fourier transform?",
+                "7. Why might averaging frequency components across the entire duration of a signal be problematic?",
+                "8. How does visualizing the audio signal help in understanding the concepts discussed?",
+                "9. What does the transition from a still image to a video represent in terms of audio analysis?",
+                "10. In what way is audio data described as being \"dynamic\" in the text?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this. Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "176.425",
+            "questions": [
+                "1. What is the main focus of the short time Fourier transform in analyzing audio data?",
+                "2. How does the short time Fourier transform differ from a traditional Fourier transform?",
+                "3. What is the significance of using frames or segments when applying the short time Fourier transform?",
+                "4. Can you explain what is meant by \"dynamic\" audio data in the context of this text?",
+                "5. How do frequency components in audio signals change over time, and why is this important?",
+                "6. What is the process of applying a discrete Fourier transform to a frame of audio data?",
+                "7. How does visualizing the transformation from a still image to a video relate to the analysis of audio signals?",
+                "8. What is meant by the \"magnitude spectrum\" in the context of the discrete Fourier transform?",
+                "9. Why is it necessary to slide to the next frame after analyzing the first frame in the short time Fourier transform?",
+                "10. How does the concept of frames enhance our understanding of audio signal processing?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this. Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "206.649",
+            "questions": [
+                "1. What is the main purpose of applying the Fourier transform to a signal?",
+                "2. How do we define the small segments of the signal that are used for analysis?",
+                "3. What is the process called when we apply the discrete Fourier transform to each frame?",
+                "4. Why might the concept of applying the Fourier transform to small segments seem abstract?",
+                "5. How does the visualization of the process begin with an audio signal?",
+                "6. What happens to the samples belonging to a specific frame when the discrete Fourier transform is applied?",
+                "7. What is the significance of sliding to the next frame after processing the current one?",
+                "8. How does windowing contribute to the derivation of segments in a signal?",
+                "9. Can you explain what a window function does in the context of signal processing?",
+                "10. What information is obtained after applying the discrete Fourier transform to each frame of the signal?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "231.979",
+            "questions": [
+                "1. What is the first step in processing the signal mentioned in the text?",
+                "2. What transformation is applied to each frame of the signal?",
+                "3. How do we obtain the magnitude spectrum from the frames?",
+                "4. What technique is used to derive segments of the signal?",
+                "5. What does applying a window function to a signal involve?",
+                "6. How is the original signal modified when a window function is applied?",
+                "7. What type of windowing function is mentioned in the example?",
+                "8. Why might the process described feel abstract to some readers?",
+                "9. What is the significance of sliding from one frame to the next in this process?",
+                "10. How does windowing affect the analysis of an audio signal?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "252.529",
+            "questions": [
+                "1. What is the purpose of the discrete Fourier transform in relation to signal processing?",
+                "2. How does windowing help in deriving segments of a signal?",
+                "3. What does it mean to apply a window function to a signal?",
+                "4. Can you explain the process of creating a windowed signal from the original signal?",
+                "5. What type of window function is used in the provided example?",
+                "6. How does the rectangle window function look graphically?",
+                "7. What is the value of the rectangle window function outside its defined segment?",
+                "8. What is the relationship between the original signal and the windowed signal after applying the rectangle window?",
+                "9. Why might windowing be considered an abstract concept in signal processing?",
+                "10. What are some potential applications of windowing in audio signal processing?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now, uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "273.079",
+            "questions": [
+                "1. What is the purpose of applying a window function to a signal?",
+                "2. How does the rectangle window function differ from other types of window functions?",
+                "3. What does the red curve represent in the context of the rectangle window function?",
+                "4. In what way is the rectangle window function defined in relation to its values?",
+                "5. What is the result of multiplying an audio signal by a rectangle window function?",
+                "6. What are the two important parameters introduced in the discussion of windowing?",
+                "7. How are window size and frame size measured, and what do they refer to?",
+                "8. What does the term \"window size\" specifically refer to in the context of windowing?",
+                "9. Why might the distinction between window size and frame size be important in signal processing?",
+                "10. Can you describe a scenario where applying a window function would be necessary in audio processing?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now, uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "293.97",
+            "questions": [
+                "1. What shape does the rectangle window function resemble?",
+                "2. Where is the rectangle window function equal to one?",
+                "3. What is the effect of multiplying the signal with the rectangle window?",
+                "4. What are the two important parameters introduced in the text?",
+                "5. How is the window size defined in relation to the number of samples?",
+                "6. What does the frame size refer to in the context of the signal?",
+                "7. How do window size and frame size differ from each other?",
+                "8. What is the purpose of segmenting the signal before applying the short time Fourier transform?",
+                "9. How is the short time Fourier transform related to the frame size?",
+                "10. Why is it important to understand window and frame sizes in signal processing?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK. Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "320.399",
+            "questions": [
+                "1. What are the two important parameters mentioned in the discussion?",
+                "2. How are window size and frame size measured?",
+                "3. What does the window size refer to in the context of signal processing?",
+                "4. How is frame size defined according to the text?",
+                "5. What is the purpose of applying windowing to the frame size?",
+                "6. How do window size and frame size typically relate to each other in most applications?",
+                "7. In what scenario might the frame size be larger than the window size?",
+                "8. Why is it considered unusual for the frame size to be larger than the window size?",
+                "9. What is the significance of segmenting the signal before applying the short time Fourier transform?",
+                "10. What is the short time Fourier transform used for in this context?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK. Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications, the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right?",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "346.679",
+            "questions": [
+                "1. What is the relationship between frame size and window size in signal processing?",
+                "2. How does the number of samples in each chunk of the signal affect the short-time Fourier transform?",
+                "3. What is the typical scenario regarding the values of window size and frame size?",
+                "4. In what circumstances might the frame size be larger than the window size?",
+                "5. Why is it considered unusual for the frame size to exceed the window size?",
+                "6. How do the window size and frame size typically correlate in most applications?",
+                "7. What default value is used for the window size in Libres when extracting the short-time Fourier transform?",
+                "8. Why might users not be forced to specify the window size in Libres?",
+                "9. How does segmenting a signal relate to the calculation of the Fourier transform?",
+                "10. What implications does the relationship between frame size and window size have for signal processing applications?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications, the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right? OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right?",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "369.75",
+            "questions": [
+                "1. What is typically the relationship between window size and frame size in most applications?",
+                "2. Under what circumstances can frame size be larger than window size?",
+                "3. Why is it considered unusual for frame size to be larger than window size?",
+                "4. What is the default value for window size in Libres when extracting shorts and transforming?",
+                "5. Are users required to specify the window size when using Libres for extraction and transformation?",
+                "6. What occurs when the window size is smaller than the frame size during Fourier transform?",
+                "7. How does windowing operate when the window size is less than the frame size?",
+                "8. What is the significance of applying the Fourier transform to the whole frame?",
+                "9. Can you explain the process of windowing in the context of sample sizes?",
+                "10. What implications does a smaller window size have on the data processing in applications?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right? OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right? And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "391.255",
+            "questions": [
+                "1. What is the relationship between window size and frame size in the context of the text?",
+                "2. Why is it mentioned that the default value for the window size is the frame size?",
+                "3. What occurs when the window size is smaller than the frame size?",
+                "4. How is the Fourier transform applied when the window size is less than the frame size?",
+                "5. What is meant by \"windowing\" in the context of signal processing?",
+                "6. What happens to the samples that exceed the window size when windowing is applied?",
+                "7. What does zero padding refer to in this context?",
+                "8. Why does the text assume that the window size is equal to the frame size for the sake of the video?",
+                "9. Can you explain the significance of using the whole frame for the Fourier transform?",
+                "10. In which scenario might one choose to have a window size smaller than the frame size?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right? And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens, what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "413.14",
+            "questions": [
+                "1. What happens if the window size is smaller than the frame size?",
+                "2. How is the Fourier transform applied in relation to the frame size and window size?",
+                "3. What is the purpose of applying a window function to the samples?",
+                "4. How are the remaining samples treated when the window size is smaller than the frame size?",
+                "5. What does zero padding involve in the context of windowing and frame processing?",
+                "6. What assumption is made for the sake of the video regarding window size and frame size?",
+                "7. What does it mean for the window size to be equal to the frame size?",
+                "8. What is the significance of applying the window function before the Fourier transform?",
+                "9. What is the outcome of applying the discrete Fourier transform to a windowed frame?",
+                "10. What are frequency components, and why are they important in this context?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens, what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame, then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "433.63",
+            "questions": [
+                "1. What is the purpose of applying the window function to the samples?",
+                "2. How are the remaining samples treated when the frame size and window size differ?",
+                "3. What assumption is made for the sake of the video regarding window size and frame size?",
+                "4. What does the process look like when the window size is equal to the frame size?",
+                "5. What transformation is applied after the window function is used?",
+                "6. What is the outcome of applying the discrete Fourier transform to a frame?",
+                "7. How does the process continue after the first frame is transformed?",
+                "8. What happens when moving to the second frame in the processing sequence?",
+                "9. How does the procedure repeat as more frames are processed?",
+                "10. What does the final outcome represent in this simplified version of the process?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame, then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "457.67",
+            "questions": [
+                "1. What is the purpose of applying a window function to a frame in the given process?",
+                "2. How does the discrete Fourier transform help in analyzing a signal?",
+                "3. What happens to the signal after the first frame is processed?",
+                "4. Why are the frames described as overlapping in the short time period transform?",
+                "5. What does the term \"H size\" or capital H refer to in this context?",
+                "6. How does sliding to the right affect the extraction of frequency components?",
+                "7. What is the significance of moving through multiple frames in signal processing?",
+                "8. Can you explain the difference between a single frame analysis and a short time period transform?",
+                "9. How many frames are typically analyzed in a short time period transform?",
+                "10. What visual representation is used to describe the parameter H size?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "482.35",
+            "questions": [
+                "1. What is the purpose of sliding to the right in the described process?",
+                "2. How does the discrete Fourier transform relate to the sliding frames?",
+                "3. What is meant by the term \"frame\" in the context of this text?",
+                "4. How does overlapping occur between the frames mentioned in the text?",
+                "5. What is the significance of the parameter H size or capital H?",
+                "6. How does H size affect the number of samples when sliding to the right?",
+                "7. Why is this method considered a simplified version of the short time period transform?",
+                "8. What happens when the end of the signal is reached in this process?",
+                "9. Can you explain the visual representation of the H size parameter?",
+                "10. What implications does the overlapping of frames have on the analysis of the signal?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "505.225",
+            "questions": [
+                "1. What is the significance of overlapping frames in a short time period transformation?",
+                "2. How does the second frame relate to the first frame in this context?",
+                "3. What does the parameter H size (or capital H) represent in this framework?",
+                "4. How is the H size determined visually?",
+                "5. What does the H size indicate regarding the sliding of samples?",
+                "6. Why is the hub sound considered important in relation to overlapping frames?",
+                "7. What additional topics can be learned from the video on audio feature extraction pipelines?",
+                "8. What is spectral leakage, and why is it relevant to the discussion?",
+                "9. Why is the speaker choosing not to delve into the details of the topics mentioned?",
+                "10. How do overlapping frames contribute to audio feature extraction?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK. Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "528.979",
+            "questions": [
+                "1. What does the text explain about sliding samples to the right when taking a new frame?",
+                "2. Why is the hub sound considered important in the context of overlapping frames?",
+                "3. Where can one find more information about audio feature extraction pipelines?",
+                "4. What topics are covered in the video on audio feature extraction pipelines mentioned in the text?",
+                "5. What is spectral leakage, and why is it relevant to the discussion?",
+                "6. What does the text mean by moving from visual intuition to mathematical formulation?",
+                "7. What is being compared in the discussion of the digital Fourier transform and the short-time Fourier transform?",
+                "8. What are the mathematical formulations for the digital Fourier transform and the short-time Fourier transform?",
+                "9. Why does the author choose not to go into detail about the topics already covered in the video?",
+                "10. What is the significance of understanding both the visual and mathematical aspects of the short-time Fourier transform?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK. Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here. OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "544.409",
+            "questions": [
+                "1. What is the significance of overlapping frames in the context of audio feature extraction?",
+                "2. Where can viewers find additional information about audio feature extraction pipelines?",
+                "3. What topics related to audio processing are mentioned in the video referenced?",
+                "4. Why is the speaker not going into details about spectral leakage?",
+                "5. What is the short-term Fourier transform, and how is it visually understood?",
+                "6. What is the mathematical formulation of the discrete Fourier transform according to the text?",
+                "7. How does the mathematical formulation of the short-time Fourier transform compare to that of the discrete Fourier transform?",
+                "8. What does the variable K represent in the context of the discrete Fourier transform?",
+                "9. What is the relationship between the output of the discrete Fourier transform and its definition?",
+                "10. What approach does the speaker suggest for understanding the mappings between the two Fourier transform formulations?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here. OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency. And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "571.294",
+            "questions": [
+                "1. What is the main focus of the text regarding the Fourier transform?",
+                "2. How does the author describe the transition from visual intuition to mathematical formulation?",
+                "3. What are the two types of Fourier transforms being compared in the text?",
+                "4. What does the formula at the top represent in the context of the discrete Fourier transform?",
+                "5. What is denoted by the variable K in the discrete Fourier transform?",
+                "6. How does the discrete Fourier transform relate to frequency according to the text?",
+                "7. What output is produced by the discrete Fourier transform?",
+                "8. What does the term \"complex Fourier coefficient\" refer to in this context?",
+                "9. How does the short time Fourier transform differ from the discrete Fourier transform?",
+                "10. Why is it important to compare the mathematical formulations of these two types of Fourier transforms?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency. And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "598.39",
+            "questions": [
+                "1. What is the output of the discrete Fourier transform represented as?",
+                "2. How does the discrete Fourier transform relate to frequency?",
+                "3. What does the variable K represent in the context of the discrete Fourier transform?",
+                "4. What type of information does the complex Fourier coefficient provide?",
+                "5. What are the two parameters that the complex Fourier coefficient conveys?",
+                "6. Why might someone want to understand the concepts of phase and magnitude in the Fourier transform?",
+                "7. What resource is suggested for a better understanding of phase and magnitude in the Fourier transform?",
+                "8. What does the phrase \"item by item\" imply about the approach being taken in the discussion?",
+                "9. How does the discrete Fourier transform differ from other types of transforms?",
+                "10. What is the significance of understanding the relationship between frequency and the Fourier transform?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that. OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "620.25",
+            "questions": [
+                "1. What does the discrete Fourier transform depend on?",
+                "2. What information do complex Fourier coefficients provide?",
+                "3. What are the two parameters associated with the complex Fourier coefficient?",
+                "4. Where can one find more information about phase and magnitude in relation to the Fourier transform?",
+                "5. What is the distinction between the discrete Fourier transform and the short-time Fourier transform?",
+                "6. What does the symbol 'M' represent in the context of the short-time Fourier transform?",
+                "7. How does the short-time Fourier transform differ from the discrete Fourier transform in terms of its dependencies?",
+                "8. Why is it important to understand both phase and magnitude when studying the Fourier transform?",
+                "9. What might one expect to learn from the suggested video about the Fourier transform?",
+                "10. How does the short-time Fourier transform incorporate the concept of time?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that. OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time. So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "638.039",
+            "questions": [
+                "1. What information does the complex Fourier coefficient provide about the parameters of phase and magnitude?",
+                "2. Why is it suggested to check out a video on the Fourier transform for a better understanding of phase and magnitude?",
+                "3. What is the focus of the discussion when transitioning from the discrete period transform to the short time period transform?",
+                "4. In the context of the short time period transform, what does the variable \"M\" represent?",
+                "5. How does the short time period transform differ from the discrete period transform in terms of its dependencies?",
+                "6. What role does frequency play in the short time period transform?",
+                "7. How is the concept of time represented in the short time period transform?",
+                "8. What does the term \"frame number\" refer to in the context of the short time period transform?",
+                "9. How can visualizing the original signal and its different frames aid in understanding the short time period transform?",
+                "10. What is the significance of understanding both frequency and time in the analysis of signals using the short time period transform?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time. So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "663.679",
+            "questions": [
+                "1. What is the main focus of the text regarding transforms?",
+                "2. How does the short time period transform differ from the discrete period transform?",
+                "3. What does the variable M represent in the context of the short time period transform?",
+                "4. Why is M considered a proxy for time in the short time period transform?",
+                "5. In the context of the short time period transform, how is the concept of \"frames\" explained?",
+                "6. What does the text imply about the relationship between frequency and time in the short time period transform?",
+                "7. How does the value of M change as we progress through different frames?",
+                "8. What is the significance of the first frame being labeled as M equal to one?",
+                "9. What type of output does the short time period transform produce, according to the text?",
+                "10. How does the visualization of frames help in understanding the short time period transform?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "689.469",
+            "questions": [
+                "1. What does the term \"frame number\" refer to in the context of the text?",
+                "2. How is the frame number represented in the examples given?",
+                "3. What is the significance of the variable M in the discussion of frames?",
+                "4. What does the short time period transform provide in relation to the Fourier coefficient?",
+                "5. What does the Fourier coefficient represent at a specific frequency and temporal bin?",
+                "6. How is the Fourier coefficient described in terms of its mathematical properties?",
+                "7. What types of information does the Fourier coefficient contain?",
+                "8. Why is it important to visualize the frames when discussing the original signal?",
+                "9. In the text, what does the author imply by \"you get the idea\"?",
+                "10. How does the concept of phase and magnitude relate to the Fourier coefficient mentioned in the text?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on. So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "714.14",
+            "questions": [
+                "1. What does M represent in the context of the frames discussed in the text?  ",
+                "2. How does the value of M change from the first frame to the second frame?  ",
+                "3. What is the significance of the Fourier coefficient in relation to the short time period transform?  ",
+                "4. What kind of information do the Fourier coefficients provide?  ",
+                "5. How is the Fourier coefficient described in terms of its mathematical properties?  ",
+                "6. What does the term \"temporal bin\" refer to in the context of the frames and Fourier coefficients?  ",
+                "7. How is the concept of summation utilized in the context of the Discrete Fourier Transform (DFT)?  ",
+                "8. What does it mean to sum \"across all the samples\" in relation to the signal duration?  ",
+                "9. How does the text suggest the relationship between M and the frame number?  ",
+                "10. Why is it important to compare the two sums mentioned in the context of the DFT?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on. So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal. And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "736.692",
+            "questions": [
+                "1. What does the coefficient for the KF frequency represent at the N temporal bin or M frame?  ",
+                "2. How is the Fourier coefficient described in terms of its components?  ",
+                "3. What is the relationship between the sums in the DFT and STFT?  ",
+                "4. What does summing across all samples in the DFT indicate about the signal?  ",
+                "5. How does the summing process in the STFT differ from that in the DFT?  ",
+                "6. What role does capital N play in the discrete Fourier transform?  ",
+                "7. What is the significance of phase and magnitude in the context of Fourier coefficients?  ",
+                "8. Can you explain the concept of sampling across time in the context of the STFT?  ",
+                "9. How does the discrete domain affect the summing of samples in signal analysis?  ",
+                "10. Why is it important to understand the differences between the DFT and STFT?  "
+            ]
+        },
+        {
+            "id": 32,
+            "text": "So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal. And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "759.245",
+            "questions": [
+                "1. What does DFT stand for, and what is its significance in the context of this discussion?",
+                "2. How does the summation process differ between the DFT and STFT?",
+                "3. What is meant by \"summing across all the samples\" in the context of DFT?",
+                "4. In the STFT, what is the role of frame size in the summation process?",
+                "5. How is capital N defined in the context of the discrete Fourier transform?",
+                "6. Why is the summation in the STFT limited to a single frame rather than the entire signal?",
+                "7. What are the implications of using a frame size in the STFT?",
+                "8. How does the discrete domain affect the summation of samples in both DFT and STFT?",
+                "9. Can you explain the concept of a frame in the context of the short time Fourier transform?",
+                "10. What are the key differences between considering all samples in a signal versus just one frame?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition, right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "782.059",
+            "questions": [
+                "1. What does STFT stand for, and how is it related to the discrete Fourier transform?",
+                "2. How does the summation process differ between the discrete Fourier transform and the short-time Fourier transform?",
+                "3. What does capital N represent in the context of the discrete Fourier transform?",
+                "4. How is the value of capital N defined in the short-time Fourier transform?",
+                "5. Why is only one frame considered in the short-time Fourier transform?",
+                "6. How many samples are included in one frame of the short-time Fourier transform?",
+                "7. What is the significance of the frame size in the short-time Fourier transform?",
+                "8. How does the concept of frames contribute to the understanding of the short-time Fourier transform?",
+                "9. Why is it important to analyze the signal when discussing the short-time Fourier transform?",
+                "10. What is the role of the signal itself in the formulas for the short-time Fourier transform?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition, right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "806.169",
+            "questions": [
+                "1. What does N represent in the context of the signal?",
+                "2. How does the frame size relate to the short time period transform?",
+                "3. Why do we only consider one frame in the short time Fourier transform (STFT)?",
+                "4. What is the definition of frame size in relation to samples?",
+                "5. How does the STFT differ from the discrete Fourier transform (DFT) in terms of the signal considered?",
+                "6. What is the significance of analyzing the signal in the top formula?",
+                "7. What are the implications of using a single frame in the STFT?",
+                "8. How does the number of samples in a frame impact the STFT analysis?",
+                "9. In what way is the short time Fourier transform useful for analyzing signals?",
+                "10. What are the key elements involved in the formulas discussed in the text?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "830.479",
+            "questions": [
+                "1. What does STFT stand for and how does it relate to the analysis of signals?",
+                "2. What is the significance of the signal in the context of the discussed formulas?",
+                "3. How does the Discrete Fourier Transform (DFT) differ from the Short-Time Fourier Transform (STFT)?",
+                "4. What does the term \"current frame\" refer to in the context of STFT?",
+                "5. Why are only the samples present in the current frame considered in the STFT?",
+                "6. What role does the variable 'M' play in determining the starting sample of the current frame?",
+                "7. How does the STFT allow for the analysis of signal changes over time?",
+                "8. What might be the implications of analyzing only a portion of the signal in the STFT?",
+                "9. Can you explain the relationship between the current frame and the overall signal in STFT analysis?",
+                "10. In what scenarios would the use of STFT be preferred over DFT?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "849.674",
+            "questions": [
+                "1. What is the difference between the disc Fourier transform X of N and the short time Fourier transform?",
+                "2. How does the short time Fourier transform focus on the current frame of the signal?",
+                "3. What does the variable M represent in the context of the current frame?",
+                "4. How is the starting sample of the current frame determined in the short time Fourier transform?",
+                "5. What role does the variable H play in the calculation of the current frame?",
+                "6. How does the variable N relate to the short time Fourier transform?",
+                "7. Why is it important to consider only the samples present in the current frame?",
+                "8. What does multiplying M by capital H indicate in terms of the signal processing?",
+                "9. How does the range of N (from zero to frame size minus one) affect the analysis of the frame?",
+                "10. In what scenarios would one prefer to use the short time Fourier transform over the standard Fourier transform?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK. Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "869.179",
+            "questions": [
+                "1. What does \"current frame\" refer to in this context?  ",
+                "2. How is the starting sample of the current frame determined?  ",
+                "3. What is represented by the variable M in the discussion?  ",
+                "4. How does capital H relate to the size of the frame?  ",
+                "5. What does the variable N signify in relation to the frame size?  ",
+                "6. How does the value of N change within the context of the current frame?  ",
+                "7. Why is it important to consider all samples present in the current M frame?  ",
+                "8. Can you explain how the multiplication of M and capital H impacts the starting sample?  ",
+                "9. How can we visualize the samples in the current frame?  ",
+                "10. What does the vertical line to the left of the rectangle represent in the signal visualization?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK. Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK. So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "893.815",
+            "questions": [
+                "1. What does \"M\" represent in the context of the current frame?",
+                "2. How is \"H\" defined in relation to the frame size?",
+                "3. What does multiplying \"N\" by the frame size represent in the analysis of samples?",
+                "4. How does the variable \"N\" function within the range of sample indices?",
+                "5. What visual representation is used to illustrate the signal for one frame?",
+                "6. What does the vertical line on the left of the rectangle signify in the visualization?",
+                "7. How is the starting sample of the frame calculated?",
+                "8. What is the purpose of multiplying the signal by the windowing function?",
+                "9. What is the significance of using the short time Fourier transform in this context?",
+                "10. How does the windowing function affect the analysis of the signal within a frame?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK. So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "918.82",
+            "questions": [
+                "1. What does the rectangle represent in the visualization of the signal?",
+                "2. How is the starting sample of the frame determined?",
+                "3. What is the formula used to calculate the starting sample of the frame?",
+                "4. What is the next step in the process after identifying the frame in the short time Fourier transform?",
+                "5. What role does the windowing function play in the visualization of the signal?",
+                "6. How is the original signal modified when applying the windowing function?",
+                "7. What is meant by the term \"windowed signal\"?",
+                "8. Why is it important to visualize the signal for one frame?",
+                "9. Can you explain the relationship between the signal and the windowing function?",
+                "10. What are the implications of using the short time Fourier transform in signal processing?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame, OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "947.71",
+            "questions": [
+                "1. What is the next step in the process of the short time Fourier transform?",
+                "2. How do we apply the windowing function to the signal?",
+                "3. What does the representation of the signal and windowing function look like for one frame?",
+                "4. What is the result of multiplying the original signal by the windowing function?",
+                "5. How does the windowed signal relate to the original signal for a specific frame?",
+                "6. What is the last step in the process for both the discrete Fourier transform and the short time Fourier transform?",
+                "7. What does the frequency of the pure tone depend on in the final step?",
+                "8. What notation is used to represent the frequency of the pure tone in the last step?",
+                "9. Why is windowing important in the context of the short time Fourier transform?",
+                "10. Can you explain how the short time Fourier transform differs from the discrete Fourier transform?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame, OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N. So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "973.239",
+            "questions": [
+                "1. What is the purpose of multiplying the original signal by the windowing function?",
+                "2. What is obtained after applying the windowing function to a specific frame of the signal?",
+                "3. What is the last step mentioned for both the discrete Fourier transform and the short-term Fourier transform?",
+                "4. How is the frequency of the pure tone determined in the last step?",
+                "5. What does the multiplication by the pure tone accomplish in the context of signal processing?",
+                "6. What does the term \"decomposing\" refer to in this context?",
+                "7. How does the projection of the signal onto the pure tone relate to its frequency?",
+                "8. What does \"K divided by capital N\" signify in the process described?",
+                "9. Is there any difference in the last step for the discrete Fourier transform and the short-term Fourier transform?",
+                "10. Can you explain the significance of windowing in signal processing?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N. So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N. OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "992.849",
+            "questions": [
+                "1. What is the last step common to both the discrete Fourier transform and the short-term Fourier transform?",
+                "2. How is the frequency for the pure tone determined in the last step?",
+                "3. What does multiplying by the pure tone achieve in the context of signal processing?",
+                "4. How does the process of decomposing a signal relate to the Fourier transforms mentioned?",
+                "5. What is the significance of the variables K and capital N in this context?",
+                "6. What comparisons can be made between the math of the discrete Fourier transform and the short-term Fourier transform?",
+                "7. What outputs can be expected from the application of the discrete Fourier transform?",
+                "8. What outputs can be expected from the application of the short-term Fourier transform?",
+                "9. Why might someone be interested in the outputs of the AD FT and AN STFT?",
+                "10. What implications does the last step have for understanding the overall process of Fourier transforms?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N. OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that. OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1011.03",
+            "questions": [
+                "1. What process is being described for handling the signal in the text?",
+                "2. How is the signal projected in the context of the discrete Fourier transform?",
+                "3. What is the significance of the frequency term K divided by capital N?",
+                "4. What are the main differences between the discrete Fourier transform (DFT) and the short time Fourier transform (STFT)?",
+                "5. What kind of outputs can be expected from the DFT and STFT?",
+                "6. What does the spectral vector extracted from the DFT represent?",
+                "7. How many frequency components are typically obtained from the original signal using DFT?",
+                "8. What are Fourier coefficients, and what role do they play in the analysis?",
+                "9. In what context is the term \"frequency beams\" used in the discussion of the DFT?",
+                "10. Why might an individual be interested in understanding the outputs of the DFT and STFT?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that. OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1029.588",
+            "questions": [
+                "1. What is the main difference between the outputs of the Discrete Fourier Transform (DFT) and the Short Time Fourier Transform (STFT)?",
+                "2. What type of output does the DFT produce for a given signal?",
+                "3. How is the spectral vector obtained from the DFT related to frequency components?",
+                "4. Why is there no mention of time in the output of the DFT?",
+                "5. What does the STFT provide that the DFT does not?",
+                "6. How does the STFT output differ in dimensionality compared to the DFT output?",
+                "7. What are Fourier coefficients, and how are they relevant to the DFT?",
+                "8. In what context is the term \"frequency beams\" used regarding the DFT?",
+                "9. Can you explain what is meant by \"averaged across the whole duration\" in relation to the DFT?",
+                "10. What implications does the lack of time representation in the DFT have for analyzing signals?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1051.729",
+            "questions": [
+                "1. What is extracted during the process of DFT?",
+                "2. How many frequency beams are involved in the DFT process?",
+                "3. What type of data structure is used to represent the output of DFT?",
+                "4. How does DFT handle the concept of time in its analysis?",
+                "5. What is the primary difference between DFT and STFT in terms of data structure?",
+                "6. How is the output of STFT represented in comparison to DFT?",
+                "7. What dimensions does the spectral matrix have in STFT?",
+                "8. What does each complex Fourier coefficient represent in STFT?",
+                "9. How does STFT differ in its handling of frequency components compared to DFT?",
+                "10. What is meant by \"frequency bins\" in the context of STFT?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame. OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1076.196",
+            "questions": [
+                "1. What is the main difference between a one-dimensional array and a two-dimensional array in the context of signal processing?",
+                "2. How does the Short-Time Fourier Transform (STFT) differ from averaging across the entire duration of a signal?",
+                "3. What is meant by a spectral matrix in the context of STFT?",
+                "4. Can you explain the significance of frequency bins in the STFT?",
+                "5. What role do frames play in the STFT?",
+                "6. How are complex Fourier coefficients calculated in relation to frequency bins and frames?",
+                "7. In what way does the STFT provide information about time that a simple Fourier transform does not?",
+                "8. Is it possible to calculate the number of frequency bins and frames obtained from an STFT? If so, how?",
+                "9. What does the term \"proxies for time\" refer to in the context of frames in the STFT?",
+                "10. Why might one prefer to use STFT over other signal processing methods?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame. OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that. OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1100.661",
+            "questions": [
+                "1. What is the difference between a one-dimensional array and a two-dimensional array in this context?",
+                "2. How is a spectral matrix defined in relation to frequency bins and frames?",
+                "3. What do we obtain for each frequency bin in each frame when using the method described?",
+                "4. How does the reference to frequency in this context compare to that in the quid for transform?",
+                "5. What role do frames play in obtaining information about time?",
+                "6. Can we calculate the number of frequency bins and frames from the Short-Time Fourier Transform (STFT)? If so, how?",
+                "7. What is the formula used to calculate the number of frequency bins?",
+                "8. Why is it necessary to divide the frame size by two and then add one to find the number of frequency bins?",
+                "9. What concepts from earlier videos are referenced to help understand the calculation of frequency bins?",
+                "10. What is the significance of complex Fourier coefficients in the analysis described?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that. OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform, you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1125.459",
+            "questions": [
+                "1. What does STFT stand for and how is it related to frequency and time analysis?",
+                "2. How can we calculate the actual number of frequency bins in an STFT?",
+                "3. What is the formula used to determine the number of frequency bins from the frame size?",
+                "4. Why is it necessary to divide the frame size by two when calculating the number of frequency bins?",
+                "5. What is the significance of adding one to the result after dividing the frame size by two?",
+                "6. How does the concept of frequency bins in STFT compare to that in a discrete Fourier transform?",
+                "7. What does the number of frequency bins represent in the context of signal analysis?",
+                "8. Why might someone be interested in the number of frames produced in an STFT?",
+                "9. In what ways do the different frames in STFT serve as proxies for time?",
+                "10. What are the implications of understanding frequency bins and frames for analyzing signals?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform, you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1154.43",
+            "questions": [
+                "1. What is the formula to calculate the number of frequency bins?",
+                "2. How do you determine the number of frequency bins from the frame size?",
+                "3. Why do we divide the frame size by two when calculating frequency bins?",
+                "4. What is the significance of adding one to the result after dividing the frame size?",
+                "5. How does the number of frequency bins relate to the discrete Fourier transform?",
+                "6. What is the role of the frame size in the short-time Fourier transform (STFT)?",
+                "7. How does the sampling method differ between the discrete Fourier transform and the STFT?",
+                "8. Why do we not consider the whole signal's samples at once in the STFT?",
+                "9. What can we expect regarding the number of frequency bins based on the frame size?",
+                "10. How does understanding frequency bins contribute to analyzing signals using Fourier transforms?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1183.13",
+            "questions": [
+                "1. What is the relationship between the number of frequency bins and the number of samples in a discrete Fourier transform?",
+                "2. How does the short-time Fourier transform (STFT) differ from a standard discrete Fourier transform in terms of sample consideration?",
+                "3. What is the expected number of frequency bins for each Fourier transform in an STFT?",
+                "4. Why do we obtain the number of frequency bins as frame size divided by two plus one in STFT?",
+                "5. What concept from the discrete Fourier transform video helps explain the symmetry of frequency bins?",
+                "6. What does the term \"mirror symmetry\" refer to in the context of the discrete Fourier transform?",
+                "7. What is meant by \"frame size\" in relation to the short-time Fourier transform?",
+                "8. How does the frame size impact the frequency resolution in an STFT?",
+                "9. Can you explain what is meant by \"nyquist frequency\" in relation to the discrete Fourier transform?",
+                "10. Why is it important to understand the relationship between frame size and frequency bins in signal processing?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency. And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1201.67",
+            "questions": [
+                "1. What is the significance of using a frame size number of samples in the analysis?",
+                "2. How does the number of frequency bins relate to the frame size in the context of the fourier transform?",
+                "3. Why do we observe the frequency bins as frame size divided by two plus one?",
+                "4. What does the discrete Fourier transform exhibit in terms of symmetry?",
+                "5. What is the meaning of the term \"niquet frequency\" in this context?",
+                "6. How does the mirror symmetry of the discrete Fourier transform affect data interpretation?",
+                "7. Why is it considered redundant to take information from the second half of the frequency bins?",
+                "8. What is the rationale behind only considering the first half of the frequency bins in short time Fourier transforms?",
+                "9. How does the concept of redundancy influence the analysis of frequency information?",
+                "10. In what scenarios would it be necessary to consider all frequency bins instead of just the first half?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency. And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1220.489",
+            "questions": [
+                "1. What is the significance of the frame size divided by two plus one in the context of the discrete Fourier transform?",
+                "2. How does the discrete Fourier transform demonstrate mirror symmetry around the center frequency?",
+                "3. What is meant by the term \"niket frequency\" in relation to the discrete Fourier transform?",
+                "4. Why is only the first half of the frequency bins considered in short time Fourier transforms?",
+                "5. What does it mean for information to be \"mirrored\" in the second half of the frequency bins?",
+                "6. How does the redundancy of the second half of the frequency bins affect data processing in Fourier transforms?",
+                "7. What is the suggested resource for a more detailed understanding of the discrete Fourier transform?",
+                "8. What is the relationship between frame size and the information captured in the discrete Fourier transform?",
+                "9. Why might someone need to refer to the video on the discrete Fourier transform for clarification?",
+                "10. What topic is introduced after discussing the frame size and frequency bins in the text?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice, a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1240.849",
+            "questions": [
+                "1. What is the main idea presented in the first half of the text?",
+                "2. How is information treated in the second half compared to the first half?",
+                "3. Why is it considered redundant to take information from all bins in the context mentioned?",
+                "4. What is the significance of the formula involving frame size in the text?",
+                "5. What does the term \"trans\" refer to in the context of the discussion?",
+                "6. What recommendation is made for those who may not fully understand the content?",
+                "7. How is the number of frames calculated according to the text?",
+                "8. What components are involved in the formula for determining the number of frames?",
+                "9. What does the speaker suggest as a way to better understand the formula for the number of frames?",
+                "10. Why does the speaker choose not to provide a visual explanation of the formula?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice, a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames. OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1262.225",
+            "questions": [
+                "1. What is the formula for calculating the number of frames in a signal?",
+                "2. How does the frame size affect the number of frames?",
+                "3. What is the significance of the term \"H size\" in the context of frame calculations?",
+                "4. Can you explain what is meant by \"total number of samples\" in a signal?",
+                "5. Why is it recommended to check out the video on the discrete Fourier transform for better understanding?",
+                "6. What is the relationship between frame size and the output shape in the example provided?",
+                "7. How many samples does the given signal have in the example?",
+                "8. If the frame size is 1000 samples and the H size is 500 samples, how many frames will be produced from the signal?",
+                "9. What might be the challenges of understanding the formula for the number of frames?",
+                "10. Why is it suggested to play around with the formula as an exercise?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames. OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1283.602",
+            "questions": [
+                "1. What is the formula used to calculate the number of frames in a signal?",
+                "2. How is the number of frames derived from the total number of samples, frame size, and H size?",
+                "3. Why might the explanation of the formula feel abstract to some readers?",
+                "4. What are the parameters mentioned for the STFT example?",
+                "5. How many samples does the signal contain in the given example?",
+                "6. What is the frame size used in the example?",
+                "7. What is the value of the H size in the example?",
+                "8. How many frequency bins are calculated from the frame size in the example?",
+                "9. What is the significance of dividing a frequency range into frequency bins?",
+                "10. How does the number of frequency bins relate to the frame size in this context?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1305.339",
+            "questions": [
+                "1. What does STFT stand for in the context of the example?",
+                "2. How many samples does the given signal contain?",
+                "3. What is the frame size mentioned in the example?",
+                "4. What is the H size specified in the text?",
+                "5. How do you calculate the number of frequency bins from the frame size?",
+                "6. What is the resulting number of frequency bins for a frame size of 1000 samples?",
+                "7. What does it mean for frequency bins to divide a certain frequency range equally?",
+                "8. What is the frequency range mentioned in the example?",
+                "9. How is the upper limit of the frequency range determined?",
+                "10. What does NS frequency refer to in this context?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again. Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1329.15",
+            "questions": [
+                "1. How is the number of frequency bins calculated from the frame size?",
+                "2. What is the total number of frequency bins mentioned in the text?",
+                "3. What frequency range is divided into frequency bins in this case?",
+                "4. What is the frequency range specified in the text?",
+                "5. What is the significance of the term \"NS frequency\" in this context?",
+                "6. Where can one find more information about the grid Fourier transform referenced in the text?",
+                "7. What formula is mentioned for calculating the number of frames?",
+                "8. How is the number of samples in the signal used in the frame calculation?",
+                "9. What operation is performed with the frame size and the number of samples to determine the number of frames?",
+                "10. What does the term \"hub size\" refer to in the calculation of frames?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again. Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1354.285",
+            "questions": [
+                "1. What is the frequency range mentioned in the text?",
+                "2. How is the NS frequency calculated according to the passage?",
+                "3. What is the significance of the frame size in relation to the number of samples in the signal?",
+                "4. How is the number of frames determined in the given example?",
+                "5. What formula is used to calculate the number of frames from the number of samples and frame size?",
+                "6. What is the final number of frames that the signal is divided into?",
+                "7. What is the overall output shape of the STFT mentioned in the text?",
+                "8. What information does the first dimension of the output shape provide?",
+                "9. What does the second dimension of the output shape represent?",
+                "10. Why might one refer back to the video on the grid Fourier transform for further understanding?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames. OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1370.29",
+            "questions": [
+                "1. What is the significance of the grid Fourier transform mentioned in the video?",
+                "2. How do you calculate the number of frames from the number of samples in the signal?",
+                "3. What formula is used to determine the number of frames in the given signal?",
+                "4. How does the frame size affect the calculation of the number of frames?",
+                "5. What is the result when applying the formula to the given signal with 10,000 samples?",
+                "6. What are the dimensions of the output shape of the short time Fourier transform (STFT) in this example?",
+                "7. What information does the first dimension of the STFT output provide?",
+                "8. What does the second dimension of the STFT output represent?",
+                "9. Why is it important to understand the different parameters of the short time Fourier transform?",
+                "10. How does the short time Fourier transform differ from the regular Fourier transform?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames. OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1400.06",
+            "questions": [
+                "1. What is the result mentioned in the text regarding the number of frames?",
+                "2. How many frames is the signal going to be divided into?",
+                "3. What is the overall output shape of the short time Fourier transform (STFT) described in the text?",
+                "4. What does the first dimension of the STFT output represent?",
+                "5. What information does the second dimension of the STFT output provide?",
+                "6. Why is it important to understand the parameters of the short time Fourier transform?",
+                "7. What happens to the output of the STFT when different parameters are passed?",
+                "8. What is one of the key parameters mentioned that affects the STFT output?",
+                "9. How is the frame size related to the short time Fourier transform?",
+                "10. In what units is the frame size measured?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1430.329",
+            "questions": [
+                "1. What is the short time Fourier transform (STFT) and why is it important?",
+                "2. How does the choice of parameters affect the output of the short time Fourier transform?",
+                "3. What is frame size in the context of the short time Fourier transform?",
+                "4. Why is it significant for the frame size to be a power of two?",
+                "5. What are some common values for frame size used in short time Fourier transform?",
+                "6. How are the chunks of the original signal created in the short time Fourier transform?",
+                "7. Can the output of the short time Fourier transform vary significantly with different frame sizes?",
+                "8. What might be the consequences of using a non-power of two frame size in the short time Fourier transform?",
+                "9. How does understanding the parameters of short time Fourier transform contribute to signal processing?",
+                "10. In what scenarios might different frame sizes be more advantageous when using the short time Fourier transform?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1449.099",
+            "questions": [
+                "1. What are the parameters that influence the output mentioned in the text?",
+                "2. What does the term \"frame size\" refer to in the context of signal processing?",
+                "3. How is frame size measured according to the text?",
+                "4. What are some common values for frame size mentioned in the text?",
+                "5. Why are the frame size values typically powers of two?",
+                "6. What computational advantage does using a power of two frame size provide?",
+                "7. What is the relationship between the fast Fourier transform and the discrete Fourier transform?",
+                "8. Why is it important to have an efficient method for calculating the discrete Fourier transform?",
+                "9. Can you explain what a discrete Fourier transform is?",
+                "10. How does the choice of frame size affect the analysis of an original signal?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform. Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1472.599",
+            "questions": [
+                "1. What are the usual values mentioned in the text for frame sizes?",
+                "2. Why is it important for the frame size to be a power of two number?",
+                "3. What computational method is mentioned as a way to calculate the discrete Fourier transform?",
+                "4. How does the choice of frame size affect frequency resolution?",
+                "5. What happens to time resolution when a larger frame size is chosen?",
+                "6. What is the time-frequency trade-off referred to in the text?",
+                "7. Can you explain the relationship between frame size and frequency resolution?",
+                "8. What is the significance of using fast Fourier transform in relation to frame size?",
+                "9. How does increasing frame size impact computational efficiency?",
+                "10. What are some examples of power of two numbers listed in the text?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform. Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1491.15",
+            "questions": [
+                "1. What is the fast Fourier transform used for in relation to the discrete Fourier transform?",
+                "2. How does frame size affect frequency resolution and time resolution?",
+                "3. What happens to frequency resolution when a larger frame size is chosen?",
+                "4. What is the relationship between the number of samples taken and frequency bins?",
+                "5. How does increasing frame size impact overall frequency resolution?",
+                "6. What is the time-frequency trade-off mentioned in the text?",
+                "7. Why does time resolution degrade when a larger frame size is used?",
+                "8. What does \"more frequency bins\" imply about the analysis of a signal?",
+                "9. How does considering a larger chunk of data affect signal analysis?",
+                "10. What are the computational benefits of using the fast Fourier transform?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1510.18",
+            "questions": [
+                "1. What is the time frequency trade-off in the context of frame size selection?",
+                "2. How does increasing the frame size affect frequency resolution?",
+                "3. What happens to time resolution when the frame size is enlarged?",
+                "4. Why does enlarging the frame size result in more frequency bins?",
+                "5. How does taking more samples in one frame size impact the duration of time considered?",
+                "6. What is the relationship between frame size and time resolution?",
+                "7. What occurs if a smaller frame size is chosen compared to a larger one?",
+                "8. Can you explain the implications of having more frequency bins?",
+                "9. How does the choice of frame size affect both frequency and time resolution simultaneously?",
+                "10. In practical terms, why is it important to consider the time frequency trade-off when choosing frame sizes?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1540.239",
+            "questions": [
+                "1. What happens to the frequency resolution when the frame size is enlarged?",
+                "2. How does increasing the number of frequency bins affect overall frequency resolution?",
+                "3. What is the relationship between the number of samples taken and the chunk of time considered?",
+                "4. How does taking a larger chunk of time impact time resolution?",
+                "5. What occurs to time resolution when a smaller frame size is used?",
+                "6. Why does a smaller frame size result in a higher time resolution?",
+                "7. What is meant by frequency bins in the context of frame size?",
+                "8. How does the number of samples influence frequency resolution?",
+                "9. What trade-off exists between frequency resolution and time resolution?",
+                "10. Can you explain how frame size affects both frequency and time resolution simultaneously?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time. And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1566.699",
+            "questions": [
+                "1. What happens to time resolution when a larger chunk of time is taken for analysis?",
+                "2. How does a smaller frame size affect frequency resolution?",
+                "3. Why do fewer samples lead to better time resolution?",
+                "4. What is the relationship between time resolution and the number of frequency bins?",
+                "5. How does calculating the Fourier transform on smaller chunks of time influence time resolution?",
+                "6. What is meant by the term \"time-frequency trade-off\"?",
+                "7. How does improving frequency resolution impact time resolution?",
+                "8. Can you explain the concept of frequency bins in the context of this text?",
+                "9. What are the implications of a time-frequency trade-off in practical applications?",
+                "10. How do time resolution and frequency resolution relate to each other in signal processing?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time. And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa. Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1587.329",
+            "questions": [
+                "1. What happens to frequency resolution when the number of frequency bins decreases?",
+                "2. Why does time resolution improve when fewer samples are considered?",
+                "3. How is the Fourier transform calculated in relation to time chunks?",
+                "4. What is meant by the term \"time-frequency trade-off\"?",
+                "5. What is the relationship between improving frequency resolution and time resolution?",
+                "6. Is there a definitive solution to the time-frequency trade-off?",
+                "7. What are heuristics in the context of frequency and time resolution?",
+                "8. How can one determine a good trade-off value for frame size (K)?",
+                "9. What is the significance of frame size (K) in analyzing frequency and time resolution?",
+                "10. Why is it important to balance frequency and time resolution in signal processing?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa. Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1608.079",
+            "questions": [
+                "1. What is the purpose of calculating the Fourier transform on smaller chunks of time?",
+                "2. How does improving frequency resolution affect time resolution in Fourier transforms?",
+                "3. What is meant by the term \"time-frequency trade off\"?",
+                "4. Why is it stated that the trade-off between time and frequency resolution cannot be fully solved?",
+                "5. What is the role of frame size (K) in achieving a balance between frequency and time resolution?",
+                "6. How does the importance of frequency resolution vary depending on the type of application?",
+                "7. What are heuristics in the context of determining frame size for Fourier transforms?",
+                "8. Can you explain the implications of choosing a larger frame size on time resolution?",
+                "9. In what scenarios might a higher frequency resolution be prioritized over time resolution?",
+                "10. What factors should be considered when selecting the frame size for a specific problem in Fourier analysis?"
+            ]
+        },
+        {
+            "id": 70,
+            "text": "Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a, a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1629.88",
+            "questions": [
+                "1. What is the primary goal when determining the frame size in signal processing applications?",
+                "2. How does the choice of frame size affect frequency and time resolution?",
+                "3. In what scenarios is a higher frequency resolution more critical?",
+                "4. What is an example of an application where time resolution is prioritized over frequency resolution?",
+                "5. How do heuristics play a role in solving problems related to frame size?",
+                "6. Why might a larger frame size be beneficial for certain problems?",
+                "7. What does it mean to have a \"highly ol\" time resolution, and why is it important?",
+                "8. How does the type of application influence the selection of frame size?",
+                "9. What is onset detection, and why is frequency resolution less important in this context?",
+                "10. Can the frame size be adjusted dynamically depending on the application requirements?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a, a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time. OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1645.06",
+            "questions": [
+                "1. What factors influence the choice of frame size in an application?",
+                "2. Why is higher frequency resolution important for certain problems?",
+                "3. How does frame size affect frequency resolution in audio applications?",
+                "4. What is the significance of time resolution in onset detection?",
+                "5. In what scenarios might one prioritize time resolution over frequency resolution?",
+                "6. How are frequency resolution and temporal resolution related?",
+                "7. What happens to frequency resolution when frame size is increased?",
+                "8. Why might onset detection not require a high frequency resolution?",
+                "9. What should one consider when deciding on the frame size for an application?",
+                "10. Can you explain the trade-off between frequency and temporal resolution?"
+            ]
+        },
+        {
+            "id": 72,
+            "text": "a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time. OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1660.114",
+            "questions": [
+                "1. What is the significance of frame size in onset detection applications?",
+                "2. How does frequency resolution relate to time resolution in audio processing?",
+                "3. Why might one prioritize time resolution over frequency resolution in certain applications?",
+                "4. What is the relationship between frame size and the two types of resolution discussed?",
+                "5. What is the hop size in the context of the short-term Fourier transform?",
+                "6. How does the hop size affect the analysis of audio signals?",
+                "7. What are some common values for hop size mentioned in the text?",
+                "8. Why are power of two values typically preferred for frame sizes and hop sizes?",
+                "9. What happens to temporal resolution if the frame size is increased?",
+                "10. How can one determine the appropriate frame size for a specific audio analysis task?"
+            ]
+        },
+        {
+            "id": 73,
+            "text": "OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time. And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1690.209",
+            "questions": [
+                "1. Why is it important to consider frame size when analyzing frequent and temporal resolution?",
+                "2. How are frequent and temporal resolution related to each other?",
+                "3. What is the hop size in the context of short-term Fourier transform?",
+                "4. What are the usual values for hop size mentioned in the text?",
+                "5. Why are hop size values often powers of two?",
+                "6. How can hop size be defined in relation to frame size?",
+                "7. What are some examples of fractional definitions of hop size related to frame size?",
+                "8. In what scenarios might you choose a smaller hop size?",
+                "9. How does changing hop size affect the analysis of a signal?",
+                "10. What is the significance of understanding both absolute and relative definitions of hop size?"
+            ]
+        },
+        {
+            "id": 74,
+            "text": "um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time. And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK. Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1706.26",
+            "questions": [
+                "1. What is the hop size in the context of the short-term Fourier transform?",
+                "2. How does the hop size relate to the number of samples when taking a new frame?",
+                "3. What are some common values for the hop size mentioned in the text?",
+                "4. Why are hop size values typically power of two?",
+                "5. How can the hop size be defined in relation to the frame size?",
+                "6. What are some fractional values that can be used to define hop size relative to the frame size?",
+                "7. What role does the windowing function play in the short-term Fourier transform?",
+                "8. How does the choice of windowing function affect the output of the short-term Fourier transform?",
+                "9. Why is it important to consider both absolute and relative definitions of hop size?",
+                "10. What might happen if an inappropriate windowing function is chosen for the short-term Fourier transform?"
+            ]
+        },
+        {
+            "id": 75,
+            "text": "And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK. Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1734.65",
+            "questions": [
+                "1. How can frame size be defined in relation to fractions?",
+                "2. What are some examples of fractions of the frame size mentioned in the text?",
+                "3. What are the two definitions of frame size discussed?",
+                "4. Why is the windowing function considered an important parameter in the short time Fourier transform?",
+                "5. How does the choice of windowing function affect the short time Fourier transform results?",
+                "6. What is the relationship between the original signal and the windowing function in the context of the short time Fourier transform?",
+                "7. What effect do different windowing functions have on the modulation of the original signal?",
+                "8. Which windowing function is introduced in the text, and how is it perceived in practice?",
+                "9. Why is the rectangle window function not commonly used?",
+                "10. What is the significance of using different windowing functions in signal processing?"
+            ]
+        },
+        {
+            "id": 76,
+            "text": "Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1750.979",
+            "questions": [
+                "1. What is the significance of the windowing function in the short time Fourier transform?",
+                "2. How does the choice of windowing function affect the original signal?",
+                "3. Why is the rectangle window function rarely used in digital signal processing?",
+                "4. What issues arise from using the rectangle window function?",
+                "5. What type of windowing function is preferred to avoid discontinuities?",
+                "6. What is a bell-shaped curve in the context of windowing functions?",
+                "7. Which windowing function is mentioned as being the most important in the text?",
+                "8. How frequently is the Hann window used in practice according to the text?",
+                "9. What are the potential effects of different windowing functions on short time Fourier transform results?",
+                "10. Can you explain the relationship between the windowing function and the short time Fourier transform?"
+            ]
+        },
+        {
+            "id": 77,
+            "text": "uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1769.589",
+            "questions": [
+                "1. What is the effect of modulating the original signal on short time period transform results?",
+                "2. Why is the rectangle window function not commonly used in digital signal processing?",
+                "3. What issues do discontinuities at the edges of a window create in signal processing?",
+                "4. What type of curve is preferred over the rectangle window function for better signal processing?",
+                "5. What is the most commonly used window function in short time Fourier transform?",
+                "6. How often do users typically employ the Hann window without realizing it?",
+                "7. What is the formula that represents the Hann window function?",
+                "8. How is the Hann window function characterized in terms of its periodic nature?",
+                "9. Can you describe the visualization of the Hann window function mentioned in the text?",
+                "10. What are the advantages of using a bell-shaped curve like the Hann window in signal processing?"
+            ]
+        },
+        {
+            "id": 78,
+            "text": "in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1791.06",
+            "questions": [
+                "1. What role do windows play in digital signal processing?",
+                "2. Why is it important to avoid discontinuities on the edges of signals?",
+                "3. What is a bell-shaped curve in the context of signal processing?",
+                "4. What is the most commonly used window in short time Fourier transform?",
+                "5. How frequently is the Hann window utilized in digital signal processing?",
+                "6. What is the mathematical representation of the Hann window function?",
+                "7. How does applying the Hann window affect a signal?",
+                "8. What does the term \"periodic function\" mean in relation to the Hann window?",
+                "9. Can you describe the visualization of the Hann window when applied to a signal?",
+                "10. What are the implications of modulating a signal with a window function like the Hann window?"
+            ]
+        },
+        {
+            "id": 79,
+            "text": "the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1810.449",
+            "questions": [
+                "1. What is a hand window in the context of signal processing?",
+                "2. How does the hand window affect the modulation of a signal?",
+                "3. What is the significance of the bell-shaped hand window in the given example?",
+                "4. Why do the values of the samples tend to get squashed towards zero at the edges?",
+                "5. What problem does the squashing of sample values aim to avoid?",
+                "6. What is spectral leakage, and why is it important to understand it?",
+                "7. Where can viewers find more information about audio feature extraction pipelines?",
+                "8. How does the formula for the hand window relate to periodic functions?",
+                "9. What visual aids are provided to help understand the application of the hand window?",
+                "10. What are the implications of using a hand window in audio processing?"
+            ]
+        },
+        {
+            "id": 80,
+            "text": "um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1831.089",
+            "questions": [
+                "1. What is the purpose of applying a hand window to a signal?",
+                "2. How does the hand window affect the modulation of the signal?",
+                "3. Why is it important to avoid discontinuities at the edges of the signal?",
+                "4. What is spectral leakage and why is it significant in audio feature extraction?",
+                "5. What is a spectrogram and how does it relate to visualizing sound?",
+                "6. What transformation is used to obtain spectrograms from signals?",
+                "7. What characteristics of the short time period transform are mentioned in the text?",
+                "8. How does the modulation of signal values towards zero help in signal processing?",
+                "9. Can you explain the relationship between the hand window and the resulting spectrogram?",
+                "10. What additional resources does the speaker suggest for further understanding of these concepts?"
+            ]
+        },
+        {
+            "id": 81,
+            "text": "of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1851.094",
+            "questions": [
+                "1. What is the significance of squashing samples towards zero in audio processing?",
+                "2. Why is it important to avoid continuities on the edges in audio feature extraction?",
+                "3. What topic is discussed in the video mentioned regarding spectral leakage?",
+                "4. How does the spectrogram contribute to visualizing sound?",
+                "5. What is the short time Fourier transform used for in audio analysis?",
+                "6. What type of data does the short time Fourier transform matrix contain?",
+                "7. How do we obtain the spectrogram from the short time Fourier transform?",
+                "8. What does the squared magnitude of the short time Fourier transform represent?",
+                "9. What role do complex numbers play in the short time Fourier transform?",
+                "10. Can you explain the process of converting Fourier coefficients into a spectrogram?"
+            ]
+        },
+        {
+            "id": 82,
+            "text": "and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1877.709",
+            "questions": [
+                "1. What is the primary purpose of a spectrogram?",
+                "2. How do we obtain spectrograms from sound data?",
+                "3. What is the role of the short time Fourier transform in generating a spectrogram?",
+                "4. What type of data does the short time Fourier transform output?",
+                "5. How does the squared magnitude of the short time Fourier transform differ from the original output?",
+                "6. What shape does the matrix of the squared magnitude of the short time Fourier transform have?",
+                "7. What type of numbers are used in the squared magnitude matrix compared to the original short time Fourier transform?",
+                "8. How can the data in the spectrogram be visualized?",
+                "9. What is the significance of using a heat map for visualizing the spectrogram?",
+                "10. What transformation occurs to the complex numbers in the short time Fourier transform to create a spectrogram?"
+            ]
+        },
+        {
+            "id": 83,
+            "text": "complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1901.849",
+            "questions": [
+                "1. What are complex numbers or Fourier coefficients used for in the context of the matrix?",
+                "2. How is the squared magnitude of the short time Fourier transform calculated?",
+                "3. What is the shape of the matrix obtained after taking the squared magnitude of the short time Fourier transform?",
+                "4. How do the items in the resulting matrix differ from those in the original short time Fourier transform?",
+                "5. What type of numbers do we have in the matrix after processing the short time Fourier transform?",
+                "6. What is the purpose of visualizing the matrix using a heat map?",
+                "7. What is the visualization called that results from the squared magnitude of the short time Fourier transform?",
+                "8. Why are spectrograms considered important for applications in AI audio?",
+                "9. In what ways are spectrograms used as features for algorithms?",
+                "10. Can you describe the relationship between short time Fourier transform and spectrograms?"
+            ]
+        },
+        {
+            "id": 84,
+            "text": "uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1918.069",
+            "questions": [
+                "1. What is the main difference between the original short time period transform and the new matrix discussed in the text?",
+                "2. How are the items in the new matrix represented, and how does this differ from the original matrix?",
+                "3. What is the purpose of a spectrogram in the context of audio applications?",
+                "4. How are spectrograms typically used in AI audio applications?",
+                "5. What do the X and Y axes represent on a spectrogram?",
+                "6. What are the tiny discontinuities mentioned in the text, and what do they represent?",
+                "7. What are temporal bins in the context of a spectrogram?",
+                "8. Why is it important to visualize audio data using a hip map?",
+                "9. How does the transition from complex numbers to real numbers affect the visualization of audio data?",
+                "10. Can you explain the significance of frequency bins in a spectrogram?"
+            ]
+        },
+        {
+            "id": 85,
+            "text": "I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1941.92",
+            "questions": [
+                "1. What is the significance of spectrograms in AI audio applications?",
+                "2. What do the X and Y axes represent in a spectrogram?",
+                "3. How are time and discrete times depicted on the spectrogram?",
+                "4. What do the tiny discontinuities in the spectrogram represent?",
+                "5. What are frequency bins in the context of a spectrogram?",
+                "6. How do frequency components evolve over time in a spectrogram?",
+                "7. What are temporal bins in relation to the frames in a spectrogram?",
+                "8. Why is it important to analyze frequency components in audio signals?",
+                "9. What is the \"dream\" mentioned in relation to spectrograms and AI audio?",
+                "10. How can algorithms utilize spectrograms as features for processing audio?"
+            ]
+        },
+        {
+            "id": 86,
+            "text": "on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true. So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time,",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1957.55",
+            "questions": [
+                "1. What is represented on the X axis of the described graph?",
+                "2. How are the discrete times depicted in the graph?",
+                "3. What do the tiny discontinuities on the X axis signify?",
+                "4. What is represented on the Y axis of the graph?",
+                "5. How do the different frequency bins relate to the temporal bins?",
+                "6. What are the frames mentioned in the text?",
+                "7. What does the evolution of frequency components over time indicate?",
+                "8. What information was previously available before this new representation?",
+                "9. How does this new method improve understanding of frequency components in signals?",
+                "10. Why is the ability to see frequency components evolving over time considered a \"dream\" that has come true?"
+            ]
+        },
+        {
+            "id": 87,
+            "text": "we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true. So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time, which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1978.005",
+            "questions": [
+                "1. What are the different frequency beams mentioned in the text?",
+                "2. How do the frequency components evolve over time in the original signal?",
+                "3. What was the dream that the author wanted to come true regarding frequency information?",
+                "4. How does the magnitude spectrum relate to the information obtained from frequency components?",
+                "5. What does the term \"time frequency representation\" refer to in the context of spectrograms?",
+                "6. Why are spectrograms considered important in AI audio applications?",
+                "7. What kind of information is typically obtained from the time domain?",
+                "8. What are the advantages of having both frequency and time information in spectrograms?",
+                "9. What details about the implementation of spectrograms does the author choose not to discuss?",
+                "10. How does the evolution of frequency components enhance our understanding of audio signals?"
+            ]
+        },
+        {
+            "id": 88,
+            "text": "So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time, which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the um topic of the next video. So in the next video, we're gonna be using Python and Libros specifically for extracting spectrograms. We're gonna be looking into different flavors of spectrograms and understand which ones to use. And then we're gonna be examining like different audio samples and comparing them perhaps like different musical genres and how like they their spectrograms differ. OK.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "1998.64",
+            "questions": [
+                "1. What information do spectrograms provide that is not available in the magnitude spectrum?",
+                "2. Why are spectrograms referred to as time frequency representations?",
+                "3. How do spectrograms contribute to advancements in AI audio?",
+                "4. What programming language and library will be used for extracting spectrograms in the next video?",
+                "5. What will be explored regarding different flavors of spectrograms in the upcoming video?",
+                "6. How will the video examine the differences in spectrograms between various audio samples?",
+                "7. What types of audio samples will be compared in the next video?",
+                "8. Why is it important to understand the evolution of frequency components over time?",
+                "9. What specific aspects of musical genres will be analyzed through their spectrograms?",
+                "10. What topics will be covered in detail about spectrograms in the next video?"
+            ]
+        },
+        {
+            "id": 89,
+            "text": "which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the um topic of the next video. So in the next video, we're gonna be using Python and Libros specifically for extracting spectrograms. We're gonna be looking into different flavors of spectrograms and understand which ones to use. And then we're gonna be examining like different audio samples and comparing them perhaps like different musical genres and how like they their spectrograms differ. OK. So I hope like you found uh this video instructive and useful. If that's the case, please consider leaving a like and if you haven't subscribed yet to the channel and you want to see more videos like this, please consider subscribing. So if you have any questions, please leave them in the comments section below. I think that's all for today. I'll see you next time. Cheers.",
+            "video": "Short-Time Fourier Transform Explained Easily",
+            "start_time": "2014.969",
+            "questions": [
+                "1. What is the significance of spectrograms in AI audio?",
+                "2. Why is a spectrogram referred to as a time frequency representation?",
+                "3. What programming language and library will be used in the next video for extracting spectrograms?",
+                "4. What are the different flavors of spectrograms that will be discussed?",
+                "5. How will the video compare different audio samples?",
+                "6. What aspects of musical genres will be examined in relation to their spectrograms?",
+                "7. What action does the presenter encourage viewers to take if they found the video instructive?",
+                "8. What does the presenter invite viewers to do if they want to see more videos?",
+                "9. Where should viewers leave their questions regarding the content?",
+                "10. What is the presenter\u2019s closing remark at the end of the video?"
+            ]
+        }
+    ]
+}

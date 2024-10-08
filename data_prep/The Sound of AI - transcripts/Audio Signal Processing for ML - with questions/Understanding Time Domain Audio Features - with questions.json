@@ -1,0 +1,904 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new exciting video and the audio signal processing for machine learning series. Last time we introduced the extraction pipelines for both time domain and frequency domain features. This time, I'm going to be introducing time domain audio features specifically, I'm going to focus on a few very important types them in audio features and explain the theory behind them. But before we get started, let me recall you once uh remind you once again about the sound of the I Slack community. This is a community of people interested in all things A I audio A I music audio signal processing. So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the focus of the current video in the audio signal processing series?",
+                "2. What types of audio features were introduced in the last video?",
+                "3. Can you explain the concept of amplitude envelope in time domain audio features?",
+                "4. What does root mean square energy measure in audio signals?",
+                "5. How is zero crossing rate defined in the context of audio processing?",
+                "6. Why is the time domain important for audio feature extraction?",
+                "7. What community is mentioned for those interested in AI and audio signal processing?",
+                "8. How can the Slack community benefit individuals looking to improve their knowledge in audio AI?",
+                "9. What resources are provided for viewers to join the AI audio community?",
+                "10. What are the three specific time domain features discussed in the video?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "them in audio features and explain the theory behind them. But before we get started, let me recall you once uh remind you once again about the sound of the I Slack community. This is a community of people interested in all things A I audio A I music audio signal processing. So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "20.485",
+            "questions": [
+                "1. What is the primary focus of the I Slack community mentioned in the text?  ",
+                "2. How can joining the I Slack community benefit someone interested in AI audio and music?  ",
+                "3. What are the three domain features discussed in the text?  ",
+                "4. What does the term \"low level acoustic features\" refer to in the context of audio processing?  ",
+                "5. How are the audio features described in the text characterized in terms of their measurement?  ",
+                "6. What does the term \"amplitude envelope\" refer to in audio signal processing?  ",
+                "7. How is \"root mean square energy\" utilized in the analysis of audio signals?  ",
+                "8. What does \"zero crossing rate\" signify in the context of audio features?  ",
+                "9. What statistical methods can be used to aggregate the values of audio features mentioned?  ",
+                "10. What is the significance of using Gaussian mixture models in analyzing audio features?  "
+            ]
+        },
+        {
+            "id": 2,
+            "text": "So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models. And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "41.169",
+            "questions": [
+                "1. What are the 310 domain features mentioned in the text?",
+                "2. What are some examples of low-level acoustic features discussed?",
+                "3. How are the features extracted from an audio signal?",
+                "4. What statistical methods can be used to aggregate feature values from each frame?",
+                "5. What is the significance of the amplitude envelope in audio analysis?",
+                "6. What does root mean square energy measure in an audio signal?",
+                "7. How is zero crossing rate relevant to audio features?",
+                "8. Why is it important to understand the definition of a frame in audio processing?",
+                "9. What additional resources are suggested for clarifying audio feature categorization?",
+                "10. What is the main feature that is introduced at the beginning of the discussion?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models. And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "69.58",
+            "questions": [
+                "1. What are low level acoustic features and how are they characterized in audio signals?",
+                "2. How do we aggregate low level acoustic features from each frame in an audio signal?",
+                "3. What statistical methods can be used to analyze low level acoustic features?",
+                "4. What is the definition of a frame in the context of audio features?",
+                "5. What is the amplitude envelope and how is it calculated?",
+                "6. Why is it important to understand the categorization of audio features?",
+                "7. What is the maximum amplitude value in a frame and how does it relate to the amplitude envelope?",
+                "8. Can you explain the process of calculating the amplitude envelope at a specific frame?",
+                "9. What tools or resources are suggested for clarifying audio feature definitions?",
+                "10. What are Gaussian mixture models and how do they apply to the analysis of acoustic features?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame. So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "98.239",
+            "questions": [
+                "1. What is the definition of a frame in the context of audio features?",
+                "2. Why is it suggested to check out the video mentioned in the text?",
+                "3. What is the main feature discussed in the text regarding audio analysis?",
+                "4. How is the amplitude envelope defined in relation to the samples in a frame?",
+                "5. What does the term \"amplitude envelope at frame T\" refer to?",
+                "6. What does \"SFK\" represent in the calculations mentioned?",
+                "7. How is the amplitude calculated at sample K denoted in the text?",
+                "8. What does the capital K signify in the context of audio frames?",
+                "9. How many samples are included in a given frame as indicated by the frame size?",
+                "10. What approach does the speaker intend to take when explaining the math for calculating the amplitude envelope?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame. So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK. So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this,",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "116.254",
+            "questions": [
+                "1. What is the amplitude envelope in the context of this text?",
+                "2. How is the max amplitude value determined for a frame?",
+                "3. What does the term \"SFK\" represent in this calculation?",
+                "4. What is the significance of the capital K in the context of frame size?",
+                "5. How do we access the first sample of frame T?",
+                "6. What mathematical concepts are involved in calculating the amplitude envelope?",
+                "7. Can you explain the process of finding the max amplitude value in a frame?",
+                "8. What role do samples play in determining the amplitude envelope?",
+                "9. How does the frame size affect the calculation of the amplitude envelope?",
+                "10. What does the text suggest about the complexity of the math involved in this calculation?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK. So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this, it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "141.039",
+            "questions": [
+                "1. What does SFK represent in the context of the text?",
+                "2. How is the amplitude at sample K calculated?",
+                "3. What is the significance of capital K in this discussion?",
+                "4. How is the frame size defined in the text?",
+                "5. What is the goal when analyzing the samples within a frame?",
+                "6. How do you determine the first sample of frame T?",
+                "7. What mathematical operation is used to find the maximum amplitude in the frame?",
+                "8. What are the boundaries for calculating the max amplitude in frame T?",
+                "9. Can you explain the relationship between frame T and the total number of samples?",
+                "10. What does the process of finding the max amplitude help achieve in the analysis?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this, it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T. And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "162.75",
+            "questions": [
+                "1. What is the objective of the calculation described in the text?",
+                "2. How is the first sample of frame T determined?",
+                "3. What variable represents the frame size in the calculation?",
+                "4. How do you access the first sample of frame T using the frame number and frame size?",
+                "5. What does the term \"max amplitude value\" refer to in this context?",
+                "6. How is the last sample of frame T identified in the process?",
+                "7. What is the significance of accessing the next frame (T plus one) in the calculations?",
+                "8. What mathematical operation is used to find the first sample of frame T plus one?",
+                "9. Why is it necessary to calculate the max amplitude between the first and last samples of frame T?",
+                "10. Can you explain the relationship between frame T and frame T plus one in terms of sample calculation?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T. And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "181.384",
+            "questions": [
+                "1. What does \"frame 012\" refer to in the context of the text?",
+                "2. How is the frame size denoted in the text?",
+                "3. What is the significance of calculating the max between the first and last sample of frame T?",
+                "4. How do we access the next frame according to the text?",
+                "5. What is the formula to calculate the first sample of frame T plus one?",
+                "6. What operation must be performed to return to the last frame of T?",
+                "7. How is the amplitude envelope at frame T defined in the text?",
+                "8. What is the goal related to the amplitude envelope for all frames in an audio signal?",
+                "9. What does the variable \"K\" represent in the context of frame size?",
+                "10. Why is it important to calculate the amplitude envelope for each frame in an audio signal?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here. OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "200.55",
+            "questions": [
+                "1. What is the first step in calculating the amplitude envelope for frame T plus one?",
+                "2. How do you determine the first sample of frame T plus one?",
+                "3. What operation needs to be performed to access the last frame of T?",
+                "4. How is the amplitude envelope at frame T calculated?",
+                "5. Why is it necessary to calculate the amplitude envelope for all frames in an audio signal?",
+                "6. What formula is used for calculating the amplitude envelope for each frame of the audio signal?",
+                "7. How can the process of calculating the amplitude envelope be visualized?",
+                "8. What does framing an audio signal involve in this context?",
+                "9. How many frames are mentioned in the visual representation of the audio signal?",
+                "10. What does \"K\" represent in the context of the calculation described?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here. OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "222.08",
+            "questions": [
+                "1. What is the formula used to calculate the amplitude envelope at frame T?",
+                "2. How do we calculate the amplitude envelope for all frames in an audio signal?",
+                "3. What does the term \"amplitude envelope\" refer to in the context of audio signals?",
+                "4. Why might the concept of calculating the amplitude envelope feel abstract to some individuals?",
+                "5. How can visualizing the process of calculating the amplitude envelope help in understanding it better?",
+                "6. What is meant by \"framing\" an audio signal in this context?",
+                "7. How many frames are mentioned in the example provided in the text?",
+                "8. What is the significance of subtracting one in the amplitude envelope calculation?",
+                "9. What is the relationship between frame T and the subsequent frames in the audio signal?",
+                "10. Where can one find more information about concepts related to framing and amplitude envelopes?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "249.66",
+            "questions": [
+                "1. What is the purpose of framing an audio signal?",
+                "2. How many frames are mentioned in the explanation?",
+                "3. What concept is being referred to when discussing the \"amplitude envelope\"?",
+                "4. How is the amplitude envelope derived from the framed audio signal?",
+                "5. What does the term \"highest value\" refer to in the context of amplitude?",
+                "6. What color is used to represent the maximum value of the amplitude in the visualization?",
+                "7. Where can one find more detailed information about the framing concepts discussed?",
+                "8. What is the significance of the mathematical approach mentioned in relation to visual representation?",
+                "9. Can the process of deriving the amplitude envelope be done visually as well as mathematically?",
+                "10. What are the implications of understanding amplitude envelopes in audio processing?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green. Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "276.029",
+            "questions": [
+                "1. What is the concept of framing as mentioned in the text?  ",
+                "2. Where can one find a detailed explanation of framing?  ",
+                "3. What is meant by the amplitude envelope in the context of the text?  ",
+                "4. How is the amplitude envelope determined mathematically?  ",
+                "5. What is the visual method described for obtaining the amplitude envelope?  ",
+                "6. What does the term \"max value\" refer to in the text?  ",
+                "7. How does the text suggest we identify the highest value for each frame?  ",
+                "8. What color is used to represent the max value in the visual representation?  ",
+                "9. How does the process change as we move to subsequent frames?  ",
+                "10. What does the text imply about the importance of max values in relation to the amplitude envelope?  "
+            ]
+        },
+        {
+            "id": 13,
+            "text": "uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green. Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "285.92",
+            "questions": [
+                "1. What was explained in the previous videos of the series?",
+                "2. How do we obtain the amplitude envelope visually?",
+                "3. What does the green indicator represent in the context of amplitude?",
+                "4. How do we determine the max value of the amplitude for each frame?",
+                "5. What is the significance of the max value in the fourth and fifth frames?",
+                "6. Where is the expected max amplitude located in the sixth frame?",
+                "7. How does the visual method relate to the mathematical formula discussed earlier?",
+                "8. What is the key intuition behind understanding amplitude envelopes?",
+                "9. Why is it important to identify the highest value of amplitude for each frame?",
+                "10. How can one simplify the process of grasping the concept of amplitude envelopes?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "313.38",
+            "questions": [
+                "1. What is observed in the second um frame regarding the max value?",
+                "2. How does the max amplitude change from the fourth to the fifth frame?",
+                "3. What is the expectation for the max amplitude in the sixth frame?",
+                "4. How does the visual representation relate to the mathematical formula mentioned?",
+                "5. What does the amplitude envelope indicate about the audio signal?",
+                "6. Why is amplitude considered related to loudness?",
+                "7. What is the significance of understanding the intuition behind amplitude?",
+                "8. How can one interpret the max value in the context of audio signals?",
+                "9. What role does intensity play in determining loudness according to the text?",
+                "10. Why might the explanation be described as \"quite simple to grasp\"?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "327.309",
+            "questions": [
+                "1. What does the amplitude envelope represent in relation to an audio signal?",
+                "2. How does the amplitude envelope correlate with the loudness of a signal?",
+                "3. Why is the amplitude envelope considered sensitive to outliers?",
+                "4. What is the significance of the maximum amplitude in the sixth frame discussed in the text?",
+                "5. How does understanding the intuition behind amplitude help in grasping the concept of the amplitude envelope?",
+                "6. What is meant by \"getting one value\" in the context of measuring amplitude in a frame?",
+                "7. How might an outlier affect the perception of loudness in an audio signal?",
+                "8. What is the relationship between amplitude and intensity in audio signals?",
+                "9. Can you explain the potential impact of a spike in amplitude within a frame?",
+                "10. Why might someone find the concept of amplitude envelope simple to understand?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "353.51",
+            "questions": [
+                "1. What does the amplitude envelope indicate about an audio signal?",
+                "2. How is amplitude related to the perception of loudness?",
+                "3. What is the main issue with using the amplitude envelope for audio analysis?",
+                "4. Why is the amplitude envelope considered sensitive to outliers?",
+                "5. How can a single spike in amplitude affect the representation of a frame?",
+                "6. What happens if most samples in a frame have zero amplitude but one sample has a spike?",
+                "7. In what applications is the amplitude envelope commonly used?",
+                "8. What is the significance of onset detection in relation to the amplitude envelope?",
+                "9. How does the presence of outliers impact the interpretation of an audio signal's loudness?",
+                "10. Can the amplitude envelope be reliably used for all types of audio signals? Why or why not?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection. In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "373.089",
+            "questions": [
+                "1. What is the main problem with using amplitude envelope in signal processing?",
+                "2. How does the presence of outliers affect the amplitude envelope?",
+                "3. Can you explain the concept of a frame in relation to amplitude envelope?",
+                "4. What might a typical frame look like if it has low amplitude except for one spike?",
+                "5. Why might a spike in amplitude not be representative of the entire frame?",
+                "6. In what applications is amplitude envelope commonly used?",
+                "7. What is onset detection in the context of amplitude envelope usage?",
+                "8. How can amplitude envelope help in identifying the start of a musical note?",
+                "9. What types of acoustic events can amplitude envelope be used to detect?",
+                "10. What information does amplitude envelope provide that aids in detecting sound events?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection. In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "401.64",
+            "questions": [
+                "1. What is the basic idea behind the sensitivity of amplitude envelope to layers?",
+                "2. How does amplitude envelope help in onset detection?",
+                "3. Can you provide examples of events where amplitude envelope is useful for onset detection?",
+                "4. What kind of information does amplitude envelope provide?",
+                "5. Why is there a spike in amplitude at the onset of an acoustic event?",
+                "6. In what other applications can amplitude envelope be used besides onset detection?",
+                "7. How can amplitude envelope be applied to music genre classification?",
+                "8. What does the author indicate about visualizations of amplitude envelope in the current video?",
+                "9. What will be compared in the next video regarding amplitude envelope?",
+                "10. How does amplitude envelope relate to understanding the start of a musical note or spoken word?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "425.98",
+            "questions": [
+                "1. What is the primary purpose of answer detection in audio processing?",
+                "2. How does amplitude envelope help in identifying the onset of acoustic events?",
+                "3. What types of events can amplitude envelope be used to analyze?",
+                "4. Why is a burst of energy significant at the onset of a sound event?",
+                "5. Can amplitude envelope be utilized for classification tasks beyond just detecting notes? If so, give an example.",
+                "6. What will be compared in the next video regarding amplitude envelope?",
+                "7. What is the second time domain audio feature mentioned in the text?",
+                "8. How is root mean square energy calculated in the context of audio samples?",
+                "9. Why might visualizations of amplitude envelope be important in understanding audio features?",
+                "10. What information does amplitude envelope provide about the characteristics of a sound?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame. OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "454.41",
+            "questions": [
+                "1. What is the significance of amplitude in audio analysis?",
+                "2. How does a spike in amplitude relate to the onset of sound?",
+                "3. In what context can amplitude envelope be used for classification problems?",
+                "4. What example is given for using amplitude envelope in music genre classification?",
+                "5. Will visualizations or graphs of amplitude envelope be provided in the current discussion?",
+                "6. What will be compared in the next video regarding amplitude envelope?",
+                "7. What is the second time domain audio feature mentioned in the text?",
+                "8. How is root mean square energy calculated in audio analysis?",
+                "9. What challenges might someone face if they are unfamiliar with statistics and math in understanding root mean square energy?",
+                "10. What is the purpose of breaking down the formula for root mean square energy?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame. OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "483.825",
+            "questions": [
+                "1. What is the purpose of analyzing different pieces of music from various genres in the text?",
+                "2. What is the second time domain audio feature mentioned in the text?",
+                "3. How is root mean square energy calculated according to the text?",
+                "4. What does the term \"frame\" refer to in the context of audio analysis?",
+                "5. Why might the formula for root mean square energy seem intimidating to some readers?",
+                "6. What does the symbol \"s of K\" represent in the audio analysis discussed?",
+                "7. How is the energy related to the amplitude of a sample in the context of this audio feature?",
+                "8. What is meant by \"instantaneously\" taking values for each frame in audio analysis?",
+                "9. Can you explain the significance of squaring the amplitude in the calculation of energy?",
+                "10. What steps are suggested to help understand the root mean square energy concept more clearly?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy. Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "513.549",
+            "questions": [
+                "1. What is the main concept being discussed in the text?",
+                "2. How does the author describe the initial perception of the statistical formula?",
+                "3. What does the term \"root M square energy\" refer to in the context of audio features?",
+                "4. Can you explain what is meant by \"amplitude at the sample K\"?",
+                "5. Why is squaring the amplitude significant in calculating energy?",
+                "6. How is energy calculated for a specific sample in the text?",
+                "7. What does the author mean by \"taking the values for each frame\"?",
+                "8. What does the sum symbol represent in the calculation process described?",
+                "9. How does the author aim to make the explanation more understandable?",
+                "10. What is the importance of summing the energy for all samples in frame T?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy. Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "535.859",
+            "questions": [
+                "1. What does the term \"frame T\" refer to in the context of audio features?",
+                "2. How are audio features processed according to the text?",
+                "3. What is represented by the variable \"s of K\" in the given explanation?",
+                "4. Why is the amplitude squared when calculating energy?",
+                "5. How is the energy of the K-th sample determined?",
+                "6. What mathematical operation is performed to calculate the total energy for frame T?",
+                "7. What does the sum symbol represent in the context of energy calculation?",
+                "8. How is the average energy for frame T calculated?",
+                "9. What is meant by \"frame size\" in the context of this audio analysis?",
+                "10. Why is it important to consider the number of samples when calculating the average energy?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame. And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "564.479",
+            "questions": [
+                "1. What is the first step in calculating the energy of the cave sample?",
+                "2. How do you denote the process of summing the energy for all samples in frame T?",
+                "3. What is done after summing the energy in frame T?",
+                "4. How is the mean of the sum of energy calculated?",
+                "5. What is the significance of dividing the sum of the energy by the frame size?",
+                "6. What mathematical operation is applied after calculating the mean of the energy?",
+                "7. What does the root mean square energy indicate?",
+                "8. How is energy related to loudness according to the text?",
+                "9. What does the term \"frame size\" refer to in this context?",
+                "10. Why is it important to calculate the root mean square energy?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame. And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness. And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "586.07",
+            "questions": [
+                "1. What is the main objective of calculating the sum of energy in frame T?",
+                "2. How do we determine the average energy in a given frame?",
+                "3. What formula is used to achieve the root mean square energy?",
+                "4. Why is root mean square energy considered an indicator of loudness?",
+                "5. How is energy related to loudness in audio processing?",
+                "6. What advantages does root mean square energy have over the amplitude envelope?",
+                "7. Why is root mean square energy less sensitive to outliers?",
+                "8. In what context is root mean square energy predominantly used?",
+                "9. What does the frame size refer to in the context of calculating energy?",
+                "10. What steps are involved in calculating the root mean square energy from the sum of energy?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness. And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "609.919",
+            "questions": [
+                "1. What is the root mean square energy used to measure?",
+                "2. Why is root mean square energy considered an indicator of loudness?",
+                "3. How does energy relate to loudness in audio processing?",
+                "4. What advantage does root mean square energy have over the amplitude envelope?",
+                "5. Why is root mean square energy less sensitive to outliers compared to amplitude envelope?",
+                "6. How is root mean square energy calculated from audio samples?",
+                "7. What type of processing is root mean square energy commonly used in?",
+                "8. What does the term \"sampling a single sample value\" refer to in the context of audio processing?",
+                "9. Why is it beneficial to use information from all samples rather than just one?",
+                "10. In what fields is root mean square energy overwhelmingly used?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples. And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "634.559",
+            "questions": [
+                "1. What is Roitman Square energy commonly used for in digital signal processing?",
+                "2. Why is Roitman Square energy less sensitive to outliers compared to the amplitude envelope?",
+                "3. How does Roitman Square energy calculate values across multiple samples?",
+                "4. What is the significance of taking the root mean square across all samples?",
+                "5. In what ways does Roitman Square energy improve analysis in audio processing?",
+                "6. Can you provide examples of applications for root mean square energy?",
+                "7. What makes Roitman Square energy preferable over other methods in digital signal processing?",
+                "8. How do spikes in amplitude affect the measurement of amplitude envelope?",
+                "9. What are the advantages of using Roitman Square energy in traditional audio processing?",
+                "10. What are the implications of being less sensitive to outliers in digital signal processing?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples. And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "655.45",
+            "questions": [
+                "1. What is the purpose of calculating root mean square (RMS) energy across samples?",
+                "2. How does RMS energy reduce sensitivity to outliers in audio signals?",
+                "3. What types of applications can utilize root mean square energy?",
+                "4. In what way does RMS energy change when new segments or events occur in an audio signal?",
+                "5. How can RMS energy be leveraged for audio segmentation?",
+                "6. Why is it beneficial to analyze multiple samples rather than a single sample value?",
+                "7. What is meant by \"spikes in amplitude\" in the context of audio frames?",
+                "8. Can you provide an example of how RMS energy might be used in practical audio processing?",
+                "9. What role does RMS energy play in identifying changes within an audio signal?",
+                "10. How does the calculation of RMS energy differ from other methods of measuring audio signal intensity?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "674.844",
+            "questions": [
+                "1. What is the significance of root mean square (RMS) energy in audio analysis?",
+                "2. How does RMS energy help in identifying new segments within an audio signal?",
+                "3. Why are we less sensitive to outliers when using RMS energy?",
+                "4. In what specific applications can RMS energy be utilized for audio segmentation?",
+                "5. How can RMS energy be used to determine if someone is talking or not?",
+                "6. What changes in RMS energy indicate new events in an audio signal?",
+                "7. Can RMS energy be applied to music genre classification? If so, how?",
+                "8. What advantages does RMS energy provide over other methods in audio analysis?",
+                "9. Are there any limitations to using RMS energy for audio segmentation?",
+                "10. What further topics related to RMS energy will be covered in the upcoming videos?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action. The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "698.01",
+            "questions": [
+                "1. What is ROM square energy used for in audio signals?",
+                "2. How does RMS change when new segments or events occur in an audio signal?",
+                "3. In what ways can rhythm in square energy be leveraged for audio segmentation?",
+                "4. How can RMS help in determining whether someone is talking or not?",
+                "5. What role does RMS play in music genre classification?",
+                "6. What is the third time domain audio feature introduced in the video?",
+                "7. Why is zero crossing rate considered a popular acoustic feature?",
+                "8. In which areas is zero crossing rate used aside from speech recognition?",
+                "9. What examples are provided for the application of audio segmentation?",
+                "10. How will the upcoming videos further explore the concepts discussed in this video?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action. The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval. And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "727.28",
+            "questions": [
+                "1. What is the purpose of segmenting audio in the context of speech and music?",
+                "2. How can RMS be applied in music genre classification?",
+                "3. What is the zero crossing rate in audio analysis?",
+                "4. Why is zero crossing rate considered an intuitive acoustic feature?",
+                "5. How is the zero crossing rate related to speech recognition?",
+                "6. What information does the zero crossing rate provide about an audio signal?",
+                "7. What does it mean for a signal to cross the horizontal axis in audio analysis?",
+                "8. Can you explain how visualizing a signal can help in understanding zero crossing rate?",
+                "9. What type of audio features are discussed in this video?",
+                "10. What will be covered in the upcoming videos related to audio features?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval. And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "746.489",
+            "questions": [
+                "1. What is the third time domain audio feature introduced in the video?",
+                "2. In which fields is the zero crossing rate commonly used?",
+                "3. What type of information does the zero crossing rate provide about a signal?",
+                "4. How is the zero crossing rate visually represented in the video?",
+                "5. What does the count of green dots signify in relation to the zero crossing rate?",
+                "6. How many crossings of the horizontal axis does the example signal in the video have?",
+                "7. Why is the zero crossing rate considered an intuitive acoustic feature?",
+                "8. What does a higher zero crossing rate indicate about a signal?",
+                "9. What mathematical concepts are associated with the calculation of the zero crossing rate?",
+                "10. Can you explain how the zero crossing rate might be useful in speech recognition?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK. Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "760.739",
+            "questions": [
+                "1. What does the zero crossing rate indicate about a signal?  ",
+                "2. How can the zero crossing rate be visually represented?  ",
+                "3. What do the green dots represent in the context of zero crossing rate?  ",
+                "4. How many times does the example signal cross the horizontal axis?  ",
+                "5. What is the significance of counting the crossings of the horizontal axis?  ",
+                "6. What mathematical formula is used to calculate the zero crossing rate?  ",
+                "7. Why should one not be intimidated by the mathematical representation of zero crossing rate?  ",
+                "8. Can the zero crossing rate be applied to any type of signal?  ",
+                "9. What is the relationship between the zero crossing rate and the characteristics of a signal?  ",
+                "10. How does visualizing the signal aid in understanding the concept of zero crossing rate?  "
+            ]
+        },
+        {
+            "id": 34,
+            "text": "and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK. Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down. OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "781.14",
+            "questions": [
+                "1. What does the zero crossing rate represent in the context of the provided text?",
+                "2. How is the zero crossing rate visually represented in the example given?",
+                "3. What is the significance of the green dots mentioned in the text?",
+                "4. How many crossings of the horizontal axis are indicated in the example?",
+                "5. What mathematical approach is suggested for calculating the zero crossing rate?",
+                "6. What is the basic intuition behind calculating the zero crossing rate?",
+                "7. How do we determine differences between consecutive pairs of samples in this context?",
+                "8. What does the term \"amplitude of value\" refer to in the explanation?",
+                "9. Why should one not be scared of the formula presented for calculating the zero crossing rate?",
+                "10. How might the zero crossing rate be useful in analyzing signals?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down. OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "802.09",
+            "questions": [
+                "1. What is the mathematical formula for calculating the zero crossing rate?",
+                "2. How do we compare the amplitude values for consecutive pairs of samples in the zero crossing rate calculation?",
+                "3. What does the term \"zero crossing rate\" refer to in signal processing?",
+                "4. Why is it important to examine the signs of amplitude differences between consecutive samples?",
+                "5. What role does the sine function play in understanding the zero crossing rate?",
+                "6. How can one familiarize themselves with the sine function as mentioned in the text?",
+                "7. What is the basic intuition behind the calculation of the zero crossing rate?",
+                "8. What does the abbreviation \"SGN\" indicate in the context of the sine function?",
+                "9. How does the concept of amplitude relate to the zero crossing rate?",
+                "10. What steps can be taken to break down the process of calculating the zero crossing rate for better understanding?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "816.0",
+            "questions": [
+                "1. What is the main concept being discussed in the text regarding consecutive samples?",
+                "2. How do we determine differences in the signs of consecutive samples' amplitudes?",
+                "3. What does the sine function (SGN) indicate in this context?",
+                "4. What value does the sine function return when the amplitude is greater than zero?",
+                "5. What value does the sine function return when the amplitude is negative?",
+                "6. What does the sine function return when the amplitude is equal to zero?",
+                "7. Why is it important to familiarize oneself with the sine function in this discussion?",
+                "8. How does the concept of amplitude relate to the sine function in the context of the text?",
+                "9. What role do consecutive pairs of samples play in this analysis?",
+                "10. Can the sine function be used to identify trends in amplitude changes? If so, how?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero. Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "833.195",
+            "questions": [
+                "1. What does the sine function indicate in relation to amplitude?",
+                "2. How does the sine function respond when the amplitude is greater than zero?",
+                "3. What value does the sine function return when the amplitude is negative?",
+                "4. What is the output of the sine function when the amplitude is equal to zero?",
+                "5. How is the zero crossing rate calculated for each pair of samples?",
+                "6. What is the significance of the samples K and K plus one in the calculation of the zero crossing rate?",
+                "7. What operation is performed between the sine values of samples K and K plus one?",
+                "8. Why is it important to compare two consecutive samples in this context?",
+                "9. What are the possible outputs of the sine function based on the amplitude values?",
+                "10. Can you explain the relationship between the amplitude and the sign function in terms of positive and negative values?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero. Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "850.719",
+            "questions": [
+                "1. What does the sine function return when the amplitude is greater than zero?",
+                "2. What is the result of the sine function when the amplitude is negative?",
+                "3. What value does the sine function return when the amplitude is equal to zero?",
+                "4. How do we calculate the zero crossing rate for each pair of samples?",
+                "5. What operation do we perform to compare the amplitude at sample K and sample K plus one?",
+                "6. What happens when both amplitude values have the same sign during the calculation?",
+                "7. How does the sign of the amplitude affect the output of the sine function?",
+                "8. Why is the zero crossing rate important in signal processing?",
+                "9. What are the implications of having amplitude values with different signs?",
+                "10. Can the zero crossing rate provide insight into the characteristics of a waveform?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "876.789",
+            "questions": [
+                "1. What is the primary purpose of calculating the zero crossing rate?",
+                "2. How do we determine the sign of the amplitude at sample K?",
+                "3. What operation do we perform to compare the two consecutive samples?",
+                "4. What happens to the zero crossing rate calculation when both amplitude values have the same sign?",
+                "5. How does the zero crossing rate change when consecutive samples have opposite signs?",
+                "6. Why is it important to analyze consecutive samples when calculating the zero crossing rate?",
+                "7. What values are produced when both samples have the same sign during the calculation?",
+                "8. In the context of zero crossing rate, what does it mean for a sample to have a positive or negative amplitude?",
+                "9. Can the zero crossing rate provide information if both samples are positive? Why or why not?",
+                "10. How does the concept of zero crossing rate contribute to the analysis of signals?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample. So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are,",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "905.255",
+            "questions": [
+                "1. What happens when both aptitude values have the same sign?",
+                "2. How does having opposite signs in amplitude values affect the zero crossing rate?",
+                "3. What is the significance of a value of two in the given example?",
+                "4. How is the absolute value calculated when dealing with amplitude samples?",
+                "5. What does a negative amplitude at sample K and a positive amplitude at sample K plus one indicate?",
+                "6. Why do we get a zero result when both amplitude values are either positive or negative?",
+                "7. Can you explain the process of calculating the value when the signs of the amplitudes are opposite?",
+                "8. What does the term \"zero crossing rate\" refer to in this context?",
+                "9. How would a series of alternating amplitude signs impact the overall result?",
+                "10. What role does the concept of amplitude play in understanding this phenomenon?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample. So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are, so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "924.14",
+            "questions": [
+                "1. What is meant by \"zero crossing rate\" in the context of this text?",
+                "2. How does the sign of the sample amplitudes affect the calculation of the value?",
+                "3. What happens when the amplitude at sample K is negative and at sample K plus one is positive?",
+                "4. Why do we take the absolute value when calculating the crossing value?",
+                "5. How is the value derived from the example of minus one, minus one, and plus one explained?",
+                "6. What does the term \"10 crossing\" refer to in the text?",
+                "7. Why do we divide the calculated value by two?",
+                "8. What is the significance of summing over all the samples mentioned in the text?",
+                "9. How does the concept of alternate opposite signs contribute to the analysis being discussed?",
+                "10. What information do we obtain from the calculations described in the passage?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are, so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "948.78",
+            "questions": [
+                "1. What does the value of two represent in the context of the discussion?",
+                "2. How is the absolute value calculated in the example provided?",
+                "3. Why do we need to divide the value of two by two?",
+                "4. What is the significance of zero crossings in this mathematical formula?",
+                "5. How is the zero crossing rate defined in the text?",
+                "6. What types of applications utilize zero crossing rate, according to the text?",
+                "7. How does the example illustrate the concept of zero crossing?",
+                "8. What role does summing over all samples in a frame play in determining zero crossing rate?",
+                "9. Why is the calculation described as \"elegant\"?",
+                "10. In what fields, besides speech recognition, is zero crossing rate applied?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing. So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "971.69",
+            "questions": [
+                "1. How many crossings does the information provided give us?",
+                "2. What mathematical operation is performed on the two crossings mentioned in the text?",
+                "3. What is the purpose of summing over all the samples in a frame?",
+                "4. What does the elegant mathematical formula define in this context?",
+                "5. In which fields is the zero crossing rate extensively used?",
+                "6. How does the zero crossing rate help in distinguishing between percussive and pitched sounds?",
+                "7. What characteristic of percussive sounds affects their zero crossing rate?",
+                "8. How do the zero crossing rates of pitched sounds compare to those of percussive sounds?",
+                "9. What is implied by the term \"zero crossing rate\" in the context of this text?",
+                "10. Why is the zero crossing rate considered important in speech recognition?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing. So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "994.859",
+            "questions": [
+                "1. What is the zero crossing rate and how is it mathematically defined?",
+                "2. In which fields is the zero crossing rate extensively used?",
+                "3. How does the zero crossing rate differ between percussive and pitched sounds?",
+                "4. Why do percussive sounds exhibit a more random zero crossing rate compared to pitched sounds?",
+                "5. What is the relationship between zero crossings and pitch in monophonic pitch estimation?",
+                "6. Can zero crossing rate be used for other applications outside of speech recognition and music processing?",
+                "7. How can zero crossing rates help in distinguishing different types of sounds?",
+                "8. What does a stable zero crossing rate indicate about a sound?",
+                "9. How does the zero crossing rate change with variations in sound pitch?",
+                "10. In what way can zero crossing rate be described as an \"elegant\" mathematical formula?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "1023.65",
+            "questions": [
+                "1. What is the significance of zero crossing rate in sound recognition?",
+                "2. How do percussive sounds differ from pitched sounds in terms of zero crossing rate?",
+                "3. Why do percussive sounds exhibit a more random zero crossing rate?",
+                "4. In what way are pitched sounds characterized by their zero crossing rates?",
+                "5. How can zero crossing rate be utilized as a monophonic pitch estimation algorithm?",
+                "6. What is the relationship between the number of zero crossings and pitch?",
+                "7. What happens to the number of zero crossings as pitch increases?",
+                "8. Are there more sophisticated pitch estimators available beyond zero crossing rate?",
+                "9. Why is zero crossing rate considered a basic idea for pitch estimation?",
+                "10. What limitations exist when using zero crossing rate for pitch estimation?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation. And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice,",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "1045.54",
+            "questions": [
+                "1. What is the zero crossing rate used for in pitch estimation?",
+                "2. How does the number of zero crossings relate to pitch?",
+                "3. What is meant by \"monophonic pitch\" in the context of zero crossing rate?",
+                "4. Is the zero crossing rate method for pitch estimation considered foolproof?",
+                "5. What are some alternatives to zero crossing rate for monophonic pitch estimation?",
+                "6. How can zero crossing rate be applied in the field of speech recognition?",
+                "7. What distinguishes voiced signals from unvoiced signals in terms of zero crossing rate?",
+                "8. Can zero crossing rate be used for polyphonic pitch estimation?",
+                "9. What limitations does zero crossing rate have in pitch estimation?",
+                "10. How does the concept of zero crossings contribute to understanding voice signals?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation. And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice, um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "1067.91",
+            "questions": [
+                "1. What is the relationship between zero crossings and pitch estimation?",
+                "2. How does zero crossing rate contribute to monophonic pitch estimation?",
+                "3. What are some limitations of using zero crossing rate for pitch estimation?",
+                "4. In what context can zero crossing rate be applied in speech recognition?",
+                "5. How does the zero crossing rate differ between voiced and unvoiced signals?",
+                "6. Why might unvoiced signals have a higher zero crossing rate compared to voiced signals?",
+                "7. What advancements have been made beyond basic zero crossing rate methods in pitch estimation?",
+                "8. How does noise affect the zero crossing rate in unvoiced signals?",
+                "9. What are the characteristics of voice signals in relation to zero crossing rate?",
+                "10. What practical applications might arise from understanding zero crossing rates in audio signals?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice, um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and implement this time domain audio features and use sometimes Al li browser for extracting them directly from audio signals. But specifically for the next video will implement the amplitude envelope from scratch and then we visualize the amplitude envelope for pieces of music which come from different music genres",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "1090.459",
+            "questions": [
+                "1. What is the zero crossing rate, and how is it used in speech recognition?",
+                "2. How does the zero crossing rate differ between voiced and unvoiced signals?",
+                "3. Why do unvoiced signals tend to have a higher zero crossing rate compared to voiced signals?",
+                "4. What might be the reason for the noisiness of unvoiced parts in audio signals?",
+                "5. What are the time domain audio features mentioned in the text?",
+                "6. What tool is suggested for extracting audio features directly from audio signals?",
+                "7. What specific audio feature will be implemented in the next video?",
+                "8. How will the amplitude envelope be visualized in the upcoming implementation?",
+                "9. What types of music genres will be analyzed for their amplitude envelope in the next video?",
+                "10. What is the significance of visualizing the amplitude envelope in different music genres?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and implement this time domain audio features and use sometimes Al li browser for extracting them directly from audio signals. But specifically for the next video will implement the amplitude envelope from scratch and then we visualize the amplitude envelope for pieces of music which come from different music genres so that we can appreciate if there is any difference uh of amplitude envelope for different genres. OK. That's all for today. I hope you enjoyed this video. If that's the case, please remember to leave a like if you have any questions as usual, feel free to uh leave a comment in the comment section below and I'll see you next time. Cheers.",
+            "video": "Understanding Time Domain Audio Features",
+            "start_time": "1112.91",
+            "questions": [
+                "1. What is the significance of zero crossing rate in voice signals?",
+                "2. How does the zero crossing rate differ between voiced and unvoiced segments?",
+                "3. Why are unvoiced parts of audio signals described as noisier?",
+                "4. What audio features will be implemented in the upcoming videos?",
+                "5. How will the amplitude envelope be visualized for different music genres?",
+                "6. What is the purpose of extracting audio features directly from audio signals?",
+                "7. What materials or tools will be used to implement the amplitude envelope from scratch?",
+                "8. What differences might be observed in the amplitude envelope across various music genres?",
+                "9. How can viewers engage or ask questions regarding the content of the video?",
+                "10. What is the encouraged action for viewers who enjoyed the video?"
+            ]
+        }
+    ]
+}

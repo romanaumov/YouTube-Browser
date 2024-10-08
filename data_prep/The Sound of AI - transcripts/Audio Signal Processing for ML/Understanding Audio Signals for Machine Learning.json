@@ -1,0 +1,452 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new exciting video in the audio processing for machine learning series. This time we start looking into audio signals and specifically we want to understand how we can take a sound and convert it into a digitalized audio signal that then we can use to manipulate it or to extract features and do whatever we want with it. Really? OK. But first of all, let's understand what's an audio signal. So this is a possible representation of a sound and this representation has all the info that we need in order to reproduce the sound once again to reconstruct it. OK? But we have to understand that here we have a huge problem and the problem is that on the one hand, sound is a mechanical wave that's analog in nature. And on the other, we want to process it with digital technologies like uh our computers, for example. So how can we convert analog signals into digital signals? Well, that's the topic of today's video. But before we delve into that, I want to just give you a brief overview of what analog and digital signals are. So let's start with analog signals. So here, the intuition is that both on the X axis which is time and on the y axis which is uh amplitude or sound or air pressure. For example, we have continuous values. So we have real number values. So here we have an example of an analog signal. So as you can see the curve is continuous, and we have a problem with an analog signal if we want to store it in a digital format. And that's basically we have infinite resolution both on the time and on the amplitude axis. So no matter what, we can always go like at a high resolution, so we can look at uh I don't know seconds, then microseconds, nanoseconds even peak ads. And we still have a real number of value there. And that's because we have continuous value continuous time, right? And the same problem also appears on the amplitude axis where still we have real numbers. So potentially infinite numbers. And obviously that has the kind of like drawback of requiring infinite memory to storing such a signal in a digital format. And obviously, we can afford that. And that's why we need to switch to digital signal. So digital signal uh basically has a sequence of discrete values. It's as if like we were taking snapshots at different times of a continuous uh signal. And these data points can only take on a finite number of buyers. So not all the possible real numbers, but only a tiny subset of that. Now how do we move from analog to digital signal? Well, that's a process called analog to digital conversion or its acronym A DC. And this process consists of two subst steps. So one is sampling the other one is quantization. Now, before getting into these two things in detail, I just want to tell you that the result of A DC is audio signal, audio digital signal. And we usually refer to audio digital signal also with another term that probably you'll hear like if you, if you delve deeper into uh audio digital processing and that's called pulse code modulation. OK. So this is like a term that you want to know because then you know what basically like people are talking about. OK? But now, regardless of like the jargon that we use, let's move on to the real meat here. So sampling. So we said there are two steps in a DC. The first one is sampling. OK. So what's sampling basically? Well, it's kind of like self explanatory. So we just like sample like data points across like a sound wave at specific points in time. And these black dots here are all like sample points. Now, how do we sample? Well, we usually the site on a period on a sampling kind of like period and we sample at equidistant intervals in time. And these intervals are just like the period which is indicated with capital T and at each period, we sample a data point. So this is the first one, this is the second one, the third one and so on. And so fourth. OK. Now how do we locate samples on the X axis on time? So let's say we want to locate the time at which we have sample number N. So that's TN and we can use this formula and given, we know that we are sampling points at equidistant time intervals called capital T. We can just multiply N which is the sample that we want to um like find and multiply that by the period. And that will give us like the time at which that sample is appearing in the signal. OK. So now there's another very interesting characteristic of sampling. This is like a feature that we can play around with to obtain different types of like sampling. And that's called the sampling rate. We can indicate that with SR and that's basically the inverse of the period. OK. And this sampling rate is basically a frequency and it's measured in Hertz. OK. And this indicates the uh kind of number of samples that we have for each second of our digital signal. OK. So now we can distinguish between like lower sampling rates and higher sampling rates. So why, why do we butter like about like this distinction and like what's the effect on the overall sampling process? OK. So let's take a look at this sampling, low sampling rates here. And so here you can see the uh this like uh vertical bars and these represent each of these like represents a SAM sample. And these are like wider than the ones that we have here on the right hand side because we have like a lower uh sample rate, which means like the period, uh the sampling period is higher. Now what happens here is that there's a difference between the area below the continuous curve and the area that is created by this vertical bars. And the difference is the sampling error intuitively, that is like that difference is the amount of information that we necessarily loss lose when we are like applying sampling. Now, if we compare that sampling error between the low sampling rate here on the left hand side and the higher sampling rate, you'll notice that obviously having like higher temporal resolution here, we're gonna have less of an error, right. So the the higher the sampling rate and the lower the sampling error. Now, why is this interesting? And what sampling rates should we use? Well, this is like an open question and it really depends on what you need to do which like sound an interesting question we can ask is why do we have certain sampling rates? So for example, for the CD technology, we have a sampling rate which is 44.1 kilohertz. So why people decided on that specific value? Is that arbitrary? Well, obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates. What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second. Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you. So if you watch my previous videos, when I, where I was covering the human hearing range, you're probably familiar with the opera hearing range for humans, which is around 20 k. So the NUS frequency for CD is kind of like very close to that. And so why is that the case? Well, that's the case because this means that we can go up to 22 K plus in Hertz and still not have any artifacts there. And we know that 22 K is slightly above the human hearing range. And so that means that we can basically appreciate the whole uh frequency range in a CD without getting any artifacts. OK. So now we are talking about artifacts. So if we go above the NS frequency, but what are those artifacts? Well, the artifacts that we inject in a signal, if we have uh frequencies that are above the liquid frequencies are determined by a liaising. I'm sure you're familiar with the term A liaising. But here I want to show you what a lasing really is. And so for that, we can take a look at this graph. Now, here you have a continuous signal in a red and then we've taken some samples that are like this black dots. Uh The interesting thing here is that if we look at the frequency of the original uh signaling in red, that's higher than the nus frequency that we have for our sampling process, what that entails is a problem is an artifact and that's amazing. So, and how do we uh see that? Well, let's take a look at the reconstruction of the digital curve here and it's like this curve in blue. Now, as you can see here, uh there's a complete difference between the original signal which is, which has quite high frequency and the signal, the reconstructed signal in blue, which has a way lower frequency and that like artifact is amazing. So what it does basically is it just like shift down all the frequencies that are above the N frequency. Now, this is kind of like the intuition behind it, but I feel it's a little bit abstract. So let me show you the effect of a li on a piece of music. Now, I'm in my digital audio work session. This is Audacity, the name of the software. It's open source. So you should definitely check that out. And if you are on Linux, it's great because you can run it and it's not the case with most D Aws. Really. OK. So here we have like a piece of music. So let's listen to it at the, its original sampling rate of 44.1 kilohertz. OK? So now let me resample that. So OK. Yeah, let me select this. So what I want to do here is to resample the audio and put it and use a sampling rate of one kilohertz. It's quite dramatic. The change. Let's listen, right? The difference is out. It's just incredible, right? And that's because uh all the frequencies that are above the nus frequency uh which in our case is 500 Hertz just like, get a lied and so they just like get moved, get artifacts and get moved towards like the like lower frequencies. OK. So that's the effect of a liaising on sound. Now we are done with sampling. So we should move to the second step in an auto to digital conversion which is quantization. OK. So now that we are familiar with the process of sampling, we can apply more or less like the same thing to quantization. The only difference really here is that instead of like sampling on the X axis, we are quants on the Y axis on the amplitude. But basically the idea here is that we have a fixed discrete number of amplitude values on the Y axis. And then at each sample, we just quantize the value of amplitude to the closest uh value that we have available here on our Y axis. By applying quantization, we create a quantization error just the way we did create a sampling error when we were applying sampling to the analog signals. Now it's uh kind of like intuitive that the higher the resolution, the quantization resolution or in other words, the more values we have here on the Y axis and the lower the quantization error is going to be. Now, if we take a look at the values that we are using here on the Y axis, you'll see that these are binary values specifically, we are using four bits. Now, you may be wondering but why are we using uh like binary values here? Well, that's because we are dealing with like um digital computers, right? So we are going to store this audio digital signals in digital computers. And so it only makes sense just to work with binary values. So the resolution of quantization is calculated in number of bits. Now you may hear uh this other like term bit depth and that's kind of like a synonym for resolution. So the uh bits app uh resolution for A CD is 16 bits. OK. So if we want to just like have an idea what that is like in decimal decimal numbers, so we'll just uh apply like this conversion here. So we get like we do a two to the power of 16 which is the bit depth and we get this number here which is 16 65.5 k values. So these are all the possible amplitude values that we can use when we quantize an analog signal in a CD. An interesting problem is to check the amount of hard disk memory required for storing one minute worth of sound that obviously depends on the sampling rate and bit depth that we are applying. So now let's assume that we are using like customary values like the CD values. So 44.1 kilohertz for the sampling rate and a bit depth of 16. So this is the like formula that gives us like the amount of memory that we require for one minute of sound expressed in megabytes. Now let's break this down So we start by multiplying the sampling rate by the, well, the bit depth by the sampling rate. And so this gives us the number of beats per second. Now, by dividing that number by 1,048,000 something, we move from number of bits per second to a number of megabits per second. If we divide that by eight, we move from number of uh bits by um number of bits, number of megabits per second to number of megabytes per second. OK. And so this is like what comes out of all these operations. Now, if we multiply that by 60 we get 5.49 megabytes. And this is like the amount of memory that we need for storing one minute of sound. As you can see, this is a lot of memory. So this is like a a problem because like for storing audio, like a and as a wave file, we need a lot of memory. That's why you get a lot of lossy formats like the MP3 which shrink the amount of memory that we need for storing audio data. Now, a concept that's connected with the um with the quantization process is that dynamic range. Now, this is a an intuitive quite intuitive concept and basically dynamic range is the difference between the largest and small the signal that the system can record. In other words, we can think of dynamic range as the uh kind of like the loudness range that we can appreciate from uh uh some digital sound. And the idea here is that the higher the resolution, so the more bits we use and the higher the dynamic range that we have now the concept of dynamic range is itself connected with this other concept which is that of signal to quantization noise ratio. Now, this signal to noise ratio is the relationship between the max signal strength and the quantization error. And this signal to quantization ratio uh correlates with the with dynamic range. So how can we um get an idea of the signal to noise ratio like for like some digital signal? So it's given like by this simple formula here. So uh SQNR it's approximately this constant. So 6.02 by capital Q where capital Q is the bit depth. Now, in the case of 16 bit depth, we have a signal to quantization noise ratio which is 96 decibels obviously like the this uh signal to noise ratio is measured in decibels. And in this case, it correlates like it's basically like it indicates the dynamic range itself. In other words, we know that when we are quantis a analog signal applying a bit depth of 16, we are going to end up with a dynamic range of 96 decibels. OK good. So this was it like for the process like of digitization, that kind of like has these two steps. So sampling and quantization we saw both of them. Now, the next question like that we can ask is then how do we record sound starting like from a sound and then arriving like at a um digitalized version of that sound of that audio signal. OK. So we start with a mechanical wave which is just sound that hits a microphone. And this uh let's just like a diaphragm, for example, like starts oscillating and this oscillation creates a unlock uh electrical signal and this electrical signal gets packed into a sound card which acts as an A DC device or analog to digital converter. And obviously it applies sampling and quantization and it also applies some anti liaising filtering so that it avoids liaising. And so for doing that, what we usually do is we have a low pass filter that cuts off all the frequencies that are above the NS frequency. So out of like the sound card, we get, we get a digital signal that then we can store on our laptop computer. Now, the interesting question is also like the reverse of this one. So how do we reproduce sound? So we start obviously with a digital signal. Now we put that into our sound card once again. But this time the sound card applies like the inverse of audio to digital analog to digital conversion. It does digital to analog conversion and it creates an electrical signal that gets transferred to speakers. And this signal stimulates membranes and these membranes convert the basically the electrical signal into a mechanical wave which is sound which hits our ears and now we hear sound. Wow, that was intense. But I hope by now you have an idea of how all of this like comes together. So after like this introductory videos, now you should have like a good understanding of like mechanical waves sound, the different features of sound, like frequency, loudness and tre and now you should also understand and have a solid background in audio signals. So what's coming next? Well, next we start doing some serious stuff. So we'll start to have an overview of different audio features. And specifically, we're gonna look into time domain features in audio and frequency domain features. The interesting thing about these features, those are like the ones that we extract from audio and we can then use them for training our machine learning or deep learning algorithms. OK? So stay tuned for that because that's coming before finishing off like this um video, I just want to invite you back to uh the sound of a IL community. So here you have a community of like minded people who are interested in all things A I, audio music and audio, digital signal processing. So I I invite you like to join this community and I'll leave you a link to sign up to the slack community in the description below. Now, if you have any questions about this uh video, please feel free. Like to ask them in the comments section below. It's all for today. I hope you enjoyed the video. I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new exciting video in the audio processing for machine learning series. This time we start looking into audio signals and specifically we want to understand how we can take a sound and convert it into a digitalized audio signal that then we can use to manipulate it or to extract features and do whatever we want with it. Really? OK. But first of all, let's understand what's an audio signal.",
+                "start_time": "0.0",
+                "end_time": "28.209"
+            },
+            {
+                "id": 1,
+                "transcript": "So this is a possible representation of a sound and this representation has all the info that we need in order to reproduce the sound once again to reconstruct it. OK? But we have to understand that here we have a huge problem",
+                "start_time": "28.549",
+                "end_time": "49.209"
+            },
+            {
+                "id": 2,
+                "transcript": "and the problem is that on the one hand, sound is a mechanical wave that's analog in nature. And on the other, we want to process it with digital technologies like uh our computers, for example.",
+                "start_time": "49.459",
+                "end_time": "63.9"
+            },
+            {
+                "id": 3,
+                "transcript": "So how can we convert analog signals into digital signals? Well, that's the topic of today's video. But before we delve into that, I want to just give you a brief overview of what analog and digital signals are. So let's start with analog signals. So here, the intuition is that",
+                "start_time": "64.069",
+                "end_time": "85.75"
+            },
+            {
+                "id": 4,
+                "transcript": "both on the X axis which is time and on the y axis which is uh amplitude or sound or air pressure. For example, we have continuous values. So we have real number values. So here we have an example of an analog signal. So as you can see the curve is continuous,",
+                "start_time": "85.76",
+                "end_time": "107.44"
+            },
+            {
+                "id": 5,
+                "transcript": "and we have a problem with an analog signal if we want to store it in a digital format. And that's basically we have infinite resolution both on the time and on the amplitude axis. So no matter what, we can always go like at a high resolution, so we can look at uh I don't know seconds, then",
+                "start_time": "107.449",
+                "end_time": "129.139"
+            },
+            {
+                "id": 6,
+                "transcript": "microseconds, nanoseconds even peak ads. And we still have a real number of value there. And that's because we have continuous value continuous time, right? And the same problem also appears on the amplitude axis where still we have real numbers. So potentially infinite numbers. And obviously that has the",
+                "start_time": "129.46",
+                "end_time": "152.02"
+            },
+            {
+                "id": 7,
+                "transcript": "kind of like drawback of requiring infinite memory to storing such a signal in a digital format. And obviously, we can afford that. And that's why we need to switch to digital signal. So digital signal uh basically has a sequence of discrete values. It's as if like we were taking snapshots at different times of a continuous uh signal.",
+                "start_time": "152.22",
+                "end_time": "177.24"
+            },
+            {
+                "id": 8,
+                "transcript": "And these data points can only take on a finite number of buyers. So not all the possible real numbers, but only a tiny subset of that. Now how do we move from analog to digital signal? Well, that's a process called analog to digital conversion or",
+                "start_time": "177.38",
+                "end_time": "199.02"
+            },
+            {
+                "id": 9,
+                "transcript": "its acronym A DC. And this process consists of two subst steps. So one is sampling the other one is quantization. Now, before getting into these two things in detail, I just want to tell you that the result of A DC is audio signal, audio digital signal. And we usually",
+                "start_time": "199.029",
+                "end_time": "220.669"
+            },
+            {
+                "id": 10,
+                "transcript": "refer to audio digital signal also with another term that probably you'll hear like if you, if you delve deeper into uh audio digital processing and that's called pulse code modulation. OK. So this is like a term that you want to know because then you know what basically like people are talking about. OK? But now,",
+                "start_time": "220.679",
+                "end_time": "242.33"
+            },
+            {
+                "id": 11,
+                "transcript": "regardless of like the jargon that we use, let's move on to the real meat here.",
+                "start_time": "243.11",
+                "end_time": "248.289"
+            },
+            {
+                "id": 12,
+                "transcript": "So sampling. So we said there are two steps in a DC. The first one is sampling. OK. So what's sampling basically? Well, it's kind of like self explanatory. So we just like sample like data points across like a sound wave at specific points in time. And these black dots here are all like sample points. Now, how do we sample? Well, we usually",
+                "start_time": "248.52",
+                "end_time": "274.255"
+            },
+            {
+                "id": 13,
+                "transcript": "the site on a period on a sampling kind of like period and we sample at equidistant intervals in time. And these intervals are just like the period which is indicated with capital T and at each period, we sample a data point. So this is the first one, this is the second one, the third one and so on. And so fourth. OK. Now",
+                "start_time": "274.265",
+                "end_time": "302.23"
+            },
+            {
+                "id": 14,
+                "transcript": "how do we locate samples on the X axis on time? So let's say we want to locate the time at which we have sample number N.",
+                "start_time": "302.38",
+                "end_time": "314.76"
+            },
+            {
+                "id": 15,
+                "transcript": "So that's TN and we can use this formula and given, we know that we are sampling points at equidistant time intervals called capital T. We can just multiply N which is the sample that we want to um like find and multiply that by the period. And that will give us like the time at which that sample is appearing in the signal.",
+                "start_time": "314.91",
+                "end_time": "343.79"
+            },
+            {
+                "id": 16,
+                "transcript": "OK. So now there's another very interesting characteristic of sampling. This is like a feature that we can play around with to obtain different types of like sampling. And that's called the sampling rate. We can indicate that with SR and that's basically the inverse of the period. OK. And this sampling rate is basically a frequency and it's measured in Hertz. OK.",
+                "start_time": "344.1",
+                "end_time": "373.35"
+            },
+            {
+                "id": 17,
+                "transcript": "And this indicates the uh kind of number of samples that we have for each second of our digital signal. OK. So now we can distinguish between like lower sampling rates and higher sampling rates. So why, why do we butter like about like this distinction and like what's the effect on the overall sampling process? OK. So let's take a look at this sampling, low sampling rates here.",
+                "start_time": "373.54",
+                "end_time": "403.239"
+            },
+            {
+                "id": 18,
+                "transcript": "And so here you can see the",
+                "start_time": "403.429",
+                "end_time": "406.799"
+            },
+            {
+                "id": 19,
+                "transcript": "uh this like uh vertical bars and these represent each of these like represents a SAM sample. And these are like wider than the ones that we have here on the right hand side because we have like a lower uh sample rate, which means like the period, uh the sampling period is higher. Now what happens here is that there's a difference between the area below",
+                "start_time": "407.14",
+                "end_time": "433.709"
+            },
+            {
+                "id": 20,
+                "transcript": "the continuous curve and the area that is created by this vertical bars. And the difference is the sampling error intuitively, that is like that difference is the amount of information that we necessarily loss lose when we are like applying sampling. Now, if we compare that sampling error",
+                "start_time": "433.72",
+                "end_time": "460.299"
+            },
+            {
+                "id": 21,
+                "transcript": "between the low sampling rate here on the left hand side and the higher sampling rate, you'll notice that obviously having like higher temporal resolution here, we're gonna have less of an error, right. So the the higher the sampling rate and the",
+                "start_time": "460.67",
+                "end_time": "478.79"
+            },
+            {
+                "id": 22,
+                "transcript": "lower the sampling error. Now, why is this interesting? And what sampling rates should we use? Well, this is like an open question and it really depends on what you need to do which like sound",
+                "start_time": "478.799",
+                "end_time": "496.929"
+            },
+            {
+                "id": 23,
+                "transcript": "an interesting question we can ask is why do we have certain sampling rates? So for example, for the CD technology, we have a sampling rate which is 44.1 kilohertz. So why people decided on that specific value? Is that arbitrary? Well,",
+                "start_time": "497.2",
+                "end_time": "515.82"
+            },
+            {
+                "id": 24,
+                "transcript": "obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates.",
+                "start_time": "515.83",
+                "end_time": "543.69"
+            },
+            {
+                "id": 25,
+                "transcript": "What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until",
+                "start_time": "544.0",
+                "end_time": "561.244"
+            },
+            {
+                "id": 26,
+                "transcript": "the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second.",
+                "start_time": "561.255",
+                "end_time": "578.51"
+            },
+            {
+                "id": 27,
+                "transcript": "Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you.",
+                "start_time": "578.7",
+                "end_time": "602.26"
+            },
+            {
+                "id": 28,
+                "transcript": "So if you watch my previous videos, when I, where I was covering the human hearing range, you're probably familiar with the opera",
+                "start_time": "602.84",
+                "end_time": "613.02"
+            },
+            {
+                "id": 29,
+                "transcript": "hearing range for humans, which is around 20 k. So the NUS frequency for CD is kind of like very close to that. And so why is that the case? Well, that's the case because this means that we can go up to 22 K plus in Hertz and still not have any artifacts there.",
+                "start_time": "613.26",
+                "end_time": "638.69"
+            },
+            {
+                "id": 30,
+                "transcript": "And we know that 22 K is slightly above the human hearing range. And so that means that we can basically appreciate the whole uh frequency range in a CD without getting any artifacts. OK. So now we are talking about artifacts. So if we go above the NS frequency, but what are those artifacts? Well,",
+                "start_time": "638.7",
+                "end_time": "664.14"
+            },
+            {
+                "id": 31,
+                "transcript": "the artifacts that we inject in a signal, if we have uh frequencies that are above the liquid frequencies are determined by a liaising. I'm sure you're familiar with the term A liaising. But here I want to show you what a lasing really is. And so for that, we can take a look at this graph. Now, here you have a continuous signal in a red and then we've taken some samples that are like this black dots.",
+                "start_time": "664.63",
+                "end_time": "693.83"
+            },
+            {
+                "id": 32,
+                "transcript": "Uh The interesting thing here is that if we look at the frequency of the original uh signaling in red, that's higher than the nus frequency that we have for our sampling process, what that entails is a problem is an artifact and that's amazing. So, and how do we uh see that? Well, let's take a look at the reconstruction of the digital curve here and it's like this",
+                "start_time": "693.979",
+                "end_time": "720.726"
+            },
+            {
+                "id": 33,
+                "transcript": "curve in blue. Now, as you can see here, uh there's a complete difference between the original signal which is, which has quite high frequency and the signal, the reconstructed signal in blue, which has a way lower frequency and that like artifact is amazing. So what it does basically is it just like shift down all the frequencies that are above the",
+                "start_time": "720.736",
+                "end_time": "747.481"
+            },
+            {
+                "id": 34,
+                "transcript": "N frequency. Now, this is kind of like the intuition behind it, but I feel it's a little bit abstract. So let me show you the effect of a li on a piece of music. Now, I'm in my digital audio work session. This is Audacity, the name of the software. It's open source. So you should definitely check that out. And if you are on Linux, it's great because you can run it and it's not the case with most D Aws. Really.",
+                "start_time": "747.492",
+                "end_time": "774.25"
+            },
+            {
+                "id": 35,
+                "transcript": "OK. So here we have like a piece of music. So let's listen to it at the, its original sampling rate of 44.1 kilohertz.",
+                "start_time": "774.559",
+                "end_time": "785.239"
+            },
+            {
+                "id": 36,
+                "transcript": "OK? So now let me resample that. So",
+                "start_time": "798.299",
+                "end_time": "803.09"
+            },
+            {
+                "id": 37,
+                "transcript": "OK. Yeah, let me select this. So what I want to do here is to resample the audio and put it and use a sampling rate of one kilohertz. It's quite dramatic.",
+                "start_time": "805.51",
+                "end_time": "820.0"
+            },
+            {
+                "id": 38,
+                "transcript": "The change. Let's listen,",
+                "start_time": "820.52",
+                "end_time": "822.38"
+            },
+            {
+                "id": 39,
+                "transcript": "right? The difference is out. It's just incredible, right? And that's because uh all the frequencies that are above the nus frequency uh which in our case is 500 Hertz just like, get a lied and so they just like get",
+                "start_time": "834.349",
+                "end_time": "852.75"
+            },
+            {
+                "id": 40,
+                "transcript": "moved, get artifacts and get moved towards like the like lower frequencies. OK. So that's the effect of a liaising on sound. Now we are done with sampling. So we should move to the second step in an auto to digital conversion which is quantization.",
+                "start_time": "852.76",
+                "end_time": "869.969"
+            },
+            {
+                "id": 41,
+                "transcript": "OK. So now that we are familiar with the process of sampling, we can apply more or less like the same thing to quantization. The only difference really here is that instead of like sampling on the X axis, we are quants on the Y axis on the amplitude.",
+                "start_time": "870.38",
+                "end_time": "886.669"
+            },
+            {
+                "id": 42,
+                "transcript": "But basically the idea here is that we have a fixed discrete number of amplitude values on the Y axis. And then at each sample, we just quantize the value of amplitude to the closest",
+                "start_time": "886.83",
+                "end_time": "904.969"
+            },
+            {
+                "id": 43,
+                "transcript": "uh value that we have available here on our Y axis. By applying quantization, we create a quantization error just the way we did create a sampling error when we were applying sampling to the analog signals.",
+                "start_time": "904.979",
+                "end_time": "923.13"
+            },
+            {
+                "id": 44,
+                "transcript": "Now it's uh kind of like intuitive that the higher the resolution, the quantization resolution or in other words, the more values we have here on the Y axis and the lower the quantization error is going to be. Now, if we take a look at the",
+                "start_time": "923.4",
+                "end_time": "940.515"
+            },
+            {
+                "id": 45,
+                "transcript": "values that we are using here on the Y axis, you'll see that these are binary values specifically, we are using four bits. Now, you may be wondering but why are we using uh like binary values here? Well, that's because we are dealing with like um",
+                "start_time": "940.525",
+                "end_time": "957.65"
+            },
+            {
+                "id": 46,
+                "transcript": "digital computers, right? So we are going to store this audio digital signals in digital computers. And so it only makes sense just to work with binary values. So the resolution of quantization is calculated in number of bits. Now you may hear uh this other like term bit depth and that's kind of like a synonym for resolution.",
+                "start_time": "958.369",
+                "end_time": "983.119"
+            },
+            {
+                "id": 47,
+                "transcript": "So the uh bits app uh resolution for A CD is 16 bits. OK.",
+                "start_time": "983.409",
+                "end_time": "991.57"
+            },
+            {
+                "id": 48,
+                "transcript": "So if we want to just like have an idea what that is like in decimal decimal numbers, so we'll just uh apply like this conversion here. So we get like we do a two to the power of 16 which is the bit depth and we get this number here which is 16 65.5 k values. So these are all the possible amplitude values that we can use when we quantize an analog",
+                "start_time": "991.88",
+                "end_time": "1019.844"
+            },
+            {
+                "id": 49,
+                "transcript": "signal in a CD. An interesting problem is to check the amount of hard disk memory required for storing one minute worth of sound that obviously depends on the sampling rate and bit depth that we are applying. So now let's assume that we are using like customary values like the CD values. So 44.1 kilohertz for the sampling rate and a bit depth of 16.",
+                "start_time": "1019.854",
+                "end_time": "1047.828"
+            },
+            {
+                "id": 50,
+                "transcript": "So this is the like formula that gives us like the amount of memory that we require for one minute of sound expressed in megabytes. Now let's break this down So we start by multiplying the sampling rate by the, well, the bit depth by the sampling rate. And so this gives us the number of beats per second.",
+                "start_time": "1048.198",
+                "end_time": "1071.959"
+            },
+            {
+                "id": 51,
+                "transcript": "Now, by dividing that number by 1,048,000 something, we move from number of bits per second to a number of megabits per second. If we divide that by eight, we move from number of uh bits by um number of bits, number of megabits per second to number of megabytes per second. OK. And so this is like what comes out of all these operations.",
+                "start_time": "1072.16",
+                "end_time": "1101.68"
+            },
+            {
+                "id": 52,
+                "transcript": "Now, if we multiply that by 60 we get 5.49 megabytes. And this is like the amount of memory that we need for storing one minute of sound.",
+                "start_time": "1101.819",
+                "end_time": "1114.359"
+            },
+            {
+                "id": 53,
+                "transcript": "As you can see, this is a lot of memory. So this is like a a problem because like for storing audio, like a and as a wave file, we need a lot of memory. That's why you get a lot of lossy formats like the MP3 which shrink the amount of memory that we need for storing audio data. Now,",
+                "start_time": "1114.53",
+                "end_time": "1136.619"
+            },
+            {
+                "id": 54,
+                "transcript": "a concept that's connected with the um with the quantization process is that dynamic range. Now, this is a an intuitive quite intuitive concept and basically dynamic range is the difference between the largest and small",
+                "start_time": "1137.17",
+                "end_time": "1152.564"
+            },
+            {
+                "id": 55,
+                "transcript": "the signal that the system can record. In other words, we can think of dynamic range as the uh kind of like the loudness range that we can appreciate from uh uh some digital sound. And the idea here is that the higher the resolution, so the more bits we use and the higher the dynamic range that we have now",
+                "start_time": "1152.574",
+                "end_time": "1179.89"
+            },
+            {
+                "id": 56,
+                "transcript": "the concept of dynamic range is itself connected with this other concept which is that of signal to quantization noise ratio. Now, this signal to noise ratio is the relationship between the max signal strength and the quantization error. And this signal to quantization ratio uh correlates with the with dynamic range.",
+                "start_time": "1180.18",
+                "end_time": "1206.91"
+            },
+            {
+                "id": 57,
+                "transcript": "So how can we um get an idea of the signal to noise ratio like for like some digital signal?",
+                "start_time": "1207.16",
+                "end_time": "1215.209"
+            },
+            {
+                "id": 58,
+                "transcript": "So it's given like by this simple formula here. So uh SQNR it's approximately this constant. So 6.02 by capital Q where capital Q is the bit depth. Now, in the case of 16 bit depth,",
+                "start_time": "1215.93",
+                "end_time": "1234.27"
+            },
+            {
+                "id": 59,
+                "transcript": "we have a signal to quantization noise ratio which is 96 decibels obviously like the this uh signal to noise ratio is measured in decibels. And in this case, it correlates like it's basically like it indicates the",
+                "start_time": "1234.599",
+                "end_time": "1252.3"
+            },
+            {
+                "id": 60,
+                "transcript": "dynamic range itself. In other words, we know that when we are quantis a analog signal applying a bit depth of 16, we are going to end up with a dynamic range of 96 decibels. OK",
+                "start_time": "1252.31",
+                "end_time": "1271.329"
+            },
+            {
+                "id": 61,
+                "transcript": "good. So this was it like for the process like of digitization, that kind of like has these two steps. So sampling and quantization we saw both of them. Now, the next question like that we can ask is then how do we record sound starting like from a sound and then arriving like at a um digitalized version of that sound of that audio signal.",
+                "start_time": "1271.9",
+                "end_time": "1299.699"
+            },
+            {
+                "id": 62,
+                "transcript": "OK. So we start with a mechanical wave which is just sound that hits a microphone. And this uh let's just like a diaphragm, for example, like starts oscillating and this oscillation creates a unlock uh electrical signal and this electrical signal",
+                "start_time": "1300.069",
+                "end_time": "1323.084"
+            },
+            {
+                "id": 63,
+                "transcript": "gets packed into a sound card which acts as an A DC device or analog to digital converter. And obviously it applies sampling and quantization and it also applies some anti liaising filtering so that it avoids liaising. And so for doing that, what we usually do is we",
+                "start_time": "1323.094",
+                "end_time": "1346.119"
+            },
+            {
+                "id": 64,
+                "transcript": "have a low pass filter that cuts off all the frequencies that are above the NS frequency. So out of like the sound card, we get, we get a digital signal that then we can store on our laptop computer.",
+                "start_time": "1346.579",
+                "end_time": "1364.13"
+            },
+            {
+                "id": 65,
+                "transcript": "Now, the interesting question is also like the reverse of this one. So how do we reproduce sound? So we start obviously with a digital signal. Now we put that into our sound card once again. But this time the sound card applies like the inverse of audio to digital analog to digital conversion. It does digital",
+                "start_time": "1364.339",
+                "end_time": "1386.535"
+            },
+            {
+                "id": 66,
+                "transcript": "to analog conversion and it creates an electrical signal that gets transferred to speakers. And this signal stimulates membranes and these membranes convert the basically the electrical signal into a mechanical wave which is sound which hits our ears and now we hear sound.",
+                "start_time": "1386.545",
+                "end_time": "1408.75"
+            },
+            {
+                "id": 67,
+                "transcript": "Wow, that was intense. But I hope by now you have an idea of how all of this like comes together. So",
+                "start_time": "1409.31",
+                "end_time": "1418.31"
+            },
+            {
+                "id": 68,
+                "transcript": "after like this introductory videos, now you should have like a good understanding of like mechanical waves sound, the different features of sound, like frequency, loudness and tre",
+                "start_time": "1418.859",
+                "end_time": "1433.699"
+            },
+            {
+                "id": 69,
+                "transcript": "and now you should also understand and have a solid background in audio signals. So what's coming next? Well, next we start doing some serious stuff. So we'll start to have an overview of different audio features. And specifically, we're gonna look into",
+                "start_time": "1433.839",
+                "end_time": "1450.01"
+            },
+            {
+                "id": 70,
+                "transcript": "time domain features in audio and frequency domain features. The interesting thing about these features, those are like the ones that we extract from audio and we can then use them for training our machine learning or deep learning algorithms. OK? So stay tuned for that",
+                "start_time": "1450.26",
+                "end_time": "1471.979"
+            },
+            {
+                "id": 71,
+                "transcript": "because that's coming before finishing off like this um video, I just want to invite you back to uh the sound of a IL community. So here you have a community of like minded people who are interested in all things A I, audio music and audio, digital signal processing. So I",
+                "start_time": "1471.989",
+                "end_time": "1493.709"
+            },
+            {
+                "id": 72,
+                "transcript": "I invite you like to join this community and I'll leave you a link to sign up to the slack community in the description below. Now, if you have any questions about this uh video, please feel free. Like to ask them in the comments section below. It's all for today. I hope you enjoyed the video. I'll see you next time. Cheers.",
+                "start_time": "1493.719",
+                "end_time": "1515.449"
+            }
+        ]
+    }
+}

@@ -1,0 +1,398 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new exciting video in the Deep Learning for Rode with Python series. This time we're gonna talk about competition in neural networks. I'm gonna introduce you the multi-layered perception, which is a simple neural network and we're gonna see how it works and the math behind it. So to get started, let's take a look at an old friend, the artificial neuron. So if you remember, we, we said that an artificial neuron is a computational unit that's able to process some information and do some transformation on it. Well, the question is, so if the artificial neuron is a computational unit, why do we need a neural network? Isn't an artificial neuron good enough by itself? Well, it turns out that if you want to work on quite complex problems, you want to scale up to networks of neurons or neural networks because a single neuron is really good if you are dealing with linear problems. But if you're dealing with more complex problems like real world problems or where there's a lot of like non linearity in it. Well, a single neuron, it's not going to cut it. You're gonna need a network of neurons which work together. And so artificial neural networks can reproduce highly nonlinear functions and can help us solve highly nonlinear problems. Cool. So let's take a look at the fundamental components of an artificial neuron network. So we have obviously the neurons and we've seen the math of a single neuron and then these neurons are organized together into layers and we have different types of layers. So we have the input layer which is the layer where we provide information signal into the network. First, then we have a bunch of hidden layers. And so these hidden layers are layers of neurons organized and which are hidden because they are just like at the center within like the topology of the neural network. And then we have an output layer which is the layer that we use to get information out of the network. And this one which we like um this network that we have here also has a lot of weighted connections. And the weighted connections are these links here that we have among all of these neurons. And in this case, we have a fully connected network because each neuron is connected to all other neurons in subsequent layers. As you can see it, for example, like this neuron here is connected to this neuron here, to this neuron here and to this neuron down here. So this is a fully connected neuron network. And then another component that we saw already when we talked about uh artificial neurons are the activation functions. And these functions are fundamental to process the incoming information that gets into the neurons. So a specific type of neural network uh which is like very, very common. And it was like one of the first neural networks that was somehow engineered back in the day, it's called the multi layer perception. Here. The the topology of the network is quite simple because you have a bunch of uh layers. And so you have an input layer, you have, you can have one or multiple uh hidden layers and then you have an output layer. And the idea basically is that the information uh travels from left to right. And this is a type of feed forward network because the information, as I said uh gets to the input layer and then travels all the way back to the output layer. So let's take a look at the competition in multi layer perception. So as we said, information gets in through the input layer gets fed into the network, then it travels all the way through the hidden layers. Here, we have only one. If we have multiple, then it travels through all of the um different hidden layers, one by one and then it gets out through the output layer. So we have this left to right information uh processing right. So in uh the multi layer of perception, like the fundamental aspects of competition are the weights the net inputs, which are like the sum of the weighted inputs as we saw in the video about the artificial neurons. And then we have the activations which are those functions which transform the incoming information and produce an output uh that the neurons provide to the next layer. So let's see them in context. So here we have our nice uh multi-layered perception neural network. And here, as you can see, we have this uppercase W one and uppercase W-2, these are the weights in the, in the case of W one, we have these are like the weights for all the connections between the uh inputs. So X one and X two and the hidden layer. So the S one S two and S A three neurons. And as you can see here, we can indicate these uh connections, these weights uh using lowercase W 11, lower case W 12 and so on and so forth. But how do we conveniently represent all of this information all of these ways? Well, we can use our old friends the matrices. So W one can be written in this case as a two by three metrics. So we have two rows and three columns here. And W 11 represents the connection, the weight of the connection between the input X one and the uh first neuron in the hidden layer. So S one, then we have W 12 and that is the connection between X one and S two, W 13, it's the connection between X one and free. And as you can see here, we can look at these matrices. And if we consider only the rows, we're basically looking at all of the connections of one neuron from the initial uh layer into the second layer. Then if we look down here, we'll see that uh on the second row, we have all the connections of X two with S one S two and S3. But now if we look at this matrix column wise, we can see that W 11 and W-2 1 are the incoming connections of S one with regard to X one and X two to basically all of the uh incoming inputs good. So as you see here, uh for the first time metrics are very important for describing how neural networks work because it's a very convenient way of packaging up a lot of information about weights and a bunch of like other uh parameters as well. Cool. So we said weights are like the, the first very important element of a neural network. And specifically in this case of a multi layer perception, then we also have the net inputs. Now we saw the net inputs in the case of a single artificial neuron. So what happens uh the question is what happens with a layer of neurons then in order to get all the net inputs, we want to multiply in the case of H two, which is the net input for the second layer. For the hidden layer. Here, we need to do a matrix multiplication between the input vector and the weight uh one matrix. And this is like the uh we can rewrite this uh equation here like this. And so we have a row vector X one X two which is like this two guys here. So it's basically the input vector. And here we have our nice uh weight matrix. Now, if we perform the matrix multiplication there, we get a row vector, a three dimensional row vector where the first element here X one, W one plus X 2 W-2 1 is the net input H one. So it's basically the net input for the first neuron uh S one. And then we have the second element here. So X one, W 12 plus X 2 W-2 2, it's, it corresponds to H two which is the net input for S two and same thing for H three here. That's given by this uh noise like formula down here. Now, if you don't know how to perform um matrix multiplications, don't worry, just go back to the previous video. Cos I went into some details into battery matrix operations. So just like refer back to that, I'm not gonna repeat myself. But if you're following it along uh until now, so you should know how to perform uh matrix multiplication span. Now. Cool. So this was for net inputs. And then we have the activations. So if you remember when we studied the artificial neuron as an individual computational unit, we said that the artificial neuron does two things. The first part is performing the net input, the weighted sun as we saw it. And then the second part is the activation itself, which is basically modulating the net input using a function. And we can easily rewrite the activation uh for all of the neurons in a layer by using like this simple formula here. So the activation of the uh second layer here which is a vector because it is a uh a vector with like three values. So there's one activation for S 11 for S two and one for S3 is given by the activation function F which in this case is quite abstract. Uh But we'll see uh later on uh a, an example where we have a natural activation function which is the sigmoid function. And we want to pass H two to the net input for net input vector. For the second layer down here, we want to pass it to the activation function. So right, so let's just recap. So we have the basic um elements of a neural network uh for like its computations are the weights, the net inputs and the activations. So now let's take a look at the computation in a multi layer perception step by step using some kind of like abstract notation first and then we'll move on and see an example just like to clarify everything. So as we said, the information travels from left to right, so we start with X which is the input vector. So it's like these two values here, X one, X two. And then we, the information uh the signal moves to the second layer and the second layer performs two things as we. So we have the net input first and then the activation. So the net input is given by the matrix multiplication between the vector input X and W one which is the uh weight matrix for the connections between layer one and layer two. Then when we have H two, we can plug it into the activation function F and we get the activations vector for um the second layer which is basically the output of the second layer. Now we want to uh pass this information to the third layer which in our case is the output layer. So H three is again the net input. But this time for the third layer and we can cut, calculate that uh multiplying the activation vector for the second layer with W-2, which is the weight matrix for uh the connections between the second layer and the output layer. Now that we have H three, we can plug H three into the activation function F. And what we get is Y which is the output. Now, I know that this was like very abstract. But I wanted to give you an idea of like the not that we use to understanding to, to just like explain how the competition works in a multi layer perception. But now we look at an example so that we'll clarify out like all the things that we've studied so far. So here we have the very same uh network, but now we have a bunch of uh parameters in. so 0.8 here and one are the two inputs. And then we have all of these weights. So like 1.2 no, no 0.71 and so on. For uh the, the, the weights here, the, the, the W one matrix. And here we have these weights for a W-2. So the, the weights relative to the connections between the second layer and the output layer. Now, as you can see here, once again, I want to say that this is a fully connected matrix uh sorry, fully connected neural network or multi layer perception in this case, uh because we have that uh all neurons are connected uh from a layer connected with all the other neurons in the subsequent layer, right? So let's get started. So the um input vector is just a row vector and in this case is its values are 0.8 and one. It's these two guys here which we can call X one and X two, right? So now what do we want? To do, we want to calculate um the uh the competition here in the second layer. And let's just like reiterate that. And the computation does two things there. So the first part is calculating the net input. And the second part is the activation which again is the output to the subsequent layer. And so in this case, H two is calculated through a matrix multiplication between the input and the um weight matrix one, right. So now let's plug in the numbers. And so here we have uh the row vector which is the input vector here. So 0.8 and one. And here we have the uh weight matrix. So this guy here. So all of these weights organized in a weight matrix and now we can perform a matrix multiplication. So just like very briefly what we are basically doing here is we're uh calculating the dot product between this row vector here and this column vector here. And here we have the results uh for like the first neuron here. And then we shift and we have the results for the second neuron and the results for the third neuron. Now, if we run all of the math there, we come up with these results. And as you can see here, I've just like filled it into the uh the graph uh the diagram here. And so 2.96 is the act the net input for the first neuron of the second layer 1.56 is the net input for the second neuron in the second layer. And 1.8 is the uh net input for the third neuron in the second layer, right? So we've done the net inputs. Now, what should we do? You know it by now? It's the activations, right? So how do we calculate the activations? It's very, very simple. In this case, we're gonna use the sigmoid function. So the sigmoid function, we've already seen it in a previous e uh video on the artificial neurons. But it's quite simple. It's one, it's a function that it's, it's basically 1/1 plus the exponential to the minus X. And instead of X here we pass in H two. So we pass in all the net inputs. And if we run the math here we get these results. So we are basically passing the net inputs through the sigmoid function, which is our activation function of choice. And we get back uh back in a activation vector where each of these items in the vector corresponds to the activations of the neurons here in the second layer that we have no 0.95 no 0.83 no 0.86. OK, great. So we now have the output of the second layer and we are ready to process the third layer to get the net input. For the third layer. We do a matrix multiplication between the activations from the second layer and the weight matrix between for the connections between the second and the third layer. So let's plug in the numbers. And as you can see here, there's an interesting thing which is that the W-2 matrix is actually a column vector. So it's a free buy one matrix. And that's because we only have one output uh neuron. And so basically, we only have one incoming um a connection for each of the neurons in the second layer. So if we perform a dot product here, we end up with 2.99 which is the net input. And now if we want to get to the output of all of this computation, we need to plug that number into the activation function, which in our case is the sigmoid function. So if we do that, basically we end up with no 0.95. And so this is the result of the computation of this uh neural network given all of this parameters. So right, no 0.4 95. And it's been like a quite long uh process. But at the same time, I think like it was quite instructive because you really want to wanted to understand how a neuron network like processes the information on a very detailed level. So before finishing off this video, I want to leave you with a few takeaway points. So we said first of all that, we want to use artificial neural networks when we are dealing with complex problems or problems that have nonlinear solutions. Because uh the way artificial neural networks are arranged with all of these connections and all of this distributed structure with many neurons connected together is very good for reproducing reproducing uh highly nonlinear functions. And as we saw throughout the video, the computation that happens in a neural network and in a multi layer perception in this case are distributed. So we have single neurons that do uh individual uh computations. And then all of this information is passed on to like other neurons. So another important thing that we saw here is that in a feed forward network, like a multi layer perception, the signal moves from left to right. And finally, uh I want just like to reiterate the fact that the important elements of a computation in a neural network are the weights which are represented with matrices, the net inputs which are represented as row vectors and activations which again are represented as row vectors and are the outputs of a layer onto the next layer. Cool. So this was it for this video. And you may be wondering so what's up next? Well, we've done the theory behind um multi layer perceptions and neural networks. So now uh we are going to have the fun part which is coding a multi layer perception from scratch only using Python. Cool. So I hope you enjoyed the video if that's the case just uh leave a like you can subscribe and if you have any questions, please feel free to leave a comment in the comments section below and that's it for now and I hope I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new exciting video in the Deep Learning for Rode with Python series. This time we're gonna talk about competition in neural networks. I'm gonna introduce you the multi-layered perception, which is a simple neural network and we're gonna see how it works and the math behind it. So to get started, let's take a look at an old friend, the artificial neuron. So",
+                "start_time": "0.91",
+                "end_time": "24.565"
+            },
+            {
+                "id": 1,
+                "transcript": "if you remember, we, we said that an artificial neuron is a computational unit that's able to process some information and do some transformation on it. Well, the question is, so if the artificial neuron is a computational unit, why do we need a neural network? Isn't an artificial neuron",
+                "start_time": "24.575",
+                "end_time": "48.24"
+            },
+            {
+                "id": 2,
+                "transcript": "good enough by itself? Well, it turns out that if you want to work on quite complex problems, you want to scale up to networks of neurons or neural networks because a single neuron is really good if you are",
+                "start_time": "48.549",
+                "end_time": "66.665"
+            },
+            {
+                "id": 3,
+                "transcript": "dealing with linear problems. But if you're dealing with more complex problems like real world problems or where there's a lot of like non linearity in it. Well, a single neuron, it's not going to cut it. You're gonna need a network of neurons which work together.",
+                "start_time": "66.675",
+                "end_time": "84.8"
+            },
+            {
+                "id": 4,
+                "transcript": "And so artificial neural networks can reproduce highly nonlinear functions and can help us solve highly nonlinear problems.",
+                "start_time": "85.0",
+                "end_time": "96.819"
+            },
+            {
+                "id": 5,
+                "transcript": "Cool. So let's take a look at the fundamental components of an artificial neuron network. So we have obviously the neurons and we've seen the math of a single neuron and then these neurons are organized together into layers and we have different types of layers. So we have the input layer which is the layer where we provide",
+                "start_time": "96.989",
+                "end_time": "121.309"
+            },
+            {
+                "id": 6,
+                "transcript": "information signal into the network. First, then we have a bunch of hidden layers. And so these hidden layers are layers of neurons organized and which are hidden because they are just like at the center within like the topology of the neural network. And then we have an output layer which is the",
+                "start_time": "121.319",
+                "end_time": "145.639"
+            },
+            {
+                "id": 7,
+                "transcript": "layer that we use to get information out of the network. And this one which we like um this network that we have here also has a lot of weighted connections. And the weighted connections are these links here that we have among all of these neurons. And in this case, we have a fully",
+                "start_time": "145.649",
+                "end_time": "169.979"
+            },
+            {
+                "id": 8,
+                "transcript": "connected network because each neuron is connected to all other neurons in subsequent layers. As you can see it, for example, like this neuron here is connected to this neuron here, to this neuron here and to this neuron down here. So this is a fully connected neuron network.",
+                "start_time": "170.19",
+                "end_time": "190.229"
+            },
+            {
+                "id": 9,
+                "transcript": "And then another component that we saw already when we talked about uh artificial neurons are the activation functions. And these functions are fundamental to process the incoming information that gets into the neurons. So",
+                "start_time": "190.44",
+                "end_time": "207.839"
+            },
+            {
+                "id": 10,
+                "transcript": "a specific type of neural network uh which is like very, very common. And it was like one of the first neural networks that was somehow engineered back in the day, it's called the multi layer perception. Here. The the topology of the network is quite simple because you have a bunch of uh layers. And so you have an input layer, you have, you can have one or multiple",
+                "start_time": "208.38",
+                "end_time": "236.52"
+            },
+            {
+                "id": 11,
+                "transcript": "uh hidden layers and then you have an output layer. And the idea basically is that the information uh travels from left to right. And this is a type of feed forward network because the information, as I said",
+                "start_time": "236.71",
+                "end_time": "253.559"
+            },
+            {
+                "id": 12,
+                "transcript": "uh gets to the input layer and then travels all the way back to the output layer. So let's take a look at the competition in multi layer perception. So as we said, information gets in through the input layer gets fed into the network, then it travels all the way through the hidden layers. Here, we have only one. If we have multiple, then it travels through all of the um different hidden layers, one by one",
+                "start_time": "253.75",
+                "end_time": "283.51"
+            },
+            {
+                "id": 13,
+                "transcript": "and then it gets out through the output layer. So we have this left to right information uh processing",
+                "start_time": "283.739",
+                "end_time": "294.04"
+            },
+            {
+                "id": 14,
+                "transcript": "right. So in uh the multi layer of perception, like the fundamental aspects of competition are the weights the net inputs, which are like the sum of the weighted inputs as we saw in the video about the artificial neurons. And then we have the activations which are those functions which transform the incoming information and produce",
+                "start_time": "294.619",
+                "end_time": "322.16"
+            },
+            {
+                "id": 15,
+                "transcript": "an output uh that the neurons provide to the next layer. So let's see them in context. So here we have our nice uh multi-layered perception neural network. And here, as you can see, we have this uppercase W one and uppercase W-2, these are the weights in the, in the case of W one,",
+                "start_time": "322.17",
+                "end_time": "347.839"
+            },
+            {
+                "id": 16,
+                "transcript": "we have these are like the weights for all the connections between the uh inputs. So X one and X two and the hidden layer. So the S one S two and S A three neurons. And as you can see here, we can indicate these uh connections, these weights uh using lowercase W",
+                "start_time": "348.01",
+                "end_time": "370.829"
+            },
+            {
+                "id": 17,
+                "transcript": "11, lower case W 12 and so on and so forth. But how do we conveniently represent all of this information all of these ways? Well, we can use our old friends the matrices. So W one can be written in this case as a two by three metrics. So we have two rows and three columns here.",
+                "start_time": "370.839",
+                "end_time": "398.339"
+            },
+            {
+                "id": 18,
+                "transcript": "And W 11 represents the connection, the weight of the connection between the input X one and the uh first neuron in the hidden layer. So S one, then we have W 12 and that is the connection between X one and S two, W 13, it's the connection between X one and",
+                "start_time": "398.5",
+                "end_time": "421.054"
+            },
+            {
+                "id": 19,
+                "transcript": "free. And as you can see here, we can look at these matrices. And if we consider only the rows, we're basically looking at all of the connections of one neuron from the initial uh layer into the second layer. Then if we look down here,",
+                "start_time": "421.065",
+                "end_time": "444.359"
+            },
+            {
+                "id": 20,
+                "transcript": "we'll see that uh on the second row, we have all the connections of X two with S one S two and S3. But now if we look at this matrix column wise, we can see that W 11 and W-2 1 are the incoming connections of S one with regard to X one and X two to basically all of the uh incoming inputs",
+                "start_time": "444.679",
+                "end_time": "474.23"
+            },
+            {
+                "id": 21,
+                "transcript": "good. So as you see here, uh for the first time metrics are very important for describing how neural networks work because it's a very convenient way of packaging up a lot of information about weights and a bunch of like other uh parameters as well. Cool.",
+                "start_time": "474.69",
+                "end_time": "497.239"
+            },
+            {
+                "id": 22,
+                "transcript": "So we said weights are like the, the first very important element of a neural network. And specifically in this case of a multi layer perception, then we also have the net inputs. Now we saw the net inputs in the case of a single artificial neuron. So what happens uh the question is what happens with a layer of neurons then",
+                "start_time": "497.42",
+                "end_time": "520.83"
+            },
+            {
+                "id": 23,
+                "transcript": "in order to get all the net inputs, we want to multiply in the case of H two, which is the net input for the second layer. For the hidden layer. Here, we need to do a matrix multiplication between the input vector and the weight uh one matrix. And this is like the",
+                "start_time": "521.158",
+                "end_time": "546.809"
+            },
+            {
+                "id": 24,
+                "transcript": "uh we can rewrite this uh equation here like this. And so we have a row vector X one X two which is like this two guys here. So it's basically the input vector. And here we have our nice uh weight matrix. Now, if we perform the matrix multiplication there,",
+                "start_time": "546.969",
+                "end_time": "566.429"
+            },
+            {
+                "id": 25,
+                "transcript": "we get a row vector, a three dimensional row vector where the first element here X one, W one plus X 2 W-2 1 is the net input H one. So it's basically the net input for the first neuron uh S one. And then we have the second element here. So X one, W 12 plus X 2 W-2 2, it's,",
+                "start_time": "566.7",
+                "end_time": "595.469"
+            },
+            {
+                "id": 26,
+                "transcript": "it corresponds to H two which is the net input for S two and same thing for H three here. That's given by this uh noise like formula down here. Now,",
+                "start_time": "595.919",
+                "end_time": "608.28"
+            },
+            {
+                "id": 27,
+                "transcript": "if you don't know how to perform um matrix multiplications, don't worry, just go back to the previous video. Cos I went into some details into battery matrix operations. So just like refer back to that, I'm not gonna repeat myself. But if you're following it along uh until now, so you should know how to perform uh matrix multiplication span. Now.",
+                "start_time": "608.46",
+                "end_time": "631.21"
+            },
+            {
+                "id": 28,
+                "transcript": "Cool. So this was for net inputs. And then we have the activations. So if you remember when we studied the artificial neuron as an individual computational unit, we said that the artificial neuron does two things. The first part is performing the net input, the weighted sun",
+                "start_time": "631.219",
+                "end_time": "653.979"
+            },
+            {
+                "id": 29,
+                "transcript": "as we saw it. And then the second part is the activation itself, which is basically modulating the net input using a function. And we can easily rewrite the activation uh for all of the neurons in a layer by using like this simple formula here. So the activation",
+                "start_time": "654.179",
+                "end_time": "679.09"
+            },
+            {
+                "id": 30,
+                "transcript": "of the uh second layer here which is a vector because it is a uh a vector with like three values. So there's one activation for S 11 for S two and one for S3 is given by the activation function F which in this case is quite abstract.",
+                "start_time": "679.33",
+                "end_time": "699.84"
+            },
+            {
+                "id": 31,
+                "transcript": "Uh But we'll see uh later on uh a, an example where we have a natural activation function which is the sigmoid function. And we want to pass H two to the net input for net input vector. For the second layer down here, we want to pass it to the activation function.",
+                "start_time": "700.02",
+                "end_time": "720.599"
+            },
+            {
+                "id": 32,
+                "transcript": "So right, so let's just recap. So we have the basic um elements of a neural network uh for like its computations are the weights, the net inputs and the activations. So",
+                "start_time": "721.02",
+                "end_time": "736.82"
+            },
+            {
+                "id": 33,
+                "transcript": "now let's take a look at the computation in a multi layer perception step by step using some kind of like abstract notation first and then we'll move on and see an example just like to clarify everything. So as we said, the information travels from left to right, so we start with X which is the input vector. So it's like these two values here, X one, X two. And then we,",
+                "start_time": "736.83",
+                "end_time": "766.08"
+            },
+            {
+                "id": 34,
+                "transcript": "the information uh the signal moves to the second layer and the second layer performs two things as we. So we have the net input first and then the activation. So the net input is given by the matrix multiplication between the vector input X and W one which is the",
+                "start_time": "766.38",
+                "end_time": "787.09"
+            },
+            {
+                "id": 35,
+                "transcript": "uh weight matrix for the connections between layer one and layer two. Then when we have H two, we can plug it into the activation function F and we get the activations vector for um the second layer which is basically the output of the second layer.",
+                "start_time": "787.219",
+                "end_time": "809.46"
+            },
+            {
+                "id": 36,
+                "transcript": "Now we want to uh pass this information to the third layer which in our case is the output layer. So H three is again the net input. But this time for the third layer and we can cut,",
+                "start_time": "809.609",
+                "end_time": "824.69"
+            },
+            {
+                "id": 37,
+                "transcript": "calculate that uh multiplying the activation vector for the second layer with W-2, which is the weight matrix for uh the connections between the second layer and the output layer. Now that we have H three,",
+                "start_time": "824.7",
+                "end_time": "845.95"
+            },
+            {
+                "id": 38,
+                "transcript": "we can plug H three into the activation function F. And what we get is Y which is the output. Now, I know that this was like very abstract. But I wanted to give you an idea of like the not",
+                "start_time": "846.14",
+                "end_time": "861.515"
+            },
+            {
+                "id": 39,
+                "transcript": "that we use to understanding to, to just like explain how the competition works in a multi layer perception. But now we look at an example so that we'll clarify out like all the things that we've studied so far.",
+                "start_time": "861.525",
+                "end_time": "876.909"
+            },
+            {
+                "id": 40,
+                "transcript": "So here we have the very same uh network, but now we have a bunch of uh parameters in. so 0.8 here and one are the two inputs. And then we have all of these weights. So like 1.2 no, no 0.71 and so on. For uh the, the, the weights here, the, the, the W one matrix. And here we have",
+                "start_time": "877.289",
+                "end_time": "903.869"
+            },
+            {
+                "id": 41,
+                "transcript": "these weights for a W-2. So the, the weights relative to the connections between",
+                "start_time": "904.01",
+                "end_time": "911.419"
+            },
+            {
+                "id": 42,
+                "transcript": "the second layer and the output layer. Now, as you can see here, once again, I want to say that this is a fully connected matrix uh sorry, fully connected neural network or multi layer perception in this case, uh because we have that uh all neurons are connected uh from a layer connected with all the other neurons in the subsequent layer, right? So let's get started. So the",
+                "start_time": "911.58",
+                "end_time": "940.84"
+            },
+            {
+                "id": 43,
+                "transcript": "um input vector is just a row vector and in this case is its values are 0.8 and one. It's these two guys here which we can call X one and X two, right? So now what do we want? To do, we want to calculate um the uh the competition here in the second layer. And",
+                "start_time": "941.159",
+                "end_time": "964.239"
+            },
+            {
+                "id": 44,
+                "transcript": "let's just like reiterate that. And the computation does two things there. So the first part is calculating the net input. And the second part is the activation which again is the output to the subsequent layer. And so in this case, H two is calculated through a matrix multiplication between the input and the um weight matrix one,",
+                "start_time": "964.429",
+                "end_time": "990.52"
+            },
+            {
+                "id": 45,
+                "transcript": "right. So now let's plug in the numbers. And so here we have uh the row vector which is the input vector here. So 0.8 and one. And here we have the uh weight matrix. So this guy here. So all of these weights organized in a weight matrix and now we can perform a matrix multiplication. So just like very briefly what we are basically doing here is we're",
+                "start_time": "990.859",
+                "end_time": "1019.64"
+            },
+            {
+                "id": 46,
+                "transcript": "uh calculating the dot product between this row vector here and this column vector here. And here we have the results",
+                "start_time": "1019.799",
+                "end_time": "1027.93"
+            },
+            {
+                "id": 47,
+                "transcript": "uh for like the first neuron here. And then we shift and we have the results for the second neuron and the results for the third neuron. Now, if we run all of the math there, we come up with these results. And as you can see here, I've just like filled it into",
+                "start_time": "1028.77",
+                "end_time": "1046.938"
+            },
+            {
+                "id": 48,
+                "transcript": "the uh the graph uh the diagram here. And so 2.96 is the act the net input for the first neuron of the second layer 1.56 is the net input for the second neuron in the second layer. And 1.8 is the uh net input for the third neuron in the second layer, right? So we've done the net inputs. Now, what should we do?",
+                "start_time": "1047.219",
+                "end_time": "1077.17"
+            },
+            {
+                "id": 49,
+                "transcript": "You know it by now? It's the activations, right? So how do we calculate the activations? It's very, very simple. In this case, we're gonna use the sigmoid function. So the sigmoid function, we've already seen it in a previous e uh video on the artificial neurons. But it's quite simple. It's one, it's a function that it's, it's basically 1/1 plus the exponential to the minus X. And",
+                "start_time": "1077.439",
+                "end_time": "1107.0"
+            },
+            {
+                "id": 50,
+                "transcript": "instead of X here we pass in",
+                "start_time": "1107.31",
+                "end_time": "1109.93"
+            },
+            {
+                "id": 51,
+                "transcript": "H two. So we pass in all the net inputs. And if we run the math here we get these results. So we are basically passing",
+                "start_time": "1110.55",
+                "end_time": "1123.489"
+            },
+            {
+                "id": 52,
+                "transcript": "the net inputs through the sigmoid function, which is our activation function of choice. And we get back uh back in a activation vector where each of these items in the vector corresponds to the activations of the neurons here in the second layer that we have no 0.95 no 0.83 no 0.86. OK,",
+                "start_time": "1123.689",
+                "end_time": "1150.449"
+            },
+            {
+                "id": 53,
+                "transcript": "great. So we now have the output of the second layer and we are ready to process the third layer to get the net input. For the third layer. We do a matrix multiplication between the activations from the second layer and the weight matrix between for the connections between the second and the third layer. So",
+                "start_time": "1150.65",
+                "end_time": "1174.135"
+            },
+            {
+                "id": 54,
+                "transcript": "let's plug in the numbers. And as you can see here, there's an interesting thing which is that the W-2 matrix is actually a column vector. So it's a free buy one matrix. And that's because we only have one output uh neuron. And so basically, we only have one incoming um a connection for each of the neurons in the second layer.",
+                "start_time": "1174.145",
+                "end_time": "1203.189"
+            },
+            {
+                "id": 55,
+                "transcript": "So if we perform a dot product here, we end up with 2.99 which is the net input. And now if we want to get to the output",
+                "start_time": "1203.329",
+                "end_time": "1214.9"
+            },
+            {
+                "id": 56,
+                "transcript": "of all of this computation, we need to plug that number into the activation function, which in our case is the sigmoid function. So if we do that, basically we end up with no 0.95. And so this is the result of the computation of this uh neural network given all of this",
+                "start_time": "1215.069",
+                "end_time": "1240.069"
+            },
+            {
+                "id": 57,
+                "transcript": "parameters. So right, no 0.4 95. And it's been like a quite long uh process. But at the same time, I think like it was quite instructive because you really want to wanted to understand how a neuron network like processes the information on a very detailed level. So before finishing off this video, I want to leave you with a few takeaway points. So",
+                "start_time": "1240.079",
+                "end_time": "1265.089"
+            },
+            {
+                "id": 58,
+                "transcript": "we said first of all that, we want to use artificial neural networks when we are dealing with complex problems or problems that have nonlinear solutions. Because uh the way artificial neural networks are arranged with all of these connections and all of this distributed structure with many neurons connected together is very good for reproducing reproducing",
+                "start_time": "1265.319",
+                "end_time": "1291.68"
+            },
+            {
+                "id": 59,
+                "transcript": "uh highly nonlinear functions. And as we saw throughout the video, the computation that happens in a neural network and in a multi layer perception in this case are distributed. So we have single neurons that do",
+                "start_time": "1291.93",
+                "end_time": "1308.859"
+            },
+            {
+                "id": 60,
+                "transcript": "uh individual uh computations. And then all of this information is passed on to like other neurons. So another important thing that we saw here is that in a feed forward network, like a multi layer perception, the signal moves from left to right. And finally, uh I want just like",
+                "start_time": "1309.0",
+                "end_time": "1331.604"
+            },
+            {
+                "id": 61,
+                "transcript": "to reiterate the fact that the important elements of a computation in a neural network are the weights which are represented with matrices, the net inputs which are represented as row vectors and activations which again are represented as row vectors and are the outputs of a layer onto the next layer. Cool. So this was it for this video.",
+                "start_time": "1331.614",
+                "end_time": "1359.229"
+            },
+            {
+                "id": 62,
+                "transcript": "And you may be wondering so what's up next? Well, we've done the theory behind um multi layer perceptions and neural networks. So now uh we are going to have the fun part which is coding a multi layer perception from scratch only using Python.",
+                "start_time": "1359.39",
+                "end_time": "1377.959"
+            },
+            {
+                "id": 63,
+                "transcript": "Cool. So I hope you enjoyed the video if that's the case just uh leave a like you can subscribe and if you have any questions, please feel free to leave a comment in the comments section below and that's it for now and I hope I'll see you next time. Cheers.",
+                "start_time": "1378.339",
+                "end_time": "1397.91"
+            }
+        ]
+    }
+}

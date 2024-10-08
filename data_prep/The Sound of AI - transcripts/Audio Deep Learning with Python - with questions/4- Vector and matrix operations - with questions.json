@@ -1,0 +1,1300 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Do you really need to know math in order to work with deep learning? An argument goes that no, you just need to know high level libraries like py torch or tensorflow. But in reality, if you really want to understand how neurons work, then yes, you need to know a bit of linear algebra. So that's why in this video we're going to talk about vector and matrix operations. So let's get started with vectors. What are vectors? Well, vectors are just a ray of numbers. We notate vectors with small caps bolts, a letter like this a vector here. And then we can arrange a vector that's a collection of different items both horizontally. And then we have a row vector or vertically and we have a column vector. So on vectors, we can perform a number of different operations",
+            "video": "4- Vector and matrix operations",
+            "start_time": "0.129",
+            "questions": [
+                "1. Do you need to know math to work with deep learning?",
+                "2. What high-level libraries are mentioned as alternatives to understanding math in deep learning?",
+                "3. Why is linear algebra important for understanding how neurons work in deep learning?",
+                "4. What are vectors in the context of deep learning?",
+                "5. How are vectors notated in mathematical expressions?",
+                "6. Can vectors be arranged in different orientations? If so, what are those orientations?",
+                "7. What are row vectors and column vectors?",
+                "8. What types of operations can be performed on vectors?",
+                "9. What is the main focus of the video mentioned in the text?",
+                "10. How does understanding vector and matrix operations contribute to deep learning?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "in this video we're going to talk about vector and matrix operations. So let's get started with vectors. What are vectors? Well, vectors are just a ray of numbers. We notate vectors with small caps bolts, a letter like this a vector here. And then we can arrange a vector that's a collection of different items both horizontally. And then we have a row vector or vertically and we have a column vector. So on vectors, we can perform a number of different operations some that come to mind and are the simplest ones are scaler operations. These operations involve a vector and the scaler which is basically a number like two or 3.5 for example. And we have scr additions, subtraction, multiplication",
+            "video": "4- Vector and matrix operations",
+            "start_time": "19.879",
+            "questions": [
+                "1. What are vectors and how are they notated?",
+                "2. How can vectors be arranged in terms of orientation?",
+                "3. What is the difference between a row vector and a column vector?",
+                "4. What are some basic operations that can be performed on vectors?",
+                "5. What is a scalar in the context of vector operations?",
+                "6. Can you provide examples of scalar numbers used in vector operations?",
+                "7. What types of operations can be performed involving a scalar and a vector?",
+                "8. How does scalar multiplication differ from vector addition?",
+                "9. What is the significance of performing operations on vectors?",
+                "10. Are there any limitations or special considerations when performing operations on vectors?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "a letter like this a vector here. And then we can arrange a vector that's a collection of different items both horizontally. And then we have a row vector or vertically and we have a column vector. So on vectors, we can perform a number of different operations some that come to mind and are the simplest ones are scaler operations. These operations involve a vector and the scaler which is basically a number like two or 3.5 for example. And we have scr additions, subtraction, multiplication and division. So let's take a look at scalar edition for example. And the argument goes with all of the other scalar operations as well. So here we have the vector A and we add the scalar N.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "36.055",
+            "questions": [
+                "1. What is a vector in the context of the text?",
+                "2. How can vectors be arranged according to the text?",
+                "3. What are the two types of vectors mentioned?",
+                "4. What are scalar operations as described in the text?",
+                "5. Can you provide examples of scalars mentioned in the text?",
+                "6. What operations can be performed on vectors according to the text?",
+                "7. What is scalar addition, and how does it relate to vectors?",
+                "8. What is the significance of scalar multiplication in vector operations?",
+                "9. Are there any other scalar operations mentioned besides addition?",
+                "10. How does the text describe the relationship between vectors and scalars?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "some that come to mind and are the simplest ones are scaler operations. These operations involve a vector and the scaler which is basically a number like two or 3.5 for example. And we have scr additions, subtraction, multiplication and division. So let's take a look at scalar edition for example. And the argument goes with all of the other scalar operations as well. So here we have the vector A and we add the scalar N. And so, as you can see here, uh the result is this vector here and the vector is given by the A one which is the first element of the vector plus N which is the scalar and then a two plus N A three plus N. So basically we add the scaler to all the items of the vector. So uh let's take an example here. So we have a vector",
+            "video": "4- Vector and matrix operations",
+            "start_time": "57.02",
+            "questions": [
+                "1. What are scalar operations in the context of vectors?  ",
+                "2. How is a scalar defined in mathematical terms?  ",
+                "3. What are the four basic scalar operations mentioned in the text?  ",
+                "4. Can you explain the process of scalar addition with a vector?  ",
+                "5. How does scalar addition affect each element of a vector?  ",
+                "6. What is the result of adding a scalar to a vector?  ",
+                "7. Can you provide an example of scalar multiplication with a vector?  ",
+                "8. What are the differences between scalar addition and scalar subtraction?  ",
+                "9. How does scalar division work when applied to a vector?  ",
+                "10. Why are scalar operations important in vector mathematics?  "
+            ]
+        },
+        {
+            "id": 4,
+            "text": "and division. So let's take a look at scalar edition for example. And the argument goes with all of the other scalar operations as well. So here we have the vector A and we add the scalar N. And so, as you can see here, uh the result is this vector here and the vector is given by the A one which is the first element of the vector plus N which is the scalar and then a two plus N A three plus N. So basically we add the scaler to all the items of the vector. So uh let's take an example here. So we have a vector uh this column vector which is 1 to 2 and we want to add one and the resulting vector is 233, we just added 1 to 1 here, 1 to 2 here and 1 to 2 here. It's very simple, isn't it?",
+            "video": "4- Vector and matrix operations",
+            "start_time": "75.489",
+            "questions": [
+                "1. What is scalar addition in the context of vector operations?",
+                "2. How does scalar addition affect each element of a vector?",
+                "3. If vector A has elements (A1, A2, A3), what is the general formula for adding a scalar N to it?",
+                "4. Can you provide an example of a vector and a scalar to demonstrate scalar addition?",
+                "5. What is the resulting vector when adding the scalar 1 to the vector (1, 2, 2)?",
+                "6. In scalar addition, is the operation performed on each element of the vector individually or collectively?",
+                "7. How would you describe the process of scalar addition in simple terms?",
+                "8. Is scalar addition applicable to all types of vectors, and if so, why?",
+                "9. What would be the result of adding a scalar of 3 to the vector (0, -1, 4)?",
+                "10. Can scalar addition be used in conjunction with other vector operations, and how?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "And so, as you can see here, uh the result is this vector here and the vector is given by the A one which is the first element of the vector plus N which is the scalar and then a two plus N A three plus N. So basically we add the scaler to all the items of the vector. So uh let's take an example here. So we have a vector uh this column vector which is 1 to 2 and we want to add one and the resulting vector is 233, we just added 1 to 1 here, 1 to 2 here and 1 to 2 here. It's very simple, isn't it? Then we have other types of um operations like vector addition and subtraction. So here the operations are performed between two vectors and that's a constraint here. So the two vectors must have the same dimension. So, and what's a vector dimension? Well, it's very simple. It's the number of items that we have in a vector. So",
+            "video": "4- Vector and matrix operations",
+            "start_time": "90.699",
+            "questions": [
+                "1. What is the result of adding a scalar to a vector?",
+                "2. In the provided example, what is the original column vector before adding the scalar?",
+                "3. What scalar value is added to the elements of the vector in the example?",
+                "4. What is the resulting vector after adding the scalar to the original vector 1, 2?",
+                "5. How are vector addition and subtraction different from adding a scalar to a vector?",
+                "6. What is required for performing vector addition or subtraction between two vectors?",
+                "7. How is the dimension of a vector defined?",
+                "8. Can you explain what is meant by a \"column vector\" in this context?",
+                "9. If a vector has three elements, what is its dimension?",
+                "10. Why is it important for two vectors to have the same dimension when performing addition or subtraction?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "uh this column vector which is 1 to 2 and we want to add one and the resulting vector is 233, we just added 1 to 1 here, 1 to 2 here and 1 to 2 here. It's very simple, isn't it? Then we have other types of um operations like vector addition and subtraction. So here the operations are performed between two vectors and that's a constraint here. So the two vectors must have the same dimension. So, and what's a vector dimension? Well, it's very simple. It's the number of items that we have in a vector. So uh in this way, for example, here, uh we are adding up a, the vector A plus the vector B. And as you can see both vectors have the same number of items. So three items for the A vector and three items for the B vector.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "116.36",
+            "questions": [
+                "1. What is a column vector?",
+                "2. How do you add a scalar to a vector?",
+                "3. What is the resulting vector when you add 1 to each element of the vector [1, 2]?",
+                "4. What operations can be performed on vectors besides scalar addition?",
+                "5. What is the requirement for performing vector addition and subtraction?",
+                "6. How do you define the dimension of a vector?",
+                "7. How many items are in vector A if it is being added to vector B?",
+                "8. Why must two vectors have the same dimension for addition?",
+                "9. Can you give an example of two vectors that can be added together?",
+                "10. What happens if two vectors of different dimensions are attempted to be added?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "Then we have other types of um operations like vector addition and subtraction. So here the operations are performed between two vectors and that's a constraint here. So the two vectors must have the same dimension. So, and what's a vector dimension? Well, it's very simple. It's the number of items that we have in a vector. So uh in this way, for example, here, uh we are adding up a, the vector A plus the vector B. And as you can see both vectors have the same number of items. So three items for the A vector and three items for the B vector. So A vector addition and subtraction are element wise operations as you can see here. So what this basically means is that we add the first elements of the first vector to the first element of the second vector. And this is gonna be the first element of the, some vector in this case,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "133.919",
+            "questions": [
+                "1. What types of operations are discussed in the text?  ",
+                "2. What is required for vector addition and subtraction to be performed?  ",
+                "3. How is the dimension of a vector defined?  ",
+                "4. In the example provided, how many items are in vector A?  ",
+                "5. How many items are in vector B in the example?  ",
+                "6. What does it mean for vector addition and subtraction to be element-wise operations?  ",
+                "7. How is the first element of the sum vector calculated?  ",
+                "8. Can vectors of different dimensions be added or subtracted?  ",
+                "9. What happens if two vectors do not have the same number of items?  ",
+                "10. What is the result of adding two vectors with three items each?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "uh in this way, for example, here, uh we are adding up a, the vector A plus the vector B. And as you can see both vectors have the same number of items. So three items for the A vector and three items for the B vector. So A vector addition and subtraction are element wise operations as you can see here. So what this basically means is that we add the first elements of the first vector to the first element of the second vector. And this is gonna be the first element of the, some vector in this case, then we do the same thing with the second items. So A two plus B two gives us the uh second element of the uh of the sum vector. And finally, here a three plus B three is the third element of the uh sum uh vector over here. So",
+            "video": "4- Vector and matrix operations",
+            "start_time": "161.63",
+            "questions": [
+                "1. What operation is being performed with vector A and vector B in the text?",
+                "2. How many items are in vector A?",
+                "3. How many items are in vector B?",
+                "4. What does it mean for vector addition and subtraction to be element-wise operations?",
+                "5. How is the first element of the sum vector calculated?",
+                "6. What is the formula used to find the second element of the sum vector?",
+                "7. How is the third element of the sum vector derived?",
+                "8. Can vector addition be performed if the two vectors have a different number of items?",
+                "9. What is the significance of having the same number of items in both vectors for addition?",
+                "10. What is the overall result of adding vectors A and B?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "So A vector addition and subtraction are element wise operations as you can see here. So what this basically means is that we add the first elements of the first vector to the first element of the second vector. And this is gonna be the first element of the, some vector in this case, then we do the same thing with the second items. So A two plus B two gives us the uh second element of the uh of the sum vector. And finally, here a three plus B three is the third element of the uh sum uh vector over here. So again, let's take a look at, at an example, just like to see this more clearly. So here we have two vectors. So 123 and 356. So we want to add them up together. And so the sum vector over here is 479. So one plus 32 plus five that gives us seven and three plus six that gives us nine.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "177.91",
+            "questions": [
+                "1. What are vector addition and subtraction described as in the text?",
+                "2. How do you calculate the first element of the sum vector using two vectors?",
+                "3. What is the process to find the second element of the sum vector?",
+                "4. How is the third element of the sum vector determined based on the example provided?",
+                "5. What are the two example vectors mentioned in the text?",
+                "6. What is the resulting sum vector from adding the example vectors 123 and 356?",
+                "7. What is the sum of the first elements of the vectors 123 and 356?",
+                "8. How do you obtain the second element of the sum vector from the example vectors?",
+                "9. What does the sum of the last elements of the vectors 123 and 356 equal?",
+                "10. Can you explain the element-wise operation of vector addition using numerical examples?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "then we do the same thing with the second items. So A two plus B two gives us the uh second element of the uh of the sum vector. And finally, here a three plus B three is the third element of the uh sum uh vector over here. So again, let's take a look at, at an example, just like to see this more clearly. So here we have two vectors. So 123 and 356. So we want to add them up together. And so the sum vector over here is 479. So one plus 32 plus five that gives us seven and three plus six that gives us nine. So this is very simple, isn't it? Now, we have another operation which is super important as we'll see in a second for neural networks as well. And it's called the dot product. Again, the dot product is performed between two vectors and the result this time is a skier. So it's a number. So it's not another vector.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "199.029",
+            "questions": [
+                "1. What is the process for adding the second elements of two vectors?",
+                "2. How is the third element of the sum vector calculated?",
+                "3. Can you provide an example of two vectors to illustrate the addition process?",
+                "4. What are the two vectors mentioned in the example?",
+                "5. What is the resulting sum vector from adding the vectors 123 and 356?",
+                "6. How do you calculate the first element of the sum vector from the example?",
+                "7. What does the dot product operation involve?",
+                "8. What is the result of the dot product between two vectors?",
+                "9. Why is the dot product considered important for neural networks?",
+                "10. How does the result of the dot product differ from the result of vector addition?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "again, let's take a look at, at an example, just like to see this more clearly. So here we have two vectors. So 123 and 356. So we want to add them up together. And so the sum vector over here is 479. So one plus 32 plus five that gives us seven and three plus six that gives us nine. So this is very simple, isn't it? Now, we have another operation which is super important as we'll see in a second for neural networks as well. And it's called the dot product. Again, the dot product is performed between two vectors and the result this time is a skier. So it's a number. So it's not another vector. So how do we notate a dot product? Well, and not surprisingly, we noted dot product with the dots and as you can see here, so we have the dot product that's given by um so that we can perform between two vectors over here. And the result of the dot vector over here is a one",
+            "video": "4- Vector and matrix operations",
+            "start_time": "220.059",
+            "questions": [
+                "1. What are the two vectors mentioned in the example?",
+                "2. How do you calculate the sum of the vectors 123 and 356?",
+                "3. What is the resulting sum vector from adding the two vectors?",
+                "4. What is the significance of the dot product in relation to neural networks?",
+                "5. How is the dot product notated in mathematical terms?",
+                "6. What is the result of performing a dot product between two vectors?",
+                "7. Why is the dot product referred to as resulting in a scalar?",
+                "8. How is the dot product calculated between the vectors mentioned in the text?",
+                "9. Can you explain the process of performing vector addition as described in the text?",
+                "10. What is the final result of the dot product for the given vectors in the example?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "So this is very simple, isn't it? Now, we have another operation which is super important as we'll see in a second for neural networks as well. And it's called the dot product. Again, the dot product is performed between two vectors and the result this time is a skier. So it's a number. So it's not another vector. So how do we notate a dot product? Well, and not surprisingly, we noted dot product with the dots and as you can see here, so we have the dot product that's given by um so that we can perform between two vectors over here. And the result of the dot vector over here is a one uh multiplied by B one plus A two multiplied by B two plus A three, multiplied by uh B three. So how do we get to this formula over here? Well, it's quite simple. So we take the first um item of the first vector and we multiply that with the first item of the second vector. And then we add to this, the second",
+            "video": "4- Vector and matrix operations",
+            "start_time": "246.539",
+            "questions": [
+                "1. What is the dot product and why is it important for neural networks?",
+                "2. How is the result of a dot product different from the result of other vector operations?",
+                "3. How is the dot product notated in mathematical terms?",
+                "4. What does the result of a dot product represent?",
+                "5. What is the formula used to calculate the dot product of two vectors?",
+                "6. How do you perform the calculation for the dot product step by step?",
+                "7. What are the components involved in calculating the dot product of two vectors?",
+                "8. Can the dot product be performed on vectors of different dimensions? Why or why not?",
+                "9. What role do the individual elements of the vectors play in the dot product calculation?",
+                "10. How does the dot product relate to the geometric interpretation of vectors?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "So how do we notate a dot product? Well, and not surprisingly, we noted dot product with the dots and as you can see here, so we have the dot product that's given by um so that we can perform between two vectors over here. And the result of the dot vector over here is a one uh multiplied by B one plus A two multiplied by B two plus A three, multiplied by uh B three. So how do we get to this formula over here? Well, it's quite simple. So we take the first um item of the first vector and we multiply that with the first item of the second vector. And then we add to this, the second item of the first uh vector multiplied by the second item of the second vector and so on and so forth. So now let's take a look at an example here. So we want to perform the dot product between two vectors. So 123 and four minus 21.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "271.359",
+            "questions": [
+                "1. How is the dot product notated in mathematical terms?",
+                "2. What is the formula for calculating the dot product of two vectors?",
+                "3. What operation is performed between the corresponding components of two vectors in the dot product?",
+                "4. Can you explain the process of calculating the dot product step by step?",
+                "5. What are the components of the first vector in the example provided?",
+                "6. What are the components of the second vector in the example provided?",
+                "7. How many terms are involved in the dot product calculation for three-dimensional vectors?",
+                "8. What is the significance of the dots in the notation of the dot product?",
+                "9. What is the result of the dot product calculation for the vectors 123 and 4-21?",
+                "10. How does the dot product relate to the dimensionality of the vectors involved?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "uh multiplied by B one plus A two multiplied by B two plus A three, multiplied by uh B three. So how do we get to this formula over here? Well, it's quite simple. So we take the first um item of the first vector and we multiply that with the first item of the second vector. And then we add to this, the second item of the first uh vector multiplied by the second item of the second vector and so on and so forth. So now let's take a look at an example here. So we want to perform the dot product between two vectors. So 123 and four minus 21. So the result here is one by four. And we've reached this by multiplying the first element of the first vector with the first element of the second vector. So one by four plus two by minus two. So multiplying the T the, the second items from the first and the second vector plus three by one.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "295.73",
+            "questions": [
+                "1. What is the formula for calculating the dot product of two vectors?",
+                "2. How do we approach the multiplication of elements from two vectors in the dot product?",
+                "3. Can you explain the process of obtaining the dot product step by step?",
+                "4. What are the two vectors used in the example provided for the dot product?",
+                "5. How is the first element of the first vector multiplied in the example?",
+                "6. What operation is performed between the products of the corresponding elements of the two vectors?",
+                "7. What is the result of the dot product in the example given?",
+                "8. How do the second elements of the vectors contribute to the final result in the example?",
+                "9. What is the significance of the terms \"first item\" and \"second item\" in the context of vectors?",
+                "10. In the example, what are the specific values being multiplied to obtain the final result?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "item of the first uh vector multiplied by the second item of the second vector and so on and so forth. So now let's take a look at an example here. So we want to perform the dot product between two vectors. So 123 and four minus 21. So the result here is one by four. And we've reached this by multiplying the first element of the first vector with the first element of the second vector. So one by four plus two by minus two. So multiplying the T the, the second items from the first and the second vector plus three by one. And we achieve this by multiplying the third item from the first vector by the third item uh from the second vector. So now if we run the math here we come up with a number that's three. So the dot product in this case, uh is three.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "325.72",
+            "questions": [
+                "1. What is the process described for calculating the dot product of two vectors?",
+                "2. What are the two vectors used in the example?",
+                "3. How is the result of the dot product calculated step by step?",
+                "4. What is the first multiplication performed in the example?",
+                "5. What happens when you multiply the second elements of the two vectors?",
+                "6. What is the result of the multiplication of the third elements from the two vectors?",
+                "7. How do you combine the results of the individual multiplications to find the dot product?",
+                "8. What is the final result of the dot product for the given vectors?",
+                "9. Can you explain why the dot product is important in vector mathematics?",
+                "10. Are there any other methods to calculate the dot product besides the one described?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "So the result here is one by four. And we've reached this by multiplying the first element of the first vector with the first element of the second vector. So one by four plus two by minus two. So multiplying the T the, the second items from the first and the second vector plus three by one. And we achieve this by multiplying the third item from the first vector by the third item uh from the second vector. So now if we run the math here we come up with a number that's three. So the dot product in this case, uh is three. Nice. So I just said before that the dot product is super important for neural nets. So let's really research something that we've seen in the previous video. So if you remember, so this is an artificial neuron, this X one X two X three are the inputs W 1 W-2 W three and the weights. And here we have the neuron that does two things. So one is the weighted sum or the net input.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "346.049",
+            "questions": [
+                "1. What is the result of the dot product mentioned in the text?",
+                "2. How is the dot product calculated using the elements of the first and second vectors?",
+                "3. What specific elements from the vectors are being multiplied to achieve the dot product?",
+                "4. What is the significance of the number three in the context of the dot product?",
+                "5. Why is the dot product considered important for neural networks?",
+                "6. What components are represented by X1, X2, and X3 in the artificial neuron?",
+                "7. What do W1, W2, and W3 represent in the context of the artificial neuron?",
+                "8. What are the two functions performed by the neuron as described in the text?",
+                "9. How does the weighted sum contribute to the functioning of the artificial neuron?",
+                "10. Can you explain the concept of the net input in relation to the dot product?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "And we achieve this by multiplying the third item from the first vector by the third item uh from the second vector. So now if we run the math here we come up with a number that's three. So the dot product in this case, uh is three. Nice. So I just said before that the dot product is super important for neural nets. So let's really research something that we've seen in the previous video. So if you remember, so this is an artificial neuron, this X one X two X three are the inputs W 1 W-2 W three and the weights. And here we have the neuron that does two things. So one is the weighted sum or the net input. And then we have the activation. So let's just focus on the net input. Now. So if you remember the net input age is the weighted sum over all the inputs. In other words, is X one input, one by weight one plus input, two by weight two plus input three by weight three. Now if you look at these,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "372.1",
+            "questions": [
+                "1. What is the method used to calculate the dot product between two vectors in the text?",
+                "2. What value is obtained as the dot product in the example provided?",
+                "3. Why is the dot product considered important for neural networks?",
+                "4. What do the variables X1, X2, and X3 represent in the context of the artificial neuron?",
+                "5. What are the weights associated with the inputs in the artificial neuron model?",
+                "6. What is the significance of the net input in the functioning of an artificial neuron?",
+                "7. How is the net input calculated according to the text?",
+                "8. What operation is performed on the inputs and weights to compute the weighted sum?",
+                "9. Can you explain the difference between the weighted sum and the activation in the context of neural networks?",
+                "10. What role does the activation play after the net input is calculated?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "Nice. So I just said before that the dot product is super important for neural nets. So let's really research something that we've seen in the previous video. So if you remember, so this is an artificial neuron, this X one X two X three are the inputs W 1 W-2 W three and the weights. And here we have the neuron that does two things. So one is the weighted sum or the net input. And then we have the activation. So let's just focus on the net input. Now. So if you remember the net input age is the weighted sum over all the inputs. In other words, is X one input, one by weight one plus input, two by weight two plus input three by weight three. Now if you look at these, you may uh just think that we can rewrite that using the dot product because it's basically the, the very same result. And indeed, we can rewrite H as the dot product of X and",
+            "video": "4- Vector and matrix operations",
+            "start_time": "394.63",
+            "questions": [
+                "1. What is the significance of the dot product in neural networks?",
+                "2. What are the components of an artificial neuron mentioned in the text?",
+                "3. How are the inputs represented in the context of an artificial neuron?",
+                "4. What do the weights W1, W2, and W3 signify in the artificial neuron?",
+                "5. What does the term \"net input\" refer to in the context of neural networks?",
+                "6. How is the net input H calculated according to the text?",
+                "7. Can the net input H be expressed using the dot product? If so, how?",
+                "8. What operation is performed after calculating the weighted sum in an artificial neuron?",
+                "9. Why is it important to understand the relationship between the weighted sum and the dot product?",
+                "10. How does the dot product simplify the calculation of the net input in neural networks?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "And then we have the activation. So let's just focus on the net input. Now. So if you remember the net input age is the weighted sum over all the inputs. In other words, is X one input, one by weight one plus input, two by weight two plus input three by weight three. Now if you look at these, you may uh just think that we can rewrite that using the dot product because it's basically the, the very same result. And indeed, we can rewrite H as the dot product of X and W where X is the X one XGX three vector, which is basically the, it's called the input vector. And it puts together this X one input XG input and X three inp input. And then we have this W 1 W-2 W-2 W three vector, that's the weights vector.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "424.299",
+            "questions": [
+                "1. What is the net input age referred to in the text?",
+                "2. How is the net input calculated according to the text?",
+                "3. What does the equation for net input consist of?",
+                "4. How can the calculation of net input be rewritten, as mentioned in the text?",
+                "5. What components make up the input vector X?",
+                "6. What is the significance of the weights vector W in the calculation of net input?",
+                "7. How many inputs are considered in the weighted sum for the net input?",
+                "8. What does the dot product represent in the context of net input calculation?",
+                "9. Why might it be useful to rewrite the net input using the dot product?",
+                "10. Can you explain the relationship between inputs and weights in the context of this activation process?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "you may uh just think that we can rewrite that using the dot product because it's basically the, the very same result. And indeed, we can rewrite H as the dot product of X and W where X is the X one XGX three vector, which is basically the, it's called the input vector. And it puts together this X one input XG input and X three inp input. And then we have this W 1 W-2 W-2 W three vector, that's the weights vector. So in other words, we can rewrite the net input as the dot product between",
+            "video": "4- Vector and matrix operations",
+            "start_time": "451.869",
+            "questions": [
+                "1. What is the relationship between H and the dot product in the context of the text?",
+                "2. How can H be rewritten using the dot product?",
+                "3. What does the vector X represent in this context?",
+                "4. What are the components of the input vector X?",
+                "5. What is the significance of the weights vector W in the equation?",
+                "6. How many components are in the weights vector W mentioned in the text?",
+                "7. What does the notation W-2 represent in the context of the weights vector?",
+                "8. Can the net input be expressed in terms of the input and weights vectors?",
+                "9. What is the mathematical operation used to combine the vectors X and W?",
+                "10. Why might someone want to rewrite the equation using the dot product?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "W where X is the X one XGX three vector, which is basically the, it's called the input vector. And it puts together this X one input XG input and X three inp input. And then we have this W 1 W-2 W-2 W three vector, that's the weights vector. So in other words, we can rewrite the net input as the dot product between uh the inputs and the weights. And as you can see, obviously the result here X one W one plus X 2 W-2 plus X three, W three is equal to the net input as we calculated it last time.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "470.149",
+            "questions": [
+                "1. What is represented by the vector X in the text?",
+                "2. What are the components of the input vector X?",
+                "3. How is the weights vector denoted in the text?",
+                "4. What operation is performed between the input vector and the weights vector?",
+                "5. What is the formula provided for calculating the net input?",
+                "6. How many components are there in the input vector X?",
+                "7. What does the term \"dot product\" refer to in this context?",
+                "8. What is the relationship between the input components and their corresponding weights?",
+                "9. How is the net input expressed in terms of the input and weights?",
+                "10. What can be inferred about the significance of the weights vector in the calculation of the net input?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "So in other words, we can rewrite the net input as the dot product between uh the inputs and the weights. And as you can see, obviously the result here X one W one plus X 2 W-2 plus X three, W three is equal to the net input as we calculated it last time. So how's this interesting? So why can't we just use this notation? Well, it turns out that this is like way more elegant. So working with vector and as we'll see with mattresses, like it's way more elegant and way faster in terms of notation than just using like all of these like uh symbols like in an extended form. So this is why uh we basically use a lot of like doll products and linear algebra",
+            "video": "4- Vector and matrix operations",
+            "start_time": "497.179",
+            "questions": [
+                "1. What is the relationship between net input, inputs, and weights as described in the text?",
+                "2. How is the net input calculated using the dot product of inputs and weights?",
+                "3. Why is the notation involving dot products considered more elegant?",
+                "4. What advantages does working with vectors and matrices offer over extended symbolic forms?",
+                "5. How does using dot products and linear algebra improve efficiency in calculations?",
+                "6. What is the significance of the terms X1, W1; X2, W2; and X3, W3 in the context of net input?",
+                "7. Why might one prefer to use linear algebra in mathematical expressions?",
+                "8. How does the text suggest that using dot products can simplify complex calculations?",
+                "9. Can you explain what is meant by the term \"net input\" in this context?",
+                "10. What might be some potential drawbacks of using extended symbolic forms instead of vector notation?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "uh the inputs and the weights. And as you can see, obviously the result here X one W one plus X 2 W-2 plus X three, W three is equal to the net input as we calculated it last time. So how's this interesting? So why can't we just use this notation? Well, it turns out that this is like way more elegant. So working with vector and as we'll see with mattresses, like it's way more elegant and way faster in terms of notation than just using like all of these like uh symbols like in an extended form. So this is why uh we basically use a lot of like doll products and linear algebra uh for uh notating uh neural nets. And that's very, very convenient. So this was it like for uh the basic operations for vectors. Now let's move on to matrices. So what's a matrix? So a matrix",
+            "video": "4- Vector and matrix operations",
+            "start_time": "505.07",
+            "questions": [
+                "1. What are the inputs and weights in the context of neural networks?",
+                "2. How is the net input calculated using the notation X1W1 + X2W2 + X3W3?",
+                "3. Why is the elegant notation of vectors preferred over extended symbolic forms?",
+                "4. What advantages does using vectors and matrices offer in terms of notation for neural networks?",
+                "5. What role do dot products play in the notation of neural networks?",
+                "6. How does linear algebra contribute to the convenience of working with neural networks?",
+                "7. What are the basic operations for vectors that were discussed in the text?",
+                "8. What is a matrix, and how does it relate to the discussion of neural networks?",
+                "9. In what ways can matrix notation improve the efficiency of calculations in neural networks?",
+                "10. Why is it important to transition from vector operations to matrix operations in neural networks?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "So how's this interesting? So why can't we just use this notation? Well, it turns out that this is like way more elegant. So working with vector and as we'll see with mattresses, like it's way more elegant and way faster in terms of notation than just using like all of these like uh symbols like in an extended form. So this is why uh we basically use a lot of like doll products and linear algebra uh for uh notating uh neural nets. And that's very, very convenient. So this was it like for uh the basic operations for vectors. Now let's move on to matrices. So what's a matrix? So a matrix is a rectangular grid of numbers. It's like a spreadsheet really? So you have a spreadsheet with a lot of like variables or numbers and you can store all of that information in this kind of like squared rectangular uh grid. So",
+            "video": "4- Vector and matrix operations",
+            "start_time": "522.34",
+            "questions": [
+                "1. Why is the notation mentioned in the text considered more elegant?",
+                "2. How does using the described notation improve efficiency compared to extended forms?",
+                "3. What role do dot products and linear algebra play in notating neural networks?",
+                "4. What are the basic operations for vectors referenced in the text?",
+                "5. How is a matrix defined in the context of the discussion?",
+                "6. In what way is a matrix compared to a spreadsheet?",
+                "7. What advantages do matrices offer for storing information?",
+                "8. How might the notation for matrices differ from that of vectors?",
+                "9. Why might one prefer using matrices over individual numbers when dealing with data?",
+                "10. What implications does the use of elegant notation have for the field of neural networks?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "uh for uh notating uh neural nets. And that's very, very convenient. So this was it like for uh the basic operations for vectors. Now let's move on to matrices. So what's a matrix? So a matrix is a rectangular grid of numbers. It's like a spreadsheet really? So you have a spreadsheet with a lot of like variables or numbers and you can store all of that information in this kind of like squared rectangular uh grid. So we notate a matrix using an uppercase letter. So just like here a uppercase A and then we have these two weird indexes here. Indexes. So I and J so, so what do they represent? Well, I represents the rows, indexes and J represents the colon indexes. So let's take a look at these like in actions.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "550.7",
+            "questions": [
+                "1. What is a matrix?",
+                "2. How is a matrix visually represented?",
+                "3. What kind of information can be stored in a matrix?",
+                "4. How do we notate a matrix?",
+                "5. What does the uppercase letter in matrix notation signify?",
+                "6. What do the indices I and J represent in a matrix?",
+                "7. How are the rows of a matrix denoted?",
+                "8. How are the columns of a matrix denoted?",
+                "9. Can you provide an example of how to use a matrix in practice?",
+                "10. What are some applications of matrices in neural networks?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "is a rectangular grid of numbers. It's like a spreadsheet really? So you have a spreadsheet with a lot of like variables or numbers and you can store all of that information in this kind of like squared rectangular uh grid. So we notate a matrix using an uppercase letter. So just like here a uppercase A and then we have these two weird indexes here. Indexes. So I and J so, so what do they represent? Well, I represents the rows, indexes and J represents the colon indexes. So let's take a look at these like in actions. So a 11 is the the first item we have here. And as you can see this one in uh this like a red square represents, indicates the fact that we are on row number one. Whereas the second one over here represents the fact that we are on column number one. So this element here is the element that stays in a row one, column one.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "568.424",
+            "questions": [
+                "1. What is a matrix commonly compared to in the text?",
+                "2. How is a matrix notated according to the provided information?",
+                "3. What do the uppercase letters represent in matrix notation?",
+                "4. What do the indexes I and J signify in a matrix?",
+                "5. Which index represents the rows in a matrix?",
+                "6. Which index represents the columns in a matrix?",
+                "7. What does the notation A11 signify in the context of a matrix?",
+                "8. In the example provided, what does the red square indicate?",
+                "9. How is the position of an element in a matrix determined?",
+                "10. What is the significance of the first item in the described matrix?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "we notate a matrix using an uppercase letter. So just like here a uppercase A and then we have these two weird indexes here. Indexes. So I and J so, so what do they represent? Well, I represents the rows, indexes and J represents the colon indexes. So let's take a look at these like in actions. So a 11 is the the first item we have here. And as you can see this one in uh this like a red square represents, indicates the fact that we are on row number one. Whereas the second one over here represents the fact that we are on column number one. So this element here is the element that stays in a row one, column one. So now let's move on to a 12.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "587.4",
+            "questions": [
+                "1. How is a matrix notated in mathematical terms?  ",
+                "2. What does an uppercase letter signify in matrix notation?  ",
+                "3. What do the indices I and J represent in a matrix?  ",
+                "4. How does the index I relate to the structure of a matrix?  ",
+                "5. How does the index J relate to the structure of a matrix?  ",
+                "6. What does the notation A\u2081\u2081 indicate about the position of an element in a matrix?  ",
+                "7. What does the red square signify in the context of the matrix example given?  ",
+                "8. Which element corresponds to row number one and column number one in the matrix?  ",
+                "9. How would you interpret the notation A\u2081\u2082 in a matrix?  ",
+                "10. Can you explain the significance of row and column indices in matrix representation?  "
+            ]
+        },
+        {
+            "id": 28,
+            "text": "So a 11 is the the first item we have here. And as you can see this one in uh this like a red square represents, indicates the fact that we are on row number one. Whereas the second one over here represents the fact that we are on column number one. So this element here is the element that stays in a row one, column one. So now let's move on to a 12. The one again here represents the fact that we are on row number one, but the two represents the fact that we are on column number two.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "617.53",
+            "questions": [
+                "1. What does the number 11 represent in the text?",
+                "2. How does the red square indicate the row number?",
+                "3. What does the second number in 11 signify?",
+                "4. Which element is located in row one, column one?",
+                "5. What does the number 12 represent in this context?",
+                "6. How is the row number indicated in the number 12?",
+                "7. What does the second digit in 12 tell us?",
+                "8. What pattern can be observed in the numbers 11 and 12 regarding their rows?",
+                "9. How do the column numbers change between the elements 11 and 12?",
+                "10. What is the significance of the first digit in both 11 and 12?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "So now let's move on to a 12. The one again here represents the fact that we are on row number one, but the two represents the fact that we are on column number two. Now 81",
+            "video": "4- Vector and matrix operations",
+            "start_time": "647.159",
+            "questions": [
+                "1. What does the number 12 represent in the context of rows and columns?",
+                "2. Which row number is indicated by the digit \"1\" in the number 12?",
+                "3. What does the digit \"2\" signify in the number 12?",
+                "4. How do the numbers in \"12\" correlate to a grid or matrix system?",
+                "5. What is the significance of the number 81 mentioned in the text?",
+                "6. How can the position of a number in a grid be identified using its digits?",
+                "7. What could be the implications of being on row one and column two in a data set?",
+                "8. In what scenarios might it be important to distinguish between rows and columns?",
+                "9. How might the interpretation of \"12\" differ in various contexts?",
+                "10. Can you identify any patterns or rules relating to row and column identification from the text?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "The one again here represents the fact that we are on row number one, but the two represents the fact that we are on column number two. Now 81 uh here we have uh row number two and then one indicates that we are on column number one. So this way we can identify the position of all the elements of a matrix just by using two indexes I which stands for",
+            "video": "4- Vector and matrix operations",
+            "start_time": "650.349",
+            "questions": [
+                "1. What does the number \"one\" represent in the context of the matrix?",
+                "2. What does the number \"two\" indicate regarding the matrix?",
+                "3. How are the positions of elements in a matrix identified?",
+                "4. What is the significance of the number \"81\" in the provided text?",
+                "5. What does \"row number two\" correspond to in the matrix?",
+                "6. How does the notation of indexes help in locating elements within a matrix?",
+                "7. What does the \"one\" in \"column number one\" signify?",
+                "8. Can you explain the meaning of the two indexes mentioned in the text?",
+                "9. Why is it important to understand the row and column representation in a matrix?",
+                "10. How many indexes are used to identify the position of elements in the matrix?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "Now 81 uh here we have uh row number two and then one indicates that we are on column number one. So this way we can identify the position of all the elements of a matrix just by using two indexes I which stands for um rows and J which stands for uh columns. It's as simple as that. So a very important element of a matrix is its dimension. So, and the dimension is indicated by the number of rows and columns. So here we have two matrixes here. So like on the left,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "659.119",
+            "questions": [
+                "1. What does the number \"81\" indicate in the context of the matrix?",
+                "2. How are the positions of elements in a matrix identified?",
+                "3. What do the indexes \"I\" and \"J\" represent in matrix notation?",
+                "4. Why is it important to know the dimensions of a matrix?",
+                "5. How is the dimension of a matrix defined?",
+                "6. What information is necessary to indicate the dimension of a matrix?",
+                "7. How many matrices are mentioned in the text?",
+                "8. What is the significance of row number two in the example given?",
+                "9. What does the term \"column number one\" refer to in the matrix?",
+                "10. Can you explain how to determine the position of an element in a matrix using indexes?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "uh here we have uh row number two and then one indicates that we are on column number one. So this way we can identify the position of all the elements of a matrix just by using two indexes I which stands for um rows and J which stands for uh columns. It's as simple as that. So a very important element of a matrix is its dimension. So, and the dimension is indicated by the number of rows and columns. So here we have two matrixes here. So like on the left, uh the dimension of this matrix is three by two and it's three because it has three rows and it's two because it has two columns. Whereas the uh matrix on the right is two by three and two is the number of rows we have and three is the number of columns we have.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "661.94",
+            "questions": [
+                "1. What do the indexes I and J represent in the context of a matrix?",
+                "2. How can the position of elements in a matrix be identified?",
+                "3. What is meant by the term \"dimension\" in relation to a matrix?",
+                "4. How is the dimension of a matrix determined?",
+                "5. What is the dimension of the matrix on the left?",
+                "6. How many rows and columns does the matrix on the left have?",
+                "7. What is the dimension of the matrix on the right?",
+                "8. How many rows and columns does the matrix on the right have?",
+                "9. Why is it important to understand the dimensions of a matrix?",
+                "10. Can you explain the difference between the two matrices mentioned in the text?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "um rows and J which stands for uh columns. It's as simple as that. So a very important element of a matrix is its dimension. So, and the dimension is indicated by the number of rows and columns. So here we have two matrixes here. So like on the left, uh the dimension of this matrix is three by two and it's three because it has three rows and it's two because it has two columns. Whereas the uh matrix on the right is two by three and two is the number of rows we have and three is the number of columns we have. So remember dimension of matrix is indicated by number of rows first and then number of columns.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "683.69",
+            "questions": [
+                "1. What do the letters \"m\" and \"J\" represent in relation to a matrix?",
+                "2. Why is the dimension of a matrix considered an important element?",
+                "3. How is the dimension of a matrix indicated?",
+                "4. What is the dimension of the matrix on the left in the text?",
+                "5. How many rows and columns does the matrix on the left have?",
+                "6. What is the dimension of the matrix on the right in the text?",
+                "7. How many rows and columns does the matrix on the right have?",
+                "8. What order is used to indicate the dimension of a matrix?",
+                "9. Can a matrix have different dimensions if it has the same number of elements?",
+                "10. What is the significance of understanding matrix dimensions in mathematical contexts?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "uh the dimension of this matrix is three by two and it's three because it has three rows and it's two because it has two columns. Whereas the uh matrix on the right is two by three and two is the number of rows we have and three is the number of columns we have. So remember dimension of matrix is indicated by number of rows first and then number of columns. So there's a specific case of, of matrix uh which can be used to indicate vectors and we can indicate vectors as a row. Uh So we can,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "710.049",
+            "questions": [
+                "1. What are the dimensions of the first matrix mentioned in the text?",
+                "2. How many rows does the second matrix have?",
+                "3. What is the significance of the order in which matrix dimensions are stated?",
+                "4. How many columns does the first matrix have?",
+                "5. What is the dimension of the second matrix described in the text?",
+                "6. Can vectors be represented by matrices? If so, how?",
+                "7. What are the dimensions of the matrix on the right?",
+                "8. In the context of matrices, what does the term \"row\" refer to?",
+                "9. Is it possible for a matrix to have a different number of rows and columns? If yes, give an example.",
+                "10. Why is it important to understand the dimensions of a matrix?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "So remember dimension of matrix is indicated by number of rows first and then number of columns. So there's a specific case of, of matrix uh which can be used to indicate vectors and we can indicate vectors as a row. Uh So we can, uh as we mentioned, we have both like a row vectors and column vectors and a row vector is indicated by a one by N matrix. And the column vector is indicated by an N by one Metrix. Let's just take a look at an example, cos it's gonna make things like way clearer. So here on the left, we have this uh row vector. So it's 143.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "733.65",
+            "questions": [
+                "1. How is the dimension of a matrix indicated?",
+                "2. What is the difference between a row vector and a column vector?",
+                "3. How is a row vector represented in matrix notation?",
+                "4. How is a column vector represented in matrix notation?",
+                "5. What is an example of a row vector mentioned in the text?",
+                "6. Why might visual examples be helpful when discussing vectors?",
+                "7. What is the significance of the order of rows and columns in matrix dimensions?",
+                "8. Can a matrix represent both row vectors and column vectors?",
+                "9. What does a one by N matrix signify in terms of vectors?",
+                "10. What does an N by one matrix signify in terms of vectors?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "So there's a specific case of, of matrix uh which can be used to indicate vectors and we can indicate vectors as a row. Uh So we can, uh as we mentioned, we have both like a row vectors and column vectors and a row vector is indicated by a one by N matrix. And the column vector is indicated by an N by one Metrix. Let's just take a look at an example, cos it's gonna make things like way clearer. So here on the left, we have this uh row vector. So it's 143. And as we can see here, it's a one by three metrics. It's one because it has only one row and it's three in terms of columns because obviously it has three columns.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "742.89",
+            "questions": [
+                "1. What is a row vector indicated by in matrix terminology?",
+                "2. How is a column vector represented in matrix form?",
+                "3. What dimensions define a row vector and a column vector?",
+                "4. Can you provide an example of a row vector and its dimensions?",
+                "5. How many columns does the given row vector \"143\" have?",
+                "6. What does the term \"one by N matrix\" refer to?",
+                "7. What does \"N by one matrix\" signify in the context of vectors?",
+                "8. Why is it important to distinguish between row vectors and column vectors?",
+                "9. In the example provided, what is the value of N for the row vector \"143\"?",
+                "10. How does the structure of a matrix help in understanding vectors?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "uh as we mentioned, we have both like a row vectors and column vectors and a row vector is indicated by a one by N matrix. And the column vector is indicated by an N by one Metrix. Let's just take a look at an example, cos it's gonna make things like way clearer. So here on the left, we have this uh row vector. So it's 143. And as we can see here, it's a one by three metrics. It's one because it has only one row and it's three in terms of columns because obviously it has three columns. And then here on the right, we have a column vector and this column vector can be uh fought as a matrix. And it's a four by one matrix. It's four rows here and it's only one column. So this is a nice way of thinking uh vectors as uh matrices,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "757.45",
+            "questions": [
+                "1. What is the size of a row vector represented as a matrix?",
+                "2. How is a column vector indicated in matrix form?",
+                "3. In the example provided, what are the elements of the row vector?",
+                "4. How many rows and columns does the row vector have in the example?",
+                "5. What is the size of the column vector mentioned in the text?",
+                "6. How many rows does the column vector have in the provided example?",
+                "7. Can a column vector be considered a matrix? If so, how?",
+                "8. What is the relationship between row vectors and column vectors in terms of dimensions?",
+                "9. What does the term \"metrics\" refer to in the context of vectors in the text?",
+                "10. How does thinking of vectors as matrices help in understanding their properties?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "And as we can see here, it's a one by three metrics. It's one because it has only one row and it's three in terms of columns because obviously it has three columns. And then here on the right, we have a column vector and this column vector can be uh fought as a matrix. And it's a four by one matrix. It's four rows here and it's only one column. So this is a nice way of thinking uh vectors as uh matrices, an important operation that we have with a mattress, it's called transposition. So with trans transposition, what we do, it's quite simple. So basically we switch rows and columns. So let's take a look at this",
+            "video": "4- Vector and matrix operations",
+            "start_time": "783.71",
+            "questions": [
+                "1. What is the structure of the one by three matrix described in the text?",
+                "2. How many rows and columns does the column vector have?",
+                "3. What dimensions does the column vector represent as a matrix?",
+                "4. What operation is described as important for matrices in the text?",
+                "5. What does the process of transposition involve?",
+                "6. How does transposition affect the arrangement of rows and columns in a matrix?",
+                "7. Can a column vector be considered a matrix? If so, how?",
+                "8. What is the significance of understanding vectors as matrices?",
+                "9. How many total elements are in the one by three matrix mentioned?",
+                "10. What is the primary focus of the discussion in the provided text?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "And then here on the right, we have a column vector and this column vector can be uh fought as a matrix. And it's a four by one matrix. It's four rows here and it's only one column. So this is a nice way of thinking uh vectors as uh matrices, an important operation that we have with a mattress, it's called transposition. So with trans transposition, what we do, it's quite simple. So basically we switch rows and columns. So let's take a look at this metrics for example. So here we have this matrix which is 123 minus 40.51 and then it says three by two matrix. Now, the transpose matrix which is indicated with",
+            "video": "4- Vector and matrix operations",
+            "start_time": "797.96",
+            "questions": [
+                "1. What is a column vector described as in the text?",
+                "2. How many rows and columns does the mentioned column vector have?",
+                "3. What operation is important when working with matrices, as mentioned in the text?",
+                "4. What does the transposition operation involve?",
+                "5. How is the transposition of a matrix visually represented?",
+                "6. What example matrix is provided in the text?",
+                "7. What are the dimensions of the example matrix given?",
+                "8. What does the text suggest about thinking of vectors in relation to matrices?",
+                "9. How is the transpose of a matrix indicated in the text?",
+                "10. Can you explain the significance of switching rows and columns in matrix transposition?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "an important operation that we have with a mattress, it's called transposition. So with trans transposition, what we do, it's quite simple. So basically we switch rows and columns. So let's take a look at this metrics for example. So here we have this matrix which is 123 minus 40.51 and then it says three by two matrix. Now, the transpose matrix which is indicated with a superscript capital T which stands for uh transpose, it's basically the same metrics. But as you can see here, the columns have become rows. So here we have the in the first column, 130.5. And here",
+            "video": "4- Vector and matrix operations",
+            "start_time": "823.159",
+            "questions": [
+                "1. What is the operation called when switching rows and columns in a matrix?",
+                "2. How is the transpose of a matrix typically indicated?",
+                "3. What does the superscript capital T represent in the context of matrices?",
+                "4. In the given example, what are the dimensions of the original matrix?",
+                "5. What are the elements of the original matrix provided in the text?",
+                "6. How is the transpose matrix formed from the original matrix?",
+                "7. Can you describe the transformation of the first row in the original matrix to the transpose?",
+                "8. What is the significance of transposing a matrix in mathematical operations?",
+                "9. Would transposing a matrix change the number of elements it contains?",
+                "10. In the transpose of the given matrix, what are the elements in the first column?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "metrics for example. So here we have this matrix which is 123 minus 40.51 and then it says three by two matrix. Now, the transpose matrix which is indicated with a superscript capital T which stands for uh transpose, it's basically the same metrics. But as you can see here, the columns have become rows. So here we have the in the first column, 130.5. And here uh the, the 130.5 has become the first row. So we've basically switched rows and columns. So it's all you have it here. And a simple way of notating this in a very condensed manner is this down here. So the transposed Metrix A",
+            "video": "4- Vector and matrix operations",
+            "start_time": "839.9",
+            "questions": [
+                "1. What is the mathematical operation performed on the matrix in the example?",
+                "2. What is the result of the calculation 123 minus 40.51?",
+                "3. How is a 3 by 2 matrix defined in terms of its dimensions?",
+                "4. What does the superscript capital T indicate when referring to a matrix?",
+                "5. In a transpose matrix, how are the rows and columns related to each other?",
+                "6. What becomes the first row in the transposed matrix when the first column is 130.5?",
+                "7. How can one visually represent the process of transposing a matrix?",
+                "8. What is meant by \"switching rows and columns\" in the context of matrix transposition?",
+                "9. Can you explain the notation used to indicate a transposed matrix?",
+                "10. What is the significance of transposing a matrix in mathematical operations?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "a superscript capital T which stands for uh transpose, it's basically the same metrics. But as you can see here, the columns have become rows. So here we have the in the first column, 130.5. And here uh the, the 130.5 has become the first row. So we've basically switched rows and columns. So it's all you have it here. And a simple way of notating this in a very condensed manner is this down here. So the transposed Metrix A uh of IJ is basically a of J I. So we've inverted the uh two indexes for the columns and the rows down here.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "857.95",
+            "questions": [
+                "1. What does the superscript capital T represent in the context of matrices?",
+                "2. How does transposition affect the arrangement of rows and columns in a matrix?",
+                "3. In the example given, what numerical value is mentioned in the first column?",
+                "4. How is the value of 130.5 represented after transposing the matrix?",
+                "5. What is the notation used to represent the transposed matrix A?",
+                "6. How are the indexes for the rows and columns modified during the transposition process?",
+                "7. What does the notation A of J I signify in relation to matrix A?",
+                "8. Why is it important to understand the concept of matrix transposition?",
+                "9. Can you explain what happens to a matrix when it is transposed?",
+                "10. What are some practical applications of transposing matrices in mathematics or data analysis?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "uh the, the 130.5 has become the first row. So we've basically switched rows and columns. So it's all you have it here. And a simple way of notating this in a very condensed manner is this down here. So the transposed Metrix A uh of IJ is basically a of J I. So we've inverted the uh two indexes for the columns and the rows down here. OK. So now let's take a look at scalar operations because we also have scalar operations for matrices. And so here we have addition, subtraction, multiplication and division of matrices with a number. And they work in a similar manner to",
+            "video": "4- Vector and matrix operations",
+            "start_time": "881.2",
+            "questions": [
+                "1. What does it mean to transpose a matrix?",
+                "2. How is the transposed matrix A represented in terms of its indices?",
+                "3. What is the implication of switching rows and columns in a matrix?",
+                "4. What are the scalar operations that can be performed on matrices?",
+                "5. How do addition and subtraction of matrices with a scalar work?",
+                "6. In what way is multiplication of a matrix by a number similar to other operations?",
+                "7. Can you explain the notation used for representing the transposed matrix?",
+                "8. What are the two indexes that are inverted when transposing a matrix?",
+                "9. How does division of matrices with a scalar differ from other scalar operations?",
+                "10. What is the significance of understanding scalar operations in matrix manipulation?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "uh of IJ is basically a of J I. So we've inverted the uh two indexes for the columns and the rows down here. OK. So now let's take a look at scalar operations because we also have scalar operations for matrices. And so here we have addition, subtraction, multiplication and division of matrices with a number. And they work in a similar manner to a scalar operations with vectors. So here, for example, you can see a scalar multiplication. So we have a scalar which is this N it could be like any number. So say for example, three and we want to multiply it by this matrix A and the result over here, it's quite simple. So we multiply every index,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "902.809",
+            "questions": [
+                "1. What does \"IJ\" represent in the context of the text?",
+                "2. How are the indexes for the columns and rows inverted in the discussion?",
+                "3. What types of scalar operations are mentioned for matrices?",
+                "4. Can you explain how scalar operations for matrices are similar to those for vectors?",
+                "5. What is an example of a scalar operation provided in the text?",
+                "6. What does the scalar \"N\" represent in the example given?",
+                "7. How is scalar multiplication performed on a matrix?",
+                "8. What happens to each index of the matrix during scalar multiplication?",
+                "9. Can you provide an example of a scalar number used in the text?",
+                "10. Why is understanding scalar operations important for working with matrices?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "OK. So now let's take a look at scalar operations because we also have scalar operations for matrices. And so here we have addition, subtraction, multiplication and division of matrices with a number. And they work in a similar manner to a scalar operations with vectors. So here, for example, you can see a scalar multiplication. So we have a scalar which is this N it could be like any number. So say for example, three and we want to multiply it by this matrix A and the result over here, it's quite simple. So we multiply every index, every element in the matrix by N. So the new matrix is, for example, here in the first uh in the index like in column of row one, column one is N by a 11, then we have N by a 12 and so on and so forth. So it's super simple. Same thing with subtraction, multi um addition and division. We do the very same thing here. So",
+            "video": "4- Vector and matrix operations",
+            "start_time": "918.179",
+            "questions": [
+                "1. What are the scalar operations discussed in relation to matrices?",
+                "2. How is scalar multiplication performed on a matrix?",
+                "3. What does the variable \"N\" represent in the context of scalar operations?",
+                "4. Can you provide an example of a scalar value that might be used in matrix operations?",
+                "5. How do scalar operations for matrices compare to those for vectors?",
+                "6. What is the result of multiplying a matrix by a scalar?",
+                "7. How does scalar addition work with matrices?",
+                "8. What steps are involved in performing scalar subtraction on a matrix?",
+                "9. Is there a specific method for dividing a matrix by a scalar?",
+                "10. What happens to each element in the matrix during scalar multiplication?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "a scalar operations with vectors. So here, for example, you can see a scalar multiplication. So we have a scalar which is this N it could be like any number. So say for example, three and we want to multiply it by this matrix A and the result over here, it's quite simple. So we multiply every index, every element in the matrix by N. So the new matrix is, for example, here in the first uh in the index like in column of row one, column one is N by a 11, then we have N by a 12 and so on and so forth. So it's super simple. Same thing with subtraction, multi um addition and division. We do the very same thing here. So another type uh of operation is addition and subtraction. So here we have two mattresses and here we also have a constraint. So the two mattresses must have the same dimension. So they must have the very same number of rows and columns. And this is an element wise operation because we,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "937.21",
+            "questions": [
+                "1. What is scalar multiplication in the context of vectors and matrices?",
+                "2. How does scalar multiplication affect each element of a matrix?",
+                "3. What is the role of the scalar 'N' in the multiplication process?",
+                "4. Can you provide an example of scalar multiplication using a specific number?",
+                "5. What are the requirements for performing addition and subtraction on two matrices?",
+                "6. Why is it important for two matrices to have the same dimensions for addition or subtraction?",
+                "7. What does it mean for addition and subtraction of matrices to be an \"element-wise operation\"?",
+                "8. How would you perform subtraction between two matrices?",
+                "9. Are there any differences in the process of addition and subtraction of matrices?",
+                "10. Can scalar operations be applied to matrices in the same way as they are applied to vectors?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "every element in the matrix by N. So the new matrix is, for example, here in the first uh in the index like in column of row one, column one is N by a 11, then we have N by a 12 and so on and so forth. So it's super simple. Same thing with subtraction, multi um addition and division. We do the very same thing here. So another type uh of operation is addition and subtraction. So here we have two mattresses and here we also have a constraint. So the two mattresses must have the same dimension. So they must have the very same number of rows and columns. And this is an element wise operation because we, in the case of addition, for example, adds up the",
+            "video": "4- Vector and matrix operations",
+            "start_time": "963.21",
+            "questions": [
+                "1. What is the operation performed on every element in the matrix?",
+                "2. How is the new matrix formed when multiplying by N?",
+                "3. What is the significance of the \"first uh in the index\" mentioned in the text?",
+                "4. What kind of operations are described in the text aside from multiplication?",
+                "5. What is required for two matrices to be added or subtracted from each other?",
+                "6. How do the dimensions of two matrices affect the addition operation?",
+                "7. What does \"element wise operation\" mean in the context of matrix addition?",
+                "8. Can matrices with different numbers of rows and columns be added together?",
+                "9. What example is provided to illustrate the multiplication of a matrix by N?",
+                "10. What is the general principle that governs matrix operations mentioned in the text?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "another type uh of operation is addition and subtraction. So here we have two mattresses and here we also have a constraint. So the two mattresses must have the same dimension. So they must have the very same number of rows and columns. And this is an element wise operation because we, in the case of addition, for example, adds up the elements with the same indexes together from the first and the second matrix. So let's clarify this by taking uh a look at this example down here. So we have this matrix ABC D and we want to add a second matrix which is 1234. And as you can see here, the sum matrix here is given by the addition",
+            "video": "4- Vector and matrix operations",
+            "start_time": "992.669",
+            "questions": [
+                "1. What are the two types of operations discussed in the text?",
+                "2. What is a requirement for the two matrices to perform addition or subtraction?",
+                "3. What does it mean for an operation to be \"element-wise\"?",
+                "4. How are the elements of the matrices combined during addition?",
+                "5. What dimensions must the two matrices have for addition to be possible?",
+                "6. In the example provided, what are the elements of the first matrix?",
+                "7. What are the elements of the second matrix in the example?",
+                "8. What is the result of adding the two matrices in the example?",
+                "9. Can matrices of different dimensions be added together according to the text?",
+                "10. How does the indexing of elements play a role in matrix addition?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "in the case of addition, for example, adds up the elements with the same indexes together from the first and the second matrix. So let's clarify this by taking uh a look at this example down here. So we have this matrix ABC D and we want to add a second matrix which is 1234. And as you can see here, the sum matrix here is given by the addition of the elements of the first matrix with the respective elements of the second matrix. So for element 11, so row one, column one, we are adding a and one together. So a being the first uh being element um in row one column one from the first matrix and one being element uh 11",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1019.0",
+            "questions": [
+                "1. What does the process of addition involve when working with matrices?",
+                "2. How are elements from two matrices combined during addition?",
+                "3. What are the dimensions of the first matrix in the provided example?",
+                "4. Which elements from the two matrices are added together to form the sum matrix?",
+                "5. What is the element at row one, column one in the first matrix?",
+                "6. What value is added to the element at row one, column one from the first matrix?",
+                "7. How is the sum matrix constructed from the two original matrices?",
+                "8. Can you explain the notation used for referencing matrix elements in the example?",
+                "9. What is the final result of adding the two matrices in the example?",
+                "10. Are there any specific conditions that must be met for two matrices to be added together?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "elements with the same indexes together from the first and the second matrix. So let's clarify this by taking uh a look at this example down here. So we have this matrix ABC D and we want to add a second matrix which is 1234. And as you can see here, the sum matrix here is given by the addition of the elements of the first matrix with the respective elements of the second matrix. So for element 11, so row one, column one, we are adding a and one together. So a being the first uh being element um in row one column one from the first matrix and one being element uh 11 uh from the second matrix. And then we, we do the same thing for element um 21. So row two, column one and here we add B plus two and as you can see here, so here we have B and here we have two, then we do C plus three and D plus four. So it's very simple. And in this way, we can calculate super easily, both addition and subtraction. So now",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1023.549",
+            "questions": [
+                "1. What does it mean to add elements with the same indexes from two matrices?",
+                "2. Can you provide an example of two matrices that can be added together?",
+                "3. How do you determine the elements to be added in the given matrices?",
+                "4. What is the result of adding the element at row one, column one in the first matrix to the element at the same position in the second matrix?",
+                "5. How do you perform the addition for the element at row two, column one?",
+                "6. What operations can be easily calculated using the method described in the text?",
+                "7. What is the significance of the indexes when adding matrices?",
+                "8. How would you describe the process of adding the elements of the two matrices?",
+                "9. Can you explain how to handle subtraction of elements in matrices using the same method?",
+                "10. What do you conclude about the simplicity of matrix addition and subtraction based on the text?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "of the elements of the first matrix with the respective elements of the second matrix. So for element 11, so row one, column one, we are adding a and one together. So a being the first uh being element um in row one column one from the first matrix and one being element uh 11 uh from the second matrix. And then we, we do the same thing for element um 21. So row two, column one and here we add B plus two and as you can see here, so here we have B and here we have two, then we do C plus three and D plus four. So it's very simple. And in this way, we can calculate super easily, both addition and subtraction. So now the problems I would say like start to come in when we talk about matrix multiplication, this is a little bit more complicated than mm um all the other operations that we've seen so far. So first of all, there are certain weird constraints on when we can perform matrix multiplication.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1052.02",
+            "questions": [
+                "1. What is the process for adding elements of two matrices?",
+                "2. How do you calculate the element at row one, column one in the first matrix?",
+                "3. What elements are being added together for element 21 in the second matrix?",
+                "4. What are the values of B and 2 when calculating element 21?",
+                "5. How are the elements C and 3 combined in the matrix addition process?",
+                "6. What is the addition operation for element D in the matrices?",
+                "7. Why is matrix multiplication considered more complicated than addition and subtraction?",
+                "8. What are the constraints that affect when matrix multiplication can be performed?",
+                "9. How do matrix addition and subtraction differ from matrix multiplication?",
+                "10. Can you explain the significance of the positions of elements in matrix operations?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "uh from the second matrix. And then we, we do the same thing for element um 21. So row two, column one and here we add B plus two and as you can see here, so here we have B and here we have two, then we do C plus three and D plus four. So it's very simple. And in this way, we can calculate super easily, both addition and subtraction. So now the problems I would say like start to come in when we talk about matrix multiplication, this is a little bit more complicated than mm um all the other operations that we've seen so far. So first of all, there are certain weird constraints on when we can perform matrix multiplication. So we have again two different matrices and we want to multiply them. But then in order to multiply them, we need to have that the number of columns of the first matrix should be equal to the number of rows of the second matrix. Now let's take a look at this example here. So we have this three by two",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1077.839",
+            "questions": [
+                "1. What is the process for adding elements in a matrix?",
+                "2. How do you perform subtraction in matrices according to the text?",
+                "3. What are the specific elements mentioned for addition in the second matrix?",
+                "4. What is the first operation that is described as being simple in the text?",
+                "5. What complications arise when discussing matrix multiplication?",
+                "6. What is required for two matrices to be multiplied together?",
+                "7. What relationship must exist between the dimensions of the two matrices for multiplication to occur?",
+                "8. What dimensions are provided in the example for matrix multiplication?",
+                "9. How does the text describe the complexity of matrix multiplication compared to other operations?",
+                "10. What general constraints are mentioned regarding matrix multiplication?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "the problems I would say like start to come in when we talk about matrix multiplication, this is a little bit more complicated than mm um all the other operations that we've seen so far. So first of all, there are certain weird constraints on when we can perform matrix multiplication. So we have again two different matrices and we want to multiply them. But then in order to multiply them, we need to have that the number of columns of the first matrix should be equal to the number of rows of the second matrix. Now let's take a look at this example here. So we have this three by two matrix and this two by two matrix here. Now we can multiply these two matrices together because as we said, the number of columns of the first matrix which in this case is two and you can see it here is equal to the number of rows of the second matrix here, which is two. Now the result of this multiplication is a new matrix itself where",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1106.14",
+            "questions": [
+                "1. What are the constraints for performing matrix multiplication?",
+                "2. How many columns does the first matrix need to have in relation to the second matrix for multiplication to be possible?",
+                "3. In the example provided, what are the dimensions of the first matrix?",
+                "4. What are the dimensions of the second matrix in the example given?",
+                "5. Can a three by two matrix be multiplied by a two by two matrix? Why or why not?",
+                "6. What is the resulting matrix when multiplying a three by two matrix with a two by two matrix?",
+                "7. What is the significance of the number of columns in the first matrix in matrix multiplication?",
+                "8. How does the relationship between the number of columns and rows affect the ability to multiply matrices?",
+                "9. What is the general rule for the dimensions of two matrices that can be multiplied together?",
+                "10. What type of matrix is produced as a result of matrix multiplication?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "So we have again two different matrices and we want to multiply them. But then in order to multiply them, we need to have that the number of columns of the first matrix should be equal to the number of rows of the second matrix. Now let's take a look at this example here. So we have this three by two matrix and this two by two matrix here. Now we can multiply these two matrices together because as we said, the number of columns of the first matrix which in this case is two and you can see it here is equal to the number of rows of the second matrix here, which is two. Now the result of this multiplication is a new matrix itself where uh the dimension of this new matrix is given by the rows of the first matrix that we want to multiply and the number of columns of the second matrix that we multiply. So in this case, given",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1129.13",
+            "questions": [
+                "1. What is required for two matrices to be multiplied together?",
+                "2. In the example provided, what are the dimensions of the first matrix?",
+                "3. How many columns does the first matrix have in the example?",
+                "4. What are the dimensions of the second matrix in the example?",
+                "5. How many rows does the second matrix have in the example?",
+                "6. Why can the two matrices in the example be multiplied?",
+                "7. What is the dimension of the resulting matrix after the multiplication?",
+                "8. What determines the number of rows in the resulting matrix?",
+                "9. What determines the number of columns in the resulting matrix?",
+                "10. Can you provide a general formula for the dimensions of the resulting matrix when two matrices are multiplied?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "matrix and this two by two matrix here. Now we can multiply these two matrices together because as we said, the number of columns of the first matrix which in this case is two and you can see it here is equal to the number of rows of the second matrix here, which is two. Now the result of this multiplication is a new matrix itself where uh the dimension of this new matrix is given by the rows of the first matrix that we want to multiply and the number of columns of the second matrix that we multiply. So in this case, given uh in this multiplication, uh in this example, we have here, given we have the first matrix which is three by two and the second ma matrix which is two by two. Now the product matrix here is gonna be three by two,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1157.54",
+            "questions": [
+                "1. What is the dimension of the first matrix mentioned in the text?  ",
+                "2. How many columns does the first matrix have?  ",
+                "3. What is the dimension of the second matrix?  ",
+                "4. How many rows does the second matrix have?  ",
+                "5. What condition must be met for two matrices to be multiplied together?  ",
+                "6. What is the dimension of the resulting product matrix in this multiplication?  ",
+                "7. What do the dimensions of the resulting matrix depend on?  ",
+                "8. In the example provided, what are the dimensions of the product matrix?  ",
+                "9. What does the term \"matrix multiplication\" refer to in the context of this text?  ",
+                "10. Why is it important that the number of columns in the first matrix equals the number of rows in the second matrix?  "
+            ]
+        },
+        {
+            "id": 56,
+            "text": "uh the dimension of this new matrix is given by the rows of the first matrix that we want to multiply and the number of columns of the second matrix that we multiply. So in this case, given uh in this multiplication, uh in this example, we have here, given we have the first matrix which is three by two and the second ma matrix which is two by two. Now the product matrix here is gonna be three by two, right. So you may be wondering how do we get to these results? So let's just like perform this mat multiplication here step by step.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1187.449",
+            "questions": [
+                "1. What determines the dimensions of the resulting matrix in a matrix multiplication?",
+                "2. How many rows does the first matrix in this example have?",
+                "3. What are the dimensions of the second matrix in this multiplication?",
+                "4. What will be the dimensions of the product matrix resulting from the multiplication of the two matrices described?",
+                "5. Why is the product matrix described as being three by two?",
+                "6. What is the significance of the number of columns in the second matrix during multiplication?",
+                "7. Can you explain the general rule for determining the dimensions of the product matrix in matrix multiplication?",
+                "8. What steps are involved in performing matrix multiplication?",
+                "9. In this example, how do the dimensions of the first and second matrices relate to the product matrix?",
+                "10. What might be confusing about the dimensions of the matrices involved in multiplication?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "uh in this multiplication, uh in this example, we have here, given we have the first matrix which is three by two and the second ma matrix which is two by two. Now the product matrix here is gonna be three by two, right. So you may be wondering how do we get to these results? So let's just like perform this mat multiplication here step by step. OK. So as you can see here,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1208.959",
+            "questions": [
+                "1. What are the dimensions of the first matrix in the multiplication example?",
+                "2. What are the dimensions of the second matrix in the multiplication example?",
+                "3. What will be the dimensions of the product matrix resulting from the multiplication?",
+                "4. How many rows and columns does the first matrix have?",
+                "5. How many rows and columns does the second matrix have?",
+                "6. Why is the product matrix described as three by two?",
+                "7. What is the significance of the dimensions of the matrices in multiplication?",
+                "8. Can you explain the step-by-step process for performing matrix multiplication?",
+                "9. What does the term \"mat multiplication\" refer to in this context?",
+                "10. Are there any conditions that must be met for two matrices to be multiplied together?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "right. So you may be wondering how do we get to these results? So let's just like perform this mat multiplication here step by step. OK. So as you can see here, the first element here, so the element 11, so row one, column one is given by the dot product of the first row of the first matrix with the first column of the second matrix that we are multiplying. So another way of um visualizing this is just by writing it like this. So we have the",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1225.229",
+            "questions": [
+                "1. What is the primary operation being performed in the text?",
+                "2. How is the first element of the resulting matrix calculated?",
+                "3. What matrices are involved in the multiplication process described?",
+                "4. What does the term \"dot product\" refer to in this context?",
+                "5. Which specific elements of the matrices are used to calculate the first element of the result?",
+                "6. Can you explain the significance of the first row and first column in matrix multiplication?",
+                "7. What visual representation is suggested for understanding the matrix multiplication process?",
+                "8. What is the result of multiplying the first row of the first matrix with the first column of the second matrix?",
+                "9. Are there any other methods mentioned for visualizing matrix multiplication?",
+                "10. What step follows the calculation of the first element in the matrix multiplication process?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "OK. So as you can see here, the first element here, so the element 11, so row one, column one is given by the dot product of the first row of the first matrix with the first column of the second matrix that we are multiplying. So another way of um visualizing this is just by writing it like this. So we have the uh this vector 12 and we do the dot product with AC and the result now we should know it because we know the dot product is one A plus two C. So, and this is like what we are performing here and this result gets logged in position +11 because it comes from row one and column one.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1238.06",
+            "questions": [
+                "1. What is the first element referred to in the text?",
+                "2. How is the element at row one, column one calculated?",
+                "3. What operation is performed to obtain the element in position 11?",
+                "4. What are the components of the vectors involved in the dot product?",
+                "5. How is the dot product represented mathematically in the context of this text?",
+                "6. What does the result of the dot product represent in the context of matrix multiplication?",
+                "7. How does the position of the result relate to the rows and columns of the matrices?",
+                "8. Can you explain what the term \"vector 12\" refers to in this context?",
+                "9. What are the variables involved in the dot product calculation mentioned in the text?",
+                "10. Why is it important to understand the process of calculating the dot product in matrix multiplication?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "the first element here, so the element 11, so row one, column one is given by the dot product of the first row of the first matrix with the first column of the second matrix that we are multiplying. So another way of um visualizing this is just by writing it like this. So we have the uh this vector 12 and we do the dot product with AC and the result now we should know it because we know the dot product is one A plus two C. So, and this is like what we are performing here and this result gets logged in position +11 because it comes from row one and column one. So now let's move on with this very simple algorithm to understand how to perform all of the um uh perform multiplication and create the new matrix and all of its elements. So now we can shift",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1241.479",
+            "questions": [
+                "1. What is the significance of the first element in the resulting matrix during multiplication?",
+                "2. How is the element in row one, column one of the resulting matrix calculated?",
+                "3. What is meant by the term \"dot product\" in the context of matrix multiplication?",
+                "4. How can the dot product of two vectors be visualized or represented mathematically?",
+                "5. What specific values are used in the dot product calculation mentioned in the text?",
+                "6. Why is the result of the dot product logged in position +11 of the new matrix?",
+                "7. What is the general process for performing matrix multiplication as outlined in the text?",
+                "8. How does the placement of the resulting values in the new matrix correspond to the rows and columns of the original matrices?",
+                "9. What is the outcome of performing the dot product of the vector 12 with AC?",
+                "10. What steps follow the explanation of calculating the first element of the resulting matrix?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "uh this vector 12 and we do the dot product with AC and the result now we should know it because we know the dot product is one A plus two C. So, and this is like what we are performing here and this result gets logged in position +11 because it comes from row one and column one. So now let's move on with this very simple algorithm to understand how to perform all of the um uh perform multiplication and create the new matrix and all of its elements. So now we can shift uh the column vector here. And so we have here the dot product between the first row of the first matrix and the second column of the second matrix. And",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1270.13",
+            "questions": [
+                "1. What is the result of the dot product between the vector and AC in the given text?",
+                "2. How is the result of the dot product represented in terms of its position?",
+                "3. What does the term \"dot product\" refer to in the context of this text?",
+                "4. What is the significance of the values \"one A plus two C\" in the calculation?",
+                "5. How is the algorithm described in the text utilized to create a new matrix?",
+                "6. What does the phrase \"shift the column vector\" imply in matrix operations?",
+                "7. Which elements are involved in the dot product calculation mentioned in the text?",
+                "8. How do the row and column references contribute to the multiplication process?",
+                "9. What is the overall purpose of the algorithm discussed in the text?",
+                "10. Can you explain the process of performing multiplication to create a new matrix based on the text?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "So now let's move on with this very simple algorithm to understand how to perform all of the um uh perform multiplication and create the new matrix and all of its elements. So now we can shift uh the column vector here. And so we have here the dot product between the first row of the first matrix and the second column of the second matrix. And we log these uh dot products here in the element 12. So row one column two. Now, not surprisingly, you'll see that we'll switch down to the second row here and we'll do the dot product of this second row with the um first column of the second matrix. And this is a three A plus four C and we lock that in element +21,",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1297.979",
+            "questions": [
+                "1. What is the purpose of the algorithm discussed in the text?",
+                "2. How is the dot product calculated in the context of matrix multiplication?",
+                "3. Which specific elements of the matrices are used to compute the dot product mentioned in the text?",
+                "4. What does the notation \"element 12\" refer to in the matrix?",
+                "5. What operation is performed between the first row of the first matrix and the second column of the second matrix?",
+                "6. How does the text describe the process of shifting the column vector?",
+                "7. What mathematical expression represents the dot product of the second row and the first column of the second matrix?",
+                "8. What does the result \"3A + 4C\" represent in the context of the text?",
+                "9. In which element of the new matrix is the result of the dot product of the second row and first column stored?",
+                "10. How does the algorithm handle the transition from the first row to the second row?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "uh the column vector here. And so we have here the dot product between the first row of the first matrix and the second column of the second matrix. And we log these uh dot products here in the element 12. So row one column two. Now, not surprisingly, you'll see that we'll switch down to the second row here and we'll do the dot product of this second row with the um first column of the second matrix. And this is a three A plus four C and we lock that in element +21, we'll switch and we'll have element 22 and then we'll switch again and then we'll move to uh the third row. And here we have the third row by the first column uh with the dot product. And here we log this in element 31 and then the final element will be the third row here dot products. Second column. And here the result is logged in element 32.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1315.119",
+            "questions": [
+                "1. What is the process described for calculating the dot product between two matrices?",
+                "2. Which specific elements are highlighted for the dot product calculations in the text?",
+                "3. How is the result of the dot product recorded in the matrix?",
+                "4. What mathematical operation is performed with the first row of the first matrix and the second column of the second matrix?",
+                "5. What expression represents the dot product of the second row and the first column of the second matrix?",
+                "6. In which element is the result of the dot product of the second row and the first column logged?",
+                "7. What is the significance of the notation \"element 12\" in the context of the calculations?",
+                "8. How does the process transition from the first row to the second row in the matrix?",
+                "9. What is the final element calculated based on the third row and the second column?",
+                "10. Can you explain the relationship between the rows and columns during the dot product calculations mentioned in the text?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "we log these uh dot products here in the element 12. So row one column two. Now, not surprisingly, you'll see that we'll switch down to the second row here and we'll do the dot product of this second row with the um first column of the second matrix. And this is a three A plus four C and we lock that in element +21, we'll switch and we'll have element 22 and then we'll switch again and then we'll move to uh the third row. And here we have the third row by the first column uh with the dot product. And here we log this in element 31 and then the final element will be the third row here dot products. Second column. And here the result is logged in element 32. Cool.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1331.969",
+            "questions": [
+                "1. What is being logged in element 12?",
+                "2. Which row and column are involved in the dot product for element 12?",
+                "3. What is the result of the dot product for the second row and the first column of the second matrix?",
+                "4. In which element is the result of the dot product of the second row and the first column logged?",
+                "5. What operation is performed with the third row and the first column?",
+                "6. Where is the result of the dot product of the third row and the first column logged?",
+                "7. What is the result of the dot product for the third row and the second column?",
+                "8. In which element is the result of the dot product of the third row and the second column recorded?",
+                "9. How many rows are involved in the operations described in the text?",
+                "10. What is the overall process being described in the text?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "we'll switch and we'll have element 22 and then we'll switch again and then we'll move to uh the third row. And here we have the third row by the first column uh with the dot product. And here we log this in element 31 and then the final element will be the third row here dot products. Second column. And here the result is logged in element 32. Cool. Sorry. So we can",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1361.819",
+            "questions": [
+                "1. What is the significance of element 22 in the context provided?",
+                "2. How many times will the switching occur before moving to the third row?",
+                "3. What operation is performed on the first column of the third row?",
+                "4. Where is the result of the dot product for the first column logged?",
+                "5. What does the final element in the process refer to?",
+                "6. Which column is involved in the dot product for the final element?",
+                "7. How is the result of the dot product in the second column documented?",
+                "8. What can be inferred about the structure of the data being manipulated?",
+                "9. Why is the term \"element\" used in the context of the text?",
+                "10. What does the speaker apologize for, and does it indicate any confusion?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "Cool. Sorry. So we can um rewrite um a matrix multiplication in a way like that. That's easier like to, to remember. So again, if you think of like for example, like this 12 as a, a row vector and it's row vector A one because like this is matrix A and this is matrix B. So this is a one. And then we take a look at this second row vector here and we indicate it as A two.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1392.52",
+            "questions": [
+                "1. How can matrix multiplication be rewritten for easier understanding?",
+                "2. What is represented by the row vector labeled as A1?",
+                "3. How is the second row vector indicated in the context of matrix multiplication?",
+                "4. What are the two matrices being referenced in the text?",
+                "5. Why might someone want to rewrite matrix multiplication in a simpler way?",
+                "6. What does the notation A1 signify in this explanation?",
+                "7. How does the concept of row vectors relate to matrix A and matrix B?",
+                "8. Can you explain the significance of the numbering (A1, A2) in this context?",
+                "9. What challenges might arise when trying to remember matrix multiplication?",
+                "10. In what scenarios would this rewritten form of matrix multiplication be particularly useful?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "Sorry. So we can um rewrite um a matrix multiplication in a way like that. That's easier like to, to remember. So again, if you think of like for example, like this 12 as a, a row vector and it's row vector A one because like this is matrix A and this is matrix B. So this is a one. And then we take a look at this second row vector here and we indicate it as A two. And we look at this B matrix here and we call this column, the column vector B one and the second column, the column vector B two. Then the matrix multiplication of it here is given by A one dot Predators B one for element 11, then A one B two for element 12.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1394.26",
+            "questions": [
+                "1. What does the text suggest is a way to rewrite matrix multiplication?",
+                "2. How is the first row vector represented in the context of the text?",
+                "3. What notation is used to identify the first row vector of matrix A?",
+                "4. How is the second row vector of matrix A indicated in the text?",
+                "5. What are the labels given to the columns of matrix B?",
+                "6. How is the first column vector of matrix B represented?",
+                "7. What operation is performed between A1 and B1 to obtain element 11?",
+                "8. Which row vector and column vector are involved in calculating element 12?",
+                "9. What is the significance of the notation used for indicating row and column vectors in matrix multiplication?",
+                "10. Can you summarize the process described for performing matrix multiplication in this text?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "um rewrite um a matrix multiplication in a way like that. That's easier like to, to remember. So again, if you think of like for example, like this 12 as a, a row vector and it's row vector A one because like this is matrix A and this is matrix B. So this is a one. And then we take a look at this second row vector here and we indicate it as A two. And we look at this B matrix here and we call this column, the column vector B one and the second column, the column vector B two. Then the matrix multiplication of it here is given by A one dot Predators B one for element 11, then A one B two for element 12. And then uh the dot product between the A two row vector and the B one column vector for element to one and A two",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1397.56",
+            "questions": [
+                "1. How can matrix multiplication be rewritten for easier understanding?",
+                "2. What is indicated as row vector A1 in the context of matrix A?",
+                "3. How is the second row vector in matrix A represented?",
+                "4. What are the names given to the columns of matrix B?",
+                "5. How is element 11 of the resulting matrix calculated?",
+                "6. What operation is performed to obtain element 12 in the resulting matrix?",
+                "7. How is the dot product between the row vector A2 and column vector B1 calculated?",
+                "8. What is the significance of labeling the row and column vectors in matrix multiplication?",
+                "9. How does the structure of matrix A and matrix B affect the multiplication process?",
+                "10. Can you explain the overall process of calculating the elements of the resulting matrix?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "And we look at this B matrix here and we call this column, the column vector B one and the second column, the column vector B two. Then the matrix multiplication of it here is given by A one dot Predators B one for element 11, then A one B two for element 12. And then uh the dot product between the A two row vector and the B one column vector for element to one and A two uh dot products B two for element 22. So this is like a very simple way of remembering how a matrix multiplication works. So this was a little bit like weirder than all the other um operations that we've seen so far. But as you'll see, this is very, very important because we can use all of this notation to",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1427.689",
+            "questions": [
+                "1. What are the names given to the columns of the B matrix in the text?",
+                "2. How is the element 11 of the resultant matrix calculated?",
+                "3. What operation is used to find element 12 in the matrix multiplication process?",
+                "4. Which row vector is involved in calculating element 21?",
+                "5. What does the term \"dot product\" refer to in the context of matrix multiplication?",
+                "6. Why is this method of understanding matrix multiplication described as \"weirder\" than previous operations?",
+                "7. How does the notation discussed in the text contribute to understanding matrix multiplication?",
+                "8. What is the significance of the B matrix in the context of matrix multiplication?",
+                "9. Can you describe the relationship between the A and B matrices in the given multiplication example?",
+                "10. What is the overall importance of mastering matrix multiplication as mentioned in the text?"
+            ]
+        },
+        {
+            "id": 70,
+            "text": "And then uh the dot product between the A two row vector and the B one column vector for element to one and A two uh dot products B two for element 22. So this is like a very simple way of remembering how a matrix multiplication works. So this was a little bit like weirder than all the other um operations that we've seen so far. But as you'll see, this is very, very important because we can use all of this notation to easily capture how a neuron network performs its computations. And that's what we're gonna see in the next video. So we're gonna look at neuron networks and specifically at multi layer perceptions and see how they compute the information when the signal moves from left to right.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1455.349",
+            "questions": [
+                "1. What is the relationship between the dot product of a two-row vector and a one-column vector in matrix multiplication?",
+                "2. How can the dot product be used to remember the process of matrix multiplication?",
+                "3. Why is the operation described as \"weirder\" than previous operations discussed?",
+                "4. What is the significance of understanding matrix multiplication in the context of neural networks?",
+                "5. What topic will be explored in the next video mentioned in the text?",
+                "6. What is a multi-layer perception in the context of neural networks?",
+                "7. How does the signal move through a neural network during computations?",
+                "8. Why is it important to capture computations using specific notation in neural networks?",
+                "9. What role do dot products play in the computation performed by neural networks?",
+                "10. How does the author plan to connect the concepts of matrix multiplication and neural network computations?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "uh dot products B two for element 22. So this is like a very simple way of remembering how a matrix multiplication works. So this was a little bit like weirder than all the other um operations that we've seen so far. But as you'll see, this is very, very important because we can use all of this notation to easily capture how a neuron network performs its computations. And that's what we're gonna see in the next video. So we're gonna look at neuron networks and specifically at multi layer perceptions and see how they compute the information when the signal moves from left to right. So this was it for this very quick, I would say like very quick introduction to linear algebra. I hope you enjoyed this. And if you like the video, please subscribe. If you have any questions, just leave a comment in the comment section below. And if you like the video again, just like like it. So I hope I'll see you next time. So, bye for now.",
+            "video": "4- Vector and matrix operations",
+            "start_time": "1466.189",
+            "questions": [
+                "1. What is the significance of dot products in matrix multiplication?",
+                "2. How does the introduction of matrix multiplication differ from previous operations discussed?",
+                "3. Why is understanding matrix multiplication important for neural networks?",
+                "4. What is a multi-layer perceptron?",
+                "5. How do neural networks perform computations with signals moving from left to right?",
+                "6. What was the purpose of the quick introduction to linear algebra in the video?",
+                "7. What action does the speaker encourage viewers to take if they enjoyed the video?",
+                "8. How can viewers engage with the content if they have questions?",
+                "9. What kind of feedback does the speaker request from viewers?",
+                "10. What can viewers expect to learn in the next video regarding neural networks?"
+            ]
+        }
+    ]
+}

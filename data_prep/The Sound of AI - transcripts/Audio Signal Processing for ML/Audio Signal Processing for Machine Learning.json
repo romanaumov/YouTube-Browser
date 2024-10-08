@@ -1,0 +1,176 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new exciting video series called audio signal processing for machine learning. Many of you guys have asked me to dig deeper into audio digital signal processing and so here you have a whole series on that. In this video, I'm gonna give you a quick overview of the series, the different content, the things that you learn, the perquisites and the resources. Now, what's the problem? Why do we need this series? So the main issue that probably most deep learning engineers know is that when it comes time to work on deep learning applications for images, that's not that much of an issue because we have a lot of resources that explain how you can process image a road data and make it viable for deep learning and machine learning models. But that's not necessarily the case for audio, there's a sort of mist around audio data and how you should use it for deep learning applications. And so this is why you're getting like this series. Now, when we talk about audio um A I applications, we can divide two stages here. So one is the development and the evaluation of models and this is a part that I covered in another series that I have on my channel that's called Deep learning for Rodeo uh in Python. And you should find it over here in case you want to check that out. And then there's the other level which is that of preparing the audio row data in order to uh make it viable for injections in the models. Now, I have a couple of videos in that series that I've just mentioned on deep learning for all year where I talk about audio preprocessing and all your features and all these sorts of things. But I realized that that wasn't really enough. And many of you guys have asked me to dig deeper. OK. So now the question is uh so where do we use audio, digital signal processing for machine learning and for um deep learning specifically? Well, there are a bunch of applications in A I audio where we use uh audio signal processing. So obviously, you have all sorts of audio classification of problems, then speech recognition, speaker verification, uh speaker diar organization, for example, and then audio de noising audio up sampling. And if you are a music type of guy, there's a whole field that's called music information retrieval that uses uh tools from digital signal processing along with machine learning to uh crack certain problems like music instruments, uh identification or music mood and a genre classification. And there's a bunch bunch more of those? Cool. OK. So what are we gonna cover in uh this series? So it's a lot of stuff really and it's not set uh on the stone yet. So I'll, I, I'm open to, to get feedback from you guys on like what topics like to cover during the, the process like of this uh series. But for sure, I'm gonna cover a sound waves, digital to analog converters, analog to digital converters. And then I'll jump into audio features and we'll take a look at time and frequency domain audio features like R MS spectral Centroid MF CCS. Then we're gonna also look at a bunch of very important audio transformations. We'll take a look at the fourier transform, the short time fourier transform that leads to spectrograms. Then we'll compare that against other transformations like the constant to transform the male spectrograms and chromo grams of top of that. We're gonna also take a look at um topics in audio and music perception which we can leverage to preprocess the audio data in a way that makes sense for the current problem that we're trying to solve. OK. So what should you expect from this series if you usually follow the sound of the I channel, you know that I love to cover both theoretical stuff and uh implementation stuff. So this series is gonna be no different. So we're gonna have theoretical sessions where I dig deeper into the theoretical ideas behind the the stuff that we are uh discussing and then we're gonna have coding uh sessions where I implement all the theoretical stuff that we've discussed. Now, you may be wondering, but where do I get all the material that you'll be posting with these videos? Well, I have a github uh page that's linked in the uh descript description section below and there you can find the code samples as well as the slides just to, to have all the material with yourself for review. So uh if you're familiar with my channel, you know that I literally love Python and it's not, this shouldn't come as a surprise to you that throughout the series, I'm gonna be using Python. And then on top of that, I'm gonna be using li browser, which is an open source audio processing libraries that we can use to extract loads of all your features in a very handy way. OK. So what will you learn from an operational standpoint? First of all, you're gonna get a deep dive into all your data so that you really know what you are talking about there and how to manipulate and preprocess all of this data. Then obviously you'll familiarize with um frequency and time domain or features and you're gonna be able to extract these features from rare audio. Most importantly, you recognize what are your audio features to use in your audio ML applications. So what makes the most sense for different types of applications? And along with that throughout this series, we're gonna, I'm gonna show you how to preprocess all your data and make it ready for your uh deep learning applications. OK? And then there's uh a thing that's very dear to me. So I'm gonna cover a little bit of math uh behind all the audio transformations that we're gonna uh touch upon. And I think that's very important for you to understand that so that, you know, really dd down what uh like audio features are and how we can extract them and how you can uh basically uh trick the parameters for extracting those features in a way that makes the most sense for your problem. And finally, on top of that, obviously, you're gonna be able to use a lib browser efficiently so that you can extract all the features that you need for your audio ML projects. But mainly uh the success of this series is gonna be measured against this thing. So the moment you'll see a spectrogram like this, you just don't freak out but rather know what we're talking about and what this image is actually telling you all your wise and you're gonna be able to interpret it good. Who's this series for? Well, if you are a machine learning or more specifically deep learning engineer and you're tapping your feet into the audio domain, this is a perfect series for you. Same thing. If you are a computer science student, I've received a ton of requests from CS students who have asked me, how can I uh preprocess audio data for this specific audio A I application? Well, you're going to get most of those answers here in this um series. Now, if you are a software engineer with an interest in audio and music, again, this is uh a series that's for you. And of course, if you are a music technologist or a tech oriented musician who wants to dig deeper into uh audio and computation, again, this is an ideal series for you. Great. So obviously, this is not gonna be a series for uh beginners, Python, uh beginners rather you should have intermediate Python skills in order to follow the coding um sessions. And finally, I invite you to join the Sound of A I Slack community. So why should you do that? Because there you'll find a growing community of like minded people who are interested in A I music A I audio, audio and music processing. And so you can really ask a bunch of questions and grow your understanding of the topic while uh networking with a lot of like cool and knowledgeable people. Good. So I'll leave the link to the sound of the eyes lack workspace below in the description. Just go check that out and sign up. OK. So this was, was all for today. I'm looking forward to starting this journey with you and I hope you'll join in"
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new exciting video series called audio signal processing for machine learning.",
+                "start_time": "0.1",
+                "end_time": "7.079"
+            },
+            {
+                "id": 1,
+                "transcript": "Many of you guys have asked me to dig deeper into audio digital signal processing and so here you have a whole series on that. In this video, I'm gonna give you a quick overview of the series, the different content, the things that you learn, the perquisites and the resources. Now, what's the problem? Why do we need this series? So the main issue that probably most deep learning engineers know is that",
+                "start_time": "7.429",
+                "end_time": "33.736"
+            },
+            {
+                "id": 2,
+                "transcript": "when it comes time to work on deep learning applications for images, that's not that much of an issue because we have a lot of resources that explain how you can process image a road data and make it viable for deep learning and machine learning models. But that's not necessarily the case for audio, there's a sort of mist around audio data and how you should use it for",
+                "start_time": "33.745",
+                "end_time": "60.051"
+            },
+            {
+                "id": 3,
+                "transcript": "deep learning applications. And so this is why you're getting like this series. Now, when we talk about audio um A I applications, we can divide two stages here. So one is the development and the evaluation of models and this is a part that I covered in another series that I have on my channel that's called Deep learning for Rodeo uh in Python.",
+                "start_time": "60.062",
+                "end_time": "86.379"
+            },
+            {
+                "id": 4,
+                "transcript": "And you should find it over here in case you want to check that out. And then there's the other level which is that of preparing the audio row data in order to uh make it viable for injections in the models. Now, I have",
+                "start_time": "87.019",
+                "end_time": "102.44"
+            },
+            {
+                "id": 5,
+                "transcript": "a couple of videos in that series that I've just mentioned on deep learning for all year where I talk about audio preprocessing and all your features and all these sorts of things. But I realized that that wasn't really enough. And many of you guys have asked me to dig deeper. OK.",
+                "start_time": "102.449",
+                "end_time": "118.79"
+            },
+            {
+                "id": 6,
+                "transcript": "So now the question is uh so where do we use audio, digital signal processing for machine learning and for um deep learning specifically? Well, there are a bunch of applications in A I audio where we use uh audio signal processing.",
+                "start_time": "119.29",
+                "end_time": "138.199"
+            },
+            {
+                "id": 7,
+                "transcript": "So obviously, you have all sorts of audio classification of problems, then speech recognition, speaker verification, uh speaker diar organization, for example, and then audio de noising audio up sampling. And if you are a music type of guy, there's a whole field",
+                "start_time": "138.33",
+                "end_time": "156.33"
+            },
+            {
+                "id": 8,
+                "transcript": "that's called music information retrieval that uses uh tools from digital signal processing along with machine learning to uh crack certain problems like music instruments, uh identification or music mood and a genre classification.",
+                "start_time": "156.339",
+                "end_time": "174.35"
+            },
+            {
+                "id": 9,
+                "transcript": "And there's a bunch bunch more of those? Cool. OK. So what are we gonna cover in uh this series? So it's a lot of stuff really and it's not set uh on the stone yet. So I'll, I, I'm open to, to get feedback from you guys on like what topics like to cover during the, the process like of this uh series. But",
+                "start_time": "174.779",
+                "end_time": "198.899"
+            },
+            {
+                "id": 10,
+                "transcript": "for sure, I'm gonna cover a sound waves, digital to analog converters, analog to digital converters. And then I'll jump into audio features and we'll take a look at time and frequency domain audio features like R MS spectral Centroid MF CCS. Then we're gonna also look at a bunch of very important audio transformations.",
+                "start_time": "198.91",
+                "end_time": "223.039"
+            },
+            {
+                "id": 11,
+                "transcript": "We'll take a look at the fourier transform, the short time fourier transform that leads to spectrograms. Then we'll compare that against other transformations like the constant to transform the male spectrograms and chromo grams of",
+                "start_time": "223.27",
+                "end_time": "238.735"
+            },
+            {
+                "id": 12,
+                "transcript": "top of that. We're gonna also take a look at um topics in audio and music perception which we can leverage to preprocess the audio data in a way that makes sense for the current problem that we're trying to solve. OK. So what should you expect from this series",
+                "start_time": "238.744",
+                "end_time": "260.47"
+            },
+            {
+                "id": 13,
+                "transcript": "if you usually follow the sound of the I channel, you know that I love to cover both theoretical stuff and uh implementation stuff. So this series is gonna be no different. So we're gonna have theoretical sessions where I dig deeper into the theoretical ideas behind the the stuff that we are uh discussing and then we're gonna have coding uh sessions where I implement all the theoretical stuff that we've discussed.",
+                "start_time": "260.609",
+                "end_time": "290.089"
+            },
+            {
+                "id": 14,
+                "transcript": "Now, you may be wondering, but where do I get all the material that you'll be posting with these videos? Well, I have a github uh page that's linked in the uh descript description section below and there you can find the code samples as well as the slides just to, to have all the material with yourself for review.",
+                "start_time": "290.579",
+                "end_time": "311.179"
+            },
+            {
+                "id": 15,
+                "transcript": "So uh if you're familiar with my channel, you know that I literally love Python and it's not, this shouldn't come as a surprise to you that throughout the series, I'm gonna be using Python. And then on top of that, I'm gonna be using li browser, which is an open source audio processing libraries that we can use to extract loads of all your features in a very handy way.",
+                "start_time": "312.529",
+                "end_time": "340.269"
+            },
+            {
+                "id": 16,
+                "transcript": "OK. So what will you learn from an operational standpoint? First of all, you're gonna get a deep dive into all your data so that you really know what you are talking about there and how to manipulate and preprocess all of this data. Then obviously you'll familiarize with um frequency and time domain or",
+                "start_time": "340.47",
+                "end_time": "360.195"
+            },
+            {
+                "id": 17,
+                "transcript": "features and you're gonna be able to extract these features from rare audio. Most importantly, you recognize what are your audio features to use in your audio ML applications. So what makes the most sense for different types of applications? And along with that throughout this series, we're gonna, I'm gonna show you how to preprocess all your data and make it ready for your uh deep learning applications.",
+                "start_time": "360.204",
+                "end_time": "389.64"
+            },
+            {
+                "id": 18,
+                "transcript": "OK? And then there's uh a thing that's very dear to me. So I'm gonna cover a little bit of math uh behind all the audio transformations that we're gonna uh touch upon. And I think that's very important for you to understand that so that, you know, really dd down what uh like audio features are and how we can extract them and how you can uh",
+                "start_time": "390.119",
+                "end_time": "416.26"
+            },
+            {
+                "id": 19,
+                "transcript": "basically uh trick the parameters for extracting those features in a way that makes the most sense for your problem. And finally, on top of that, obviously, you're gonna be able to use a lib browser efficiently so that you can extract all the features that you need for your audio ML projects.",
+                "start_time": "416.649",
+                "end_time": "435.929"
+            },
+            {
+                "id": 20,
+                "transcript": "But mainly",
+                "start_time": "436.54",
+                "end_time": "437.769"
+            },
+            {
+                "id": 21,
+                "transcript": "uh the success of this series is gonna be measured against this thing. So the moment you'll see a spectrogram like this, you just don't freak out but rather know what we're talking about and what this image is actually telling you all your wise and you're gonna be able to interpret it good.",
+                "start_time": "438.329",
+                "end_time": "460.16"
+            },
+            {
+                "id": 22,
+                "transcript": "Who's this series for? Well, if you are a machine learning or more specifically deep learning engineer and you're tapping your feet into the audio domain, this is a perfect series for you. Same thing. If you are a computer science student,",
+                "start_time": "461.25",
+                "end_time": "475.179"
+            },
+            {
+                "id": 23,
+                "transcript": "I've received a ton of requests from CS students who have asked me, how can I uh preprocess audio data for this specific audio A I application? Well, you're going to get most of those answers here in this um series. Now, if you are a software engineer with an interest in audio and music, again, this is uh a series that's for you.",
+                "start_time": "475.329",
+                "end_time": "499.269"
+            },
+            {
+                "id": 24,
+                "transcript": "And of course, if you are a music technologist or a tech oriented musician who wants to dig deeper into uh audio and computation, again, this is an ideal series for you. Great. So obviously, this is not gonna be a series for uh beginners, Python, uh beginners rather you should have intermediate Python skills in order to follow the coding um sessions.",
+                "start_time": "499.41",
+                "end_time": "528.409"
+            },
+            {
+                "id": 25,
+                "transcript": "And finally, I invite you to join the Sound of A I Slack community. So why should you do that? Because there you'll find a growing community of like minded people who are interested in A I music A I audio, audio and music processing. And so you can",
+                "start_time": "529.21",
+                "end_time": "548.575"
+            },
+            {
+                "id": 26,
+                "transcript": "really ask a bunch of questions and grow your understanding of the topic while uh networking with a lot of like cool and knowledgeable people. Good. So I'll leave the link to the sound of the eyes lack workspace below in the description. Just go check that out and sign up. OK. So this was, was all for today. I'm looking forward to starting this journey with you and I hope you'll join in",
+                "start_time": "548.585",
+                "end_time": "576.619"
+            }
+        ]
+    }
+}

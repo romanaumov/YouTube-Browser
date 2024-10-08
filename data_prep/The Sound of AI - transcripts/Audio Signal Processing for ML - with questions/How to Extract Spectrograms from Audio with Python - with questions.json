@@ -1,0 +1,1246 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we learned about a short time, four year transform and spectrograms in a theoretical way. This time, it's time to actually use Python and the audio processing library lib browser to extract spectrograms from audio files. So let's get started. So I already wrote a Jupiter notebook here. And so I'm gonna just like run through it and I'm gonna tell you like what I'm doing and the different steps like to actually extract uh spectrogram. So the first thing that we want to do is just like import some uh like libraries. So we import OS so that we can uh load audio like our audio files, we import to Li Brosa Libres dot display for uh just like showing visualizing like the spectrograms and we'll import like noon pie and map lib dot plot for um actually doing or just like plotting uh the spectrograms like in other results that we'll have. OK. So let import all of this and then we want to just like load audio files with Li Brosa. So",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main topic of the video discussed in the text?",
+                "2. What audio processing library is mentioned for extracting spectrograms?",
+                "3. What theoretical concept was covered in the last video of the series?",
+                "4. What programming environment is being used to run the code?",
+                "5. Which library is imported for visualizing the spectrograms?",
+                "6. What is the purpose of importing the OS library in the code?",
+                "7. What libraries are imported for plotting the spectrograms?",
+                "8. What is the first step mentioned in the process of extracting spectrograms?",
+                "9. How does the speaker plan to demonstrate the extraction of spectrograms?",
+                "10. What type of files are being processed in this tutorial?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "spectrograms from audio files. So let's get started. So I already wrote a Jupiter notebook here. And so I'm gonna just like run through it and I'm gonna tell you like what I'm doing and the different steps like to actually extract uh spectrogram. So the first thing that we want to do is just like import some uh like libraries. So we import OS so that we can uh load audio like our audio files, we import to Li Brosa Libres dot display for uh just like showing visualizing like the spectrograms and we'll import like noon pie and map lib dot plot for um actually doing or just like plotting uh the spectrograms like in other results that we'll have. OK. So let import all of this and then we want to just like load audio files with Li Brosa. So uh we are gonna be working with four different audio files. So the first one is just like a skill and uh yeah, it's just like a reside. It's like at this path. Then we're gonna have um",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "21.959",
+            "questions": [
+                "1. What is the purpose of the Jupyter notebook mentioned in the text?",
+                "2. Which libraries are imported at the beginning of the process for extracting spectrograms?",
+                "3. Why is the OS library imported in the code?",
+                "4. What function does Librosa serve in the context of loading audio files?",
+                "5. How many audio files are mentioned as part of the analysis?",
+                "6. What is the role of Matplotlib in the process of working with spectrograms?",
+                "7. What type of audio file is the first one mentioned in the text?",
+                "8. What steps are outlined for extracting spectrograms from audio files?",
+                "9. Why is visualization important in the context of spectrogram analysis?",
+                "10. Can you explain what a spectrogram is and how it relates to audio files?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "uh load audio like our audio files, we import to Li Brosa Libres dot display for uh just like showing visualizing like the spectrograms and we'll import like noon pie and map lib dot plot for um actually doing or just like plotting uh the spectrograms like in other results that we'll have. OK. So let import all of this and then we want to just like load audio files with Li Brosa. So uh we are gonna be working with four different audio files. So the first one is just like a skill and uh yeah, it's just like a reside. It's like at this path. Then we're gonna have um uh kind of like a 32nd snippet from the BC. 30 seconds snippets from red hot chili peppers and 32nd snippet from uh Duke Ellington. So we have like three different musical genres represented some classical music with the BC. rock music, with the red hot chili peppers and jazz with Duke Helling. OK. But first thing, let's try to",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "43.919",
+            "questions": [
+                "1. What is the purpose of importing audio files into Li Brosa Libres?",
+                "2. Which libraries are mentioned for visualizing and plotting spectrograms?",
+                "3. How many different audio files will be worked with in this project?",
+                "4. What type of audio snippet is used from the Red Hot Chili Peppers?",
+                "5. What music genres are represented by the audio files mentioned?",
+                "6. Which classical music artist is referenced in the audio snippets?",
+                "7. What is the duration of the audio snippets being analyzed?",
+                "8. What specific function is Li Brosa used for in this context?",
+                "9. How does the text describe the process of visualizing the audio files?",
+                "10. What is the significance of using different musical genres in this analysis?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "uh we are gonna be working with four different audio files. So the first one is just like a skill and uh yeah, it's just like a reside. It's like at this path. Then we're gonna have um uh kind of like a 32nd snippet from the BC. 30 seconds snippets from red hot chili peppers and 32nd snippet from uh Duke Ellington. So we have like three different musical genres represented some classical music with the BC. rock music, with the red hot chili peppers and jazz with Duke Helling. OK. But first thing, let's try to listen to this music. So, or, and so we get like an idea of what we're dealing with. And so here we go. So if you do I IP D dot audio and you pass the uh the file, then you're gonna be able to directly listen to the uh to the audio files in the Jupiter notebook. By the way, this IP D comes from",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "72.879",
+            "questions": [
+                "1. How many audio files are being worked with in the project?",
+                "2. What is the purpose of the first audio file mentioned?",
+                "3. How long is the snippet from the BC audio file?",
+                "4. Which rock band is featured in one of the audio snippets?",
+                "5. What genre of music does Duke Ellington represent?",
+                "6. How many different musical genres are represented in the audio files?",
+                "7. What command is suggested for listening to the audio files in the Jupyter notebook?",
+                "8. What does the abbreviation \"IP D\" refer to in the context of the audio files?",
+                "9. Why is it important to listen to the music before proceeding with the project?",
+                "10. What is the significance of including a 30-second snippet from each musical genre?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "uh kind of like a 32nd snippet from the BC. 30 seconds snippets from red hot chili peppers and 32nd snippet from uh Duke Ellington. So we have like three different musical genres represented some classical music with the BC. rock music, with the red hot chili peppers and jazz with Duke Helling. OK. But first thing, let's try to listen to this music. So, or, and so we get like an idea of what we're dealing with. And so here we go. So if you do I IP D dot audio and you pass the uh the file, then you're gonna be able to directly listen to the uh to the audio files in the Jupiter notebook. By the way, this IP D comes from this input over here. So you just like input ipython dot display as IP D and then you can use it. OK? So now let's listen to like this different uh audio files. So the first one is gonna be a uh scale uh played on a piano.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "86.069",
+            "questions": [
+                "1. What are the three different musical genres represented in the audio snippets?",
+                "2. Which band is associated with the rock music snippet?",
+                "3. Who is the artist of the jazz snippet mentioned in the text?",
+                "4. What type of music is represented by the \"BC\" in the discussion?",
+                "5. How long are the audio snippets mentioned in the text?",
+                "6. What is the purpose of listening to the music snippets?",
+                "7. How can one listen to the audio files in a Jupyter notebook?",
+                "8. What command is suggested to be used for playing audio files in the Jupyter notebook?",
+                "9. What does \"IPD\" stand for in the context of the audio display?",
+                "10. What is the first audio file mentioned that is going to be played?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "listen to this music. So, or, and so we get like an idea of what we're dealing with. And so here we go. So if you do I IP D dot audio and you pass the uh the file, then you're gonna be able to directly listen to the uh to the audio files in the Jupiter notebook. By the way, this IP D comes from this input over here. So you just like input ipython dot display as IP D and then you can use it. OK? So now let's listen to like this different uh audio files. So the first one is gonna be a uh scale uh played on a piano. OK.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "109.569",
+            "questions": [
+                "1. What is the purpose of using IPD in a Jupyter notebook?",
+                "2. How can you listen to audio files in a Jupyter notebook?",
+                "3. What does the abbreviation \"IPD\" stand for in this context?",
+                "4. What command is used to import the necessary library for audio playback?",
+                "5. What type of audio file is mentioned as the first example to listen to?",
+                "6. How do you pass a file to the IPD function for audio playback?",
+                "7. What programming environment is being discussed in the text?",
+                "8. Can you explain the significance of the phrase \"listen to this music\" in the context?",
+                "9. What does the speaker mean by \"get like an idea of what we're dealing with\"?",
+                "10. What type of instrument is referenced in the audio example provided?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "this input over here. So you just like input ipython dot display as IP D and then you can use it. OK? So now let's listen to like this different uh audio files. So the first one is gonna be a uh scale uh played on a piano. OK. Yeah, it's just repeated a couple of times. Then we have the music from the busy from the red hot chili peppers and from Duke Ellington. So let's listen.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "132.57",
+            "questions": [
+                "1. What command is used to display output in IPython?",
+                "2. How do you initiate the audio playback in the provided text?",
+                "3. What type of audio file is the first one mentioned in the text?",
+                "4. Which musical instrument is used to play the first audio file?",
+                "5. How many times is the piano scale repeated in the audio playback?",
+                "6. Which band's music is mentioned in the text?",
+                "7. Who is the second artist referenced in the audio playback?",
+                "8. What genre of music is associated with Duke Ellington?",
+                "9. Are the audio files described as being played sequentially or simultaneously?",
+                "10. What is the general theme of the audio files mentioned?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "OK. Yeah, it's just repeated a couple of times. Then we have the music from the busy from the red hot chili peppers and from Duke Ellington. So let's listen. So if you guys followed along so far with the series you probably already recognize this piece cos we used it in a previous video.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "150.25",
+            "questions": [
+                "1. What music is mentioned in the text?",
+                "2. Which two artists' music is referenced?",
+                "3. Has this piece of music been used in a previous video?",
+                "4. How many times is the music repeated in the text?",
+                "5. What series is being referred to in the text?",
+                "6. What might the audience be expected to recognize?",
+                "7. Who are the Red Hot Chili Peppers?",
+                "8. Who is Duke Ellington?",
+                "9. What is the context in which the music is being discussed?",
+                "10. What action does the speaker suggest the audience take regarding the music?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "Yeah, it's just repeated a couple of times. Then we have the music from the busy from the red hot chili peppers and from Duke Ellington. So let's listen. So if you guys followed along so far with the series you probably already recognize this piece cos we used it in a previous video. So here you have like a huge crescendo, right? With all of this string instrument,",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "153.529",
+            "questions": [
+                "1. What musical elements are repeated in the piece discussed?",
+                "2. Which two artists' music are mentioned in the text?",
+                "3. How does the author suggest the audience engage with the music?",
+                "4. In what context was the piece used in a previous video?",
+                "5. What specific musical technique is highlighted in the description?",
+                "6. What types of instruments are primarily featured in the discussed piece?",
+                "7. How does the author describe the intensity of the music?",
+                "8. What genre do the Red Hot Chili Peppers belong to?",
+                "9. What is the significance of the term \"crescendo\" in the context of this piece?",
+                "10. How might familiarity with the series enhance the listener's experience?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "So if you guys followed along so far with the series you probably already recognize this piece cos we used it in a previous video. So here you have like a huge crescendo, right? With all of this string instrument, right? You get the idea. So very nice, smooth uh like string driven uh orchestral piece. And then we have a song from the Red Hot Chili.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "165.429",
+            "questions": [
+                "1. What series is being referred to in the text?",
+                "2. What type of musical piece is discussed in the text?",
+                "3. How does the author describe the crescendo in the music?",
+                "4. Which instruments are mentioned as being part of the orchestral piece?",
+                "5. What is the overall tone of the orchestral piece described?",
+                "6. What band is mentioned at the end of the text?",
+                "7. How does the author characterize the string-driven aspect of the piece?",
+                "8. Is this the first time the piece has been used in the series?",
+                "9. What emotions or feelings does the music evoke according to the author?",
+                "10. What might the author mean by \"smooth\" in relation to the orchestral piece?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "So here you have like a huge crescendo, right? With all of this string instrument, right? You get the idea. So very nice, smooth uh like string driven uh orchestral piece. And then we have a song from the Red Hot Chili. OK. You get the idea and probably you are all too familiar with that song. Then moving on to this jazz piece from Duke all by Duke",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "178.199",
+            "questions": [
+                "1. What type of musical crescendo is described in the text?",
+                "2. Which instruments are highlighted as part of the orchestral piece?",
+                "3. How is the orchestral piece characterized in terms of its sound?",
+                "4. Which band is mentioned in relation to a song following the orchestral piece?",
+                "5. What is the listener's familiarity with the song from the Red Hot Chili?",
+                "6. Who is the jazz piece attributed to in the text?",
+                "7. What genre does the piece from Duke represent?",
+                "8. How does the author transition between different musical pieces in the discussion?",
+                "9. What emotional or sensory experience is implied by the description of the orchestral piece?",
+                "10. How does the author convey the overall structure or flow of the musical selections?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "right? You get the idea. So very nice, smooth uh like string driven uh orchestral piece. And then we have a song from the Red Hot Chili. OK. You get the idea and probably you are all too familiar with that song. Then moving on to this jazz piece from Duke all by Duke Mhm",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "186.199",
+            "questions": [
+                "1. What type of music is described as \"nice\" and \"smooth\" in the text?",
+                "2. Which band is mentioned in relation to a specific song?",
+                "3. How is the orchestral piece characterized in the text?",
+                "4. Who is the jazz piece attributed to?",
+                "5. What genre does the song from the Red Hot Chili represent?",
+                "6. What does the phrase \"you get the idea\" suggest about the content being discussed?",
+                "7. How does the text describe the orchestral piece in relation to string instruments?",
+                "8. What might listeners be familiar with according to the text?",
+                "9. What is implied about the familiarity of the song from the Red Hot Chili?",
+                "10. What does the repetition of \"Duke\" indicate about the jazz piece mentioned?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "OK. You get the idea and probably you are all too familiar with that song. Then moving on to this jazz piece from Duke all by Duke Mhm Very smooth, right?",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "210.13",
+            "questions": [
+                "1. What song is being referenced in the text?  ",
+                "2. Who is the artist of the jazz piece mentioned?  ",
+                "3. What genre of music is Duke's piece categorized as?  ",
+                "4. How does the author describe the jazz piece?  ",
+                "5. What does the phrase \"you get the idea\" imply about the song?  ",
+                "6. What feelings or emotions does the jazz piece evoke according to the text?  ",
+                "7. Is there a specific title mentioned for the jazz piece by Duke?  ",
+                "8. What does the use of \"Mhm\" suggest about the author's reaction to the music?  ",
+                "9. How does the author transition from discussing the song to the jazz piece?  ",
+                "10. What could be the significance of mentioning that the piece is \"all by Duke\"?  "
+            ]
+        },
+        {
+            "id": 13,
+            "text": "Mhm Very smooth, right? OK. You get the idea. So what we'll do is try to extract the uh spectrogram from this and visualize them and compare them. OK. So what we want to do first is just let you load the, all your files with libros. So we've done this multiple times in earlier videos. Uh So uh what we do is just like lib rosa dot load and we pass like the name of the uh or the, the path to the file",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "220.66",
+            "questions": [
+                "1. What is the main objective of the activity described in the text?",
+                "2. What tool is mentioned for extracting the spectrogram?",
+                "3. How does the speaker suggest loading the files?",
+                "4. What specific function from librosa is referenced for loading files?",
+                "5. What should be passed as an argument to the librosa.load function?",
+                "6. What is the speaker's tone when discussing the smoothness of the process?",
+                "7. How many times has the file loading process been done in earlier videos, according to the text?",
+                "8. What visualization technique is mentioned for comparing the extracted data?",
+                "9. What is implied by the phrase \"you get the idea\" in the context of the text?",
+                "10. What does the speaker intend to do after loading the files?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "Very smooth, right? OK. You get the idea. So what we'll do is try to extract the uh spectrogram from this and visualize them and compare them. OK. So what we want to do first is just let you load the, all your files with libros. So we've done this multiple times in earlier videos. Uh So uh what we do is just like lib rosa dot load and we pass like the name of the uh or the, the path to the file we get back is a signal, a NPI array. And then we can also get back the sample rate which when it's defaulted is gonna be equal to 22,050 Hertz. OK. So let's move on to this next step. What we can do, what we should do is extract the short time fourier transform. And this is very easy with the Liberator because we have a function that does that uh super quickly.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "225.33",
+            "questions": [
+                "1. What is the purpose of extracting the spectrogram from the audio files?",
+                "2. How do you load audio files using librosa?",
+                "3. What kind of data does librosa.load return?",
+                "4. What is the default sample rate when using librosa to load audio files?",
+                "5. What is the next step after loading the audio files?",
+                "6. What technique is used to analyze the audio in the text?",
+                "7. How does the short time Fourier transform relate to the spectrogram?",
+                "8. What advantages does librosa offer for extracting the short time Fourier transform?",
+                "9. How many times has the process of loading files with librosa been mentioned in earlier videos?",
+                "10. What is the significance of the sample rate in audio processing?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "OK. You get the idea. So what we'll do is try to extract the uh spectrogram from this and visualize them and compare them. OK. So what we want to do first is just let you load the, all your files with libros. So we've done this multiple times in earlier videos. Uh So uh what we do is just like lib rosa dot load and we pass like the name of the uh or the, the path to the file we get back is a signal, a NPI array. And then we can also get back the sample rate which when it's defaulted is gonna be equal to 22,050 Hertz. OK. So let's move on to this next step. What we can do, what we should do is extract the short time fourier transform. And this is very easy with the Liberator because we have a function that does that uh super quickly. So the first thing we wanna do is just let's just set a couple of parameters. So we'll set the frame size equal to 2048 H uh samples. Sorry. And the H size is gonna be equal to 512 samples. Again, these are quite typical parameters for like the frame size and the H size.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "233.35",
+            "questions": [
+                "1. What is the purpose of extracting the spectrogram in the given text?",
+                "2. Which library is mentioned for loading files in the text?",
+                "3. What does the function `librosa.load` return when called with a file path?",
+                "4. What is the default sample rate mentioned in the text?",
+                "5. What type of transform is extracted after loading the audio files?",
+                "6. How does the text describe the process of extracting the short time Fourier transform?",
+                "7. What is the frame size set to in the parameters mentioned?",
+                "8. What is the H size set to in the parameters mentioned?",
+                "9. Why are the specified frame size and H size considered typical parameters?",
+                "10. What is the significance of using NPI arrays in the context described?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "we get back is a signal, a NPI array. And then we can also get back the sample rate which when it's defaulted is gonna be equal to 22,050 Hertz. OK. So let's move on to this next step. What we can do, what we should do is extract the short time fourier transform. And this is very easy with the Liberator because we have a function that does that uh super quickly. So the first thing we wanna do is just let's just set a couple of parameters. So we'll set the frame size equal to 2048 H uh samples. Sorry. And the H size is gonna be equal to 512 samples. Again, these are quite typical parameters for like the frame size and the H size. Uh If you don't know what I'm talking about, I highly suggest you to go check out my previous video on the theory behind the short term fourier transform. I'm just like taking for granted that you've watched that video or you are familiar with the short term fourier transform. So I'm not gonna get into details what all of these parameters actually mean in this um video.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "257.154",
+            "questions": [
+                "1. What signal does the NPI array represent in the context of the text?",
+                "2. What is the default sample rate mentioned in the text?",
+                "3. What is the purpose of extracting the short time Fourier transform?",
+                "4. How does the Liberator facilitate the extraction of the short time Fourier transform?",
+                "5. What is the frame size set to for the short time Fourier transform?",
+                "6. What is the H size set to in the process described?",
+                "7. Why are the frame size and H size considered typical parameters?",
+                "8. What is suggested for those who are not familiar with the short time Fourier transform?",
+                "9. What assumption does the speaker make about the audience's familiarity with previous content?",
+                "10. What does the speaker refrain from detailing in this video regarding the parameters?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "So the first thing we wanna do is just let's just set a couple of parameters. So we'll set the frame size equal to 2048 H uh samples. Sorry. And the H size is gonna be equal to 512 samples. Again, these are quite typical parameters for like the frame size and the H size. Uh If you don't know what I'm talking about, I highly suggest you to go check out my previous video on the theory behind the short term fourier transform. I'm just like taking for granted that you've watched that video or you are familiar with the short term fourier transform. So I'm not gonna get into details what all of these parameters actually mean in this um video. OK. So let's move on. Now, I can extract the short time period transform using this function which is Great Libres SDFT and then I should pass in the signal. And the first thing that we'll see here and the spectrogram that we'll analyze this",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "282.23",
+            "questions": [
+                "1. What are the parameters being set in the text regarding the frame size and H size?",
+                "2. What is the frame size specified in the text?",
+                "3. What does H size refer to in the context of the text?",
+                "4. Why does the author suggest checking out a previous video on the short term Fourier transform?",
+                "5. What is the significance of the short term Fourier transform in this discussion?",
+                "6. Which function is mentioned for extracting the short time period transform?",
+                "7. What is the name of the library used for the function to extract the short time period transform?",
+                "8. What type of output is expected from the function mentioned in the text?",
+                "9. What is meant by the term \"spectrogram\" in the context of the short term Fourier transform?",
+                "10. Why does the author choose not to explain the parameters in detail in this video?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "Uh If you don't know what I'm talking about, I highly suggest you to go check out my previous video on the theory behind the short term fourier transform. I'm just like taking for granted that you've watched that video or you are familiar with the short term fourier transform. So I'm not gonna get into details what all of these parameters actually mean in this um video. OK. So let's move on. Now, I can extract the short time period transform using this function which is Great Libres SDFT and then I should pass in the signal. And the first thing that we'll see here and the spectrogram that we'll analyze this are with regard with the, with the scale, just like to see how that is represented in a spectrogram. And it's gonna be easier to visualize than like all the other music that we've uh listened earlier. Then we should pass the frame size and we should pass it. Uh So with this keyword argument called N dash FFT",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "303.619",
+            "questions": [
+                "1. What is the short term Fourier transform (STFT)?",
+                "2. Why does the speaker suggest watching a previous video on the theory behind STFT?",
+                "3. What function is used to extract the short time period transform?",
+                "4. What is the significance of the parameters mentioned in the video?",
+                "5. How does the speaker plan to analyze the spectrogram?",
+                "6. What does the keyword argument \"N-FFT\" refer to in the context of the function?",
+                "7. Why is it easier to visualize the spectrogram compared to other forms of music representation?",
+                "8. What is the role of the frame size in extracting the short time period transform?",
+                "9. What kind of signals can be passed into the function mentioned in the video?",
+                "10. What are the expected outputs when using the Great Libres SDFT function?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "OK. So let's move on. Now, I can extract the short time period transform using this function which is Great Libres SDFT and then I should pass in the signal. And the first thing that we'll see here and the spectrogram that we'll analyze this are with regard with the, with the scale, just like to see how that is represented in a spectrogram. And it's gonna be easier to visualize than like all the other music that we've uh listened earlier. Then we should pass the frame size and we should pass it. Uh So with this keyword argument called N dash FFT uh A and underscore FFT and then we pass the hop uh length um keyword argument and we pass our hop size over here. OK. So we do this and then now let's take a look at the shape of the short time fourier transform. So as we uh so in the previous video, this is, is gonna be like a bidi menal array and specifically like the first dimension is relative to the, the frequency.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "324.72",
+            "questions": [
+                "1. What function is used to extract the short time period transform in the text?",
+                "2. What is the purpose of the spectrogram mentioned in the text?",
+                "3. How does the text suggest visualizing the spectrogram compared to previous music?",
+                "4. What keyword argument is used to specify the frame size in the function?",
+                "5. What does the keyword argument 'N-FFT' represent in the context of the function?",
+                "6. What is the significance of the hop length mentioned in the text?",
+                "7. How does the shape of the short time Fourier transform relate to its dimensions?",
+                "8. What type of array is the short time Fourier transform described as in the text?",
+                "9. What does the first dimension of the bidi menal array represent?",
+                "10. Why is it important to analyze the scale in the spectrogram?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "are with regard with the, with the scale, just like to see how that is represented in a spectrogram. And it's gonna be easier to visualize than like all the other music that we've uh listened earlier. Then we should pass the frame size and we should pass it. Uh So with this keyword argument called N dash FFT uh A and underscore FFT and then we pass the hop uh length um keyword argument and we pass our hop size over here. OK. So we do this and then now let's take a look at the shape of the short time fourier transform. So as we uh so in the previous video, this is, is gonna be like a bidi menal array and specifically like the first dimension is relative to the, the frequency. Uh And so here we have like um all the frequency bins and these, these are equal. So like this number is equal to half the frame size plus",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "345.41",
+            "questions": [
+                "1. What is the significance of representing data in a spectrogram?",
+                "2. How does the scale affect the visualization of music in a spectrogram?",
+                "3. What keyword argument is used to pass the frame size in the short time Fourier transform?",
+                "4. What does the term \"N-FFT\" refer to in the context of the short time Fourier transform?",
+                "5. What is the purpose of the hop length keyword argument in the short time Fourier transform?",
+                "6. What shape does the short time Fourier transform take, and what does it represent?",
+                "7. In the short time Fourier transform, how is the first dimension related to frequency?",
+                "8. How are frequency bins defined in the short time Fourier transform?",
+                "9. What does the phrase \"this number is equal to half the frame size\" imply in the context of the spectrogram?",
+                "10. Why is it easier to visualize certain music types compared to others when using a spectrogram?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "uh A and underscore FFT and then we pass the hop uh length um keyword argument and we pass our hop size over here. OK. So we do this and then now let's take a look at the shape of the short time fourier transform. So as we uh so in the previous video, this is, is gonna be like a bidi menal array and specifically like the first dimension is relative to the, the frequency. Uh And so here we have like um all the frequency bins and these, these are equal. So like this number is equal to half the frame size plus one. So it's basically 2048 divided by two, which is 1024 plus 1, 1025. OK. So it checks out good. And here uh like on the columns, uh the second dimension of this metrics, we have the um number of frames. It's basically like the temporal bins. And in this case, we have like a 342 temporal bins. And if you want to know how to",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "366.519",
+            "questions": [
+                "1. What does the acronym FFT stand for in the context of this text?",
+                "2. What is the purpose of passing the hop length as a keyword argument?",
+                "3. How is the shape of the short-time Fourier transform described in the text?",
+                "4. What type of array is the short-time Fourier transform referred to as?",
+                "5. How is the first dimension of the short-time Fourier transform related to frequency?",
+                "6. What is the calculation used to determine the number of frequency bins?",
+                "7. How many frequency bins are calculated from a frame size of 2048?",
+                "8. What does the second dimension of the metrics represent in the context of the short-time Fourier transform?",
+                "9. How many temporal bins are mentioned in the text?",
+                "10. What does the text imply about the relationship between frequency bins and temporal bins?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "Uh And so here we have like um all the frequency bins and these, these are equal. So like this number is equal to half the frame size plus one. So it's basically 2048 divided by two, which is 1024 plus 1, 1025. OK. So it checks out good. And here uh like on the columns, uh the second dimension of this metrics, we have the um number of frames. It's basically like the temporal bins. And in this case, we have like a 342 temporal bins. And if you want to know how to get from uh like a signal to like a certain number of frames just like to make that calculation, I have like the formula in the previous video regarding short time fourier transform. OK. So now the next thing that we want to see is the actual type of the different items that we have in the short time four transform result or in the matrix. So here we just like take the",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "394.029",
+            "questions": [
+                "1. What are the frequency bins mentioned in the text, and how are they calculated?",
+                "2. What is the significance of the number 1025 in relation to the frame size?",
+                "3. How is the second dimension of the matrix defined in this context?",
+                "4. What does the term \"temporal bins\" refer to, and how many are mentioned?",
+                "5. What is the total number of temporal bins specified in the text?",
+                "6. How can one calculate the number of frames from a signal?",
+                "7. Where can one find the formula for calculating the number of frames mentioned?",
+                "8. What is the purpose of the short-time Fourier transform in this discussion?",
+                "9. What types of items are being analyzed in the short-time Fourier transform result?",
+                "10. How does the text confirm the calculations regarding frequency bins and frames?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "one. So it's basically 2048 divided by two, which is 1024 plus 1, 1025. OK. So it checks out good. And here uh like on the columns, uh the second dimension of this metrics, we have the um number of frames. It's basically like the temporal bins. And in this case, we have like a 342 temporal bins. And if you want to know how to get from uh like a signal to like a certain number of frames just like to make that calculation, I have like the formula in the previous video regarding short time fourier transform. OK. So now the next thing that we want to see is the actual type of the different items that we have in the short time four transform result or in the matrix. So here we just like take the item at uh col uh row zero, column zero. And as you can see the type is a complex number. And this doesn't come as a surprise because the output of a short time fourier transform is a series of like complex fourier coefficients. And so, uh yeah, so we expect that each of the items which is a fourier coefficient for a given uh like frequency bin and a given like frame is a complex number.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "406.95",
+            "questions": [
+                "1. What is the result of dividing 2048 by two?",
+                "2. How is the value 1025 derived in the context of the text?",
+                "3. What does the term \"temporal bins\" refer to in this discussion?",
+                "4. How many temporal bins are mentioned in the text?",
+                "5. Where can one find the formula for converting a signal to a certain number of frames?",
+                "6. What is the relationship between the short time Fourier transform and the matrix mentioned in the text?",
+                "7. What item is being examined in the short time Fourier transform result?",
+                "8. What type of number is found at row zero, column zero of the matrix?",
+                "9. Why is it expected that the items in the short time Fourier transform output are complex numbers?",
+                "10. What do the Fourier coefficients represent in relation to frequency bins and frames?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "get from uh like a signal to like a certain number of frames just like to make that calculation, I have like the formula in the previous video regarding short time fourier transform. OK. So now the next thing that we want to see is the actual type of the different items that we have in the short time four transform result or in the matrix. So here we just like take the item at uh col uh row zero, column zero. And as you can see the type is a complex number. And this doesn't come as a surprise because the output of a short time fourier transform is a series of like complex fourier coefficients. And so, uh yeah, so we expect that each of the items which is a fourier coefficient for a given uh like frequency bin and a given like frame is a complex number. But now what we want to do is actually calculate these spectrograms. So we need to to move from the short term fourier transform to the spectrogram. So how do we do that? Well, that's easily done because we just like take the squared magnitude of the short term fourier transform. So we just like use like this NP dot ABS absolute value and we pass in the uh",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "434.822",
+            "questions": [
+                "1. What is the purpose of the short time Fourier transform (STFT) in signal processing?",
+                "2. What type of numbers are the output of a short time Fourier transform?",
+                "3. How do you calculate the spectrogram from the short time Fourier transform?",
+                "4. What does the formula mentioned in the previous video relate to?",
+                "5. What does the term \"frequency bin\" refer to in the context of STFT?",
+                "6. Why is it expected that each Fourier coefficient is a complex number?",
+                "7. What mathematical operation is performed to obtain the spectrogram from the STFT?",
+                "8. What function is used to compute the squared magnitude of the short time Fourier transform?",
+                "9. How does the output matrix of the short time Fourier transform appear?",
+                "10. What is indicated by taking the item at row zero, column zero of the STFT result?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "item at uh col uh row zero, column zero. And as you can see the type is a complex number. And this doesn't come as a surprise because the output of a short time fourier transform is a series of like complex fourier coefficients. And so, uh yeah, so we expect that each of the items which is a fourier coefficient for a given uh like frequency bin and a given like frame is a complex number. But now what we want to do is actually calculate these spectrograms. So we need to to move from the short term fourier transform to the spectrogram. So how do we do that? Well, that's easily done because we just like take the squared magnitude of the short term fourier transform. So we just like use like this NP dot ABS absolute value and we pass in the uh short time free transform results here and then we square the results and this is going to be equal to the spectrogram. OK. Yeah. Not that let me move on. Let's take a look at the shape here. And once again, not surprisingly, we have like this shape. So 1025 number of Beins and 342",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "462.696",
+            "questions": [
+                "1. What type of number is represented in the item at row zero, column zero?",
+                "2. Why is it expected that the output of a short time Fourier transform consists of complex numbers?",
+                "3. What are Fourier coefficients used for in the context of the short time Fourier transform?",
+                "4. How do you calculate spectrograms from a short time Fourier transform?",
+                "5. What mathematical operation is performed on the short time Fourier transform results to obtain the spectrogram?",
+                "6. What function is used to calculate the absolute value of the short time Fourier transform results?",
+                "7. What is the relationship between the squared magnitude of the short time Fourier transform and the spectrogram?",
+                "8. What are the dimensions of the shape mentioned in the text, specifically in terms of frequency bins and frames?",
+                "9. How many frequency bins are indicated in the shape of the spectrogram?",
+                "10. How many frames are indicated in the shape of the spectrogram?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "But now what we want to do is actually calculate these spectrograms. So we need to to move from the short term fourier transform to the spectrogram. So how do we do that? Well, that's easily done because we just like take the squared magnitude of the short term fourier transform. So we just like use like this NP dot ABS absolute value and we pass in the uh short time free transform results here and then we square the results and this is going to be equal to the spectrogram. OK. Yeah. Not that let me move on. Let's take a look at the shape here. And once again, not surprisingly, we have like this shape. So 1025 number of Beins and 342 uh number of frames, which is the same that we used to have like with the short term fourier transform results. And that checks out because all we are doing is just like taking the magnitude the squared magnitude. So the the shape of the matrix uh of the original matrix doesn't change. But what does change",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "490.809",
+            "questions": [
+                "1. What is the primary goal mentioned in the text regarding spectrograms?",
+                "2. How do we transition from the short term Fourier transform to the spectrogram?",
+                "3. What mathematical operation is performed on the short term Fourier transform results to obtain the spectrogram?",
+                "4. What function is used to calculate the absolute value in the process described?",
+                "5. What does squaring the results of the short term Fourier transform yield?",
+                "6. How many bins and frames are mentioned in the context of the spectrogram's shape?",
+                "7. Does the shape of the matrix change when calculating the spectrogram from the short term Fourier transform?",
+                "8. Why does the shape of the matrix remain the same during this transformation?",
+                "9. What is indicated by the consistency in the number of bins and frames between the short term Fourier transform and the spectrogram?",
+                "10. What is the significance of taking the squared magnitude in the context of signal processing?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "short time free transform results here and then we square the results and this is going to be equal to the spectrogram. OK. Yeah. Not that let me move on. Let's take a look at the shape here. And once again, not surprisingly, we have like this shape. So 1025 number of Beins and 342 uh number of frames, which is the same that we used to have like with the short term fourier transform results. And that checks out because all we are doing is just like taking the magnitude the squared magnitude. So the the shape of the matrix uh of the original matrix doesn't change. But what does change is the type of the items. In this case, we have uh floats. And this makes sense because we are taking like the, the magnitude here. And so basically, we are moving from the complex number to like a real number. And this is the spectrogram and this is like what we can actually visualize um uh on a hit map. And so let's see how we can easily visualize the spectrogram uh with uh Li Brosa.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "514.58",
+            "questions": [
+                "1. What is the relationship between the short time free transform results and the spectrogram?",
+                "2. How is the shape of the matrix described in the text?",
+                "3. What are the dimensions of the matrix mentioned (number of Beins and frames)?",
+                "4. How does the process of squaring the results affect the type of items in the matrix?",
+                "5. What type of numbers do we obtain after taking the magnitude in the transformation?",
+                "6. Why does the shape of the original matrix remain unchanged during the transformation?",
+                "7. What does the transition from complex numbers to real numbers signify in this context?",
+                "8. How can the spectrogram be visualized according to the text?",
+                "9. What tool or library is mentioned for visualizing the spectrogram?",
+                "10. What is the significance of visualizing the spectrogram on a heat map?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "uh number of frames, which is the same that we used to have like with the short term fourier transform results. And that checks out because all we are doing is just like taking the magnitude the squared magnitude. So the the shape of the matrix uh of the original matrix doesn't change. But what does change is the type of the items. In this case, we have uh floats. And this makes sense because we are taking like the, the magnitude here. And so basically, we are moving from the complex number to like a real number. And this is the spectrogram and this is like what we can actually visualize um uh on a hit map. And so let's see how we can easily visualize the spectrogram uh with uh Li Brosa. And so here I wrote like a little function and here this is the signature. So you see uh Y capital Y is just like the um",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "538.52",
+            "questions": [
+                "1. What is the relationship between the number of frames and the short-term Fourier transform results mentioned in the text?",
+                "2. How does the process described affect the shape of the original matrix?",
+                "3. What type of data items are being utilized after taking the squared magnitude?",
+                "4. Why does the text mention that the type of items changes from complex numbers to real numbers?",
+                "5. What is a spectrogram and how is it visualized according to the text?",
+                "6. What library is referenced for visualizing the spectrogram?",
+                "7. What is the significance of the capital Y in the function signature mentioned in the text?",
+                "8. How does taking the magnitude relate to the visualization of data in a heat map?",
+                "9. What are the implications of moving from complex numbers to real numbers in this context?",
+                "10. Can you explain the function mentioned in the text and its purpose in visualizing the spectrogram?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "is the type of the items. In this case, we have uh floats. And this makes sense because we are taking like the, the magnitude here. And so basically, we are moving from the complex number to like a real number. And this is the spectrogram and this is like what we can actually visualize um uh on a hit map. And so let's see how we can easily visualize the spectrogram uh with uh Li Brosa. And so here I wrote like a little function and here this is the signature. So you see uh Y capital Y is just like the um uh it's the spectrogram, then I pass in the sample rates the H length and the Y axis. And here like a default is, let's say uh linear. We'll see what this means like in a second. But before, let's just uh take a look at what I do here, I just like instantiate um a figure uh specifying like the, the, the figure size here using",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "558.554",
+            "questions": [
+                "1. What type of items are being discussed in the text?",
+                "2. Why do the items make sense as floats in this context?",
+                "3. How does the text describe the transition from complex numbers to real numbers?",
+                "4. What is a spectrogram, and how is it visualized?",
+                "5. What library is mentioned for visualizing the spectrogram?",
+                "6. What parameters are included in the function signature for visualizing the spectrogram?",
+                "7. What does the variable Y represent in the context of the spectrogram?",
+                "8. What is the significance of the sample rate and H length in the function?",
+                "9. What is the default setting for the Y-axis mentioned in the text?",
+                "10. How is the figure size specified when instantiating the figure?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "And so here I wrote like a little function and here this is the signature. So you see uh Y capital Y is just like the um uh it's the spectrogram, then I pass in the sample rates the H length and the Y axis. And here like a default is, let's say uh linear. We'll see what this means like in a second. But before, let's just uh take a look at what I do here, I just like instantiate um a figure uh specifying like the, the, the figure size here using like my lip. And then here comes the magic we can use Lisa dot display dot spec show to uh visualize uh any type of spectrogram like um signals. And so here what uh like this function expects is why is it basically like the um spectrogram?",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "586.469",
+            "questions": [
+                "1. What does the capital Y represent in the function signature?",
+                "2. What parameters are passed into the function alongside the spectrogram?",
+                "3. What is the default value mentioned in the text, and what does it refer to?",
+                "4. What is instantiated to visualize the spectrogram?",
+                "5. How is the figure size specified in the code?",
+                "6. What library or module is used to display the spectrogram?",
+                "7. What type of data does the function expect to visualize?",
+                "8. What does the term \"H length\" refer to in the context of the function?",
+                "9. Why is the term \"magic\" used when referring to the use of Lisa.dot.display.spec show?",
+                "10. What is the purpose of visualizing spectrogram signals in this context?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "uh it's the spectrogram, then I pass in the sample rates the H length and the Y axis. And here like a default is, let's say uh linear. We'll see what this means like in a second. But before, let's just uh take a look at what I do here, I just like instantiate um a figure uh specifying like the, the, the figure size here using like my lip. And then here comes the magic we can use Lisa dot display dot spec show to uh visualize uh any type of spectrogram like um signals. And so here what uh like this function expects is why is it basically like the um spectrogram? Then the uh sample rate, the hop length, the X axis which is gonna be equal to time. So we're gonna have like on the X axis, we're gonna have like time and on the y axis, we're gonna have like a type of um representation that's uh linear. And then I'm gonna add a color bar here and you'll see what this does. It's basically like a legend that uh provides us information about like the",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "596.789",
+            "questions": [
+                "1. What is the purpose of the spectrogram in the context described?",
+                "2. What parameters are passed into the spectrogram function?",
+                "3. What does the default setting of \"linear\" refer to in this context?",
+                "4. How is the figure size specified in the code snippet?",
+                "5. What does the function `lisa.display.spec_show` do?",
+                "6. What types of signals can be visualized using the `spec_show` function?",
+                "7. What information is represented on the X axis of the spectrogram?",
+                "8. What information is represented on the Y axis of the spectrogram?",
+                "9. What is the role of the color bar in the visualization?",
+                "10. How does the legend provided by the color bar contribute to understanding the spectrogram?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "like my lip. And then here comes the magic we can use Lisa dot display dot spec show to uh visualize uh any type of spectrogram like um signals. And so here what uh like this function expects is why is it basically like the um spectrogram? Then the uh sample rate, the hop length, the X axis which is gonna be equal to time. So we're gonna have like on the X axis, we're gonna have like time and on the y axis, we're gonna have like a type of um representation that's uh linear. And then I'm gonna add a color bar here and you'll see what this does. It's basically like a legend that uh provides us information about like the uh how to map the colors into like the different like intensities of the uh of the signal of the amplitude. OK. So now let me run this and now we can plot the spectrogram and I'll pass in the uh spectrogram for like the scale scale like audio file, I'll pass in the sample rate and the hub size. And so let's see what happens here. And here we go our first visualization of a spectrogram, but this doesn't look great. Does it",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "618.155",
+            "questions": [
+                "1. What function is used to visualize any type of spectrogram in the text?",
+                "2. What parameters does the function require to generate a spectrogram?",
+                "3. How is the X axis represented in the spectrogram visualization?",
+                "4. How is the Y axis represented in the spectrogram visualization?",
+                "5. What purpose does the color bar serve in the spectrogram visualization?",
+                "6. What information does the color bar provide regarding the spectrogram?",
+                "7. What audio file is mentioned as being used for the spectrogram visualization?",
+                "8. What issue is noted about the initial visualization of the spectrogram?",
+                "9. What is the significance of the sample rate and hop length in generating a spectrogram?",
+                "10. How does the author express their feelings about the quality of the first spectrogram visualization?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "Then the uh sample rate, the hop length, the X axis which is gonna be equal to time. So we're gonna have like on the X axis, we're gonna have like time and on the y axis, we're gonna have like a type of um representation that's uh linear. And then I'm gonna add a color bar here and you'll see what this does. It's basically like a legend that uh provides us information about like the uh how to map the colors into like the different like intensities of the uh of the signal of the amplitude. OK. So now let me run this and now we can plot the spectrogram and I'll pass in the uh spectrogram for like the scale scale like audio file, I'll pass in the sample rate and the hub size. And so let's see what happens here. And here we go our first visualization of a spectrogram, but this doesn't look great. Does it they",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "639.77",
+            "questions": [
+                "1. What is the significance of the sample rate in the context of the described process?",
+                "2. How is the X axis defined in the visualization mentioned in the text?",
+                "3. What type of representation is used on the Y axis of the plot?",
+                "4. What purpose does the color bar serve in the spectrogram visualization?",
+                "5. How does the color bar relate to the intensities of the signal amplitude?",
+                "6. What audio file is being used to generate the spectrogram in the example?",
+                "7. What parameters are passed when plotting the spectrogram?",
+                "8. What was the author's initial reaction to the first visualization of the spectrogram?",
+                "9. Why might the author describe the initial visualization as not looking great?",
+                "10. What could be potential improvements to enhance the visualization of the spectrogram?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "uh how to map the colors into like the different like intensities of the uh of the signal of the amplitude. OK. So now let me run this and now we can plot the spectrogram and I'll pass in the uh spectrogram for like the scale scale like audio file, I'll pass in the sample rate and the hub size. And so let's see what happens here. And here we go our first visualization of a spectrogram, but this doesn't look great. Does it they obviously like the idea here is that the, the brighter the color and the more energy you have like in that uh frequency bin, right? And so we see a little bit of like activity down here and it's repeated. And so probably you can guess that this is like the two scale like the fundamental frequencies of the scales. And in in indeed you see that these like tend to like run up",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "666.409",
+            "questions": [
+                "1. What is the purpose of mapping colors to different intensities in a signal?",
+                "2. How is the spectrogram plotted in relation to the audio file?",
+                "3. What parameters are passed when generating the spectrogram?",
+                "4. What does the brightness of the color in a spectrogram indicate?",
+                "5. What does the presence of activity in the lower frequency bins suggest?",
+                "6. How does the visualization change when different sample rates or hub sizes are used?",
+                "7. What do the fundamental frequencies in the spectrogram represent?",
+                "8. Why might the initial visualization of the spectrogram not look great?",
+                "9. How can one identify repeated patterns in the spectrogram?",
+                "10. What insights can be drawn from observing the energy distribution across frequency bins in a spectrogram?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "they obviously like the idea here is that the, the brighter the color and the more energy you have like in that uh frequency bin, right? And so we see a little bit of like activity down here and it's repeated. And so probably you can guess that this is like the two scale like the fundamental frequencies of the scales. And in in indeed you see that these like tend to like run up uh and it's repeated twice because if you remember like in that audio file, we had the same scale repeated twice, but still like everything is black. So it means that it has like very, very little energy. So why is that the case? Well, it turns out that this is how it sounds like work. So uh but uh it's like the way we actually perceive like these energies and amplitude is not really linear as is the case like in this representation here. But it, it's actually uh logarithmic.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "696.28",
+            "questions": [
+                "1. What does the brightness of the color indicate in the frequency bin?",
+                "2. How is the activity observed in the lower frequencies described in the text?",
+                "3. What does the repetition of the scale in the audio file suggest?",
+                "4. Why does the text mention that everything is black in certain areas?",
+                "5. What does the color black signify in terms of energy levels?",
+                "6. How does the perception of energy and amplitude differ from the linear representation mentioned?",
+                "7. What type of scale is referred to as being repeated twice in the audio file?",
+                "8. What is the relationship between frequency and perceived energy according to the text?",
+                "9. How does the text describe the nature of sound perception?",
+                "10. What is meant by a logarithmic representation in the context of sound and energy?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "obviously like the idea here is that the, the brighter the color and the more energy you have like in that uh frequency bin, right? And so we see a little bit of like activity down here and it's repeated. And so probably you can guess that this is like the two scale like the fundamental frequencies of the scales. And in in indeed you see that these like tend to like run up uh and it's repeated twice because if you remember like in that audio file, we had the same scale repeated twice, but still like everything is black. So it means that it has like very, very little energy. So why is that the case? Well, it turns out that this is how it sounds like work. So uh but uh it's like the way we actually perceive like these energies and amplitude is not really linear as is the case like in this representation here. But it, it's actually uh logarithmic. And so uh to get like closer to the way we perceive a sound, we need to do a kind of uh transformation of the uh intensities like of all the amplitude here. And so we need to, to move like all of this like amplitudes from",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "697.349",
+            "questions": [
+                "1. What does the brightness of the color in the frequency bin indicate?",
+                "2. What is the significance of the repeated activity observed in the text?",
+                "3. How are the fundamental frequencies related to the scale mentioned?",
+                "4. Why does everything appear black despite the presence of repeated scales?",
+                "5. What can be inferred about the energy levels in the audio file?",
+                "6. How does the way we perceive sound differ from the linear representation of energy?",
+                "7. What type of transformation is needed to better represent sound perception?",
+                "8. Why is it important to adjust the amplitudes of the frequencies?",
+                "9. What does the term \"logarithmic\" refer to in the context of sound perception?",
+                "10. How does the representation of amplitudes affect our understanding of sound?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "uh and it's repeated twice because if you remember like in that audio file, we had the same scale repeated twice, but still like everything is black. So it means that it has like very, very little energy. So why is that the case? Well, it turns out that this is how it sounds like work. So uh but uh it's like the way we actually perceive like these energies and amplitude is not really linear as is the case like in this representation here. But it, it's actually uh logarithmic. And so uh to get like closer to the way we perceive a sound, we need to do a kind of uh transformation of the uh intensities like of all the amplitude here. And so we need to, to move like all of this like amplitudes from the uh basic like linear representation to a logarithmic representation, which is like more perceptually significant. We can easily move from a linear representation of amplitude to a logarithmic one using uh this uh",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "721.96",
+            "questions": [
+                "1. Why is the same scale repeated twice in the audio file mentioned?",
+                "2. What does it mean when everything is described as \"black\" in the context of sound energy?",
+                "3. How do we perceive sound energy and amplitude, according to the text?",
+                "4. In what way is the representation of sound energy described as linear?",
+                "5. What transformation is necessary to better align sound representation with human perception?",
+                "6. Why is a logarithmic representation of amplitude considered more perceptually significant?",
+                "7. What does the text suggest about the relationship between linear and logarithmic representations of amplitude?",
+                "8. How can we transition from a linear representation of amplitude to a logarithmic one?",
+                "9. What role does energy play in the perception of sound, based on the text?",
+                "10. How does the concept of sound perception challenge traditional linear interpretations of amplitude?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "And so uh to get like closer to the way we perceive a sound, we need to do a kind of uh transformation of the uh intensities like of all the amplitude here. And so we need to, to move like all of this like amplitudes from the uh basic like linear representation to a logarithmic representation, which is like more perceptually significant. We can easily move from a linear representation of amplitude to a logarithmic one using uh this uh the function from Libera called power to DB. And the B stands for uh decibels. Now, if you are not familiar with decibels, I suggest you to go check out this video where I talk about decibels and introduce them and explain like how they work. But basically under the hood, what happens is that decibels are actually applying some kind of like a logarithmic transformation",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "751.59",
+            "questions": [
+                "1. What is the purpose of transforming sound intensities from linear to logarithmic representation?",
+                "2. What function from Libera is mentioned for converting amplitude to decibels?",
+                "3. What does the \"B\" in \"power to DB\" stand for?",
+                "4. Why is a logarithmic representation considered more perceptually significant for sound?",
+                "5. What are decibels used for in the context of sound?",
+                "6. What is suggested for those who are not familiar with decibels?",
+                "7. How does the video mentioned contribute to understanding decibels?",
+                "8. What type of transformation do decibels apply to sound intensities?",
+                "9. What is the relationship between amplitude and perception of sound in this context?",
+                "10. Why might it be important to understand the difference between linear and logarithmic representations of sound?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "the uh basic like linear representation to a logarithmic representation, which is like more perceptually significant. We can easily move from a linear representation of amplitude to a logarithmic one using uh this uh the function from Libera called power to DB. And the B stands for uh decibels. Now, if you are not familiar with decibels, I suggest you to go check out this video where I talk about decibels and introduce them and explain like how they work. But basically under the hood, what happens is that decibels are actually applying some kind of like a logarithmic transformation that when you use this power to be, you're moving like from the power uh representation like of the intensity like to uh decimals. And so we do this and we get back a a log amplitude uh spectrogram here. And so we can then just like",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "771.08",
+            "questions": [
+                "1. What is the difference between linear and logarithmic representations in terms of amplitude?",
+                "2. What function from Libera is used to convert linear representations to logarithmic ones?",
+                "3. What does the \"B\" stand for in the term \"power to DB\"?",
+                "4. Why are decibels considered more perceptually significant than linear representations?",
+                "5. Where can one find additional information about decibels and their workings?",
+                "6. What type of transformation do decibels apply when converting from power representation?",
+                "7. How does the power to DB function relate to intensity in sound?",
+                "8. What is produced as a result of applying the power to DB function?",
+                "9. What is meant by \"log amplitude spectrogram\" in the context of this text?",
+                "10. Why might someone want to use logarithmic representation instead of linear representation?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "the function from Libera called power to DB. And the B stands for uh decibels. Now, if you are not familiar with decibels, I suggest you to go check out this video where I talk about decibels and introduce them and explain like how they work. But basically under the hood, what happens is that decibels are actually applying some kind of like a logarithmic transformation that when you use this power to be, you're moving like from the power uh representation like of the intensity like to uh decimals. And so we do this and we get back a a log amplitude uh spectrogram here. And so we can then just like plot that with our function. So plot spectrogram instead of passing the actual like spectrogram of scale, we pass the log amplitude spectrogram and again, we pass the sample rate and the hop size. OK. So if we do that, we get these results, which is way better than the one that had we had before.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "790.14",
+            "questions": [
+                "1. What is the purpose of the function called \"power to DB\" from Libera?",
+                "2. What does the \"B\" in \"power to DB\" stand for?",
+                "3. Why might someone need to check out a video on decibels before using the power to DB function?",
+                "4. How do decibels relate to logarithmic transformations?",
+                "5. What is the significance of moving from power representation to decibels in this context?",
+                "6. What type of spectrogram is generated after applying the power to DB function?",
+                "7. How is the log amplitude spectrogram used in the plotting process?",
+                "8. What parameters need to be passed when plotting the spectrogram?",
+                "9. What improvement is noted when using the log amplitude spectrogram compared to the previous representation?",
+                "10. What are the implications of using a log amplitude spectrogram for analysis or visualization?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "that when you use this power to be, you're moving like from the power uh representation like of the intensity like to uh decimals. And so we do this and we get back a a log amplitude uh spectrogram here. And so we can then just like plot that with our function. So plot spectrogram instead of passing the actual like spectrogram of scale, we pass the log amplitude spectrogram and again, we pass the sample rate and the hop size. OK. So if we do that, we get these results, which is way better than the one that had we had before. So here we start to see like some uh energy like bursts of energy like down here. And as you can see here, probably like this, this is like a constant uh like notes, then you move up, you move up, up, up up. So this probably is just like the fundamental frequencies for the scale that we played.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "809.33",
+            "questions": [
+                "1. What does the power representation refer to in the context of the text?",
+                "2. How is the intensity related to decimals in the process described?",
+                "3. What type of spectrogram is generated after using the log amplitude?",
+                "4. What parameters are necessary to plot the log amplitude spectrogram?",
+                "5. How does the log amplitude spectrogram compare to the previous results mentioned?",
+                "6. What does the text imply about the energy bursts observed in the spectrogram?",
+                "7. How are the fundamental frequencies identified in the described process?",
+                "8. What role does the sample rate play in plotting the spectrogram?",
+                "9. Why is the hop size significant when generating the spectrogram?",
+                "10. What can be inferred about the scale played based on the description of the frequencies?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "plot that with our function. So plot spectrogram instead of passing the actual like spectrogram of scale, we pass the log amplitude spectrogram and again, we pass the sample rate and the hop size. OK. So if we do that, we get these results, which is way better than the one that had we had before. So here we start to see like some uh energy like bursts of energy like down here. And as you can see here, probably like this, this is like a constant uh like notes, then you move up, you move up, up, up up. So this probably is just like the fundamental frequencies for the scale that we played. And if you're wondering about like all of this other kind of like burst uh like of energies like at a higher frequencies, those are uh the harmonic components of the original of the fundamental frequency for the scale. Now we have like twice the same thing because if you remember",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "827.44",
+            "questions": [
+                "1. What function is being used to plot the spectrogram?  ",
+                "2. Why is the log amplitude spectrogram preferred over the actual spectrogram?  ",
+                "3. What parameters are passed along with the spectrogram for plotting?  ",
+                "4. How do the results of the current plot compare to previous results?  ",
+                "5. What does the presence of energy bursts in the spectrogram indicate?  ",
+                "6. What pattern is observed in the spectrogram as the frequencies increase?  ",
+                "7. What are the fundamental frequencies represented in the plot?  ",
+                "8. What are the higher frequency bursts in the spectrogram attributed to?  ",
+                "9. Why might there be multiple representations of the same data in the spectrogram?  ",
+                "10. How does the hop size affect the resulting spectrogram?  "
+            ]
+        },
+        {
+            "id": 43,
+            "text": "So here we start to see like some uh energy like bursts of energy like down here. And as you can see here, probably like this, this is like a constant uh like notes, then you move up, you move up, up, up up. So this probably is just like the fundamental frequencies for the scale that we played. And if you're wondering about like all of this other kind of like burst uh like of energies like at a higher frequencies, those are uh the harmonic components of the original of the fundamental frequency for the scale. Now we have like twice the same thing because if you remember like, yeah, we had twice the the scale like performed and so the same pattern is repeated twice. I I bet like that just like copy paste it like that the same scale like uh in the same in the audio file. OK. But here there's still something that's like a little bit weird which is like that on the frequency side. Uh",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "845.75",
+            "questions": [
+                "1. What do the energy bursts in the audio signal indicate?",
+                "2. How are the fundamental frequencies related to the scale being played?",
+                "3. What are the harmonic components in relation to the fundamental frequency?",
+                "4. Why does the audio file show the same scale repeated twice?",
+                "5. What does the phrase \"copy paste\" refer to in the context of the audio file?",
+                "6. What might be considered \"weird\" about the frequency side of the signal?",
+                "7. How do the harmonic components appear at higher frequencies?",
+                "8. What role do constant notes play in the overall audio signal?",
+                "9. Can you explain the relationship between fundamental frequencies and harmonic components?",
+                "10. What significance do the repeated patterns in the audio file have on the analysis?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "And if you're wondering about like all of this other kind of like burst uh like of energies like at a higher frequencies, those are uh the harmonic components of the original of the fundamental frequency for the scale. Now we have like twice the same thing because if you remember like, yeah, we had twice the the scale like performed and so the same pattern is repeated twice. I I bet like that just like copy paste it like that the same scale like uh in the same in the audio file. OK. But here there's still something that's like a little bit weird which is like that on the frequency side. Uh I mean everything like it is very squashed. And then that the reason why is that the case is because like we are using some kind of like a linear frequency representation right. But if you followed along with the series in one of like the initial videos that we had in the series, I explained that the way we perceive a frequency is,",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "865.94",
+            "questions": [
+                "1. What are the harmonic components of the fundamental frequency for the scale?",
+                "2. How is the pattern repeated in the audio file mentioned in the text?",
+                "3. What does the author mean by \"twice the same thing\" in relation to the scale?",
+                "4. Why does the author describe the frequency representation as \"squashed\"?",
+                "5. What type of frequency representation is being used that causes the squashed appearance?",
+                "6. What did the author explain in one of the initial videos about the perception of frequency?",
+                "7. How does the concept of higher frequencies relate to the fundamental frequency discussed?",
+                "8. What does the phrase \"copy paste it\" imply about the audio file's content?",
+                "9. What series of videos is the author referring to when discussing frequency perception?",
+                "10. Why might the author consider the frequency side to be \"a little bit weird\"?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "like, yeah, we had twice the the scale like performed and so the same pattern is repeated twice. I I bet like that just like copy paste it like that the same scale like uh in the same in the audio file. OK. But here there's still something that's like a little bit weird which is like that on the frequency side. Uh I mean everything like it is very squashed. And then that the reason why is that the case is because like we are using some kind of like a linear frequency representation right. But if you followed along with the series in one of like the initial videos that we had in the series, I explained that the way we perceive a frequency is, is a logarithmic, it's not a linear. So what we want to do probably uh to have a representation of the spectrogram that's more kind of like in line with the way that we perceive a frequency is to actually apply some logarithmic transformation on the frequency as well as the amplitude.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "886.215",
+            "questions": [
+                "1. What is meant by \"twice the scale\" in the context of audio performance?",
+                "2. How does the repetition of the same pattern in an audio file affect its overall sound?",
+                "3. What is implied by the term \"copy paste\" when discussing the audio file's structure?",
+                "4. What does it mean for audio to be \"very squashed\" in terms of frequency representation?",
+                "5. Why is the use of a linear frequency representation considered problematic in audio perception?",
+                "6. How do we perceive frequency differently from how it is represented linearly?",
+                "7. What kind of transformation is suggested to improve the representation of the spectrogram?",
+                "8. Why is it important to align audio representation with human perception of frequency?",
+                "9. What role does amplitude play in the proposed logarithmic transformation?",
+                "10. Can you explain the significance of the initial videos in the series regarding frequency perception?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "I mean everything like it is very squashed. And then that the reason why is that the case is because like we are using some kind of like a linear frequency representation right. But if you followed along with the series in one of like the initial videos that we had in the series, I explained that the way we perceive a frequency is, is a logarithmic, it's not a linear. So what we want to do probably uh to have a representation of the spectrogram that's more kind of like in line with the way that we perceive a frequency is to actually apply some logarithmic transformation on the frequency as well as the amplitude. So how do we do that? Well, that's extremely simple uh with Li Brosa. And so what we want to do is to create a log frequency log spectrogram uh um representation. And so what we do like in the function that I wrote, you just like pass this uh keyword argument of Y axis and you put it to log. But what this actually does under the hood, it is",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "909.71",
+            "questions": [
+                "1. Why is the current representation of the spectrogram described as \"squashed\"?",
+                "2. What type of frequency representation is currently being used?",
+                "3. How do we perceive frequency, according to the text?",
+                "4. What transformation is suggested to better align the spectrogram with human frequency perception?",
+                "5. What is the purpose of applying a logarithmic transformation to both frequency and amplitude?",
+                "6. How can one create a log frequency log spectrogram using Li Brosa?",
+                "7. What keyword argument is mentioned for creating a logarithmic representation?",
+                "8. What is the significance of setting the Y axis argument to \"log\" in the function?",
+                "9. What does the term \"log spectrogram\" refer to in this context?",
+                "10. Can you explain what happens \"under the hood\" when the log Y axis is applied?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "is a logarithmic, it's not a linear. So what we want to do probably uh to have a representation of the spectrogram that's more kind of like in line with the way that we perceive a frequency is to actually apply some logarithmic transformation on the frequency as well as the amplitude. So how do we do that? Well, that's extremely simple uh with Li Brosa. And so what we want to do is to create a log frequency log spectrogram uh um representation. And so what we do like in the function that I wrote, you just like pass this uh keyword argument of Y axis and you put it to log. But what this actually does under the hood, it is uh we are just like passing that in uh this like y axis in the Lisa dot display dot spec shell uh function and we pass it here. And so uh the default that we were using was like y axis is equal to linear. And in other words, we are using like a linear representation of the frequency. But if we put it equal to log, we're gonna be using like a log representation of frequency. OK. So now let's take a look at this and see how it looks like. OK. Good.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "931.234",
+            "questions": [
+                "1. What is the difference between logarithmic and linear representation in the context of a spectrogram?",
+                "2. Why is it important to apply a logarithmic transformation to frequency and amplitude in a spectrogram?",
+                "3. How can we create a log frequency log spectrogram representation using Li Brosa?",
+                "4. What keyword argument is used to change the Y axis representation in the function mentioned?",
+                "5. What was the default Y axis representation before changing it to logarithmic?",
+                "6. What happens when the Y axis is set to 'log' in the function?",
+                "7. What function is mentioned for displaying the spectrogram with the specified Y axis?",
+                "8. How does the perception of frequency influence the choice of representation in a spectrogram?",
+                "9. What does the term \"log spectrogram\" imply about the data being represented?",
+                "10. Can you describe the steps taken to visualize the log frequency representation in the spectrogram?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "So how do we do that? Well, that's extremely simple uh with Li Brosa. And so what we want to do is to create a log frequency log spectrogram uh um representation. And so what we do like in the function that I wrote, you just like pass this uh keyword argument of Y axis and you put it to log. But what this actually does under the hood, it is uh we are just like passing that in uh this like y axis in the Lisa dot display dot spec shell uh function and we pass it here. And so uh the default that we were using was like y axis is equal to linear. And in other words, we are using like a linear representation of the frequency. But if we put it equal to log, we're gonna be using like a log representation of frequency. OK. So now let's take a look at this and see how it looks like. OK. Good. So as you can see here, we have a uh log uh representation and now like this is like way more like spaced out. And as you can see,",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "953.159",
+            "questions": [
+                "1. What is the primary goal mentioned in the text regarding frequency representation?",
+                "2. What tool or library is being referenced for creating a log frequency log spectrogram?",
+                "3. How do you specify the y-axis representation in the function discussed?",
+                "4. What is the default setting for the y-axis before it is changed to log?",
+                "5. What happens when the y-axis is set to log instead of linear?",
+                "6. What function is used to display the log frequency log spectrogram?",
+                "7. How does the log representation of frequency differ visually from the linear representation?",
+                "8. What effect does changing the y-axis to log have on the spacing of the frequency representation?",
+                "9. Can you explain what a log spectrogram is in simple terms?",
+                "10. Why might one prefer a log representation over a linear representation for frequency analysis?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "uh we are just like passing that in uh this like y axis in the Lisa dot display dot spec shell uh function and we pass it here. And so uh the default that we were using was like y axis is equal to linear. And in other words, we are using like a linear representation of the frequency. But if we put it equal to log, we're gonna be using like a log representation of frequency. OK. So now let's take a look at this and see how it looks like. OK. Good. So as you can see here, we have a uh log uh representation and now like this is like way more like spaced out. And as you can see, so this makes a lot of sense because like we start with a uh basically like the middle C or like C four, the, the central C on the keyboard, which is like this not here, then we go up to ad so we do a CD then up to EFGAB and then back to C but at the octave above. And so we can",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "978.359",
+            "questions": [
+                "1. What function is being discussed in the text?",
+                "2. What does the \"y axis\" parameter represent in the Lisa dot display dot spec shell function?",
+                "3. What was the default setting for the y axis prior to the change mentioned in the text?",
+                "4. How does changing the y axis from linear to log affect the representation of frequency?",
+                "5. What is the significance of the term \"middle C\" or \"C four\" in the context of the discussion?",
+                "6. How does the log representation of frequency differ visually from the linear representation?",
+                "7. What musical notes are mentioned in the sequence described in the text?",
+                "8. Why might a log representation of frequency be considered more spaced out compared to a linear representation?",
+                "9. What octave is referenced in the transition from the middle C in the provided example?",
+                "10. What observation is made about the visual representation after switching to a log scale for the y axis?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "So as you can see here, we have a uh log uh representation and now like this is like way more like spaced out. And as you can see, so this makes a lot of sense because like we start with a uh basically like the middle C or like C four, the, the central C on the keyboard, which is like this not here, then we go up to ad so we do a CD then up to EFGAB and then back to C but at the octave above. And so we can clearly see all of the scale going up here. And it has also like some slightly like different duration, like each note is played with a different duration. So I'll just like play you back like the, the scale once again. So you can notice that. OK.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1007.469",
+            "questions": [
+                "1. What type of representation is being discussed in the text?",
+                "2. Which note is referred to as the \"middle C\" or \"C four\"?",
+                "3. How does the scale progress from the starting note?",
+                "4. What notes are included in the scale mentioned in the text?",
+                "5. What happens to the scale when it reaches the octave above?",
+                "6. How does the spacing of the representation affect understanding the scale?",
+                "7. Are there variations in the duration of each note in the scale?",
+                "8. What does the speaker plan to do after explaining the scale?",
+                "9. How does the speaker emphasize the differences in note duration?",
+                "10. What is the significance of playing the scale back for the audience?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "so this makes a lot of sense because like we start with a uh basically like the middle C or like C four, the, the central C on the keyboard, which is like this not here, then we go up to ad so we do a CD then up to EFGAB and then back to C but at the octave above. And so we can clearly see all of the scale going up here. And it has also like some slightly like different duration, like each note is played with a different duration. So I'll just like play you back like the, the scale once again. So you can notice that. OK. OK.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1017.809",
+            "questions": [
+                "1. What is the starting note mentioned in the text?  ",
+                "2. What is the significance of \"C four\" in the context of the keyboard?  ",
+                "3. Which notes are included in the scale progression outlined in the text?  ",
+                "4. How does the scale return after reaching the note A?  ",
+                "5. What is meant by \"the octave above\" in relation to the scale?  ",
+                "6. Are the durations of the notes in the scale the same or different?  ",
+                "7. How does the speaker plan to demonstrate the scale to the audience?  ",
+                "8. What is the purpose of playing the scale again?  ",
+                "9. What can listeners notice when the scale is played back?  ",
+                "10. Why might the varying durations of the notes be significant in the context of music?  "
+            ]
+        },
+        {
+            "id": 52,
+            "text": "clearly see all of the scale going up here. And it has also like some slightly like different duration, like each note is played with a different duration. So I'll just like play you back like the, the scale once again. So you can notice that. OK. OK. And it's this, right. Right. OK.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1038.88",
+            "questions": [
+                "1. What is being described in the text?",
+                "2. How is the scale represented in the audio example?",
+                "3. What aspect of the notes is highlighted in the discussion?",
+                "4. Why is the variation in note duration significant?",
+                "5. How many times does the speaker intend to play the scale back?",
+                "6. What should the listener focus on when the scale is played again?",
+                "7. Are there any specific terms used to describe the differences in the notes?",
+                "8. What does the speaker want the audience to notice about the scale?",
+                "9. Is there any indication of the specific scale being referenced?",
+                "10. How does the speaker confirm their observations during the explanation?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "OK. And it's this, right. Right. OK. Uh Good. So the next thing that I want to do is just like visualize all the other songs from, yeah, the different genres. So like the uh classical orchestral piece from the BC, the red hot chili pepper, like rock song and the jazz ballad from uh Duke Ellington.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1059.859",
+            "questions": [
+                "1. What genres of music are being discussed in the text?",
+                "2. Who is the classical composer mentioned in the text?",
+                "3. Which band is referenced as an example of a rock song?",
+                "4. What type of song is Duke Ellington known for in this context?",
+                "5. How does the speaker plan to visualize the different songs?",
+                "6. What time period is associated with the classical orchestral piece mentioned?",
+                "7. What characteristics define a jazz ballad, as referenced by Duke Ellington?",
+                "8. How might the visualization of songs from different genres differ?",
+                "9. What is the significance of comparing songs from such diverse genres?",
+                "10. Are there any specific elements or features the speaker intends to highlight in the visualization?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "And it's this, right. Right. OK. Uh Good. So the next thing that I want to do is just like visualize all the other songs from, yeah, the different genres. So like the uh classical orchestral piece from the BC, the red hot chili pepper, like rock song and the jazz ballad from uh Duke Ellington. OK. So I'll quickly go explain what to do here, but it's basically what, what we've already done in a more extended way uh with the, with the scale.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1062.869",
+            "questions": [
+                "1. What is the purpose of visualizing songs from different genres?",
+                "2. Which classical orchestral piece is mentioned in the text?",
+                "3. Who is the artist of the rock song referenced in the text?",
+                "4. What genre does the Duke Ellington song belong to?",
+                "5. How does the current task compare to previous activities mentioned?",
+                "6. What specific elements will be included in the visualization of the songs?",
+                "7. Why is it important to explore different music genres in this context?",
+                "8. What tools or methods might be used to visualize the songs?",
+                "9. What time period does the classical orchestral piece refer to with \"the BC\"?",
+                "10. What is the significance of including a jazz ballad in the visualization?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "Uh Good. So the next thing that I want to do is just like visualize all the other songs from, yeah, the different genres. So like the uh classical orchestral piece from the BC, the red hot chili pepper, like rock song and the jazz ballad from uh Duke Ellington. OK. So I'll quickly go explain what to do here, but it's basically what, what we've already done in a more extended way uh with the, with the scale. Uh But basically what I do here is I extract the short time fourier transform as a first thing. And then uh I just uh get the magnitude, the squared magnitude and then apply this power to decibels. And then we get these signals for the PC for red dot And for Duke. And these are the",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1070.67",
+            "questions": [
+                "1. What is the main objective of the visualization project mentioned in the text?",
+                "2. Which genres of music are specifically referenced for visualization?",
+                "3. Who is the artist associated with the rock song mentioned in the text?",
+                "4. What technique is used to analyze the audio signals in this project?",
+                "5. What is the first step in the process of visualizing the songs?",
+                "6. How is the squared magnitude of the audio signals utilized in the analysis?",
+                "7. What does the speaker mean by \"applying this power to decibels\"?",
+                "8. Which classical composer is referenced in the text for the orchestral piece?",
+                "9. What is the significance of extracting the short time Fourier transform in audio analysis?",
+                "10. What type of jazz piece is mentioned, and who is the artist?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "OK. So I'll quickly go explain what to do here, but it's basically what, what we've already done in a more extended way uh with the, with the scale. Uh But basically what I do here is I extract the short time fourier transform as a first thing. And then uh I just uh get the magnitude, the squared magnitude and then apply this power to decibels. And then we get these signals for the PC for red dot And for Duke. And these are the log spectrograms for this different uh like songs. And then I just like pass those like into like this block spectrogram function. And I asked to have a log representation of the frequency. And so what we're gonna see is a log frequency log amplitude uh spectrogram. OK. So let's take a look at this. OK. So the first one is the spectrogram for the classical music piece. This is the red hot chili peppers one and this is like the jazz piece.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1095.4",
+            "questions": [
+                "1. What is the first step mentioned in the process of creating the log spectrograms?",
+                "2. How is the squared magnitude computed in the process described?",
+                "3. What transformation is applied to the power after calculating the squared magnitude?",
+                "4. Which signals are extracted for analysis in the text?",
+                "5. What type of representation is requested for the frequency in the block spectrogram function?",
+                "6. How does the spectrogram differ between the classical music piece and the jazz piece mentioned?",
+                "7. What is the purpose of using the short time Fourier transform in this context?",
+                "8. Can you explain the significance of using log representation in the spectrogram?",
+                "9. What specific songs are referenced in the analysis?",
+                "10. What are the key characteristics of the log amplitude spectrogram discussed in the text?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "Uh But basically what I do here is I extract the short time fourier transform as a first thing. And then uh I just uh get the magnitude, the squared magnitude and then apply this power to decibels. And then we get these signals for the PC for red dot And for Duke. And these are the log spectrograms for this different uh like songs. And then I just like pass those like into like this block spectrogram function. And I asked to have a log representation of the frequency. And so what we're gonna see is a log frequency log amplitude uh spectrogram. OK. So let's take a look at this. OK. So the first one is the spectrogram for the classical music piece. This is the red hot chili peppers one and this is like the jazz piece. OK. So is there any major difference that yeah, we can see just like straight away. Yes, there is. So in the case of classical music or this orchestral piece with a lot of like smooth string sounds, you see that the kind of like the this",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1104.939",
+            "questions": [
+                "1. What is the first step mentioned in the process of analyzing the audio signals?",
+                "2. How is the magnitude of the short time Fourier transform processed in the analysis?",
+                "3. What transformation is applied to the squared magnitude in the analysis?",
+                "4. Which types of signals are being compared in the log spectrograms?",
+                "5. What does the block spectrogram function provide in terms of frequency representation?",
+                "6. How does the spectrogram for classical music differ from that of jazz music, according to the text?",
+                "7. What specific characteristics are noted about the orchestral piece in the analysis?",
+                "8. What type of music is represented by the \"red hot chili peppers\" spectrogram mentioned?",
+                "9. How are log frequency and log amplitude represented in the spectrograms discussed?",
+                "10. What can be inferred about the differences in sound textures between classical music and jazz based on the text?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "log spectrograms for this different uh like songs. And then I just like pass those like into like this block spectrogram function. And I asked to have a log representation of the frequency. And so what we're gonna see is a log frequency log amplitude uh spectrogram. OK. So let's take a look at this. OK. So the first one is the spectrogram for the classical music piece. This is the red hot chili peppers one and this is like the jazz piece. OK. So is there any major difference that yeah, we can see just like straight away. Yes, there is. So in the case of classical music or this orchestral piece with a lot of like smooth string sounds, you see that the kind of like the this distribution of the energy like in the different frequencies it tends like to change, right? Quite a lot. And obviously the redder in this spectrogram like the, the, the color and the more energy you have like in that frequency of that specific moment in time, right?",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1128.29",
+            "questions": [
+                "1. What are log spectrograms used for in analyzing music?",
+                "2. How does the log representation of frequency differ from a linear representation?",
+                "3. What type of music is represented in the first spectrogram mentioned?",
+                "4. What is the significance of color in the spectrograms?",
+                "5. How does the energy distribution in classical music spectrograms compare to that of jazz?",
+                "6. What musical elements contribute to the smooth string sounds in classical music?",
+                "7. What can be inferred about the energy levels in different frequencies based on the color intensity in the spectrogram?",
+                "8. How does the spectrogram for the Red Hot Chili Peppers differ from the orchestral piece?",
+                "9. What does the term \"log amplitude\" refer to in the context of spectrograms?",
+                "10. Why is it important to analyze the frequency distribution in different music genres?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "OK. So is there any major difference that yeah, we can see just like straight away. Yes, there is. So in the case of classical music or this orchestral piece with a lot of like smooth string sounds, you see that the kind of like the this distribution of the energy like in the different frequencies it tends like to change, right? Quite a lot. And obviously the redder in this spectrogram like the, the, the color and the more energy you have like in that frequency of that specific moment in time, right? And uh so here, as you see, like if you remember, we had like a huge crescendo a kind of like increasing intensity uh towards like the the center of like the, the, the snippet of that like the BC uh orchestral piece and here you have it down here. So you have like higher frequency",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1157.81",
+            "questions": [
+                "1. What is the main focus of the discussion in the text?",
+                "2. How does the energy distribution in frequencies change in classical music?",
+                "3. What does the color red indicate in the spectrogram mentioned?",
+                "4. What musical element is described as having a \"huge crescendo\"?",
+                "5. How does the intensity of the orchestral piece vary throughout the snippet?",
+                "6. What type of sounds are highlighted in the orchestral piece being analyzed?",
+                "7. In what way does the text describe the relationship between frequency and energy?",
+                "8. Can you explain what a spectrogram is based on the text?",
+                "9. What does the term \"higher frequency\" refer to in the context of the orchestral piece?",
+                "10. How does the author describe the changes in energy during the orchestral piece?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "distribution of the energy like in the different frequencies it tends like to change, right? Quite a lot. And obviously the redder in this spectrogram like the, the, the color and the more energy you have like in that frequency of that specific moment in time, right? And uh so here, as you see, like if you remember, we had like a huge crescendo a kind of like increasing intensity uh towards like the the center of like the, the, the snippet of that like the BC uh orchestral piece and here you have it down here. So you have like higher frequency see that get like uh kind of like higher energies like this. And then if you listen to the end of the piece, it tends to kind of fade away and you can kind of visualize that because like the this uh colors tends to like kind of like fade out. It's they are not as red as they used to be like in this central part. For example. Now let's compare this kind of like zoo spectrogram to the red hot chili pepper one,",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1176.229",
+            "questions": [
+                "1. How does the distribution of energy change across different frequencies in the spectrogram?",
+                "2. What does the color red represent in the spectrogram in terms of energy levels?",
+                "3. Can you explain the significance of the crescendo observed in the orchestral piece?",
+                "4. How do higher frequencies relate to energy levels in the spectrogram?",
+                "5. What happens to the energy distribution at the end of the piece compared to its central part?",
+                "6. How does the visual representation in the spectrogram help in understanding the audio piece?",
+                "7. What differences might be expected when comparing the spectrograms of the orchestral piece and the Red Hot Chili Peppers?",
+                "8. In what way does the intensity of colors in the spectrogram indicate changes in energy over time?",
+                "9. What does it mean when the colors in the spectrogram fade out?",
+                "10. How can one visualize the changes in energy throughout the different segments of the audio piece?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "And uh so here, as you see, like if you remember, we had like a huge crescendo a kind of like increasing intensity uh towards like the the center of like the, the, the snippet of that like the BC uh orchestral piece and here you have it down here. So you have like higher frequency see that get like uh kind of like higher energies like this. And then if you listen to the end of the piece, it tends to kind of fade away and you can kind of visualize that because like the this uh colors tends to like kind of like fade out. It's they are not as red as they used to be like in this central part. For example. Now let's compare this kind of like zoo spectrogram to the red hot chili pepper one, right? This is, this feels like a way more kind of I I would say like like a pattern like that repeats itself like quite a lot and we have a lot of like activity in the lower uh like frequencies. And this has also to do with the presence of uh like a kick drum. So you have like this base um kind of like they",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1194.81",
+            "questions": [
+                "1. What is the significance of the crescendo mentioned in the orchestral piece?",
+                "2. How does the intensity of the music change towards the center of the snippet?",
+                "3. What does the term \"higher frequency\" refer to in the context of the audio being analyzed?",
+                "4. How does the end of the orchestral piece differ from the central part in terms of energy?",
+                "5. What visual representation is used to illustrate the fading of colors in the music's conclusion?",
+                "6. How does the spectrogram of the Red Hot Chili Peppers' music differ from the BC orchestral piece?",
+                "7. What patterns are observed in the spectrogram of the Red Hot Chili Peppers compared to the orchestral piece?",
+                "8. How does the presence of a kick drum affect the sound frequencies in the Red Hot Chili Peppers' music?",
+                "9. What conclusions can be drawn about the frequency activity in the lower range for the Red Hot Chili Peppers?",
+                "10. In what ways does the description of the two musical pieces emphasize differences in their structural elements?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "see that get like uh kind of like higher energies like this. And then if you listen to the end of the piece, it tends to kind of fade away and you can kind of visualize that because like the this uh colors tends to like kind of like fade out. It's they are not as red as they used to be like in this central part. For example. Now let's compare this kind of like zoo spectrogram to the red hot chili pepper one, right? This is, this feels like a way more kind of I I would say like like a pattern like that repeats itself like quite a lot and we have a lot of like activity in the lower uh like frequencies. And this has also to do with the presence of uh like a kick drum. So you have like this base um kind of like they snare like with the, with the, with the bass drum uh kind of uh creating like this typical like rock pattern and you can see it here like in with all of this activity here, you have like a lot of repetition. So take a look, for example, at this like patterns like here like in red",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1214.589",
+            "questions": [
+                "1. What kind of energies are described at the beginning of the piece?",
+                "2. How does the piece tend to change towards the end?",
+                "3. What visual elements are associated with the fading process mentioned?",
+                "4. How does the color intensity change in the central part of the piece?",
+                "5. How does the zoo spectrogram compare to the red hot chili pepper spectrogram?",
+                "6. What characteristics make the red hot chili pepper piece feel repetitive?",
+                "7. What role does the kick drum play in the described musical patterns?",
+                "8. What types of musical patterns are created by the bass and snare drums?",
+                "9. How is lower frequency activity represented in the spectrogram?",
+                "10. What specific patterns can be observed in the red section of the spectrogram?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "right? This is, this feels like a way more kind of I I would say like like a pattern like that repeats itself like quite a lot and we have a lot of like activity in the lower uh like frequencies. And this has also to do with the presence of uh like a kick drum. So you have like this base um kind of like they snare like with the, with the, with the bass drum uh kind of uh creating like this typical like rock pattern and you can see it here like in with all of this activity here, you have like a lot of repetition. So take a look, for example, at this like patterns like here like in red like this OK. So you see that with the rock piece, you have like a lot of energy like in the lower um frequencies and you have like these patterns that you can kind of recognize and that's because the music is based off like patterns rhythmical as well as like um melodic ones. OK?",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1239.329",
+            "questions": [
+                "1. What type of musical pattern is described in the text?",
+                "2. How does the presence of a kick drum influence the music mentioned?",
+                "3. What role does the bass drum play in creating the typical rock pattern?",
+                "4. Why is there a lot of activity in the lower frequencies according to the text?",
+                "5. What colors are used to highlight specific patterns in the rock piece?",
+                "6. What can be recognized in the music that contributes to its energy?",
+                "7. How does repetition factor into the patterns described?",
+                "8. What two types of patterns are mentioned as foundational to the music?",
+                "9. In what way does the text suggest that the patterns are rhythmical?",
+                "10. How are melodic patterns distinguished from rhythmical ones in the context of the text?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "snare like with the, with the, with the bass drum uh kind of uh creating like this typical like rock pattern and you can see it here like in with all of this activity here, you have like a lot of repetition. So take a look, for example, at this like patterns like here like in red like this OK. So you see that with the rock piece, you have like a lot of energy like in the lower um frequencies and you have like these patterns that you can kind of recognize and that's because the music is based off like patterns rhythmical as well as like um melodic ones. OK? And, and then you have like the jazz piece uh by Jake Ellington. And here I could say that's a little bit like of the two worlds, right? So you still have like certain patterns that you can clearly see. And that's because we, we had like some kind of like a basic, like a groove with a drum kit and with bass. Um",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1265.81",
+            "questions": [
+                "1. What role does the bass drum play in creating a typical rock pattern?",
+                "2. How does repetition manifest in the rock music discussed in the text?",
+                "3. What specific elements are represented in red that highlight the patterns in the rock piece?",
+                "4. In what way does the rock music exhibit energy in the lower frequencies?",
+                "5. How are rhythmical and melodic patterns distinguished in the music being analyzed?",
+                "6. Who is the composer of the jazz piece mentioned in the text?",
+                "7. How does the jazz piece by Jake Ellington blend different musical styles?",
+                "8. What kind of groove is established in the jazz piece with instruments like the drum kit and bass?",
+                "9. What are the similarities and differences between the rock and jazz pieces discussed?",
+                "10. How do patterns in music contribute to the listener's experience of energy and movement?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "like this OK. So you see that with the rock piece, you have like a lot of energy like in the lower um frequencies and you have like these patterns that you can kind of recognize and that's because the music is based off like patterns rhythmical as well as like um melodic ones. OK? And, and then you have like the jazz piece uh by Jake Ellington. And here I could say that's a little bit like of the two worlds, right? So you still have like certain patterns that you can clearly see. And that's because we, we had like some kind of like a basic, like a groove with a drum kit and with bass. Um but still like, it's kind of like more fluid, right? It's not as strict as the rock piece by the red hot chili peppers, right? OK. So here, like at a glance, you, you can't see that spectrograms can reveal a lot about different musical genres, obviously. Like this is just like i an anecdotal example, but more, yeah, more often than not, these are like certain features that you actually see",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1284.479",
+            "questions": [
+                "1. What characteristics of the rock piece contribute to its energy in lower frequencies?",
+                "2. How do patterns in music relate to rhythmical and melodic elements?",
+                "3. In what ways does the jazz piece by Jake Ellington differ from the rock piece?",
+                "4. What role does the drum kit and bass play in the jazz piece?",
+                "5. How does the fluidity of the jazz piece compare to the strictness of the rock piece?",
+                "6. What can spectrograms reveal about different musical genres?",
+                "7. Why are patterns important in the analysis of musical pieces?",
+                "8. What is meant by \"two worlds\" in reference to the jazz piece?",
+                "9. Can you provide examples of features that might be seen in spectrograms of different musical genres?",
+                "10. How does the comparison between rock and jazz pieces enhance our understanding of music?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "And, and then you have like the jazz piece uh by Jake Ellington. And here I could say that's a little bit like of the two worlds, right? So you still have like certain patterns that you can clearly see. And that's because we, we had like some kind of like a basic, like a groove with a drum kit and with bass. Um but still like, it's kind of like more fluid, right? It's not as strict as the rock piece by the red hot chili peppers, right? OK. So here, like at a glance, you, you can't see that spectrograms can reveal a lot about different musical genres, obviously. Like this is just like i an anecdotal example, but more, yeah, more often than not, these are like certain features that you actually see across different genres, like when you like, look at their spectrogram. So you can have like a, a fair guess if you're experienced in uh visual spectrograms, whether like you're dealing with a classical music, kind of like peace or you're dealing with a, a rock uh like ballad or whatever,",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1303.3",
+            "questions": [
+                "1. Who is the composer of the jazz piece mentioned in the text?",
+                "2. How does the jazz piece by Jake Ellington differ from the rock piece by the Red Hot Chili Peppers?",
+                "3. What musical elements are mentioned as being part of the jazz piece?",
+                "4. What role do spectrograms play in analyzing different musical genres?",
+                "5. Can you describe the characteristics that make the jazz piece more fluid than the rock piece?",
+                "6. What can experienced listeners infer from analyzing spectrograms of different genres?",
+                "7. How does the author describe the patterns present in the jazz piece?",
+                "8. What kind of groove is established in the jazz piece mentioned?",
+                "9. What does the author suggest about the relationship between musical genres and their spectrogram features?",
+                "10. How might one distinguish between classical music and a rock ballad using spectrograms?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "but still like, it's kind of like more fluid, right? It's not as strict as the rock piece by the red hot chili peppers, right? OK. So here, like at a glance, you, you can't see that spectrograms can reveal a lot about different musical genres, obviously. Like this is just like i an anecdotal example, but more, yeah, more often than not, these are like certain features that you actually see across different genres, like when you like, look at their spectrogram. So you can have like a, a fair guess if you're experienced in uh visual spectrograms, whether like you're dealing with a classical music, kind of like peace or you're dealing with a, a rock uh like ballad or whatever, that's all for today. I hope you enjoyed the video. Next time we're gonna move on to another flavor of spectrograms called male spectrograms, which are more psychological perceptually relevant than the royal spectrograms that we've seen here. So if you've enjoyed the video and found it useful, please leave a like if you haven't subscribed and you would like to see more videos like this. Well, just subscribe to the channel",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1324.93",
+            "questions": [
+                "1. How do spectrograms differ in their representation of various musical genres?",
+                "2. What characteristics can be observed in the spectrograms of classical music compared to rock music?",
+                "3. Why are spectrograms considered useful in analyzing different music genres?",
+                "4. What is the significance of calling spectrograms \"anecdotal examples\" in the context of music analysis?",
+                "5. What are male spectrograms, and how do they differ from royal spectrograms?",
+                "6. How can someone become experienced in interpreting visual spectrograms?",
+                "7. What features might indicate that a piece of music is a rock ballad when analyzing its spectrogram?",
+                "8. Why does the speaker emphasize the fluidity of certain musical pieces compared to others?",
+                "9. What does the speaker hope viewers will take away from the video?",
+                "10. How can viewers support the channel if they enjoyed the video?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "across different genres, like when you like, look at their spectrogram. So you can have like a, a fair guess if you're experienced in uh visual spectrograms, whether like you're dealing with a classical music, kind of like peace or you're dealing with a, a rock uh like ballad or whatever, that's all for today. I hope you enjoyed the video. Next time we're gonna move on to another flavor of spectrograms called male spectrograms, which are more psychological perceptually relevant than the royal spectrograms that we've seen here. So if you've enjoyed the video and found it useful, please leave a like if you haven't subscribed and you would like to see more videos like this. Well, just subscribe to the channel and if you have any questions as always, just like, leave them in the comments section below. I hope I'll see you next time. Cheers.",
+            "video": "How to Extract Spectrograms from Audio with Python",
+            "start_time": "1353.744",
+            "questions": [
+                "1. What can you infer about a piece of music by examining its spectrogram?",
+                "2. How does experience with visual spectrograms help in identifying different music genres?",
+                "3. What types of music genres are mentioned in the text?",
+                "4. What is the next topic that will be discussed in the following video?",
+                "5. How do male spectrograms differ from royal spectrograms, according to the text?",
+                "6. Why might male spectrograms be considered more psychologically relevant?",
+                "7. What should viewers do if they found the video useful?",
+                "8. What is the suggested action for those who want to see more content from the channel?",
+                "9. How can viewers engage with the creator if they have questions?",
+                "10. What is the overall tone of the speaker in the text?"
+            ]
+        }
+    ]
+}

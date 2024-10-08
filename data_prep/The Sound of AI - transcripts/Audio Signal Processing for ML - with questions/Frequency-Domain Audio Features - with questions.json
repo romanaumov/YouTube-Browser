@@ -1,0 +1,814 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. This time, we'll look into frequency domain audio features specifically. We'll be looking at the math and theory behind it. And I'm also gonna give you the intuition. But before we get started, I want to remind you about the sound of A I is Luck community, which is a community of people who are interested in all things A I audio music and signal processing. So you can join, get feedback on your projects and network with very cool people. So if you haven't joined yet, I highly suggest you to go check out the sign up link in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series,",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main focus of this video in the audio signal processing for machine learning series?",
+                "2. What specific audio features will be discussed in this video?",
+                "3. What are the two aspects of frequency domain audio features that will be covered?",
+                "4. What community is mentioned in the introduction, and what is its purpose?",
+                "5. How can individuals benefit from joining the sound of AI is Luck community?",
+                "6. What previous topic was covered in the last couple of videos before this one?",
+                "7. What does MFCC stand for, and how does it relate to frequency domain audio features?",
+                "8. What does the speaker encourage viewers to do before moving on to the main content of the video?",
+                "9. Is there a sign-up link mentioned, and where can it be found?",
+                "10. What can viewers expect to gain by following along with the series?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "I want to remind you about the sound of A I is Luck community, which is a community of people who are interested in all things A I audio music and signal processing. So you can join, get feedback on your projects and network with very cool people. So if you haven't joined yet, I highly suggest you to go check out the sign up link in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series, uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "20.01",
+            "questions": [
+                "1. What is the primary focus of the A I is Luck community?",
+                "2. How can members of the A I is Luck community benefit from joining?",
+                "3. What are MF CCS, and how are they relevant to the discussion?",
+                "4. What are the three frequency domain audio features mentioned in the text?",
+                "5. Why is a deep knowledge of Fourier Transform important for this discussion?",
+                "6. What is the significance of the band energy ratio in audio processing?",
+                "7. How does the spectral centroid contribute to understanding audio features?",
+                "8. What role does bandwidth play in the analysis of frequency domain audio features?",
+                "9. Why are only three frequency domain features being focused on in this session?",
+                "10. Where can interested individuals find the sign-up link to join the A I is Luck community?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series, uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "39.689",
+            "questions": [
+                "1. What are mal frequency subs coefficients (MF CCS)?",
+                "2. Why is it important to have a deep knowledge of the Fourier transform and short-term Fourier transform?",
+                "3. What are the three frequency domain audio features discussed in the video?",
+                "4. Can you explain what the band energy ratio is?",
+                "5. What does the term \"spectral centroid\" refer to in audio analysis?",
+                "6. How is bandwidth defined in the context of frequency domain audio features?",
+                "7. Are there more frequency domain features beyond the ones mentioned in the video?",
+                "8. What is the process for extracting frequency domain features from a waveform?",
+                "9. What is a spectrogram, and how is it obtained?",
+                "10. How does applying a short-time Fourier transform contribute to audio feature extraction?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "59.59",
+            "questions": [
+                "1. What is the primary focus of the discussion regarding frequency domain audio features?",
+                "2. Which three specific frequency domain audio features are highlighted in the text?",
+                "3. What transformation is applied to the waveform to move to the frequency domain?",
+                "4. How is a spectrogram obtained in the process of feature extraction?",
+                "5. What is the band energy ratio in the context of audio features?",
+                "6. Why does the speaker mention that there are many more frequency domain features beyond the three discussed?",
+                "7. What type of knowledge does the speaker claim to have regarding Fourier transforms?",
+                "8. Where can one find a more detailed explanation of extracting audio features?",
+                "9. What is the purpose of feature computation after obtaining a spectrogram?",
+                "10. How does the speaker describe the process of extracting frequency domain features?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "86.889",
+            "questions": [
+                "1. What is the initial step in extracting frequency domain features from a waveform?",
+                "2. What transformation is applied to the waveform to obtain a spectrogram?",
+                "3. What is the purpose of computing a feature after obtaining a spectrogram?",
+                "4. How does the process of extracting audio features differ from a more detailed explanation provided in the referenced video?",
+                "5. Why is it important to understand the short time Fourier transform for this video?",
+                "6. What is a spectrogram and why is it relevant in the context of frequency domain audio features?",
+                "7. Are there additional resources available for understanding short time Fourier transform and spectrograms?",
+                "8. What are the math conventions mentioned that will be used in the video?",
+                "9. How can viewers benefit from the suggested video on extracting audio features?",
+                "10. What is the overall goal of the video mentioned in the text?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "108.462",
+            "questions": [
+                "1. What is the purpose of computation in arriving at a feature in audio analysis?",
+                "2. How does the video mentioned in the text contribute to understanding audio feature extraction?",
+                "3. What is the significance of the short time Fourier transform in audio analysis?",
+                "4. Can you explain what a spectrogram is?",
+                "5. Why is it important to understand mathematical conventions when discussing audio features?",
+                "6. What does MTON stand for in the context of the video?",
+                "7. What are frequency domain audio features, and how are they different from other types of audio features?",
+                "8. What resources are suggested for a deeper understanding of short time Fourier transform and spectrograms?",
+                "9. How does the magnitude of the signal relate to the analysis of audio features?",
+                "10. What role do frames play in the computation of audio features as mentioned in the text?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "130.035",
+            "questions": [
+                "1. What is the Short Time Fourier Transform and why is it important for understanding the video?",
+                "2. What is a spectrogram and how does it relate to the concepts discussed in the video?",
+                "3. What does the abbreviation MTON represent in the context of the video?",
+                "4. How is the magnitude of the signal at a given frequency bin and frame T denoted in the video?",
+                "5. What does the variable capital N signify in the video?",
+                "6. What is the band energy ratio and what information does it provide?",
+                "7. How does the band energy ratio measure the relationship between lower and higher frequency bands?",
+                "8. What does the term \"energy in the lower frequency\" refer to in the context of the band energy ratio?",
+                "9. Why might understanding the dominance of lower frequencies be important in audio analysis?",
+                "10. Are there any additional resources or videos mentioned for further understanding of the concepts discussed?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "151.77",
+            "questions": [
+                "1. What does the magnitude of the signal represent in relation to frequency bins and frame T?",
+                "2. How is the number of frequency bins represented in the spectrogram?",
+                "3. What information does the band energy ratio provide?",
+                "4. How can the band energy ratio be interpreted in terms of lower and higher frequency bands?",
+                "5. What mathematical concept is used to calculate the band energy ratio?",
+                "6. Why is it important to consider the fraction in the band energy ratio formula?",
+                "7. What elements are included in the numerator and denominator of the band energy ratio?",
+                "8. How does the band energy ratio measure the dominance of lower frequencies?",
+                "9. What role does the power of the signal play in calculating the band energy ratio?",
+                "10. Can you explain the significance of the relation between energy in lower and higher frequency bands?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "162.57",
+            "questions": [
+                "1. What does capital N represent in the context of the spectrogram?",
+                "2. What is the band energy ratio used to measure?",
+                "3. How does the band energy ratio indicate the dominance of lower frequency bands?",
+                "4. What type of mathematical expression is used to represent the band energy ratio?",
+                "5. Why is it important to understand the fraction in the band energy ratio?",
+                "6. What does the numerator and denominator of the band energy ratio formula represent?",
+                "7. How is the power of the signal calculated in relation to the band energy ratio?",
+                "8. Why is the magnitude of the signal squared when determining power?",
+                "9. What is the significance of time T in the context of the band energy ratio?",
+                "10. How does the concept of frequency bins relate to the band energy ratio?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK. So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "191.49",
+            "questions": [
+                "1. What is the significance of the band energy ratio in the context of the text?",
+                "2. How is the band energy ratio expressed mathematically?",
+                "3. What does the fraction in the band energy ratio represent?",
+                "4. What do the numerator and denominator of the band energy ratio contain?",
+                "5. What is meant by the power of the signal in this context?",
+                "6. How is the power of the signal calculated according to the text?",
+                "7. What does the capital F represent in the formula discussed?",
+                "8. What range of frequencies is considered in the summation within the denominator?",
+                "9. Why is it important to understand the magnitude of the signal squared?",
+                "10. How does the text suggest we approach understanding the band energy ratio?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK. So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "220.539",
+            "questions": [
+                "1. What does the capital F represent in the context of the text?",
+                "2. How is power defined in relation to the magnitude of the signal?",
+                "3. What is the significance of summing from frequency F to N in the denominator?",
+                "4. In the numerator, what is the range of frequencies being summed?",
+                "5. What is the definition of the split frequency mentioned in the text?",
+                "6. How does the split frequency relate to the overall signal analysis?",
+                "7. What type of calculations are being performed with the sums in the text?",
+                "8. Why is it important to understand the concept of split frequency?",
+                "9. How does the text describe the relationship between power and frequency?",
+                "10. What might be the practical implications of understanding split frequency in signal processing?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "233.029",
+            "questions": [
+                "1. What does the capital F represent in the context of the text?",
+                "2. How is the split frequency defined according to the passage?",
+                "3. In which part of the calculation is the split frequency used in the denominator?",
+                "4. What is summed in the numerator of the equation mentioned in the text?",
+                "5. How does the split frequency relate to lower and higher frequencies?",
+                "6. What does the spectrogram visualize in the context provided?",
+                "7. What are the axes labeled in the spectrogram described in the text?",
+                "8. How is the split frequency represented visually on the spectrogram?",
+                "9. Why is understanding the concept of split frequency important?",
+                "10. What mathematical operations are being considered in relation to the split frequency?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "253.102",
+            "questions": [
+                "1. What is the significance of the split frequency in the context of frequency analysis?  ",
+                "2. How is the split frequency represented in a spectrogram?  ",
+                "3. What does the numerator sum in relation to the split frequency?  ",
+                "4. What is the range of frequencies being summed in the numerator?  ",
+                "5. How does the split frequency differentiate between lower and higher frequencies?  ",
+                "6. At what value is the split frequency set in the provided example?  ",
+                "7. What are the axes labeled in the usual spectrogram mentioned?  ",
+                "8. Why is it important to visualize the split frequency in understanding frequency distributions?  ",
+                "9. What does the term \"lower frequencies\" refer to in this context?  ",
+                "10. How does the concept of split frequency aid in analyzing audio signals?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "273.175",
+            "questions": [
+                "1. What are the two categories of frequencies mentioned in the text?",
+                "2. How is the spectrogram organized in terms of axes?",
+                "3. What does the split frequency represent in the context of the spectrogram?",
+                "4. At what frequency is the split frequency set in the example provided?",
+                "5. What is the significance of the threshold in relation to lower and higher frequencies?",
+                "6. Can the split frequency be adjusted, and if so, how?",
+                "7. What is a common value for the split frequency, according to the text?",
+                "8. Why might the choice of split frequency be considered arbitrary?",
+                "9. How would the spectrogram change if the split frequency were set at 800 Hertz instead of 2000 Hertz?",
+                "10. What implications does the split frequency have for understanding sound frequency distribution?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense. OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "293.559",
+            "questions": [
+                "1. What is the split frequency mentioned in the text?",
+                "2. How are lower and higher frequencies defined in relation to the split frequency?",
+                "3. Is the value of the split frequency fixed, or can it be adjusted?",
+                "4. What is an example of an alternative split frequency mentioned in the text?",
+                "5. Why is a split frequency of 2000 Hertz considered a usual value?",
+                "6. What does the numerator represent in the mathematical fraction discussed?",
+                "7. How is power in lower frequency bands calculated according to the text?",
+                "8. What significance does the choice of split frequency have on audio processing?",
+                "9. Can the split frequency be set to any arbitrary value, and what implications might that have?",
+                "10. What mathematical concept is being referenced in relation to lower frequency bands?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense. OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "310.075",
+            "questions": [
+                "1. What does it mean for frequency to be described as \"completely arbitrary\"?",
+                "2. How can frequency be adjusted in a given context?",
+                "3. What is the typical value for a split frequency mentioned in the text?",
+                "4. Why might 2000 Hertz be considered a sensible split frequency value?",
+                "5. What mathematical concept is being discussed in relation to frequency?",
+                "6. What does the numerator in the fraction represent?",
+                "7. How is the power in lower frequency bands calculated according to the text?",
+                "8. What role does the frequency bin play in the calculation of power?",
+                "9. What is the significance of the split frequency minus one in the summation process?",
+                "10. How does the concept of summing power for frequency bins relate to the overall discussion of frequency?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK. And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "326.91",
+            "questions": [
+                "1. What is being discussed in the text regarding the math involved?",
+                "2. What does the numerator in the fraction represent?",
+                "3. How is the power for each frequency bin calculated at a given point in time?",
+                "4. What is meant by \"the split frequency minus one\" in the context of the lower frequency bands?",
+                "5. What does the denominator in the fraction represent?",
+                "6. How do the indexes in the sum indicate the power in the higher frequency bands?",
+                "7. What is the significance of capital N in the context of frequency bins?",
+                "8. What is the relationship between the lower and higher frequency bands as described in the text?",
+                "9. How does the sum contribute to understanding the power distribution across frequency bins?",
+                "10. Why is it important to differentiate between lower and higher frequency bands in this analysis?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK. And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have. OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "347.809",
+            "questions": [
+                "1. What does summing the power for each frequency bin at a given point in time involve?",
+                "2. How do we determine the range of frequency bins for lower frequencies?",
+                "3. What is meant by the \"split frequency\" in the context of frequency bins?",
+                "4. How is the power in higher frequency bands calculated in relation to lower frequencies?",
+                "5. What role does the variable capital N play in the analysis of frequency bins?",
+                "6. Why is it important to specify that the band energy ratio is taken at a specific frame?",
+                "7. How does the application of the formula to each frame in the spectrogram work?",
+                "8. What is the significance of the indexes in the sum for calculating power?",
+                "9. In what context is the term \"spectrogram\" used in this text?",
+                "10. How does the process described relate to analyzing audio signals or other time-frequency representations?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have. OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram. OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the,",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "368.859",
+            "questions": [
+                "1. What is represented at the denominator in the discussed formula?",
+                "2. How does the power in higher frequency bands relate to the indexes in the sum?",
+                "3. What is the significance of the split frequency in the context of the energy ratio?",
+                "4. What does the variable capital N represent in the text?",
+                "5. At what point in the process is the band energy ratio calculated?",
+                "6. How does the band energy ratio apply to each frame in the spectrogram?",
+                "7. What visual element is mentioned to represent the split frequency?",
+                "8. How is a frame illustrated in the explanation provided?",
+                "9. What is the purpose of applying the formula to each point in time within the spectrogram?",
+                "10. What assumptions are made about the red rectangle when discussing frames?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram. OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the, the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "391.25",
+            "questions": [
+                "1. What is the band energy ratio and how is it calculated?",
+                "2. At what point in the process is the band energy ratio applied?",
+                "3. What does the purple horizontal line represent in the context of the spectrogram?",
+                "4. How does the example frame (the red rectangle) illustrate the concept of a frame in the spectrogram?",
+                "5. What is done with the power in the higher frequencies during the calculation of the band energy ratio?",
+                "6. How is the power in the lower frequencies treated when calculating the band energy ratio?",
+                "7. What role does the fraction ratio play in determining the band energy ratio?",
+                "8. Can you describe the visual representation of the band energy ratio in the spectrogram?",
+                "9. What is the significance of dividing the green power by the blue power in this analysis?",
+                "10. How many frames are typically involved in the analysis of the spectrogram?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the, the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio. Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "414.019",
+            "questions": [
+                "1. What is the band energy ratio and how is it visualized in the text?",
+                "2. How is the purple horizontal line related to the band energy ratio?",
+                "3. What does the red rectangle represent in the context of the band energy ratio?",
+                "4. How is power calculated in higher and lower frequencies for the band energy ratio?",
+                "5. What is the significance of the green and blue bars in the calculation of the band energy ratio?",
+                "6. In what applications is the band energy ratio used in music and speech processing?",
+                "7. How does the band energy ratio help in discriminating between music and speech?",
+                "8. What are some specific classification problems that utilize the band energy ratio?",
+                "9. How does the band energy ratio assist in music genre classification?",
+                "10. What role does the band energy ratio play in mood classification for music?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio. Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK. Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right?",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "438.589",
+            "questions": [
+                "1. What is the significance of the band energy ratio in audio processing?",
+                "2. How is the band energy ratio calculated using power measurements?",
+                "3. In what applications is the band energy ratio utilized?",
+                "4. What are some specific tasks where the band energy ratio is used in music and speech processing?",
+                "5. How does the band energy ratio help in distinguishing between music and speech?",
+                "6. What problems in music classification can the band energy ratio address?",
+                "7. What is the second audio feature mentioned in the text?",
+                "8. Why is the spectral centroid described as a \"common famous one\"?",
+                "9. How does the application of higher frequencies differ from lower frequencies in the context of the text?",
+                "10. Can the band energy ratio be used for mood classification in music? If so, how?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK. Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right? And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right?",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "463.38",
+            "questions": [
+                "1. What is the purpose of the band to energy ratio in audio analysis?  ",
+                "2. In what contexts is the band energy ratio particularly useful?  ",
+                "3. How is the band energy ratio applied in differentiating between music and speech?  ",
+                "4. What types of music classification problems can the band energy ratio help address?  ",
+                "5. What is the spectral centroid and why is it considered a common audio feature?  ",
+                "6. How does the spectral centroid relate to the magnitude spectrum of an audio signal?  ",
+                "7. What does the spectral centroid indicate about an audio signal?  ",
+                "8. How can the spectral centroid be used to analyze energy distribution in frequency bands?  ",
+                "9. Can the band energy ratio be used for mood classification in music?  ",
+                "10. What does the term \"center of gravity\" refer to in the context of the spectral centroid?  "
+            ]
+        },
+        {
+            "id": 23,
+            "text": "Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right? And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right? And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the,",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "488.97",
+            "questions": [
+                "1. What is the spectral centroid and why is it considered a common audio feature?  ",
+                "2. How does the spectral centroid relate to the concept of \"center of gravity\" in the magnitude spectrum?  ",
+                "3. What does the spectral centroid indicate about the frequency band of a sound?  ",
+                "4. In what way does the spectral centroid provide information about energy concentration in audio?  ",
+                "5. How does the spectral centroid map onto the timbral feature of brightness?  ",
+                "6. What does the term \"brightness\" refer to in the context of sound?  ",
+                "7. Why is understanding the spectral centroid important in audio analysis?  ",
+                "8. What mathematical concepts are involved in the formalization of the spectral centroid?  ",
+                "9. How can the spectral centroid influence our perception of sound?  ",
+                "10. What are some potential applications of analyzing the spectral centroid in music or audio engineering?  "
+            ]
+        },
+        {
+            "id": 24,
+            "text": "And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right? And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the, the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "500.019",
+            "questions": [
+                "1. What does the spectral Centroid represent in terms of the magnitude spectrum?",
+                "2. How does the spectral Centroid relate to the concentration of energy in frequency bands?",
+                "3. What timbral feature does the spectral Centroid map onto?",
+                "4. In what way does the spectral Centroid help in understanding the brightness of a sound?",
+                "5. What is the significance of the term \"weighted min\" in the context of the spectral Centroid?",
+                "6. How does the spectral Centroid contribute to the perception of sound quality?",
+                "7. What is meant by \"frequency bins\" in relation to the spectral Centroid?",
+                "8. Why is the concept of the center of gravity important in understanding the spectral Centroid?",
+                "9. Can the spectral Centroid be used to distinguish between different types of sounds? If so, how?",
+                "10. What mathematical concepts are involved in formalizing the spectral Centroid?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the, the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will. So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "520.799",
+            "questions": [
+                "1. What is the spectral centroid and how does it relate to sound brightness?",
+                "2. How does the spectral centroid help in understanding the quality of a sound?",
+                "3. What does the term \"weighted min\" refer to in the context of the spectral centroid?",
+                "4. Can you explain the significance of frequency bins in the calculation of the spectral centroid?",
+                "5. What mathematical concepts are essential for understanding the spectral centroid?",
+                "6. How is the spectral centroid computed at a given frame T?",
+                "7. What role do weights play in the calculation of the spectral centroid?",
+                "8. How does the perception of a sound's openness or dullness connect to its spectral centroid?",
+                "9. What challenges might arise when explaining the spectral centroid in mathematical terms?",
+                "10. In what ways does the spectral centroid contribute to the analysis of timbre in audio signals?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will. So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "549.51",
+            "questions": [
+                "1. What is the spectral centroid?",
+                "2. How is the spectral centroid calculated using frequency bins?",
+                "3. What does the term \"weighted min\" refer to in the context of the spectral centroid?",
+                "4. What are the components involved in the formula for the spectral centroid?",
+                "5. How do frequency bins contribute to the calculation of the spectral centroid?",
+                "6. What role do weights play in determining the spectral centroid?",
+                "7. Why is the magnitude of a frequency bin important for calculating the spectral centroid?",
+                "8. At what specific point or frame is the spectral centroid evaluated?",
+                "9. How does the concept of spectral centroid relate to mathematical principles?",
+                "10. What challenges might arise in explaining the spectral centroid to someone unfamiliar with the topic?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK. So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "560.84",
+            "questions": [
+                "1. What is the spectral centroid and how is it calculated at a given frame T?  ",
+                "2. How do frequency bins play a role in determining the spectral centroid?  ",
+                "3. What are the weights used for each frequency bin in the spectral centroid formula?  ",
+                "4. Why are the weights described as the magnitude for a frequency bin at a specific frame T?  ",
+                "5. What does the term \"weighted min\" refer to in the context of the spectral centroid?  ",
+                "6. How is the sum weight relevant to the calculation of the spectral centroid?  ",
+                "7. Can you explain the significance of the frequency bin N in the spectral centroid formula?  ",
+                "8. In what contexts might the spectral centroid be applied in mathematical analysis or signal processing?  ",
+                "9. What might be the implications of using a weighted approach in calculating the spectral centroid?  ",
+                "10. How does the concept of a weighted min differ from a standard min in mathematical calculations?  "
+            ]
+        },
+        {
+            "id": 28,
+            "text": "so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK. So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "590.289",
+            "questions": [
+                "1. What do the weights represent in relation to the frequency bin at frame T?",
+                "2. What is the significance of the sum weight mentioned in the text?",
+                "3. How is the weighted min calculated for the frequency bins?",
+                "4. In what contexts is the spectral centroid commonly used?",
+                "5. Why is the spectral centroid considered a key frequency domain audio feature?",
+                "6. How has the usage of the spectral centroid evolved over time?",
+                "7. What are some specific applications of spectral centroid in audio classification?",
+                "8. Can you explain the relationship between weighted min and frequency bins?",
+                "9. What role does the spectral centroid play in music classification problems?",
+                "10. Why is the spectral centroid described as being \"extensively used\"?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications. OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "606.229",
+            "questions": [
+                "1. What is the significance of the sum weight mentioned in the text?",
+                "2. How is the weighted min of the frequency bins defined in this context?",
+                "3. In what fields has the spectral Centroid been extensively used?",
+                "4. Why is the spectral Centroid considered a key frequency domain audio feature?",
+                "5. What role does the bandwidth play in relation to the spectral Centroid?",
+                "6. How can the bandwidth be described in terms of its relationship to the spectral range?",
+                "7. What types of problems benefit from the use of spectral Centroid in audio classification?",
+                "8. Can you explain how the spectral Centroid has been applied over time in different applications?",
+                "9. What is meant by \"frequency bins\" in the context of the spectral Centroid?",
+                "10. How does the concept of bandwidth enhance our understanding of the spectral Centroid?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications. OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "623.229",
+            "questions": [
+                "1. What is the spectral Centroid and how is it used in audio classification?",
+                "2. In what types of problems has the spectral Centroid been extensively utilized?",
+                "3. Why is the spectral Centroid considered a key frequency domain audio feature?",
+                "4. How is the bandwidth related to the spectral Centroid?",
+                "5. What does the bandwidth represent in relation to the spectral Centroid?",
+                "6. How can we define the bandwidth in terms of spectral range?",
+                "7. What correlation exists between bandwidth and perceived timbre?",
+                "8. Why is the bandwidth considered significant in audio analysis?",
+                "9. Can you provide examples of applications where spectral Centroid is used?",
+                "10. How does the concept of bandwidth enhance our understanding of the spectral Centroid?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "646.5",
+            "questions": [
+                "1. What is the relationship between bandwidth and spectral centroid?",
+                "2. How can bandwidth be defined in relation to the spectral centroid?",
+                "3. What does the bandwidth represent in terms of frequency ranges?",
+                "4. How does bandwidth correlate with perceived timbre?",
+                "5. In what way is the bandwidth calculated differently than a simple mean?",
+                "6. What does the weighted mean of distances of frequency bands from the spectral centroid signify?",
+                "7. Why might the concept of bandwidth be considered complex?",
+                "8. What is the significance of the formula for bandwidth mentioned in the text?",
+                "9. How does the context of a specific frame (T) relate to bandwidth?",
+                "10. What are some potential applications of understanding bandwidth in audio analysis?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK. And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "666.882",
+            "questions": [
+                "1. What is the relationship between bandwidth and the spectral centroid?",
+                "2. How does bandwidth correlate with perceived timer?",
+                "3. What distinguishes the bandwidth in this context from a traditional weighted mean?",
+                "4. What does the bandwidth represent in relation to frequency bands and the spectral centroid?",
+                "5. Why might the concept of bandwidth be considered complex?",
+                "6. What is the significance of the formula for bandwidth at a specific frame T?",
+                "7. How are the weights in the bandwidth calculation determined?",
+                "8. What role does the magnitude of the signal play in calculating bandwidth?",
+                "9. Can you explain the meaning of \"weighted mean of the distances\" in the context of bandwidth?",
+                "10. In what ways can understanding bandwidth enhance our comprehension of audio signals?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK. And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "687.265",
+            "questions": [
+                "1. What is the primary focus of the text regarding the mean calculation?",
+                "2. How does the weighted mean in this context differ from a traditional weighted mean?",
+                "3. What is the significance of the spectral Centroid in the calculations presented?",
+                "4. Can you explain what is meant by \"the distances of frequency band from the spectral Centroid\"?",
+                "5. What does the formula for the bandwidth at a specific frame T represent?",
+                "6. How are the weights determined in the weighted mean calculation discussed?",
+                "7. What role does the magnitude of the signal play in the analysis described?",
+                "8. What mathematical operation is performed to find the distance of the frequency band from the spectral Centroid?",
+                "9. Why might the author describe the concept as potentially complex?",
+                "10. How is the absolute value utilized in the calculation of the bandwidth?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK. And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "716.969",
+            "questions": [
+                "1. What does the term \"weighted M\" refer to in this context?",
+                "2. How are the weights determined for the signal at a specific time T?",
+                "3. What is the significance of the distance of the frequency band from the spectral centroid?",
+                "4. How is the absolute value calculated between the frequency band N and the spectral centroid?",
+                "5. What role does the spectral centroid play in the analysis at time T?",
+                "6. Can you explain what is meant by the \"sum of weights\" mentioned in the text?",
+                "7. How does the concept of a \"weighted min\" apply in this analysis?",
+                "8. What are the implications of the frequency band\u2019s distance from the spectral centroid for signal processing?",
+                "9. How does the analysis change if the weights are adjusted?",
+                "10. Why is it important to analyze signals within specific frequency bands?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK. And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min. OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "743.049",
+            "questions": [
+                "1. What is the significance of the distance of the frequency band from the spectral Centroid?",
+                "2. How is the absolute value between the frequency band N and the spectral Centroid calculated?",
+                "3. What does the term \"spectral Centroid\" refer to in this context?",
+                "4. How is the spectral Centroid value determined at a specific time T?",
+                "5. What role does the sum of weights play in the analysis of frequency bands?",
+                "6. What does the term \"weighted min\" imply in the context of this discussion?",
+                "7. How does the bandwidth change based on the distribution of energy across frequency bands?",
+                "8. What happens to the energy distribution when it is spread across different frequency bands?",
+                "9. How can we visualize or understand the relationship between energy distribution and frequency bands?",
+                "10. What factors influence the way energy is distributed across frequency bands?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min. OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "768.659",
+            "questions": [
+                "1. What is the significance of the sum of weights in the context of the text?",
+                "2. How does the distribution of energy across frequency bands affect bandwidth?",
+                "3. What happens to bandwidth when energy is spread across multiple frequency bands?",
+                "4. What is meant by a \"weighted min\" in the context of the text?",
+                "5. How does concentrating energy in a few frequency bands influence bandwidth?",
+                "6. What can be inferred about the relationship between energy distribution and bandwidth?",
+                "7. What are the potential implications of increasing bandwidth in a system?",
+                "8. How might one experimentally demonstrate the effects of energy distribution on bandwidth?",
+                "9. What could be the practical applications of understanding bandwidth changes due to energy distribution?",
+                "10. Why is it important to analyze the way energy is distributed across frequency bands?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "776.489",
+            "questions": [
+                "1. How does the distribution of energy across frequency bands affect bandwidth?",
+                "2. What happens to bandwidth when energy is spread across multiple frequency bands?",
+                "3. What is the relationship between energy concentration in frequency bands and bandwidth?",
+                "4. How does the concept of variance relate to the distribution of energy across frequency bands?",
+                "5. What occurs to the value of bandwidth when energy is concentrated in a few frequency bands?",
+                "6. Can you explain the effect of energy spread on the variance of energy in the context of bandwidth?",
+                "7. What is meant by energy being \"spread\" versus \"concentrated\" in frequency bands?",
+                "8. How does a higher variance in energy distribution influence bandwidth?",
+                "9. What implications does the concentration of energy in frequency bands have on signal processing?",
+                "10. In what way does the behavior of bandwidth reflect the distribution of energy across frequency bands?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "799.724",
+            "questions": [
+                "1. What happens to bandwidth when energy is concentrated in a small frequency band?",
+                "2. How is the concept of bandwidth related to variance?",
+                "3. What is the effect on bandwidth if energy is spread across multiple frequency bands?",
+                "4. What does a higher variance in energy distribution indicate about bandwidth?",
+                "5. How can bandwidth also be referred to in different terminology?",
+                "6. What is meant by the term \"spectral spread\"?",
+                "7. Why does concentrated energy in frequency bands lead to lower bandwidth?",
+                "8. How does the distribution of energy across the spectrogram affect variance?",
+                "9. What implications does the relationship between energy distribution and bandwidth have for signal processing?",
+                "10. Can you explain the correlation between energy concentration and variance in the context of bandwidth?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "822.96",
+            "questions": [
+                "1. How is variance related to the distribution of energy across frequency bands in a spectrogram?",
+                "2. What happens to the variance of energy when it is concentrated in a few frequency bands?",
+                "3. What is meant by the term \"spectral spread\" in the context of bandwidth?",
+                "4. Why is spectral spread considered another way of describing bandwidth?",
+                "5. In what ways can bandwidth be applied in music processing?",
+                "6. How is bandwidth utilized in music genre classification?",
+                "7. What role does bandwidth play in mood classification of music?",
+                "8. What features related to bandwidth and duration have been discussed in the text?",
+                "9. Can you explain the relationship between bandwidth and energy distribution in frequency bands?",
+                "10. What are the implications of varying bandwidth on music processing tasks?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "846.195",
+            "questions": [
+                "1. What is another term used to refer to bandwidth in the context of audio processing?",
+                "2. How does spectral spread relate to the concept of bandwidth?",
+                "3. In what ways is bandwidth applied in music processing?",
+                "4. What are some specific applications of bandwidth in music classification?",
+                "5. How is mood classification related to the use of bandwidth in audio features?",
+                "6. What era is mentioned in relation to the use of bandwidth and audio features?",
+                "7. What role did knowledge engineering play in the traditional machine learning era for audio processing?",
+                "8. Can you explain the significance of audio features in music genre classification?",
+                "9. How has the understanding of bandwidth evolved with advancements in audio processing technology?",
+                "10. What are some challenges associated with using bandwidth for music classification tasks?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features. And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "869.57",
+            "questions": [
+                "1. What are some applications of bandwidth in music processing?",
+                "2. How has bandwidth been utilized in music genre classification?",
+                "3. In what ways is bandwidth applied to mood classification in music?",
+                "4. What features were commonly used during the traditional machine learning era for audio processing?",
+                "5. How did knowledge engineering contribute to the development of audio features in traditional machine learning?",
+                "6. Why are frequency domain audio features less frequently used in recent applications?",
+                "7. What audio features have become more popular with the shift to deep learning?",
+                "8. Can you explain the significance of spectrograms in modern audio processing?",
+                "9. What are mouse spectrograms, and how do they differ from traditional spectrograms?",
+                "10. How has the approach to audio feature extraction evolved from traditional methods to deep learning techniques?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features. And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms. OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next,",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "895.239",
+            "questions": [
+                "1. What era is referenced as the \"traditional machine learning era\" in the text?",
+                "2. What role did knowledge engineering play in the development of audio features?",
+                "3. Which specific audio features were extensively used during the traditional machine learning era?",
+                "4. How has the use of audio features changed with the shift to deep learning applications?",
+                "5. What are some examples of audio features used in deep learning mentioned in the text?",
+                "6. What are spectrograms and why are they significant in audio analysis?",
+                "7. What is the importance of understanding basic frequency domain audio features?",
+                "8. Are there more audio features beyond those discussed in the text, and what is implied about them?",
+                "9. What does the speaker suggest about the relationship between understanding basic features and learning about other audio features?",
+                "10. What is the next topic addressed after discussing the theory behind frequency domain audio features?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms. OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next, we're gonna be implementing uh one of these audio features from scratch and that's the band energy ratio and we use Python for doing that as we've done throughout this series. And then we're going to be visualizing the uh band energy ratio for pieces of music in different genres and try to understand if we can tell them apart based only on the band energy uh ratio.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "915.325",
+            "questions": [
+                "1. What are frequency domain audio features, and how have they been used historically?",
+                "2. Why are frequency domain audio features becoming less popular with the rise of deep learning applications?",
+                "3. What types of audio features are currently favored in deep learning applications?",
+                "4. Can you explain the difference between spectrograms, mouse spectrograms, and waveforms?",
+                "5. What is the significance of having a basic understanding of frequency domain audio features?",
+                "6. What audio feature will be implemented from scratch in the next segment of the video series?",
+                "7. Which programming language will be used to implement the band energy ratio?",
+                "8. How will the band energy ratio be visualized for different pieces of music?",
+                "9. What is the goal of visualizing the band energy ratio across different music genres?",
+                "10. How might the band energy ratio help in distinguishing between different genres of music?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next, we're gonna be implementing uh one of these audio features from scratch and that's the band energy ratio and we use Python for doing that as we've done throughout this series. And then we're going to be visualizing the uh band energy ratio for pieces of music in different genres and try to understand if we can tell them apart based only on the band energy uh ratio. Ok, I hope you enjoyed the video. If that's the case, please remember to leave a like if you haven't subscribed and you want to watch more videos like this consider uh doing so. If you have any questions as usual, please leave them in the comment section below. That's all for today. I'll see you next time. Cheers.",
+            "video": "Frequency-Domain Audio Features",
+            "start_time": "935.729",
+            "questions": [
+                "1. What are frequency domain audio features?",
+                "2. How many types of frequency domain audio features are mentioned in the text?",
+                "3. What specific audio feature will be implemented in the next video?",
+                "4. Which programming language will be used for the implementation of the band energy ratio?",
+                "5. What genres of music will be analyzed using the band energy ratio?",
+                "6. What is the purpose of visualizing the band energy ratio in different music genres?",
+                "7. What action is suggested for viewers who enjoyed the video?",
+                "8. How can viewers ask questions regarding the content of the video?",
+                "9. What is the overall goal of the upcoming video mentioned in the text?",
+                "10. What does the speaker encourage viewers to do if they want to watch more videos like this?"
+            ]
+        }
+    ]
+}

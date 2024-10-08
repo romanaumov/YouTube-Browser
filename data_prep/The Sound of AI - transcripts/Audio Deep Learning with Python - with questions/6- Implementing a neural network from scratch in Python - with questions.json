@@ -1,0 +1,1192 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna implement a neural network from scratch specifically, we're gonna implement a multi layer perception. So let's get started. So the first thing that we want to do is importing numpy the nun P if you're not familiar with it is a um scientific library for Python that's used in most uh libraries if you don't have nun pie installed. So you, you just go and go to your terminal and pip install it. It's quite straightforward, right? So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main topic of the video in the Deep Learning for audio with Python series?",
+                "2. What type of neural network will be implemented in this video?",
+                "3. What is the first step mentioned for starting the implementation?",
+                "4. What library is imported at the beginning of the implementation?",
+                "5. What is NumPy commonly used for in Python programming?",
+                "6. What command should be used to install NumPy if it is not already installed?",
+                "7. What is the name of the class that will be built for the multi layer perception?",
+                "8. What will the MLP class contain in terms of attributes and methods?",
+                "9. Why is it important to have a multi layer perception in deep learning?",
+                "10. How does the speaker suggest the audience can follow along with the implementation?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "the nun P if you're not familiar with it is a um scientific library for Python that's used in most uh libraries if you don't have nun pie installed. So you, you just go and go to your terminal and pip install it. It's quite straightforward, right? So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception. So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "20.709",
+            "questions": [
+                "1. What is the purpose of the nun P library in Python?",
+                "2. How can a user install nun P on their system?",
+                "3. What does MLP stand for in the context of this text?",
+                "4. What will the MLP class contain in terms of attributes and methods?",
+                "5. What is the first step mentioned for building the MLP class?",
+                "6. What is the primary function of the constructor in the MLP class?",
+                "7. Why is it important to have a constructor for the MLP class?",
+                "8. What programming language is mentioned in the text?",
+                "9. What are some potential applications of a multi-layer perceptron?",
+                "10. How do you determine if nun P is already installed on your system?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception. So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna have this in it over here and we want to pass it three different attributes. So one it's the number of",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "39.799",
+            "questions": [
+                "1. What is the name of the class being built in the text?",
+                "2. What does MLP stand for?",
+                "3. What are the main components that the MLP class will include?",
+                "4. What is the first method that needs to be created for the MLP class?",
+                "5. How many attributes does the constructor for the MLP class need to accept?",
+                "6. What is the purpose of the constructor in the MLP class?",
+                "7. What type of structure is being represented by the MLP class?",
+                "8. What is indicated by the phrase \"multi layer of perception\" in relation to the MLP class?",
+                "9. What is the significance of having attributes in the MLP class?",
+                "10. What is the expected outcome of implementing the attributes and methods in the MLP class?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna have this in it over here and we want to pass it three different attributes. So one it's the number of uh inputs, then we want to pass it the number of hidden layers.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "58.709",
+            "questions": [
+                "1. What is the first step mentioned in the text?",
+                "2. What class is being referenced in the text?",
+                "3. What is the primary purpose of the constructor in the M LP class?",
+                "4. How many attributes are to be passed to the constructor?",
+                "5. What is the first attribute that needs to be passed to the constructor?",
+                "6. What is the second attribute mentioned for the constructor?",
+                "7. Is there a third attribute mentioned for the constructor? If so, what is it?",
+                "8. Why is it important to specify the number of inputs in the constructor?",
+                "9. What could be the significance of having multiple hidden layers in the M LP class?",
+                "10. What does \"M LP\" stand for in this context?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "have this in it over here and we want to pass it three different attributes. So one it's the number of uh inputs, then we want to pass it the number of hidden layers. And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "70.62",
+            "questions": [
+                "1. What are the three different attributes that need to be passed?",
+                "2. How many inputs are required for the function?",
+                "3. What is meant by \"hidden layers\" in the context of this text?",
+                "4. What is the significance of the number of outputs mentioned?",
+                "5. How are the attributes stored internally in the code?",
+                "6. What does \"self.numb_inputs\" refer to in this context?",
+                "7. Are there any specific data types mentioned for the attributes?",
+                "8. How does the text indicate the attributes will be used later in the code?",
+                "9. Is there any mention of how the number of hidden layers affects the function's performance?",
+                "10. What could be the implications of incorrectly setting the number of inputs, hidden layers, or outputs?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "uh inputs, then we want to pass it the number of hidden layers. And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the number of",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "82.709",
+            "questions": [
+                "1. What is the purpose of passing the number of hidden layers in the context described?",
+                "2. How are the input arguments stored internally in the described system?",
+                "3. What does \"self.numb_inputs\" refer to in the text?",
+                "4. Why is it important to specify the number of outputs in the given scenario?",
+                "5. What other attributes might be defined alongside \"self.numb_inputs\"?",
+                "6. What role do hidden layers play in the system being described?",
+                "7. How does the text suggest handling the input arguments?",
+                "8. What could be some potential implications of incorrectly specifying the number of inputs or outputs?",
+                "9. Is there any mention of how the hidden layers are utilized after being defined?",
+                "10. What is the overall context or application that this text is referring to?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the number of hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "90.349",
+            "questions": [
+                "1. What is the purpose of passing the number of outputs in the given context?  ",
+                "2. How are the arguments being stored internally?  ",
+                "3. What attribute is used to store the number of inputs?  ",
+                "4. What is the significance of 'self.numb inputs' in the text?  ",
+                "5. How is the number of hidden layers represented in the attributes?  ",
+                "6. What does 'num outputs' refer to in the discussion?  ",
+                "7. Why is it important to define the number of inputs, hidden layers, and outputs?  ",
+                "8. Are there any naming conventions mentioned for the attributes?  ",
+                "9. What other attributes are mentioned alongside 'self.numb inputs'?  ",
+                "10. How does the structure of the attributes relate to the overall functionality described?  "
+            ]
+        },
+        {
+            "id": 7,
+            "text": "number of hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "119.23",
+            "questions": [
+                "1. What is the significance of the number of hidden layers in a neural network?",
+                "2. How does the number of neurons in the input layer affect the overall architecture?",
+                "3. What information is stored internally in the instance regarding the neural network structure?",
+                "4. Why is it important to define the number of outputs in a neural network?",
+                "5. How do default values play a role in configuring the neural network?",
+                "6. What are the implications of having multiple hidden layers in a neural network?",
+                "7. How does the architecture of the neural network influence its performance?",
+                "8. What factors should be considered when determining the number of neurons in each layer?",
+                "9. Can the number of hidden layers and outputs be adjusted after the network has been initialized?",
+                "10. How does the relationship between input, hidden, and output layers impact the learning process?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here. Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "121.47",
+            "questions": [
+                "1. What is the purpose of hidden layers in a neural network?",
+                "2. How is the number of neurons in the input layer defined in the given text?",
+                "3. What type of data structure is suggested for storing the number of neurons in hidden layers?",
+                "4. Why is it beneficial to use default values for the number of inputs and hidden layers?",
+                "5. How many neurons are suggested for the input layer in the example?",
+                "6. What does \"MLP\" stand for in the context of the text?",
+                "7. Why might it be easier to implement an MLP by using default parameter values?",
+                "8. What kind of values are expected in the list for the hidden layers?",
+                "9. How does the text suggest handling the number of outputs in a neural network?",
+                "10. What is the significance of storing the information about neurons within the instance?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here. Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "132.71",
+            "questions": [
+                "1. What information is stored internally in the instance regarding the neural network?",
+                "2. Why is it beneficial to use default values for the number of neurons in the layers?",
+                "3. What is the default number of neurons in the input layer as mentioned in the text?",
+                "4. How is the number of neurons in the hidden layers represented in the implementation?",
+                "5. How many hidden layers are described in the example provided?",
+                "6. What is the number of neurons in the first hidden layer mentioned?",
+                "7. How many neurons are present in the second hidden layer according to the text?",
+                "8. What is the specified number of output neurons in the example?",
+                "9. Why might it be easier to implement an MLP with default values?",
+                "10. Can you explain the significance of using a list to represent the number of neurons in hidden layers?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "157.589",
+            "questions": [
+                "1. What is the default number of inputs (neurons in the input layer) mentioned in the text?",
+                "2. How does the implementation of an MLP benefit the passing of information?",
+                "3. What is the structure of the list representing the number of neurons in the hidden layers?",
+                "4. How many hidden layers are described in the example?",
+                "5. What is the number of neurons in the first hidden layer?",
+                "6. How many neurons are in the second hidden layer according to the text?",
+                "7. What is the specified number of output neurons in the example?",
+                "8. Why is it important to create an internal representation of the layers?",
+                "9. How is the internal representation of the layers suggested to be structured?",
+                "10. What type of data is used to represent the number of neurons in the hidden layers?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna uh cast to at least type this self",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "187.57",
+            "questions": [
+                "1. What does the integer represent in the context of neural networks?",
+                "2. How many hidden layers are mentioned in the text?",
+                "3. How many neurons are in the first hidden layer?",
+                "4. How many neurons are in the second hidden layer?",
+                "5. What is the purpose of defining output neurons in the neural network?",
+                "6. How many output neurons are specified in the example?",
+                "7. What is the desired format for representing the layers internally?",
+                "8. Which data type is mentioned for casting the internal representation?",
+                "9. Why is it important to have an internal representation of the layers?",
+                "10. What is the relationship between the number of neurons and the layers in a neural network?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna uh cast to at least type this self dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "214.38",
+            "questions": [
+                "1. What is the purpose of creating an internal representation of the layers?",
+                "2. How should the internal representation be structured?",
+                "3. What type is being referenced with \"self dot number of inputs\"?",
+                "4. What elements are being concatenated to form the internal representation?",
+                "5. What is meant by \"number of hidden layers\" in this context?",
+                "6. How does the number of output layers factor into the internal representation?",
+                "7. What programming concepts are being used to create the list of layers?",
+                "8. Why is concatenation used in this process?",
+                "9. What is the significance of using \"self\" in the context of this representation?",
+                "10. What might be the implications of not accurately representing the layers internally?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "uh cast to at least type this self dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "232.559",
+            "questions": [
+                "1. What is the purpose of concatenating the number of inputs, hidden layers, and output layers in the text?",
+                "2. How does the list generated from the concatenation represent the structure of a neural network?",
+                "3. What does the term \"neurons in a layer\" refer to in the context of the text?",
+                "4. What is the significance of the zero index mentioned in the explanation?",
+                "5. Why is it important to initiate random weights in a neural network?",
+                "6. How does the number of layers affect the overall architecture of a neural network?",
+                "7. What role do hidden layers play in a neural network?",
+                "8. Can the number of output layers vary, and if so, how does that impact the model?",
+                "9. What might be some consequences of not properly defining the number of inputs and layers?",
+                "10. How does the process described relate to the overall training of a neural network?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights. So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "238.199",
+            "questions": [
+                "1. What is the process for determining the number of neurons in each layer of a neural network?",
+                "2. How are the inputs, hidden layers, and output layers combined in the neural network?",
+                "3. What does the list created from the number of neurons in each layer represent?",
+                "4. How are the layers in a neural network indexed?",
+                "5. Why is it important to initiate random weights in a neural network?",
+                "6. What role do weights play in the connections between neurons in different layers?",
+                "7. What happens if a neural network does not have weights assigned to its connections?",
+                "8. How is the initiation of random weights typically performed in a neural network?",
+                "9. What are the potential consequences of not properly configuring the layers and weights in a neural network?",
+                "10. Can you explain the significance of having multiple hidden layers in a neural network?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights. So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate a,",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "256.049",
+            "questions": [
+                "1. What does the list represent in the context of a neural network?",
+                "2. How are the layers indexed in the list?",
+                "3. Why is it important to have weights in a neural network?",
+                "4. What is the purpose of initiating random weights in a neural network?",
+                "5. What happens if a neural network does not have weights?",
+                "6. What do we mean by \"connections between the neurons\" in subsequent layers?",
+                "7. How does the number of neurons in a layer affect the structure of the neural network?",
+                "8. What is the significance of the zero index in the list of layers?",
+                "9. What steps are involved in initiating the weights for a neural network?",
+                "10. Can a neural network function properly without initiating weights? Why or why not?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate a, an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "285.309",
+            "questions": [
+                "1. What is the significance of weights in a neural network?",
+                "2. How do you initiate the weight attribute in a neuron network?",
+                "3. What data structure is suggested for storing the weights initially?",
+                "4. What process is described for creating weights between layers in a neural network?",
+                "5. How do you iterate through the layers in a neural network?",
+                "6. What is meant by \"a matrix weight for each pair of layers\"?",
+                "7. Why is it important to have weights for connections between neurons in subsequent layers?",
+                "8. What does the term \"full loop\" refer to in the context of iterating through layers?",
+                "9. How does the length of layers affect the creation of weight matrices?",
+                "10. What might be the next steps after creating the weight matrices for the layers?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "a, an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length uh layers minus uh one.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "302.119",
+            "questions": [
+                "1. What is the purpose of the internal attribute called weight in the text?",
+                "2. Why is the weight list initially empty?",
+                "3. How do we iterate through the layers mentioned in the text?",
+                "4. What is meant by creating a matrix weight for each pair of layers?",
+                "5. What does the text suggest we do with the range of the length of layers?",
+                "6. Why is the length of layers decreased by one in the iteration?",
+                "7. What might be the implications of not initializing the weight list as empty?",
+                "8. What kind of data structure is implied for the layers in the text?",
+                "9. How is the concept of a matrix relevant in the context of layers?",
+                "10. What might be the next steps after creating the weight matrix for each pair of layers?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length uh layers minus uh one. So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "303.519",
+            "questions": [
+                "1. What is the purpose of the attribute called weight in the context provided?",
+                "2. Why is the weight attribute initialized as an empty list?",
+                "3. How do we iterate through all the layers mentioned in the text?",
+                "4. What is the significance of creating a weight matrix for each pair of layers?",
+                "5. How is the range for the iteration determined in relation to the length of layers?",
+                "6. What does it mean to perform a \"full look\" in the context of iterating through layers?",
+                "7. What is the role of the variable W in the weight matrix construction?",
+                "8. Why is the weight matrix W set to be equal to \"the nun\"?",
+                "9. How does the process of building the weight matrix W affect the overall structure?",
+                "10. What implications does the weight matrix have for the performance of the layers being processed?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "uh layers minus uh one. So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun dot random dot run.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "333.01",
+            "questions": [
+                "1. What does \"uh layers minus uh one\" refer to in the context of building a weight matrix?",
+                "2. How is the weight matrix W constructed at each step?",
+                "3. What role does the function \"nun dot random dot run\" play in the creation of the weight matrix W?",
+                "4. Why is it important to subtract one from the number of layers when building the weight matrix?",
+                "5. Can you explain the significance of the weight matrix W in a neural network?",
+                "6. What are the implications of using random values for the weight matrix initialization?",
+                "7. How does the process of building the weight matrix W change with different numbers of layers?",
+                "8. What are the potential consequences of improperly initializing the weight matrix W?",
+                "9. In what scenarios might you want to modify the approach to creating the weight matrix W?",
+                "10. How does the concept of layers impact the overall architecture of a neural network?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun dot random dot run. And here will pass in layers I layers I and here we have layers",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "339.269",
+            "questions": [
+                "1. What is the purpose of the weight matrix W in this context?",
+                "2. How is the weight matrix W constructed in the process?",
+                "3. What does the term \"nun dot random dot run\" refer to in the text?",
+                "4. What parameters are passed into the function to create the weight matrix?",
+                "5. What do \"layers\" represent in this scenario?",
+                "6. How many layers are involved in the construction of the weight matrix?",
+                "7. What role does randomness play in the creation of the weight matrix W?",
+                "8. Are there any specific dimensions for the layers mentioned in the text?",
+                "9. What might be the implications of modifying the layers parameter when building W?",
+                "10. Can you explain the significance of the weight matrix W in a neural network?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "dot random dot run. And here will pass in layers I layers I and here we have layers I plus one. OK. So what have I done here? So uh I'm basically creating a matrix",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "355.82",
+            "questions": [
+                "1. What is the purpose of the command \"dot random dot run\" in the context of the text?",
+                "2. How are layers I and I plus one defined in the provided text?",
+                "3. What does the term \"matrix\" refer to in the context of this explanation?",
+                "4. Can you explain the relationship between layers I and I plus one?",
+                "5. What programming or mathematical concepts are being referenced in the text?",
+                "6. Why is the author creating a matrix?",
+                "7. What outcomes are expected from running the command mentioned in the text?",
+                "8. How might the concept of layers be applied in a different field or context?",
+                "9. What does \"return only\" imply in the context of the text?",
+                "10. What could be the implications of creating a matrix in this scenario?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "And here will pass in layers I layers I and here we have layers I plus one. OK. So what have I done here? So uh I'm basically creating a matrix uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "360.23",
+            "questions": [
+                "1. What is being created in the text using the numpy library?",
+                "2. What method from the numpy library is mentioned for creating random arrays?",
+                "3. How many dimensions does the random array have in this context?",
+                "4. What are the values that define the dimensions of the array?",
+                "5. What does the method \"random dot brand\" do?",
+                "6. Can the random arrays created have different dimensions?",
+                "7. What is the significance of \"layers I\" and \"layers I plus one\" in the text?",
+                "8. What programming language is being referenced in the text?",
+                "9. How does the author describe the process of creating the matrix?",
+                "10. What is the purpose of the random arrays being created in this example?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "I plus one. OK. So what have I done here? So uh I'm basically creating a matrix uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values. And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "373.239",
+            "questions": [
+                "1. What library is being used to create the matrix in the text?",
+                "2. What method from the numpy library is mentioned for creating random arrays?",
+                "3. What dimensions can the arrays created by the mentioned method have?",
+                "4. How many dimensions does the array being created in this case have?",
+                "5. What does the term \"2D array\" refer to in the context of this text?",
+                "6. What determines the number of rows in the matrix being created?",
+                "7. What determines the number of columns in the matrix being created?",
+                "8. What is the purpose of the matrix W mentioned in the text?",
+                "9. How does the text describe the relationship between the current layer and the subsequent layer?",
+                "10. What is the significance of the term \"neurons\" in the context of the matrix?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values. And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer. And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "384.98",
+            "questions": [
+                "1. What library is used in the method discussed in the text?",
+                "2. What does the random dot brand method create?",
+                "3. How many dimensions can the arrays created by this method have?",
+                "4. What is the shape of the array being created in the given example?",
+                "5. How are the number of rows in the array determined?",
+                "6. How are the number of columns in the array determined?",
+                "7. What does the two-dimensional array represent in the context of neural networks?",
+                "8. What connections are represented by the rows in the weight matrix?",
+                "9. What is the significance of the number of neurons in the subsequent layer?",
+                "10. How does the described method relate to the concept of layers in a neural network?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer. And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "412.72",
+            "questions": [
+                "1. What is the shape of the two-dimensional array being described?",
+                "2. How many rows are specified for the matrix in the text?",
+                "3. What determines the number of columns in the matrix?",
+                "4. What does each row in the weight matrix represent?",
+                "5. How does the concept of layers relate to the matrix being discussed?",
+                "6. Why is it important for the number of rows to match the number of neurons in the current layer?",
+                "7. What does the text imply about the connections between neurons in different layers?",
+                "8. How can one obtain the number of neurons in the subsequent layer?",
+                "9. What role does the weight matrix play in the context of neural networks?",
+                "10. Can you explain the significance of having a two-dimensional array in neural network calculations?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right. And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one,",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "435.309",
+            "questions": [
+                "1. What is the significance of the weight matrix in neural networks?",
+                "2. How do the rows of the weight matrix relate to the connections of a neuron from a previous layer?",
+                "3. Why must the number of rows in the weight matrix equal the number of neurons in the current layer?",
+                "4. What determines the number of columns in the weight matrix?",
+                "5. How can we calculate the dimensions of the weight matrix using the expression mentioned in the text?",
+                "6. What role does the random function play in creating the weight matrix?",
+                "7. What values are used to initialize the elements of the weight matrix?",
+                "8. How does the initialization of the weight matrix impact the performance of a neural network?",
+                "9. What is the relationship between the weight matrix and the subsequent layers of a neural network?",
+                "10. Why is it important for the weight matrix to have a specific structure in neural networks?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right. And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one, right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "452.48",
+            "questions": [
+                "1. How is the number of rows in the matrix determined in relation to neurons?",
+                "2. What determines the number of columns in the matrix?",
+                "3. What expression is used to obtain the matrix dimensions?",
+                "4. How does the random function contribute to the creation of the matrix?",
+                "5. What range of values does the random function use to initialize the elements of the matrix?",
+                "6. What is the significance of the weights in the context of this matrix?",
+                "7. How is the information from the matrix stored after its creation?",
+                "8. What does the process of appending W involve?",
+                "9. What role do the neurons in subsequent layers play in defining the matrix?",
+                "10. Why is it important to initialize the matrix elements randomly?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one, right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "470.91",
+            "questions": [
+                "1. What does the random function create in the context of the matrix?",
+                "2. How are the elements of the matrix initialized?",
+                "3. What range of values is used for initializing the matrix elements?",
+                "4. What is the next step after creating the matrix?",
+                "5. How do we store the information generated from the matrix?",
+                "6. What does the variable 'weights' represent in the text?",
+                "7. How is the list of weights structured in relation to the layers of the network?",
+                "8. How many weight matrices are there if the network has three layers?",
+                "9. Why is the number of weight matrices one less than the number of layers?",
+                "10. What does the term \"append W\" refer to in the context of storing weights?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three,",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "485.97",
+            "questions": [
+                "1. What is the purpose of storing weights in a neural network?",
+                "2. How do we determine the number of weight matrices in a neural network?",
+                "3. Why is the number of weight matrices one less than the number of layers in a network?",
+                "4. Between which layers is the first weight matrix located?",
+                "5. How is the weight list initialized in relation to the number of layers?",
+                "6. What does the term \"weight matrix\" refer to in the context of neural networks?",
+                "7. Can you explain the relationship between layers and weight matrices in a neural network?",
+                "8. What happens if a neural network has only one layer regarding weight matrices?",
+                "9. How do we append weights to the list in the given procedure?",
+                "10. What is the significance of the weight matrices in the functioning of a neural network?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three, right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "499.119",
+            "questions": [
+                "1. What is the relationship between the number of layers and the number of weight matrices in a neural network?",
+                "2. How many weight matrices would be needed for a network with four layers?",
+                "3. In the context of neural networks, what is the purpose of weight matrices?",
+                "4. Which layers do the first and second weight matrices connect in a three-layer network?",
+                "5. What is the next step after constructing the weight matrices in a multi-layered perception?",
+                "6. What is the significance of forward propagation in neural networks?",
+                "7. What method is introduced for performing the necessary calculations in the described network?",
+                "8. How does the number of layers affect the structure of a neural network?",
+                "9. Can you explain what a multi-layered perception is in simple terms?",
+                "10. What does the term \"forward propagation\" refer to in the context of neural networks?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three, right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate. And this method uh accepts as uh as an argument the inputs.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "523.53",
+            "questions": [
+                "1. What is the role of weight matrices in a multi-layered perception?",
+                "2. How do weight matrices relate to the layers in a neural network?",
+                "3. What is the function of the first weight matrix in the described structure?",
+                "4. How many weight matrices are mentioned in the text?",
+                "5. What is the purpose of the 'forward propagation' method?",
+                "6. What does the 'forward proper gate' method accept as an argument?",
+                "7. What is meant by a \"simple multi-layered perception\" in the context of the text?",
+                "8. What happens after the weight matrices are established between the layers?",
+                "9. Can you explain the relationship between layer one and layer two in terms of weight matrices?",
+                "10. What is the next step after constructing the weight matrices according to the text?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate. And this method uh accepts as uh as an argument the inputs. And",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "541.869",
+            "questions": [
+                "Sure! Here are 10 questions based on the provided text:",
+                "1. What is the purpose of the constructor mentioned in the text?",
+                "2. What type of model is being constructed with the constructor?",
+                "3. What is the next step after building the representation of the multi-layered perception?",
+                "4. What method is introduced to handle the computation?",
+                "5. What is the name of the method that performs forward propagation?",
+                "6. What argument does the forward propagation method accept?",
+                "7. What does the forward propagation method return?",
+                "8. Why is forward propagation important in a multi-layered perception?",
+                "9. What concept in neural networks is likely being referred to by \"forward propagation\"?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "And this method uh accepts as uh as an argument the inputs. And what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "569.96",
+            "questions": [
+                "1. What is the purpose of the method mentioned in the text?",
+                "2. What does the method accept as an argument?",
+                "3. What is forward propagation in the context of neural networks?",
+                "4. How does the signal travel through the network during forward propagation?",
+                "5. What are the two main actions performed by the neurons at each layer?",
+                "6. What is meant by \"net input\" in the context of neuron functioning?",
+                "7. What role does activation play in the process described?",
+                "8. Can you explain the sequence of operations that occurs during forward propagation?",
+                "9. How does forward propagation differ from backward propagation in neural networks?",
+                "10. Why is understanding forward propagation important in machine learning?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "And what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "579.19",
+            "questions": [
+                "1. What is the purpose of forward propagation in a neural network?",
+                "2. How does the signal travel through each layer during forward propagation?",
+                "3. What are the two main processes that occur at each neuron during forward propagation?",
+                "4. What is meant by \"net input\" in the context of forward propagation?",
+                "5. How are activations determined in the first layer of a neural network?",
+                "6. What happens to the inputs during the first layer of the forward propagation process?",
+                "7. Can you explain the relationship between inputs and activations in the first layer?",
+                "8. What is the significance of performing a full loop in the forward propagation process?",
+                "9. How do activations change as the signal moves through subsequent layers?",
+                "10. Why is it important to understand the concept of forward propagation in neural networks?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "580.909",
+            "questions": [
+                "1. What is the purpose of forward propagation in neural networks?  ",
+                "2. How does the signal travel through each layer during forward propagation?  ",
+                "3. What are the two main processes that occur at each neuron during forward propagation?  ",
+                "4. How do the activations in the first layer relate to the inputs?  ",
+                "5. What does it mean to loop through all the weight matrices in forward propagation?  ",
+                "6. How does forward propagation handle multiple layers in a neural network?  ",
+                "7. What is the significance of the net input calculation in the forward propagation process?  ",
+                "8. How do activations change from the first layer to subsequent layers in a neural network?  ",
+                "9. What role do weight matrices play in the forward propagation process?  ",
+                "10. Can you explain the concept of a \"full loop\" in the context of forward propagation?  "
+            ]
+        },
+        {
+            "id": 36,
+            "text": "activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self dot waits and then here we should perform a couple of things. So first thing is to",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "609.19",
+            "questions": [
+                "1. What are activations in the context of neural networks?",
+                "2. How are activations related to inputs in the first layer?",
+                "3. What does it mean to loop through all the weight matrices in a neural network?",
+                "4. How many layers are mentioned in the text regarding the network structure?",
+                "5. What operation is suggested to be performed with the weight matrices?",
+                "6. What is the significance of the first layer's activations being equal to the inputs?",
+                "7. What does the term \"full loop\" refer to in the context of processing layers?",
+                "8. How is the concept of \"WN self dot waits\" relevant to the process described?",
+                "9. What might be the output after performing the specified actions on the weight matrices?",
+                "10. Why is it important to loop through all the layers in a neural network?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self dot waits and then here we should perform a couple of things. So first thing is to um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "624.2",
+            "questions": [
+                "1. What is the purpose of looping through all the weight matrices in a neural network?",
+                "2. How many layers are typically involved when looping through weight matrices?",
+                "3. What does \"WN self dot waits\" refer to in the context of neural networks?",
+                "4. What is the first calculation that needs to be performed when processing a layer?",
+                "5. What are net inputs in the context of a neural network layer?",
+                "6. Why is it important to calculate the net inputs for a given layer?",
+                "7. What is the second step mentioned after performing the net input calculation?",
+                "8. How do the weight matrices influence the calculations within a neural network?",
+                "9. What is the significance of returning only a list of questions in this context?",
+                "10. Are there any other operations that typically follow the calculation of net inputs?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "dot waits and then here we should perform a couple of things. So first thing is to um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "641.01",
+            "questions": [
+                "1. What is the first task that needs to be performed after the dot waits?",
+                "2. How do we calculate the net inputs for a given layer?",
+                "3. What is the second task mentioned for processing after the calculation of net inputs?",
+                "4. What role do matrix multiplications play in calculating net inputs?",
+                "5. How are the activations from the previous layer used in the net input calculation?",
+                "6. What mathematical operation is used to calculate the activations?",
+                "7. What does \"NP\" refer to in the context of this text?",
+                "8. Why is it important to calculate both net inputs and activations?",
+                "9. What is the relationship between weight matrices and the activations of the previous layer?",
+                "10. Can you describe the process of calculating net inputs in detail?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "651.599",
+            "questions": [
+                "1. What is the first step in calculating the net inputs for a given layer?",
+                "2. How do we calculate the activations in a neural network?",
+                "3. What method is suggested for performing matrix multiplication in the text?",
+                "4. What does the NP dot method perform when applied to two batches?",
+                "5. How does the NP dot method handle matrix multiplication?",
+                "6. What are the components involved in calculating net inputs?",
+                "7. Why is matrix multiplication important in the context of neural networks?",
+                "8. Can you explain the role of weight matrices in calculating activations?",
+                "9. What does the term \"activations of the previous layer\" refer to?",
+                "10. How is the concept of dot product relevant to neural network calculations?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication. So in this case, we pass in activations which is a vector and then we pass in the",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "668.38",
+            "questions": [
+                "1. What is the primary method used to perform activations in neural networks?",
+                "2. How do matrix multiplications contribute to the activation process in neural networks?",
+                "3. What is the role of weight matrices in the activations of a neural network?",
+                "4. Can you explain the function of the NP dot method in this context?",
+                "5. What happens when you perform a dot product between two batches using the NP dot method?",
+                "6. In the explanation, what is meant by \"activations\" in the context of neural networks?",
+                "7. How are the inputs to the neural network represented in the activation process?",
+                "8. What is the significance of using a vector for the activations in matrix multiplication?",
+                "9. How does the matrix multiplication process differ when dealing with two matrices versus two batches?",
+                "10. Why is understanding the activation process important for working with neural networks?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication. So in this case, we pass in activations which is a vector and then we pass in the uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that?",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "694.099",
+            "questions": [
+                "1. What is the purpose of the weight matrix in the described method?",
+                "2. How is the NP dot method used in the context of matrix multiplication?",
+                "3. What types of inputs are passed into the NP dot method?",
+                "4. What are activations referred to in the text?",
+                "5. How does the NP dot method handle two matrices differently than two batches?",
+                "6. What is the outcome of performing a matrix multiplication between activations and weights?",
+                "7. What are net inputs in the context of this explanation?",
+                "8. What is the next phase after calculating the net inputs?",
+                "9. How is the activation calculated following the determination of net inputs?",
+                "10. Why is it important to understand the process of matrix multiplication in this context?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "So in this case, we pass in activations which is a vector and then we pass in the uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that? Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "712.419",
+            "questions": [
+                "1. What is the role of the vector 'activations' in the process described?",
+                "2. How is the weights matrix 'W' utilized in the calculation?",
+                "3. What does the function MP dot dot do in relation to activations and weights?",
+                "4. What do we obtain after performing the matrix multiplication between activations and weights?",
+                "5. What is the next step after calculating the net inputs?",
+                "6. Which activation function is used in this MLP example?",
+                "7. How do we apply the sigmoid activation function to the net inputs?",
+                "8. What are the key components involved in calculating the activation?",
+                "9. Why is it important to use a sigmoid function in this context?",
+                "10. Can you explain the relationship between net inputs and the activation function?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that? Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function. Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "720.84",
+            "questions": [
+                "1. What does the matrix W represent in the context of this explanation?",
+                "2. What operation does the MP dot dot perform with respect to the activations and weights?",
+                "3. What are net inputs in relation to the weights and activations?",
+                "4. Which activation function is being used for the MLP in this text?",
+                "5. How do we obtain the activations after calculating the net inputs?",
+                "6. What is the purpose of the sigmoid function in this process?",
+                "7. Is there an existing method for the underscore Sigma function mentioned in the text?",
+                "8. How long does the speaker estimate it will take to implement the underscore Sigma method?",
+                "9. What is the final output after processing through the loop as described in the text?",
+                "10. What previous content does the speaker reference when discussing the implementation of the underscore Sigma method?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function. Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations right.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "748.7",
+            "questions": [
+                "1. What type of activation function is mentioned for the MLP in the text?",
+                "2. How do we process the net inputs in relation to the sigmoid function?",
+                "3. What is the significance of the Sigma function in this context?",
+                "4. Does the text mention if there is an existing implementation of the Sigma function?",
+                "5. How long does the speaker estimate it will take to implement the Sigma function?",
+                "6. What is the next step after processing the net inputs through the loop?",
+                "7. What is the final output that the speaker wants to return after the loop?",
+                "8. In which previous context was the Sigma function discussed or implemented?",
+                "9. What does MLP stand for in the context of this text?",
+                "10. Why might someone question the absence of a Sigma method?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations right. So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "772.27",
+            "questions": [
+                "1. What method is mentioned as needing to be implemented?",
+                "2. How long is it estimated to take to implement the underscore Sigma method?",
+                "3. What is the starting point for the forward propagation process?",
+                "4. What are the activations for the first layer described as?",
+                "5. How does the forward propagation process move through the layers?",
+                "6. What type of loop is used to traverse through the layers during forward propagation?",
+                "7. What is the purpose of returning the activations at the end of the loop?",
+                "8. In what direction does the forward propagation move through the layers?",
+                "9. What is the significance of the inputs being a vector in this context?",
+                "10. How does the previous video relate to the implementation of the underscore Sigma method?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "right. So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "802.45",
+            "questions": [
+                "1. What is the starting point for forward propagation in a neural network?",
+                "2. How are the activations for the first layer determined?",
+                "3. What direction do we move in during forward propagation?",
+                "4. What is the purpose of the for loop in the forward propagation process?",
+                "5. What are the two main calculations performed at each layer during forward propagation?",
+                "6. How is the net input calculated in forward propagation?",
+                "7. What mathematical operation is used to calculate the net inputs?",
+                "8. Which activation function is used to calculate the activations from the net inputs?",
+                "9. What is the final output of the forward propagation process?",
+                "10. How does forward propagation differ from backward propagation in a neural network?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So what remains to do here? Well, we should implement this underscore sigmoid function.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "804.039",
+            "questions": [
+                "1. What is the starting point for forward propagation in this process?  ",
+                "2. How are the activations for the first layer determined?  ",
+                "3. What direction do we move in during forward propagation?  ",
+                "4. What programming structure is used to iterate through the weights during forward propagation?  ",
+                "5. What are the two main calculations performed at each layer during forward propagation?  ",
+                "6. How is the net input calculated in the forward propagation process?  ",
+                "7. What mathematical operation is used to calculate the net inputs?  ",
+                "8. Which activation function is used to calculate the activations from the net inputs?  ",
+                "9. What is the final output of the forward propagation process?  ",
+                "10. What function needs to be implemented after completing the forward propagation process?  "
+            ]
+        },
+        {
+            "id": 48,
+            "text": "we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So what remains to do here? Well, we should implement this underscore sigmoid function. So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "833.085",
+            "questions": [
+                "1. What are the two main tasks performed at each layer during the iteration through weights?",
+                "2. How is the net input calculated in the process described?",
+                "3. What mathematical operation is used to calculate the net inputs?",
+                "4. Which activation function is used to calculate the activations?",
+                "5. What is the formula for the sigmoid activation function mentioned in the text?",
+                "6. How does the sigmoid function transform the net inputs?",
+                "7. What is the final output of the process described?",
+                "8. What is the significance of implementing the underscore sigmoid function?",
+                "9. Why is the calculation of activations important in this context?",
+                "10. What role does matrix multiplication play in the calculation of net inputs?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "what remains to do here? Well, we should implement this underscore sigmoid function. So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "860.78",
+            "questions": [
+                "1. What function needs to be implemented in the text?",
+                "2. What is the purpose of the underscore sigmoid function mentioned?",
+                "3. How is the sigmoid function mathematically represented in the text?",
+                "4. What is the role of the variable X in the implementation of the sigmoid function?",
+                "5. What mathematical operation is performed using NP in the sigmoid function?",
+                "6. What does the author mean by \"the mop has done its magic\" in the context of forward propagation?",
+                "7. What is the significance of running the script as the main in the provided context?",
+                "8. How does the sigmoid function contribute to the MLP class mentioned?",
+                "9. What are the inputs that need to be passed for forward propagation?",
+                "10. Why is forward propagation important in the context of an MLP class?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main. So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "868.78",
+            "questions": [
+                "1. What is the primary function being discussed in the text?",
+                "2. How is the sigmoid function mathematically represented in the text?",
+                "3. What is the purpose of the MLP class mentioned in the text?",
+                "4. What does \"forward propagation\" refer to in the context of the text?",
+                "5. What condition is checked to ensure that the script runs as the main program?",
+                "6. What does the text imply about the complexity of the operations being performed?",
+                "7. What inputs are mentioned as necessary for calculating outputs in the MLP class?",
+                "8. How does the text describe the process after inputs are passed into the MLP class?",
+                "9. What is the significance of the phrase \"the mop has done its magic\" in the context of the text?",
+                "10. What programming construct is used to determine if the script is the main module?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main. So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs,",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "896.909",
+            "questions": [
+                "1. What is the purpose of the MLP class mentioned in the text?",
+                "2. What is the significance of forward propagation in the context of neural networks?",
+                "3. How do we ensure that a script runs as the main program in Python?",
+                "4. What are the steps to create an MLP as described in the text?",
+                "5. What is meant by \"the mop has done its magic\" in relation to neural networks?",
+                "6. What inputs are necessary to calculate the outputs of the MLP?",
+                "7. Why is it important to create a neural network before performing forward propagation?",
+                "8. How does the text suggest handling script execution in Python?",
+                "9. What role do inputs play in the output calculation of an MLP?",
+                "10. Can you explain the structure of a neural network based on the information provided?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs, then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "926.679",
+            "questions": [
+                "1. What does \"M LP\" stand for in the context of the text?",
+                "2. What is the first step mentioned for creating an M LP?",
+                "3. What type of network is required to create an M LP?",
+                "4. What is the purpose of inputs in the process described?",
+                "5. What does \"forward prop propagation\" refer to in neural network terminology?",
+                "6. What action is taken after performing forward propagation?",
+                "7. What does the speaker imply might be an issue when printing results?",
+                "8. How does the speaker describe the process of creating an M LP?",
+                "9. What is the overall goal of the steps outlined in the text?",
+                "10. What does the speaker mean by \"Cool\" in the context of the discussion?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs, then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "943.52",
+            "questions": [
+                "1. What is the purpose of creating an MLP as mentioned in the text?",
+                "2. What is the first step in the process of creating an MLP?",
+                "3. What is the significance of forward propagation in the context of an MLP?",
+                "4. How do we initialize an MLP according to the text?",
+                "5. What class is used to create an MLP?",
+                "6. Can we customize the number of layers and neurons in an MLP? If so, how?",
+                "7. What does the speaker imply about using default values for the MLP?",
+                "8. What is the final action mentioned in the process after performing forward propagation?",
+                "9. What seems to be the speaker's attitude towards potential mistakes in the process?",
+                "10. What is the overall tone of the speaker in the provided text?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "957.64",
+            "questions": [
+                "1. What is the purpose of performing forward propagation in this context?",
+                "2. How do you create an MLP according to the text?",
+                "3. What does MLP stand for?",
+                "4. What is the significance of the number of layers and neurons in an MLP?",
+                "5. Are default values used when creating the MLP in the example provided?",
+                "6. What type of data structure is used for inputs in the example?",
+                "7. Why is it important for the input vector to match the number of neurons in the input layer?",
+                "8. What steps are mentioned for printing the results after forward propagation?",
+                "9. What does the acronym \"MLP\" refer to in the context of neural networks?",
+                "10. What might be the implications of changing the number of layers or neurons in the MLP?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer. So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "985.929",
+            "questions": [
+                "1. What is the purpose of the M LP class mentioned in the text?",
+                "2. How can the number of layers and neurons in each layer be modified within the M LP constructor?",
+                "3. What are the default values referenced in the text, and when are they used?",
+                "4. What is meant by \"inputs\" in the context of the M LP class?",
+                "5. How should the inputs vector be structured in relation to the input layer?",
+                "6. Which library is used to generate random inputs, as mentioned in the text?",
+                "7. What is the significance of a one-dimensional array in this context?",
+                "8. How is the dimension of the inputs vector determined according to the M LP class?",
+                "9. What does the term \"neurons in the input layer\" refer to?",
+                "10. Can you explain how random inputs are created based on the information provided?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer. So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs. So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1008.0",
+            "questions": [
+                "1. What is the requirement for the vector of inputs in relation to the input layer's neurons?",
+                "2. How do we create random inputs for the neural network?",
+                "3. Which library is mentioned for generating random inputs?",
+                "4. What type of array is used to represent the inputs in this context?",
+                "5. How is the dimension of the input vector determined?",
+                "6. What is the next step after creating the input vector?",
+                "7. What is the process used to obtain the outputs from the inputs?",
+                "8. What does \"forward propagate\" refer to in this context?",
+                "9. What is the expected outcome after performing the forward propagation?",
+                "10. How should the output be structured after processing the inputs?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs. So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector. And now we want to print like what we've done. OK. So let's do print uh network.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1021.969",
+            "questions": [
+                "1. What library is referenced for generating random inputs in the text?",
+                "2. What type of array is mentioned as being created for the inputs?",
+                "3. How is the dimension of the input vector determined?",
+                "4. What does \"M LP dots number of inputs\" refer to in the context of the text?",
+                "5. What is the main goal after generating the inputs according to the text?",
+                "6. What process is described for obtaining outputs from the inputs?",
+                "7. What does \"forward propagate\" mean in the context of this text?",
+                "8. What is the expected outcome after passing all the inputs through the network?",
+                "9. What action is suggested to visualize the results of the network's computations?",
+                "10. What is meant by \"print uh network\" in the context of the text?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector. And now we want to print like what we've done. OK. So let's do print uh network. The net work output is and will pass uh the outputs here. And",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1049.569",
+            "questions": [
+                "1. What is the primary goal mentioned in the text regarding outputs?",
+                "2. What method is suggested for obtaining the outputs?",
+                "3. What do we need to pass in to perform a forward propagation?",
+                "4. What type of vector is generated after the forward propagation?",
+                "5. What does the text suggest we should do with the output vector?",
+                "6. How is the output presented in the text?",
+                "7. What command is mentioned for printing the network output?",
+                "8. What does the phrase \"the network output is\" imply about the following content?",
+                "9. What is implied by the phrase \"return only list of questions\" in the context of this text?",
+                "10. What is the significance of printing the outputs in the context of network operations?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "And now we want to print like what we've done. OK. So let's do print uh network. The net work output is and will pass uh the outputs here. And OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1072.17",
+            "questions": [
+                "1. What is the purpose of printing the network output?",
+                "2. How do we pass the outputs to the network?",
+                "3. What should be changed to print the network input?",
+                "4. What is meant by \"we have the outputs\" in the context of the text?",
+                "5. What does \"M LP objects\" refer to in this context?",
+                "6. How were the random inputs created for the network?",
+                "7. What does it mean to \"pass that to the network\"?",
+                "8. What is the significance of ensuring \"everything should be in place\"?",
+                "9. What type of outputs does the network return?",
+                "10. Why is it important to print both inputs and outputs?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "The net work output is and will pass uh the outputs here. And OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1081.29",
+            "questions": [
+                "1. What is the primary purpose of the network output mentioned in the text?",
+                "2. How are the inputs being processed in the network?",
+                "3. What changes need to be made to the network input according to the text?",
+                "4. What does the term \"forward propagation\" refer to in this context?",
+                "5. What is the significance of printing both the inputs and outputs?",
+                "6. What type of object has been built, as mentioned in the text?",
+                "7. What kind of inputs were created to pass to the network?",
+                "8. What does the author hope to see after running the final step of the process?",
+                "9. What indicates that everything is \"in place\" according to the text?",
+                "10. What does the author imply about the correctness of their implementation?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1095.119",
+            "questions": [
+                "1. What is being passed and printed in the given text?",
+                "2. What changes are needed regarding the network input in the code?",
+                "3. How are the outputs being handled in the process described?",
+                "4. What type of objects have been built as mentioned in the text?",
+                "5. What kind of inputs were created and passed to the network?",
+                "6. What process is performed by the network after receiving the inputs?",
+                "7. What are the expected results after running the code?",
+                "8. How many values are indicated as the network input in the example?",
+                "9. Why is it important to have three inputs in this scenario?",
+                "10. What does the presence of three neurons in the input layer signify?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1120.14",
+            "questions": [
+                "1. What is the purpose of performing forward propagation in a neural network?",
+                "2. How many inputs are used in the network mentioned in the text?",
+                "3. Why is it important that the number of inputs matches the number of neurons in the input layer?",
+                "4. What are the expected outputs of the network described in the text?",
+                "5. How many neurons are there in the output layer of the network?",
+                "6. What does it mean for the outputs to be \"made up of two values\"?",
+                "7. What should you do after running the network to confirm it is functioning correctly?",
+                "8. How does the text suggest you feel about the results after running the network?",
+                "9. Why is it significant to print both the inputs and outputs during the process?",
+                "10. What can be inferred about the structure of the network based on the inputs and outputs mentioned?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that?",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1140.729",
+            "questions": [
+                "1. What are the three values mentioned as the network input?",
+                "2. Why is it correct to have three inputs for the neural network?",
+                "3. How many neurons are there in the input layer of the network?",
+                "4. What are the two values referred to in the output of the neural network?",
+                "5. Why is it correct to have two output values for the neural network?",
+                "6. How many neurons are there in the output layer of the network?",
+                "7. What achievement is highlighted regarding the implementation of the neural network?",
+                "8. What is implied by saying you know more than most people about creating a neural network?",
+                "9. What concern is raised about the neural network after its implementation?",
+                "10. What question does the speaker pose regarding the next steps for the neural network?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that? Well, this is a huge topic in itself and it's gonna be the focus of my next video where I'm gonna basically explain the theory behind back propagation and gradient descent uh which are like the two approaches, the two techniques which we used to uh train network with uh some uh training data set.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1161.119",
+            "questions": [
+                "1. What are the two values mentioned in the output of the neural network?",
+                "2. Why are two values expected for the outputs in this neural network?",
+                "3. What does the author suggest you should do after implementing the neural network?",
+                "4. What is the \"elephant in the room\" that the author refers to?",
+                "5. Why hasn't the network been trained yet, according to the text?",
+                "6. What will be the focus of the author's next video?",
+                "7. What are the two key techniques mentioned for training the neural network?",
+                "8. What is back propagation in the context of neural networks?",
+                "9. How does gradient descent relate to training a neural network?",
+                "10. What is the significance of having a training data set in neural network training?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that? Well, this is a huge topic in itself and it's gonna be the focus of my next video where I'm gonna basically explain the theory behind back propagation and gradient descent uh which are like the two approaches, the two techniques which we used to uh train network with uh some uh training data set. So yeah, next time we're gonna do that. So I hope you enjoyed this video if you did. Uh And if you want to get like more videos, remember to subscribe and hit the notification bell. Uh because that way you're gonna get like all the videos once I upload them and if you like again the video just like also leave a like and I guess I'll see you next time. Cheers.",
+            "video": "6- Implementing a neural network from scratch in Python",
+            "start_time": "1187.339",
+            "questions": [
+                "1. What have you just finished implementing from scratch?",
+                "2. What do you know more about than most people regarding neural networks?",
+                "3. What is the main topic of your next video?",
+                "4. What are the two techniques mentioned for training a neural network?",
+                "5. What is back propagation and why is it important in training neural networks?",
+                "6. How does gradient descent contribute to the training process of a neural network?",
+                "7. What will you explain in your next video about training neural networks?",
+                "8. What should viewers do to receive notifications for new videos?",
+                "9. How can viewers show appreciation for the video content?",
+                "10. What can viewers expect in the next video after this one?"
+            ]
+        }
+    ]
+}

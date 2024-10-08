@@ -1,0 +1,1552 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new video in the Deep learning for Rodeo with Python Series. This time, we're gonna build a neural network using tensorflow um tensorflow. Is this amazing deep learning library that's like used very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main focus of the video in the Deep Learning for Rodeo with Python Series?",
+                "2. Which deep learning library is being used to build the neural network in this video?",
+                "3. Why is TensorFlow considered significant in both industry and academia?",
+                "4. What is the first step mentioned in building a neural network model?",
+                "5. What does compiling a model involve according to the video?",
+                "6. What are two key components that need to be specified when compiling the model?",
+                "7. What is the purpose of the error function in the model compilation process?",
+                "8. What is meant by \"optimizing\" in the context of training a neural network?",
+                "9. What is the sequence of steps outlined for building and training the neural network?",
+                "10. Is there any mention of specific architectures or types of neural networks in the video?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right?",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "14.939",
+            "questions": [
+                "1. What is the first step in building a neural network model according to the text?",
+                "2. What does compiling the model involve?",
+                "3. What are some examples of information that need to be passed during the compilation of the model?",
+                "4. Why is it important to evaluate the model after training?",
+                "5. What is the final goal mentioned in the text after evaluating the model?",
+                "6. What is a prerequisite for building the model as stated in the text?",
+                "7. What does the term \"architecture\" refer to in the context of neural networks?",
+                "8. What role does the optimizer play in the training process?",
+                "9. How does the text suggest we assess the performance of the model?",
+                "10. What is the significance of having a dataset before building a model?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right? And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "30.395",
+            "questions": [
+                "1. What is the first step in building a neural network model?",
+                "2. What does it mean to compile a model in the context of neural networks?",
+                "3. What types of information are passed during the model compilation process?",
+                "4. Why is it important to train the model after compiling it?",
+                "5. How do we evaluate the performance of the model?",
+                "6. What is the final goal after training and evaluating the model?",
+                "7. What type of data set is needed before building the model?",
+                "8. What type of data set will be used for training the model in this context?",
+                "9. What specific task is the model intended to perform?",
+                "10. How does the current model relate to the artificial data set built in the previous video?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right? And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "53.369",
+            "questions": [
+                "1. What is the first step in evaluating the model mentioned in the text?",
+                "2. Why is it important to have a data set before building the model?",
+                "3. What type of data set is referenced in the text?",
+                "4. What task is the model being trained to perform?",
+                "5. How does the text describe the difficulty of the task the model will perform?",
+                "6. What library or framework is mentioned for building the neural network?",
+                "7. What format are the inputs required for the model?",
+                "8. How are the samples for the data set defined in the text?",
+                "9. In what context was the artificial data set created?",
+                "10. What are the intended outputs for the model based on the data set described?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "69.879",
+            "questions": [
+                "1. What type of data set is being used in the video?",
+                "2. What is the purpose of the artificial data set mentioned?",
+                "3. What difficult task is the model being trained to perform?",
+                "4. How are the inputs for each sample structured in the data set?",
+                "5. What format are the inputs expected to be in?",
+                "6. What values are used as an example input for the sample?",
+                "7. What is the expected output when adapting the inputs 0.1 and 0.2?",
+                "8. What programming language is used to build the neural network in the previous video?",
+                "9. Why is it important to have the right inputs and outputs for training the model?",
+                "10. How does the example of adapting 0.1 and 0.2 to get 0.3 relate to the arithmetic sum task?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So basically, like our array is going to look something like this",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "98.69",
+            "questions": [
+                "1. What are the required formats for the inputs and outputs?",
+                "2. What type of arrays are specified for the inputs?",
+                "3. How many values will each sample consist of?",
+                "4. What is the purpose of adapting the values from 0.1 to 0.2?",
+                "5. What should the result be after adapting the inputs?",
+                "6. Can you describe how the array will be structured based on the given information?",
+                "7. What does \"NPI\" refer to in the context of the arrays?",
+                "8. How will the samples be represented in the inputs?",
+                "9. What is the significance of the values 0.1, 0.2, and 0.3 in the process described?",
+                "10. What does the term \"outputs\" refer to in this context?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So basically, like our array is going to look something like this and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right?",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "121.55",
+            "questions": [
+                "1. What are the values mentioned in the text that are being used as inputs for the sample?",
+                "2. How is the adaptation of 0.1 to 0.2 expected to yield a result of 0.3?",
+                "3. What does the output array represent in the context of the provided text?",
+                "4. At which index does the addition of 0.1 and 0.2 occur in the example?",
+                "5. What is the expected result when adding 0.1 and 0.2 together?",
+                "6. How is the concept of summation illustrated in the example given?",
+                "7. What value is desired at the next index after summing 0.1 and 0.2?",
+                "8. What is the significance of the output array in relation to the input values?",
+                "9. Can you explain the process of how the input values are transformed into the output?",
+                "10. What might be the implications of adapting values in this manner for larger datasets?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "basically, like our array is going to look something like this and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right? So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "133.759",
+            "questions": [
+                "1. What is the purpose of the output array mentioned in the text?",
+                "2. How is the value at index zero of the output array calculated?",
+                "3. What two values are added together to get the result at index zero?",
+                "4. What value is expected at index one of the output array based on the example?",
+                "5. Which library is mentioned as necessary to import for the code to work?",
+                "6. What does the abbreviation \"NP\" stand for in the context of the import statement?",
+                "7. Why is the author not going to cover the creation of the data set again?",
+                "8. What does the author refer to when mentioning \"a couple of lines of code\"?",
+                "9. How does the author describe the structure of the array?",
+                "10. What kind of operations are being performed on the values in the array?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right? So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP. And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "139.27",
+            "questions": [
+                "1. What is the purpose of the output array mentioned in the text?",
+                "2. How is the value at index zero of the output array calculated?",
+                "3. What is the expected result when adding 0.1 and 0.2?",
+                "4. What does the speaker mean by saying \"we want something like no 0.4\"?",
+                "5. Why does the speaker mention not covering the dataset building process again?",
+                "6. Which library is required to be imported for the functionality discussed in the text?",
+                "7. What is the alias used for the NumPy library in the code?",
+                "8. From which module is the random function being imported?",
+                "9. What range of values does the random function sample from?",
+                "10. Why is the random function important in the context of the text?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP. And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool. OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "157.41",
+            "questions": [
+                "1. What is the first step mentioned for building the data set?",
+                "2. Which library is necessary to import for working with NumPy?",
+                "3. How do we import the random function from the random module?",
+                "4. What is the purpose of the random function in this context?",
+                "5. What types of values does the random function sample?",
+                "6. What three components are mentioned as necessary for the model training process?",
+                "7. What does the acronym \"NP\" stand for in the context of the code provided?",
+                "8. Why is it important to import necessary libraries when building a data set?",
+                "9. What is the relationship between inputs, outputs, and training a model in machine learning?",
+                "10. What does the speaker imply about the familiarity of the audience with the random function?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool. OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning, uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "181.77",
+            "questions": [
+                "1. What module do we need to import to use the random function in Python?",
+                "2. What range of values does the random function sample from?",
+                "3. What are the three components mentioned that are involved in machine learning models?",
+                "4. Why is it important to split a dataset into a training set and a test set?",
+                "5. How does the training set contribute to the development of a machine learning model?",
+                "6. What is the purpose of the test set in evaluating a model's performance?",
+                "7. Why is it significant for the test set to contain data that the neural network has never seen before?",
+                "8. What happens after the model is trained on the training set?",
+                "9. How can we determine if a model is performing well based on the test set?",
+                "10. What is the relationship between deep learning and the process of splitting data into training and test sets?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning, uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "200.649",
+            "questions": [
+                "1. What are the key components involved in training a machine learning model?",
+                "2. Why is it important to split a data set into a training set and a test set?",
+                "3. How does the training process work for a machine learning model?",
+                "4. What is the purpose of using a test set after training a model?",
+                "5. Why is it essential for the neural network to evaluate data it has never seen before?",
+                "6. What does it mean for a neural network to generalize patterns?",
+                "7. How can we assess the effectiveness of a trained model?",
+                "8. What potential issues could arise if we do not use a test set?",
+                "9. In what ways can the training set influence the performance of a model?",
+                "10. What steps are involved in splitting a data set for machine learning training?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "219.089",
+            "questions": [
+                "1. What are the two sets into which a data set is typically split for model training and evaluation?",
+                "2. What is the purpose of using a training set in machine learning?",
+                "3. How does the test set help in evaluating a neural network's performance?",
+                "4. Why is it important for the neural network to evaluate on data it has never seen before?",
+                "5. What does it mean for a neural network to generalize patterns learned during training?",
+                "6. What is the advantage of using a pre-built function from the Psych Learn library for data set splitting?",
+                "7. Can you explain the difference between a training set and a test set?",
+                "8. What is the Psych Learn library, and why is it considered fundamental for traditional machine learning?",
+                "9. How does splitting a data set contribute to the reliability of a machine learning model?",
+                "10. What steps are involved in training a model using a training set and evaluating it with a test set?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning. So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "243.19",
+            "questions": [
+                "1. What is the purpose of evaluating a neural network after training?",
+                "2. How can we determine if a neural network has generalized the patterns it learned?",
+                "3. What is the significance of using a test set in evaluating a neural network?",
+                "4. What is the function provided by the Psych Learn library for splitting datasets?",
+                "5. Why is it suggested not to reinvent the wheel when splitting datasets?",
+                "6. What is the command to import the train test split function from the Psych Learn library?",
+                "7. What is the Psych Learn library used for in machine learning?",
+                "8. How can someone install the Psych Learn library on their machine?",
+                "9. How long does it typically take to install the Psych Learn library using pip?",
+                "10. What are the two sets that a dataset is split into for training and evaluation purposes?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning. So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less. Good. So here what we want to do is to have an X train,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "267.29",
+            "questions": [
+                "1. What is the purpose of splitting a data set into a training set and a test set?  ",
+                "2. Which library is mentioned as a fundamental tool for traditional machine learning?  ",
+                "3. What function from the Psych Learn library is used to split data sets?  ",
+                "4. How does the author feel about reinventing the wheel in terms of data splitting?  ",
+                "5. What is the command to import the train test split function from the Psych Learn library?  ",
+                "6. What command should you use to install the Psych Learn library if it's not already installed?  ",
+                "7. Approximately how long does it take to install the Psych Learn library using pip?  ",
+                "8. What does the author want to achieve by using the train test split function?  ",
+                "9. What might be the consequences of not splitting a data set into training and test sets?  ",
+                "10. Why is the Psych Learn library considered super important for traditional machine learning?  "
+            ]
+        },
+        {
+            "id": 15,
+            "text": "So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less. Good. So here what we want to do is to have an X train, an X tests, a wide train",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "291.589",
+            "questions": [
+                "1. What function is being imported in the text?",
+                "2. Which library is the 'train test split' function part of?",
+                "3. How can one install the required library if it's not already installed?",
+                "4. What command is used to install the library mentioned in the text?",
+                "5. How long is it estimated to take to install the library?",
+                "6. What are the three variables that the text mentions we want to create?",
+                "7. What is the purpose of the 'train test split' function?",
+                "8. What programming language is being referenced in the text?",
+                "9. What does 'X train' represent in the context of the text?",
+                "10. What does 'y train' refer to in the context of the text?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "Good. So here what we want to do is to have an X train, an X tests, a wide train and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "315.049",
+            "questions": [
+                "1. What is the purpose of having an X train and X test in the context of data splitting?",
+                "2. Why is it important to have a wide train and A Y test?",
+                "3. What function are we going to call for the train test split?",
+                "4. What arguments need to be passed into the train test split function?",
+                "5. How do we specify the test size when calling the train test split function?",
+                "6. What are the expected outputs of the train test split function?",
+                "7. What is the significance of splitting data into training and testing sets?",
+                "8. How can the size of the test set impact model performance?",
+                "9. What might happen if the test size is set too low or too high?",
+                "10. Can you explain the difference between inputs and outputs in this context?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "an X tests, a wide train and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "324.809",
+            "questions": [
+                "1. What does the term \"train test split\" refer to in the context of data processing?",
+                "2. How are inputs and outputs used in the train test split function?",
+                "3. What does specifying a test size of 0.3 imply for the data split?",
+                "4. What percentage of the dataset is allocated to the training set when using a test size of 0.3?",
+                "5. Why is it important to divide a dataset into a training set and a test set?",
+                "6. Can you explain the significance of having both a training set and a test set?",
+                "7. What would happen if the test size value were set to 0.5 instead of 0.3?",
+                "8. In this context, what does \"all the samples that we have in our inputs and outputs\" refer to?",
+                "9. What kind of function is being called to perform the train test split?",
+                "10. What is the expected outcome after executing the train test split function?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "330.179",
+            "questions": [
+                "1. What is the purpose of the train test split function mentioned in the text?",
+                "2. How do you specify the size of the test set in the function?",
+                "3. What percentage of the dataset is allocated to the training set when passing 0.3 as the test size?",
+                "4. What are the two components of the dataset being divided by the train test split function?",
+                "5. Why does the author express a desire for a more modular approach?",
+                "6. What does the author intend to call the new function they plan to define?",
+                "7. How are the training and test sets accessed after the split?",
+                "8. What are the implications of using a 30% test size for model evaluation?",
+                "9. Can the train test split function handle different data types for inputs and outputs?",
+                "10. What is the significance of having both XS and Ys in the context of this function?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um data set",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "346.109",
+            "questions": [
+                "1. What percentage of the whole data set is allocated to the training set in the given text?",
+                "2. How does the author describe the division of the data set?",
+                "3. What are the components included in the training and test sets mentioned in the text?",
+                "4. Why does the author express dissatisfaction with the current method of data division?",
+                "5. What is the author\u2019s intention for making the data division process more modular?",
+                "6. What function does the author propose to create for handling the data set?",
+                "7. What are \"XS\" and \"Ys\" referring to in the context of the data set?",
+                "8. How does the author suggest accessing the training and test sets?",
+                "9. What is the primary objective of defining the function \"generate data set\"?",
+                "10. In the context of the text, what might be the implications of having a more modular data division approach?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um data set and I'll pass in a couple of arguments. So one being number of samples and the other one being test size.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "375.54",
+            "questions": [
+                "1. What are XS and Ys in the context of this text?",
+                "2. Why does the author express a desire for a more modular approach?",
+                "3. What is the purpose of the function being defined in the text?",
+                "4. What arguments will be passed into the function called \"generate um data set\"?",
+                "5. How does the author feel about the current accessibility of XS and Ys?",
+                "6. What is meant by \"number of samples\" in relation to the function?",
+                "7. What role does \"test size\" play in the function definition?",
+                "8. How might a modular approach benefit the data generation process?",
+                "9. What are the potential outputs of the function \"generate um data set\"?",
+                "10. In what scenarios could the function described be useful?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "data set and I'll pass in a couple of arguments. So one being number of samples and the other one being test size. So",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "393.26",
+            "questions": [
+                "1. What is the significance of the number of samples in a data set?",
+                "2. How does the test size impact the results of a data analysis?",
+                "3. What are the typical arguments used when working with data sets?",
+                "4. Can the number of samples affect the accuracy of a model?",
+                "5. What methods can be used to determine the optimal test size?",
+                "6. How do you define a valid test size when splitting a data set?",
+                "7. Are there any standard ratios for splitting data into training and test sets?",
+                "8. What are the potential consequences of using too few samples in a data analysis?",
+                "9. How can one ensure the representativeness of samples in a data set?",
+                "10. What tools or libraries can be used to manipulate data sets and set sample sizes?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "and I'll pass in a couple of arguments. So one being number of samples and the other one being test size. So here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "395.459",
+            "questions": [
+                "1. What are the two arguments being passed into the function?",
+                "2. What does the function return?",
+                "3. What is the purpose of specifying the number of samples?",
+                "4. How is the test size utilized in the function?",
+                "5. What do \"X train\" and \"Y train\" refer to in the context of the function?",
+                "6. What do \"X test\" and \"Y test\" represent in the function's output?",
+                "7. Why is it important to determine the number of samples for the dataset?",
+                "8. How does the function handle the specified test size?",
+                "9. What might happen if an invalid number of samples is passed to the function?",
+                "10. Can you explain the significance of separating training data from test data?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "So here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working. And so we'll just do a if name is equal to main",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "408.279",
+            "questions": [
+                "1. What is the purpose of the function mentioned in the text?",
+                "2. What are the variables 'X', 'Y', and 'test' referring to in the context of the function?",
+                "3. How do you specify the number of samples in the dataset?",
+                "4. Where do you pass the test size in the function?",
+                "5. What does the phrase \u201clet's see if this is working\u201d imply about the code execution?",
+                "6. What does the condition \u201cif name is equal to main\u201d indicate in Python programming?",
+                "7. Why is it important to define the number of samples for the dataset?",
+                "8. What might the function return based on the description provided?",
+                "9. Could you explain the significance of having separate training and testing datasets?",
+                "10. What programming language is being referred to in the text?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working. And so we'll just do a if name is equal to main and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "410.7",
+            "questions": [
+                "1. What is the purpose of the function mentioned in the text?",
+                "2. How are the training and testing datasets referred to in the text?",
+                "3. What parameters are specified for the dataset in the function?",
+                "4. How many total samples are intended to be generated according to the text?",
+                "5. How many samples are designated for the test set in the example?",
+                "6. What is the significance of the 'if __name__ == \"__main__\"' statement in the code?",
+                "7. What is the expected output when the function runs successfully, according to the text?",
+                "8. How does the text describe the format of the data being returned by the function?",
+                "9. What action is taken after generating the datasets in the example?",
+                "10. What does the phrase \"these nice guys\" refer to in the context of the text?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "And so we'll just do a if name is equal to main and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "439.989",
+            "questions": [
+                "1. What is the purpose of checking if the name is equal to main in the code?",
+                "2. How many samples are being generated in the data set?",
+                "3. How many samples are designated for the test set?",
+                "4. What does the function return after generating the data sets?",
+                "5. How is the output of the test set referred to in the text?",
+                "6. What is the significance of printing a few samples from the generated data?",
+                "7. What programming language is being discussed in the text?",
+                "8. What is the main action being performed in the code snippet?",
+                "9. Why might someone want to limit the number of samples in the test set?",
+                "10. What are the \"nice guys\" referred to in the context of the function's output?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set, this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "449.69",
+            "questions": [
+                "1. What action is being taken after moving into the new area?",
+                "2. How many samples are being generated in the described process?",
+                "3. What is the purpose of having two samples as part of the test set?",
+                "4. What type of output is the function providing after generating the data sets?",
+                "5. What variable is used to represent the inputs for the test set?",
+                "6. How is the 'X test' variable formatted in the code?",
+                "7. Which variable is referenced to display the outputs for the test set?",
+                "8. What does the user intend to check by printing 'X test' and 'Y test'?",
+                "9. What does the phrase \"this should work\" imply about the user's expectations?",
+                "10. What action is suggested to confirm whether the code functions correctly?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set, this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool. Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "476.559",
+            "questions": [
+                "1. What is the purpose of the X test in the context of this text?",
+                "2. How is the input for the test set defined in the provided text?",
+                "3. What does Y test represent in this context?",
+                "4. What dimensions does the DX test matrix have?",
+                "5. How many values are associated with each sample in the DX test matrix?",
+                "6. What is the expected structure of the Y test matrix?",
+                "7. What is indicated by the phrase \"this should work\" in the text?",
+                "8. What does the author mean by \"this is working as expected\"?",
+                "9. What example is provided to illustrate the structure of Y test?",
+                "10. What does the author imply by saying \"let's run this and see if it works\"?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool. Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the arithmetic sum of these two guys here. So yeah, this is working great.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "488.89",
+            "questions": [
+                "1. What is being passed in for the variable X test?",
+                "2. How is Y test related to the context of the text?",
+                "3. What type of matrix is used for DX test?",
+                "4. How many values does each sample in DX test consist of?",
+                "5. What does the two by one matrix for Y test represent?",
+                "6. What operation is performed to derive the value at index zero?",
+                "7. What is the expected outcome when running the code mentioned in the text?",
+                "8. How is the performance of the code described in the text?",
+                "9. What is the significance of the two values in the DX test matrix?",
+                "10. What does the author mean by \"this should work\" in the context of the text?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the arithmetic sum of these two guys here. So yeah, this is working great. OK. So yeah, and we want to comment out like this guys here. And now we are",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "512.59",
+            "questions": [
+                "1. What is the structure of the DX test matrix mentioned in the text?",
+                "2. How many values are used to define each sample in the DX test?",
+                "3. What does the Y test matrix represent in this context?",
+                "4. What is the size of the Y test matrix as described in the text?",
+                "5. How is the value at index zero of the Y test matrix calculated?",
+                "6. What operation is used to obtain the value at index zero in the Y test matrix?",
+                "7. What does the author mean by \"this is working great\"?",
+                "8. What action does the author suggest regarding the \"guys here\"?",
+                "9. What is the significance of commenting out the mentioned elements?",
+                "10. How do the matrices in the DX and Y tests relate to each other?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "arithmetic sum of these two guys here. So yeah, this is working great. OK. So yeah, and we want to comment out like this guys here. And now we are at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "540.76",
+            "questions": [
+                "1. What is the significance of the arithmetic sum mentioned in the text?",
+                "2. What is the first step to start working with TensorFlow according to the text?",
+                "3. How do you import TensorFlow in your code?",
+                "4. What does the abbreviation \"STF\" likely refer to in the context of this text?",
+                "5. Why is it suggested to comment out certain parts of the code?",
+                "6. What kind of project or task is being described in the text?",
+                "7. What programming language is implied to be used in the text?",
+                "8. What might be the purpose of using TensorFlow as mentioned in the text?",
+                "9. What does the phrase \"this is working great\" imply about the current progress?",
+                "10. Are there any specific functions or features of TensorFlow indicated in the text?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "OK. So yeah, and we want to comment out like this guys here. And now we are at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "547.03",
+            "questions": [
+                "1. What is the first step mentioned for starting with TensorFlow?",
+                "2. How do you import TensorFlow in your code?",
+                "3. What are the two versions of TensorFlow mentioned in the text?",
+                "4. Which version of TensorFlow is being used in the video?",
+                "5. Why is the author using the CPU version of TensorFlow instead of the GPU version?",
+                "6. What should you do if TensorFlow is not installed on your system?",
+                "7. What command is used to install TensorFlow?",
+                "8. What is the purpose of commenting out code in the context of the text?",
+                "9. What does the author mean by \"the stuff that I'll do is quite cheap computationally\"?",
+                "10. Is there any indication of the specific tasks that will be performed using TensorFlow in the video?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "556.59",
+            "questions": [
+                "1. What is the first step to start working with TensorFlow?",
+                "2. How do you import TensorFlow in your code?",
+                "3. What are the two flavors of TensorFlow mentioned in the text?",
+                "4. Why is the speaker using the CPU version of TensorFlow?",
+                "5. How can you install TensorFlow if it is not already installed?",
+                "6. What command is used to install TensorFlow via pip?",
+                "7. Why is installing the CPU version of TensorFlow described as easier?",
+                "8. What challenges might one face when installing the GPU version of TensorFlow?",
+                "9. Where can you find resources for installing the GPU version of TensorFlow?",
+                "10. What is the computational requirement for the tasks being performed in the video?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good. OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "573.34",
+            "questions": [
+                "1. What are the two flavors of TensorFlow mentioned in the text?",
+                "2. Why is the speaker using the CPU version of TensorFlow?",
+                "3. How can one install TensorFlow according to the text?",
+                "4. What is the easier version of TensorFlow to install?",
+                "5. Why is the GPU version of TensorFlow described as trickier to install?",
+                "6. What resources does the speaker suggest for installing the GPU version of TensorFlow?",
+                "7. What type of model is the speaker planning to build?",
+                "8. Which TensorFlow module is used to create a sequential model?",
+                "9. What does the speaker imply about the computational requirements of their tasks?",
+                "10. What is the first step mentioned in building a neural network model with TensorFlow?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good. OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential, right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "603.58",
+            "questions": [
+                "1. What is the difference between installing the CPU version and the GPU version mentioned in the text?",
+                "2. What resources are available for those who want to install the GPU version?",
+                "3. What is the purpose of building a model in this context?",
+                "4. What framework is being used to build the neural network model?",
+                "5. What does \"tensorflow.keras.sequential\" refer to in the text?",
+                "6. How does Keras relate to TensorFlow in terms of functionality?",
+                "7. Why is Keras described as making TensorFlow code easier to work with?",
+                "8. What types of neural networks can be built using the methods discussed in the text?",
+                "9. How many lines of code does it take to build complex neural networks with Keras?",
+                "10. What is the significance of using high-level libraries like Keras in neural network development?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential, right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code. And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "619.359",
+            "questions": [
+                "1. What is the purpose of building a model in the context of this text?",
+                "2. Which library is mentioned for constructing the neural network?",
+                "3. How does Keras simplify the process of using TensorFlow?",
+                "4. What type of neural network architecture is being referenced in the text?",
+                "5. Why is a sequential model chosen for the neural network?",
+                "6. How does the input signal flow in a sequential neural network?",
+                "7. What previous video is referenced for more detailed instructions on building the model?",
+                "8. What is the relationship between Keras and TensorFlow as described in the text?",
+                "9. How does the text describe the complexity of building neural networks with Keras?",
+                "10. What is implied about the familiarity of the audience with neural networks based on the text?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code. And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video, um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "636.419",
+            "questions": [
+                "1. What is Kas in relation to TensorFlow?",
+                "2. How does Kas simplify the process of building neural networks?",
+                "3. What type of neural network architecture is being discussed in the text?",
+                "4. Why is a sequential network chosen for the model?",
+                "5. How does the input signal move in a sequential network?",
+                "6. How many neurons are in the input layer of the specified model?",
+                "7. How many neurons are in the hidden layer of the specified model?",
+                "8. How many neurons are in the output layer of the specified model?",
+                "9. What should viewers do if they want to understand how to build the neural network from scratch?",
+                "10. What command is suggested to use for building the neural network in the text?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video, um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers. And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "656.679",
+            "questions": [
+                "1. What type of network architecture is being discussed in the text?",
+                "2. In which direction does the input signal move in the described sequential network?",
+                "3. How many neurons are in the input layer of the neural network?",
+                "4. How many neurons are in the hidden layer of the neural network?",
+                "5. What is the number of neurons in the output layer of the neural network?",
+                "6. What is the purpose of using a dense layer in the neural network?",
+                "7. What function is used to create layers in the described neural network?",
+                "8. What does a dense layer connect in a neural network?",
+                "9. Where can viewers find more information about building the neural network from scratch?",
+                "10. Why is it important to have a fully connected layer in the architecture of the neural network?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers. And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "685.38",
+            "questions": [
+                "1. What is the desired structure of the neural network described in the text?",
+                "2. How many neurons are specified for the input layer?",
+                "3. How many neurons should the hidden layer contain?",
+                "4. What is the configuration of the output layer in this neural network?",
+                "5. Which library is mentioned for building the neural network?",
+                "6. What type of layer is described as a \"fully connected layer\"?",
+                "7. What is a fundamental argument that the dense layer accepts?",
+                "8. Why is it important to specify the input dimension for the first hidden layer?",
+                "9. What is the total number of neurons in the hidden layer as mentioned in the text?",
+                "10. How does the dense layer connect neurons between layers?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case. And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "714.44",
+            "questions": [
+                "1. What is a dense layer in the context of neural networks?",
+                "2. How does a dense layer connect neurons from previous and current layers?",
+                "3. What is the fundamental argument that a dense layer accepts?",
+                "4. How many neurons are specified for the dense layer in the text?",
+                "5. What is the input dimension specified for the first hidden layer?",
+                "6. How many neurons are in the input layer according to the text?",
+                "7. What type of activation function is mentioned for the dense layer?",
+                "8. What activation function has been used in previous layers?",
+                "9. What is the structure of the output layer described in the text?",
+                "10. How many neurons does the output layer have?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case. And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one, a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "730.45",
+            "questions": [
+                "1. What is the fundamental argument accepted by the discussed model?",
+                "2. How many neurons are specified for the first hidden layer in the model?",
+                "3. What is the input dimension specified for the input layer?",
+                "4. What activation function is used for the first hidden layer?",
+                "5. How many neurons does the output layer contain?",
+                "6. Is it necessary to specify the input dimension for the output layer?",
+                "7. What activation function is used for the output layer?",
+                "8. How many lines of code are mentioned for building the model?",
+                "9. What type of layer is both the hidden and output layer described as?",
+                "10. Why is the sigmoid function referred to as \"famous\" in this context?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one, a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "754.309",
+            "questions": [
+                "1. What activation function is specified for the layer in the text?",
+                "2. How many neurons does the output layer contain?",
+                "3. Is the input dimension needed for the output layer?",
+                "4. What activation function is used for the output layer?",
+                "5. What command is used to compile the model?",
+                "6. What optimizer is specified for the model compilation?",
+                "7. Which optimization technique is mentioned in the text?",
+                "8. How does the output layer differ from the previous layers in terms of configuration?",
+                "9. What is the purpose of specifying an activation function for a layer?",
+                "10. What is the significance of using the sigmoid function in this context?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "776.2",
+            "questions": [
+                "1. What is the activation function mentioned in the text for the neuron model?",
+                "2. Why is the input dimension not needed when building the model?",
+                "3. What is the purpose of the model.compile() function in the code?",
+                "4. Which optimizer is specified for the model in the text?",
+                "5. What does \"stochastic gradient descent\" refer to in the context of model training?",
+                "6. How does the text describe the relationship between \"loss\" and \"error\"?",
+                "7. What loss function is used in the model, as mentioned in the text?",
+                "8. What does \"MS C\" stand for, and why is it used in this context?",
+                "9. Are there any references to previous videos or materials in the text?",
+                "10. What additional information does the author promise to provide regarding the theoretical and implementation aspects?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "791.919",
+            "questions": [
+                "1. What is the first step mentioned in compiling the model?",
+                "2. Which optimizer is suggested for use in the model compilation?",
+                "3. How is stochastic gradient descent referred to in the previous video?",
+                "4. What is the second piece of information that needs to be passed when compiling the model?",
+                "5. What is the alternative term used for the loss function in the text?",
+                "6. Which specific loss function is mentioned for use in the model?",
+                "7. What does MS C stand for in the context of the loss function?",
+                "8. Where can one find more information about the optimizer and loss function mentioned?",
+                "9. How are loss and error described in relation to each other in the text?",
+                "10. What is the significance of leaving the optimizer blank initially during model compilation?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "817.349",
+            "questions": [
+                "1. What does the speaker suggest leaving blank for now?  ",
+                "2. How does the speaker define the relationship between loss and error?  ",
+                "3. What abbreviation is used for the mean squared error in the text?  ",
+                "4. What has the speaker previously covered regarding the loss function?  ",
+                "5. What is the main topic of discussion before introducing the optimizer?  ",
+                "6. What is the specified optimizer mentioned in the text?  ",
+                "7. What does SGD stand for in the context of the optimizer?  ",
+                "8. What parameter is mentioned that can be passed to the SGD optimizer?  ",
+                "9. What is the learning rate value suggested by the speaker?  ",
+                "10. What type of content does the speaker say has been covered in previous videos?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good. So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "846.89",
+            "questions": [
+                "1. What is the optimizer being discussed in the text?",
+                "2. Which library is mentioned for implementing the optimizer?",
+                "3. What type of optimizer is specified in the text?",
+                "4. What does SGD stand for in the context of optimization?",
+                "5. What learning rate is suggested when setting up the SGD optimizer?",
+                "6. After compiling the model, what is the next step mentioned in the text?",
+                "7. How is the process of training the model described in the text?",
+                "8. What method is called to initiate the training of the model?",
+                "9. What does the acronym TF refer to in the context of the optimizer?",
+                "10. Why is stochastic gradient descent considered a \"nice\" optimizer?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good. So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot fit",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "857.7",
+            "questions": [
+                "1. What is the main function of the optimizer in the context of model training?",
+                "2. Which optimizer is being used in the text?",
+                "3. What does SGD stand for in the context of optimization?",
+                "4. How is the learning rate set in the optimizer?",
+                "5. What value is assigned to the learning rate in the example?",
+                "6. What is the next step after compiling the model?",
+                "7. How is the model trained according to the text?",
+                "8. What method is used to train the model?",
+                "9. What does the method \"model.fit\" do?",
+                "10. Is there any mention of the dataset used for training the model?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot fit and here obviously, we want to pass in the, the training set and so we'll pass in",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "882.0",
+            "questions": [
+                "1. What is the next step after compiling the model?",
+                "2. How do we train the model according to the text?",
+                "3. What method is used to fit the model?",
+                "4. What do we need to pass in when using the model.fit method?",
+                "5. Is training the model described as a complex or simple task?",
+                "6. What is meant by \"training set\" in the context of model training?",
+                "7. What is the significance of the model.fit function in the training process?",
+                "8. Are there any specific parameters mentioned that need to be passed to the model.fit method?",
+                "9. What does the phrase \"as easy as it can be\" imply about the training process?",
+                "10. Can you explain what happens during the model training phase?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "fit and here obviously, we want to pass in the, the training set and so we'll pass in so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "899.5",
+            "questions": [
+                "1. What is being passed into the training set in the given text?",
+                "2. What do \"X_train\" and \"Y_train\" represent in the context of the training set?",
+                "3. Why is it important to pass in both inputs and outputs when fitting a model?",
+                "4. What does the term \"train split\" refer to in machine learning?",
+                "5. How does passing training data affect the fitting process of a model?",
+                "6. What is the significance of the training set in the context of model training?",
+                "7. Can you explain the roles of X and Y in supervised learning?",
+                "8. What might happen if only the inputs are passed into the training set without the outputs?",
+                "9. In what scenarios would you need to adjust the training data before passing it in?",
+                "10. What are the potential consequences of using an incorrect training set for model fitting?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "and here obviously, we want to pass in the, the training set and so we'll pass in so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split. Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "901.2",
+            "questions": [
+                "1. What are the variables being passed into the training set?",
+                "2. What do X_train and Y_train represent in this context?",
+                "3. How many epochs are being specified for the training process?",
+                "4. Why is it important to pass in both inputs and outputs for the training split?",
+                "5. What action is being taken after setting the number of epochs?",
+                "6. What is the significance of using the term \"model\" in this context?",
+                "7. What should be done before running the code according to the text?",
+                "8. What might happen if a non-viable number is used for the epochs?",
+                "9. What does the term \"train split\" refer to in machine learning?",
+                "10. What can we expect to obtain after training the model?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split. Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "908.32",
+            "questions": [
+                "1. What are the inputs and outputs referred to in the training split?",
+                "2. How many epochs is specified for training the model in this example?",
+                "3. What is the desired size of the data set mentioned in the text?",
+                "4. What variable is suggested to be adjusted before running the code?",
+                "5. How many samples does the data set consist of in the provided example?",
+                "6. What is the significance of passing in Y_train along with X_train?",
+                "7. Why might the number of epochs be set to 100 in this example?",
+                "8. What does the phrase \"let's run like all of this code\" imply about the coding process?",
+                "9. What does the author mean by \"return only\" in the context of this text?",
+                "10. What does the text suggest will happen after training the model?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "921.75",
+            "questions": [
+                "1. What is the significance of passing in the number of apex when training the model?",
+                "2. How many apex are being considered in the example given?",
+                "3. Why is it important to specify a viable number for the data set?",
+                "4. What is the total number of samples specified for the data set?",
+                "5. What percentage of the data set is allocated for the test set?",
+                "6. How do you determine the size of the test set in this context?",
+                "7. What actions are taken after specifying the data set and test set sizes?",
+                "8. What might be the expected outcome after running the code mentioned?",
+                "9. What does the speaker mean by \"let's run all of this code\"?",
+                "10. How does the distribution of samples affect the training and testing of the model?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes. Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "951.369",
+            "questions": [
+                "1. What is the size of the data set being discussed?",
+                "2. What percentage of the data set is designated for the test set?",
+                "3. How many samples will make up the test set?",
+                "4. What is the initial action taken after defining the data set size and test set percentage?",
+                "5. What error does the speaker encounter while running the code?",
+                "6. What does the speaker realize they forgot to do?",
+                "7. How does the speaker react to the error encountered?",
+                "8. What is the next step the speaker plans to take after addressing the error?",
+                "9. What does the phrase \"let's see if it works now\" imply about the speaker's expectations?",
+                "10. What is the overall goal of the actions described in the text?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes. Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now. Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "960.21",
+            "questions": [
+                "1. What percentage of the data is allocated for the test set?",
+                "2. What action is being taken to run the test?",
+                "3. What kind of error is encountered during the process?",
+                "4. What does the speaker realize they forgot to do?",
+                "5. How does the speaker feel about the progress of the test after addressing the first error?",
+                "6. What is the speaker's reaction to the second error they encounter?",
+                "7. What does the speaker mean by \"Cool\" in the context of the process?",
+                "8. What steps are taken to troubleshoot the errors?",
+                "9. How does the speaker plan to proceed after identifying the errors?",
+                "10. What does the phrase \"That's good\" imply in the context of the discussion?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now. Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah, cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "973.369",
+            "questions": [
+                "1. What error was initially encountered in the process?",
+                "2. What was the reason for the delay in addressing the error?",
+                "3. What steps were taken to resolve the error mentioned?",
+                "4. What component was passed to compile in order to fix the issue?",
+                "5. How did the speaker confirm that the process was now running smoothly?",
+                "6. What feedback is provided at the end of each epoch during training?",
+                "7. What aspect of the model's performance is monitored through the loss function?",
+                "8. What does the speaker mean by \"I've never passed the optimizer here\"?",
+                "9. How does the speaker express their satisfaction with the current progress?",
+                "10. What does the term \"epoch\" refer to in the context of this training process?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah, cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function. Uh um well, the loss, the error. And as you can see starting from here, it's",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "984.71",
+            "questions": [
+                "1. What error is being discussed in the text?",
+                "2. What does the speaker identify as the cause of the issue?",
+                "3. What is the speaker's plan to resolve the error?",
+                "4. How does the speaker describe their familiarity with the optimizer?",
+                "5. What action does the speaker take regarding the optimizer?",
+                "6. What is the expected outcome after passing the optimizer to compile?",
+                "7. What indication does the speaker provide that the system is now working correctly?",
+                "8. What type of report is generated at the end of each epoch?",
+                "9. What metric is mentioned in relation to the training process?",
+                "10. How does the speaker describe the loss function or error over time?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function. Uh um well, the loss, the error. And as you can see starting from here, it's going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "993.809",
+            "questions": [
+                "1. What has the speaker never passed before in the optimizer?",
+                "2. What action does the speaker take with the optimizer?",
+                "3. What should happen if everything is working correctly after passing the optimizer to compile?",
+                "4. What is being reported at the end of each epoch during the training process?",
+                "5. How is the loss function represented in the training report?",
+                "6. What trend is observed in the error as the epochs progress?",
+                "7. What specific results are mentioned after 100 epochs?",
+                "8. On which dataset has the error been calculated according to the speaker?",
+                "9. Why does the speaker indicate that the current evaluation method might not be ideal?",
+                "10. What might be a more suitable approach for evaluating the model?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "Uh um well, the loss, the error. And as you can see starting from here, it's going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation. And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1023.909",
+            "questions": [
+                "1. What does the error represent in the context of model training?",
+                "2. How does the error change over epochs according to the text?",
+                "3. What were the results for the error after 100 epochs?",
+                "4. On which dataset has the error been calculated?",
+                "5. Why is it important to evaluate the model on a test set?",
+                "6. What is the purpose of model evaluation mentioned in the text?",
+                "7. How does the author suggest proceeding with model evaluation?",
+                "8. What is the significance of the phrase \"epoch after epoch\" in the training process?",
+                "9. What implications does calculating the error on the training set have for model evaluation?",
+                "10. What does the author mean by \"let's just like give it a new line\" in the context of model evaluation?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation. And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well, this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1032.3",
+            "questions": [
+                "1. What is the significance of tracking error across epochs in model training?",
+                "2. Why is it important to differentiate between training set error and test set evaluation?",
+                "3. How is the model evaluated on the test set according to the text?",
+                "4. What command is used to evaluate the model on the test set?",
+                "5. What do you need to pass into the model evaluation function?",
+                "6. What is the expected output when evaluating the model with a verbose setting?",
+                "7. How many epochs were mentioned in the context of error calculation?",
+                "8. What does the term \"verbose\" refer to in the context of model evaluation?",
+                "9. Why might the error calculated on the training set not be sufficient for evaluation?",
+                "10. What does evaluating a model on the test set help determine?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well, this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one. Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1058.15",
+            "questions": [
+                "1. What is the purpose of the test set in model evaluation?",
+                "2. How do we initiate the model evaluation process?",
+                "3. What function is used to evaluate the model?",
+                "4. What parameters do we need to pass when evaluating the model?",
+                "5. What do X test and Y test represent in the context of model evaluation?",
+                "6. How can we obtain a report during the evaluation process?",
+                "7. What does setting verbose equal to one accomplish in the evaluation?",
+                "8. What should we expect to see after rerunning the evaluation script?",
+                "9. Why is it important to evaluate a model on a test set?",
+                "10. What information do we gain from seeing the evaluation results?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one. Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here. Good,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1082.829",
+            "questions": [
+                "1. What method is used to evaluate the model in the given text?",
+                "2. Which datasets are passed to the model for evaluation?",
+                "3. What is the purpose of setting `verbose` to one during evaluation?",
+                "4. How do you know if the model evaluation is working correctly?",
+                "5. What do we expect to see after rerunning the scripts?",
+                "6. What does the term \"test set\" refer to in the context of model evaluation?",
+                "7. Why is it important to pass both inputs and outputs when evaluating a model?",
+                "8. What should happen after the training process is completed according to the text?",
+                "9. What indication is given that the evaluation process is successful?",
+                "10. What does the author mean by \"return only list of questions\"?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here. Good, cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1113.069",
+            "questions": [
+                "1. What scripts are being rerun in the process described?",
+                "2. What is the purpose of rerunning the scripts?",
+                "3. How many samples were used in the evaluation?",
+                "4. What is the loss function value reported in the evaluation?",
+                "5. How does the error on the test set compare to the error on the training set?",
+                "6. What does it indicate if the test set is performing worse than the training set?",
+                "7. Is it typical for the test set to perform worse than the training set in machine learning?",
+                "8. What does a loss function value of seven by 10 to the minus four signify?",
+                "9. What steps are taken after the training is completed?",
+                "10. Why is it important to evaluate the model's performance on both the training and test sets?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "Good, cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK. Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1134.26",
+            "questions": [
+                "1. How many samples were included in the evaluation test set?",
+                "2. What is the loss function value reported in the evaluation?",
+                "3. How does the error on the test set compare to the error on the training set?",
+                "4. Why is it considered acceptable for the test set to perform slightly worse than the training set?",
+                "5. What does a model optimize during training?",
+                "6. What is the significance of maintaining a small difference between the loss on the training and test set?",
+                "7. What could a large difference in loss between the training and test set indicate?",
+                "8. What does the term \"loss\" refer to in the context of model evaluation?",
+                "9. Why is it important to evaluate a model on both training and test sets?",
+                "10. What are \"weights\" and \"parameters\" in the context of model optimization?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK. Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1136.5",
+            "questions": [
+                "1. How many samples were evaluated in the test set?",
+                "2. What is the loss function value reported in the evaluation?",
+                "3. How does the error on the test set compare to the error on the training set?",
+                "4. Why is it acceptable for the test set to perform slightly worse than the training set?",
+                "5. What does a large difference between the training and test set loss indicate about a model's performance?",
+                "6. What are the implications if a model cannot generalize its learning process?",
+                "7. What is the next step after evaluating the model's performance on the test set?",
+                "8. What is required in order to make predictions with the model?",
+                "9. Why is it important for a model to generalize well to new data?",
+                "10. What does optimizing the model's weights and parameters involve?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example, and we'll do an NP dot array and we'll pass in like this to",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1164.5",
+            "questions": [
+                "Based on the provided text, here are 10 questions:",
+                "1. What does it mean for a model to have optimized its weights and parameters on the training set?",
+                "2. Why is it important to avoid a significant difference between the loss on the training and test sets?",
+                "3. What could a large discrepancy between training and test set loss indicate about a model's performance?",
+                "4. What does it imply if a model is unable to generalize its learning process?",
+                "5. How does a model's inability to predict outside of its training data affect its usefulness?",
+                "6. What is the final step mentioned in the text that needs to be taken after training the model?",
+                "7. What is the purpose of creating new data before making predictions?",
+                "8. How can one use NumPy to create an array for predictions, as mentioned in the text?",
+                "9. What role does the training set play in the model's ability to make predictions?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example, and we'll do an NP dot array and we'll pass in like this to uh like samples here. And we would expect obviously no 0.3 and no 0.4.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1187.079",
+            "questions": [
+                "1. What does it mean that the model hasn't been able to generalize the learning process?",
+                "2. Why is the model unable to predict things well outside of the data it has already seen?",
+                "3. What is the next step after determining that the model cannot generalize?",
+                "4. How can we create data to make predictions with the model?",
+                "5. What is the purpose of using NP dot array in this context?",
+                "6. What kind of samples are being referred to when creating new data for predictions?",
+                "7. What predictions are expected from the model after creating the new data?",
+                "8. Why is it important for a model to be able to generalize its predictions?",
+                "9. What implications does a lack of generalization have for the model's performance?",
+                "10. How does the process of making predictions relate to the data used for training the model?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "and we'll do an NP dot array and we'll pass in like this to uh like samples here. And we would expect obviously no 0.3 and no 0.4. And so, uh let's uh",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1217.069",
+            "questions": [
+                "1. What is an NP dot array?",
+                "2. What parameters are being passed into the NP dot array?",
+                "3. What values are expected to be absent in the output?",
+                "4. What purpose does the NP dot array serve in this context?",
+                "5. How does the absence of 0.3 and 0.4 affect the results?",
+                "6. What kind of data is being processed with the NP dot array?",
+                "7. Are there any specific conditions mentioned for the samples being used?",
+                "8. How might the output change if 0.3 and 0.4 were included?",
+                "9. What programming language or library is being referenced in the text?",
+                "10. What steps follow the creation of the NP dot array in the process described?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "uh like samples here. And we would expect obviously no 0.3 and no 0.4. And so, uh let's uh make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting?",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1224.92",
+            "questions": [
+                "1. What samples are being referred to in the text?",
+                "2. What specific values are expected to be absent in the predictions?",
+                "3. What type of predictions are being made in the text?",
+                "4. What method is implied for making predictions?",
+                "5. What does \"model dots\" refer to in the context of this discussion?",
+                "6. What might the significance of the values 0.3 and 0.4 be in this prediction model?",
+                "7. How do the participants in the discussion contribute to the prediction process?",
+                "8. What is the purpose of making predictions in this context?",
+                "9. Are there any specific criteria for the predictions mentioned in the text?",
+                "10. What is the expected outcome of the predictions being discussed?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "And so, uh let's uh make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting? Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts,",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1232.089",
+            "questions": [
+                "1. What is the primary focus of the predictions being made?",
+                "2. What do you think the name of the prediction method will be?",
+                "3. How does the method \"model.dot.predicts\" function in the context of predictions?",
+                "4. What type of model is being referred to in the text?",
+                "5. Can you explain the significance of using \"model.dot\" in the prediction process?",
+                "6. What might the predictions be used for after they are generated?",
+                "7. How confident is the speaker about the prediction method name?",
+                "8. What could be the implications of accurately predicting outcomes using this method?",
+                "9. Are there any other methods for making predictions that you are familiar with?",
+                "10. What are some potential challenges when using the model for predictions?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting? Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts, which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1236.01",
+            "questions": [
+                "1. What is the method mentioned for making predictions?",
+                "2. How does the speaker describe the method for predicting?",
+                "3. What kind of data needs to be passed into the prediction method?",
+                "4. What action does the speaker suggest after making predictions?",
+                "5. What formatting does the speaker propose for the output of predictions?",
+                "6. Is there any specific function or command mentioned for printing predictions?",
+                "7. What does the speaker imply about the simplicity of the prediction method?",
+                "8. What is meant by \"model dot predicts\" in the context of the discussion?",
+                "9. How does the speaker indicate they will display the predictions?",
+                "10. What is the overall purpose of the method being discussed?"
+            ]
+        },
+        {
+            "id": 70,
+            "text": "Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts, which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1246.89",
+            "questions": [
+                "1. What method is being referred to as \"super nice and super simple to remember\"?",
+                "2. What do we want to pass into the model for predictions?",
+                "3. How do we print the predictions in the provided text?",
+                "4. What kind of loop is suggested for unpacking the data and predictions?",
+                "5. What function is used to combine data and predictions in the example?",
+                "6. What does the acronym \"ZIP\" refer to in the context of the text?",
+                "7. What formatting is suggested for displaying predictions in the output?",
+                "8. What does \"unpack the data\" imply in the context of the loop?",
+                "9. Is there any specific order in which the predictions should be printed?",
+                "10. How is the structure of the code indicated in the text?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP and we'll pass in uh data and we'll pass in predictions. And here",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1255.65",
+            "questions": [
+                "1. What is the purpose of passing in data in the described process?",
+                "2. How can we print predictions in the context provided?",
+                "3. What is the significance of using a new line in the output?",
+                "4. How does the for loop function in unpacking the data and predictions?",
+                "5. What does the ZIP function do in this context?",
+                "6. What variables are being unpacked in the for loop?",
+                "7. Why is it important to have a simple and memorable method in this process?",
+                "8. What are the expected outputs when executing the code snippet mentioned?",
+                "9. Can you explain the role of the variable 'DP' in the for loop?",
+                "10. What could be potential uses for the predictions generated from the data?"
+            ]
+        },
+        {
+            "id": 72,
+            "text": "we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP and we'll pass in uh data and we'll pass in predictions. And here um for each of this, what we wanna do is to print.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1278.29",
+            "questions": [
+                "1. What is the purpose of using a for loop in the given context?",
+                "2. How do you unpack data and predictions in a for loop?",
+                "3. What does the acronym \"ZIP\" refer to in this scenario?",
+                "4. What are the expected outputs of the print statement within the loop?",
+                "5. Why is it important to pass both data and predictions to the ZIP function?",
+                "6. Can you explain the structure of the loop and what \"DP\" represents?",
+                "7. What programming language is being referenced in the text?",
+                "8. What could be the potential use cases for this code snippet?",
+                "9. How would you modify the code if you wanted to handle a different data structure?",
+                "10. What are some common errors that might occur when using a for loop with ZIP?"
+            ]
+        },
+        {
+            "id": 73,
+            "text": "and we'll pass in uh data and we'll pass in predictions. And here um for each of this, what we wanna do is to print. So we want to print",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1291.089",
+            "questions": [
+                "1. What type of data is being passed in?",
+                "2. What is the purpose of passing in predictions?",
+                "3. What is the significance of printing in this context?",
+                "4. How many items are being referenced in the text?",
+                "5. What action is being repeated in the text?",
+                "6. What is meant by \"each of this\" in the context provided?",
+                "7. Are there any specific formats mentioned for the data or predictions?",
+                "8. What output is expected from the printing action?",
+                "9. What might be the implications of processing the data and predictions?",
+                "10. Is there any indication of the source of the data and predictions?"
+            ]
+        },
+        {
+            "id": 74,
+            "text": "um for each of this, what we wanna do is to print. So we want to print that this plus this is equal for our network to like this element here. And so now we want to",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1298.099",
+            "questions": [
+                "1. What is the purpose of printing in the context of this text?",
+                "2. What does \"this plus this\" refer to in the network?",
+                "3. How is the \"element here\" related to the network?",
+                "4. What specific outcome are we trying to achieve by printing?",
+                "5. What format should the printed output take?",
+                "6. How does the network utilize the printed information?",
+                "7. Are there any specific elements that need to be included in the print statement?",
+                "8. What might be an example of \"this\" in the context of the network?",
+                "9. Why is it important to return only a list of questions?",
+                "10. What potential challenges might arise when printing this information?"
+            ]
+        },
+        {
+            "id": 75,
+            "text": "So we want to print that this plus this is equal for our network to like this element here. And so now we want to just pass this uh values in. So we'll do",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1306.089",
+            "questions": [
+                "1. What is the purpose of printing the equation mentioned in the text?",
+                "2. Which specific values are being referred to as needing to be passed in?",
+                "3. How does the element mentioned relate to the network?",
+                "4. What does \"this plus this\" signify in the context of the text?",
+                "5. Can you explain the significance of the equality stated in the passage?",
+                "6. What might be the implications of passing the values into the network?",
+                "7. Is there any specific format required for the values to be passed in?",
+                "8. How does the phrase \"only list of questions\" influence the interpretation of the task?",
+                "9. What type of network is being referenced in the text?",
+                "10. What steps might follow after passing in the values?"
+            ]
+        },
+        {
+            "id": 76,
+            "text": "that this plus this is equal for our network to like this element here. And so now we want to just pass this uh values in. So we'll do D zero, so D",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1308.92",
+            "questions": [
+                "1. What does \"this plus this\" refer to in the context of the network?",
+                "2. How is the equality expressed in relation to the network and the element?",
+                "3. What values are being passed in after establishing the equality?",
+                "4. What does \"D zero\" signify in this context?",
+                "5. What is the significance of the element mentioned in the passage?",
+                "6. How does the network utilize the values that are being passed in?",
+                "7. What implications does the equality have for the functioning of the network?",
+                "8. What steps follow after passing in the values?",
+                "9. How might this process affect the overall performance of the network?",
+                "10. What other elements could be compared to the one mentioned in the text?"
+            ]
+        },
+        {
+            "id": 77,
+            "text": "just pass this uh values in. So we'll do D zero, so D zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1318.28",
+            "questions": [
+                "1. What values are being passed in the process?",
+                "2. What does \"D zero\" represent in this context?",
+                "3. How does \"D one\" differ from \"D zero\"?",
+                "4. What is the significance of \"P zero\" in this sequence?",
+                "5. What is the expected outcome after running the process?",
+                "6. Are there any specific conditions or requirements for the values being passed?",
+                "7. What does the phrase \"this should be right\" imply about the previous steps?",
+                "8. How will the results be evaluated after running the process?",
+                "9. What might happen if the values are not passed correctly?",
+                "10. Is there a specific order that must be followed when passing these values?"
+            ]
+        },
+        {
+            "id": 78,
+            "text": "D zero, so D zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results cool.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1323.02",
+            "questions": [
+                "1. What does \"D zero\" refer to in this context?",
+                "2. How does \"D one\" relate to \"D zero\"?",
+                "3. What is the significance of \"P zero\" in the sequence mentioned?",
+                "4. What are the expected results from running the sequence?",
+                "5. Why is it important to run the code to see the results?",
+                "6. Are there any specific parameters associated with \"D zero,\" \"D one,\" or \"P zero\"?",
+                "7. What type of results are anticipated from the execution of this code?",
+                "8. Is there any prior context needed to understand the sequence of \"D zero,\" \"D one,\" and \"P zero\"?",
+                "9. What steps were taken before deciding to run the code?",
+                "10. What does the phrase \"this should be right\" imply about the author's confidence in the code?"
+            ]
+        },
+        {
+            "id": 79,
+            "text": "zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results cool. So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1326.099",
+            "questions": [
+                "1. What are the steps mentioned for the process being described?",
+                "2. What does \"D one\" refer to in the context of the text?",
+                "3. What is meant by \"P zero\" in the given text?",
+                "4. Why is there a mention of running TensorFlow and CPU?",
+                "5. How does using a GPU affect the training time mentioned in the text?",
+                "6. What are the results that the speaker is expecting to see?",
+                "7. Why is the speaker commenting on the time taken for training?",
+                "8. What does the speaker mean by \"this should be right\"?",
+                "9. What implications does using a CPU have on the performance of the task?",
+                "10. What does the speaker imply by saying \"cool\" at the end of the statement?"
+            ]
+        },
+        {
+            "id": 80,
+            "text": "cool. So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool. So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1343.699",
+            "questions": [
+                "1. What is the reason for the slow training process mentioned in the text?",
+                "2. How would the training speed change if a GPU were used instead of a CPU?",
+                "3. What tool or framework is being used for the training process?",
+                "4. What result was obtained for the prediction of 0.1 plus 0.2?",
+                "5. How close is the predicted result of 0.1 plus 0.2 to the expected value?",
+                "6. What is the expected result for the calculation of 0.1 plus 0.2?",
+                "7. What operation is being performed with 0.2 in the text?",
+                "8. How does the author feel about the predictions made by the model?",
+                "9. What is the significance of the phrase \"kind of like close to that\" in the context of the predictions?",
+                "10. What might be the implications of using a CPU for training versus using a GPU?"
+            ]
+        },
+        {
+            "id": 81,
+            "text": "So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool. So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2. It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1345.65",
+            "questions": [
+                "1. What processing unit is being used for the training mentioned in the text?",
+                "2. How does the author describe the speed of training when using a GPU compared to a CPU?",
+                "3. What are the predictions provided in the text for the sums of 0.1 + 0.2 and 0.2 + 0.2?",
+                "4. How accurate are the predictions for the sums compared to the expected results?",
+                "5. What does the author suggest as a reason for the inaccuracy of the predictions?",
+                "6. What is the expected result for 0.1 + 0.2 according to the author?",
+                "7. What is the expected result for 0.2 + 0.2 according to the author?",
+                "8. What does the author imply about the amount of data used for training?",
+                "9. How does the author feel about the closeness of the predictions to the expected results?",
+                "10. What might be a potential solution to improve the precision of the predictions mentioned?"
+            ]
+        },
+        {
+            "id": 82,
+            "text": "So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2. It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there. But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1360.13",
+            "questions": [
+                "1. What is the result of adding 0.1 and 0.2 according to the text?",
+                "2. Why is the result of 0.1 plus 0.2 described as not being exactly 0.3?",
+                "3. What result do we get when adding 0.2 and 0.2?",
+                "4. How does the text characterize the closeness of the result 0.4 to the expected value?",
+                "5. What does the author suggest might be the reason for the lack of precision in the predictions?",
+                "6. What parameters does the author mention that could be tweaked to improve the model?",
+                "7. How might the learning rate affect the predictions made by the network?",
+                "8. What role does the type of loss function play in the accuracy of the predictions?",
+                "9. How could the architecture of the network influence the results obtained?",
+                "10. What specific aspects of the network architecture does the author refer to when discussing improvements?"
+            ]
+        },
+        {
+            "id": 83,
+            "text": "It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there. But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1377.694",
+            "questions": [
+                "1. What does the value 0.40 represent in the context of the discussion?",
+                "2. How does the speaker describe the closeness of the results?",
+                "3. What does the speaker imply about the amount of data available for analysis?",
+                "4. What are some parameters mentioned that may need tweaking in the neural network?",
+                "5. Why is the speaker not focusing on improving precision in this video?",
+                "6. What is the main objective of the video according to the speaker?",
+                "7. What framework is used for building the neural network in this discussion?",
+                "8. How does the speaker feel about the viewers' understanding of building a neural network?",
+                "9. What aspects of the neural network architecture are mentioned as variables?",
+                "10. Why is it important to adjust the learning rate and loss function in a neural network?"
+            ]
+        },
+        {
+            "id": 84,
+            "text": "But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1395.489",
+            "questions": [
+                "1. What parameters in the neural network might need tweaking for better results?",
+                "2. Why is the learning rate important in a neural network?",
+                "3. What is the significance of the loss function in training a neural network?",
+                "4. How does the architecture of a neural network affect its performance?",
+                "5. What should we consider regarding the number of layers in a neural network?",
+                "6. What is the main focus of the current video discussed in the text?",
+                "7. What is the next step after building a neural network with TensorFlow, as mentioned in the text?",
+                "8. Why is preprocessing data important for deep learning algorithms?",
+                "9. What should viewers do if they enjoyed the video?",
+                "10. What can viewers expect to learn in the next video?"
+            ]
+        },
+        {
+            "id": 85,
+            "text": "like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos. And uh you it would be fantastic if you could leave a like to this video and I guess if you have any questions, you can just uh leave them in the comments section below and I'll see you next time. Cheers.",
+            "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+            "start_time": "1411.989",
+            "questions": [
+                "1. What was the main focus of the video mentioned in the text?",
+                "2. What framework was used to build the neural network?",
+                "3. How should viewers feel about their ability to build a neural network after watching the video?",
+                "4. What is the topic of the next video?",
+                "5. What will be done with the data in the next video?",
+                "6. Why is preprocessing data important for deep learning algorithms?",
+                "7. What action does the speaker encourage viewers to take if they enjoyed the video?",
+                "8. How can viewers stay updated on future videos?",
+                "9. What does the speaker suggest viewers do if they have questions?",
+                "10. What is the speaker's attitude towards viewer engagement, such as likes and comments?"
+            ]
+        }
+    ]
+}

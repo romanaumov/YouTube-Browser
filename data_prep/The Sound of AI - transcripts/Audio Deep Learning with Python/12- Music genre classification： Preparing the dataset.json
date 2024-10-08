@@ -1,0 +1,1004 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the Deep Learning for Radio with Python series. This time we're gonna start our projects, building a music genre classifier. Uh What we're gonna do today really is uh preparing uh it's basically like doing some preprocessing on a music data set. So what we want to do really is extract the inputs and the targets. So basically like the uh labels and the MFCC uh from music data set and store that in adjacent files. So that then we can use it when we actually train our neural network. So, first of all, what we need for a music genre classifier is a music data set. And uh luckily there's a great one on the Marias uh website where we have this uh data set for genre classification. So you can go to the website and download it here. I'm not gonna do that because I already have it. But uh don't worry, I'm just gonna leave the um a link in the description below. So you can uh have access to the data set. Cool. So let's take a look at the uh at the data set. So it's divided into like 10 different uh folders and each folder is basically a different musical genre. So we have blues, classical rock, reggae, like all sorts of genres. And inside each um genre folder, we have 100 different songs, but these are not like full songs. It's just like 30 seconds worth of song. That's, I guess like, because of like copyright uh issues. So we're gonna work with this for our music genre classifier. Cool. So now let's go uh and start uh building uh like the, this preprocessor, right? OK. So what we want to do really is to define a high level function that we'll call save MFCC, right? And so here we're going to have a bunch of different arguments. So first of all, we want the data set path, then we want the Jason Oops, not capital J Jason uh path. So data set path being obviously the, the path of the, of the data set itself. Jason path being the path of the adjacent file where we want to store like all the MF CCS and the labels, right? OK. So data set path, Jason path. And then we need to pass in a lot of like values which are relative like to, to uh the MFCC feature uh itself. So we're, we're gonna do a number of MF CCS and we'll default this to 13, then we'll do a number. Uh oh yeah, let's do number FFT and this is like the interval in number of samples that we are considering for our fourier transforms. And here we'll default this to 2048 then we'll have the hop length and we'll default this to 512. Now, if you don't know what these things are, don't worry because I have a couple of videos where I both explain the, the theory and uh the implementation like of these things like in Libera which by the way, uh is the library audio library that we're gonna use also like today. Uh Cool. OK. So beyond this, we want also another uh argument and we can call this num number of segments. And yeah, let's default this to, to five, for example. Uh OK. So why do we need number of segments? Well, it turns out that for training deep learning models, you need a lot of data. So if you consider that here, we only have 100 data points really? So it's 100 tracks per genre that isn't really much. So what we wanna do is just like chop up the each track into like a number of different segments. And then instead of like saving uh like the inputs as like tracks, saving them like as different segments, right? So that we're gonna have like many more uh like input data. Cool. Uh OK. So this is like the, the the high level like function. So now we need to like start uh writing uh like what we need here. So the, the first thing that we want to do is to build a dictionary, dictionary, to store uh data, right? And so we'll call this not surprisingly data. And uh here we're gonna have a bunch of things. So if the first one is mapping and it's gonna be an array, then we'll have, oops, sorry, this is not correct. Here we go. So mapping, then we'll have the NFC C and then we'll have the uh labels down here. So what are all of these things? Right? OK. So, mappings uh we need a way of mapping uh the different uh like genres, genre labels uh onto numbers. And so we're gonna use a list for doing that. So say, for example, we have this classical and a blue blues, right? So we are basically mapping classical to zero, which is the index of the list uh it belongs to and blues uh to one. Then here we're gonna have like the MF CCS. And so basically, we're gonna have the MC CMFCC vectors for each of the uh segments. And so we're gonna have say we have like three segments, for example, here. So I'm not gonna uh fill this in. But uh you get the idea right? Uh We'll see this like uh then in action and then we have the, the labels down here and the labels are gonna be, for example, 00 and one. So the MF CCS are itself the training data. So the the training inputs, the labels are the, the outputs or the, the targets that we expect. So here, basically, we're saying that's for this MFCC uh vector here. For this segment here, we, we expect this label zero which is classical uh same thing like for like the, the, this like second segment over here, we expect zero which is classical. And here uh for the third segment over here, we expect one which is a blues, right? So, so this is like a nice way of storing uh like information that we can use for training purposes, right? But now, obviously, we don't need any of this. We just need the, the schema uh overall and we're gonna just like then fill it in while we analyze stuff. So let's go and analyze things, right? So what we wanna do, first of all is we want to look through all the uh genres, right? So basically what I'm, what I'm saying here is that if we go back here, so this is our data set. So what we wanna do is like loop through all of these folders and then analyze like this um uh songs like one by one. Cool. So how do we do that? Well, turns out it's quite simple if you have a uh if you rely on a um function on a method that's in the OS uh module and the f the method it's called walk. So we'll do a four and we'll say here, dear path, dear names and file names in. We'll do O Os dot Walk and we'll pass in the data set path. Ok. So what's this? So, the deer path is the current, uh, folder is the path to the folder we're currently in. The dear names are all the names of the sub folders in the deer path, uh, in the depth folder. And the file names are all the files that we have in dearth, right? So this is like very, very useful because then we can uh recursively going through uh all of our folders, all of our data sets recursively and, and to do that, we just use the, this OS dot Walk uh utility method which is quite cool. Ok. But uh we just don't want this information. We also want the count here and the count is needed because we're gonna use it for LA for like these labels here. So, uh let's do that. So if we want also like the count, which is basically the number of um uh number of iterations we are currently in. We want to use uh enumerate. So we want to enumerate this Os dot Work in data set, uh data set path and this will unpack this value giving us like the, the counts, the current loop, uh current iteration we are in plus their path, their names and, and file names. Cool. OK. So, uh what we wanna do here, first of all is we want to ensure uh that uh we are uh not uh at the root level. So we are not at the, at, at the data set level. Uh Right. So because we want to go through all the the folders uh sub folders here like blues classical, but Os dot walk uh will give us as during the first situation uh data set path itself, right? So it, it'll give us in their path, data set path. And we, we don't want that because like, we don't, we don't need it, right? And so we want to ensure that we are at the genre level, right? At the genres of folders. And so for doing that, we'll do if, um, we'll do deer path, uh, is not a dataset path and then you will write, uh, like our magic, right? Ok. So now let me do just like a thing here. Uh, so let me just write the data set path here like as a constant. And here we have, uh, I created a reduced version of the, uh Marcia data set, which has only one song per genre. And I've done that because like it's gonna be like way faster, uh, to, to process everything. But then you can, you should use here like the, the path to the, the Marcia data set, right? To the full one. So, and here we put the Jason path and here I'm gonna put in. Yeah, let's say data dot Jason, right? And obviously here uh I'm, I'll be saving stuff like in the, in the current uh like a working folder, right? OK. So let's go back here. So we can say uh So here uh now what we uh want to do is to, first of all uh like save uh the uh semantic uh label and what do I mean by that? Well, I mean, I want to save in mappings over here. Uh, I want to say things like, uh, classical, for example, right? Or at the next situation blues, right? So how do we do that? Well, so we know that a deer path, uh, deer path, uh, is the, uh, gives us like the, the path of the, uh, current directory. So, in our case, what we're looking at is we want to take deer path and we want to pass from the deer path to its components. So, how do we do that? Well, we do a dear, uh, dear path dot uh, we're gonna split it and we're gonna split it, uh, based on the, uh, slash. So this basically means that if we have a deer path, uh, which is, for example, genre slash, uh, blues, this is gonna give us, right? This is gonna give us a list, uh, where we have a genre and blues. Right now, we are interested in this semantic label. So blues for our mapping and so we could isolate the semantic uh uh label doing a dip path components. And considering only the last uh the value like for the last index, which is basically this blues here. Nice. So now we have the semantic label. So what we wanna do is to a append it to the mapping. So we'll do a data mapping dot uh append and we'll append the uh semantic label. Nice. So this is like the, the first path and the first thing, the first step, right? So now what we wanna do next is we want to go through all the files in the current deer path in the current, uh, genre folder. So, for doing that, uh, we, so, well, first of all, like, let's comment this. So let's say process, uh, files for a specific, uh, genre. Ok? So, uh, we'll do a four loop and so we'll do a four F in file names. And here we are, we, so, first of all, we need to, uh, get the five path, right? Because the file name itself. So this f gives us just like the, the name of the file. It's not the full path. And so we actually need the full path for loading the, uh, for, for loading the audio file, right? And so for, uh, arriving at the five path, we'll do an Os dot path dot uh, join and we'll pass in, uh, initially the deer path and the file name, which is F right. So why do we want to do that? Well, because we want to load the audio file. So now we have the, the, the, the file path. And the next thing for loading the audio file is importing Lib Rosa saying uh in the previous video I showed how to use Li Breza, which is this great uh audio uh like processing uh library. So if you don't know uh if you haven't watched the video, just like, go back because they like that's quite uh detail about how to do a bunch of stuff with Libera. But uh let's go back here. So now what we want to do is load this file and so we are gonna have the signal and the uh sample rate. And uh here we'll do a li browser dot uh load and we need to pass the file and we'll pass the file path and then we'll need to specify the uh sample rate. And uh let's assume that we have a constant here for the sample rate, okay? And so we'll put it over here. And so we'll say SA Mle uh rates is equal to 2 22,000 uh 50 which is a customary uh value for sample rate when we do music processing. OK. And so now we've uh loaded the uh audio file, OK? But now we can't just analyze and extract the MF CCS like at this level because uh we want to like analyze and extract MF CCS at the level of the segments, right? And so now we need to like divide like this signal into a bunch of different uh segments. And so what we need to do here is to process uh segments, extracting MFCC and uh storing uh yeah, the data, right. Uh And yeah, storing data, process segments, extracting and storing data. Yes. OK. So what we'll do here is another for loop, nested loop. And so here we'll do for s in a range, a number of segments. And so we're going through like all the segments. And here what we wanna do is to have a for each segment, we need a, a start uh sample in the signal and we need a um finish sample, right. OK. And so the, the start sample is gonna be given by an bear a second uh with makers, this is gonna be a little bit like convoluted. So here we want the number uh of samples P segment multiplied uh by S which is like the, the current segment uh we are in and now the finish sample is gonna be the start sample plus the number of samples per uh segment. OK. So uh le let's move on and then I'll create uh uh I'll derive like this variable here. Cool. So basically what we wanna do here is to get the MF CCS and for doing that, we'll do a lib Rosa dot uh feature dot MFCC. And here we need to pass the signal in. But here you'll see that we'll, we, we don't want to analyze the whole signal, but we want to analyze a slice of that. And so the slice is gonna be between the start sample and the finish sample, right? And then we need to pass in the uh sample rate and the sample rate is gonna be equal to SR and then we want to pass in all of these values here, right. So the number of MF CCS, the number uh the interval that we are considering for the four transfer and the hop lamp, the sliding window uh right. And so we'll do any NFFT is equal to N FFT, then we'll do a um mm NMFCC is equal to NMFC over here. And then we'll do a H length which is again equal to help length. And these are all values that we got from uh the arguments of the, of the function itself, right? Cool. OK. So now, as you can see here, we, we are just analyzing uh a slice of the signal which is the slice which is irrelevant for the current segment. And so for the start sample and the finish sample, as we said, we need the overall number of samples per uh segment. So let's calculate this. And we given like this is like a something that remains like unchanged throughout. So we could um calculate that in here. And so the overall number of samples per segment is given by the number. Uh So it's samples per truck divided by the number of segments, right? So now this samples per truck is the overall number of samples in a, in a, in a truck, in a sample, right? Uh And we can do, we should do like a an inch of this. So we are casting this like in, right? OK. So obviously we don't have this samples per truck and this is a constant and we need to like create it over here. So, and the Sa Mples per truck is given by the Sa Mle rate multiplied by the duration, right? And we know that with the Mariah data set, the duration is a 30 it's given uh in uh seconds, right? So, OK, so let's recap this because this was quite, quite the jump, right? OK. So we have the sample rate which is 22,050 the duration of each um audio file is 30 seconds. So the overall number of samples per track is given by the sample rate multiplied by the duration right now. Uh We are interested in the number of samples for each segment and this is obviously given by the overall number of samples per track divided by the number of segments, right? And now when we go down here, the start sample for each sample uh for sorry for each segment for each song is given by the number of samples per segment multiplied by uh the, the, the current segment we are in. OK. So uh let's for uh s equal to zero, for example. So we are basically at the, at the first segment, this is equal to zero, right? Yeah, because we are starting at zero. And here the, the finish sample for S equal to zero is as we expect equal to the number of samples per, per segment, right? Because we are doing like a whole uh interval which is like the whole number of samples per segment. And then we just like slide and add uh like we just like a slide to the right, adding the number of samples per segment for each um uh segment we are calculating, right. OK. So now we have the MFCC but we need to do one thing which is MFCC dot T. So we, we want to let the transfers uh like this because like it's gonna be like uh yeah, nicer to work with this. Now, uh there's one thing that we would uh would need to specify here. So sometimes it turns out that uh the uh audio files don't have, yeah, the, the expected like an overall like number of samples because like the duration is slightly like more or less like that what we would expect, which basically means that when we do like the MFCC, we may have like more uh vectors, more or less vectors like than expected. And we don't want to uh include those like in our data set because when we pass uh like this MF CCS as training data, we need uh like for the training data to have all the same shape, right? And we need to ensure that we have like the same number of uh MF CCS vectors for each segment. OK. And so what we want to do here is we want to first of all calculate the expected number NFCC vectors per segment, right? So this is a ridiculously long variable, but I hope it's quite clear, right? And so in this case, uh this, this value is given by the number of uh samples per segment and uh it's divided by the hot length. So now I'm not gonna explain like into the details why this is the case. And but like if you go back uh to my video like on the fourier transform and on the MFCC, you will understand why that's the case. But that's because like we are doing uh uh like many, we are calculating the MF CCS basically like at each hop length. And so like when we want to have like the overall expected number of MFCC vectors per segment, we need just need to get all the number of samples per segment and divided it by like the, the H length. But now this number uh could uh potentially be a value of like a float like this, right? 1.2 for example, right? Uh But uh what we actually want to do is around uh the number like to the higher integer there, like in this case like two. And so for doing that, what we wanna do is import the math uh module and I use a nice function here that's called seal. So we'll seal this value. And which basically means if we ever get something like 1.2 this value is going to be uh two. And this is like how the NFC C like itself work, right? Um OK. So now let's take like this monster variable here. And let's specify here that here we want to uh let's write the comment first. So we want to store uh MFCC for segment, if it has the expected uh length, we could put, put it like this, right? And so we can't say um so if uh and so here we should say if the length of the MFC is equal to this expected, then we can do some stuff. But now, obviously we need to have like this MFCC value over here uh in order to uh like do some logic with it. So we need just to, to, to bring that up. And so here we store uh like these values only if like the, the, we have like the expected number of like MFCC vectors in each segment, right. OK. So how do we do that? Well, we should do so we here, we should take the data and we'll take the MS CC and we'll do a, an append and we'll pass in the uh MFCC. But now we can just pass in the MS CC because this is, this is an NP array and we need to uh like cast that to a list because otherwise we're not gonna be able to save it uh as adjacent file. And uh then we also want to save the labels. So data labels and here A P and here the labels is gonna be I minus one. So do you guys remember I, and it was over here and this is like why we use a numerate like in the first place, right? Because at each iteration, we are in a uh different uh genre folder like at this like higher level, right? And so we can associate uh a value which is equal to the count of the iterations we are in to each genre. But remember the first iteration was for the, the, the data set path itself. So we're ignoring that. So that's why we, we need to uh um do like a subtraction with minus one, right? OK. And so by doing this, what we are doing is storing the MC C and labels for each uh segment which is great. And uh if you, if we look at this basically here uh at the end of this uh quite big uh like four loop with many nested loops. We are basically gonna have like the, the mappings. So we're gonna have like all the genre um uh labels here in the mapping. Then we are gonna have like this MF CCS for each segment and the labels for each uh segment as a number, right? Uh Cool. OK. So what, what I want to do here uh is to do a print and so we can do a print like this And we could say um yeah, we could just like put the, the file name here and uh we'll put the, the segment here and here we'll do a dot format. And um here this, this should be f the, the name like or the, well, we could put in like file path, right? So it's the whole file path. And then here we also like specify which segment we are processing. Cool. And then I wanted to do like also like another print uh at this level here. So here, if you guys remember, we are at the level of the, of the genre of the folder. And so uh here we could do a uh print where we say uh say we, we do a new line and then we say uh processing and we'll pass in uh the semantic label. So here we'll, we'll get like processing blues processing classical. So just like to, to keep track of this when we are running the script, right? OK. So now we have uh all we need uh uh to store like all the, the training data in our dictionary. Now, the next step and the final step, uh it's that of saving everything as a uh as a Jason file. So, what we'll do here is with, we'll do uh an open and here we'll pass in the Jason path and we'll uh open like this file to, to write basically how to create this file and we'll do an as FP. And now here, what we want to do is a Jason dots uh dump. Now, we don't have Jason here and we need to import it. So we'll do an import Jason there. OK? So we'll do Jason uh uh dot uh dump and then we'll pass in the data. So our dictionary then uh we'll say that we want to like, write the dictionary here like in this file and then we'll pass in a nice um argument which is the indent. So we want to like the do like a, a four indent uh like four edge thing that we are writing to this file so that it becomes like more readable. Nice. So now we have like the whole, the whole function that's I wanna be able like to, to save everything. So what remains to do is just that to run it. So we'll do as usual and if name is equal to main, then we'll do a safe MFCC and then we'll pass in uh the data set path, but not this one, we'll pass in this and we'll pass in the, the Jason path. And now let's say that we're gonna have, I don't know. Yeah, we, we could say like 10 segments, for example. Right? Uh OK. So now everything should be in place and now let's see if this works, if there are no mistakes. So, yeah, it's working nice. And so we basically went through all the different genres. So we processed uh disco and as you can see here, we, we got like this file and we segmented it into uh like 10 different segments. Well, there's a, there's a minor mistake here. So it says segment 01234. Yeah. So to avoid having that and, and starting from one, we do here in the print and S plus one. But for the rest, like it's all good. So as you can see here, so then we are processing reggae rock pop. OK? So now let's take a look at the results of this. So we're doing that. Uh We'll see that here in our current uh working uh directory. Uh We have this data dot Jason, which is like this new file that we've just built and let's take a look at it. Nice. OK. So, and as you can see here, we have the mapping and the mapping is given by these guys. So disco, reggae rock and as I said, disco is gonna be equal to zero, reggae equal to one and so on and so forth. Then we have MF CCS and we have like a bunch of values down here. And then uh as you can see down here, we should have like all the labels and the labels are correct because we expect uh 10 zeros, then 10 ones, 10 twos and so on and so forth. Cool. This is great news because now we have our Jason file uh with all the uh all the training data. So next time we are gonna use like this uh training data and we are going to build our network, our music genre classifier and we start with a with an M LP. So a multi perception and then down the line, we upgrade that to a convolutional neural network. But uh this is it for today. I hope you've enjoyed the video. If that's the case, please remember to subscribe and definitely hit the notification bell. So you'll never miss a video and I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the Deep Learning for Radio with Python series. This time we're gonna start our projects, building a music genre classifier. Uh What we're gonna do today really is uh preparing uh it's basically like doing some preprocessing on a music data set. So what we want to do really is extract the inputs and the targets. So basically like the uh labels and the MFCC",
+                "start_time": "0.0",
+                "end_time": "27.454"
+            },
+            {
+                "id": 1,
+                "transcript": "uh from music data set and store that in adjacent files. So that then we can use it when we actually train our neural network. So, first of all, what we need for a music genre classifier is a music data set. And uh luckily there's a great one on the Marias uh website where we have this uh data set for genre classification.",
+                "start_time": "27.465",
+                "end_time": "53.509"
+            },
+            {
+                "id": 2,
+                "transcript": "So you can go to the website and download it here. I'm not gonna do that because I already have it. But uh",
+                "start_time": "53.659",
+                "end_time": "60.049"
+            },
+            {
+                "id": 3,
+                "transcript": "don't worry, I'm just gonna leave the um a link in the description below. So you can uh have access to the data set. Cool. So let's take a look at the uh at the data set. So it's divided into like 10 different uh folders and each folder is basically a different musical genre. So we have blues, classical",
+                "start_time": "60.65",
+                "end_time": "81.574"
+            },
+            {
+                "id": 4,
+                "transcript": "rock, reggae, like all sorts of genres. And inside each um genre folder, we have 100 different songs, but these are not like full songs. It's just like 30 seconds worth of song. That's, I guess like, because of like copyright uh issues. So we're gonna work with this for our music genre classifier. Cool. So now let's go uh and start uh building uh like the, this preprocessor, right?",
+                "start_time": "81.584",
+                "end_time": "109.519"
+            },
+            {
+                "id": 5,
+                "transcript": "OK. So what we want to do really is to define a high level function that we'll call save MFCC,",
+                "start_time": "109.809",
+                "end_time": "118.86"
+            },
+            {
+                "id": 6,
+                "transcript": "right? And so here we're going to have a bunch of different arguments. So first of all, we want the data set path,",
+                "start_time": "119.699",
+                "end_time": "128.16"
+            },
+            {
+                "id": 7,
+                "transcript": "then we want the Jason Oops, not capital J Jason uh path. So data set path being obviously the, the path of the, of the data set itself. Jason path being the path of the adjacent file where we want to store like all the MF CCS and the labels, right?",
+                "start_time": "129.32",
+                "end_time": "147.8"
+            },
+            {
+                "id": 8,
+                "transcript": "OK. So data set path, Jason path. And then we need to pass in a lot of like values which are relative like to, to uh the MFCC feature uh itself. So we're, we're gonna do a number of MF CCS",
+                "start_time": "148.1",
+                "end_time": "163.97"
+            },
+            {
+                "id": 9,
+                "transcript": "and we'll default this to 13, then we'll do a number. Uh oh yeah, let's do number FFT and this is like the interval in number of samples that we are considering for our fourier transforms. And here we'll default this to 2048 then we'll have the hop length",
+                "start_time": "164.779",
+                "end_time": "186.289"
+            },
+            {
+                "id": 10,
+                "transcript": "and we'll default this to 512. Now, if you don't know what these things are, don't worry because I have a couple of videos where I both explain the, the theory and uh the implementation like of these things like in Libera which by the way, uh is the library audio library that we're gonna use also like today. Uh Cool.",
+                "start_time": "186.6",
+                "end_time": "209.369"
+            },
+            {
+                "id": 11,
+                "transcript": "OK. So beyond this, we want also another uh argument and we can call this num number of segments. And yeah, let's default this to, to five, for example. Uh OK. So why do we need number of segments? Well, it turns out that for training deep learning models, you need a lot of data.",
+                "start_time": "209.649",
+                "end_time": "231.52"
+            },
+            {
+                "id": 12,
+                "transcript": "So if you consider that here, we only have 100 data points really? So it's 100 tracks per genre that isn't really much. So what we wanna do is just like chop up the each track into like a number of different segments. And then instead of like saving uh like the inputs as like tracks, saving them like as different segments, right? So that we're gonna have like many more uh like input data.",
+                "start_time": "231.69",
+                "end_time": "261.589"
+            },
+            {
+                "id": 13,
+                "transcript": "Cool. Uh OK. So this is like the, the the high level like function. So now we need to like start uh writing uh like what we need here. So the, the first thing that we want to do is to build a dictionary, dictionary, to store uh data, right? And so we'll call this not surprisingly data.",
+                "start_time": "261.98",
+                "end_time": "287.799"
+            },
+            {
+                "id": 14,
+                "transcript": "And uh here we're gonna have a bunch of things. So if the first one is mapping and it's gonna be an array, then we'll have, oops, sorry, this is not correct. Here we go. So mapping, then we'll have the NFC C and then we'll have the uh labels down here. So what are all of these things? Right?",
+                "start_time": "287.98",
+                "end_time": "313.369"
+            },
+            {
+                "id": 15,
+                "transcript": "OK. So, mappings uh we need a way of mapping uh the different uh like genres, genre labels uh onto numbers. And so we're gonna use a list for doing that. So say, for example, we have this classical",
+                "start_time": "313.57",
+                "end_time": "329.559"
+            },
+            {
+                "id": 16,
+                "transcript": "and a blue blues,",
+                "start_time": "330.25",
+                "end_time": "332.97"
+            },
+            {
+                "id": 17,
+                "transcript": "right? So we are basically mapping classical to zero, which is the index of the list uh it belongs to and blues uh to one. Then here we're gonna have like the MF CCS. And so basically, we're gonna have the MC CMFCC vectors for each of the uh segments. And so we're gonna have say we have like three segments, for example, here. So I'm not gonna uh fill this in. But uh you get the idea right?",
+                "start_time": "333.679",
+                "end_time": "362.619"
+            },
+            {
+                "id": 18,
+                "transcript": "Uh We'll see this like uh then in action and then we have the, the labels down here and the labels are gonna be, for example, 00 and one. So the MF CCS are itself the training data. So the the training inputs, the labels are the, the outputs or the, the targets that we expect. So here, basically, we're saying that's for",
+                "start_time": "363.049",
+                "end_time": "388.869"
+            },
+            {
+                "id": 19,
+                "transcript": "this MFCC uh vector here. For this segment here, we, we expect this label zero which is classical uh same thing like for like the, the, this like second segment over here, we expect zero which is classical. And here uh for the third segment over here, we expect one which is a blues, right? So, so this is like a nice way of storing uh like information that we can use for training purposes,",
+                "start_time": "389.25",
+                "end_time": "416.529"
+            },
+            {
+                "id": 20,
+                "transcript": "right? But now, obviously, we don't need any of this. We just need the, the schema uh overall and we're gonna just like then fill it in while we analyze stuff. So let's go and analyze things, right? So what we wanna do, first of all is we want to look through all the uh genres, right? So basically what I'm, what I'm saying here is that if we go back here,",
+                "start_time": "417.089",
+                "end_time": "446.989"
+            },
+            {
+                "id": 21,
+                "transcript": "so this is our data set. So what we wanna do is like loop through all of these folders and then analyze like this um uh songs like one by one. Cool. So how do we do that? Well, turns out it's quite simple if you have a uh if you rely on a um",
+                "start_time": "447.339",
+                "end_time": "470.95"
+            },
+            {
+                "id": 22,
+                "transcript": "function on a method that's in the OS uh module and the f the method it's called walk. So we'll do a four and we'll say here, dear path, dear names and file names",
+                "start_time": "471.239",
+                "end_time": "487.799"
+            },
+            {
+                "id": 23,
+                "transcript": "in. We'll do O Os dot Walk and we'll pass in the data set path. Ok. So what's this? So, the deer path is the current, uh, folder is the path to the folder we're currently in.",
+                "start_time": "488.679",
+                "end_time": "508.04"
+            },
+            {
+                "id": 24,
+                "transcript": "The dear names are all the names of the sub folders in the deer path, uh, in the depth folder. And the file names are all the files that we have in dearth, right? So this is like very, very useful because then we can uh recursively going through uh all of our folders, all of our data sets recursively and, and to do that, we just use the, this OS dot Walk uh utility method which is quite cool.",
+                "start_time": "508.51",
+                "end_time": "537.14"
+            },
+            {
+                "id": 25,
+                "transcript": "Ok. But uh we just don't want this information. We also want the count here and the count is needed because we're gonna use it for LA for like these labels here. So,",
+                "start_time": "537.409",
+                "end_time": "549.419"
+            },
+            {
+                "id": 26,
+                "transcript": "uh let's do that. So if we want also like the count, which is basically the number of um uh number of iterations we are currently in. We want to use uh enumerate. So we want to enumerate this Os dot Work in data set, uh data set path and this will unpack",
+                "start_time": "550.26",
+                "end_time": "570.64"
+            },
+            {
+                "id": 27,
+                "transcript": "this value giving us like the, the counts, the current loop, uh current iteration we are in plus their path, their names and, and file names.",
+                "start_time": "571.179",
+                "end_time": "579.419"
+            },
+            {
+                "id": 28,
+                "transcript": "Cool.",
+                "start_time": "579.95",
+                "end_time": "580.739"
+            },
+            {
+                "id": 29,
+                "transcript": "OK. So, uh what we wanna do here, first of all is we want to ensure uh that uh we are uh not uh at the",
+                "start_time": "581.26",
+                "end_time": "595.229"
+            },
+            {
+                "id": 30,
+                "transcript": "root level.",
+                "start_time": "595.979",
+                "end_time": "597.39"
+            },
+            {
+                "id": 31,
+                "transcript": "So we are not at the, at, at the data set level. Uh Right. So because we want to go through all the the folders uh sub folders here like blues classical, but Os dot walk uh will give us as during the first situation uh data set path itself, right? So it, it'll give us in their path, data set path. And we, we don't want that because like, we don't, we don't need it, right?",
+                "start_time": "598.69",
+                "end_time": "627.109"
+            },
+            {
+                "id": 32,
+                "transcript": "And so we want to ensure that we are at the genre level, right? At the genres of folders. And so for doing that, we'll do if, um, we'll do deer path,",
+                "start_time": "627.25",
+                "end_time": "639.489"
+            },
+            {
+                "id": 33,
+                "transcript": "uh, is not a dataset path and then you will write, uh, like our magic, right? Ok. So now let me do just like a thing here. Uh, so let me just write the data set path here like as a constant. And here we have,",
+                "start_time": "640.099",
+                "end_time": "661.369"
+            },
+            {
+                "id": 34,
+                "transcript": "uh, I created a reduced version of the, uh Marcia data set, which has only one song per genre. And I've done that because like it's gonna be like way faster, uh, to, to process everything. But then you can, you should use here like the, the path to the, the Marcia data set, right? To the full one.",
+                "start_time": "661.679",
+                "end_time": "682.429"
+            },
+            {
+                "id": 35,
+                "transcript": "So, and here we put the Jason path and here I'm gonna put in. Yeah, let's say data dot Jason, right? And obviously here uh I'm, I'll be saving stuff like in the, in the current uh like a working folder,",
+                "start_time": "682.739",
+                "end_time": "701.03"
+            },
+            {
+                "id": 36,
+                "transcript": "right? OK. So let's go back here. So we can say uh So here uh now what we uh want to do is to, first of all uh like save uh the uh semantic uh label and what do I mean by that? Well, I mean, I want to save in mappings over here.",
+                "start_time": "701.63",
+                "end_time": "727.549"
+            },
+            {
+                "id": 37,
+                "transcript": "Uh, I want to say things like, uh, classical, for example, right? Or at the next situation blues, right? So how do we do that? Well, so",
+                "start_time": "728.039",
+                "end_time": "738.69"
+            },
+            {
+                "id": 38,
+                "transcript": "we know that a deer path,",
+                "start_time": "739.979",
+                "end_time": "742.95"
+            },
+            {
+                "id": 39,
+                "transcript": "uh, deer path, uh, is the, uh, gives us like the, the path of the, uh, current directory. So, in our case, what we're looking at is we want to take deer path and we want to pass from the deer path to its components.",
+                "start_time": "744.4",
+                "end_time": "767.419"
+            },
+            {
+                "id": 40,
+                "transcript": "So, how do we do that? Well, we do a",
+                "start_time": "768.03",
+                "end_time": "771.69"
+            },
+            {
+                "id": 41,
+                "transcript": "dear,",
+                "start_time": "772.429",
+                "end_time": "773.53"
+            },
+            {
+                "id": 42,
+                "transcript": "uh, dear path dot uh, we're gonna split it and we're gonna split it, uh, based on the, uh, slash. So this basically means that if we have a deer path, uh, which is, for example, genre slash, uh, blues,",
+                "start_time": "774.2",
+                "end_time": "793.57"
+            },
+            {
+                "id": 43,
+                "transcript": "this is gonna give us,",
+                "start_time": "794.25",
+                "end_time": "796.64"
+            },
+            {
+                "id": 44,
+                "transcript": "right? This is gonna give us a list, uh, where we have a genre and blues.",
+                "start_time": "798.729",
+                "end_time": "806.25"
+            },
+            {
+                "id": 45,
+                "transcript": "Right now, we are interested in this semantic label. So blues for our mapping and so",
+                "start_time": "806.9",
+                "end_time": "814.669"
+            },
+            {
+                "id": 46,
+                "transcript": "we could isolate the semantic uh uh label",
+                "start_time": "815.2",
+                "end_time": "822.64"
+            },
+            {
+                "id": 47,
+                "transcript": "doing a dip path components. And considering only the last uh the value like for the last index, which is basically this blues here. Nice. So now we have the semantic label. So what we wanna do is to a append it to the mapping.",
+                "start_time": "824.0",
+                "end_time": "844.39"
+            },
+            {
+                "id": 48,
+                "transcript": "So we'll do a data mapping dot uh append and we'll append the uh semantic label. Nice. So this is like the, the first path and the first thing, the first step, right?",
+                "start_time": "845.58",
+                "end_time": "860.77"
+            },
+            {
+                "id": 49,
+                "transcript": "So now what we wanna do next is we want to go through all the files in the current deer path in the current, uh, genre folder. So, for doing that, uh, we, so, well, first of all, like, let's comment this. So let's say process,",
+                "start_time": "860.95",
+                "end_time": "878.989"
+            },
+            {
+                "id": 50,
+                "transcript": "uh, files for a specific, uh, genre. Ok? So, uh, we'll do a four loop and so we'll do a four F in file names.",
+                "start_time": "879.7",
+                "end_time": "895.9"
+            },
+            {
+                "id": 51,
+                "transcript": "And here",
+                "start_time": "896.789",
+                "end_time": "897.659"
+            },
+            {
+                "id": 52,
+                "transcript": "we are, we, so, first of all, we need to, uh, get the five path,",
+                "start_time": "898.52",
+                "end_time": "905.57"
+            },
+            {
+                "id": 53,
+                "transcript": "right? Because the file name itself. So this f gives us just like the, the name of the file. It's not the full path. And so we actually need the full path for loading the,",
+                "start_time": "906.229",
+                "end_time": "920.9"
+            },
+            {
+                "id": 54,
+                "transcript": "uh, for, for loading the audio file, right? And so for, uh, arriving at the five path, we'll do an Os dot path",
+                "start_time": "921.44",
+                "end_time": "929.539"
+            },
+            {
+                "id": 55,
+                "transcript": "dot uh, join and we'll pass in, uh, initially the deer path",
+                "start_time": "930.51",
+                "end_time": "936.669"
+            },
+            {
+                "id": 56,
+                "transcript": "and the file name,",
+                "start_time": "937.719",
+                "end_time": "939.739"
+            },
+            {
+                "id": 57,
+                "transcript": "which is F right. So why do we want to do that? Well, because we want to load the audio file. So now we have the, the, the, the file path. And the next thing for loading the audio file is",
+                "start_time": "940.799",
+                "end_time": "956.45"
+            },
+            {
+                "id": 58,
+                "transcript": "importing Lib Rosa",
+                "start_time": "957.489",
+                "end_time": "959.21"
+            },
+            {
+                "id": 59,
+                "transcript": "saying",
+                "start_time": "960.52",
+                "end_time": "961.309"
+            },
+            {
+                "id": 60,
+                "transcript": "uh in the previous video I showed how to use Li Breza, which is this great uh audio uh like processing uh library. So if you don't know uh if you haven't watched the video, just like, go back because they like that's quite uh detail about how to do a bunch of stuff with Libera.",
+                "start_time": "962.2",
+                "end_time": "979.44"
+            },
+            {
+                "id": 61,
+                "transcript": "But uh let's go back here. So now what we want to do is load this file and so we are gonna have the signal and the uh sample rate. And uh here we'll do a li browser dot uh load and we need to pass the file and we'll pass the file path and then we'll need to specify the uh sample rate. And uh let's assume that we have a constant here for the sample rate,",
+                "start_time": "979.65",
+                "end_time": "1007.059"
+            },
+            {
+                "id": 62,
+                "transcript": "okay? And so we'll put it over here. And so we'll say SA Mle",
+                "start_time": "1007.599",
+                "end_time": "1014.69"
+            },
+            {
+                "id": 63,
+                "transcript": "uh rates is equal to 2 22,000 uh 50 which is a customary uh value for sample rate when we do music processing. OK. And so now we've uh loaded the uh audio file, OK?",
+                "start_time": "1015.34",
+                "end_time": "1031.81"
+            },
+            {
+                "id": 64,
+                "transcript": "But now we can't just analyze and extract the MF CCS like at this level because uh we want to like analyze and extract MF CCS at the level of the segments, right? And so now we need to like divide like this signal into a bunch of different uh segments. And so what we need to do here",
+                "start_time": "1032.06",
+                "end_time": "1055.949"
+            },
+            {
+                "id": 65,
+                "transcript": "is to process uh segments, extracting MFCC and uh storing",
+                "start_time": "1056.189",
+                "end_time": "1066.68"
+            },
+            {
+                "id": 66,
+                "transcript": "uh yeah, the data, right.",
+                "start_time": "1067.25",
+                "end_time": "1069.17"
+            },
+            {
+                "id": 67,
+                "transcript": "Uh And yeah, storing data, process segments, extracting and storing data. Yes. OK. So what we'll do here is another for loop, nested loop. And so here we'll do for s in a range, a number of segments. And so we're going through like all the segments. And here what we wanna do",
+                "start_time": "1070.17",
+                "end_time": "1091.38"
+            },
+            {
+                "id": 68,
+                "transcript": "is to have a for each segment, we need",
+                "start_time": "1092.13",
+                "end_time": "1098.63"
+            },
+            {
+                "id": 69,
+                "transcript": "a, a start uh sample in the signal and we need a um finish sample,",
+                "start_time": "1099.569",
+                "end_time": "1110.15"
+            },
+            {
+                "id": 70,
+                "transcript": "right. OK. And so the, the start sample is gonna be given by an bear a second uh with makers, this is gonna be a little bit like convoluted. So here we want the number",
+                "start_time": "1111.04",
+                "end_time": "1126.449"
+            },
+            {
+                "id": 71,
+                "transcript": "uh of samples",
+                "start_time": "1126.979",
+                "end_time": "1129.619"
+            },
+            {
+                "id": 72,
+                "transcript": "P",
+                "start_time": "1130.589",
+                "end_time": "1131.5"
+            },
+            {
+                "id": 73,
+                "transcript": "segment",
+                "start_time": "1133.219",
+                "end_time": "1134.17"
+            },
+            {
+                "id": 74,
+                "transcript": "multiplied",
+                "start_time": "1135.579",
+                "end_time": "1136.829"
+            },
+            {
+                "id": 75,
+                "transcript": "uh by S which is like the, the current segment uh we are in and now the finish sample is gonna be the start sample plus the number of samples per uh segment.",
+                "start_time": "1138.459",
+                "end_time": "1156.089"
+            },
+            {
+                "id": 76,
+                "transcript": "OK. So uh le let's move on and then I'll create uh uh I'll derive like this variable here. Cool. So basically what we wanna do here is to get the MF CCS and for doing that, we'll do a lib Rosa dot uh feature dot MFCC. And here we need to pass the signal in. But here you'll see that we'll,",
+                "start_time": "1156.829",
+                "end_time": "1183.619"
+            },
+            {
+                "id": 77,
+                "transcript": "we, we don't want to analyze the whole signal, but we want to analyze a slice of that. And so the slice is gonna be between the start sample and the finish sample, right? And then we need to pass in the uh sample rate and the sample rate is gonna be equal to SR and then we want to pass in",
+                "start_time": "1183.979",
+                "end_time": "1206.14"
+            },
+            {
+                "id": 78,
+                "transcript": "all of these values here, right. So the number of MF CCS, the number uh the interval that we are considering for the four transfer and the hop lamp, the sliding window uh right. And so we'll do any NFFT is equal to N",
+                "start_time": "1207.29",
+                "end_time": "1225.069"
+            },
+            {
+                "id": 79,
+                "transcript": "FFT, then we'll do a um mm NMFCC is equal to",
+                "start_time": "1225.619",
+                "end_time": "1235.06"
+            },
+            {
+                "id": 80,
+                "transcript": "NMFC over here.",
+                "start_time": "1235.88",
+                "end_time": "1237.66"
+            },
+            {
+                "id": 81,
+                "transcript": "And then we'll do a",
+                "start_time": "1238.27",
+                "end_time": "1240.219"
+            },
+            {
+                "id": 82,
+                "transcript": "H length which is again equal to help length. And these are all values that we got from uh the arguments of the, of the function itself, right? Cool. OK. So now, as you can see here,",
+                "start_time": "1241.189",
+                "end_time": "1256.869"
+            },
+            {
+                "id": 83,
+                "transcript": "we, we are just analyzing uh a slice of the signal which is the slice which is irrelevant for the current segment. And so for the start sample and the finish sample, as we said, we need the overall number of samples per uh segment. So let's calculate this. And we given like this is like a something that remains like unchanged throughout. So we could um calculate that in here.",
+                "start_time": "1257.4",
+                "end_time": "1285.569"
+            },
+            {
+                "id": 84,
+                "transcript": "And so the overall number of samples per segment is given by the number.",
+                "start_time": "1286.29",
+                "end_time": "1294.39"
+            },
+            {
+                "id": 85,
+                "transcript": "Uh So it's samples",
+                "start_time": "1295.359",
+                "end_time": "1298.239"
+            },
+            {
+                "id": 86,
+                "transcript": "per",
+                "start_time": "1300.239",
+                "end_time": "1301.079"
+            },
+            {
+                "id": 87,
+                "transcript": "truck",
+                "start_time": "1301.91",
+                "end_time": "1303.069"
+            },
+            {
+                "id": 88,
+                "transcript": "divided by the number of segments, right? So now this samples per truck is the overall number of samples in a, in a, in a truck, in a sample, right? Uh And we can do, we should do like a an inch of this. So we are casting this like in, right? OK. So obviously we don't have this samples per truck and this is a constant and we need to like create it over here.",
+                "start_time": "1303.64",
+                "end_time": "1332.17"
+            },
+            {
+                "id": 89,
+                "transcript": "So, and the Sa Mples per truck is given by the Sa Mle rate multiplied by the",
+                "start_time": "1332.52",
+                "end_time": "1340.29"
+            },
+            {
+                "id": 90,
+                "transcript": "duration, right? And we know that with the Mariah data set, the duration is a 30 it's given uh in uh seconds, right? So,",
+                "start_time": "1340.88",
+                "end_time": "1355.91"
+            },
+            {
+                "id": 91,
+                "transcript": "OK, so let's recap this because this was quite, quite the jump, right? OK. So we have the sample rate which is 22,050 the duration of each um audio file is 30 seconds. So the overall number of samples per track is given by the sample rate multiplied by the duration right",
+                "start_time": "1356.949",
+                "end_time": "1376.5"
+            },
+            {
+                "id": 92,
+                "transcript": "now. Uh We are interested in the number of samples for each segment and this is obviously given by the overall number of samples per track divided by the number of segments, right? And",
+                "start_time": "1376.819",
+                "end_time": "1390.3"
+            },
+            {
+                "id": 93,
+                "transcript": "now when we go down here, the start sample for each sample uh for sorry for each segment for each song is given by the number of samples per segment multiplied by uh the, the, the current segment we are in. OK. So uh let's for uh s equal to zero, for example. So we are basically at the, at the first segment,",
+                "start_time": "1390.75",
+                "end_time": "1418.969"
+            },
+            {
+                "id": 94,
+                "transcript": "this is equal to zero, right? Yeah, because we are starting at zero. And here the, the finish sample for S equal to zero is as we expect equal to",
+                "start_time": "1419.599",
+                "end_time": "1434.989"
+            },
+            {
+                "id": 95,
+                "transcript": "the number of samples per, per segment, right? Because we are doing like a whole uh interval which is like the whole number of samples per segment. And then we just like slide and add uh like we just like a slide to the right, adding the number of samples per segment for each um uh segment we are calculating, right. OK. So now we have the MFCC but we need to do one thing",
+                "start_time": "1436.349",
+                "end_time": "1463.41"
+            },
+            {
+                "id": 96,
+                "transcript": "which is MFCC dot T. So we, we want to let the transfers uh like this because like it's gonna be like",
+                "start_time": "1463.92",
+                "end_time": "1472.18"
+            },
+            {
+                "id": 97,
+                "transcript": "uh yeah, nicer to work with this. Now, uh there's one thing that we would uh would need to specify here. So sometimes it turns out that uh the uh audio files don't have, yeah, the, the expected like an overall like number of samples because like the duration is slightly like more or less like that what we would expect,",
+                "start_time": "1472.77",
+                "end_time": "1494.869"
+            },
+            {
+                "id": 98,
+                "transcript": "which basically means that when we do like the MFCC, we may have like more uh vectors, more or less vectors like than expected. And we don't want to uh include those like in our data set because when we pass uh like this MF CCS as training data, we need uh like for the training data to have all the same shape, right?",
+                "start_time": "1495.04",
+                "end_time": "1518.03"
+            },
+            {
+                "id": 99,
+                "transcript": "And we need to ensure that we have like the same number of uh MF CCS vectors for each segment. OK. And so what we want to do here is we want to first of all calculate the expected",
+                "start_time": "1518.329",
+                "end_time": "1537.0"
+            },
+            {
+                "id": 100,
+                "transcript": "number",
+                "start_time": "1537.68",
+                "end_time": "1539.099"
+            },
+            {
+                "id": 101,
+                "transcript": "NFCC vectors",
+                "start_time": "1539.729",
+                "end_time": "1542.63"
+            },
+            {
+                "id": 102,
+                "transcript": "per",
+                "start_time": "1544.829",
+                "end_time": "1545.589"
+            },
+            {
+                "id": 103,
+                "transcript": "segment,",
+                "start_time": "1546.609",
+                "end_time": "1547.68"
+            },
+            {
+                "id": 104,
+                "transcript": "right? So this is a ridiculously long variable, but I hope it's quite clear, right? And so in this case, uh this, this value is given by the number of uh samples",
+                "start_time": "1548.28",
+                "end_time": "1565.56"
+            },
+            {
+                "id": 105,
+                "transcript": "per segment",
+                "start_time": "1566.469",
+                "end_time": "1567.65"
+            },
+            {
+                "id": 106,
+                "transcript": "and uh it's divided by",
+                "start_time": "1568.459",
+                "end_time": "1574.01"
+            },
+            {
+                "id": 107,
+                "transcript": "the hot length.",
+                "start_time": "1574.569",
+                "end_time": "1577.0"
+            },
+            {
+                "id": 108,
+                "transcript": "So now I'm not gonna explain like into the details why this is the case. And but like if you go back uh to my video like on the fourier transform and on the MFCC, you will understand why that's the case. But that's because like we are doing uh uh",
+                "start_time": "1577.93",
+                "end_time": "1597.54"
+            },
+            {
+                "id": 109,
+                "transcript": "like many, we are calculating the MF CCS basically like at each hop length. And so like when we want to have like the overall expected number of MFCC vectors per segment, we need just need to get all the number of samples per segment and divided it by like the, the H length.",
+                "start_time": "1597.55",
+                "end_time": "1617.17"
+            },
+            {
+                "id": 110,
+                "transcript": "But now this number uh could uh potentially be a value of like a float like this, right? 1.2 for example, right? Uh But uh what we actually want to do is around uh the number like to the higher integer there, like in this case like two. And so for doing that, what we wanna do is import the math",
+                "start_time": "1617.8",
+                "end_time": "1647.119"
+            },
+            {
+                "id": 111,
+                "transcript": "uh module",
+                "start_time": "1647.39",
+                "end_time": "1648.469"
+            },
+            {
+                "id": 112,
+                "transcript": "and I use a nice function",
+                "start_time": "1649.01",
+                "end_time": "1651.81"
+            },
+            {
+                "id": 113,
+                "transcript": "here that's called seal.",
+                "start_time": "1652.439",
+                "end_time": "1654.18"
+            },
+            {
+                "id": 114,
+                "transcript": "So we'll seal this value.",
+                "start_time": "1655.189",
+                "end_time": "1658.319"
+            },
+            {
+                "id": 115,
+                "transcript": "And which basically means if we ever get something like 1.2 this value is going to be",
+                "start_time": "1659.3",
+                "end_time": "1664.689"
+            },
+            {
+                "id": 116,
+                "transcript": "uh two.",
+                "start_time": "1665.68",
+                "end_time": "1666.5"
+            },
+            {
+                "id": 117,
+                "transcript": "And this is like how the NFC C like itself work, right?",
+                "start_time": "1667.849",
+                "end_time": "1671.189"
+            },
+            {
+                "id": 118,
+                "transcript": "Um OK. So now let's take like this monster variable here. And let's specify here that here we want to uh let's write the comment first. So we want to store",
+                "start_time": "1672.349",
+                "end_time": "1688.369"
+            },
+            {
+                "id": 119,
+                "transcript": "uh MFCC",
+                "start_time": "1689.17",
+                "end_time": "1691.979"
+            },
+            {
+                "id": 120,
+                "transcript": "for segment, if it has the expected",
+                "start_time": "1692.859",
+                "end_time": "1700.4"
+            },
+            {
+                "id": 121,
+                "transcript": "uh length, we could put, put it like this, right?",
+                "start_time": "1701.04",
+                "end_time": "1704.439"
+            },
+            {
+                "id": 122,
+                "transcript": "And so we can't say",
+                "start_time": "1705.04",
+                "end_time": "1707.38"
+            },
+            {
+                "id": 123,
+                "transcript": "um",
+                "start_time": "1707.9",
+                "end_time": "1709.4"
+            },
+            {
+                "id": 124,
+                "transcript": "so if",
+                "start_time": "1709.92",
+                "end_time": "1711.319"
+            },
+            {
+                "id": 125,
+                "transcript": "uh and so here we should say if the length",
+                "start_time": "1715.369",
+                "end_time": "1719.41"
+            },
+            {
+                "id": 126,
+                "transcript": "of the",
+                "start_time": "1721.27",
+                "end_time": "1722.5"
+            },
+            {
+                "id": 127,
+                "transcript": "MFC",
+                "start_time": "1724.3",
+                "end_time": "1725.55"
+            },
+            {
+                "id": 128,
+                "transcript": "is equal to this expected, then",
+                "start_time": "1728.52",
+                "end_time": "1733.91"
+            },
+            {
+                "id": 129,
+                "transcript": "we can do some stuff. But now, obviously we need to have like this MFCC value over here uh in order to uh like do some logic with it. So we need just to, to, to bring that up.",
+                "start_time": "1734.969",
+                "end_time": "1747.939"
+            },
+            {
+                "id": 130,
+                "transcript": "And so here we store uh like these values only if like the, the, we have like the expected number of like MFCC vectors in each segment, right. OK. So how do we do that? Well, we should do",
+                "start_time": "1748.459",
+                "end_time": "1765.55"
+            },
+            {
+                "id": 131,
+                "transcript": "so we here, we should take the data and we'll take the MS CC and we'll do a, an append and we'll pass in the uh MFCC. But now we can just pass in the MS CC because this is, this is an NP array and we need to uh like cast that to a list because otherwise we're not gonna be able to save it uh as adjacent file.",
+                "start_time": "1766.739",
+                "end_time": "1790.13"
+            },
+            {
+                "id": 132,
+                "transcript": "And uh then we also want to save the labels. So",
+                "start_time": "1790.78",
+                "end_time": "1796.359"
+            },
+            {
+                "id": 133,
+                "transcript": "data labels and here A P and here the labels is gonna be I minus one. So do you guys remember I, and it was over here and this is like why we use a numerate like in the first place, right? Because at each iteration, we are in a uh different uh genre folder like at this like higher level, right?",
+                "start_time": "1797.54",
+                "end_time": "1827.069"
+            },
+            {
+                "id": 134,
+                "transcript": "And so we can associate uh a value which is equal to the count of the iterations we are in to each genre. But remember the first iteration was for the, the, the data set path itself. So we're ignoring that. So that's why we, we need to uh um do like a subtraction with minus one, right? OK.",
+                "start_time": "1827.3",
+                "end_time": "1851.42"
+            },
+            {
+                "id": 135,
+                "transcript": "And so by doing this, what we are doing is storing the MC C and labels for each uh segment which is great. And uh if you, if we look at this basically here uh at the end of this uh quite big uh like four loop with many nested loops. We are basically gonna have like the, the mappings. So we're gonna have like all the genre um",
+                "start_time": "1851.599",
+                "end_time": "1878.849"
+            },
+            {
+                "id": 136,
+                "transcript": "uh labels here in the mapping. Then we are gonna have like this MF CCS for each segment and the labels for each uh segment as a number, right?",
+                "start_time": "1879.189",
+                "end_time": "1888.66"
+            },
+            {
+                "id": 137,
+                "transcript": "Uh Cool. OK. So what, what I want to do here uh is to do a print and so we can do a print like this And we could say um yeah, we could just like put the, the file name here and uh we'll put the, the segment here",
+                "start_time": "1889.229",
+                "end_time": "1908.5"
+            },
+            {
+                "id": 138,
+                "transcript": "and here we'll do a dot format. And um here this, this should be f the, the name like or the, well,",
+                "start_time": "1908.719",
+                "end_time": "1920.0"
+            },
+            {
+                "id": 139,
+                "transcript": "we could put in like file path, right? So it's the whole file path. And then here we also like specify which segment we are processing. Cool. And then I wanted to do like also like another print uh at this",
+                "start_time": "1920.609",
+                "end_time": "1936.28"
+            },
+            {
+                "id": 140,
+                "transcript": "level here.",
+                "start_time": "1937.16",
+                "end_time": "1939.609"
+            },
+            {
+                "id": 141,
+                "transcript": "So here, if you guys remember, we are at the level of the, of the genre of the folder. And so uh here we could do a uh print where we say uh say",
+                "start_time": "1940.28",
+                "end_time": "1952.829"
+            },
+            {
+                "id": 142,
+                "transcript": "we, we do a new line and then we say uh processing",
+                "start_time": "1953.619",
+                "end_time": "1958.38"
+            },
+            {
+                "id": 143,
+                "transcript": "and we'll pass in uh the semantic label. So here we'll, we'll get like processing blues processing classical. So just like to, to keep track of this when we are running the script, right? OK. So now we have uh all we need uh uh to store like all the, the training data in our dictionary. Now, the next step and the final step, uh it's that of",
+                "start_time": "1958.969",
+                "end_time": "1986.03"
+            },
+            {
+                "id": 144,
+                "transcript": "saving",
+                "start_time": "1986.969",
+                "end_time": "1988.03"
+            },
+            {
+                "id": 145,
+                "transcript": "everything",
+                "start_time": "1989.089",
+                "end_time": "1989.939"
+            },
+            {
+                "id": 146,
+                "transcript": "as a uh as a Jason file. So, what we'll do here is with, we'll do uh an open and here we'll pass in the Jason path and we'll uh open like this file to, to write basically how to create this file and we'll do an as",
+                "start_time": "1990.64",
+                "end_time": "2012.119"
+            },
+            {
+                "id": 147,
+                "transcript": "FP.",
+                "start_time": "2012.729",
+                "end_time": "2013.609"
+            },
+            {
+                "id": 148,
+                "transcript": "And now",
+                "start_time": "2014.459",
+                "end_time": "2015.439"
+            },
+            {
+                "id": 149,
+                "transcript": "here, what we want to do is a Jason",
+                "start_time": "2016.14",
+                "end_time": "2019.719"
+            },
+            {
+                "id": 150,
+                "transcript": "dots uh dump.",
+                "start_time": "2020.4",
+                "end_time": "2022.42"
+            },
+            {
+                "id": 151,
+                "transcript": "Now, we don't have Jason here and",
+                "start_time": "2023.77",
+                "end_time": "2027.17"
+            },
+            {
+                "id": 152,
+                "transcript": "we need to import it. So we'll do an import",
+                "start_time": "2028.369",
+                "end_time": "2031.989"
+            },
+            {
+                "id": 153,
+                "transcript": "Jason there. OK? So we'll do Jason uh uh dot uh dump and then we'll pass in the data. So our dictionary then uh we'll say that we want to like, write the dictionary here like in this file",
+                "start_time": "2033.969",
+                "end_time": "2051.33"
+            },
+            {
+                "id": 154,
+                "transcript": "and then we'll pass in a nice um argument which is the indent. So we want to like the do like a, a four indent uh like four edge thing that we are writing to this file so that it becomes like more readable. Nice. So now we have like the whole, the whole function that's I wanna be able like to, to save everything.",
+                "start_time": "2051.52",
+                "end_time": "2074.908"
+            },
+            {
+                "id": 155,
+                "transcript": "So what remains to do is just that to run it. So we'll do as usual and if name is equal to main,",
+                "start_time": "2075.239",
+                "end_time": "2084.908"
+            },
+            {
+                "id": 156,
+                "transcript": "then we'll do a safe MFCC and then we'll pass in uh the data set path, but not this one, we'll pass in this and we'll pass in the, the Jason path. And now let's say that we're gonna have, I don't know. Yeah, we, we could say like 10 segments, for example. Right?",
+                "start_time": "2085.638",
+                "end_time": "2110.54"
+            },
+            {
+                "id": 157,
+                "transcript": "Uh OK. So now everything should be in place and now let's see if this works, if there are no mistakes. So, yeah, it's working nice. And so",
+                "start_time": "2111.489",
+                "end_time": "2126.419"
+            },
+            {
+                "id": 158,
+                "transcript": "we basically went through all the different genres. So we processed uh disco and as you can see here, we, we got like this file and we segmented it into uh like 10 different segments. Well, there's a, there's a minor mistake here. So it says segment 01234. Yeah. So to avoid having that and, and starting from one, we do here in the print and S plus one. But for the rest, like it's all good.",
+                "start_time": "2128.179",
+                "end_time": "2155.85"
+            },
+            {
+                "id": 159,
+                "transcript": "So as you can see here, so then we are processing reggae rock pop. OK? So now let's take a look at the results of this.",
+                "start_time": "2156.709",
+                "end_time": "2166.02"
+            },
+            {
+                "id": 160,
+                "transcript": "So we're doing that. Uh We'll see that here in our current uh working uh directory. Uh We have this data dot Jason, which is like this new file that we've just built and let's take a look at it. Nice.",
+                "start_time": "2166.61",
+                "end_time": "2184.78"
+            },
+            {
+                "id": 161,
+                "transcript": "OK. So, and as you can see here, we have the mapping and the mapping is given by these guys. So disco, reggae rock and as I said, disco is gonna be equal to zero, reggae equal to one and so on and so forth. Then we have MF CCS and we have like a bunch of values down here. And then uh as you can see down here, we should have like all the labels",
+                "start_time": "2184.979",
+                "end_time": "2209.929"
+            },
+            {
+                "id": 162,
+                "transcript": "and the labels are correct because we expect uh 10 zeros, then 10 ones, 10 twos and so on and so forth. Cool. This is great news because now we have our Jason file uh with all the uh all the training data.",
+                "start_time": "2210.149",
+                "end_time": "2230.27"
+            },
+            {
+                "id": 163,
+                "transcript": "So next time we are gonna use like this uh training data and we are going to build our network, our music genre classifier and we start with a with an M LP. So a multi perception and then down the line, we",
+                "start_time": "2230.399",
+                "end_time": "2245.82"
+            },
+            {
+                "id": 164,
+                "transcript": "upgrade that to a convolutional neural network. But uh this is it for today. I hope you've enjoyed the video. If that's the case, please remember to subscribe and definitely hit the notification bell. So you'll never miss a video and I'll see you next time. Cheers.",
+                "start_time": "2245.83",
+                "end_time": "2264.149"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1102 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to New VND audio processing for machine learning series. This time, we'll look at the extraction pipelines that we need to extract both time domain features and frequency domain features. Before starting looking into this, I just want to remind you about the sound of the Eye Slack community, which is a community with people interested in all things A I audio A I music and audio digital signal processing. So if you want to improve your skills and network with cool people, just consider signing up there and Olivia sign up link to the community in the description below. Now let's go back to the cool stuff in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency.",
+            "video": "How to Extract Audio Features",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the primary focus of the New VND audio processing for machine learning series?",
+                "2. What are the two types of features discussed in the extraction pipelines?",
+                "3. What community is mentioned in the text, and what is its primary interest?",
+                "4. How can individuals benefit from joining the Eye Slack community?",
+                "5. What is the purpose of the sound of the Eye Slack community?",
+                "6. What types of audio features were explored in the previous video?",
+                "7. What is the difference between time domain features and frequency domain features?",
+                "8. What are time frequency domain features, and what information do they provide?",
+                "9. Where can individuals find the sign-up link for the Eye Slack community?",
+                "10. Why might someone want to improve their skills in audio digital signal processing?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "A I audio A I music and audio digital signal processing. So if you want to improve your skills and network with cool people, just consider signing up there and Olivia sign up link to the community in the description below. Now let's go back to the cool stuff in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency. Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get",
+            "video": "How to Extract Audio Features",
+            "start_time": "26.92",
+            "questions": [
+                "1. What are the main types of audio features mentioned in the text?",
+                "2. What is the significance of time domain features in audio processing?",
+                "3. How do frequency domain features differ from time domain features?",
+                "4. What are time frequency domain features, and what information do they provide?",
+                "5. What is the first step in the extraction pipeline for audio features?",
+                "6. Can you provide an example of an analog sound that might be analyzed in this process?",
+                "7. What is the purpose of the community mentioned in the text?",
+                "8. How might someone benefit from signing up for the community referenced by Olivia?",
+                "9. What could be some potential applications of extracting time and frequency domain features?",
+                "10. Why is it important to understand both time and frequency in audio signal processing?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency. Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK?",
+            "video": "How to Extract Audio Features",
+            "start_time": "44.75",
+            "questions": [
+                "1. What are the different types of audio features mentioned in the previous video?",
+                "2. How are time domain features defined in the context of audio analysis?",
+                "3. What distinguishes frequency domain features from time domain features?",
+                "4. Can you explain what time frequency domain features are?",
+                "5. What is the first step in the extraction pipeline for audio features?",
+                "6. What types of sounds can be used as examples for analog sound in the extraction process?",
+                "7. What is the purpose of analog to digital conversion in audio processing?",
+                "8. What are the two main processes involved in converting analog sound to a digital signal?",
+                "9. Why is it important to sample and quantize analog sound?",
+                "10. How does converting analog sound into a digital signal facilitate editing and manipulation?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK? So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here.",
+            "video": "How to Extract Audio Features",
+            "start_time": "66.93",
+            "questions": [
+                "1. What are the main types of features discussed in the extraction pipelines?",
+                "2. What is the first step in the extraction pipeline for time domain features?",
+                "3. Can you give an example of an analog sound that might be extracted?",
+                "4. What does the analog to digital conversion process involve?",
+                "5. Why is sampling and quantizing important for processing analog sounds?",
+                "6. What is the end result of the analog to digital conversion?",
+                "7. Where can one find more detailed information about the analog to digital conversion process?",
+                "8. How does converting analog sound into a digital signal facilitate editing and manipulation?",
+                "9. What role do extraction pipelines play in analyzing sound?",
+                "10. What is the significance of the time domain in feature extraction?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK? So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here. OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20",
+            "video": "How to Extract Audio Features",
+            "start_time": "91.985",
+            "questions": [
+                "1. What is the purpose of converting sound into a digital format?",
+                "2. What process is used to convert analog sound into a digital signal?",
+                "3. What are the two key steps involved in the analog to digital conversion process?",
+                "4. Why is it important to sample and quantize analog sound?",
+                "5. What is the next step after obtaining a digitalized version of sound?",
+                "6. How are samples organized in the framing process?",
+                "7. Can you explain how frame one is defined in terms of sample numbers?",
+                "8. What sample range does frame two encompass?",
+                "9. How does the sample range of frame three differ from the others mentioned?",
+                "10. Where can one find more detailed information about the analog to digital conversion process?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here. OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20 to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit",
+            "video": "How to Extract Audio Features",
+            "start_time": "117.23",
+            "questions": [
+                "1. What process is being referenced in the video mentioned?",
+                "2. What is the next step after obtaining the digitalized version of the sounds?",
+                "3. How are samples organized in the framing process?",
+                "4. Can you provide an example of how the frames are defined with sample numbers?",
+                "5. What does it mean for frames to be \"overlapped\" in this context?",
+                "6. Why might the author choose not to explain the reason for overlapping frames immediately?",
+                "7. What can viewers expect to learn by the end of the video?",
+                "8. Where can viewers find the previous video that covers the process in detail?",
+                "9. What is the significance of bundling samples together in framing?",
+                "10. How does framing contribute to the overall sound processing technique discussed?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20 to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM.",
+            "video": "How to Extract Audio Features",
+            "start_time": "128.089",
+            "questions": [
+                "1. What is the next step after digitizing sounds, as mentioned in the text?",
+                "2. How are the frames defined in terms of sample numbers?",
+                "3. What does it mean for frames to be \"overlapped\" in this context?",
+                "4. Why is framing important before extracting acoustic features?",
+                "5. How are frames described in relation to audio perception?",
+                "6. What sampling rate is mentioned in the text, and what is its significance?",
+                "7. Can you provide an example of how frame one is defined in terms of sample range?",
+                "8. What is implied about the relationship between frames and the audio samples?",
+                "9. Why does the speaker choose not to reveal the reason for overlapping frames immediately?",
+                "10. What can we expect to learn by the end of the video regarding framing?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM. Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So",
+            "video": "How to Extract Audio Features",
+            "start_time": "156.565",
+            "questions": [
+                "1. What is the significance of using framing in audio processing?",
+                "2. How are frames described in the context of acoustic feature extraction?",
+                "3. Why might frames in audio processing be overlapped?",
+                "4. What is the sampling rate mentioned in the text, and why is it relevant?",
+                "5. How is the duration of a single sample calculated from the sampling rate?",
+                "6. What is the duration of a single sample at a sampling rate of 44.1 kilohertz?",
+                "7. What does the phrase \"stay tuned\" suggest about the information to come in the video?",
+                "8. Why is it important to understand the concept of frames before extracting acoustic features?",
+                "9. What is the relationship between sampling rate and sample duration?",
+                "10. What might the \"secret\" referred to in the text pertain to regarding audio frames?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM. Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that",
+            "video": "How to Extract Audio Features",
+            "start_time": "185.042",
+            "questions": [
+                "1. What is the purpose of using framing before extracting acoustic features?",
+                "2. How can frames be defined in the context of audio processing?",
+                "3. What is the sampling rate for CD ROM audio?",
+                "4. What is the duration of a single sample at a sampling rate of 44.1 kilohertz?",
+                "5. How is the duration of a single audio sample calculated?",
+                "6. Why is the duration of a single sample considered very short?",
+                "7. What is the threshold of time resolution for human hearing?",
+                "8. How does the duration of a single sample compare to the human hearing threshold?",
+                "9. What implications does the short duration of a single sample have for audio perception?",
+                "10. Why can't we appreciate audio elements that are below 10 milliseconds in duration?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So",
+            "video": "How to Extract Audio Features",
+            "start_time": "213.74",
+            "questions": [
+                "1. What is the duration of the sample mentioned in the text?",
+                "2. How is the duration of the sample calculated?",
+                "3. What is the sampling rate used in this example?",
+                "4. Why is the duration of a single sample considered very short?",
+                "5. What is the threshold of time resolution for human hearing?",
+                "6. How does the duration of the sample compare to the threshold of human hearing?",
+                "7. Why is it important to have enough duration of an audio signal in frames?",
+                "8. What is the relationship between the features we extract from audio and human experience?",
+                "9. What happens to acoustic events that are below 10 milliseconds in duration?",
+                "10. How does understanding sampling duration impact audio processing?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two.",
+            "video": "How to Extract Audio Features",
+            "start_time": "240.339",
+            "questions": [
+                "1. What is the duration threshold for human hearing in milliseconds?",
+                "2. Why can't we appreciate acoustic events that are below 10 milliseconds?",
+                "3. What is the purpose of using frames in audio analysis?",
+                "4. How does the duration of a single audio sample relate to human perception of sound?",
+                "5. What features are typically extracted from audio signals in relation to human experience?",
+                "6. Why is it common for frame sizes to be a power of two?",
+                "7. How does the concept of frames enhance our understanding of acoustic events?",
+                "8. In what way does the duration of an audio signal affect our ability to perceive it?",
+                "9. What implications does the time resolution of human hearing have on audio sampling?",
+                "10. How does appreciating sound relate to the features we want to extract from audio signals?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two. Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um",
+            "video": "How to Extract Audio Features",
+            "start_time": "265.315",
+            "questions": [
+                "1. What are acoustic events in the context of audio signals?  ",
+                "2. Why is it important to have a sufficient duration of an audio signal for appreciation?  ",
+                "3. How do human auditory experiences influence the features we want to extract from audio signals?  ",
+                "4. What is meant by the term \"frame size\" in audio processing?  ",
+                "5. Why are frame sizes typically chosen to be a power of two?  ",
+                "6. What is the relationship between frames and the frequency domain in audio analysis?  ",
+                "7. What is the purpose of applying the Fourier transform to audio signals?  ",
+                "8. How does the fast Fourier transform differ from the standard Fourier transform?  ",
+                "9. What advantages does the fast Fourier transform provide in audio processing?  ",
+                "10. In what ways does acoustic perspective play a role in audio signal analysis?  "
+            ]
+        },
+        {
+            "id": 12,
+            "text": "now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two. Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame",
+            "video": "How to Extract Audio Features",
+            "start_time": "292.54",
+            "questions": [
+                "1. What is meant by \"frame size\" in the context of frames?",
+                "2. Why are frame sizes typically a power of two?",
+                "3. What is the significance of moving into the frequency domain?",
+                "4. What is the fast Fourier transform?",
+                "5. How does having a number of samples that is a power of two affect the Fourier transform process?",
+                "6. What is the primary benefit of using powers of two for frame sizes?",
+                "7. What are the typical values for frame sizes mentioned in the text?",
+                "8. Why is speed an important consideration when applying the Fourier transform?",
+                "9. What might be the implications of using non-power-of-two frame sizes?",
+                "10. What is the relationship between frame size and the duration of a frame?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first",
+            "video": "How to Extract Audio Features",
+            "start_time": "305.41",
+            "questions": [
+                "1. What is the purpose of moving into the frequency domain in signal processing?",
+                "2. What is the Fourier transform, and how is it related to the fast Fourier transform?",
+                "3. Why does using a power of two for the number of samples speed up the fast Fourier transform process?",
+                "4. What is the typical range of values for frames mentioned in the text?",
+                "5. How is the duration of a frame calculated according to the text?",
+                "6. What does the variable 'k' represent in the formula for the duration of a frame?",
+                "7. What is the relationship between sampling rate and frame duration?",
+                "8. How does the fast Fourier transform differ from the standard Fourier transform?",
+                "9. Why might someone want to use the fast Fourier transform instead of the traditional method?",
+                "10. What implications does the frame size have on the overall processing speed when using the Fourier transform?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame.",
+            "video": "How to Extract Audio Features",
+            "start_time": "328.429",
+            "questions": [
+                "1. How does using a power of two for the number of samples affect the speed of the process?",
+                "2. What is the typical range of values for frames mentioned in the text?",
+                "3. What is the formula for calculating the duration of a frame?",
+                "4. What does the variable capital K represent in the formula?",
+                "5. How is the duration of a single sample calculated?",
+                "6. What is the relationship between the sampling rate and the duration of a frame?",
+                "7. How does multiplying the duration of a single sample by the total number of samples affect the duration of a frame?",
+                "8. Why is it important to consider the frame size in relation to the sampling rate?",
+                "9. Can you explain what is meant by \"the inverse\" in the context of the duration of a frame?",
+                "10. What implications do the typical values for frames have on the overall processing speed?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame. This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal",
+            "video": "How to Extract Audio Features",
+            "start_time": "353.69",
+            "questions": [
+                "1. What is the formula used to calculate the duration of a frame?",
+                "2. How is the duration of a frame related to the sampling rate?",
+                "3. What does the variable capital K represent in the formula?",
+                "4. How do you determine the duration of a single sample?",
+                "5. What is the relationship between the number of samples and the duration of a frame?",
+                "6. What is the typical value of the sampling rate mentioned in the text?",
+                "7. Why is 44.1 kHz considered a normal sampling rate?",
+                "8. What happens to the duration of a frame if the sampling rate increases?",
+                "9. How would you calculate the total duration of a frame if you know the frame size and sampling rate?",
+                "10. Can you provide an example of how to plug in numbers for the sampling rate and frame size?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame. This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back",
+            "video": "How to Extract Audio Features",
+            "start_time": "374.6",
+            "questions": [
+                "1. What does the element mentioned in the text indicate about a sample?",
+                "2. How is the total duration of a frame calculated?",
+                "3. What is the normal sampling rate provided in the text?",
+                "4. What frame size is considered normal at the specified sampling rate?",
+                "5. What is the calculated duration of a frame in milliseconds?",
+                "6. How does the duration of a frame compare to the human hearing time resolution?",
+                "7. What is the approximate human hearing time resolution mentioned in the text?",
+                "8. Why is it important to understand the duration of a frame in audio processing?",
+                "9. What effect does the sampling rate have on the duration of a frame?",
+                "10. Can you explain the significance of the frame size in relation to the sampling rate?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single",
+            "video": "How to Extract Audio Features",
+            "start_time": "386.209",
+            "questions": [
+                "1. What is the significance of the sampling rate in audio processing?",
+                "2. What is a typical sampling rate mentioned in the text?",
+                "3. How is the frame size defined in relation to the sampling rate?",
+                "4. What is the calculated duration of a frame at a sampling rate of 44.1 kHz and a frame size of 412?",
+                "5. How does the duration of a frame compare to the human hearing time resolution?",
+                "6. What is the next step in the feature extraction pipeline after applying framing?",
+                "7. What type of features are computed on each of the different frames?",
+                "8. Why is it important to aggregate the results after computing features?",
+                "9. What is the approximate human hearing time resolution mentioned in the text?",
+                "10. How does the concept of framing contribute to the time domain feature extraction process?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here.",
+            "video": "How to Extract Audio Features",
+            "start_time": "400.519",
+            "questions": [
+                "1. What is the significance of the sampling rate mentioned in the text?",
+                "2. What frame size is considered normal at the specified sampling rate?",
+                "3. How long is the duration of a frame at this sampling rate?",
+                "4. What is the time resolution of human hearing mentioned in the text?",
+                "5. What process follows framing in the fissure extraction pipeline?",
+                "6. What are time domain features, and how are they computed?",
+                "7. Why is it important to aggregate results after computing features on different frames?",
+                "8. What methods can be used to aggregate the results of the feature computation?",
+                "9. What is the purpose of creating a single feature vector for the entire sound?",
+                "10. What are Gaussian mixture models, and how do they relate to the aggregation process?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here. And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the",
+            "video": "How to Extract Audio Features",
+            "start_time": "429.334",
+            "questions": [
+                "1. What is the last process mentioned before computing features in the time domain?",
+                "2. What is the purpose of applying framing in the fissure extraction pipeline?",
+                "3. How are the time domain features computed for each frame?",
+                "4. What method is used to aggregate the results after computing time domain features?",
+                "5. What statistical means can be used for aggregation according to the text?",
+                "6. What are Gaussian mixture models referred to in the text?",
+                "7. What types of outputs can result from the aggregation process?",
+                "8. How does the final output represent the whole duration of a sound?",
+                "9. What is a feature vector as mentioned in the text?",
+                "10. Can the final output be a matrix, and if so, what does it represent?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here. And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature.",
+            "video": "How to Extract Audio Features",
+            "start_time": "458.369",
+            "questions": [
+                "1. What is a feature vector in the context of sound analysis?",
+                "2. How can statistical means be used to aggregate sound features?",
+                "3. What are some examples of statistical methods mentioned for feature aggregation?",
+                "4. What is the significance of Gaussian mixture models (GMMs) in feature extraction?",
+                "5. What types of outputs can result from the feature extraction process?",
+                "6. How does the feature extraction process provide a snapshot of an audio signal?",
+                "7. What is the difference between a feature value, feature vector, and feature matrix?",
+                "8. What is the focus of the discussion after time domain features?",
+                "9. Why is it important to analyze both time domain and frequency domain features?",
+                "10. How does the duration of a sound affect the feature extraction process?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature. As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal",
+            "video": "How to Extract Audio Features",
+            "start_time": "485.17",
+            "questions": [
+                "1. What is meant by \"final value\" in the context of feature extraction from audio signals?",
+                "2. How is a feature vector related to the analysis of audio signals?",
+                "3. What does a feature matrix represent in audio signal analysis?",
+                "4. What does the feature extraction pipeline for time domain features involve?",
+                "5. How do frequency domain features compare to time domain features in the extraction process?",
+                "6. What is the initial step when starting from an analog sound in the feature extraction pipeline?",
+                "7. What processes are involved in converting an analog sound into a digitalized version?",
+                "8. What role does framing the signal play in the feature extraction process?",
+                "9. Why is quantization important in the digitization of audio signals?",
+                "10. What similarities exist between the time domain and frequency domain feature extraction pipelines?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature. As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us,",
+            "video": "How to Extract Audio Features",
+            "start_time": "501.635",
+            "questions": [
+                "1. What is the main focus of the audio signal analysis discussed in the text?",
+                "2. What is the first step in the frequency domain feature extraction pipeline?",
+                "3. How does the frequency domain feature extraction process compare to the time domain feature extraction process?",
+                "4. What does the acronym A DC stand for in the context of audio signal processing?",
+                "5. What is the purpose of sampling in the audio signal processing pipeline?",
+                "6. What is the significance of quantization in converting analog sound to a digital format?",
+                "7. How is the audio signal divided after digitization in the feature extraction process?",
+                "8. What tool is commonly used to transition from the time domain to the frequency domain?",
+                "9. What is the role of the Fourier Transform in audio signal analysis?",
+                "10. Why is the Fourier Transform referred to as a \"magic tool\" or \"magic wand\" in the text?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us, it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that.",
+            "video": "How to Extract Audio Features",
+            "start_time": "518.359",
+            "questions": [
+                "1. What is the initial step in the feature extraction pipeline for audio signals?",
+                "2. What does A DC stand for in the context of audio processing?",
+                "3. What processes are involved in converting an analog sound to a digitalized version?",
+                "4. How do we obtain frames from the audio signal after digitization?",
+                "5. What is the primary goal of moving from the time domain to the frequency domain?",
+                "6. What tool is commonly used to perform the transformation from time to frequency domain?",
+                "7. How is the Fourier transform described in the text?",
+                "8. Why is the Fourier transform referred to as a \"magic tool\" or \"magic wand\"?",
+                "9. What can we expect to learn about the Fourier transform in future videos?",
+                "10. Why is it important to frame the audio signal before applying the Fourier transform?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us, it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that. OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain",
+            "video": "How to Extract Audio Features",
+            "start_time": "545.979",
+            "questions": [
+                "1. What is the primary goal after obtaining a bunch of frames?",
+                "2. How do we typically transition from the time domain to the frequency domain?",
+                "3. What tool is referred to as the \"magic tool\" in the context of this transition?",
+                "4. Why is the Fourier transform described as a \"black box\" in this text?",
+                "5. What does the time domain representation of sound visualize?",
+                "6. How is sound represented in the frequency domain as opposed to the time domain?",
+                "7. What can we expect to learn about the Fourier transform in future videos?",
+                "8. What is meant by \"amplitude as a function of time\" in the time domain?",
+                "9. Why is the transition from time domain to frequency domain considered \"magic\"?",
+                "10. What are the key differences between time domain and frequency domain representations?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that. OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK.",
+            "video": "How to Extract Audio Features",
+            "start_time": "570.5",
+            "questions": [
+                "1. What is the main concept being described in the text?",
+                "2. How does the text compare the time domain and frequency domain?",
+                "3. What does the amplitude represent in the time domain?",
+                "4. What is visualized in the time domain according to the text?",
+                "5. What does the frequency domain focus on in relation to sound?",
+                "6. What is represented on the X axis of the frequency domain?",
+                "7. What does the Y axis in the frequency domain indicate?",
+                "8. What upcoming topic is mentioned that will be covered in more detail?",
+                "9. How does the transformation from time representation to frequency representation occur?",
+                "10. What does the term \"black box\" imply in the context of this discussion?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK. Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage.",
+            "video": "How to Extract Audio Features",
+            "start_time": "591.64",
+            "questions": [
+                "1. What is visualized in the time domain when analyzing sound?",
+                "2. How is sound represented in the frequency domain?",
+                "3. What do the X and Y axes represent in a frequency domain graph?",
+                "4. What does the magnitude on the Y axis indicate in the frequency domain?",
+                "5. What is the purpose of applying the Fourier transform in sound analysis?",
+                "6. What is the main issue encountered when transitioning from the time domain to the frequency domain?",
+                "7. How are events represented across time in the time domain?",
+                "8. What components of sound are examined in the frequency domain?",
+                "9. Why is spectral leakage considered a major issue in sound analysis?",
+                "10. How does understanding both the time and frequency domains benefit sound analysis?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK. Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage. OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that",
+            "video": "How to Extract Audio Features",
+            "start_time": "617.674",
+            "questions": [
+                "1. What is the purpose of analyzing frequency components of a sound?",
+                "2. How is the frequency represented on the X-axis of the analysis?",
+                "3. What does the Y-axis represent in the frequency analysis?",
+                "4. What natural step follows in the extraction pipeline after analyzing frequency components?",
+                "5. What mathematical tool is mentioned for transitioning from the time domain to the frequency domain?",
+                "6. What is the major issue that arises when applying the Fourier transform to a signal?",
+                "7. What is spectral leakage in the context of signal processing?",
+                "8. How does spectral leakage affect the results of a Fourier transform?",
+                "9. Can spectral leakage be solved or mitigated during signal processing?",
+                "10. Why is it important to understand spectral leakage when analyzing sound signals?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage. OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods.",
+            "video": "How to Extract Audio Features",
+            "start_time": "645.909",
+            "questions": [
+                "1. What is the next natural step in the extraction pipeline after processing a signal?",
+                "2. What is the purpose of applying the Fourier transform in signal processing?",
+                "3. What does moving from the time domain to the frequency domain involve?",
+                "4. What is spectral leakage in the context of the Fourier transform?",
+                "5. Under what conditions does spectral leakage occur during signal processing?",
+                "6. Why is it rare for a signal to have an integer number of periods?",
+                "7. How does spectral leakage affect the results of the Fourier transform?",
+                "8. What are the implications of spectral leakage for analyzing audio signals?",
+                "9. Can spectral leakage be resolved or mitigated in any way?",
+                "10. What challenges does spectral leakage present in the extraction pipeline?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods. So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so",
+            "video": "How to Extract Audio Features",
+            "start_time": "668.909",
+            "questions": [
+                "1. What is spectral leakage?",
+                "2. When does spectral leakage occur during signal processing?",
+                "3. How does the Fourier transform relate to spectral leakage?",
+                "4. Why is it common for a signal to not have an integer number of periods?",
+                "5. What are the implications of discontinuous endpoints in a signal?",
+                "6. How does spectral leakage affect the analysis of audio signals?",
+                "7. Can spectral leakage be solved, and if so, how?",
+                "8. What role does the duration of a signal play in the occurrence of spectral leakage?",
+                "9. What are some examples of signals that might exhibit spectral leakage?",
+                "10. How can understanding spectral leakage improve signal processing techniques?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods. So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact",
+            "video": "How to Extract Audio Features",
+            "start_time": "684.489",
+            "questions": [
+                "1. What does it mean for a number of periods to not be an integer?",
+                "2. Why is it common for audio signals to not have an integer number of periods?",
+                "3. How do discontinuities in a signal affect its endpoints?",
+                "4. What are the implications of having discontinuous endpoints in a signal?",
+                "5. How are discontinuities in a signal represented in the frequency domain?",
+                "6. What are high frequency components in the context of signal processing?",
+                "7. Why might high frequency components not exist in the original signal?",
+                "8. What is the relationship between discontinuities and artifacts in a signal?",
+                "9. How can the presence of discontinuities impact audio quality?",
+                "10. In what ways can understanding these concepts improve audio processing techniques?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform.",
+            "video": "How to Extract Audio Features",
+            "start_time": "701.799",
+            "questions": [
+                "1. What are the characteristics of the end points of a signal mentioned in the text?",
+                "2. How do discontinuities at the end points affect the signal?",
+                "3. What is meant by the term \"high frequency components\" in the context of the text?",
+                "4. Why do high frequency components appear in the frequency domain?",
+                "5. Are the high frequency components discussed in the text present in the original signal?",
+                "6. What role does the Fourier transform play in the processing of signals with discontinuities?",
+                "7. How can discontinuities be described in relation to integer periods?",
+                "8. What is the relationship between discontinuities and artifacts in the frequency domain?",
+                "9. What implications do discontinuities have for signal analysis?",
+                "10. Can you explain the concept of artifacts in the context of signal processing?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform. So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform",
+            "video": "How to Extract Audio Features",
+            "start_time": "721.96",
+            "questions": [
+                "1. What are discontinuities in a signal, and how do they affect its frequency representation?",
+                "2. How do high frequency components arise from discontinuities in a signal?",
+                "3. What is meant by the term \"artifact\" in the context of high frequency components in a signal?",
+                "4. How does the Fourier transform relate to the presence of discontinuities in a signal?",
+                "5. What is spectral leakage, and why is it significant in signal processing?",
+                "6. How do discontinuity frequencies impact higher frequencies in the frequency domain?",
+                "7. What steps can be taken to minimize the effects of spectral leakage in signal processing?",
+                "8. Can you explain the difference between the time representation and the frequency representation of a signal?",
+                "9. In what scenarios might discontinuities in a signal be encountered during processing?",
+                "10. How can visualizing the effects of discontinuities enhance our understanding of the Fourier transform?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform. So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide.",
+            "video": "How to Extract Audio Features",
+            "start_time": "747.039",
+            "questions": [
+                "1. What causes spectral leakage in the context of the Fourier transform?",
+                "2. How do discontinuities at the endpoints of a signal affect the frequency representation?",
+                "3. What is the relationship between discontinuity frequencies and higher frequencies in spectral leakage?",
+                "4. Can you explain the concept of spectral leakage in simple terms?",
+                "5. What does the Fourier transform do to a time representation of a signal?",
+                "6. How can we visualize the effects of spectral leakage in the frequency domain?",
+                "7. What role do higher frequencies play in the spectrum when spectral leakage occurs?",
+                "8. Why is it important to understand spectral leakage when processing signals?",
+                "9. In what ways might spectral leakage impact the analysis of a signal\u2019s spectrum?",
+                "10. What visual representation is used in the slide to illustrate the concept of spectral leakage?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide. Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed",
+            "video": "How to Extract Audio Features",
+            "start_time": "755.289",
+            "questions": [
+                "1. What is meant by the term \"spectral leakage\" in the context of signal analysis?",
+                "2. How do discontinuities in a signal affect its frequency representation?",
+                "3. What is the role of the Fourier transform in visualizing frequency domains?",
+                "4. In what way can higher frequencies contribute to the overall spectrum when spectral leakage occurs?",
+                "5. Why are the frequency components associated with spectral leakage considered artifacts?",
+                "6. How can discontinuities in an original signal lead to misleading frequency components in the spectrum?",
+                "7. What visual indicators in a spectrum can help identify the presence of spectral leakage?",
+                "8. Can you explain the relationship between time representation and frequency domain in the context of spectral leakage?",
+                "9. Why is it important to understand spectral leakage when analyzing signals?",
+                "10. What are some potential consequences of ignoring spectral leakage in signal processing?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide. Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed shouldn't be the case because these are artifacts. OK. Now, is there a way we can",
+            "video": "How to Extract Audio Features",
+            "start_time": "782.2",
+            "questions": [
+                "1. What is the frequency domain, and how is it obtained?",
+                "2. What role do higher frequencies play in the spectrum?",
+                "3. What is spectral leakage, and how does it manifest in the frequency spectrum?",
+                "4. Why do certain frequency components appear in the spectrum despite not existing in the original signal?",
+                "5. How do discontinuities in the original signal contribute to spectral leakage?",
+                "6. What are the implications of having substantial contributions from artifacts in a sound signal?",
+                "7. Can spectral leakage lead to misinterpretations in signal analysis?",
+                "8. What measures can be taken to minimize or prevent spectral leakage?",
+                "9. How can we identify the presence of spectral leakage in a spectrum?",
+                "10. What are some common sources of discontinuities in signals that might lead to spectral leakage?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed shouldn't be the case because these are artifacts. OK. Now, is there a way we can resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform.",
+            "video": "How to Extract Audio Features",
+            "start_time": "805.659",
+            "questions": [
+                "1. What is an example of spectral leakage?",
+                "2. What causes spectral leakage in frequency components?",
+                "3. Why are the frequency components associated with spectral leakage considered artifacts?",
+                "4. What kind of frequencies are typically observed with spectral leakage?",
+                "5. How does spectral leakage affect the sound analysis of a signal?",
+                "6. Is there a method to resolve the issue of spectral leakage?",
+                "7. What is the solution mentioned for minimizing spectral leakage?",
+                "8. What is the purpose of applying a windowing function in the context of spectral leakage?",
+                "9. When is the windowing function applied in the analysis process?",
+                "10. How does windowing help in the analysis of signals using the Fourier transform?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "shouldn't be the case because these are artifacts. OK. Now, is there a way we can resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform. And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that.",
+            "video": "How to Extract Audio Features",
+            "start_time": "835.21",
+            "questions": [
+                "1. What is the issue being discussed in relation to artifacts?",
+                "2. How can spectral leakage be minimized according to the text?",
+                "3. What is the term used to describe the method for minimizing spectral leakage?",
+                "4. What is the purpose of applying a windowing function to each frame?",
+                "5. What happens to the samples at the end points of a frame when windowing is applied?",
+                "6. How does removing the end point information affect the signal?",
+                "7. What is the result of applying windowing before the Fourier transform?",
+                "8. Why is minimizing spectral leakage considered beneficial?",
+                "9. Can you explain the concept of a periodic signal in the context of windowing?",
+                "10. What is the relationship between windowing and the Fourier transform?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform. And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that. OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this",
+            "video": "How to Extract Audio Features",
+            "start_time": "843.159",
+            "questions": [
+                "1. What is the primary purpose of windowing in the context of Fourier transforms?",
+                "2. How does windowing help minimize spectral leakage?",
+                "3. What happens to the samples at the end points of a frame when a windowing function is applied?",
+                "4. Can you explain the concept of a periodic signal in relation to windowing?",
+                "5. What is the most commonly used windowing function mentioned in the text?",
+                "6. In what percentage of cases is the Hanning window likely used during Fourier transforms?",
+                "7. What does the variable \"K\" represent in the context of the Hanning window function?",
+                "8. What are the implications of removing information from the end points of a frame?",
+                "9. How does applying a windowing function affect the overall signal being analyzed?",
+                "10. Why is it important to address spectral leakage in signal processing?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that. OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine",
+            "video": "How to Extract Audio Features",
+            "start_time": "868.4",
+            "questions": [
+                "1. What is the effect of eliminating samples at the end points of a frame?",
+                "2. How does removing information from the end points influence spectral leakage?",
+                "3. What is the main advantage of generating a periodic signal in this context?",
+                "4. What is the name of the famous windowing function commonly used in Fourier transforms?",
+                "5. What percentage of the time is the Hanning window used when performing Fourier transforms?",
+                "6. In the context of the Hanning window, what does the variable 'K' represent?",
+                "7. How does the Hanning window function relate to the sample data?",
+                "8. What mathematical function is utilized in the Hanning window?",
+                "9. Why is minimizing spectral leakage important in signal processing?",
+                "10. Can you explain the significance of windowing functions in Fourier analysis?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame",
+            "video": "How to Extract Audio Features",
+            "start_time": "893.69",
+            "questions": [
+                "1. What is the name of the famous windowing function commonly used in Fourier transforms?",
+                "2. What percentage of the time is the hand window likely to be used in Fourier transforms?",
+                "3. What does the variable K represent in the context of the hand window function?",
+                "4. How is the hand window function visualized in the provided example?",
+                "5. What shape does the hand window create when visualized over 50 samples?",
+                "6. What happens to the endpoints of the hand window as depicted in the visualization?",
+                "7. What type of mathematical function is used in the hand window?",
+                "8. What is the significance of applying the hand window to a signal?",
+                "9. What is meant by \"one frame\" in the context of the signal mentioned?",
+                "10. How does the hand window affect the analysis of signals in Fourier transforms?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame uh containing uh 256 samples. Here, we have the",
+            "video": "How to Extract Audio Features",
+            "start_time": "914.929",
+            "questions": [
+                "1. What is the purpose of the hand window function mentioned in the text?",
+                "2. How many samples are used to visualize the hand window?",
+                "3. What shape does the hand window create when visualized?",
+                "4. What happens to the endpoints of the hand window as mentioned in the text?",
+                "5. What type of mathematical function is used in the hand window visualization?",
+                "6. How many samples are contained in the signal being applied?",
+                "7. What is the significance of using a bell-shaped curve in the context of the hand window?",
+                "8. What does the term \"frame\" refer to in the context of the signal?",
+                "9. Why is it important to understand the characteristics of the hand window when analyzing signals?",
+                "10. Can you explain how the hand window is applied to the given signal?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame uh containing uh 256 samples. Here, we have the uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply",
+            "video": "How to Extract Audio Features",
+            "start_time": "925.369",
+            "questions": [
+                "1. What is the main purpose of the hand window in the context of signal processing?",
+                "2. How many samples are visualized in the hand window described in the text?",
+                "3. What shape does the visualization of the hand window resemble?",
+                "4. What happens to the endpoints of the hand window in the visualization?",
+                "5. How many samples are contained in the signal mentioned in the text?",
+                "6. What does it mean for a signal to be \"windowed\"?",
+                "7. What mathematical operation is performed to apply the hand window to the original signal?",
+                "8. What is the significance of using a hand window when analyzing signals?",
+                "9. How does the hand window affect the characteristics of the original signal?",
+                "10. Can you explain the process of obtaining the windowed signal from the original signal?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "uh containing uh 256 samples. Here, we have the uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply the original signal by the hand window at each correspondent sample, right?",
+            "video": "How to Extract Audio Features",
+            "start_time": "953.859",
+            "questions": [
+                "1. What is the significance of using a hand window in signal processing?",
+                "2. How many samples are contained in the original signal mentioned in the text?",
+                "3. What is the purpose of applying a hand window to the original signal?",
+                "4. How is the new windowed signal obtained from the original signal?",
+                "5. What mathematical operation is performed to apply the hand window to the original signal?",
+                "6. What does the term \"correspondent sample\" refer to in this context?",
+                "7. Can you explain the concept of windowing in signal processing?",
+                "8. What effect does applying a hand window have on the original signal?",
+                "9. Are there any other types of windows that can be applied to signals besides the hand window?",
+                "10. What might be the implications of not windowing a signal before analysis?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply the original signal by the hand window at each correspondent sample, right? And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK.",
+            "video": "How to Extract Audio Features",
+            "start_time": "960.909",
+            "questions": [
+                "1. What is the purpose of applying the hand window to the original signal?",
+                "2. How is the hand window applied to the original signal mathematically?",
+                "3. What effect does multiplying the original signal by the hand window at each sample have?",
+                "4. How does the application of the hand window affect the appearance of the new signal?",
+                "5. What happens to the end points of the signal after applying the hand window?",
+                "6. Why is it important to smooth the end points of a signal?",
+                "7. What are discontinuities in a signal, and how does the hand window address them?",
+                "8. Can you explain the process of windowing in signal processing?",
+                "9. What are the advantages of using a hand window compared to not using any windowing?",
+                "10. What does it mean for a signal to go naturally to zero after applying a window?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "the original signal by the hand window at each correspondent sample, right? And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK. But now we have another problem,",
+            "video": "How to Extract Audio Features",
+            "start_time": "988.539",
+            "questions": [
+                "1. What is the purpose of applying the hand window to the original signal?",
+                "2. How does the hand window affect the appearance of the signal at the endpoints?",
+                "3. What problem does the hand window address regarding discontinuities in the signal?",
+                "4. In what way does the signal change after the application of the hand window?",
+                "5. What is the significance of the signal naturally going to zero after windowing?",
+                "6. What might be the \"another problem\" mentioned after discussing the benefits of the hand window?",
+                "7. How does the smoothing of endpoints contribute to the overall quality of the signal?",
+                "8. What is a potential consequence of not using a hand window on the signal?",
+                "9. Can you explain the term \"correspondent sample\" in the context of this signal processing?",
+                "10. What techniques are commonly used alongside windowing to further process signals?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK. But now we have another problem, we have another big problem. So now imagine we take",
+            "video": "How to Extract Audio Features",
+            "start_time": "997.82",
+            "questions": [
+                "1. What does the application of the hand window achieve in the process described?",
+                "2. How does the hand window affect the end points of the signal?",
+                "3. What discontinuities are eliminated by using the hand window?",
+                "4. In what way does the signal behave after the application of the windowing technique?",
+                "5. What is the significance of the signal going naturally to zero?",
+                "6. What new problem arises after applying the hand window?",
+                "7. How does the windowing technique contribute to the overall signal processing?",
+                "8. Can you describe the visual appearance of the signal after the hand window is applied?",
+                "9. What are the potential implications of the new problem introduced after windowing?",
+                "10. How does the concept of smoothing relate to signal processing in this context?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "But now we have another problem, we have another big problem. So now imagine we take a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we",
+            "video": "How to Extract Audio Features",
+            "start_time": "1026.56",
+            "questions": [
+                "1. What is the main issue being discussed in the text?",
+                "2. How are the frames described in the text being combined?",
+                "3. What visual representation is used to explain the problem?",
+                "4. How many frames are mentioned as being glued together?",
+                "5. What specific points of the frames are highlighted as problematic?",
+                "6. What does the term \"end points\" refer to in the context of the frames?",
+                "7. What might the consequences be of gluing the frames together?",
+                "8. Are there any solutions suggested for the problem presented?",
+                "9. How does the speaker feel about the situation regarding the frames?",
+                "10. What could be the significance of the frames in the broader context of the discussion?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "we have another big problem. So now imagine we take a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1029.818",
+            "questions": [
+                "1. What is the main problem discussed in the text?",
+                "2. How are the frames described in the text combined?",
+                "3. What happens to the signal at the endpoints of the glued frames?",
+                "4. Why do we lose signal when combining frames?",
+                "5. What technique is mentioned that causes signal loss during the process?",
+                "6. Why is losing signal during a Fourier transform undesirable?",
+                "7. What is implied about the frequency of frames being glued together?",
+                "8. What does the author suggest is a conundrum regarding this issue?",
+                "9. Are there any proposed solutions mentioned for the problem of signal loss?",
+                "10. How does windowing function impact the signal in the context of Fourier transforms?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum. Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like",
+            "video": "How to Extract Audio Features",
+            "start_time": "1035.26",
+            "questions": [
+                "1. What process is described for combining frames in the text?",
+                "2. What is the main issue that arises at the endpoints of the frames?",
+                "3. Why do we lose signal when frames are glued together?",
+                "4. What function is applied that contributes to the loss of signal?",
+                "5. What is the desired outcome when performing a Fourier transform?",
+                "6. What solution is proposed for the problem of losing signal?",
+                "7. What does the text suggest is the benefit of overlapping frames?",
+                "8. What type of frames does the text initially discuss before introducing overlapping frames?",
+                "9. What is meant by \"windowing function\" in the context of frame signal processing?",
+                "10. How does the concept of overlapping frames relate to solving the signal loss issue?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum. Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1054.479",
+            "questions": [
+                "1. What is the main reason we lose signal when applying a windowing function?",
+                "2. Why is losing signal during a Fourier transform considered undesirable?",
+                "3. What solution is proposed for the issue of losing signal?",
+                "4. What are overlapping frames, and how do they help in signal processing?",
+                "5. How do non-overlapping frames differ from overlapping frames in signal analysis?",
+                "6. What does the vertical red bar in the example represent?",
+                "7. How many frames are mentioned in the context of non-overlapping frames?",
+                "8. What happens to the signal as we move from one frame to the next in a non-overlapping scenario?",
+                "9. Why might overlapping frames be necessary for effective signal analysis?",
+                "10. What is the initial mystery related to overlapping frames that is referenced in the text?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here. But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um",
+            "video": "How to Extract Audio Features",
+            "start_time": "1079.569",
+            "questions": [
+                "1. What is the main topic discussed in the video?",
+                "2. How are non-overlapping frames typically applied to a signal?",
+                "3. What does the vertical red bar represent in the context of frame application?",
+                "4. How many frames are mentioned in the example of non-overlapping frames?",
+                "5. What is one potential issue with using non-overlapping frames?",
+                "6. What is the proposed solution to the problem of losing signal with non-overlapping frames?",
+                "7. How do overlapping frames differ from non-overlapping frames?",
+                "8. Why is it important to visualize overlapping frames?",
+                "9. What might happen to the signal when using windowing with non-overlapping frames?",
+                "10. What is the initial mystery referred to at the beginning of the video?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here. But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account",
+            "video": "How to Extract Audio Features",
+            "start_time": "1104.43",
+            "questions": [
+                "1. What is the purpose of choosing a frame size in signal processing?",
+                "2. How does the vertical red bar in the text represent frames for a signal?",
+                "3. What happens to the signal when frames are applied without overlaps?",
+                "4. Why is losing signal a concern when using non-overlapping frames?",
+                "5. How are overlapping frames visualized according to the text?",
+                "6. What does the text suggest is the benefit of using overlapping frames?",
+                "7. How many frames are mentioned in the example provided in the text?",
+                "8. What is the significance of the overlapping section in the second frame?",
+                "9. What problem does overlapping frames aim to solve in signal processing?",
+                "10. How does the concept of windowing relate to the discussion of frames?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is",
+            "video": "How to Extract Audio Features",
+            "start_time": "1127.26",
+            "questions": [
+                "1. What happens to the signal when we use windowing without overlapping frames?",
+                "2. How do overlapping frames help mitigate the loss of information at the endpoints?",
+                "3. Can you describe the visualization process for overlapping frames?",
+                "4. What is the significance of the first frame in the context of overlapping frames?",
+                "5. How many frames are mentioned in the text, and what is their relationship?",
+                "6. What concept is introduced after discussing overlapping frames?",
+                "7. Why is overlapping frames important in signal processing?",
+                "8. How does the overlap between frames contribute to information retention?",
+                "9. What might be a potential drawback of using non-overlapping frames?",
+                "10. What is implied by the phrase \"we just like overlap these frames every time\"?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1142.01",
+            "questions": [
+                "1. What is the purpose of overlapping frames in the discussed context?",
+                "2. How does overlapping frames help account for information loss at the endpoints?",
+                "3. Can you explain what is meant by \"frame size\" in this context?",
+                "4. What does the term \"hop length\" refer to?",
+                "5. How is hop length sometimes referred to differently?",
+                "6. How many frames are mentioned as part of the overlapping process?",
+                "7. Why is it important to consider the number of samples for each frame?",
+                "8. What happens to the information at the endpoints when frames are not overlapped?",
+                "9. How does overlapping frames influence the analysis or processing of data?",
+                "10. What are the potential benefits of using overlapping frames in data processing?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size. So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1160.89",
+            "questions": [
+                "1. What is the significance of overlapping frames in the context of feature extraction?",
+                "2. How does frame size relate to the number of samples considered for each frame?",
+                "3. What is hop length, and how does it differ from hop size?",
+                "4. How does the hop length affect the sampling process during feature extraction?",
+                "5. Why might information be lost at the endpoints when using overlapping frames?",
+                "6. What role does the Fourier transform play in the feature extraction pipeline?",
+                "7. Can you explain the concept of overlapping frames in more detail?",
+                "8. How does adjusting the hop length impact the overall analysis of the data?",
+                "9. What are the potential consequences of using a poorly chosen frame size?",
+                "10. How do the concepts of frame size and hop length work together in the feature extraction process?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size. So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform. So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1186.849",
+            "questions": [
+                "1. What is the significance of the number of samples considered for each frame in the context of feature extraction?",
+                "2. How is the term \"hop length\" defined in relation to sampling?",
+                "3. What does the hop length indicate about the sampling process?",
+                "4. What is another term that is sometimes used interchangeably with \"hop length\"?",
+                "5. What is the role of the Fourier transform in the feature extraction pipeline?",
+                "6. What is the expected outcome after applying the Fourier transform to the windowed data?",
+                "7. Why is it important to minimize spectral leakage during the Fourier transform?",
+                "8. What steps are revisited after applying the Fourier transform in the frequency domain feature extraction?",
+                "9. How does the concept of windowing relate to the feature extraction process?",
+                "10. In what context is the feature extraction pipeline being discussed?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform. So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline. So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK,",
+            "video": "How to Extract Audio Features",
+            "start_time": "1207.709",
+            "questions": [
+                "1. What does hop length refer to in the context of audio sampling?",
+                "2. What is the purpose of applying the Fourier transform in the feature extraction pipeline?",
+                "3. How does windowing affect the application of the Fourier transform?",
+                "4. What is meant by \"minimized spectral leakage\" in the context of frequency domain analysis?",
+                "5. What steps are taken after applying the Fourier transform to obtain frequency domain features?",
+                "6. How are frequency domain features computed for each frame of audio?",
+                "7. What statistical methods can be used to aggregate frequency domain feature results?",
+                "8. What is the final output after processing the frequency domain features from an audio signal?",
+                "9. How does the frequency domain feature extraction pipeline compare to the time domain feature extraction pipeline?",
+                "10. What is the significance of obtaining a frequency feature value vector or matrix?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline. So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK, good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1236.05",
+            "questions": [
+                "1. What is the purpose of applying the Fourier transform after windowing in audio analysis?  ",
+                "2. How does windowing help minimize spectral leakage?  ",
+                "3. What steps are involved in the time domain feature extraction pipeline?  ",
+                "4. What types of features are computed in the frequency domain?  ",
+                "5. How are the frequency domain features aggregated for the entire audio signal?  ",
+                "6. What statistical means can be used to aggregate frequency domain feature results?  ",
+                "7. What does the final output of the frequency feature extraction process look like?  ",
+                "8. How do time domain features and frequency domain features differ in their extraction pipelines?  ",
+                "9. Why is it important to have a clear understanding of the pipelines for feature extraction?  ",
+                "10. What are some potential applications of the frequency domain feature value vector or matrix?  "
+            ]
+        },
+        {
+            "id": 59,
+            "text": "So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK, good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them. So what's next? Well, it's time to start digging into time domain features and next time we'll start looking into time Domain features, a bunch of these and understand what they are and how we can use them for different applications in machine learning. So stay tuned for that. So",
+            "video": "How to Extract Audio Features",
+            "start_time": "1256.689",
+            "questions": [
+                "1. What is the process for computing frequency domain features on audio frames?",
+                "2. How are the results of frequency domain feature computation aggregated for the entire audio signal?",
+                "3. What type of output is generated after aggregating frequency domain features?",
+                "4. What pipelines are used for extracting time domain and frequency domain features?",
+                "5. Why is it important to understand time domain features in audio processing?",
+                "6. What are some potential applications of time domain features in machine learning?",
+                "7. What will be covered in the next discussion regarding time domain features?",
+                "8. How do statistical means play a role in aggregating frequency domain features?",
+                "9. What distinguishes frequency domain features from time domain features?",
+                "10. What can listeners expect to learn about time domain features in future content?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them. So what's next? Well, it's time to start digging into time domain features and next time we'll start looking into time Domain features, a bunch of these and understand what they are and how we can use them for different applications in machine learning. So stay tuned for that. So that's it for today. I hope you've enjoyed this video. If that's the case, please remember to uh leave a like if you have any questions as usual, leave them in the comments section below. I'll try to answer this and I guess that's all for today and I'll see you next time. Cheers.",
+            "video": "How to Extract Audio Features",
+            "start_time": "1284.329",
+            "questions": [
+                "1. What are the two types of features mentioned in the text?  ",
+                "2. Why is it important to have a clear idea of the pipelines for extracting features?  ",
+                "3. What will the next topic of discussion be regarding time domain features?  ",
+                "4. How can time domain features be applied in machine learning?  ",
+                "5. What should viewers do if they enjoyed the video?  ",
+                "6. Where should viewers leave their questions for the speaker?  ",
+                "7. What is the speaker's intention for the next video?  ",
+                "8. How does the speaker encourage engagement from the audience?  ",
+                "9. What does the speaker hope the audience will take away from the video?  ",
+                "10. How does the speaker conclude the video?  "
+            ]
+        }
+    ]
+}

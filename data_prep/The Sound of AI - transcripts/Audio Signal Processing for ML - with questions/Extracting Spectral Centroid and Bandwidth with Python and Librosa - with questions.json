@@ -1,0 +1,958 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This is not only a new video but it's gonna be the last one in the series. So what I'm gonna do today is basically show you how you can calculate the spectral Centroid and the spectral bandwidth using libres. OK. So let's get started. So here, as you can see, I already fired up a notebook and wrote down like some stuff. So I'm not gonna go through this like in detail because we've seen this time and again, time and again throughout the series. But basically, so we have like all sorts of imports here with Lisa and other stuff that we'll use here. We are loading some audio files and we are always using the free usual audio files. So the bey piece, an orchestral piece, then a song by Red Hot Chili Peppers and then a nice ballad by Jake Eton. So this is a jazzy music. So here I just like display all of them. I'm not gonna play us back because like we've heard them like multiple times and if you're interested, you can download the uh the network and hear for yourself. And then what I do here, I load all the audio files with LIB browser so that we get both the uh the signal as a non power and the sample rate. OK. So it's now time to calculate the spectral Centroid with libros.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "0.31",
+            "questions": [
+                "1. What is the main focus of the video in the audio signal processing series?",
+                "2. What two specific calculations will be demonstrated in this final video?",
+                "3. Which library is being used to calculate the spectral Centroid and spectral bandwidth?",
+                "4. What types of audio files are being utilized in the video?",
+                "5. Can you name one of the artists whose song is featured in the audio files?",
+                "6. Why is the presenter not going into detail about the imports and setup in the notebook?",
+                "7. What is the purpose of loading audio files with LIB browser in this context?",
+                "8. How does the presenter describe the orchestral piece mentioned in the video?",
+                "9. What does the presenter encourage viewers to do if they want to hear the audio files themselves?",
+                "10. What is meant by \"spectral Centroid\" in the context of audio signal processing?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "detail because we've seen this time and again, time and again throughout the series. But basically, so we have like all sorts of imports here with Lisa and other stuff that we'll use here. We are loading some audio files and we are always using the free usual audio files. So the bey piece, an orchestral piece, then a song by Red Hot Chili Peppers and then a nice ballad by Jake Eton. So this is a jazzy music. So here I just like display all of them. I'm not gonna play us back because like we've heard them like multiple times and if you're interested, you can download the uh the network and hear for yourself. And then what I do here, I load all the audio files with LIB browser so that we get both the uh the signal as a non power and the sample rate. OK. So it's now time to calculate the spectral Centroid with libros. Now, the first thing that we want to do is just like uh set up the uh frame size and the hop length. And we're gonna need uh these values for extracting the spectral Centroid. OK. So now let's move on and uh actually extract the spectral Centroid. So we'll do a SC, this is like uh stands for spectral uh Centroid and we'll do uh the BC over here.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "28.805",
+            "questions": [
+                "1. What types of audio files are being loaded in the series?",
+                "2. Which orchestral piece is mentioned in the text?",
+                "3. What song by the Red Hot Chili Peppers is referenced?",
+                "4. Who is the artist of the jazzy ballad mentioned in the text?",
+                "5. Why is the author choosing not to play back the audio files?",
+                "6. What tool is being used to load the audio files?",
+                "7. What two types of data are obtained when loading the audio files with LIB browser?",
+                "8. What parameters need to be set up for extracting the spectral Centroid?",
+                "9. What does \"SC\" stand for in the context of the text?",
+                "10. What is the main focus of the analysis described in the text?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "play us back because like we've heard them like multiple times and if you're interested, you can download the uh the network and hear for yourself. And then what I do here, I load all the audio files with LIB browser so that we get both the uh the signal as a non power and the sample rate. OK. So it's now time to calculate the spectral Centroid with libros. Now, the first thing that we want to do is just like uh set up the uh frame size and the hop length. And we're gonna need uh these values for extracting the spectral Centroid. OK. So now let's move on and uh actually extract the spectral Centroid. So we'll do a SC, this is like uh stands for spectral uh Centroid and we'll do uh the BC over here. And uh so what we'll do is a lib rosa dot feature and then we'll get the spectral Centroid feature and here we should pass uh a few arguments. So the first of which is just the signal itself. So we'll do A Y which stands for signal",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "57.56",
+            "questions": [
+                "1. What method is used to load audio files in the text?",
+                "2. What are the two key components mentioned that are extracted from the audio files?",
+                "3. What is the purpose of calculating the spectral Centroid?",
+                "4. What parameters need to be set up before extracting the spectral Centroid?",
+                "5. What does \"SC\" stand for in the context of the text?",
+                "6. Which library is used to obtain the spectral Centroid feature?",
+                "7. What argument must be passed to the function to extract the spectral Centroid?",
+                "8. What does \"A Y\" represent in the context of the signal?",
+                "9. Why might someone be interested in downloading the network mentioned in the text?",
+                "10. How does the text suggest that the audio files have been experienced prior to analysis?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "Now, the first thing that we want to do is just like uh set up the uh frame size and the hop length. And we're gonna need uh these values for extracting the spectral Centroid. OK. So now let's move on and uh actually extract the spectral Centroid. So we'll do a SC, this is like uh stands for spectral uh Centroid and we'll do uh the BC over here. And uh so what we'll do is a lib rosa dot feature and then we'll get the spectral Centroid feature and here we should pass uh a few arguments. So the first of which is just the signal itself. So we'll do A Y which stands for signal uh for in Lisa. And here we'll pass the, the BC signal, so we'll pass the BC, then we want to pass the sample rate and we know that this is equal to SR because we took it here, then uh we need to pass the frame size that's called N dash N underscore FFT.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "82.949",
+            "questions": [
+                "1. What is the initial setup required for extracting the spectral Centroid?",
+                "2. What do the terms \"frame size\" and \"hop length\" refer to in this context?",
+                "3. How is the spectral Centroid denoted in the text?",
+                "4. Which library is used for extracting the spectral Centroid feature?",
+                "5. What is the purpose of passing the signal as an argument when extracting the spectral Centroid?",
+                "6. What does \"A Y\" represent in the extraction process?",
+                "7. What does \"SR\" stand for in the context of sample rate?",
+                "8. What is the significance of the variable \"BC\" when passing the signal for spectral Centroid extraction?",
+                "9. What argument is referred to as \"N_dash N_underscore FFT\"?",
+                "10. Are there any other arguments required apart from the signal, sample rate, and frame size for extracting the spectral Centroid?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "And uh so what we'll do is a lib rosa dot feature and then we'll get the spectral Centroid feature and here we should pass uh a few arguments. So the first of which is just the signal itself. So we'll do A Y which stands for signal uh for in Lisa. And here we'll pass the, the BC signal, so we'll pass the BC, then we want to pass the sample rate and we know that this is equal to SR because we took it here, then uh we need to pass the frame size that's called N dash N underscore FFT. Uh And so this is gonna be equal to the frame size. And finally, we'll pass in the H length that's equal to the constants that we uh just like sat over here. OK. So uh let me just do the same thing for the three other signals that we have. So for the red hot chili peppers and for uh for the two other signals that we have. So red hot chili pepper song and Jake song.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "108.699",
+            "questions": [
+                "1. What library is being used to extract the spectral Centroid feature?",
+                "2. What does \"A Y\" stand for in the context of this text?",
+                "3. What type of signal is being passed to the function?",
+                "4. What variable represents the sample rate in this process?",
+                "5. What is the significance of the variable N_dash N_underscore FFT?",
+                "6. How is the frame size determined in this context?",
+                "7. What does \"H length\" refer to in the argument list?",
+                "8. How many signals are mentioned in the text for feature extraction?",
+                "9. Which specific songs or artists are referenced in the text?",
+                "10. What is the purpose of passing different signals to the same feature extraction process?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "uh for in Lisa. And here we'll pass the, the BC signal, so we'll pass the BC, then we want to pass the sample rate and we know that this is equal to SR because we took it here, then uh we need to pass the frame size that's called N dash N underscore FFT. Uh And so this is gonna be equal to the frame size. And finally, we'll pass in the H length that's equal to the constants that we uh just like sat over here. OK. So uh let me just do the same thing for the three other signals that we have. So for the red hot chili peppers and for uh for the two other signals that we have. So red hot chili pepper song and Jake song. So this one, I, I'll just call uh red hots and let me pass this guy",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "129.24",
+            "questions": [
+                "1. What does \"BC signal\" refer to in the context of the text?",
+                "2. How is the sample rate represented in the discussion?",
+                "3. What is the significance of the variable SR in the passage?",
+                "4. What does the term \"N dash N underscore FFT\" represent?",
+                "5. How is the frame size determined in the text?",
+                "6. What constant is associated with the H length mentioned in the passage?",
+                "7. Which other signals are referenced alongside the BC signal in the text?",
+                "8. How does the author plan to handle the signals for the red hot chili peppers and Jake?",
+                "9. What is the relationship between the frame size and the sample rate based on the text?",
+                "10. What is the process described for passing parameters in the context of the signals?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "Uh And so this is gonna be equal to the frame size. And finally, we'll pass in the H length that's equal to the constants that we uh just like sat over here. OK. So uh let me just do the same thing for the three other signals that we have. So for the red hot chili peppers and for uh for the two other signals that we have. So red hot chili pepper song and Jake song. So this one, I, I'll just call uh red hots and let me pass this guy over here as the signal and then we'll do ISC, the spectral Centroid of Duke",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "151.869",
+            "questions": [
+                "1. What is the significance of the frame size mentioned in the text?",
+                "2. How is the H length determined in the context of the discussion?",
+                "3. Which signals are being referenced alongside the Red Hot Chili Peppers?",
+                "4. What is meant by \"passing in\" the H length?",
+                "5. What does the term \"spectral centroid\" refer to in this context?",
+                "6. How many signals are being processed in total according to the text?",
+                "7. What is the process described for handling the signals?",
+                "8. What does the speaker imply by referring to \"this guy\" in relation to the signal?",
+                "9. Why might the speaker choose to label one of the signals as \"red hots\"?",
+                "10. What role does the term \"ISC\" play in the analysis of the signals mentioned?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "So this one, I, I'll just call uh red hots and let me pass this guy over here as the signal and then we'll do ISC, the spectral Centroid of Duke and I'll pass the signal for GKL inter over here. So if I don't have any mistakes, so we should just like run this and get the spectral cent, right. Yeah, it seems like it works. Let's now calculate the shape of the features that we just got. So we can do SC",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "180.5",
+            "questions": [
+                "1. What is the significance of the term \"red hots\" in the context of the text?",
+                "2. Who or what is being referred to as \"this guy\" in the text?",
+                "3. What does ISC stand for in this context?",
+                "4. What is the spectral centroid and why is it important?",
+                "5. What does GKL inter refer to in the text?",
+                "6. How can one determine if there are any mistakes in the process being described?",
+                "7. What kind of features are being calculated in the text?",
+                "8. What does SC stand for in the phrase \"we can do SC\"?",
+                "9. What steps are involved in calculating the shape of the features mentioned?",
+                "10. How does the speaker confirm that the process \"seems like it works\"?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "over here as the signal and then we'll do ISC, the spectral Centroid of Duke and I'll pass the signal for GKL inter over here. So if I don't have any mistakes, so we should just like run this and get the spectral cent, right. Yeah, it seems like it works. Let's now calculate the shape of the features that we just got. So we can do SC uh the BC dot uh shape. And as you can see here, we have a bi dimensional array. The first dimension is equal to one and the second dimension is equal to uh 1292. So the second dimension",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "188.929",
+            "questions": [
+                "1. What is the significance of the signal mentioned in the text?",
+                "2. What does ISC stand for in this context?",
+                "3. How is the spectral centroid of Duke being calculated?",
+                "4. What does GKL inter refer to in the process described?",
+                "5. What are the expected outcomes if there are no mistakes in the calculations?",
+                "6. How do you calculate the shape of the features obtained?",
+                "7. What does SC represent in the calculation process?",
+                "8. What is a bi-dimensional array, and how is it structured in this context?",
+                "9. What do the dimensions of the array indicate about the data being processed?",
+                "10. Why is it important to check for mistakes before running the calculations?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "and I'll pass the signal for GKL inter over here. So if I don't have any mistakes, so we should just like run this and get the spectral cent, right. Yeah, it seems like it works. Let's now calculate the shape of the features that we just got. So we can do SC uh the BC dot uh shape. And as you can see here, we have a bi dimensional array. The first dimension is equal to one and the second dimension is equal to uh 1292. So the second dimension is equal to the number of frames uh that we get to say it's all like the, we are like in the time domain and it's all the, the frames that we have there. OK. But we are mainly interested like in those uh",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "198.139",
+            "questions": [
+                "1. What signal is being passed for GKL inter?  ",
+                "2. What should be done if there are no mistakes in the process?  ",
+                "3. What does \"spectral cent\" refer to in this context?  ",
+                "4. How is the shape of the features calculated?  ",
+                "5. What does \"SC\" stand for in the calculation process?  ",
+                "6. What type of array is generated from the calculation?  ",
+                "7. What are the dimensions of the bi-dimensional array produced?  ",
+                "8. What does the first dimension of the array represent?  ",
+                "9. How many frames are indicated by the second dimension of the array?  ",
+                "10. Why is the focus primarily on the frames in the time domain?  "
+            ]
+        },
+        {
+            "id": 10,
+            "text": "uh the BC dot uh shape. And as you can see here, we have a bi dimensional array. The first dimension is equal to one and the second dimension is equal to uh 1292. So the second dimension is equal to the number of frames uh that we get to say it's all like the, we are like in the time domain and it's all the, the frames that we have there. OK. But we are mainly interested like in those uh 1292 values of the spectral cent across time. So what we should do here is just get item",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "213.86",
+            "questions": [
+                "1. What is the shape of the bi-dimensional array mentioned in the text?",
+                "2. How many dimensions does the array have?",
+                "3. What is the value of the first dimension in the bi-dimensional array?",
+                "4. What is the value of the second dimension in the bi-dimensional array?",
+                "5. What does the second dimension represent in the context of the text?",
+                "6. How many frames are associated with the second dimension of the array?",
+                "7. What domain is being referred to in the text?",
+                "8. What specific values are of primary interest in the array?",
+                "9. What type of values are being measured across time in the array?",
+                "10. What action is suggested to be taken with the array in the text?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "is equal to the number of frames uh that we get to say it's all like the, we are like in the time domain and it's all the, the frames that we have there. OK. But we are mainly interested like in those uh 1292 values of the spectral cent across time. So what we should do here is just get item zero over here. So let's do that. And if we rerun this, as you can see, obviously here, we are just getting like a one dimensional array which this almost 1300 values. And that is like the value for each frame, the value of the spectral cent for",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "229.119",
+            "questions": [
+                "1. What is the significance of the number of frames mentioned in the text?",
+                "2. How are the frames described in relation to the time domain?",
+                "3. What specific values are the main focus of interest in the discussion?",
+                "4. How many values of the spectral centroid are there across time?",
+                "5. What action is suggested to be taken with \"item zero\" in the context?",
+                "6. What is the result of rerunning the process mentioned in the text?",
+                "7. What type of array is generated after rerunning the process?",
+                "8. How many values are approximately in the one-dimensional array mentioned?",
+                "9. What does each value in the array represent?",
+                "10. What does the term \"spectral cent\" refer to in this context?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "1292 values of the spectral cent across time. So what we should do here is just get item zero over here. So let's do that. And if we rerun this, as you can see, obviously here, we are just getting like a one dimensional array which this almost 1300 values. And that is like the value for each frame, the value of the spectral cent for frame. The next thing that we want to do is to visualize the spectral center right across time for the three pieces of music. OK. So let's start by just creating some markdowns say spectral Centroid. OK.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "245.119",
+            "questions": [
+                "1. What does the term \"spectral centroid\" refer to in the context of audio analysis?",
+                "2. How many values of the spectral centroid are mentioned in the text?",
+                "3. What type of array is produced when item zero is accessed from the spectral centroid values?",
+                "4. How many frames correspond to the 1292 values of the spectral centroid?",
+                "5. What is the next step mentioned after obtaining the spectral centroid values?",
+                "6. What is the purpose of visualizing the spectral centroid across time?",
+                "7. How many pieces of music are indicated for the spectral centroid visualization?",
+                "8. What format is suggested for presenting the information about the spectral centroid?",
+                "9. What is the significance of analyzing the spectral centroid in music?",
+                "10. Why is it important to visualize data in audio analysis?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "zero over here. So let's do that. And if we rerun this, as you can see, obviously here, we are just getting like a one dimensional array which this almost 1300 values. And that is like the value for each frame, the value of the spectral cent for frame. The next thing that we want to do is to visualize the spectral center right across time for the three pieces of music. OK. So let's start by just creating some markdowns say spectral Centroid. OK. So here, so how do we do this? Well, we'll use map plot Libs. So the first thing that we'll do is plots dot uh figure. So we'll create a figure with a given fig size figure size and this is gonna be equal to uh 15 or like, yeah, let's say 25 by 10.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "254.94",
+            "questions": [
+                "1. What is the purpose of visualizing the spectral centroid across time for the three pieces of music?  ",
+                "2. How many values are contained in the one-dimensional array mentioned in the text?  ",
+                "3. What library is being used to create the visualizations in the text?  ",
+                "4. What is the significance of the spectral centroid in analyzing music?  ",
+                "5. What dimensions are specified for the figure size in the visualization process?  ",
+                "6. Why is it important to represent the values of the spectral centroid for each frame?  ",
+                "7. What type of data is being represented in the one-dimensional array?  ",
+                "8. How does the author intend to organize the information in the visualization process?  ",
+                "9. What are the initial steps outlined for creating the visualization?  ",
+                "10. What does the term \"fig size\" refer to in the context of plotting with Matplotlib?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "frame. The next thing that we want to do is to visualize the spectral center right across time for the three pieces of music. OK. So let's start by just creating some markdowns say spectral Centroid. OK. So here, so how do we do this? Well, we'll use map plot Libs. So the first thing that we'll do is plots dot uh figure. So we'll create a figure with a given fig size figure size and this is gonna be equal to uh 15 or like, yeah, let's say 25 by 10. And then we want to move on and here start adding uh like the curve. So we're gonna have like a single figure with three different curves for the three different pieces that we are analyzing. OK. So we'll do a plots dot plots. And here we need to pass the value for the X axis, the Y axis and a color.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "275.964",
+            "questions": [
+                "1. What is the main objective of the visualization described in the text?",
+                "2. Which library is mentioned for creating the visualizations?",
+                "3. What is the specific type of visualization being created?",
+                "4. How many pieces of music are being analyzed in the visualization?",
+                "5. What dimensions are suggested for the figure size in the plot?",
+                "6. What function is used to create a new figure in the plotting process?",
+                "7. How many curves will be included in the single figure?",
+                "8. What are the parameters required for the `plots.plot` function mentioned?",
+                "9. What is the significance of the spectral centroid in music analysis?",
+                "10. Why is it important to visualize data across time for the pieces of music?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "So here, so how do we do this? Well, we'll use map plot Libs. So the first thing that we'll do is plots dot uh figure. So we'll create a figure with a given fig size figure size and this is gonna be equal to uh 15 or like, yeah, let's say 25 by 10. And then we want to move on and here start adding uh like the curve. So we're gonna have like a single figure with three different curves for the three different pieces that we are analyzing. OK. So we'll do a plots dot plots. And here we need to pass the value for the X axis, the Y axis and a color. OK. So for the X axis, we need to pass time. So I haven't still, I calculated that. So yeah, I'll do that like once we have like all of this ready, the for the Y axis, obviously, what we want to pass is the,",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "297.309",
+            "questions": [
+                "1. What library is being used for plotting in the text?",
+                "2. What is the specified figure size for the plot?",
+                "3. How many different curves are planned to be included in the figure?",
+                "4. What data needs to be passed for the X axis in the plot?",
+                "5. What color is mentioned for the curves in the plotting process?",
+                "6. What will be plotted on the Y axis according to the text?",
+                "7. What is the first step mentioned in creating the plot?",
+                "8. What is the purpose of the `plot` function in the context of the text?",
+                "9. What does the author intend to calculate before plotting the data?",
+                "10. What are the three different pieces being analyzed in the figure?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "And then we want to move on and here start adding uh like the curve. So we're gonna have like a single figure with three different curves for the three different pieces that we are analyzing. OK. So we'll do a plots dot plots. And here we need to pass the value for the X axis, the Y axis and a color. OK. So for the X axis, we need to pass time. So I haven't still, I calculated that. So yeah, I'll do that like once we have like all of this ready, the for the Y axis, obviously, what we want to pass is the, the values of the spectral Centroid uh And finally, we want to pass the uh a color. And so for the BC, we'll use a blue. Now, let's just add the same thing. But for the other",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "319.95",
+            "questions": [
+                "1. What is the purpose of adding curves to the figure mentioned in the text?",
+                "2. How many different curves are being analyzed in the figure?",
+                "3. What function is being used to create the plots in the text?",
+                "4. What values need to be passed for the X axis in the plot?",
+                "5. What specific calculation needs to be done before plotting the X axis values?",
+                "6. What data is to be represented on the Y axis of the plot?",
+                "7. Which color is chosen for the first curve in the figure?",
+                "8. Is there an indication of how many colors will be used for the curves in the figure?",
+                "9. What is the significance of the spectral centroid in this analysis?",
+                "10. What additional elements need to be added for the other curves mentioned in the text?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "OK. So for the X axis, we need to pass time. So I haven't still, I calculated that. So yeah, I'll do that like once we have like all of this ready, the for the Y axis, obviously, what we want to pass is the, the values of the spectral Centroid uh And finally, we want to pass the uh a color. And so for the BC, we'll use a blue. Now, let's just add the same thing. But for the other uh songs, so we'll have like the red hot chili pepper song here and this is gonna be a red and finally, we'll have like the Duke Ellington uh piece and this is gonna be uh yellow like this. And finally, we'll do a plot dot uh show. Now, as I said, uh we still don't have time. Uh So we need just like to, to, to create that. And so we'll create that starting from the frame start by",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "343.14",
+            "questions": [
+                "1. What is the purpose of the X axis in the graph being discussed?",
+                "2. What values are intended to be represented on the Y axis?",
+                "3. What color is specified for the first data series in the plot?",
+                "4. Which band is referenced for the second data series, and what color will it be?",
+                "5. What color is chosen for the Duke Ellington piece in the plot?",
+                "6. What function is mentioned for displaying the plot?",
+                "7. What is still missing that needs to be calculated before finalizing the graph?",
+                "8. What term is used to describe the values that will be plotted on the Y axis?",
+                "9. How does the speaker plan to manage multiple songs in the plot?",
+                "10. What is meant by \"creating time\" in the context of preparing the graph?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "the values of the spectral Centroid uh And finally, we want to pass the uh a color. And so for the BC, we'll use a blue. Now, let's just add the same thing. But for the other uh songs, so we'll have like the red hot chili pepper song here and this is gonna be a red and finally, we'll have like the Duke Ellington uh piece and this is gonna be uh yellow like this. And finally, we'll do a plot dot uh show. Now, as I said, uh we still don't have time. Uh So we need just like to, to, to create that. And so we'll create that starting from the frame start by getting the frames and we can easily get, get them by doing the length of, well, the range of the length of any of these uh spectral Centroid features.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "357.589",
+            "questions": [
+                "1. What is the significance of the spectral centroid in the context of the text?",
+                "2. Which color is assigned to the BC in the discussion?",
+                "3. What color is associated with the Red Hot Chili Peppers song?",
+                "4. Which piece is represented by the color yellow in the text?",
+                "5. What action is suggested to visualize the data at the end of the text?",
+                "6. What is the purpose of getting the frames mentioned in the text?",
+                "7. How can the frames be obtained according to the provided information?",
+                "8. What does the length of the spectral centroid features indicate?",
+                "9. Why is there a mention of time constraints in the text?",
+                "10. What does the speaker imply by saying \"we still don't have time\"?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "uh songs, so we'll have like the red hot chili pepper song here and this is gonna be a red and finally, we'll have like the Duke Ellington uh piece and this is gonna be uh yellow like this. And finally, we'll do a plot dot uh show. Now, as I said, uh we still don't have time. Uh So we need just like to, to, to create that. And so we'll create that starting from the frame start by getting the frames and we can easily get, get them by doing the length of, well, the range of the length of any of these uh spectral Centroid features. We'll do, yeah, we'll take uh the spectral centro uh feature for the BC and we can't use any of this because they all have like the original signals all have the same uh duration. So they'll have like the, the same number of frames. OK. So, and then we can build uh time here.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "376.51",
+            "questions": [
+                "1. What songs are mentioned in the text?",
+                "2. What color is associated with the Red Hot Chili Peppers song?",
+                "3. Which artist's piece is indicated to be yellow?",
+                "4. What type of show is planned at the end of the text?",
+                "5. What is the initial step mentioned for creating the project?",
+                "6. How can the frames be obtained according to the text?",
+                "7. What feature is referenced for obtaining the spectral centroid?",
+                "8. Why can't the original signals be used in the analysis?",
+                "9. What is implied about the duration of the original signals?",
+                "10. What does the text suggest should be built regarding time?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "getting the frames and we can easily get, get them by doing the length of, well, the range of the length of any of these uh spectral Centroid features. We'll do, yeah, we'll take uh the spectral centro uh feature for the BC and we can't use any of this because they all have like the original signals all have the same uh duration. So they'll have like the, the same number of frames. OK. So, and then we can build uh time here. And so we'll do a li li browser dot frames to uh time. And here we should just pass the frames like this. OK. Let's do this and see if it works well. I have an error.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "406.73",
+            "questions": [
+                "1. What is the process for obtaining frames from spectral centroid features?",
+                "2. Why can't the original signals be used in the analysis of spectral centroid features?",
+                "3. How does the duration of the original signals affect the number of frames?",
+                "4. What is the significance of using the spectral centroid feature for the BC?",
+                "5. What method is suggested for converting frames to time in the text?",
+                "6. What does the term \"li li browser\" refer to in the context of this text?",
+                "7. What kind of error does the speaker encounter when trying to execute their plan?",
+                "8. How does the length of spectral centroid features influence frame extraction?",
+                "9. What is the expected outcome after passing frames to the time conversion method?",
+                "10. What challenges might arise when working with spectral centroid features of signals with the same duration?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "We'll do, yeah, we'll take uh the spectral centro uh feature for the BC and we can't use any of this because they all have like the original signals all have the same uh duration. So they'll have like the, the same number of frames. OK. So, and then we can build uh time here. And so we'll do a li li browser dot frames to uh time. And here we should just pass the frames like this. OK. Let's do this and see if it works well. I have an error. So yeah, this is not figi size but it is fig size. So yeah, let's",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "422.64",
+            "questions": [
+                "1. What feature will be taken for the BC?",
+                "2. Why can't the original signals be used in the analysis?",
+                "3. What characteristic do the original signals share that affects their usability?",
+                "4. What method is being used to convert frames to time?",
+                "5. How is the conversion from frames to time initiated in the code?",
+                "6. What is the error encountered during the process?",
+                "7. What is the correct term that should be used instead of \"figi size\"?",
+                "8. What is the significance of having the same number of frames in the original signals?",
+                "9. How might the duration of the original signals impact the analysis?",
+                "10. What steps are suggested to troubleshoot the error mentioned?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "And so we'll do a li li browser dot frames to uh time. And here we should just pass the frames like this. OK. Let's do this and see if it works well. I have an error. So yeah, this is not figi size but it is fig size. So yeah, let's work this out. OK. Nice. OK. So here we have the",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "441.769",
+            "questions": [
+                "1. What is the purpose of using \"li li browser dot frames\" in the text?",
+                "2. What specific issue does the speaker encounter while attempting to execute the code?",
+                "3. How does the speaker differentiate between \"figi size\" and \"fig size\"?",
+                "4. What does the speaker mean by \"let's work this out\"?",
+                "5. What is the expected outcome of passing the frames as mentioned?",
+                "6. Why does the speaker indicate that they have an error?",
+                "7. What context is being discussed in the text\u2014programming, web development, or something else?",
+                "8. What does the speaker imply about the success of their initial attempt?",
+                "9. Are there any specific programming languages or frameworks mentioned in the text?",
+                "10. What might be the next steps for the speaker after encountering the error?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "So yeah, this is not figi size but it is fig size. So yeah, let's work this out. OK. Nice. OK. So here we have the uh yeah a graph with the three curves for the spectral Centroid uh for like Duke Allington for the red hot chili peppers as well as for uh the D BC orchestral piece. So on the X axis, we have time and as you can probably see it's difficult but it's there, we have 30 so this is like 30 seconds worth",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "457.119",
+            "questions": [
+                "1. What does \"figi size\" refer to in this context?",
+                "2. How does the speaker describe the size of the figure being discussed?",
+                "3. What is the spectral centroid and why is it significant in this analysis?",
+                "4. Which three musical entities are compared in the graph?",
+                "5. What does the X axis represent in the graph?",
+                "6. How much time is represented in the graph according to the speaker?",
+                "7. What might be the purpose of comparing the spectral centroid of different musical pieces?",
+                "8. Why does the speaker mention that it is \"difficult but it's there\" in relation to the graph?",
+                "9. What genre of music does Duke Ellington represent in this analysis?",
+                "10. What does the inclusion of the Red Hot Chili Peppers suggest about the range of music being analyzed?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "work this out. OK. Nice. OK. So here we have the uh yeah a graph with the three curves for the spectral Centroid uh for like Duke Allington for the red hot chili peppers as well as for uh the D BC orchestral piece. So on the X axis, we have time and as you can probably see it's difficult but it's there, we have 30 so this is like 30 seconds worth data of like a piece. And then here like on the Y axis, we just have the value of the spectral Centroid. And as you can see the spectral Centroid for the red hot chili peppers is overall like higher across time than the same",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "466.109",
+            "questions": [
+                "1. What is being analyzed in the graph mentioned in the text?",
+                "2. Which three musical groups or pieces are represented in the graph?",
+                "3. What does the X-axis of the graph represent?",
+                "4. How long is the data being presented in the graph?",
+                "5. What does the Y-axis of the graph indicate?",
+                "6. How does the spectral Centroid of the Red Hot Chili Peppers compare to the other two?",
+                "7. What is a spectral Centroid?",
+                "8. Why might the spectral Centroid vary across different pieces of music?",
+                "9. What can be inferred about the musical style of the Red Hot Chili Peppers based on their spectral Centroid?",
+                "10. What does the phrase \"overall like higher across time\" suggest about the Red Hot Chili Peppers' spectral Centroid?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "uh yeah a graph with the three curves for the spectral Centroid uh for like Duke Allington for the red hot chili peppers as well as for uh the D BC orchestral piece. So on the X axis, we have time and as you can probably see it's difficult but it's there, we have 30 so this is like 30 seconds worth data of like a piece. And then here like on the Y axis, we just have the value of the spectral Centroid. And as you can see the spectral Centroid for the red hot chili peppers is overall like higher across time than the same for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "471.589",
+            "questions": [
+                "1. What are the three musical pieces represented in the spectral centroid graph?",
+                "2. What does the X axis of the graph represent?",
+                "3. How long is the time duration represented in the data on the graph?",
+                "4. What is shown on the Y axis of the spectral centroid graph?",
+                "5. Which musical piece has a higher spectral centroid value overall, the Red Hot Chili Peppers or Duke Ellington?",
+                "6. How does the spectral centroid of the D BC orchestral piece compare to that of the Red Hot Chili Peppers?",
+                "7. What trend is typically observed in the spectral centroid values of rock music and EDM compared to other genres?",
+                "8. What color represents the spectral centroid curve for the D BC orchestral piece?",
+                "9. Why might it be difficult to analyze the spectral centroid data visually?",
+                "10. What general conclusion can be drawn about the spectral centroid values of popular music compared to orchestral music?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "data of like a piece. And then here like on the Y axis, we just have the value of the spectral Centroid. And as you can see the spectral Centroid for the red hot chili peppers is overall like higher across time than the same for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "494.135",
+            "questions": [
+                "1. What does the Y axis represent in the provided data visualization?  ",
+                "2. How does the spectral Centroid of the Red Hot Chili Peppers compare to that of the Beau C?  ",
+                "3. What is the overall trend of the spectral Centroid for the Red Hot Chili Peppers over time?  ",
+                "4. How does the spectral Centroid of Duke Ellington's piece compare to that of the other two pieces mentioned?  ",
+                "5. What genre of music typically exhibits higher spectral Centroids according to the text?  ",
+                "6. Which types of instruments are commonly associated with lower spectral Centroids?  ",
+                "7. Can you explain the significance of the spectral Centroid in music analysis?  ",
+                "8. What are some examples of genres mentioned that tend to have lower spectral Centroids?  ",
+                "9. How do popular music genres like rock and EDM differ from classical and jazz in terms of spectral Centroid?  ",
+                "10. Why might rock music and EDM have higher spectral Centroids than classical or jazz music?  "
+            ]
+        },
+        {
+            "id": 27,
+            "text": "for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity,",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "516.682",
+            "questions": [
+                "1. What is the significance of the \"Beau C\" curve in the context of the discussion?",
+                "2. How does the spectral centroid in rock and EDM music compare to that in classical music or jazz?",
+                "3. What characteristics are typically associated with the spectral centroid of popular music genres?",
+                "4. Why might acoustic instruments produce different spectral centroids than electronic instruments?",
+                "5. What is the definition of spectral centroid as mentioned in the text?",
+                "6. What resources are suggested for further understanding of spectral centroid?",
+                "7. How does the author describe the relationship between music genre and spectral centroids?",
+                "8. What role does the \"center of gravity\" play in the discussion of spectral centroid?",
+                "9. Can you explain why the spectral centroid might be higher in popular music than in classical or jazz?",
+                "10. What implications does the spectral centroid have for the analysis of different music genres?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "539.84",
+            "questions": [
+                "1. What types of musical instruments are mentioned in the text?  ",
+                "2. How does the text describe the relationship between classical music and jazz?  ",
+                "3. What is the spectral centroid, and why is it important in music analysis?  ",
+                "4. How is the spectral centroid calculated according to the text?  ",
+                "5. What does the term \"center of gravity\" refer to in the context of spectral centroid?  ",
+                "6. What does the curve mentioned in the text represent?  ",
+                "7. How frequently is a value for the spectral centroid obtained during the analysis?  ",
+                "8. What is the next topic introduced after the spectral centroid?  ",
+                "9. Which library is mentioned for calculating the spectral bandwidth?  ",
+                "10. Why might someone be encouraged to watch a video to understand the spectral centroid better?  "
+            ]
+        },
+        {
+            "id": 29,
+            "text": "OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So let me just write some mark down here just to keep things neat. So we'll say spectral",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "548.359",
+            "questions": [
+                "1. What is the spectral centroid?",
+                "2. How is the spectral centroid related to the center of gravity?",
+                "3. How is the spectral centroid calculated for each frame?",
+                "4. What does the curve mentioned in the text represent?",
+                "5. What is the significance of the spectral centroid for a piece of audio?",
+                "6. What will the video recommended in the text explain?",
+                "7. What is the next topic discussed after the spectral centroid?",
+                "8. How can the spectral bandwidth be calculated?",
+                "9. What tool or library is mentioned for calculating spectral bandwidth?",
+                "10. Why is it important to keep things neat when marking down information?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So let me just write some mark down here just to keep things neat. So we'll say spectral or yeah, let's say just like calculate uh band",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "566.729",
+            "questions": [
+                "1. What is the main center of gravity for a piece, and how is it calculated for each frame?",
+                "2. How does the curve representing the signal relate to the spectral centroid?",
+                "3. What value is obtained at each frame regarding the spectral centroid?",
+                "4. What is the next topic discussed after spectral centroid in the text?",
+                "5. How can spectral bandwidth be calculated according to the text?",
+                "6. What tool or library is mentioned for calculating spectral bandwidth?",
+                "7. Why is it important to keep things neat when writing down calculations?",
+                "8. What does the term \"spectral bandwidth\" refer to in this context?",
+                "9. In what context is the term \"frame\" used in the text?",
+                "10. What is the significance of the spectral centroid in analyzing a signal?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "let me just write some mark down here just to keep things neat. So we'll say spectral or yeah, let's say just like calculate uh band with",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "594.44",
+            "questions": [
+                "1. What is spectral analysis in the context of bandwidth calculation?",
+                "2. How is bandwidth defined in technical terms?",
+                "3. What are the key factors that influence bandwidth?",
+                "4. Can you explain the relationship between spectral properties and bandwidth?",
+                "5. What methods are used to calculate bandwidth accurately?",
+                "6. How does bandwidth affect data transmission rates?",
+                "7. What tools or software can assist in calculating bandwidth?",
+                "8. What units are commonly used to measure bandwidth?",
+                "9. How can bandwidth be optimized for better performance?",
+                "10. What are common challenges faced when calculating bandwidth?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "or yeah, let's say just like calculate uh band with OK. And so here",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "604.969",
+            "questions": [
+                "1. What is the significance of calculating bandwidth?",
+                "2. How do you define bandwidth in a technical context?",
+                "3. What factors can affect bandwidth calculations?",
+                "4. Can you explain the process of calculating bandwidth step by step?",
+                "5. What tools or software are commonly used to calculate bandwidth?",
+                "6. How does bandwidth impact network performance?",
+                "7. What are some common misconceptions about bandwidth?",
+                "8. In what scenarios is calculating bandwidth particularly important?",
+                "9. How can bandwidth calculations influence network design?",
+                "10. What are the differences between theoretical and actual bandwidth?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "with OK. And so here I can easily calculate all of this. And so I can just like copy the stuff that we use for uh the spectral Centroid. And here instead of like cool the spectral Centroid function in a libres do feature I can call the spectral underscore",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "610.77",
+            "questions": [
+                "1. What is the purpose of calculating the spectral centroid in this context?",
+                "2. How can the information used for the spectral centroid be utilized in other calculations?",
+                "3. What does \"libres do feature\" refer to in the text?",
+                "4. What is meant by \"spectral underscore\" in the calculation process?",
+                "5. What are the potential applications of the spectral centroid in audio analysis?",
+                "6. Can you explain how to copy the data used for the spectral centroid?",
+                "7. What programming language or tool is being referenced in the text?",
+                "8. What does the term \"return only\" imply in the context of this calculation?",
+                "9. How does the spectral centroid function differ from other spectral analysis functions?",
+                "10. What are the benefits of using a predefined function for spectral calculations?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "OK. And so here I can easily calculate all of this. And so I can just like copy the stuff that we use for uh the spectral Centroid. And here instead of like cool the spectral Centroid function in a libres do feature I can call the spectral underscore bandwidth. That's all I need to do. And now magically, I'm gonna get the spectral bandwidth, obviously, I need to change like the the name of this variable because we're not dealing with spectral cent but with a spectral uh bandwidth. And so I can just like put uh yeah, let's put band which stands for bandwidth and we'll do the same thing for",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "612.69",
+            "questions": [
+                "1. What is the main calculation being discussed in the text?",
+                "2. Which function is mentioned for calculating spectral bandwidth?",
+                "3. How does the author suggest modifying the variable name for spectral bandwidth?",
+                "4. What does the term \"spectral centroid\" refer to in the context of the text?",
+                "5. Why does the author need to change the variable name from spectral centroid to something else?",
+                "6. What programming language or library is implied by the use of \"libres do feature\"?",
+                "7. What does the abbreviation \"band\" stand for in the context of the text?",
+                "8. What does the author mean by \"magically\" getting the spectral bandwidth?",
+                "9. Are there any specific steps outlined for calculating the spectral bandwidth?",
+                "10. How does the text suggest handling the output of the spectral bandwidth calculation?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "I can easily calculate all of this. And so I can just like copy the stuff that we use for uh the spectral Centroid. And here instead of like cool the spectral Centroid function in a libres do feature I can call the spectral underscore bandwidth. That's all I need to do. And now magically, I'm gonna get the spectral bandwidth, obviously, I need to change like the the name of this variable because we're not dealing with spectral cent but with a spectral uh bandwidth. And so I can just like put uh yeah, let's put band which stands for bandwidth and we'll do the same thing for the red hot chili peppers signal and for the gig Allinson signal and",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "616.489",
+            "questions": [
+                "1. What is the main purpose of the text?",
+                "2. Which function is being used to calculate spectral bandwidth?",
+                "3. How does the author suggest modifying the variable name?",
+                "4. What musical signals are mentioned in the text?",
+                "5. What is the relationship between spectral centroid and spectral bandwidth?",
+                "6. What programming language or library is implied in the text?",
+                "7. Why does the author need to change the variable name when calculating spectral bandwidth?",
+                "8. What does the author mean by \"magically\" getting the spectral bandwidth?",
+                "9. How many signals does the author plan to apply the spectral bandwidth calculation to?",
+                "10. What does the abbreviation \"band\" stand for in the context of this text?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "bandwidth. That's all I need to do. And now magically, I'm gonna get the spectral bandwidth, obviously, I need to change like the the name of this variable because we're not dealing with spectral cent but with a spectral uh bandwidth. And so I can just like put uh yeah, let's put band which stands for bandwidth and we'll do the same thing for the red hot chili peppers signal and for the gig Allinson signal and we need to change this thing to bandwidth, same thing down here. And the rest uh remains the same because the arguments to spectral bandwidth are the same as we use for the spectral center. So the signal itself the sampling rate, the frame size and the hop length. And yeah, we need to always like take the the the first item. So the item zero and once we do this,",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "639.96",
+            "questions": [
+                "1. What variable name is suggested to represent spectral bandwidth in the text?",
+                "2. Which band is mentioned in relation to the spectral bandwidth?",
+                "3. What must be changed in the code to accommodate spectral bandwidth instead of spectral center?",
+                "4. What are the arguments required for calculating spectral bandwidth mentioned in the text?",
+                "5. What does the term \"hop length\" refer to in the context of spectral bandwidth?",
+                "6. How does the text suggest handling the first item in the processing of the signals?",
+                "7. Are there any changes required for the red hot chili peppers signal when calculating spectral bandwidth?",
+                "8. What is the significance of the sampling rate in the calculation of spectral bandwidth?",
+                "9. What remains the same when transitioning from spectral center to spectral bandwidth in the code?",
+                "10. What is implied about the relationship between spectral bandwidth and spectral center in the text?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "the red hot chili peppers signal and for the gig Allinson signal and we need to change this thing to bandwidth, same thing down here. And the rest uh remains the same because the arguments to spectral bandwidth are the same as we use for the spectral center. So the signal itself the sampling rate, the frame size and the hop length. And yeah, we need to always like take the the the first item. So the item zero and once we do this, OK. So here we have like the um the the spectral bandwidth like for all of these three signals. Now let's take a look at the shape. And here once again, you should have yes, this 1292.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "663.32",
+            "questions": [
+                "1. What is the primary focus of the text regarding the red hot chili peppers?",
+                "2. What specific change needs to be made in the context of bandwidth?",
+                "3. Which parameters remain the same according to the text?",
+                "4. What are the arguments used for spectral bandwidth?",
+                "5. What factors are mentioned that pertain to the signal itself?",
+                "6. Why is it important to take the first item, as mentioned in the text?",
+                "7. How many signals are being analyzed for spectral bandwidth?",
+                "8. What is the significance of the number 1292 mentioned in the text?",
+                "9. What is the relationship between spectral bandwidth and spectral center in this context?",
+                "10. What does the term \"hop length\" refer to in the context of signal processing?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "we need to change this thing to bandwidth, same thing down here. And the rest uh remains the same because the arguments to spectral bandwidth are the same as we use for the spectral center. So the signal itself the sampling rate, the frame size and the hop length. And yeah, we need to always like take the the the first item. So the item zero and once we do this, OK. So here we have like the um the the spectral bandwidth like for all of these three signals. Now let's take a look at the shape. And here once again, you should have yes, this 1292. And this is like a one dimensional ray once again because we are taking like the item, the the zero item here, right? And this is like equal. So basically what this means is that we have a value for the bandwidth for each frames uh that we are analyzing. OK. So now let's move on and just visualize this. And once again, we are gonna basically reuse the kit that we just wrote. So we'll do visualize",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "669.78",
+            "questions": [
+                "1. What changes need to be made to the current process regarding bandwidth?",
+                "2. How do the arguments for spectral bandwidth compare to those for spectral center?",
+                "3. What parameters are mentioned that affect the signal analysis?",
+                "4. Why is it important to take the first item, or item zero, in this context?",
+                "5. How many signals are being analyzed for spectral bandwidth in the text?",
+                "6. What does the value 1292 represent in the analysis?",
+                "7. What type of data structure is referred to when mentioning a one-dimensional array?",
+                "8. What does the analysis process yield for each frame being analyzed?",
+                "9. What is the next step mentioned after calculating the spectral bandwidth?",
+                "10. How does the text suggest visualizing the results of the analysis?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "OK. So here we have like the um the the spectral bandwidth like for all of these three signals. Now let's take a look at the shape. And here once again, you should have yes, this 1292. And this is like a one dimensional ray once again because we are taking like the item, the the zero item here, right? And this is like equal. So basically what this means is that we have a value for the bandwidth for each frames uh that we are analyzing. OK. So now let's move on and just visualize this. And once again, we are gonna basically reuse the kit that we just wrote. So we'll do visualize uh band with",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "699.599",
+            "questions": [
+                "1. What is being discussed in relation to the spectral bandwidth of the three signals?",
+                "2. How is the shape of the spectral bandwidth relevant to the analysis?",
+                "3. What is the significance of the value 1292 mentioned in the text?",
+                "4. Why is the analysis described as a one-dimensional ray?",
+                "5. What does the term \"zero item\" refer to in the context of the discussion?",
+                "6. How is the value for the bandwidth determined for each frame being analyzed?",
+                "7. What steps are suggested for visualizing the spectral bandwidth?",
+                "8. What does the speaker mean by \"reuse the kit\" in the context of the analysis?",
+                "9. How does the visualization process contribute to understanding the bandwidth?",
+                "10. What are the implications of having a bandwidth value for each frame in the analysis?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "And this is like a one dimensional ray once again because we are taking like the item, the the zero item here, right? And this is like equal. So basically what this means is that we have a value for the bandwidth for each frames uh that we are analyzing. OK. So now let's move on and just visualize this. And once again, we are gonna basically reuse the kit that we just wrote. So we'll do visualize uh band with OK, like this. And then I'm just gonna get this stuff",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "715.729",
+            "questions": [
+                "1. What is meant by a \"one dimensional ray\" in the context of this text?",
+                "2. How does the text define the \"zero item\"?",
+                "3. What significance does the \"zero item\" have in relation to the bandwidth value?",
+                "4. What does the text imply about the bandwidth for each frame being analyzed?",
+                "5. How does the author plan to visualize the data discussed in the text?",
+                "6. What does the term \"visualize\" refer to in this context?",
+                "7. What is the purpose of reusing the kit that was previously written?",
+                "8. Can you explain what \"visualize bandwidth\" entails?",
+                "9. What type of data is being analyzed in the frames mentioned?",
+                "10. What steps does the author indicate they will take to return the data?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "uh band with OK, like this. And then I'm just gonna get this stuff over here and we can reuse this. And so I'll use the instead of like the spectral centr the BC, I'm passing the,",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "745.679",
+            "questions": [
+                "1. What band is being referred to in the text?",
+                "2. What is the significance of \"OK\" in this context?",
+                "3. What items are being referred to as \"this stuff\"?",
+                "4. How can the items mentioned be reused?",
+                "5. What does \"the spectral centr the BC\" refer to?",
+                "6. Why is the decision made to pass something instead of using the spectral centr?",
+                "7. What is the overall purpose of the actions described in the text?",
+                "8. Are there any specific techniques mentioned for reusing the items?",
+                "9. What might be the implications of passing the mentioned item?",
+                "10. How does the phrasing of the text suggest a casual or informal setting?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "OK, like this. And then I'm just gonna get this stuff over here and we can reuse this. And so I'll use the instead of like the spectral centr the BC, I'm passing the, the bandwidth for the beauty for the red hot chili peppers and for Duke Ellington like this. And now tea remains the same because and well, I I ask you first thing so just like post the video and just like think about why a tea for the bandwidth is the same as the one that we have for the spectral cent, I'll give you a couple of seconds. Well,",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "748.78",
+            "questions": [
+                "1. What is the purpose of reusing the materials mentioned in the text?",
+                "2. How is the bandwidth for the Red Hot Chili Peppers and Duke Ellington being utilized?",
+                "3. What does \"tea\" refer to in the context of this text?",
+                "4. Why does the author emphasize that \"tea remains the same\"?",
+                "5. What is meant by \"the spectral centr\" in the discussion?",
+                "6. How does the author suggest viewers engage with the video content?",
+                "7. What is the significance of comparing the bandwidth to the spectral cent?",
+                "8. What kind of video is being referenced in the text?",
+                "9. What might be the implications of having the same value for tea in both contexts?",
+                "10. Why does the author pause to allow for thought regarding the equivalence of tea and spectral cent?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "over here and we can reuse this. And so I'll use the instead of like the spectral centr the BC, I'm passing the, the bandwidth for the beauty for the red hot chili peppers and for Duke Ellington like this. And now tea remains the same because and well, I I ask you first thing so just like post the video and just like think about why a tea for the bandwidth is the same as the one that we have for the spectral cent, I'll give you a couple of seconds. Well, the the answer is, is super easy and that's because uh the, the shape is the same if, if you take a look at this, right. So the shape, so the number of frames that we have like for the bandwidth are the same number of frames uh that we have like for the uh spectral Centroid. So we can use like the same X axis. So we are using like the same times. OK. So now let's just uh",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "754.69",
+            "questions": [
+                "1. What is being reused in the context of the discussion?",
+                "2. Who are the two artists mentioned in relation to bandwidth?",
+                "3. Why is the variable \"tea\" considered to remain the same?",
+                "4. What is the significance of the spectral centroid in this context?",
+                "5. How does the shape of the data relate to the number of frames for bandwidth and spectral centroid?",
+                "6. What is the relationship between the X-axis used for bandwidth and the spectral centroid?",
+                "7. Why does the speaker encourage the audience to think about the relationship between tea and bandwidth?",
+                "8. How does the concept of frames play a role in the analysis being discussed?",
+                "9. What might be the implications of using the same times for both bandwidth and spectral centroid?",
+                "10. What type of video is the speaker referring to in the context of sharing information?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "the bandwidth for the beauty for the red hot chili peppers and for Duke Ellington like this. And now tea remains the same because and well, I I ask you first thing so just like post the video and just like think about why a tea for the bandwidth is the same as the one that we have for the spectral cent, I'll give you a couple of seconds. Well, the the answer is, is super easy and that's because uh the, the shape is the same if, if you take a look at this, right. So the shape, so the number of frames that we have like for the bandwidth are the same number of frames uh that we have like for the uh spectral Centroid. So we can use like the same X axis. So we are using like the same times. OK. So now let's just uh plot this and as you can see, yeah, we have like a nice uh yeah, the three curves that more or less like resemble uh like the, the ones that we have for the spectral Centroid. And uh that's because like in a sense like the bandwidth is derived from the spectral uh Centroid and it gives us basically like the amount of frequencies that are like relt there are significant around the spectral",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "764.369",
+            "questions": [
+                "1. What are the two musical references mentioned in the text?",
+                "2. How is the bandwidth related to the spectral centroid in the context provided?",
+                "3. Why is the shape of the bandwidth and spectral centroid considered the same?",
+                "4. What role does the number of frames play in comparing bandwidth and spectral centroid?",
+                "5. How can we visualize the relationship between bandwidth and spectral centroid?",
+                "6. What does the text imply about the significance of frequencies around the spectral centroid?",
+                "7. What does the author mean by \"using the same X axis\" for bandwidth and spectral centroid?",
+                "8. How do the curves for bandwidth and spectral centroid resemble each other according to the text?",
+                "9. Why is it important to understand the relationship between bandwidth and spectral centroid?",
+                "10. What conclusion can be drawn about the relationship between bandwidth and spectral centroid based on the text?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "the the answer is, is super easy and that's because uh the, the shape is the same if, if you take a look at this, right. So the shape, so the number of frames that we have like for the bandwidth are the same number of frames uh that we have like for the uh spectral Centroid. So we can use like the same X axis. So we are using like the same times. OK. So now let's just uh plot this and as you can see, yeah, we have like a nice uh yeah, the three curves that more or less like resemble uh like the, the ones that we have for the spectral Centroid. And uh that's because like in a sense like the bandwidth is derived from the spectral uh Centroid and it gives us basically like the amount of frequencies that are like relt there are significant around the spectral uh Centroid and the, the the kind of like comment that we can apply to this plot. And to uh yeah, I would say like to the spectral bandwidth is similar to the one that we had regarding the spectral Centroid in a sense like the spectral bandwidth of uh",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "790.989",
+            "questions": [
+                "1. What is the relationship between the number of frames for bandwidth and the spectral centroid?",
+                "2. Why can the same X axis be used for both bandwidth and spectral centroid?",
+                "3. How do the three curves plotted for bandwidth compare to those for the spectral centroid?",
+                "4. What does the spectral bandwidth represent in relation to the spectral centroid?",
+                "5. How is the spectral bandwidth derived from the spectral centroid?",
+                "6. What significance do the frequencies around the spectral centroid have?",
+                "7. In what way are the comments applicable to the spectral bandwidth similar to those for the spectral centroid?",
+                "8. What visual representation is used to analyze the relationship between bandwidth and spectral centroid?",
+                "9. How does the shape of the bandwidth curve correspond to the shape of the spectral centroid curve?",
+                "10. What observations can be made about the plotted curves for bandwidth and spectral centroid?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "plot this and as you can see, yeah, we have like a nice uh yeah, the three curves that more or less like resemble uh like the, the ones that we have for the spectral Centroid. And uh that's because like in a sense like the bandwidth is derived from the spectral uh Centroid and it gives us basically like the amount of frequencies that are like relt there are significant around the spectral uh Centroid and the, the the kind of like comment that we can apply to this plot. And to uh yeah, I would say like to the spectral bandwidth is similar to the one that we had regarding the spectral Centroid in a sense like the spectral bandwidth of uh acoustic pieces like classical music or uh jazz music tends to be like smaller than the one that we have for. Um yeah, rock music or yeah, music which like electronic instruments usually or percussions for sure. OK. So yeah, this is it. So now you are able to calculate the spectral centro and the bandwidth using uh Liza.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "818.28",
+            "questions": [
+                "1. What are the three curves mentioned in relation to the spectral centroid?",
+                "2. How is the bandwidth derived from the spectral centroid?",
+                "3. What does the bandwidth indicate about the frequencies around the spectral centroid?",
+                "4. How does the spectral bandwidth of acoustic pieces compare to that of rock music?",
+                "5. Why might classical and jazz music have smaller spectral bandwidths than rock music?",
+                "6. What role do electronic instruments and percussions play in the spectral bandwidth of music?",
+                "7. What similarities are noted between the spectral bandwidth and the spectral centroid?",
+                "8. How can one calculate the spectral centroid and bandwidth using Liza?",
+                "9. In what ways can the analysis of spectral centroid and bandwidth be applied to different music genres?",
+                "10. What significance does the comparison of spectral bandwidth across genres have for music analysis?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "uh Centroid and the, the the kind of like comment that we can apply to this plot. And to uh yeah, I would say like to the spectral bandwidth is similar to the one that we had regarding the spectral Centroid in a sense like the spectral bandwidth of uh acoustic pieces like classical music or uh jazz music tends to be like smaller than the one that we have for. Um yeah, rock music or yeah, music which like electronic instruments usually or percussions for sure. OK. So yeah, this is it. So now you are able to calculate the spectral centro and the bandwidth using uh Liza. And yeah, I think like that's it for like this video and I just wanted to yeah close like this series like with a few uh with a couple of comments. So one thing I think like this was like an amazing ride. So we went through a lot of things and if you follow it along with like my series now, yeah, you have like a very strong background in audio processing and audio",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "847.075",
+            "questions": [
+                "1. What is the relationship between spectral centroid and spectral bandwidth as mentioned in the text?",
+                "2. How does the spectral bandwidth of classical and jazz music compare to that of rock music and electronic music?",
+                "3. What types of instruments are associated with a larger spectral bandwidth?",
+                "4. What software or tool is suggested for calculating spectral centroid and bandwidth?",
+                "5. What type of music tends to have a smaller spectral bandwidth according to the text?",
+                "6. What are some characteristics of acoustic pieces in terms of spectral properties?",
+                "7. What was the overall experience of the speaker in creating the video series?",
+                "8. How does the speaker describe the journey of the series on audio processing?",
+                "9. What background knowledge can viewers gain from following the series?",
+                "10. What type of comments does the speaker wish to close the series with?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "acoustic pieces like classical music or uh jazz music tends to be like smaller than the one that we have for. Um yeah, rock music or yeah, music which like electronic instruments usually or percussions for sure. OK. So yeah, this is it. So now you are able to calculate the spectral centro and the bandwidth using uh Liza. And yeah, I think like that's it for like this video and I just wanted to yeah close like this series like with a few uh with a couple of comments. So one thing I think like this was like an amazing ride. So we went through a lot of things and if you follow it along with like my series now, yeah, you have like a very strong background in audio processing and audio uh features for machine learning. So you now know about the difference of like time domain features, frequency domain features. You should have a very good understanding of the fourier transform",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "865.119",
+            "questions": [
+                "1. What types of music are mentioned as being smaller in acoustic pieces compared to others?",
+                "2. How do acoustic pieces differ from rock music in terms of instrumentation?",
+                "3. What are some examples of instruments typically found in rock music?",
+                "4. What tools or methods are suggested for calculating the spectral centro and bandwidth?",
+                "5. What series is being referenced in the text, and what topics does it cover?",
+                "6. What background knowledge in audio processing should the audience have after following the series?",
+                "7. What are the two types of features discussed in relation to audio processing?",
+                "8. Why is the Fourier transform important in understanding audio features?",
+                "9. How does the speaker feel about the journey through the series?",
+                "10. What might be the implications of having a strong background in audio features for machine learning?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "And yeah, I think like that's it for like this video and I just wanted to yeah close like this series like with a few uh with a couple of comments. So one thing I think like this was like an amazing ride. So we went through a lot of things and if you follow it along with like my series now, yeah, you have like a very strong background in audio processing and audio uh features for machine learning. So you now know about the difference of like time domain features, frequency domain features. You should have a very good understanding of the fourier transform and uh great understanding about MF CCS uh male spectrograms, spectrograms, uh log spectrograms. And so these are all ingredients that are will be necessary for your activity as an A I audio or A I music engineer or researcher. So yeah, congratulate like yourself because you did a lot of stuff if you follow it uh so far.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "891.229",
+            "questions": [
+                "1. What was the primary focus of the video series mentioned in the text?  ",
+                "2. What key concepts in audio processing were covered in the series?  ",
+                "3. How does the speaker describe the experience of going through the series?  ",
+                "4. What are time domain features and how do they differ from frequency domain features?  ",
+                "5. Can you explain the importance of the Fourier transform in audio processing?  ",
+                "6. What are MFCCs and why are they significant in machine learning?  ",
+                "7. What types of spectrograms were discussed in the series?  ",
+                "8. How might the knowledge gained from this series benefit someone working as an AI audio or music engineer?  ",
+                "9. What does the speaker encourage the audience to do at the end of the series?  ",
+                "10. What personal achievements does the speaker suggest the audience should recognize for completing the series?  "
+            ]
+        },
+        {
+            "id": 50,
+            "text": "uh features for machine learning. So you now know about the difference of like time domain features, frequency domain features. You should have a very good understanding of the fourier transform and uh great understanding about MF CCS uh male spectrograms, spectrograms, uh log spectrograms. And so these are all ingredients that are will be necessary for your activity as an A I audio or A I music engineer or researcher. So yeah, congratulate like yourself because you did a lot of stuff if you follow it uh so far. And then a final like personal l like I was very happy with all the the feedback that I got the questions that you guys like asked throughout the series. It was like amazing also like the the feedback that I got like on the sound of the eyes like channel. By the way, if you want to sign up",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "915.65",
+            "questions": [
+                "1. What are the differences between time domain features and frequency domain features in machine learning?",
+                "2. How does the Fourier transform contribute to audio analysis in machine learning?",
+                "3. What is the significance of MFCCs in audio processing?",
+                "4. Can you explain the concept of a male spectrogram and its applications?",
+                "5. What are the differences between spectrograms and log spectrograms?",
+                "6. Why are these audio features important for an AI audio or music engineer?",
+                "7. How can feedback from participants enhance the learning experience in a series on audio engineering?",
+                "8. What are some common questions that were asked throughout the series?",
+                "9. In what ways can one apply the knowledge of audio features in research?",
+                "10. How does the sound of the eyes channel contribute to the field of AI audio engineering?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "and uh great understanding about MF CCS uh male spectrograms, spectrograms, uh log spectrograms. And so these are all ingredients that are will be necessary for your activity as an A I audio or A I music engineer or researcher. So yeah, congratulate like yourself because you did a lot of stuff if you follow it uh so far. And then a final like personal l like I was very happy with all the the feedback that I got the questions that you guys like asked throughout the series. It was like amazing also like the the feedback that I got like on the sound of the eyes like channel. By the way, if you want to sign up to that community you have the uh sign up link in the description box below. So yeah, I hope like uh I can continue to produce, I will continue to produce like content like this and get like uh feedback, positive like feedback uh from you.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "928.76",
+            "questions": [
+                "1. What are MF CCS and how do they relate to male spectrograms?",
+                "2. Can you explain the difference between spectrograms and log spectrograms?",
+                "3. What skills are necessary for someone pursuing a career as an AI audio or music engineer?",
+                "4. How can feedback from participants enhance the learning experience in a workshop or series?",
+                "5. What types of questions were most commonly asked throughout the series?",
+                "6. What positive feedback was received regarding the sound of the Eyes channel?",
+                "7. Where can individuals sign up to join the mentioned community?",
+                "8. What types of content can we expect to see produced in the future?",
+                "9. How does personal satisfaction from feedback influence content creation?",
+                "10. Why is it important to celebrate the achievements of participants in an educational series?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "And then a final like personal l like I was very happy with all the the feedback that I got the questions that you guys like asked throughout the series. It was like amazing also like the the feedback that I got like on the sound of the eyes like channel. By the way, if you want to sign up to that community you have the uh sign up link in the description box below. So yeah, I hope like uh I can continue to produce, I will continue to produce like content like this and get like uh feedback, positive like feedback uh from you. And yeah, I think like that's all for today. If you enjoyed the video, the series and you haven't like subscribed yet to the sign of VA channel, please consider doing so. And uh if you like the video just hit the like button and I guess I'll see you in the next series. Cheers.",
+            "video": "Extracting Spectral Centroid and Bandwidth with Python and Librosa",
+            "start_time": "954.53",
+            "questions": [
+                "1. What kind of feedback did the speaker receive throughout the series?",
+                "2. How did the speaker feel about the questions asked by the audience?",
+                "3. Where can viewers sign up for the community mentioned in the text?",
+                "4. What kind of content does the speaker hope to continue producing?",
+                "5. What is the main call to action for viewers at the end of the video?",
+                "6. What specific feedback did the speaker mention regarding the \"sound of the eyes\" channel?",
+                "7. How does the speaker encourage viewers to engage with the video?",
+                "8. What is the significance of the phrase \"positive feedback\" in the context of the speaker's message?",
+                "9. What does the speaker express gratitude for in the text?",
+                "10. What does the speaker imply about future series or content?"
+            ]
+        }
+    ]
+}

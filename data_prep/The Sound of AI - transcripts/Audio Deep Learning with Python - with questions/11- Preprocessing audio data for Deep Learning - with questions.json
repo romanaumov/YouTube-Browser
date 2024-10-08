@@ -1,0 +1,1552 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time you are going to preprocess audio data and get it ready for our deep learning applications. So, and specifically, we're gonna look into how to visualize and learn waveforms, how to perform fourier transforms for getting spectrums, how we get spectrograms and how we extract MF CCS. Now, if all of this sounds like gibberish, you should definitely like watch uh my previous video where I cover like the theoretical side of all of these things. But uh let's just like get started. So we're not gonna build like any of these algorithms for like performing fourier transforms or extracting MF CCS from scratch. But rather we're gonna rely on a great audio analysis uh library called Libros. And so first thing we wanna do its import uh Libros.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main focus of the video in the Deep Learning for audio with Python series?",
+                "2. What are the key topics that will be covered in this video?",
+                "3. Why might someone want to watch the previous video before continuing with this one?",
+                "4. Are the algorithms for Fourier transforms and MFCC extraction going to be built from scratch in this video?",
+                "5. What library is being used for audio analysis in this video?",
+                "6. What format will the audio data be prepared in for deep learning applications?",
+                "7. What is the purpose of visualizing and learning waveforms in audio processing?",
+                "8. How are Fourier transforms relevant to the topics discussed in the video?",
+                "9. What does MFCC stand for, and why is it important in audio processing?",
+                "10. What is a spectrogram, and how is it different from a spectrum?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "and specifically, we're gonna look into how to visualize and learn waveforms, how to perform fourier transforms for getting spectrums, how we get spectrograms and how we extract MF CCS. Now, if all of this sounds like gibberish, you should definitely like watch uh my previous video where I cover like the theoretical side of all of these things. But uh let's just like get started. So we're not gonna build like any of these algorithms for like performing fourier transforms or extracting MF CCS from scratch. But rather we're gonna rely on a great audio analysis uh library called Libros. And so first thing we wanna do its import uh Libros. So, uh and as long as uh we have like not just like Libros itself but also Li Brusa dot display uh which is a nice API for visualizing uh data like spectrograms. Uh So Libres dot display is built on top of uh Maple Lib and so we want to uh import also, uh, maple lib dot PP and we'll import it as PLT. Cool.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "12.22",
+            "questions": [
+                "1. What are the main topics covered in the video regarding waveforms and audio analysis?",
+                "2. Why is it suggested to watch the previous video before diving into the current topic?",
+                "3. What is the purpose of performing Fourier transforms in audio analysis?",
+                "4. How do spectrograms differ from simple waveforms?",
+                "5. What library is being used for audio analysis in this tutorial?",
+                "6. What is the significance of extracting MFCCs in audio processing?",
+                "7. What is the role of Libros in the context of this video?",
+                "8. How does Libros.display enhance the visualization of audio data?",
+                "9. What is the relationship between Libros.display and Maple Lib?",
+                "10. Why is Maple Lib imported as PLT in the code?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "So we're not gonna build like any of these algorithms for like performing fourier transforms or extracting MF CCS from scratch. But rather we're gonna rely on a great audio analysis uh library called Libros. And so first thing we wanna do its import uh Libros. So, uh and as long as uh we have like not just like Libros itself but also Li Brusa dot display uh which is a nice API for visualizing uh data like spectrograms. Uh So Libres dot display is built on top of uh Maple Lib and so we want to uh import also, uh, maple lib dot PP and we'll import it as PLT. Cool. So, uh, the first thing that we want to do now is just like to, to get a file so to get an audio file. So, and I have a very nice one which is called blues 0.00000 dot wav. And yeah, let's take a look at that. So that you have an idea of what, like we'll be working on.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "38.02",
+            "questions": [
+                "1. What is the main purpose of using the Libros library in this context?",
+                "2. Why is Libros.display important for audio analysis?",
+                "3. What is Maple Lib, and how is it related to Libros.display?",
+                "4. What audio file is mentioned in the text, and what format is it in?",
+                "5. What specific functionality does the Libros library provide for audio analysis?",
+                "6. How does the author suggest visualizing data like spectrograms?",
+                "7. What is the significance of importing Maple Lib as PLT?",
+                "8. What preliminary step is taken before analyzing the audio file?",
+                "9. Are algorithms for performing Fourier transforms being built from scratch in this approach?",
+                "10. What can be inferred about the author's familiarity with audio analysis tools?"
+            ]
+        },
+        {
+            "id": 3,
+            "text": "So, uh and as long as uh we have like not just like Libros itself but also Li Brusa dot display uh which is a nice API for visualizing uh data like spectrograms. Uh So Libres dot display is built on top of uh Maple Lib and so we want to uh import also, uh, maple lib dot PP and we'll import it as PLT. Cool. So, uh, the first thing that we want to do now is just like to, to get a file so to get an audio file. So, and I have a very nice one which is called blues 0.00000 dot wav. And yeah, let's take a look at that. So that you have an idea of what, like we'll be working on. Yeah, you get a, a uh you get the idea here. It's a, a nice, like blues song. It's just like 30 seconds of that song. Cool. So the first thing that we wanna do is load uh like this audio file. So uh for doing that, we'll call libros dot",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "57.119",
+            "questions": [
+                "1. What is Libros used for in the context of the text?",
+                "2. How is Li Brusa dot display related to Libros?",
+                "3. What kind of data visualization does Li Brusa dot display provide?",
+                "4. What library is Libres dot display built on top of?",
+                "5. What is the purpose of importing maple lib dot PP in the process described?",
+                "6. What audio file is mentioned in the text, and what is its format?",
+                "7. How long is the audio file \"blues 0.00000 dot wav\" mentioned in the text?",
+                "8. What is the first action the speaker plans to take with the audio file?",
+                "9. What genre of music does the audio file represent?",
+                "10. What is the significance of using spectrograms in the context of audio data visualization?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "So, uh, the first thing that we want to do now is just like to, to get a file so to get an audio file. So, and I have a very nice one which is called blues 0.00000 dot wav. And yeah, let's take a look at that. So that you have an idea of what, like we'll be working on. Yeah, you get a, a uh you get the idea here. It's a, a nice, like blues song. It's just like 30 seconds of that song. Cool. So the first thing that we wanna do is load uh like this audio file. So uh for doing that, we'll call libros dot load and we'll pass in the, the path. So the file and uh we also want to specify the sum we want to load uh like this audio file with and we'll specify 22,000 and uh 50. And this is uh like perfectly fine, like when we uh work and analyze like audio uh data. Cool.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "86.4",
+            "questions": [
+                "1. What is the name of the audio file mentioned in the text?",
+                "2. How long is the audio file \"blues 0.00000.wav\"?",
+                "3. What type of music does the audio file represent?",
+                "4. What function is used to load the audio file in the text?",
+                "5. What library is referenced for loading the audio file?",
+                "6. What sampling rate is specified when loading the audio file?",
+                "7. Why is the specified sampling rate of 22,050 considered suitable for audio analysis?",
+                "8. What is the first step mentioned for working with the audio file?",
+                "9. How does the speaker describe the audio file before loading it?",
+                "10. What format is the audio file in?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "Yeah, you get a, a uh you get the idea here. It's a, a nice, like blues song. It's just like 30 seconds of that song. Cool. So the first thing that we wanna do is load uh like this audio file. So uh for doing that, we'll call libros dot load and we'll pass in the, the path. So the file and uh we also want to specify the sum we want to load uh like this audio file with and we'll specify 22,000 and uh 50. And this is uh like perfectly fine, like when we uh work and analyze like audio uh data. Cool. And uh so here as a result, we are gonna get like a signal and a sample rate. Now, the signal is gonna be a nin pi array, one dimensional array and uh it's gonna contain uh a number of like values that's equal to the sample rate are multiplied by the duration T",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "118.849",
+            "questions": [
+                "1. What is the first step mentioned in loading an audio file?",
+                "2. Which library is used for loading the audio file in the text?",
+                "3. What parameters are passed to the `libros.load` function?",
+                "4. What is the specified sample rate mentioned for loading the audio file?",
+                "5. What type of audio file is being discussed in the text?",
+                "6. What does the `libros.load` function return after loading the audio file?",
+                "7. How is the signal represented after loading the audio file?",
+                "8. What is the relationship between the sample rate and the duration of the audio file?",
+                "9. Why is the specified sample rate of 22,000 and 50 considered fine for analyzing audio data?",
+                "10. What shape does the signal take after being loaded into a variable?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "load and we'll pass in the, the path. So the file and uh we also want to specify the sum we want to load uh like this audio file with and we'll specify 22,000 and uh 50. And this is uh like perfectly fine, like when we uh work and analyze like audio uh data. Cool. And uh so here as a result, we are gonna get like a signal and a sample rate. Now, the signal is gonna be a nin pi array, one dimensional array and uh it's gonna contain uh a number of like values that's equal to the sample rate are multiplied by the duration T uh of the uh of the song. So, in this case, we are looking at 2 22,050 multiplied by 30 seconds. So basically, like the signal array is gonna have more than 600,000 values. And at each of these values, you're gonna have the amplitude of the, of the waveform uh good. OK. So now let's try to visualize this waveform.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "138.08",
+            "questions": [
+                "1. What path do we need to specify when loading the audio file?",
+                "2. What sample rate is specified for loading the audio file?",
+                "3. How does the sample rate affect the analysis of audio data?",
+                "4. What is the shape of the signal array that results from loading the audio file?",
+                "5. How is the number of values in the signal array calculated?",
+                "6. What duration of the song is being considered in the example?",
+                "7. How many values will the signal array contain based on the given sample rate and duration?",
+                "8. What does each value in the signal array represent?",
+                "9. Why is it important to visualize the waveform after loading the audio file?",
+                "10. What type of array is used to represent the signal in this context?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "And uh so here as a result, we are gonna get like a signal and a sample rate. Now, the signal is gonna be a nin pi array, one dimensional array and uh it's gonna contain uh a number of like values that's equal to the sample rate are multiplied by the duration T uh of the uh of the song. So, in this case, we are looking at 2 22,050 multiplied by 30 seconds. So basically, like the signal array is gonna have more than 600,000 values. And at each of these values, you're gonna have the amplitude of the, of the waveform uh good. OK. So now let's try to visualize this waveform. And uh for doing that, uh we can easily use Lisa dot display dot wave plots. And here in the wave plots, we want to specify the signal that we want to use and the sample rate and the sample rate uh it's equal to this thing over here. So 22,050",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "165.919",
+            "questions": [
+                "1. What is the relationship between the signal and the sample rate in the context of the text?",
+                "2. How is the signal array described in terms of its dimensions?",
+                "3. What is the formula used to calculate the number of values in the signal array?",
+                "4. What specific values are multiplied to calculate the number of values in the signal array?",
+                "5. How many values does the signal array contain in this example?",
+                "6. What does each value in the signal array represent?",
+                "7. What function is suggested for visualizing the waveform?",
+                "8. What specific parameters need to be specified when using the wave plot function?",
+                "9. What is the sample rate mentioned in the text?",
+                "10. How long is the duration T of the song being referenced?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "uh of the uh of the song. So, in this case, we are looking at 2 22,050 multiplied by 30 seconds. So basically, like the signal array is gonna have more than 600,000 values. And at each of these values, you're gonna have the amplitude of the, of the waveform uh good. OK. So now let's try to visualize this waveform. And uh for doing that, uh we can easily use Lisa dot display dot wave plots. And here in the wave plots, we want to specify the signal that we want to use and the sample rate and the sample rate uh it's equal to this thing over here. So 22,050 good. So next thing we wanna do is we want to uh specify the uh label for the X and Y axis. So for the X axis, we are",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "192.08",
+            "questions": [
+                "1. What is the sample rate mentioned in the text?",
+                "2. How many values will the signal array have based on the calculation provided?",
+                "3. What is the duration in seconds used for the multiplication with the sample rate?",
+                "4. How is the amplitude of the waveform represented in the signal array?",
+                "5. Which library or tool is suggested for visualizing the waveform?",
+                "6. What specific function is mentioned for creating wave plots?",
+                "7. What parameters need to be specified for the wave plots?",
+                "8. What label is suggested for the X axis in the wave plots?",
+                "9. How does the sample rate affect the quality of the waveform visualization?",
+                "10. What is the significance of having more than 600,000 values in the signal array?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "And uh for doing that, uh we can easily use Lisa dot display dot wave plots. And here in the wave plots, we want to specify the signal that we want to use and the sample rate and the sample rate uh it's equal to this thing over here. So 22,050 good. So next thing we wanna do is we want to uh specify the uh label for the X and Y axis. So for the X axis, we are expecting obviously time and for the Y axis, we have amplitude",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "222.0",
+            "questions": [
+                "1. What tool is suggested for creating wave plots in the text?",
+                "2. What parameters must be specified when using Lisa dot display dot wave plots?",
+                "3. What is the sample rate mentioned in the text?",
+                "4. Why is it important to specify a signal when creating wave plots?",
+                "5. What label is expected for the X axis in the wave plots?",
+                "6. What label is expected for the Y axis in the wave plots?",
+                "7. What does the Y axis represent in the context of wave plots?",
+                "8. How is the sample rate defined in the text?",
+                "9. What does the term \"amplitude\" refer to in the context of wave plots?",
+                "10. What is the significance of the time variable on the X axis in wave plots?"
+            ]
+        },
+        {
+            "id": 10,
+            "text": "good. So next thing we wanna do is we want to uh specify the uh label for the X and Y axis. So for the X axis, we are expecting obviously time and for the Y axis, we have amplitude nice and the final thing",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "249.86",
+            "questions": [
+                "1. What label is specified for the X axis?",
+                "2. What label is specified for the Y axis?",
+                "3. What variable is represented on the X axis?",
+                "4. What variable is represented on the Y axis?",
+                "5. Why is it important to label the axes in a graph?",
+                "6. What does the term \"amplitude\" refer to in this context?",
+                "7. How does time relate to the data being represented on the X axis?",
+                "8. What type of chart or graph might use time and amplitude as axes?",
+                "9. Can you provide an example of data that might be plotted with these axes?",
+                "10. What might be the implications of not labeling the axes in a graph?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "expecting obviously time and for the Y axis, we have amplitude nice and the final thing we want to",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "262.91",
+            "questions": [
+                "1. What is the significance of the Y axis in the context of amplitude?",
+                "2. How does the concept of time relate to the measurements on the Y axis?",
+                "3. What are the expected outcomes when analyzing amplitude over time?",
+                "4. Why is it important to clearly define the Y axis in a graph?",
+                "5. What types of data can be represented using amplitude on the Y axis?",
+                "6. How does amplitude affect the interpretation of a graph?",
+                "7. What tools or methods can be used to measure amplitude over time?",
+                "8. In what scenarios might one expect changes in amplitude?",
+                "9. How can the relationship between time and amplitude be visualized effectively?",
+                "10. What are the potential applications of studying amplitude in relation to time?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "nice and the final thing we want to uh show uh this plot. And so we're gonna do a plot dot show. So if everything is correct, so we should be see, we should, we should be able to see our",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "271.869",
+            "questions": [
+                "1. What is the purpose of the plot being discussed?",
+                "2. What command is used to display the plot?",
+                "3. What should happen if everything is correct with the plot?",
+                "4. What are we expecting to see in the plot?",
+                "5. What might indicate that there is an issue with the plot?",
+                "6. Is there any specific data being plotted in this context?",
+                "7. What are the steps leading up to the plot display?",
+                "8. How can we verify if the plot displayed correctly?",
+                "9. What programming language or tool is likely being used for this plot?",
+                "10. Are there any additional features or elements that could be included in the plot?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "we want to uh show uh this plot. And so we're gonna do a plot dot show. So if everything is correct, so we should be see, we should, we should be able to see our a nice plot and here we have it",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "275.94",
+            "questions": [
+                "1. What is the purpose of the plot mentioned in the text?",
+                "2. What command is used to display the plot?",
+                "3. What should happen if everything is correct with the plot display?",
+                "4. What do we expect to see when the plot is successfully shown?",
+                "5. What does the speaker imply about the quality of the plot?",
+                "6. Is there any indication of what type of data the plot represents?",
+                "7. What is the significance of the phrase \"we should be able to see\" in the context of the plot?",
+                "8. What might happen if the plot does not display correctly?",
+                "9. How does the speaker express their anticipation for the plot display?",
+                "10. What is the overall tone of the speaker regarding the plot?"
+            ]
+        },
+        {
+            "id": 14,
+            "text": "uh show uh this plot. And so we're gonna do a plot dot show. So if everything is correct, so we should be see, we should, we should be able to see our a nice plot and here we have it nice. So we have our nice uh waveform over here. And as you can see, the waveform tends to remain quite stable throughout the 32nd of this musical passage",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "277.7",
+            "questions": [
+                "1. What type of plot is being discussed in the text?",
+                "2. What command is used to display the plot?",
+                "3. What aspect of the plot is emphasized in the text?",
+                "4. How long is the musical passage mentioned in the text?",
+                "5. What characteristic of the waveform is highlighted?",
+                "6. What does the speaker expect to see if everything is correct?",
+                "7. In what context is the term \"waveform\" used in the text?",
+                "8. What can be inferred about the stability of the waveform during the musical passage?",
+                "9. What action is the speaker taking when discussing the plot?",
+                "10. What does the phrase \"nice plot\" suggest about the speaker's opinion of the visualization?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "a nice plot and here we have it nice. So we have our nice uh waveform over here. And as you can see, the waveform tends to remain quite stable throughout the 32nd of this musical passage cool. So now uh the next step is moving from the time domain. So from the the waveform uh towards the frequency domain. And to do that, we need to perform a fast four A transform. And now for performing that,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "289.109",
+            "questions": [
+                "1. What does the waveform represent in the context of the musical passage?",
+                "2. How does the stability of the waveform affect the analysis of the musical passage?",
+                "3. What is the significance of moving from the time domain to the frequency domain?",
+                "4. What is a fast Fourier transform, and why is it used in this context?",
+                "5. What information can be gleaned from analyzing the frequency domain compared to the time domain?",
+                "6. How does the waveform change throughout the 32nd of the musical passage?",
+                "7. What are the potential applications of performing a fast Fourier transform on a waveform?",
+                "8. What steps are involved in conducting a fast Fourier transform?",
+                "9. How might the results differ if a different type of transform were used instead of a fast Fourier transform?",
+                "10. What challenges might arise when analyzing the waveform of complex musical passages?"
+            ]
+        },
+        {
+            "id": 16,
+            "text": "nice. So we have our nice uh waveform over here. And as you can see, the waveform tends to remain quite stable throughout the 32nd of this musical passage cool. So now uh the next step is moving from the time domain. So from the the waveform uh towards the frequency domain. And to do that, we need to perform a fast four A transform. And now for performing that, we're gonna use NP. So we'll do an import NPI as MP.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "292.529",
+            "questions": [
+                "1. What does the waveform represent in this musical passage?",
+                "2. How stable does the waveform remain throughout the 32nd of the musical passage?",
+                "3. What is the next step after analyzing the waveform in the time domain?",
+                "4. What transformation is needed to move from the time domain to the frequency domain?",
+                "5. What tool or library is mentioned for performing the fast Fourier transform?",
+                "6. How is the NumPy library imported in the provided text?",
+                "7. What is the significance of the fast Fourier transform in audio analysis?",
+                "8. Can you explain the difference between the time domain and the frequency domain?",
+                "9. What type of data does the waveform represent?",
+                "10. Why is it important to analyze both the time domain and frequency domain in music?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "cool. So now uh the next step is moving from the time domain. So from the the waveform uh towards the frequency domain. And to do that, we need to perform a fast four A transform. And now for performing that, we're gonna use NP. So we'll do an import NPI as MP. So, so we'll do a FFT, it's equal to NP dot FFT dot FFT. And uh we'll uh pass in the signal,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "306.48",
+            "questions": [
+                "1. What is the next step after analyzing the waveform in the time domain?  ",
+                "2. How do we transition from the time domain to the frequency domain?  ",
+                "3. What does FFT stand for in the context of signal processing?  ",
+                "4. Why is it necessary to perform a fast Fourier transform (FFT)?  ",
+                "5. Which Python library is used for performing the FFT in the provided text?  ",
+                "6. How is the NumPy library imported in the example?  ",
+                "7. What function is used to perform the FFT in the provided code snippet?  ",
+                "8. What parameter is required to execute the FFT function according to the text?  ",
+                "9. What does the FFT function return when applied to a signal?  ",
+                "10. Can you explain the significance of moving from the time domain to the frequency domain in signal analysis?  "
+            ]
+        },
+        {
+            "id": 18,
+            "text": "we're gonna use NP. So we'll do an import NPI as MP. So, so we'll do a FFT, it's equal to NP dot FFT dot FFT. And uh we'll uh pass in the signal, right? And so what we expect here is a uh an umpire array, one dimensional array which has as many uh values as the total number of samples we have in the, in the waveform. So it's more or less like this value here. So uh 600,000 plus and at each of those values, uh we have a complex value. Now,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "323.829",
+            "questions": [
+                "1. What does \"NP\" stand for in the context of this text?",
+                "2. How is \"NPI\" related to \"MP\" in the import statement?",
+                "3. What does \"FFT\" represent in the provided text?",
+                "4. What is the purpose of using the FFT function in this context?",
+                "5. What is expected to be passed into the FFT function?",
+                "6. How many values are expected in the resulting one-dimensional array?",
+                "7. What is the total number of samples mentioned in the waveform?",
+                "8. What type of values does the resulting array contain?",
+                "9. How does the size of the one-dimensional array relate to the waveform?",
+                "10. What does the term \"complex value\" refer to in this context?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "So, so we'll do a FFT, it's equal to NP dot FFT dot FFT. And uh we'll uh pass in the signal, right? And so what we expect here is a uh an umpire array, one dimensional array which has as many uh values as the total number of samples we have in the, in the waveform. So it's more or less like this value here. So uh 600,000 plus and at each of those values, uh we have a complex value. Now, uh I don't want to like get into the details of how we get there because like it's completely outside the scope like of and it's not needed like for deep learning. But what we want to do is we want to move like from that complex value and get the amplitude of those values and or or sorry, get the magnitude of this value and for getting the magnitude,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "329.589",
+            "questions": [
+                "1. What does FFT stand for in the context of signal processing?",
+                "2. Which library is used to perform the FFT in the described method?",
+                "3. What type of array is expected as the output of the FFT operation?",
+                "4. How many values are contained in the output array of the FFT?",
+                "5. What kind of values does the output array contain?",
+                "6. Why is the speaker hesitant to delve into the details of the FFT calculation?",
+                "7. What is the primary goal mentioned in the text regarding the complex values obtained from the FFT?",
+                "8. What is the difference between amplitude and magnitude as mentioned in the context?",
+                "9. How does the number of samples in the waveform relate to the size of the output from the FFT?",
+                "10. Is the process of obtaining the magnitude of the FFT values considered relevant for deep learning in this context?"
+            ]
+        },
+        {
+            "id": 20,
+            "text": "right? And so what we expect here is a uh an umpire array, one dimensional array which has as many uh values as the total number of samples we have in the, in the waveform. So it's more or less like this value here. So uh 600,000 plus and at each of those values, uh we have a complex value. Now, uh I don't want to like get into the details of how we get there because like it's completely outside the scope like of and it's not needed like for deep learning. But what we want to do is we want to move like from that complex value and get the amplitude of those values and or or sorry, get the magnitude of this value and for getting the magnitude, uh what we do is we call nimai dots absolute value and we pass in FFT. So basically, we are performing the absolute value on the complex values and then we end up with these magnitudes and these magnitudes indicate the",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "343.29",
+            "questions": [
+                "1. What is the expected structure of the umpire array mentioned in the text?",
+                "2. How many values does the umpire array contain in relation to the waveform samples?",
+                "3. What type of values does each element of the umpire array hold?",
+                "4. Why is the speaker hesitant to discuss the details of how the values are derived?",
+                "5. What is the primary goal mentioned in the text regarding complex values?",
+                "6. What function is used to obtain the magnitude from the complex values?",
+                "7. How does the speaker describe the process of obtaining magnitudes from complex values?",
+                "8. What does the term \"magnitude\" refer to in the context of the text?",
+                "9. Why is the speaker focusing on magnitudes instead of complex values?",
+                "10. What implication do the magnitudes have as indicated in the text?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "uh I don't want to like get into the details of how we get there because like it's completely outside the scope like of and it's not needed like for deep learning. But what we want to do is we want to move like from that complex value and get the amplitude of those values and or or sorry, get the magnitude of this value and for getting the magnitude, uh what we do is we call nimai dots absolute value and we pass in FFT. So basically, we are performing the absolute value on the complex values and then we end up with these magnitudes and these magnitudes indicate the contribution of each frequency bin to the overall sound. And so, and we want to map them onto like the, the relative like frequency bins, right? And for doing that, we'll do a frequent frequency, it's equal to NP five dots uh lens space.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "370.04",
+            "questions": [
+                "1. What is the primary goal mentioned in the text regarding complex values?",
+                "2. Why is the author hesitant to go into details about the process?",
+                "3. What does the term \"amplitude\" refer to in the context of the text?",
+                "4. How do the authors suggest obtaining the magnitude of complex values?",
+                "5. What function is used to calculate the absolute value of complex values?",
+                "6. What do the resulting magnitudes indicate about the frequency bins?",
+                "7. What is the significance of mapping magnitudes onto relative frequency bins?",
+                "8. What does \"NP five dots lens space\" refer to in the text?",
+                "9. How does the author describe the relationship between frequency bins and sound?",
+                "10. What is the importance of performing the absolute value on the complex values in this context?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "uh what we do is we call nimai dots absolute value and we pass in FFT. So basically, we are performing the absolute value on the complex values and then we end up with these magnitudes and these magnitudes indicate the contribution of each frequency bin to the overall sound. And so, and we want to map them onto like the, the relative like frequency bins, right? And for doing that, we'll do a frequent frequency, it's equal to NP five dots uh lens space. And A L space is a nice function that uh gives us a number of evenly spaced numbers in an interval,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "397.07",
+            "questions": [
+                "1. What do we call the process of applying absolute value to complex values in the context of FFT?",
+                "2. What is the significance of the magnitudes obtained from the absolute value of complex values?",
+                "3. How do the magnitudes relate to the contribution of frequency bins to overall sound?",
+                "4. What is the purpose of mapping magnitudes onto relative frequency bins?",
+                "5. What function is used to create evenly spaced numbers in an interval for frequency mapping?",
+                "6. How is the function NP five dots related to the calculation of frequency?",
+                "7. What are \"frequency bins\" and why are they important in sound analysis?",
+                "8. What type of values are being transformed when we apply the absolute value in this context?",
+                "9. Can you explain what FFT stands for and its role in this process?",
+                "10. What does the term \"lens space\" refer to in the context of this discussion?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "contribution of each frequency bin to the overall sound. And so, and we want to map them onto like the, the relative like frequency bins, right? And for doing that, we'll do a frequent frequency, it's equal to NP five dots uh lens space. And A L space is a nice function that uh gives us a number of evenly spaced numbers in an interval, right. And so here the, the uh frequency interval that we want to consider is between zero Hertz and the sample rate itself. And uh the number of like evenly paced uh values that we want and it's equal to the length of magnitude.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "417.869",
+            "questions": [
+                "1. What is the purpose of mapping frequency bins to overall sound?",
+                "2. How is the frequency defined in relation to the sample rate?",
+                "3. What function is used to generate evenly spaced numbers in an interval?",
+                "4. What is the frequency interval mentioned in the text?",
+                "5. How does the length of magnitude relate to the number of evenly spaced values?",
+                "6. What does \"NP five dots\" refer to in the context of generating frequency bins?",
+                "7. Why is it important to consider the contribution of each frequency bin?",
+                "8. What does the term \"lens space\" imply in the context of frequency mapping?",
+                "9. How do evenly spaced values impact the analysis of sound frequencies?",
+                "10. What is the significance of the zero Hertz lower limit in the frequency interval?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "And A L space is a nice function that uh gives us a number of evenly spaced numbers in an interval, right. And so here the, the uh frequency interval that we want to consider is between zero Hertz and the sample rate itself. And uh the number of like evenly paced uh values that we want and it's equal to the length of magnitude. And so basically, we have like these two arrays and magnitude has like the values. So the the actual like magnitudes of each frequency bin. And so it's basically so like these two like rays together are telling us how much each frequency is contributing to the overall uh sound. OK. So now let's plot this and uh for plotting this, which by the way is the power spectrum,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "442.279",
+            "questions": [
+                "1. What is the purpose of the A L space function mentioned in the text?",
+                "2. What interval does the text specify for the frequency range?",
+                "3. How does the sample rate relate to the frequency interval described?",
+                "4. What determines the number of evenly spaced values in the A L space function?",
+                "5. What two arrays are referenced in the text, and what do they represent?",
+                "6. How does the magnitude array contribute to understanding sound?",
+                "7. What is meant by \"frequency bin\" in the context of the text?",
+                "8. What does the power spectrum refer to in the plotting context mentioned?",
+                "9. How do the values in the magnitude array relate to overall sound?",
+                "10. Why is it important to know how much each frequency contributes to sound?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "right. And so here the, the uh frequency interval that we want to consider is between zero Hertz and the sample rate itself. And uh the number of like evenly paced uh values that we want and it's equal to the length of magnitude. And so basically, we have like these two arrays and magnitude has like the values. So the the actual like magnitudes of each frequency bin. And so it's basically so like these two like rays together are telling us how much each frequency is contributing to the overall uh sound. OK. So now let's plot this and uh for plotting this, which by the way is the power spectrum, uh we don't have like a fancy uh Li Brosa like shortcut function rather, we should use vanilla uh mat plot lib. So we'll do plots dot uh plot and we'll pass in the frequency as well as the uh magnet. And then, yeah, I guess we want to pass the, the labels as well. So on the X label given, we are in the frequency domain, we are expecting",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "453.299",
+            "questions": [
+                "1. What is the frequency interval being considered in the text?",
+                "2. How is the number of values related to the length of the magnitude?",
+                "3. What do the two arrays mentioned in the text represent?",
+                "4. How do the magnitude values contribute to the overall sound?",
+                "5. What is referred to as the power spectrum in the context?",
+                "6. Which plotting library is suggested for creating the plot?",
+                "7. What function is used for plotting the data in the text?",
+                "8. What parameters are passed to the plotting function?",
+                "9. What does the X label represent in the frequency domain?",
+                "10. Why is there no fancy shortcut function mentioned for plotting?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "And so basically, we have like these two arrays and magnitude has like the values. So the the actual like magnitudes of each frequency bin. And so it's basically so like these two like rays together are telling us how much each frequency is contributing to the overall uh sound. OK. So now let's plot this and uh for plotting this, which by the way is the power spectrum, uh we don't have like a fancy uh Li Brosa like shortcut function rather, we should use vanilla uh mat plot lib. So we'll do plots dot uh plot and we'll pass in the frequency as well as the uh magnet. And then, yeah, I guess we want to pass the, the labels as well. So on the X label given, we are in the frequency domain, we are expecting frequencies, it's frequency. And on the y uh uh label, we are expecting magnitudes magnitude plot to show um it's all good. But before uh running the scripts, let me just like comment this out so that we are gonna have just one plot, the one we are interested in. OK. So let's run this and hopefully we have our power spectrum.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "475.029",
+            "questions": [
+                "1. What are the two arrays mentioned in the text?",
+                "2. What do the values in the magnitude array represent?",
+                "3. How do the two arrays contribute to understanding sound?",
+                "4. What is being plotted in the described process?",
+                "5. What library is suggested for plotting the data?",
+                "6. What function is used to create the plot?",
+                "7. What are the parameters passed into the plot function?",
+                "8. What should be labeled on the X-axis of the plot?",
+                "9. What should be labeled on the Y-axis of the plot?",
+                "10. Why is there a need to comment out parts of the script before running it?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "uh we don't have like a fancy uh Li Brosa like shortcut function rather, we should use vanilla uh mat plot lib. So we'll do plots dot uh plot and we'll pass in the frequency as well as the uh magnet. And then, yeah, I guess we want to pass the, the labels as well. So on the X label given, we are in the frequency domain, we are expecting frequencies, it's frequency. And on the y uh uh label, we are expecting magnitudes magnitude plot to show um it's all good. But before uh running the scripts, let me just like comment this out so that we are gonna have just one plot, the one we are interested in. OK. So let's run this and hopefully we have our power spectrum. That's great. And as you can see, most of the energy is concentrated in the lower frequencies and the higher we go with the frequencies and the less energy, the less contribution they will uh give us. Now, let's take a look at this um uh plot and there's when we analyze it, there's a very curious thing which is",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "504.88",
+            "questions": [
+                "1. What function is suggested for plotting in the given text?",
+                "2. How are the frequency and magnet values utilized in the plotting process?",
+                "3. What labels are recommended for the X and Y axes in the plot?",
+                "4. Why is it important to comment out certain parts of the script before running it?",
+                "5. What type of plot is being generated in the discussion?",
+                "6. What observation is made about the concentration of energy in relation to frequency?",
+                "7. How does the contribution of higher frequencies compare to lower frequencies according to the text?",
+                "8. What might be the significance of analyzing the power spectrum plot?",
+                "9. What programming library is being referenced for creating plots?",
+                "10. What does the speaker hope to achieve by running the script?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "frequencies, it's frequency. And on the y uh uh label, we are expecting magnitudes magnitude plot to show um it's all good. But before uh running the scripts, let me just like comment this out so that we are gonna have just one plot, the one we are interested in. OK. So let's run this and hopefully we have our power spectrum. That's great. And as you can see, most of the energy is concentrated in the lower frequencies and the higher we go with the frequencies and the less energy, the less contribution they will uh give us. Now, let's take a look at this um uh plot and there's when we analyze it, there's a very curious thing which is the plot is symmetrical and it's the, the, the kind of like point of symmetry here is the half of the plot which represents like half of the sample rate.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "534.179",
+            "questions": [
+                "1. What is being discussed in relation to frequencies and magnitudes?",
+                "2. What is the purpose of commenting out certain parts of the script?",
+                "3. What type of plot is being generated in the text?",
+                "4. Where is the majority of energy concentrated according to the power spectrum?",
+                "5. How does energy contribution change as frequencies increase?",
+                "6. What observation is made about the symmetry of the plot?",
+                "7. What does the point of symmetry in the plot represent?",
+                "8. Why is the half of the sample rate significant in this analysis?",
+                "9. What do you expect to see when the script is run successfully?",
+                "10. How does the author feel about the results of the power spectrum analysis?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "That's great. And as you can see, most of the energy is concentrated in the lower frequencies and the higher we go with the frequencies and the less energy, the less contribution they will uh give us. Now, let's take a look at this um uh plot and there's when we analyze it, there's a very curious thing which is the plot is symmetrical and it's the, the, the kind of like point of symmetry here is the half of the plot which represents like half of the sample rate. Now this is like a property of the fourier transform. And that can be explained with a concept from DS P which is the um Nyquist theorem. I'm not going to get into those details again because we don't need them. But what we need to understand is that we don't need the whole plot because basically the only part of the plot that's bringing us like uh novel uh information is the, the first half, right, the left uh most half.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "560.71",
+            "questions": [
+                "1. What does the text indicate about the concentration of energy in different frequency ranges?",
+                "2. How does the energy contribution change as frequencies increase?",
+                "3. What characteristic of the plot is described as \"symmetrical\"?",
+                "4. What is the significance of the half of the plot in relation to the sample rate?",
+                "5. Which mathematical concept is referenced in the explanation of the plot's properties?",
+                "6. What is the Nyquist theorem, and why is it mentioned in the text?",
+                "7. Why does the text state that only half of the plot is necessary for analysis?",
+                "8. What part of the plot is identified as providing \"novel information\"?",
+                "9. How does the concept of symmetry relate to the analysis of the plot?",
+                "10. What is the overall focus of the discussion regarding frequency and energy in the text?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "the plot is symmetrical and it's the, the, the kind of like point of symmetry here is the half of the plot which represents like half of the sample rate. Now this is like a property of the fourier transform. And that can be explained with a concept from DS P which is the um Nyquist theorem. I'm not going to get into those details again because we don't need them. But what we need to understand is that we don't need the whole plot because basically the only part of the plot that's bringing us like uh novel uh information is the, the first half, right, the left uh most half. And that's because like once we, we cross half the frequency here, we're just like repeating uh like the, the same like information. So we just want to focus on the first half. So let's, let's do that here. So uh we can just like go back here and say that we want the left frequency",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "586.21",
+            "questions": [
+                "1. What is the significance of the point of symmetry in the plot mentioned in the text?  ",
+                "2. How does the concept of sample rate relate to the plot's symmetry?  ",
+                "3. What property of the Fourier transform is discussed in the text?  ",
+                "4. Can you explain the Nyquist theorem in relation to the plot?  ",
+                "5. Why is only the first half of the plot considered to contain novel information?  ",
+                "6. What happens to the information once the frequency crosses the halfway point?  ",
+                "7. In the context of the text, what does \"the left most half\" refer to?  ",
+                "8. How can we simplify our analysis by focusing only on the first half of the plot?  ",
+                "9. What implications does the symmetry of the plot have on data analysis?  ",
+                "10. Why does the author choose not to go into the details of the Nyquist theorem?  "
+            ]
+        },
+        {
+            "id": 31,
+            "text": "Now this is like a property of the fourier transform. And that can be explained with a concept from DS P which is the um Nyquist theorem. I'm not going to get into those details again because we don't need them. But what we need to understand is that we don't need the whole plot because basically the only part of the plot that's bringing us like uh novel uh information is the, the first half, right, the left uh most half. And that's because like once we, we cross half the frequency here, we're just like repeating uh like the, the same like information. So we just want to focus on the first half. So let's, let's do that here. So uh we can just like go back here and say that we want the left frequency frequency and this is gonna be equal to frequency. And uh we'll just like consider like from like the zero index to like half. And that we can express by saying this is equal to end of the length of frequency itself. And this is like divided by two. So we are",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "599.409",
+            "questions": [
+                "1. What property of the Fourier transform is being discussed in the text?",
+                "2. How does the Nyquist theorem relate to the Fourier transform?",
+                "3. Why is it unnecessary to consider the whole plot of the Fourier transform?",
+                "4. Which part of the Fourier transform plot provides novel information?",
+                "5. What happens to the information in the plot when crossing half the frequency?",
+                "6. How can we express the range of frequencies we want to focus on?",
+                "7. What is the significance of the leftmost half of the frequency plot?",
+                "8. How is the length of the frequency relevant to the discussion?",
+                "9. What does the text imply about the repetition of information in the Fourier transform?",
+                "10. What is the method suggested for selecting the desired portion of the frequency plot?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "And that's because like once we, we cross half the frequency here, we're just like repeating uh like the, the same like information. So we just want to focus on the first half. So let's, let's do that here. So uh we can just like go back here and say that we want the left frequency frequency and this is gonna be equal to frequency. And uh we'll just like consider like from like the zero index to like half. And that we can express by saying this is equal to end of the length of frequency itself. And this is like divided by two. So we are uh just like considering the first half year of the frequency array and we should do the same thing for the magnitude uh array.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "627.869",
+            "questions": [
+                "1. What happens when we cross half the frequency in the context of the text?",
+                "2. Why is it important to focus on the first half of the frequency?",
+                "3. How is the left frequency defined in the text?",
+                "4. What is the significance of the zero index in the frequency array?",
+                "5. How is the end of the length of the frequency calculated?",
+                "6. What operation is performed to determine the first half of the frequency array?",
+                "7. Why should the same approach be applied to the magnitude array as well?",
+                "8. What does it mean to repeat the same information in the context of frequency?",
+                "9. How does the frequency array relate to the magnitude array in this discussion?",
+                "10. What implications might there be for analysis if both halves of the frequency are considered?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "frequency and this is gonna be equal to frequency. And uh we'll just like consider like from like the zero index to like half. And that we can express by saying this is equal to end of the length of frequency itself. And this is like divided by two. So we are uh just like considering the first half year of the frequency array and we should do the same thing for the magnitude uh array. So let's do this and this is the same. And now we'll just",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "651.0",
+            "questions": [
+                "1. What is meant by \"frequency\" in this context?",
+                "2. How is the frequency array defined in relation to its length?",
+                "3. What does it mean to consider the \"first half\" of the frequency array?",
+                "4. Why is the length of the frequency array divided by two?",
+                "5. How does the process described apply to the magnitude array?",
+                "6. What is the significance of the zero index in relation to the frequency array?",
+                "7. What are the implications of only considering half of the frequency and magnitude arrays?",
+                "8. How would you retrieve elements from the first half of the frequency array?",
+                "9. What type of data might be represented in the frequency and magnitude arrays?",
+                "10. Can this method of processing be applied to other types of arrays, and if so, how?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "uh just like considering the first half year of the frequency array and we should do the same thing for the magnitude uh array. So let's do this and this is the same. And now we'll just change frequency for left frequency and magnitude for left magnitude. So now let's rerun the script.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "680.0",
+            "questions": [
+                "1. What does the text suggest about the first half year of the frequency array?",
+                "2. How should the magnitude array be treated in relation to the frequency array?",
+                "3. What changes need to be made to the frequency and magnitude arrays?",
+                "4. What does \"left frequency\" refer to in this context?",
+                "5. How is \"left magnitude\" defined in relation to the magnitude array?",
+                "6. What is the purpose of rerunning the script mentioned in the text?",
+                "7. Are there any specific methods mentioned for handling the frequency and magnitude arrays?",
+                "8. Why is it important to consider both frequency and magnitude arrays?",
+                "9. What similarities are indicated between handling the frequency array and the magnitude array?",
+                "10. What outcomes are expected after rerunning the script?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "So let's do this and this is the same. And now we'll just change frequency for left frequency and magnitude for left magnitude. So now let's rerun the script. And now here we have it, our power spectrum focusing only on half of the sample rate. So",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "690.169",
+            "questions": [
+                "1. What is the purpose of changing frequency for left frequency in the script?",
+                "2. How does altering magnitude for left magnitude affect the results?",
+                "3. What is meant by \"power spectrum\" in the context of this script?",
+                "4. Why is the analysis focused only on half of the sample rate?",
+                "5. What steps are involved in rerunning the script after making changes?",
+                "6. What does the term \"sample rate\" refer to in this context?",
+                "7. How can the power spectrum provide insights into the data being analyzed?",
+                "8. Are there any specific outcomes expected from focusing on half of the sample rate?",
+                "9. What tools or software might be involved in running the script mentioned?",
+                "10. How might the results differ if the entire sample rate were analyzed instead?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "change frequency for left frequency and magnitude for left magnitude. So now let's rerun the script. And now here we have it, our power spectrum focusing only on half of the sample rate. So uh until uh yeah, I'd say like 11,000 something",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "697.4",
+            "questions": [
+                "1. What does the term \"change frequency\" refer to in the context of the left frequency?  ",
+                "2. How is \"magnitude\" defined in relation to the left magnitude?  ",
+                "3. What is the significance of focusing only on half of the sample rate in the power spectrum?  ",
+                "4. Why is the value \"11,000 something\" mentioned in the context of the power spectrum?  ",
+                "5. What might be the implications of adjusting the change frequency and magnitude parameters?  ",
+                "6. What script is being referenced, and what does it accomplish when rerun?  ",
+                "7. How does the power spectrum analysis contribute to understanding the data?  ",
+                "8. What potential effects could there be from not considering the full sample rate?  ",
+                "9. What additional information might be needed to interpret the results shown in the power spectrum?  ",
+                "10. How does focusing on half of the sample rate enhance or limit the analysis?  "
+            ]
+        },
+        {
+            "id": 37,
+            "text": "And now here we have it, our power spectrum focusing only on half of the sample rate. So uh until uh yeah, I'd say like 11,000 something uh right Hertz there. And uh again, yeah, we, we can easily see that like most of the of the energy is in the uh like lower frequencies nice. The only problem that we have with the power spectrum is that it is a static snapshot of the whole sound. And it's considered averaging like the",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "705.859",
+            "questions": [
+                "1. What does the power spectrum focus on in relation to the sample rate?",
+                "2. What is the maximum frequency mentioned in the text?",
+                "3. How is the distribution of energy characterized in the power spectrum?",
+                "4. What frequency range contains most of the energy according to the text?",
+                "5. What limitation is mentioned regarding the power spectrum?",
+                "6. How is the power spectrum described in terms of its representation of sound?",
+                "7. What does the term \"static snapshot\" imply about the power spectrum?",
+                "8. What does it mean for the power spectrum to be considered averaging?",
+                "9. How might the averaging effect impact the interpretation of sound?",
+                "10. Why might focusing only on half of the sample rate be significant?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "uh until uh yeah, I'd say like 11,000 something uh right Hertz there. And uh again, yeah, we, we can easily see that like most of the of the energy is in the uh like lower frequencies nice. The only problem that we have with the power spectrum is that it is a static snapshot of the whole sound. And it's considered averaging like the um the energy of the different frequency beams throughout the whole sound. And we, what we want to do is like understanding how this uh frequencies are contributing to the overall sound throughout time. So in order to do that we need to do a short time",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "715.049",
+            "questions": [
+                "1. What frequency range is being discussed in the text?",
+                "2. How does the power spectrum represent sound energy?",
+                "3. What is the main limitation of using a power spectrum for sound analysis?",
+                "4. Why is it important to understand frequencies' contributions over time?",
+                "5. What method is suggested to analyze frequencies throughout time?",
+                "6. What is meant by \"lower frequencies\" in the context of the text?",
+                "7. How does the speaker describe the nature of the energy distribution in sound?",
+                "8. What does \"static snapshot\" refer to in the analysis of sound?",
+                "9. Why is averaging the energy of different frequency beams significant?",
+                "10. What is the goal of the analysis mentioned in the text?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "uh right Hertz there. And uh again, yeah, we, we can easily see that like most of the of the energy is in the uh like lower frequencies nice. The only problem that we have with the power spectrum is that it is a static snapshot of the whole sound. And it's considered averaging like the um the energy of the different frequency beams throughout the whole sound. And we, what we want to do is like understanding how this uh frequencies are contributing to the overall sound throughout time. So in order to do that we need to do a short time uh for transform an SSTFT and get a spectrogram. So the spectrogram is gonna give us information about the amplitude as a function of both frequency and time. So how do we get a Stft? Well, we use libros for that. So we do libros dot core and then we call Stft nice.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "720.45",
+            "questions": [
+                "1. What is the significance of lower frequencies in the context of the power spectrum?  ",
+                "2. Why is the power spectrum considered a static snapshot of sound?  ",
+                "3. How does the power spectrum average the energy of different frequency beams?  ",
+                "4. What is the main goal of analyzing frequencies in sound over time?  ",
+                "5. What is the purpose of conducting a Short-Time Fourier Transform (STFT)?  ",
+                "6. How does a spectrogram differ from a power spectrum?  ",
+                "7. What information does a spectrogram provide regarding sound analysis?  ",
+                "8. What library is mentioned for performing Short-Time Fourier Transform (STFT)?  ",
+                "9. What is the function call used in libros for obtaining the STFT?  ",
+                "10. Why is it important to analyze sound frequencies as a function of both frequency and time?  "
+            ]
+        },
+        {
+            "id": 40,
+            "text": "um the energy of the different frequency beams throughout the whole sound. And we, what we want to do is like understanding how this uh frequencies are contributing to the overall sound throughout time. So in order to do that we need to do a short time uh for transform an SSTFT and get a spectrogram. So the spectrogram is gonna give us information about the amplitude as a function of both frequency and time. So how do we get a Stft? Well, we use libros for that. So we do libros dot core and then we call Stft nice. And uh here uh we should pass a few uh different values. So first of all, obviously, we need to fasten the, the signal, but then there are another couple of values. So one, it's, we can call it an uh number of samples per FFT.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "742.669",
+            "questions": [
+                "1. What is the purpose of analyzing different frequency beams in sound?",
+                "2. How do frequencies contribute to the overall sound throughout time?",
+                "3. What is a short-time Fourier transform (STFT)?",
+                "4. What information does a spectrogram provide?",
+                "5. How is amplitude represented in a spectrogram?",
+                "6. Which library is used to calculate the STFT in the given context?",
+                "7. What function is called from the libros library to perform the STFT?",
+                "8. What is the significance of passing different values when calculating the STFT?",
+                "9. What is meant by \"number of samples per FFT\" in the context of STFT?",
+                "10. Why is it important to understand the relationship between frequency and time in sound analysis?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "uh for transform an SSTFT and get a spectrogram. So the spectrogram is gonna give us information about the amplitude as a function of both frequency and time. So how do we get a Stft? Well, we use libros for that. So we do libros dot core and then we call Stft nice. And uh here uh we should pass a few uh different values. So first of all, obviously, we need to fasten the, the signal, but then there are another couple of values. So one, it's, we can call it an uh number of samples per FFT. And uh we are gonna set this to 2048 and this is expressed in a number of samples. And so this is basically like the window uh that we are considering when um",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "761.669",
+            "questions": [
+                "1. What is the purpose of generating a spectrogram from an SSTFT?",
+                "2. What information does a spectrogram provide?",
+                "3. How do we obtain a Short-Time Fourier Transform (STFT)?",
+                "4. Which library is used to perform the STFT in the text?",
+                "5. What function is called to compute the STFT using the libros library?",
+                "6. What is the significance of the number of samples per FFT in the STFT process?",
+                "7. What value is suggested for the number of samples per FFT in the text?",
+                "8. How is the number of samples per FFT expressed?",
+                "9. What does the term \"window\" refer to in the context of the STFT?",
+                "10. Why is it important to consider the signal when generating an STFT?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "And uh here uh we should pass a few uh different values. So first of all, obviously, we need to fasten the, the signal, but then there are another couple of values. So one, it's, we can call it an uh number of samples per FFT. And uh we are gonna set this to 2048 and this is expressed in a number of samples. And so this is basically like the window uh that we are considering when um uh performing a single uh fourier transform, fast fourier transform, right. So we are considering this amount of samples and then there's another value",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "790.53",
+            "questions": [
+                "1. What is the first value that needs to be fastened according to the text?",
+                "2. How many samples per FFT are being set in this context?",
+                "3. What is the significance of the number of samples in relation to the FFT?",
+                "4. How is the number of samples expressed in the text?",
+                "5. What does the term \"window\" refer to when performing a Fourier transform?",
+                "6. What type of Fourier transform is mentioned in the text?",
+                "7. Why is the number of samples important when performing a fast Fourier transform?",
+                "8. What does FFT stand for?",
+                "9. What is being considered when performing a single Fourier transform based on the given text?",
+                "10. Are there any additional values mentioned that need to be considered aside from the number of samples?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "And uh we are gonna set this to 2048 and this is expressed in a number of samples. And so this is basically like the window uh that we are considering when um uh performing a single uh fourier transform, fast fourier transform, right. So we are considering this amount of samples and then there's another value and that's called the hop length.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "809.94",
+            "questions": [
+                "1. What is the significance of setting the value to 2048 in the context of the Fourier transform?  ",
+                "2. How is the term \"samples\" defined in relation to the Fourier transform?  ",
+                "3. What does the term \"window\" refer to when performing a Fourier transform?  ",
+                "4. What is the difference between a Fourier transform and a fast Fourier transform?  ",
+                "5. Why is it important to consider a specific number of samples when performing a Fourier transform?  ",
+                "6. What role does the hop length play in the process of performing a Fourier transform?  ",
+                "7. How does the choice of window size affect the outcome of the Fourier transform?  ",
+                "8. Can you explain what a hop length is and how it is used in signal processing?  ",
+                "9. What are the potential implications of changing the sample size from 2048 to another value?  ",
+                "10. In what scenarios might one adjust the hop length when performing a Fourier transform?  "
+            ]
+        },
+        {
+            "id": 44,
+            "text": "uh performing a single uh fourier transform, fast fourier transform, right. So we are considering this amount of samples and then there's another value and that's called the hop length. And so let's set this to 512. So again, this is in number of samples and this is the amount we are shifting",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "829.19",
+            "questions": [
+                "1. What is the purpose of performing a Fourier transform in this context?  ",
+                "2. What does the term \"fast Fourier transform\" refer to?  ",
+                "3. How many samples are being considered for the Fourier transform?  ",
+                "4. What is the significance of the hop length in the Fourier transform process?  ",
+                "5. Why is the hop length set to 512 in this example?  ",
+                "6. How does the hop length affect the shifting of samples?  ",
+                "7. What are the implications of changing the hop length value?  ",
+                "8. Can you explain the relationship between the number of samples and the hop length?  ",
+                "9. In what scenarios might you adjust the hop length during a Fourier transform?  ",
+                "10. What are some potential applications of using a Fourier transform with a defined hop length?  "
+            ]
+        },
+        {
+            "id": 45,
+            "text": "and that's called the hop length. And so let's set this to 512. So again, this is in number of samples and this is the amount we are shifting uh each fourier transform like to the right because as you know, when we do a short term fourier transform, we slide uh like an interval and at each interval like we, we calculate a, a fast fourier transform and the hop length tells us how much we are shifting. We are sliding towards the right. OK. Cool.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "841.32",
+            "questions": [
+                "1. What is hop length in the context of the short term Fourier transform?",
+                "2. Why is the hop length set to 512 in this example?",
+                "3. How is the hop length measured?",
+                "4. What does the hop length determine in the sliding process of the Fourier transform?",
+                "5. What is the significance of shifting the Fourier transform to the right?",
+                "6. How does the hop length affect the calculation of the fast Fourier transform?",
+                "7. What does it mean to slide an interval in the short term Fourier transform?",
+                "8. How frequently is the fast Fourier transform calculated during the process?",
+                "9. What might happen if the hop length is set to a different value?",
+                "10. Why is it important to understand hop length when working with Fourier transforms?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "And so let's set this to 512. So again, this is in number of samples and this is the amount we are shifting uh each fourier transform like to the right because as you know, when we do a short term fourier transform, we slide uh like an interval and at each interval like we, we calculate a, a fast fourier transform and the hop length tells us how much we are shifting. We are sliding towards the right. OK. Cool. So like these two values that I've given here, so 2048 and 512 are quite like cus I mean, ordinary values that we use. Like we when analyzing music and even speech really? OK. So let's pass those two things in. So the hop length is equal to the hop length and the NFFT is equal to NFFT good. And so now we have the short time uh fourier transform.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "844.309",
+            "questions": [
+                "1. What is the significance of setting the value to 512 in the context of Fourier transforms?",
+                "2. How does the hop length affect the sliding process in a short-term Fourier transform?",
+                "3. What is the relationship between the number of samples and the short-term Fourier transform?",
+                "4. Why do we calculate a fast Fourier transform at each interval during the process?",
+                "5. What are the typical values mentioned for NFFT and hop length when analyzing music and speech?",
+                "6. How do the chosen values of 2048 and 512 impact the analysis of audio signals?",
+                "7. What does the term \"hop length\" refer to in the context of Fourier transforms?",
+                "8. Can you explain the process of sliding an interval during a short-term Fourier transform?",
+                "9. In what applications are these Fourier transform parameters commonly used?",
+                "10. What does it mean to pass the values of hop length and NFFT into the short-term Fourier transform?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "uh each fourier transform like to the right because as you know, when we do a short term fourier transform, we slide uh like an interval and at each interval like we, we calculate a, a fast fourier transform and the hop length tells us how much we are shifting. We are sliding towards the right. OK. Cool. So like these two values that I've given here, so 2048 and 512 are quite like cus I mean, ordinary values that we use. Like we when analyzing music and even speech really? OK. So let's pass those two things in. So the hop length is equal to the hop length and the NFFT is equal to NFFT good. And so now we have the short time uh fourier transform. And again, uh now we need to move like from like these values to like the magnitude to the spec the spectrogram like itself. So to do that. So first of all, let's call this variable spectra uhm. And then we want to do an MP dot Absolute value and we'll pass in uh the short time uh four transform that we've extracted",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "856.26",
+            "questions": [
+                "1. What is the purpose of the short-term Fourier transform in signal analysis?",
+                "2. How does the hop length affect the sliding of the Fourier transform?",
+                "3. What are the typical values used for NFFT and hop length when analyzing music and speech?",
+                "4. What does the term \"NFFT\" stand for, and why is it important in the Fourier transform process?",
+                "5. How is the magnitude of the short-term Fourier transform calculated?",
+                "6. What is a spectrogram, and how is it related to the short-term Fourier transform?",
+                "7. What function is used to obtain the absolute value from the short-term Fourier transform?",
+                "8. Why might one choose specific values like 2048 for NFFT or 512 for hop length?",
+                "9. How does the sliding interval affect the resolution of the analysis in the Fourier transform?",
+                "10. What steps are involved in moving from the short-term Fourier transform to the spectrogram?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "So like these two values that I've given here, so 2048 and 512 are quite like cus I mean, ordinary values that we use. Like we when analyzing music and even speech really? OK. So let's pass those two things in. So the hop length is equal to the hop length and the NFFT is equal to NFFT good. And so now we have the short time uh fourier transform. And again, uh now we need to move like from like these values to like the magnitude to the spec the spectrogram like itself. So to do that. So first of all, let's call this variable spectra uhm. And then we want to do an MP dot Absolute value and we'll pass in uh the short time uh four transform that we've extracted cool. And so here, basically, we are passing from those like complex numbers towards like the, the magnitude. And here we, we get the whole uh spectrogram right now let's block the results.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "878.21",
+            "questions": [
+                "1. What are the two values mentioned in the text, and what are they commonly used for?",
+                "2. How are the hop length and NFFT defined in the context of the short time Fourier transform?",
+                "3. What is the purpose of the short time Fourier transform in analyzing music and speech?",
+                "4. How do we transition from the short time Fourier transform to the spectrogram?",
+                "5. What variable is used to store the results of the magnitude calculation in the text?",
+                "6. What function is used to calculate the absolute value of the short time Fourier transform?",
+                "7. Why is it important to convert complex numbers to magnitude when creating a spectrogram?",
+                "8. What is the significance of the term \"magnitude\" in the context of the spectrogram?",
+                "9. How does the spectrogram visually represent the data derived from the short time Fourier transform?",
+                "10. What steps are involved in blocking or visualizing the results of the spectrogram after its creation?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "And again, uh now we need to move like from like these values to like the magnitude to the spec the spectrogram like itself. So to do that. So first of all, let's call this variable spectra uhm. And then we want to do an MP dot Absolute value and we'll pass in uh the short time uh four transform that we've extracted cool. And so here, basically, we are passing from those like complex numbers towards like the, the magnitude. And here we, we get the whole uh spectrogram right now let's block the results. So to uh do this, we are gonna use a uh function from libres display and the function it's called spec show. And spec show is a nice uh function that enables us to visualize uh spectrogram like um data.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "907.419",
+            "questions": [
+                "1. What is the main objective of the text regarding the transition from values to the spectrogram?",
+                "2. What variable is defined to represent the spectrogram in the process?",
+                "3. Which function is used to obtain the absolute value of the short-time Fourier transform?",
+                "4. What type of numbers are being converted to magnitude in the process described?",
+                "5. How is the spectrogram visualized according to the text?",
+                "6. What library is mentioned for displaying the spectrogram?",
+                "7. What is the specific function mentioned for visualizing spectrogram data?",
+                "8. Why is the function `spec show` described as \"nice\" in the context of visualizing data?",
+                "9. What does the term \"short time Fourier transform\" refer to in this context?",
+                "10. What is the significance of obtaining the magnitude from complex numbers in the analysis of the spectrogram?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "cool. And so here, basically, we are passing from those like complex numbers towards like the, the magnitude. And here we, we get the whole uh spectrogram right now let's block the results. So to uh do this, we are gonna use a uh function from libres display and the function it's called spec show. And spec show is a nice uh function that enables us to visualize uh spectrogram like um data. So, and this type of data, as you'll see, it's kind of like a heat map. So you have X axis y axis plus like a color that represents a third variable.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "937.0",
+            "questions": [
+                "1. What are we transitioning from in the discussed process involving complex numbers?",
+                "2. What is the significance of magnitude in the context of this text?",
+                "3. What is a spectrogram, and how is it relevant to the discussion?",
+                "4. Which library is mentioned for visualizing the spectrogram data?",
+                "5. What is the function called that is used to visualize the spectrogram?",
+                "6. How does the function 'spec show' assist in visualizing data?",
+                "7. What visual format does the spectrogram data resemble, according to the text?",
+                "8. What axes are present in the spectrogram visualization mentioned?",
+                "9. What does the color in the spectrogram represent as a third variable?",
+                "10. How does the author describe the appearance of the data when visualized?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "So to uh do this, we are gonna use a uh function from libres display and the function it's called spec show. And spec show is a nice uh function that enables us to visualize uh spectrogram like um data. So, and this type of data, as you'll see, it's kind of like a heat map. So you have X axis y axis plus like a color that represents a third variable. So uh what do we need here? So here uh we need uh obviously like the, the spectrogram, right, then uh we need to pass the sample rate",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "951.059",
+            "questions": [
+                "1. What function from the libres display library is being discussed?",
+                "2. What is the purpose of the spec show function?",
+                "3. How does the spec show function visualize data?",
+                "4. What are the three components represented in the spectrogram visualization?",
+                "5. What axes are involved in the spectrogram visualization?",
+                "6. What type of data does the spec show function work with?",
+                "7. Why is a sample rate important when using the spec show function?",
+                "8. How is the spectrogram similar to a heat map?",
+                "9. What additional information is needed to use the spec show function effectively?",
+                "10. Can you explain what spectrogram data is?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "So, and this type of data, as you'll see, it's kind of like a heat map. So you have X axis y axis plus like a color that represents a third variable. So uh what do we need here? So here uh we need uh obviously like the, the spectrogram, right, then uh we need to pass the sample rate and then we want to pass the hub length",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "973.729",
+            "questions": [
+                "1. What type of data is being discussed in the text?",
+                "2. How is the data visually represented in the example provided?",
+                "3. What are the components of the data visualization mentioned in the text?",
+                "4. What does the color in the heat map represent?",
+                "5. What is the X axis used for in this context?",
+                "6. What is the Y axis used for in this context?",
+                "7. What is the significance of the spectrogram in the analysis?",
+                "8. What is meant by \"sample rate\" in the context of the data?",
+                "9. What is a \"hub length,\" and why is it relevant to the discussion?",
+                "10. Why is it important to pass the sample rate and hub length when working with this type of data?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "So uh what do we need here? So here uh we need uh obviously like the, the spectrogram, right, then uh we need to pass the sample rate and then we want to pass the hub length cool. And as usual, we want to take uh and put to this plot the X label and the Y label. So for the X axis at this time, we have",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "983.34",
+            "questions": [
+                "1. What is the first item mentioned that is needed for the task?",
+                "2. Why is the sample rate important in this context?",
+                "3. What does the term \"hub length\" refer to in the text?",
+                "4. What specific labels are mentioned for the plot?",
+                "5. Which axis is specified for labeling in the provided text?",
+                "6. What is the purpose of creating a spectrogram in this scenario?",
+                "7. How does the speaker indicate their thought process in the text?",
+                "8. What does the phrase \"as usual\" imply about the labeling of the plot?",
+                "9. Are there any other parameters mentioned that need to be passed along with the spectrogram?",
+                "10. What type of plotting is being discussed in the text?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "and then we want to pass the hub length cool. And as usual, we want to take uh and put to this plot the X label and the Y label. So for the X axis at this time, we have time for the Y axis we have frequency",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "996.64",
+            "questions": [
+                "1. What is the purpose of passing the hub length?",
+                "2. What is the significance of the X label in the plot?",
+                "3. What variable is represented on the X axis of the plot?",
+                "4. What variable is represented on the Y axis of the plot?",
+                "5. Why is it important to label the axes in a plot?",
+                "6. How does the choice of labels affect the interpretation of the data?",
+                "7. What does the term \"frequency\" refer to in this context?",
+                "8. How might the concept of 'time' be relevant to the data being plotted?",
+                "9. Are there any specific units associated with time and frequency in this plot?",
+                "10. What steps are typically involved in creating a plot with labeled axes?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "cool. And as usual, we want to take uh and put to this plot the X label and the Y label. So for the X axis at this time, we have time for the Y axis we have frequency now. So as we said, uh the spectrogram is a function. So it's the uh amplitude as a function of like time and frequency and uh the amplitude itself is expressed through a color. And so we can plot a color bar to see how the amplitude",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1002.21",
+            "questions": [
+                "1. What labels are being added to the X and Y axes in the plot?",
+                "2. What does the X axis represent in this plot?",
+                "3. What does the Y axis represent in this plot?",
+                "4. How is the spectrogram described in terms of its variables?",
+                "5. What is being expressed through color in the spectrogram?",
+                "6. Why is a color bar included in the plot?",
+                "7. What does the amplitude represent in the context of the spectrogram?",
+                "8. How is the relationship between amplitude, time, and frequency illustrated in the plot?",
+                "9. What is the significance of using color to represent amplitude in the spectrogram?",
+                "10. In what way does the spectrogram function as a visual representation of data?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "time for the Y axis we have frequency now. So as we said, uh the spectrogram is a function. So it's the uh amplitude as a function of like time and frequency and uh the amplitude itself is expressed through a color. And so we can plot a color bar to see how the amplitude there is like a throughout like the spectrogram. OK. So now, as usual, let's uh comment, comment this out so that we were gonna have just the um the plot for the spectrogram. And now let's move on and run the script",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1016.409",
+            "questions": [
+                "1. What does the Y axis represent in the context of the spectrogram?",
+                "2. How is the amplitude expressed in the spectrogram?",
+                "3. What are the two main variables plotted in a spectrogram?",
+                "4. Why is a color bar used in the representation of a spectrogram?",
+                "5. What function does the spectrogram serve in analyzing sound?",
+                "6. How does the amplitude change throughout the spectrogram?",
+                "7. What is the significance of commenting out sections of the script when plotting?",
+                "8. What does it mean to run the script in the context of generating a spectrogram?",
+                "9. How does the spectrogram visually represent frequency over time?",
+                "10. What information can be derived from the color representation in the spectrogram?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "now. So as we said, uh the spectrogram is a function. So it's the uh amplitude as a function of like time and frequency and uh the amplitude itself is expressed through a color. And so we can plot a color bar to see how the amplitude there is like a throughout like the spectrogram. OK. So now, as usual, let's uh comment, comment this out so that we were gonna have just the um the plot for the spectrogram. And now let's move on and run the script and here we go, we have our spectrogram",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1022.03",
+            "questions": [
+                "1. What is a spectrogram and how is it defined in terms of amplitude, time, and frequency?",
+                "2. How is amplitude represented in a spectrogram?",
+                "3. What is the purpose of using a color bar in a spectrogram?",
+                "4. Why is it important to comment out certain parts of the script before running it?",
+                "5. What steps are involved in plotting a spectrogram?",
+                "6. How does the visual representation of a spectrogram help in analyzing sound?",
+                "7. What might be the consequences of not properly commenting out sections of code in a script?",
+                "8. In what ways can the amplitude in a spectrogram vary over time and frequency?",
+                "9. Can you explain the relationship between color and amplitude in a spectrogram?",
+                "10. What does running the script reveal about the generated spectrogram?"
+            ]
+        },
+        {
+            "id": 58,
+            "text": "there is like a throughout like the spectrogram. OK. So now, as usual, let's uh comment, comment this out so that we were gonna have just the um the plot for the spectrogram. And now let's move on and run the script and here we go, we have our spectrogram cool. OK. So as you can see, most of the frequencies basically have very, very low amplitudes. So they contribute very, very little to the overall sound.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1043.39",
+            "questions": [
+                "1. What is the purpose of the spectrogram in the context of the text?",
+                "2. How does the author suggest modifying the script before running it?",
+                "3. What visual representation is the author referring to when they mention \"the plot for the spectrogram\"?",
+                "4. What observation does the author make about the frequencies displayed in the spectrogram?",
+                "5. Why does the author mention that most of the frequencies have very low amplitudes?",
+                "6. What does the term \"amplitude\" refer to in relation to sound?",
+                "7. How does the low amplitude of frequencies contribute to the overall sound according to the text?",
+                "8. What action does the author take before running the script for the spectrogram?",
+                "9. What is implied by the phrase \"here we go, we have our spectrogram cool\"?",
+                "10. Why might it be important to analyze the frequencies in a spectrogram?"
+            ]
+        },
+        {
+            "id": 59,
+            "text": "and here we go, we have our spectrogram cool. OK. So as you can see, most of the frequencies basically have very, very low amplitudes. So they contribute very, very little to the overall sound. And here like down in the bottom, you can see that there are certain like bursts of energy at the lower like frequencies which is also like what we would expect from the uh power um spectrum spectrum like that we say like before, right?",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1063.18",
+            "questions": [
+                "1. What is a spectrogram and what does it represent?",
+                "2. How do the amplitudes of most frequencies in the spectrogram compare to one another?",
+                "3. What does it mean when frequencies have very low amplitudes in a sound analysis?",
+                "4. What can we infer about the overall sound from the low amplitudes observed in the spectrogram?",
+                "5. What do the bursts of energy at lower frequencies indicate in the spectrogram?",
+                "6. How do the observations in the spectrogram relate to the power spectrum discussed earlier?",
+                "7. Why is it significant to analyze the frequencies and their amplitudes in a sound?",
+                "8. What role do lower frequencies play in the overall sound representation in the spectrogram?",
+                "9. Can the spectrogram provide insights into the characteristics of the sound being analyzed?",
+                "10. How does one interpret the bursts of energy shown in a spectrogram?"
+            ]
+        },
+        {
+            "id": 60,
+            "text": "cool. OK. So as you can see, most of the frequencies basically have very, very low amplitudes. So they contribute very, very little to the overall sound. And here like down in the bottom, you can see that there are certain like bursts of energy at the lower like frequencies which is also like what we would expect from the uh power um spectrum spectrum like that we say like before, right? But now there's a way of like us moving like a little bit like this amplitude and like to like visualize them like in a, in a nicer way and in a way that makes also like more sense, like for the way we perceive loudness, which is not linear, which is like the way we are like visualizing these amplitudes here, but rather it's a logarithmic. And so we're gonna use uh so we're gonna calculate the so-called log uh spectrogram.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1067.619",
+            "questions": [
+                "1. What do the low amplitudes of most frequencies indicate about their contribution to overall sound?",
+                "2. What phenomenon is observed at the lower frequencies in the power spectrum?",
+                "3. How does the visualization of amplitudes relate to our perception of loudness?",
+                "4. Why is the way we visualize amplitudes described as non-linear?",
+                "5. What type of scale is suggested for a more accurate representation of sound amplitudes?",
+                "6. What is a log spectrogram?",
+                "7. How do bursts of energy at lower frequencies influence sound perception?",
+                "8. In what ways does the logarithmic scale improve the understanding of sound amplitudes?",
+                "9. Why is it important to consider the perception of loudness when visualizing sound frequencies?",
+                "10. How does the power spectrum relate to the concept of amplitude in sound analysis?"
+            ]
+        },
+        {
+            "id": 61,
+            "text": "And here like down in the bottom, you can see that there are certain like bursts of energy at the lower like frequencies which is also like what we would expect from the uh power um spectrum spectrum like that we say like before, right? But now there's a way of like us moving like a little bit like this amplitude and like to like visualize them like in a, in a nicer way and in a way that makes also like more sense, like for the way we perceive loudness, which is not linear, which is like the way we are like visualizing these amplitudes here, but rather it's a logarithmic. And so we're gonna use uh so we're gonna calculate the so-called log uh spectrogram. And uh yeah, we can do it here. So we'll do a log spectrogram. And uh for doing that, we can use a nice uh li browser uh F function uh that's called amplitude to decimal. So we are taking uh the amplitude from our original spectrum which we should pass in",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1083.75",
+            "questions": [
+                "1. What are the bursts of energy mentioned in the text associated with?",
+                "2. How does the power spectrum relate to the lower frequencies described?",
+                "3. What is the significance of visualizing amplitudes in a way that makes more sense for loudness perception?",
+                "4. Why is loudness perception described as non-linear in the text?",
+                "5. What is a log spectrogram, and how is it relevant to the discussion?",
+                "6. What function is mentioned for converting amplitude to decimal in the process of creating a log spectrogram?",
+                "7. How does the method of visualizing amplitudes differ from traditional linear approaches?",
+                "8. What is the relationship between amplitude and loudness perception as outlined in the text?",
+                "9. Why is it important to consider the way we perceive sound when visualizing spectral data?",
+                "10. What steps are implied in the process of calculating a log spectrogram based on the text?"
+            ]
+        },
+        {
+            "id": 62,
+            "text": "But now there's a way of like us moving like a little bit like this amplitude and like to like visualize them like in a, in a nicer way and in a way that makes also like more sense, like for the way we perceive loudness, which is not linear, which is like the way we are like visualizing these amplitudes here, but rather it's a logarithmic. And so we're gonna use uh so we're gonna calculate the so-called log uh spectrogram. And uh yeah, we can do it here. So we'll do a log spectrogram. And uh for doing that, we can use a nice uh li browser uh F function uh that's called amplitude to decimal. So we are taking uh the amplitude from our original spectrum which we should pass in and then we are converting them to decibel. Uh we, and I mean, when we do that, we use, we apply",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1101.15",
+            "questions": [
+                "1. What is the significance of visualizing amplitudes in a more understandable way?",
+                "2. How does our perception of loudness differ from a linear model?",
+                "3. What type of scale is used to represent loudness according to the text?",
+                "4. What is a log spectrogram and how is it related to amplitude visualization?",
+                "5. Which function is mentioned for converting amplitude to decibels?",
+                "6. Why is it important to convert amplitudes to decibels in this context?",
+                "7. What does the term \"logarithmic\" imply regarding the visualization of sound amplitudes?",
+                "8. How does the process of calculating a log spectrogram enhance our understanding of sound?",
+                "9. What is the role of the original spectrum in the conversion process to decibels?",
+                "10. Can you explain the steps involved in creating a log spectrogram based on the text?"
+            ]
+        },
+        {
+            "id": 63,
+            "text": "And uh yeah, we can do it here. So we'll do a log spectrogram. And uh for doing that, we can use a nice uh li browser uh F function uh that's called amplitude to decimal. So we are taking uh the amplitude from our original spectrum which we should pass in and then we are converting them to decibel. Uh we, and I mean, when we do that, we use, we apply a logarithm cool. So now we have the log spectrogram. So let's pass that in here and let's take a look at the results",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1130.53",
+            "questions": [
+                "1. What is a log spectrogram?",
+                "2. What function is mentioned for converting amplitude to decibel?",
+                "3. Why do we need to convert amplitude to decibel in this context?",
+                "4. What type of data is being processed to create the log spectrogram?",
+                "5. How do we apply the logarithm in the conversion process?",
+                "6. What is the significance of using a logarithmic scale for spectrograms?",
+                "7. What results are expected after creating the log spectrogram?",
+                "8. Can you explain the process of creating a log spectrogram step-by-step?",
+                "9. What tools or libraries are suggested for this task?",
+                "10. How does the log spectrogram differ from a regular spectrogram?"
+            ]
+        },
+        {
+            "id": 64,
+            "text": "and then we are converting them to decibel. Uh we, and I mean, when we do that, we use, we apply a logarithm cool. So now we have the log spectrogram. So let's pass that in here and let's take a look at the results and here we go. Nice.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1153.469",
+            "questions": [
+                "1. What process is used to convert the data to decibels?",
+                "2. What mathematical function is applied during the conversion to decibels?",
+                "3. What is the result of applying a logarithm to the data?",
+                "4. What term is used to describe the output after applying the logarithm?",
+                "5. How do we visualize the results after creating the log spectrogram?",
+                "6. What does the log spectrogram represent in the context of the data?",
+                "7. Why is it necessary to convert the data to decibels?",
+                "8. What are the expected characteristics of the results after applying the logarithm?",
+                "9. Can you explain the significance of using a logarithm in this context?",
+                "10. What insights can we gain by analyzing the log spectrogram results?"
+            ]
+        },
+        {
+            "id": 65,
+            "text": "a logarithm cool. So now we have the log spectrogram. So let's pass that in here and let's take a look at the results and here we go. Nice. OK. So as you can see here, like all of these things like become like a little bit like more uh uh like intelligible I would say.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1161.699",
+            "questions": [
+                "1. What is a log spectrogram?",
+                "2. How does the log spectrogram enhance the intelligibility of the data?",
+                "3. What specific results were observed after passing the log spectrogram through the system?",
+                "4. Can you explain the significance of using logarithms in spectrogram analysis?",
+                "5. What changes occur in the representation of data when using a log spectrogram?",
+                "6. Why might one describe the results as \"nice\" when using a log spectrogram?",
+                "7. What are the benefits of making data more intelligible in this context?",
+                "8. Are there any limitations to using a log spectrogram?",
+                "9. How does the log transformation affect the visual representation of the spectrogram?",
+                "10. What additional insights can be gained from analyzing the log spectrogram compared to a regular spectrogram?"
+            ]
+        },
+        {
+            "id": 66,
+            "text": "and here we go. Nice. OK. So as you can see here, like all of these things like become like a little bit like more uh uh like intelligible I would say. And uh like here, like with the blue, we have like very, very quiet, sounds like minus 30 like decibels. And uh while we go towards like these more reddish like colors, we, we just like increase like the, the, the perceived basically like insensitive right. And as expected, we have most of the energy uh that's kind of concentrated in this like lower frequencies.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1171.949",
+            "questions": [
+                "1. What is the significance of the colors mentioned in the text, specifically the blue and reddish tones?",
+                "2. How do the sounds described in the text vary in terms of decibels?",
+                "3. What does the text imply about the relationship between color and sound frequency?",
+                "4. What does the term \"perceived basically like insensitive\" refer to in the context of the text?",
+                "5. In what way does the text describe the distribution of energy across different frequencies?",
+                "6. How does the text characterize the quiet sounds mentioned?",
+                "7. What is the overall theme or topic being discussed in the text?",
+                "8. Why might the author describe the sounds as becoming \"more intelligible\"?",
+                "9. What can be inferred about the importance of low frequencies based on the text?",
+                "10. How does the author convey the transition from quiet to louder sounds?"
+            ]
+        },
+        {
+            "id": 67,
+            "text": "OK. So as you can see here, like all of these things like become like a little bit like more uh uh like intelligible I would say. And uh like here, like with the blue, we have like very, very quiet, sounds like minus 30 like decibels. And uh while we go towards like these more reddish like colors, we, we just like increase like the, the, the perceived basically like insensitive right. And as expected, we have most of the energy uh that's kind of concentrated in this like lower frequencies. And if you guys re recall the uh the waveform, like, it was like quite, I would say, like quite stable, like throughout and like, and that could have been a little bit like of a,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1176.16",
+            "questions": [
+                "1. What does the text suggest about the intelligibility of sounds as they change?",
+                "2. How are the decibel levels described in the text, particularly for quieter sounds?",
+                "3. What color is associated with very quiet sounds in the discussion?",
+                "4. How does the text describe the relationship between color and perceived sound intensity?",
+                "5. Where is the majority of energy concentrated according to the speaker?",
+                "6. What characteristics of the waveform are mentioned in the text?",
+                "7. How does the speaker describe the stability of the waveform?",
+                "8. What does the speaker imply about the transition from lower to higher frequencies?",
+                "9. How is the concept of perceived insensitivity related to the colors mentioned?",
+                "10. What might the phrase \"little bit like of a\" suggest about the speaker's communication style?"
+            ]
+        },
+        {
+            "id": 68,
+            "text": "And uh like here, like with the blue, we have like very, very quiet, sounds like minus 30 like decibels. And uh while we go towards like these more reddish like colors, we, we just like increase like the, the, the perceived basically like insensitive right. And as expected, we have most of the energy uh that's kind of concentrated in this like lower frequencies. And if you guys re recall the uh the waveform, like, it was like quite, I would say, like quite stable, like throughout and like, and that could have been a little bit like of a, of a hint into also like the, the way uh like the the spectrogram like would behave to a certain extent. And obviously like what we see here is that like the spectrogram remains like quite stable throughout time.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1185.229",
+            "questions": [
+                "1. What decibel level is associated with the blue colors mentioned in the text?",
+                "2. How does the perception of sound change as one moves towards reddish colors?",
+                "3. Where is most of the energy concentrated in the context of sound frequencies?",
+                "4. What characteristic of the waveform is described in the text?",
+                "5. How does the stability of the waveform relate to the behavior of the spectrogram?",
+                "6. In what way does the spectrogram behave over time according to the text?",
+                "7. What hints are suggested about the spectrogram based on the stability of the waveform?",
+                "8. What role do lower frequencies play in the overall sound energy described in the text?",
+                "9. How is the concept of perceived insensitivity introduced in relation to color changes?",
+                "10. Can you explain the connection between color and sound frequency as discussed in the text?"
+            ]
+        },
+        {
+            "id": 69,
+            "text": "And if you guys re recall the uh the waveform, like, it was like quite, I would say, like quite stable, like throughout and like, and that could have been a little bit like of a, of a hint into also like the, the way uh like the the spectrogram like would behave to a certain extent. And obviously like what we see here is that like the spectrogram remains like quite stable throughout time. Cool. OK. So now we've seen uh like the spectrogram, the log spectrogram. Now we want to calculate the last thing. So we want to extract the MF CCS.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1212.64",
+            "questions": [
+                "1. What characteristics were noted about the waveform's stability?  ",
+                "2. How does the stability of the waveform relate to the behavior of the spectrogram?  ",
+                "3. What observations were made regarding the spectrogram's stability over time?  ",
+                "4. What is the significance of a stable spectrogram in this context?  ",
+                "5. What does \"MF CCS\" stand for, and why is it important to extract?  ",
+                "6. What steps need to be taken to calculate the MF CCS?  ",
+                "7. How does the log spectrogram differ from the regular spectrogram?  ",
+                "8. Can you explain the relationship between waveform stability and spectrogram behavior?  ",
+                "9. What could the stability of the spectrogram indicate about the underlying signal?  ",
+                "10. Why might the stability of both the waveform and the spectrogram be relevant to the analysis?  "
+            ]
+        },
+        {
+            "id": 70,
+            "text": "of a hint into also like the, the way uh like the the spectrogram like would behave to a certain extent. And obviously like what we see here is that like the spectrogram remains like quite stable throughout time. Cool. OK. So now we've seen uh like the spectrogram, the log spectrogram. Now we want to calculate the last thing. So we want to extract the MF CCS. So how do we do that? Well, that's as simple as calling Li Brosa dots feature dot MFCC",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1226.469",
+            "questions": [
+                "1. What is the significance of the spectrogram in this context?",
+                "2. How does the stability of the spectrogram throughout time affect its analysis?",
+                "3. What is the difference between a spectrogram and a log spectrogram?",
+                "4. What does MFCC stand for, and why is it important in this analysis?",
+                "5. What is the process for extracting MFCCs according to the text?",
+                "6. What library is mentioned for calculating MFCC features?",
+                "7. Why might one want to analyze the behavior of the spectrogram over time?",
+                "8. What does the phrase \"as simple as calling\" imply about the extraction process for MFCCs?",
+                "9. What type of data is likely being analyzed to generate the spectrogram?",
+                "10. How might the stability of the spectrogram influence the interpretation of MFCCs?"
+            ]
+        },
+        {
+            "id": 71,
+            "text": "Cool. OK. So now we've seen uh like the spectrogram, the log spectrogram. Now we want to calculate the last thing. So we want to extract the MF CCS. So how do we do that? Well, that's as simple as calling Li Brosa dots feature dot MFCC nice. And so here uh for uh calculating this, we need to pass the signal. So the original signal and then we want to pass uh a, a bunch of like different uh values uh like for example, the uh number",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1240.41",
+            "questions": [
+                "1. What is the purpose of calculating the MFCCs in the context provided?",
+                "2. What library or module is suggested for extracting MFCCs?",
+                "3. What input is required to calculate the MFCCs?",
+                "4. What does MFCC stand for?",
+                "5. What type of data does the function `li_brosa.feature.mfcc` expect as input?",
+                "6. Are there any additional parameters mentioned that need to be passed to the MFCC function?",
+                "7. What is the significance of using a spectrogram in this process?",
+                "8. How does the log spectrogram relate to the extraction of MFCCs?",
+                "9. What is the first step mentioned before calculating the MFCCs?",
+                "10. Can you explain what a signal refers to in the context of this extraction process?"
+            ]
+        },
+        {
+            "id": 72,
+            "text": "So how do we do that? Well, that's as simple as calling Li Brosa dots feature dot MFCC nice. And so here uh for uh calculating this, we need to pass the signal. So the original signal and then we want to pass uh a, a bunch of like different uh values uh like for example, the uh number uh like the, the, the number of samples per FFT and",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1252.64",
+            "questions": [
+                "1. What is the primary function of the Li Brosa dots feature dot MFCC?",
+                "2. What type of input is required to use the Li Brosa dots feature dot MFCC?",
+                "3. What does FFT stand for in the context of this text?",
+                "4. Why is it necessary to pass the original signal when calculating MFCC?",
+                "5. What are the different values that need to be passed along with the original signal?",
+                "6. How does the number of samples per FFT affect the calculation of MFCC?",
+                "7. Can you explain what MFCC represents in signal processing?",
+                "8. Is there a specific format required for the input signal when using the Li Brosa dots feature?",
+                "9. What kind of output does the Li Brosa dots feature dot MFCC return?",
+                "10. Are there any prerequisites for using the Li Brosa dots feature dot MFCC effectively?"
+            ]
+        },
+        {
+            "id": 73,
+            "text": "nice. And so here uh for uh calculating this, we need to pass the signal. So the original signal and then we want to pass uh a, a bunch of like different uh values uh like for example, the uh number uh like the, the, the number of samples per FFT and this is equal to this, we want to pass in the hop length",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1264.089",
+            "questions": [
+                "1. What is the purpose of passing the original signal in the calculation?",
+                "2. What values need to be passed along with the original signal?",
+                "3. How is the number of samples per FFT determined?",
+                "4. What is the significance of the hop length in the calculation?",
+                "5. Can you explain what an FFT is in the context of this signal processing?",
+                "6. What might happen if the wrong number of samples per FFT is used?",
+                "7. How does the hop length affect the output of the FFT?",
+                "8. Are there any other parameters that can be adjusted during the calculation?",
+                "9. What type of signal processing applications would require these calculations?",
+                "10. How do variations in the input values influence the results of the FFT?"
+            ]
+        },
+        {
+            "id": 74,
+            "text": "uh like the, the, the number of samples per FFT and this is equal to this, we want to pass in the hop length which is equal to the hop length. And so here I'm just missed them. Oops",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1283.8",
+            "questions": [
+                "1. What is the significance of the number of samples per FFT?",
+                "2. How is hop length defined in the context of FFT?",
+                "3. What does it mean to pass in the hop length?",
+                "4. Why might the author have mentioned missing something?",
+                "5. Can you explain the relationship between samples and hop length?",
+                "6. What are the implications of incorrectly setting the number of samples per FFT?",
+                "7. How does hop length affect the output of an FFT?",
+                "8. What might be the consequences of overlooking details in FFT processing?",
+                "9. How can one determine the appropriate number of samples for an FFT?",
+                "10. What does \"oops\" suggest about the author's process or understanding?"
+            ]
+        },
+        {
+            "id": 75,
+            "text": "this is equal to this, we want to pass in the hop length which is equal to the hop length. And so here I'm just missed them. Oops uh over here.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1289.959",
+            "questions": [
+                "1. What does \"this is equal to this\" refer to in the context of the text?",
+                "2. What is the significance of the hop length mentioned in the text?",
+                "3. How is the hop length defined or determined in this scenario?",
+                "4. What might be the consequences of missing the hop length in the process described?",
+                "5. What actions were taken when the author mentioned \"Oops\"?",
+                "6. What does the phrase \"we want to pass in\" imply about the process being described?",
+                "7. Are there any specific calculations or formulas associated with the hop length mentioned?",
+                "8. What context is being discussed when referring to \"this\" in the text?",
+                "9. How might the concept of hop length be applied in practical situations?",
+                "10. What other elements could be related to the hop length in the discussion?"
+            ]
+        },
+        {
+            "id": 76,
+            "text": "which is equal to the hop length. And so here I'm just missed them. Oops uh over here. And uh we also want to pass another value that's called number of MF CCS. So the number of coefficients that we want to extract and let's say we want to extract uh 13 which is like a fair like number that's commonly used, like also for analyzing music.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1294.01",
+            "questions": [
+                "1. What is meant by the term \"hop length\" in the context of this text?",
+                "2. Why is it important to pass the \"number of MFCCs\" value?",
+                "3. What does MFCC stand for?",
+                "4. How many MFCC coefficients are mentioned for extraction?",
+                "5. What is the significance of using 13 MFCC coefficients in music analysis?",
+                "6. Are there other common values used for the number of MFCCs in music analysis?",
+                "7. What might happen if the hop length is not correctly set?",
+                "8. In what context is the term \"extract\" used in this text?",
+                "9. How does the choice of MFCC coefficients affect music analysis?",
+                "10. What could be the implications of missing values when setting parameters like hop length and number of MFCCs?"
+            ]
+        },
+        {
+            "id": 77,
+            "text": "uh over here. And uh we also want to pass another value that's called number of MF CCS. So the number of coefficients that we want to extract and let's say we want to extract uh 13 which is like a fair like number that's commonly used, like also for analyzing music. Uh OK. So now we have the MF CCS and as you can see here, we are passing these values. So the NFNFFT and the hop length to the window and the hop length that we usually use when we extract uh like the SDFT and you can see it here, right? And why is that the case? Well, because if you recall from the previous video,",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1299.489",
+            "questions": [
+                "1. What is the value referred to as the number of MF CCS in the text?",
+                "2. Why is the number 13 mentioned as a commonly used value?",
+                "3. What does MF CCS stand for?",
+                "4. What is the significance of the NFNFFT mentioned in the text?",
+                "5. What is the purpose of the hop length in the context of extracting SDFT?",
+                "6. How does the text suggest using the values for MF CCS, NFNFFT, and hop length?",
+                "7. What does SDFT stand for, and how is it related to the discussion?",
+                "8. What previous content is referenced in the text regarding the extraction process?",
+                "9. Why might the extraction of coefficients be relevant in music analysis?",
+                "10. What are the overall goals of the process described in the text?"
+            ]
+        },
+        {
+            "id": 78,
+            "text": "And uh we also want to pass another value that's called number of MF CCS. So the number of coefficients that we want to extract and let's say we want to extract uh 13 which is like a fair like number that's commonly used, like also for analyzing music. Uh OK. So now we have the MF CCS and as you can see here, we are passing these values. So the NFNFFT and the hop length to the window and the hop length that we usually use when we extract uh like the SDFT and you can see it here, right? And why is that the case? Well, because if you recall from the previous video, um one of the things, the first thing that we do for extracting an MFCC is performing a short time fourier transform.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1301.319",
+            "questions": [
+                "1. What is the significance of the number of MFCCs in the context of audio analysis?",
+                "2. Why is 13 considered a commonly used number for extracting MFCCs?",
+                "3. What does MFCC stand for?",
+                "4. What are the parameters being passed when extracting MFCCs, as mentioned in the text?",
+                "5. What does NFNFFT refer to in the process of extracting MFCCs?",
+                "6. What is the role of hop length in the extraction of MFCCs?",
+                "7. How does the short-time Fourier transform relate to the extraction of MFCCs?",
+                "8. Why is it important to perform a short-time Fourier transform when analyzing audio?",
+                "9. Can you explain what SDFT refers to in the context of MFCC extraction?",
+                "10. What is the overall purpose of extracting MFCCs in audio analysis?"
+            ]
+        },
+        {
+            "id": 79,
+            "text": "Uh OK. So now we have the MF CCS and as you can see here, we are passing these values. So the NFNFFT and the hop length to the window and the hop length that we usually use when we extract uh like the SDFT and you can see it here, right? And why is that the case? Well, because if you recall from the previous video, um one of the things, the first thing that we do for extracting an MFCC is performing a short time fourier transform. Cool. OK. So now we have the MFCC uh and we want to plot that. So to do that, we are gonna use the spec show um function from Libera display once again. But this time instead of the log spectrogram, we're gonna pass in the MF CCS",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1322.119",
+            "questions": [
+                "1. What are the MFCC CCS and how are they utilized in this context?",
+                "2. What values are being passed to the window and hop length in the process described?",
+                "3. What does NFNFFT stand for, and why is it important in the extraction of MFCCs?",
+                "4. Why is the short time Fourier transform (STFT) significant in extracting MFCCs?",
+                "5. What is the purpose of plotting the MFCCs after they have been extracted?",
+                "6. How does the spec show function from Libera display differ when used with MFCCs compared to a log spectrogram?",
+                "7. What are the typical applications of MFCCs in audio processing?",
+                "8. Can you explain the concept of hop length in the context of signal processing?",
+                "9. What is the relationship between the short time Fourier transform and the extraction of MFCCs?",
+                "10. Why might one choose to use MFCCs over other audio feature representations?"
+            ]
+        },
+        {
+            "id": 80,
+            "text": "um one of the things, the first thing that we do for extracting an MFCC is performing a short time fourier transform. Cool. OK. So now we have the MFCC uh and we want to plot that. So to do that, we are gonna use the spec show um function from Libera display once again. But this time instead of the log spectrogram, we're gonna pass in the MF CCS uh right? And uh the X label is gonna be time, the Y label, obviously it's not gonna be frequency but the MFCC itself. So it's gonna be like the different coefficients we want to call it bar and we want to plot dot show this. So let's um",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1346.68",
+            "questions": [
+                "1. What is the first step in extracting an MFCC according to the text?",
+                "2. Which function from Libera display is used to plot the MFCC?",
+                "3. How does the plotting of MFCC differ from plotting a log spectrogram?",
+                "4. What label is assigned to the X-axis when plotting the MFCC?",
+                "5. What label is used for the Y-axis when displaying the MFCC?",
+                "6. What does MFCC stand for?",
+                "7. What are the different coefficients of the MFCC referred to in the text?",
+                "8. What command is used to display the plot of the MFCC?",
+                "9. Why might one choose to plot MFCCs instead of frequency?",
+                "10. What is the significance of performing a short time Fourier transform in the context of MFCC extraction?"
+            ]
+        },
+        {
+            "id": 81,
+            "text": "Cool. OK. So now we have the MFCC uh and we want to plot that. So to do that, we are gonna use the spec show um function from Libera display once again. But this time instead of the log spectrogram, we're gonna pass in the MF CCS uh right? And uh the X label is gonna be time, the Y label, obviously it's not gonna be frequency but the MFCC itself. So it's gonna be like the different coefficients we want to call it bar and we want to plot dot show this. So let's um comment uh out the, the plot for the lux spectrogram and let's rerun the scripts. And so if all goes well, yeah, we have our MF CCS over time and nice. So here like on the Y axis, you'll see like these intervals uh like here and each of these is basically like a A coefficient. And if you count it should be like 13",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1355.79",
+            "questions": [
+                "1. What function from Libera display is used to plot the MFCC?",
+                "2. How is the X label defined when plotting the MFCC?",
+                "3. What should the Y label be when plotting the MFCC?",
+                "4. What does the term \"MFCC\" stand for in this context?",
+                "5. How many coefficients are expected to be displayed on the Y axis of the MFCC plot?",
+                "6. What is the significance of the intervals seen on the Y axis of the MFCC plot?",
+                "7. What action is taken regarding the plot for the log spectrogram before plotting the MFCC?",
+                "8. What command is used to display the plot after setting it up?",
+                "9. What is the expected outcome if the script runs successfully after plotting the MFCC?",
+                "10. Why is it important to differentiate between the Y label for MFCC and frequency in the plot?"
+            ]
+        },
+        {
+            "id": 82,
+            "text": "uh right? And uh the X label is gonna be time, the Y label, obviously it's not gonna be frequency but the MFCC itself. So it's gonna be like the different coefficients we want to call it bar and we want to plot dot show this. So let's um comment uh out the, the plot for the lux spectrogram and let's rerun the scripts. And so if all goes well, yeah, we have our MF CCS over time and nice. So here like on the Y axis, you'll see like these intervals uh like here and each of these is basically like a A coefficient. And if you count it should be like 13 and on the X axis we have time. And so we basically see here how, how the different MF CCS are evolving over time. And once again, like the, the MFCC like plots is quite stable. Cool. OK. So we basically went through",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1375.9",
+            "questions": [
+                "1. What does the X label represent in the plot being discussed?",
+                "2. What is indicated by the Y label in the context of the MFCC plot?",
+                "3. How many coefficients are represented on the Y axis of the MFCC plot?",
+                "4. What action is suggested regarding the plot for the lux spectrogram?",
+                "5. What is the primary focus of the analysis in the text?",
+                "6. How does the stability of the MFCC plot contribute to the analysis?",
+                "7. What two elements are being plotted against each other in the graph?",
+                "8. What is the significance of the intervals seen on the Y axis?",
+                "9. What should be done if the script runs successfully?",
+                "10. In what context is the term \"MFCC\" mentioned, and what does it stand for?"
+            ]
+        },
+        {
+            "id": 83,
+            "text": "comment uh out the, the plot for the lux spectrogram and let's rerun the scripts. And so if all goes well, yeah, we have our MF CCS over time and nice. So here like on the Y axis, you'll see like these intervals uh like here and each of these is basically like a A coefficient. And if you count it should be like 13 and on the X axis we have time. And so we basically see here how, how the different MF CCS are evolving over time. And once again, like the, the MFCC like plots is quite stable. Cool. OK. So we basically went through all the stuff that we need for preprocessing audio data for deep learning. Now, you know how to look at it at the waveform, how to extract like signal from a wave file, how to perform a fourier transform, how to arrive at a power spectrum spectrograms, log spectrograms, and most importantly MF CCS, which we're gonna be using in the next video",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1395.209",
+            "questions": [
+                "1. What is the purpose of commenting out the plot for the lux spectrogram?",
+                "2. How do the MFCCs evolve over time according to the plot discussed?",
+                "3. What does the Y axis represent in the MFCC plot?",
+                "4. How many coefficients should be counted in the intervals on the Y axis?",
+                "5. What does the X axis represent in the MFCC plot?",
+                "6. Why is the MFCC plot described as being quite stable?",
+                "7. What preprocessing steps for audio data are mentioned in the text?",
+                "8. What is the significance of performing a Fourier transform on audio data?",
+                "9. What types of spectrograms are discussed in relation to audio data processing?",
+                "10. What will be the focus of the next video after discussing MFCCs?"
+            ]
+        },
+        {
+            "id": 84,
+            "text": "and on the X axis we have time. And so we basically see here how, how the different MF CCS are evolving over time. And once again, like the, the MFCC like plots is quite stable. Cool. OK. So we basically went through all the stuff that we need for preprocessing audio data for deep learning. Now, you know how to look at it at the waveform, how to extract like signal from a wave file, how to perform a fourier transform, how to arrive at a power spectrum spectrograms, log spectrograms, and most importantly MF CCS, which we're gonna be using in the next video where we're gonna do something super exciting. So we're gonna use an M LP, a multi-layered perception for uh classifying music genres. So we're gonna have a data set of uh short experts of uh music and we're gonna classify uh the type of like genres like they belong to. Cool. I hope you really like enjoyed this uh video. If that's the case, please leave a like",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1422.41",
+            "questions": [
+                "1. What is represented on the X axis in the described plots?",
+                "2. How are the different MF CCs evolving over time according to the text?",
+                "3. What preprocessing steps for audio data are mentioned in the video?",
+                "4. What is the purpose of performing a Fourier transform on an audio signal?",
+                "5. What types of spectrograms are discussed in the text?",
+                "6. What does MFCC stand for, and why is it important in the context of the video?",
+                "7. What type of neural network will be used for classifying music genres?",
+                "8. What kind of dataset will be used for the classification task?",
+                "9. What is the goal of classifying music genres in the video?",
+                "10. What does the speaker hope viewers will do if they enjoyed the video?"
+            ]
+        },
+        {
+            "id": 85,
+            "text": "all the stuff that we need for preprocessing audio data for deep learning. Now, you know how to look at it at the waveform, how to extract like signal from a wave file, how to perform a fourier transform, how to arrive at a power spectrum spectrograms, log spectrograms, and most importantly MF CCS, which we're gonna be using in the next video where we're gonna do something super exciting. So we're gonna use an M LP, a multi-layered perception for uh classifying music genres. So we're gonna have a data set of uh short experts of uh music and we're gonna classify uh the type of like genres like they belong to. Cool. I hope you really like enjoyed this uh video. If that's the case, please leave a like and if you have any questions as usual, like post them in the comments section below and I'll see you next time. Cheers.",
+            "video": "11- Preprocessing audio data for Deep Learning",
+            "start_time": "1442.449",
+            "questions": [
+                "1. What are the main steps involved in preprocessing audio data for deep learning?",
+                "2. How can you visualize audio data in waveform format?",
+                "3. What is the purpose of performing a Fourier transform on audio signals?",
+                "4. What information can be obtained from a power spectrum or spectrogram?",
+                "5. How do log spectrograms differ from regular spectrograms?",
+                "6. What does MFCC stand for, and why is it important in audio processing?",
+                "7. What type of model is being used to classify music genres in the upcoming video?",
+                "8. What kind of dataset will be used for classifying music genres?",
+                "9. What specific task will the multi-layered perceptron (MLP) perform in the project?",
+                "10. How can viewers engage with the content creator if they have questions about the video?"
+            ]
+        }
+    ]
+}

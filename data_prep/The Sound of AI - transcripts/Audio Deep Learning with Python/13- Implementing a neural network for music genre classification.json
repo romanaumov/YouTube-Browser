@@ -1,0 +1,596 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time we're gonna build a music genre classifier using a multi-layered perception network. Cool. So music genre classification is a type of problem that's called a classification problem, right? So what's a classification problem? Well, classification problem is I have uh a bunch of data and I want to classify that. So I have for example, like a bunch of uh tracks and I want to classify them into like rock music, uh blues music or like classical music, specifically what we're doing today is called multi class classification. So we have a bunch of tracks and those vinyls would uh want to like represent those tracks and then we want to classify them into a bunch of different genres, right? So it could be classical, it could be death metal could be EDM and whatever, right? But it's more than two and multi class classification is opposed to binary classification where we just have two categories out there. So for example, it could be uh tell me uh whether like this track is classical or is not classical, right? Cool. OK. So with this in mind. Uh Let's get started like building like the classifier. And uh obviously, we are going to build uh like on top of the work that we've done in the previous video where we actually created a data set out of like the marsh. Uh So data set which is divided into a bunch of different genres, 10 genres to be specific. And there, what we did was building a JSON file So we can see it here uh where uh we just extracted uh like all the different uh genres and map them. Uh We extracted the labels and then we also extracted the MFCC. So we have like both the inputs and outputs. So the inputs and the labels are targets for our network. So what we want to do as a first step here in our um uh genre classifier is load the data set, load data. Then once we've done that, we want to uh split the data into uh training train and uh test sets, then using tensorflow and carrots specifically, we're gonna build the network architecture, then we want to compile a network and finally, we want to train the network, right. OK. So let's get started from the first phase which is loading data. And so we're doing that, we'll uh create a function which we call not surprisingly load data. And this function uh accepts one argument and the argument is the uh data set uh path, right. OK. So we have the data set path here. Uh And uh now what we want to do is like load uh like this data. And we know that uh like this data is stored in adjacent file. And so as the first thing we want to uh open uh and read from this JSON file. And so we'll do a with open and uh we'll pass in the uh data set path and we'll open it uh as um oops here, I, I should say like the, the mode that we want to read this, uh We want to like open uh this file for and we'll put an R here which stands for read. So we're opening for reading and we'll do as a FP. And then down here, we'll do a data, it's equal to Jason dot A load and uh we'll pass in FP. Now, Jason uh obviously like is a uh Python uh module. So we have to import it. And so we'll do an import Jason. And here in this data, we're, we're basically loading all of this huge uh dictionary here with mapping labels and MFCC Cool. OK. So once we have that, we want to do uh another thing. So we want to convert a nun pi arrays into, oh sorry, it's actually the opposite. So convert lists into uh NP arrays. So, and that's because both the uh the labels like, for example, here and the MF CCS uh these guys here are stored and will be retrieved as lists. And so we want to convert them into NPI arrays. And so, first of all, let's import uh NP as NP. And then what we want to do here is say, OK, so here I want the inputs, right? And so, and the inputs are equal to NP dot uh array. And we want to pass in the, um here we want to pass in the, the MFCC. And so we'll do data and here we have this MFCC and uh then we can do a similar thing for the targets or like the expected outcomes. But instead of the MFCC here, we'll have the uh labels, right? OK. And so what we want to do in the end is just passing the inputs and the targets out. And so this is all we need to load data. Well, so let's try this. So let's uh create if a name is equal to main. And then what we want to do here is just like get the inputs and the targets and we'll get them by loading data. Now, we actually need the data set path. And so I'm gonna uh oops, not that I'm gonna create a uh constant over here. And I'll call uh the, this guy here, right? So this is the path to the data set, right? So now as you notice, uh you can notice here. So I saved this um data set, this Jason file as data underscore 10 dot Jason. So uh if you remember, so the Marci data set has 1000 32nd exerts of like songs divided into 10 genres. Now, uh We said that that last time we mentioned that that is not really like that much like for training a deep learning system. So what it did was like segmenting those into uh like 10 different segments. And so this is why I have this data 10. So all of a sudden now we have 10,000 like the data that has 10,000 like tracks and each track uh should be like three second long, right? OK. So now we have our data set path and we need to pass it in here. Cool. OK. So yeah, let me just do this. So that makes more sense. OK. So uh this way we should be able to uh get the inputs and the targets. And these are like NP uh arrays right. Now, the next step that we want to perform instead of like splitting our data into train set and uh test set. And that's because we don't want to um evaluate our classifier on the training data because uh otherwise it would be basically like cheating. So we want to evaluate on some data that the classifier has never seen before. So for doing that, uh we should uh import um a function from psychic learn. And this function is in the model selection uh module. And uh we should say uh whoop. Yeah, this should be from uh psych learn dot model selection imports. And uh this is train task split. This is like a very nice uh function we can use for this purpose. So here what we should do is say, inputs and we'll do a inputs, train, we'll do inputs uh test, then we'll do a targets, train and a targets uh test and then we'll use the train test split. And here we need to pass three arguments. So obviously, we need to pass in the uh inputs that we've arrived from the JSON file the targets. And finally, we want to specify the uh test site. Uh Well, this is probably a little bit less difficult to read. So I'll do it like this. So here uh in the test size, uh we could put uh no 0.3. So basically what I'm saying here is that 30% of uh this data is gonna be used for uh test set, right? And the remaining 70% for the train set cool. OK. So now we have our own um uh our, our own train set and uh test set, right? And so the next step is that of building the network architecture for doing that. Obviously, we are gonna need a tensorflow and then specifically uh we want uh Kas. So we'll do an import tensorflow dot uh Kas is Kas. So by now guys, you should be like familiar with this. Now, uh we should build the model and the model is going to be a sequential model. So we'll do a carers dot uh sequential. And here uh we should specify all the different layers that we want in the network, right? And I'm thinking of using a uh let's say like an input layer three hidden layers and an output layer. And given we are working with a simple multi-layered perception, I'm gonna be using all uh fully connected or dense layers. Now, if you do remember what a multi layer perception is, don't worry, just go back here. You have like the description like of one of my videos, it should be like in uh the top side over here. So click there if you want to learn more about the theory about M LP S otherwise let's move on. So the first thing that we want to do is the input uh layer. So now for the input layer, we want to uh u uh use a layer that's called uh like flatten. So what flatten uh does is basically takes a a multidimensional array and it flattens it out, right? So in this case, so we expect for uh the input shape uh to be of type uh inputs dot uh shape. And here we'll pass in a one and then we'll do, yeah, same thing here, but then we'll pass in two, right? So basically what I, what I'm saying here is that I want to flatten this two dimensional array which is uh like the uh the input that we have here. And why is it two dimensional? Well, because if you remember we have NF CCS here for each uh segment, for each track and for each track, we have many MFCC vectors and each MFCC vector is taken at a specific interval. So and that is like the hop length again, if you don't remember like what MF CCS are or uh how we calculate them, I have a video about that. Go watch that out. Cool. But here like in this two dimensional um array. So we have like the, the, the, the, the, the first uh like dimension which is basically uh given by the uh intervals, right? And the second dimension is the values of the MF CCS uh like for that interval. And in this case, we have 13 MF CCS. That's like the number that I've decided to extract, but I could have done more 4030 whatever really doesn't matter right now. You may be wondering, but why are you uh passing in input dot shape one? Why aren't you starting from index zero? Well, because inputs, actually this guy here is a three dimensional array and index zero represents like the different segments. So this is the uh input layer. So now we should move on and uh work with the first work out the first hidden layer. And so uh this is gonna be a simple uh dense uh layer. And here uh what we're gonna do is say uh how many neurons we want and we'll start with 512 neurons. And then we should specify which type of activation we want. And now up until now, we've always used the Sigma function. But this time I want to introduce you a new type of activation function that's called relu. Now relu is very, very important and, and very, very effective in deep learning. So it warrants some theoretical background. So let's move on to the PDF over here to the slide presentation uh right. So we have the binary classification. So here we have the rectified linear unit or R. So this is like this function. So, and as you can see it here, so R is a function of H and if you recall from our theoretical uh videos on um computation in neural network, H is the net input, right? And so if H uh is M uh is less than zero, then relu outputs zero. If H is a greater or equal, equal or greater than zero, then H uh basically uh is used as an output for REU. So relu it's E equal to H and so this is like the uh the plots that we have for R. Now, you may be wondering, but why should we care about a rectified linear unit? Can't we just use the sigmoid function it's very nice like we, we are familiar with that. Why using relu, well, it turns out that relu is very, very effective for uh training. So it uh when compared with uh the Sigma function, it enables us to train a network way faster. So it enables to have like better convergence of the network. And one of the reasons why this is the case, it's because R uses the uh probability of having the so called vanishing gradient. Now, the vanishing gradient sounds like a scary thing. And indeed uh like it is for training purposes. But what is that? Well, so if you remember from our video on back propagation, so what happens like uh when we train a network is that we uh basically back propagates the error from the upper layer towards like the input layer, right. And so, and that happens at each hidden layer going back from output to input. Now, every time we we have a new uh layer and we want to propagate the error to uh AAA layer towards like the left towards the beginning towards the inputs. Uh what happens is that we multiply uh uh like this value like by the uh derivative of the activation function. And what happens with the Sigma function is that the derivative of the sigmoid function at most can be no 0.25. Which basically means if you keep multiplying there like the values that you are getting like the errors that you are propagating are getting like smaller and smaller and smaller until they vanish. And so basically the gradient is vanishing. And if the gradient is like very, very small, then it's very difficult to train a network. Now with R we avoid all of these issues, which basically means we can have uh um architectures like network architectures that are super complex with many, many uh layers. But in the end, we're not going to have an issue of vanishing gradient. Whereas if we used a sigmoid function, we would have that issue, right? And so this is the beauty of rectified linear unit or R. So let's go back to the code now. Cool. OK. So this was just like the first hidden layer. So we said that we want other two hidden layers. And so what we'll do uh is just like copy these guys a couple of times. But now you can see that I made a mistake that I make like all the times no matter how much time I spend with this stuff. So I sometimes forget like to add comments, right? OK. So here we have the second hidden layer and here we have the third hidden layer. Now uh here, let's say that we want 256 neurons. And here let's say we want 64 neurons, right? So now the last thing that remains to do to build this network is to create the output layer and So again, uh this is uh another uh dense layer but here uh we are gonna use 10 neurons. And why are we using 10 neurons? Well, because we have 10 categories which are like the 10 genres that we want to uh split, like our uh predict our data set into. And it's these guys here. So if we go to the uh data uh JSON file, so it's these guys here. So, disco, reggae, rock, pop, blues country and so on and so forth. Cool. So we have like this 10 neurons and then we use uh as the activation, we use a soft max again, I forgot to put in the come over there, right? OK. So, so what's soft max? Well, soft max, it's a um an activation function that basically enables us to have. So if you sum the values associated to all the 10 neurons here, all the the output neurons you're gonna get one, it basically normalizes like the output for us. And then when we do predictions, so we predict. So we, we pick the neuron that has the highest value and that represents the category like we are predicting. Cool. So uh with this, we built our network architecture. So now we need to move on to the next phase which is uh compiling uh the network. So if you guys remember the first thing that we want to do here is to uh decide which optimizer we want to use, right? And here uh we are gonna use Adam. So, and let's specify the learning rate here and we could say 0.0001. OK. Cool. So uh Adam is a, an optimizer that it's basically like a an extension like a variation of like a stochastic gradient descent and it's very, very effective uh with deep learning. So we're gonna use this, then the next step that we want to do is a model dot uh compile. And here uh we should pass in a few uh things, right? So yeah, let's start with the optimizer. So the optimizer we pass in our optimizer which is atom. So then uh we need to decide uh which uh loss function uh we want to use or error function we want to use. And uh for this problem which is a uh multi class classification problem, we are gonna use spots cate uh cross entropy, right. And uh finally, we can't specify like the, the metrics that we want to track. And here we could say uh accuracy, right? OK. So this way we've basically compiled uh our network. So a nice thing we could do here is a model dot summary uh which basically will give us like a print of uh a kind of like a summary of the architecture of the network specify the number of parameters we have the layers. It's, it's a nice thing that you have when you, when you train uh like this stuff. Ok. So let me just like move this thing up. Ok. So the final thing that remains to do here is uh training the network. So how do we do that? Well, we've done this like before and it can't be much easier than this. So, and it's basically doing a model uh dot Fit. And now we need to pass in the inputs train, the um uh here we need the targets train. So we are basically passing the, the uh inputs and targets for the, the training split and then we'll do a validation data. So this is basically like our uh testing uh uh uh data set that we want to pass in. And uh here we'll, we'll pass in the inputs test and uh where is it? It's the targets test now. Yeah, this is becoming a little bit inconvenient to follow. So I'll just like do new lines here. Uh Right. Uh So the other stuff that we want to specify is the number of APO. And yeah, we could say, yeah, we'll have like 50 aex here. And finally, we'll specify the batch size and we'll put this like to 32. Now, you may be wondering, but what's the batch size? Well, this is like something very, very important. And for that reason, we're gonna take a look at this like in our slide presentation over here, right? There are a bunch of different types of batching which is basically like the way like we, we train like our network. So in a pro this video uh on back propagation we and uh and stochastic gradient descent, we we we looked at a type of batching which is called like stochastic. So in this case, with stochastic, for example, stochastic gradient descent, what you do is you uh calculate the gradient after you've considered just like one sample. So just one segment of our uh like tracks, right? So you, you do a fit forward and then you do a back propagation there. Uh you calculate the gradient and you update uh the weights directly. This is like very quick to perform, but it's kind of like very, very inaccurate because like there's a lot of noise and this would basically be equal to having like the batch size over here equal to one, right. Uh Now uh we have like the the opposite, which is basically you consider the the full batch. So you compute the gradient. So you, you update the weights on the whole training set. So you pass in the whole training set and only at that point uh you, you, you calculate the gradient. Um this is problematic for deep learning because like we have usually huge, huge data sets. So this results in something that's super slow, it's super memory intensive and for all purposes and needs like it's actually impractical. But the great thing about this is that it's actually very accurate, right? Because we are calculating the grade on many, many uh samples on the whole samples, right? And for food batch, you basically have uh one pass, which is uh just like one epoch because we're passing the whole uh training set through uh the network for training purposes. Now, there's a middle ground there and it's called a mini batch. And here the idea is to basically compute the gradient on a subset of the data set, right? And we can consider like 1632 64 like samples. And then once we've considered those, we can actually calculate the gradient uh at that point. And then yeah, that propagates the error and uh and updates the weights. And so we are doing training on, on like some uh like mini batches, right. OK. So in this uh with mini batch, usually you would use like from 16 to 100 and 28 samples. But then this is by no means like a universal rule rather uh it just like depends on the type of problem that you are tackling, right? And the great thing about mini batch is that it's really like the best of the two worlds like it's kind of like relatively uh yeah, it's quick, it's not that memory intensive and it's quite accurate. So this is like the solution that we use like in deep in deep learning like the most. So now let's go back to the code, right. So this batch size, it's basically um specifying the number of like samples that we want in our batch for uh before like we we we calculate the gradient, right? And we refer to this is like a quite customary uh like value as I was mentioning. Cool. Well, I think like we we are basically done here, right? So we so just like to uh review all of this. So we load the data, we split the data into training and uh test sets, we build, we build like our network architecture. We've compiled the network, we we have a nice model summary here and now we are ready to train the network. So now if there are no mistakes in my code, which I hope it's the case we should be able to train the network. So let's run the script and see what happens. OK? So it's taking a little bit of time because obviously like it's uh loading uh the data there. So let's see. Yeah, here we go. OK. It's working. So here, as you see, we have the, the model summary and we have like this flatten over here, then we have the dense layer and here we have the associated number of parameters on here. Yeah, it's a nice thing like you have like overall. So now uh here, as you see, we are tracking uh the the different epochs over here and here like we get like an output which, which gives us for each epoch the accuracy on the training set and the accuracy on, on the test set. You, you, you might start uh like and also like the the loss like for the uh training set and for like this uh test set. So you may start seeing uh an issue uh like arising here. So take a look at the accuracy. Yeah, I'm just like, yeah, so let's wait like for this like to uh to end to finish uh before like we comment on that because every time I can move this, yeah, there's a new book and it gets just like, ah yeah, move back like to to yeah, to the start point. Well, right. But we are done. So let's take a look at the accuracy. So here it's after 50 epochs. So uh here we have the loss for uh like the uh calculated on the training set, which is quite low. And here we have the accuracy which is fantastic. Well, we have almost like 97% accuracy, which is incredibly good. But is it really that good? Let's take a look at the at the accuracy and the loss calculated on the um test set. Well, it turns out that there's a huge difference between this accuracy on the test set and the accuracy on the training set. Well, it's basically almost like 30% different. Uh well, uh uh 89. Well, it's, it's more, it's more, it's almost like 40% like difference there, which is incredible, right? So what's happening here? So we have like the, the training and like the the model performing extremely well, like on the training data but performing not that great, like on the um on the test set. Uh why, why, why is that the case? Well, it turns out we are over fitting. So basically, what's happening is that we are so like the model is tailoring, uh its weight in order to predict uh uh in a very like compelling way uh the the test set, but it's not really that able to generalize to data it has never seen before. So this is a huge, huge problem. And every time you do any type of machine learning, not just deep learning, this is something you have to fight against overfitting now. So in the next video, we are gonna look at how to uh identify uh like overfitting, like in our um models and how to fight against overfitting. So we're gonna see a bunch of different uh techniques that we can use like drop out or um regularization uh just like to, to avoid uh overfitting, right? But for now, for this video, we are basically done and you should be like super happy because now we have a music genre classifier and it's not like the best classifier ever. And we still have to so overfitting. But here we have really all the fundamentals of our music genre classifier. Great. So I hope you've enjoyed this video. If that's it, remember to subscribe and uh hit the notification bell. You'll never miss a new video when I upload them. And if you have any questions, please like leave a comment uh below and as always, I hope to see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time we're gonna build a music genre classifier using a multi-layered perception network. Cool. So music genre classification is a type of problem that's called a classification problem, right?",
+                "start_time": "0.319",
+                "end_time": "19.86"
+            },
+            {
+                "id": 1,
+                "transcript": "So what's a classification problem? Well, classification problem is I have uh a bunch of data and I want to classify that. So I have for example, like a bunch of uh tracks and I want to classify them into like rock music, uh blues music or like classical music, specifically what we're doing today is called multi class classification.",
+                "start_time": "20.059",
+                "end_time": "41.9"
+            },
+            {
+                "id": 2,
+                "transcript": "So we have a bunch of tracks and those vinyls would uh want to like represent those tracks and then we want to classify them into a bunch of different genres, right? So it could be classical, it could be death metal could be EDM and whatever, right? But it's more than two and multi class classification is opposed to binary classification where we just have two categories out there. So for example, it could be uh tell me",
+                "start_time": "42.049",
+                "end_time": "69.639"
+            },
+            {
+                "id": 3,
+                "transcript": "uh whether like this track is classical or is not classical, right? Cool. OK. So with this in mind. Uh Let's get started like building like the classifier.",
+                "start_time": "70.029",
+                "end_time": "81.5"
+            },
+            {
+                "id": 4,
+                "transcript": "And uh obviously, we are going to build uh like on top of the work that we've done in the previous video where we actually created a data set out of like the marsh. Uh So data set which is divided into a bunch of different genres, 10 genres to be specific. And there, what we did was building a JSON file So we can see it here",
+                "start_time": "81.72",
+                "end_time": "105.339"
+            },
+            {
+                "id": 5,
+                "transcript": "uh where uh we just extracted uh like all the different uh genres and map them. Uh We extracted the labels and then we also extracted the MFCC. So we have like both the inputs and outputs. So the inputs and the labels are targets for our network. So what we want to do as a first step here in our um uh genre classifier is load",
+                "start_time": "105.699",
+                "end_time": "133.47"
+            },
+            {
+                "id": 6,
+                "transcript": "the data set, load data. Then once we've done that, we want to uh split the data into uh training train and uh test sets,",
+                "start_time": "134.44",
+                "end_time": "149.49"
+            },
+            {
+                "id": 7,
+                "transcript": "then using tensorflow and carrots specifically, we're gonna build the network",
+                "start_time": "150.559",
+                "end_time": "158.13"
+            },
+            {
+                "id": 8,
+                "transcript": "architecture,",
+                "start_time": "158.99",
+                "end_time": "160.85"
+            },
+            {
+                "id": 9,
+                "transcript": "then we want to compile a network and finally, we want to train the network, right. OK. So let's get started from the first phase which is loading data. And so we're doing that, we'll",
+                "start_time": "161.96",
+                "end_time": "177.55"
+            },
+            {
+                "id": 10,
+                "transcript": "uh create a function which we call not surprisingly load data. And this function uh accepts one argument and the argument is the uh data set uh path,",
+                "start_time": "177.729",
+                "end_time": "194.039"
+            },
+            {
+                "id": 11,
+                "transcript": "right. OK. So we have the data set path here. Uh And uh now what we want to do is like load uh like this data. And we know that uh like this data is stored in adjacent file. And so as the first thing we want to uh open",
+                "start_time": "194.58",
+                "end_time": "213.429"
+            },
+            {
+                "id": 12,
+                "transcript": "uh and read from this JSON file. And so we'll do a with open and uh we'll pass in the uh data set path and we'll open it uh as um oops here, I, I should say like the, the mode that we want to read this, uh We want to like open uh this file for and we'll put an R here which stands for read. So we're opening for reading and we'll do as a FP.",
+                "start_time": "213.649",
+                "end_time": "242.559"
+            },
+            {
+                "id": 13,
+                "transcript": "And then down here, we'll do a data, it's equal to Jason dot A load and uh we'll pass in FP. Now, Jason uh obviously like is a uh Python uh module. So we have to import it. And so we'll do an import Jason.",
+                "start_time": "242.809",
+                "end_time": "263.51"
+            },
+            {
+                "id": 14,
+                "transcript": "And here in this data, we're, we're basically loading all of this huge uh dictionary here with mapping labels and MFCC Cool. OK. So once we have that, we want to do uh another thing. So we want to convert a nun pi arrays into, oh sorry,",
+                "start_time": "263.799",
+                "end_time": "289.32"
+            },
+            {
+                "id": 15,
+                "transcript": "it's actually the opposite. So convert lists into",
+                "start_time": "290.049",
+                "end_time": "294.25"
+            },
+            {
+                "id": 16,
+                "transcript": "uh NP arrays. So, and that's because both the uh the labels like, for example, here and the MF CCS uh these guys here are stored and will be retrieved as lists. And so we want to convert them into NPI arrays. And so, first of all, let's import uh NP as NP.",
+                "start_time": "294.779",
+                "end_time": "318.23"
+            },
+            {
+                "id": 17,
+                "transcript": "And then what we want to do here is say, OK, so here I want the inputs, right? And so, and the inputs are equal to NP dot uh array. And we want to pass in the, um here we want to pass in the, the MFCC. And so we'll do data",
+                "start_time": "318.529",
+                "end_time": "339.45"
+            },
+            {
+                "id": 18,
+                "transcript": "and here we have this MFCC",
+                "start_time": "340.32",
+                "end_time": "343.13"
+            },
+            {
+                "id": 19,
+                "transcript": "and uh then we can do a similar thing for the targets or like the expected outcomes. But instead of the MFCC here, we'll have the uh labels, right? OK. And so what we want to do in the end is just passing the inputs and the targets out. And so this is all we need to load data.",
+                "start_time": "344.07",
+                "end_time": "367.72"
+            },
+            {
+                "id": 20,
+                "transcript": "Well, so let's try this. So let's uh create if a name is equal to main.",
+                "start_time": "367.97",
+                "end_time": "377.07"
+            },
+            {
+                "id": 21,
+                "transcript": "And then what we want to do here is just like get the inputs and the targets and we'll get them by loading data. Now, we actually need the data set path. And so I'm gonna uh oops, not that I'm gonna create a uh constant over here. And I'll call",
+                "start_time": "378.089",
+                "end_time": "400.549"
+            },
+            {
+                "id": 22,
+                "transcript": "uh the, this guy here, right? So this is the path to the data set, right? So now as you notice, uh you can notice here. So I saved this um data set, this Jason file as data underscore 10 dot Jason. So uh if you remember, so the Marci data set has 1000 32nd exerts of like songs divided into",
+                "start_time": "401.16",
+                "end_time": "429.614"
+            },
+            {
+                "id": 23,
+                "transcript": "10 genres. Now, uh We said that that last time we mentioned that that is not really like that much like for training a deep learning system. So what it did was like segmenting those into uh like 10 different segments. And so this is why I have this data 10. So all of a sudden now we have 10,000 like the data that has 10,000 like tracks and each track uh should be like three second long, right?",
+                "start_time": "429.625",
+                "end_time": "458.089"
+            },
+            {
+                "id": 24,
+                "transcript": "OK. So now we have our data set path and we need to pass it in here.",
+                "start_time": "458.85",
+                "end_time": "464.48"
+            },
+            {
+                "id": 25,
+                "transcript": "Cool. OK. So yeah, let me just do this. So that makes more sense. OK. So uh this way we should be able to uh get the inputs and the targets. And these are like NP uh arrays right. Now, the next step that we want to perform instead of like splitting our data into train set and uh test set. And that's because we don't want to",
+                "start_time": "465.01",
+                "end_time": "491.799"
+            },
+            {
+                "id": 26,
+                "transcript": "um evaluate our classifier on the training data because uh otherwise it would be basically like cheating. So we want to evaluate on some data that the classifier has never seen before. So for doing that, uh we should uh import um a function from psychic learn. And this function is in the model selection uh module.",
+                "start_time": "491.959",
+                "end_time": "519.39"
+            },
+            {
+                "id": 27,
+                "transcript": "And uh we should say",
+                "start_time": "519.65",
+                "end_time": "522.718"
+            },
+            {
+                "id": 28,
+                "transcript": "uh whoop. Yeah, this should be from uh psych learn dot model selection imports. And uh this is train task split. This is like a very nice uh function we can use for this purpose. So here what we should do is say, inputs and we'll do a inputs, train,",
+                "start_time": "523.549",
+                "end_time": "545.82"
+            },
+            {
+                "id": 29,
+                "transcript": "we'll do inputs uh test, then we'll do a targets, train and a targets uh test and then we'll use the train test split. And here we need to pass three arguments. So obviously, we need to pass in the uh inputs",
+                "start_time": "546.27",
+                "end_time": "567.719"
+            },
+            {
+                "id": 30,
+                "transcript": "that we've arrived from the JSON file the targets. And finally, we want to specify the uh test site. Uh Well, this is probably a little bit less difficult to read. So I'll do it like this. So here uh in the test size, uh we could put uh no 0.3. So basically what I'm saying here is that 30% of uh this data is gonna be used for uh test set, right?",
+                "start_time": "568.429",
+                "end_time": "596.969"
+            },
+            {
+                "id": 31,
+                "transcript": "And the remaining 70% for the train set cool. OK. So now we have our own um",
+                "start_time": "597.229",
+                "end_time": "605.44"
+            },
+            {
+                "id": 32,
+                "transcript": "uh our, our own train set and uh test set, right? And so the next step is that of building the network architecture for doing that. Obviously, we are gonna need a tensorflow and then specifically uh we want uh Kas. So we'll do an import tensorflow dot uh Kas is Kas.",
+                "start_time": "605.95",
+                "end_time": "632.989"
+            },
+            {
+                "id": 33,
+                "transcript": "So by now guys, you should be like familiar with this. Now, uh we should build the model and the model is going to be a sequential model. So we'll do a carers dot uh sequential. And here uh we should specify all the different layers that we want in the network, right?",
+                "start_time": "633.78",
+                "end_time": "657.549"
+            },
+            {
+                "id": 34,
+                "transcript": "And I'm thinking of using a uh let's say like an input layer three hidden layers and an output layer. And given we are working with a simple multi-layered perception, I'm gonna be using all uh fully connected or dense layers. Now, if you do",
+                "start_time": "657.75",
+                "end_time": "675.619"
+            },
+            {
+                "id": 35,
+                "transcript": "remember what a multi layer perception is, don't worry, just go back here. You have like the description like of one of my videos, it should be like in uh the top side over here. So click there if you want to learn more about the theory about M LP S otherwise let's move on. So the first thing that we want to do is the input uh layer. So",
+                "start_time": "675.63",
+                "end_time": "700.859"
+            },
+            {
+                "id": 36,
+                "transcript": "now for the input layer, we want to uh u uh use a layer that's called uh like flatten. So what flatten uh does is basically takes a a multidimensional array and it flattens it out, right? So in this case, so we expect for uh the input shape uh to be of type uh inputs",
+                "start_time": "701.059",
+                "end_time": "730.44"
+            },
+            {
+                "id": 37,
+                "transcript": "dot uh shape. And here we'll pass in a one and then we'll do, yeah, same thing here, but then we'll pass in two,",
+                "start_time": "731.679",
+                "end_time": "742.609"
+            },
+            {
+                "id": 38,
+                "transcript": "right? So basically what I, what I'm saying here is that I want to flatten this two dimensional array which is uh like the uh the input that we have here. And why is it two dimensional? Well, because if you remember we have NF CCS here for each uh segment, for each track and for each track, we have many",
+                "start_time": "742.82",
+                "end_time": "767.219"
+            },
+            {
+                "id": 39,
+                "transcript": "MFCC vectors and each MFCC vector is taken at a specific interval. So and that is like the hop length again, if you don't remember like what MF CCS are or uh how we calculate them, I have a video about that. Go watch that out. Cool. But here like in this two dimensional um array. So we have like the, the, the,",
+                "start_time": "767.51",
+                "end_time": "793.39"
+            },
+            {
+                "id": 40,
+                "transcript": "the, the, the first uh like dimension which is basically uh given by the uh intervals, right? And the second dimension is the values of the MF CCS uh like for that interval. And in this case, we have 13 MF CCS. That's like the number that I've decided to extract, but I could have done more 4030 whatever really doesn't matter",
+                "start_time": "794.03",
+                "end_time": "818.01"
+            },
+            {
+                "id": 41,
+                "transcript": "right now. You may be wondering, but why are you uh passing in input dot shape one? Why aren't you starting from index zero? Well, because inputs, actually this guy here is a three dimensional array and index zero represents like the different segments. So this is the uh input layer. So now we should move on and uh work with the first work out the first hidden layer. And so",
+                "start_time": "818.21",
+                "end_time": "846.9"
+            },
+            {
+                "id": 42,
+                "transcript": "uh this is gonna be a simple uh dense uh layer. And here uh what we're gonna do is say uh how many neurons we want and we'll start with 512 neurons. And then we should",
+                "start_time": "847.059",
+                "end_time": "864.429"
+            },
+            {
+                "id": 43,
+                "transcript": "specify which type of activation we want. And now up until now, we've always used the Sigma function. But this time I want to introduce you a new type of activation function that's called relu. Now relu is very, very important and, and very, very effective in deep learning. So it warrants some theoretical background. So let's move on to the PDF over here to the slide presentation",
+                "start_time": "864.94",
+                "end_time": "893.679"
+            },
+            {
+                "id": 44,
+                "transcript": "uh right. So we have the binary classification. So here we have the rectified linear unit or R. So this is like this function. So, and as you can see it here, so R is a function of H and if you recall from our theoretical uh videos on um computation in neural network, H is the net input, right?",
+                "start_time": "894.08",
+                "end_time": "918.969"
+            },
+            {
+                "id": 45,
+                "transcript": "And so if H uh is M uh is less than zero, then relu outputs zero. If H is a greater or equal, equal or greater than zero, then H uh basically uh is used as an output for REU. So relu it's E equal to H and so this is like the uh the plots that we have for R.",
+                "start_time": "919.26",
+                "end_time": "944.13"
+            },
+            {
+                "id": 46,
+                "transcript": "Now, you may be wondering, but why should we care about a rectified linear unit? Can't we just use the sigmoid function it's very nice like we, we are familiar with that. Why using relu, well, it turns out that relu is very, very effective for uh training.",
+                "start_time": "944.369",
+                "end_time": "961.869"
+            },
+            {
+                "id": 47,
+                "transcript": "So it uh when compared with uh the Sigma function, it enables us to train a network way faster. So it enables to have like better convergence of the network. And one of the reasons why this is the case, it's because R",
+                "start_time": "962.039",
+                "end_time": "978.905"
+            },
+            {
+                "id": 48,
+                "transcript": "uses the uh probability of having the so called vanishing gradient. Now, the vanishing gradient sounds like a scary thing. And indeed uh like it is for training purposes. But what is that? Well, so if you remember from our video on back propagation,",
+                "start_time": "978.914",
+                "end_time": "1000.15"
+            },
+            {
+                "id": 49,
+                "transcript": "so what happens like uh when we train a network is that we uh basically back propagates the error from the upper layer towards like the input layer, right. And so, and that happens at each hidden layer going back from output to input.",
+                "start_time": "1000.289",
+                "end_time": "1017.359"
+            },
+            {
+                "id": 50,
+                "transcript": "Now, every time we we have a new uh layer and we want to propagate the error to uh AAA layer towards like the left towards the beginning towards the inputs. Uh what happens is that we multiply uh uh like this value like by the",
+                "start_time": "1017.51",
+                "end_time": "1036.55"
+            },
+            {
+                "id": 51,
+                "transcript": "uh derivative of the activation function. And what happens with the Sigma function is that the derivative of the sigmoid function at most can be no 0.25. Which basically means if you keep multiplying there like the values that you are getting like the errors that you are propagating are getting like",
+                "start_time": "1036.77",
+                "end_time": "1057.31"
+            },
+            {
+                "id": 52,
+                "transcript": "smaller and smaller and smaller until they vanish. And so basically the gradient is vanishing. And if the gradient is like very, very small, then it's very difficult to train a network. Now with R we avoid all of these issues, which basically means we can have uh um architectures like network architectures that are super complex with many, many",
+                "start_time": "1057.319",
+                "end_time": "1083.959"
+            },
+            {
+                "id": 53,
+                "transcript": "uh layers. But in the end, we're not going to have an issue of vanishing gradient. Whereas if we used a sigmoid function, we would have that issue, right? And so this is the beauty of rectified linear unit or R. So let's go back to the code now. Cool. OK. So this was just like the first hidden layer. So we said that we want other two hidden layers. And so what we'll do",
+                "start_time": "1084.119",
+                "end_time": "1111.199"
+            },
+            {
+                "id": 54,
+                "transcript": "uh is just like copy these guys a couple of times. But now you can see that I made a mistake that I make like all the times no matter how much time I spend with this stuff. So I sometimes forget like to add comments, right? OK. So here we have the second hidden layer and here we have the third hidden layer. Now",
+                "start_time": "1111.65",
+                "end_time": "1135.91"
+            },
+            {
+                "id": 55,
+                "transcript": "uh here, let's say that we want 256 neurons. And here let's say we want 64 neurons, right? So now the last thing that remains to do to build this network is to create the output layer",
+                "start_time": "1136.099",
+                "end_time": "1151.65"
+            },
+            {
+                "id": 56,
+                "transcript": "and So again, uh this is uh another uh dense layer but here uh we are gonna use 10 neurons. And why are we using 10 neurons? Well, because we have 10 categories which are like the 10 genres that we want to uh split, like our uh predict our data set into. And it's these guys here. So if we go to the uh data uh JSON file,",
+                "start_time": "1152.219",
+                "end_time": "1180.52"
+            },
+            {
+                "id": 57,
+                "transcript": "so it's these guys here. So, disco, reggae, rock, pop, blues country and so on and so forth. Cool. So we have like this 10 neurons and then we use uh as the activation, we use a soft max",
+                "start_time": "1180.699",
+                "end_time": "1196.579"
+            },
+            {
+                "id": 58,
+                "transcript": "again, I forgot to put in the come over there, right? OK. So, so what's soft max? Well, soft max, it's a um an activation function that basically",
+                "start_time": "1197.709",
+                "end_time": "1211.229"
+            },
+            {
+                "id": 59,
+                "transcript": "enables us to have. So if you sum the values associated to all the 10 neurons here, all the the output neurons you're gonna get one, it basically normalizes like the output for us. And then when we do predictions, so we predict. So we, we pick the neuron that has the highest value and that represents the category like we are predicting.",
+                "start_time": "1211.65",
+                "end_time": "1237.109"
+            },
+            {
+                "id": 60,
+                "transcript": "Cool. So uh with this, we built our network architecture. So now we need to move on to the next phase which is uh compiling uh the network. So if you guys remember the first thing that we want to do here is to uh decide which optimizer we want to use, right? And here uh we are gonna use Adam.",
+                "start_time": "1237.53",
+                "end_time": "1264.06"
+            },
+            {
+                "id": 61,
+                "transcript": "So, and let's specify the learning rate here and we could say 0.0001. OK. Cool. So uh Adam is a, an optimizer that it's basically like a an extension like a variation of like a stochastic gradient descent and it's very, very effective uh with deep learning. So we're gonna use this, then the next step that we want to do is a model dot uh compile.",
+                "start_time": "1265.439",
+                "end_time": "1295.199"
+            },
+            {
+                "id": 62,
+                "transcript": "And here uh we should pass in a few uh things, right? So yeah, let's start with the optimizer. So the optimizer we pass in our optimizer which is atom. So then uh we need to decide uh which uh loss function",
+                "start_time": "1295.729",
+                "end_time": "1315.92"
+            },
+            {
+                "id": 63,
+                "transcript": "uh we want to use or error function we want to use. And uh for this problem which is a uh multi class classification problem, we are gonna use spots cate uh cross entropy,",
+                "start_time": "1316.099",
+                "end_time": "1332.0"
+            },
+            {
+                "id": 64,
+                "transcript": "right. And uh finally, we can't specify like the, the metrics that we want to track. And here we could say uh accuracy, right? OK.",
+                "start_time": "1332.979",
+                "end_time": "1344.65"
+            },
+            {
+                "id": 65,
+                "transcript": "So this way we've basically compiled uh our network. So a nice thing we could do here is a model dot summary uh which basically will give us like a print of uh a kind of like a summary of the architecture of the network specify the number of parameters we have the layers. It's, it's a nice thing that you have when you, when you train uh like this stuff. Ok. So let me just like move this thing up.",
+                "start_time": "1345.15",
+                "end_time": "1372.63"
+            },
+            {
+                "id": 66,
+                "transcript": "Ok. So the final thing that remains to do here is uh training the network. So how do we do that? Well, we've done this like before and it can't be much easier than this. So, and it's basically doing a model uh dot Fit. And now we need to pass in the inputs train, the um",
+                "start_time": "1372.839",
+                "end_time": "1397.439"
+            },
+            {
+                "id": 67,
+                "transcript": "uh here we need the targets train. So we are basically passing the, the uh inputs and targets for the, the training split and then we'll do a validation data. So this is basically like our uh testing uh uh uh data set that we want to pass in.",
+                "start_time": "1397.849",
+                "end_time": "1416.619"
+            },
+            {
+                "id": 68,
+                "transcript": "And uh here we'll, we'll pass in the inputs test and",
+                "start_time": "1417.489",
+                "end_time": "1424.9"
+            },
+            {
+                "id": 69,
+                "transcript": "uh where is it?",
+                "start_time": "1425.489",
+                "end_time": "1427.89"
+            },
+            {
+                "id": 70,
+                "transcript": "It's the targets test now. Yeah, this is becoming a little bit inconvenient to follow. So I'll just like do new lines here. Uh Right.",
+                "start_time": "1428.4",
+                "end_time": "1438.91"
+            },
+            {
+                "id": 71,
+                "transcript": "Uh So the other stuff that we want to specify is the number of APO. And yeah, we could say, yeah, we'll have like 50 aex here. And finally, we'll specify the batch size and we'll put this like to 32. Now, you may be wondering, but what's the batch size? Well, this is like something very, very important.",
+                "start_time": "1439.65",
+                "end_time": "1465.52"
+            },
+            {
+                "id": 72,
+                "transcript": "And for that reason, we're gonna take a look at this like in our slide presentation over here, right? There are a bunch of different types of batching which is basically like the way like we, we train like our network. So in a pro",
+                "start_time": "1465.77",
+                "end_time": "1482.645"
+            },
+            {
+                "id": 73,
+                "transcript": "this video uh on back propagation we and uh and stochastic gradient descent, we we we looked at a type of batching which is called like stochastic. So in this case, with stochastic, for example, stochastic gradient descent, what you do is you uh calculate the gradient after you've considered just like one sample. So just one segment of our uh like tracks, right?",
+                "start_time": "1482.655",
+                "end_time": "1509.219"
+            },
+            {
+                "id": 74,
+                "transcript": "So you, you do a fit forward and then you do a back propagation there. Uh you calculate the gradient and you update uh the weights directly. This is like very quick to perform, but it's kind of like very, very inaccurate because like there's a lot of noise and this would basically be equal to having like the batch size over here equal to one, right.",
+                "start_time": "1509.43",
+                "end_time": "1532.75"
+            },
+            {
+                "id": 75,
+                "transcript": "Uh Now uh we have like the the opposite, which is basically you consider the the full batch. So you compute the gradient. So you, you update the weights on the whole training set. So you pass in the whole training set and only at that point uh you, you, you calculate the gradient.",
+                "start_time": "1533.459",
+                "end_time": "1555.93"
+            },
+            {
+                "id": 76,
+                "transcript": "Um this is problematic for deep learning because like we have usually huge, huge data sets. So this results in something that's super slow, it's super memory intensive and for all purposes and needs like it's actually impractical. But the great thing about this is that it's actually very accurate, right? Because we are calculating the grade on many, many uh samples on the whole samples, right?",
+                "start_time": "1556.3",
+                "end_time": "1583.42"
+            },
+            {
+                "id": 77,
+                "transcript": "And for food batch, you basically have uh one pass, which is uh just like one epoch because we're passing the whole uh training set through uh the network for training purposes. Now, there's a middle ground there and it's called a mini batch. And here the idea is to basically compute the gradient on a subset of the data set, right?",
+                "start_time": "1583.839",
+                "end_time": "1611.239"
+            },
+            {
+                "id": 78,
+                "transcript": "And we can consider like 1632 64 like samples. And then once we've considered those, we can actually calculate the gradient uh at that point. And then yeah, that propagates the error and uh and updates the weights. And so we are doing training on, on like some uh like mini batches, right. OK. So",
+                "start_time": "1611.449",
+                "end_time": "1636.4"
+            },
+            {
+                "id": 79,
+                "transcript": "in this uh with mini batch, usually you would use like from 16 to 100 and 28 samples. But then this is by no means like a universal rule rather uh it just like depends on the type of problem that you are tackling,",
+                "start_time": "1636.53",
+                "end_time": "1652.069"
+            },
+            {
+                "id": 80,
+                "transcript": "right? And the great thing about mini batch is that it's really like the best of the two worlds like it's kind of like relatively uh yeah, it's quick, it's not that memory intensive and it's quite accurate. So this is like the solution that we use like in deep in deep learning like the most. So now let's go back to the code,",
+                "start_time": "1652.4",
+                "end_time": "1672.67"
+            },
+            {
+                "id": 81,
+                "transcript": "right. So this batch size, it's basically um specifying the number of like samples that we want in our batch for uh before like we we we calculate the gradient, right? And we refer to this is like a quite customary uh like value as I was mentioning. Cool. Well, I think like we we are basically done here, right? So we so just like to",
+                "start_time": "1672.969",
+                "end_time": "1696.63"
+            },
+            {
+                "id": 82,
+                "transcript": "uh review all of this. So we load the data, we split the data into training and uh test sets, we build, we build like our network architecture. We've compiled the network, we we have a nice model summary here and now we are ready to train the network. So now if there are no mistakes in my code, which I hope it's the case we should be able to train the network. So let's run the script and see what happens.",
+                "start_time": "1696.91",
+                "end_time": "1726.079"
+            },
+            {
+                "id": 83,
+                "transcript": "OK? So it's taking a little bit of time because obviously like it's uh loading uh the data there.",
+                "start_time": "1727.479",
+                "end_time": "1734.819"
+            },
+            {
+                "id": 84,
+                "transcript": "So",
+                "start_time": "1735.369",
+                "end_time": "1736.459"
+            },
+            {
+                "id": 85,
+                "transcript": "let's see.",
+                "start_time": "1737.329",
+                "end_time": "1738.349"
+            },
+            {
+                "id": 86,
+                "transcript": "Yeah, here we go. OK. It's working. So here, as you see, we have the, the model summary and we have like this flatten over here, then we have the dense layer and here we have the associated number of parameters on here. Yeah, it's a nice thing like you have like overall. So now uh here, as you see, we are tracking",
+                "start_time": "1739.469",
+                "end_time": "1761.329"
+            },
+            {
+                "id": 87,
+                "transcript": "uh the the different epochs over here and here like we get like an output which, which gives us for each epoch the accuracy on the training set and the accuracy on, on the test set. You, you, you might start uh like and also like the the loss like for the uh training set and for like this uh test set.",
+                "start_time": "1761.969",
+                "end_time": "1789.76"
+            },
+            {
+                "id": 88,
+                "transcript": "So you may start seeing uh an issue uh like arising here. So take a look at the accuracy. Yeah, I'm just like, yeah, so let's wait like for this like to uh to end to finish uh before like we comment on that because every time I can move this, yeah, there's a new book and it gets just like, ah yeah, move back like to to yeah, to the start point. Well, right. But we are done.",
+                "start_time": "1790.119",
+                "end_time": "1816.989"
+            },
+            {
+                "id": 89,
+                "transcript": "So let's take a look at the accuracy. So here it's after 50 epochs. So uh here we have the loss for uh like the uh calculated on the training set, which is quite low. And here we have the accuracy which is fantastic. Well, we have almost like 97% accuracy, which is incredibly good. But is it really that good? Let's take a look at the",
+                "start_time": "1817.65",
+                "end_time": "1846.099"
+            },
+            {
+                "id": 90,
+                "transcript": "at the accuracy and the loss calculated on the um test set. Well, it turns out that there's a huge difference between this accuracy on the test set and the accuracy on the training set. Well, it's basically almost like 30% different. Uh well, uh",
+                "start_time": "1846.55",
+                "end_time": "1869.949"
+            },
+            {
+                "id": 91,
+                "transcript": "uh 89. Well, it's, it's more, it's more, it's almost like 40% like difference there, which is incredible, right? So what's happening here? So we have like the, the training and like the the model performing extremely well, like on the training data but performing not that great, like on the um on the test set.",
+                "start_time": "1870.56",
+                "end_time": "1892.569"
+            },
+            {
+                "id": 92,
+                "transcript": "Uh why, why, why is that the case? Well, it turns out we are over fitting. So basically, what's happening is that we are so like the model is tailoring, uh its weight in order to predict uh uh in a very like compelling way",
+                "start_time": "1893.5",
+                "end_time": "1913.939"
+            },
+            {
+                "id": 93,
+                "transcript": "uh the the test set, but it's not really that able to generalize to data it has never seen before. So this is a huge, huge problem. And every time you do any type of machine learning, not just deep learning, this is something you have to fight against overfitting now. So",
+                "start_time": "1914.189",
+                "end_time": "1934.55"
+            },
+            {
+                "id": 94,
+                "transcript": "in the next video, we are gonna look at how to uh identify uh like overfitting, like in our um models and how to fight against overfitting. So we're gonna see a bunch of different uh techniques that we can use like drop out or um regularization uh just like to, to avoid uh overfitting,",
+                "start_time": "1934.959",
+                "end_time": "1960.949"
+            },
+            {
+                "id": 95,
+                "transcript": "right? But for now, for this video, we are basically done and you should be like super happy because now we have a music genre classifier and it's not like the best classifier ever. And we still have to so overfitting. But here we have really all the fundamentals of our music genre classifier. Great. So I hope you've enjoyed this video.",
+                "start_time": "1961.18",
+                "end_time": "1986.3"
+            },
+            {
+                "id": 96,
+                "transcript": "If that's it, remember to subscribe and uh hit the notification bell. You'll never miss a new video when I upload them. And if you have any questions, please like leave a comment uh below and as always, I hope to see you next time. Cheers.",
+                "start_time": "1986.53",
+                "end_time": "2004.78"
+            }
+        ]
+    }
+}

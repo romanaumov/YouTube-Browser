@@ -1,0 +1,1048 @@
+{
+    "audio_segments": [
+        {
+            "id": 0,
+            "text": "Hi, everybody and welcome to a new video in the Deep Learning for Radio with Python series. This time we're gonna talk about training a neural network. And specifically, we're gonna look at the theory behind it. So we'll look at two very important algorithms backward propagation and gradient the sound cool. So let's get started with the idea of training a neural network. So the high level overview. So what do we do when we train a network? Well, we basically trick all the weights of the connections among different neurons so that we can have predictions that are really good. So how do we do that? Well, we basically uh feed some training data. So inputs and target values to the network, then we look at the predictions and we calculate the error between the predictions and the expected outcome. And then we use that information for iteratively adjusting the weights I know like this feels like very high level. So we're gonna now look at how that's done precisely cool. So again, from a quite high level overview, there are two main steps here. So when we train a network, we pass a sample, an example",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "0.0",
+            "questions": [
+                "1. What is the main topic of the video in the Deep Learning for Radio with Python series?",
+                "2. What are the two important algorithms mentioned in the video related to training a neural network?",
+                "3. How do we adjust the weights of the connections among neurons during training?",
+                "4. What type of data do we feed into the neural network for training?",
+                "5. How is the error calculated between the predictions and the expected outcome?",
+                "6. What does the process of iteratively adjusting the weights aim to achieve?",
+                "7. Can you explain the term \"backward propagation\" in the context of neural network training?",
+                "8. What is the significance of gradient descent in training neural networks?",
+                "9. How does the training process begin when working with a neural network?",
+                "10. What is the overall goal of training a neural network as described in the video?"
+            ]
+        },
+        {
+            "id": 1,
+            "text": "So what do we do when we train a network? Well, we basically trick all the weights of the connections among different neurons so that we can have predictions that are really good. So how do we do that? Well, we basically uh feed some training data. So inputs and target values to the network, then we look at the predictions and we calculate the error between the predictions and the expected outcome. And then we use that information for iteratively adjusting the weights I know like this feels like very high level. So we're gonna now look at how that's done precisely cool. So again, from a quite high level overview, there are two main steps here. So when we train a network, we pass a sample, an example uh input and that input uh does we use it like for doing two things? So we have the input traveling all the way through to the rightmost uh layer and we get the prediction there. So we have a feed forward propagation forward pass",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "25.049",
+            "questions": [
+                "1. What is the primary goal when training a network?",
+                "2. How do we trick the weights of the connections among neurons during training?",
+                "3. What types of data do we feed into the network during the training process?",
+                "4. How do we evaluate the performance of the network's predictions?",
+                "5. What is the significance of calculating the error between predictions and expected outcomes?",
+                "6. How do we use the error information to adjust the weights in the network?",
+                "7. What are the two main steps involved in training a network?",
+                "8. What happens during the feed forward propagation or forward pass in the training process?",
+                "9. How does the input travel through the network during training?",
+                "10. Why is it important to understand the precise mechanisms of network training?"
+            ]
+        },
+        {
+            "id": 2,
+            "text": "And then we use that information for iteratively adjusting the weights I know like this feels like very high level. So we're gonna now look at how that's done precisely cool. So again, from a quite high level overview, there are two main steps here. So when we train a network, we pass a sample, an example uh input and that input uh does we use it like for doing two things? So we have the input traveling all the way through to the rightmost uh layer and we get the prediction there. So we have a feed forward propagation forward pass and then we calculate an error, we use that information and we back propagate that signal error signal back to the uh initial layers. So from right to left cool. So now let's break down this two big steps. So forward propagation and back propagation into it's like subst steps. So",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "53.389",
+            "questions": [
+                "1. What are the two main steps involved in training a network as mentioned in the text?  ",
+                "2. How does the input travel through the network during the forward propagation phase?  ",
+                "3. What is the purpose of the feed forward propagation process?  ",
+                "4. What happens after the prediction is obtained in the forward pass?  ",
+                "5. How is the error calculated after the forward propagation?  ",
+                "6. What does the back propagation process entail?  ",
+                "7. In what direction does the error signal travel during back propagation?  ",
+                "8. Why is it important to adjust the weights in a neural network?  ",
+                "9. What are the sub-steps involved in forward and back propagation?  ",
+                "10. How does the information from the error influence the training of the network?  "
+            ]
+        },
+        {
+            "id": 3,
+            "text": "uh input and that input uh does we use it like for doing two things? So we have the input traveling all the way through to the rightmost uh layer and we get the prediction there. So we have a feed forward propagation forward pass and then we calculate an error, we use that information and we back propagate that signal error signal back to the uh initial layers. So from right to left cool. So now let's break down this two big steps. So forward propagation and back propagation into it's like subst steps. So when we have this forward propagation, what we do basically is we get the prediction and in the end we calculate the error,",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "79.819",
+            "questions": [
+                "1. What is the purpose of the input in the described process?",
+                "2. How does the input travel through the layers in the model?",
+                "3. What is meant by \"feed forward propagation\"?",
+                "4. What do we obtain at the end of the forward pass?",
+                "5. How is the error calculated after making a prediction?",
+                "6. What role does the error signal play in the process?",
+                "7. What does it mean to \"back propagate\" the error signal?",
+                "8. In which direction does the back propagation occur?",
+                "9. What are the two main steps mentioned in the text?",
+                "10. Can you explain the sub-steps involved in forward propagation?"
+            ]
+        },
+        {
+            "id": 4,
+            "text": "and then we calculate an error, we use that information and we back propagate that signal error signal back to the uh initial layers. So from right to left cool. So now let's break down this two big steps. So forward propagation and back propagation into it's like subst steps. So when we have this forward propagation, what we do basically is we get the prediction and in the end we calculate the error, then when we have the uh error traveling back. So the back propagation side, we do two things. We calculate the gradient of the error function uh with regard to the weight. And we use that information to update the uh parameters because the gradient is gonna tell us in which direction we should go",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "101.11",
+            "questions": [
+                "1. What is the purpose of calculating an error in the context of forward and back propagation?",
+                "2. How does forward propagation contribute to the overall process of training a model?",
+                "3. What information do we obtain during forward propagation?",
+                "4. What is the role of the error signal in back propagation?",
+                "5. How is the error signal transmitted back through the layers of a neural network?",
+                "6. What are the two main actions taken during the back propagation process?",
+                "7. How do we calculate the gradient of the error function?",
+                "8. Why is the gradient important for updating the parameters of a model?",
+                "9. In which direction does the gradient indicate we should adjust our weights?",
+                "10. Can you describe the relationship between forward propagation and back propagation in neural network training?"
+            ]
+        },
+        {
+            "id": 5,
+            "text": "when we have this forward propagation, what we do basically is we get the prediction and in the end we calculate the error, then when we have the uh error traveling back. So the back propagation side, we do two things. We calculate the gradient of the error function uh with regard to the weight. And we use that information to update the uh parameters because the gradient is gonna tell us in which direction we should go uh in which direction we should treat the weights in order to improve the predictions. Cool. So now what I'm gonna do is I'm gonna go one by one through all of these steps and explain them and explain the math behind it. So get prediction.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "126.94",
+            "questions": [
+                "1. What is the purpose of forward propagation in a neural network?",
+                "2. How is the prediction calculated during forward propagation?",
+                "3. What happens to the prediction at the end of the forward propagation process?",
+                "4. What is the role of error in the context of forward and backward propagation?",
+                "5. What is back propagation and how does it relate to forward propagation?",
+                "6. How is the gradient of the error function calculated during back propagation?",
+                "7. Why is the gradient information important for updating parameters in a neural network?",
+                "8. In which direction should weights be adjusted to improve predictions?",
+                "9. What are the key steps involved in the back propagation process?",
+                "10. How will the math behind these steps be explained in the following discussion?"
+            ]
+        },
+        {
+            "id": 6,
+            "text": "then when we have the uh error traveling back. So the back propagation side, we do two things. We calculate the gradient of the error function uh with regard to the weight. And we use that information to update the uh parameters because the gradient is gonna tell us in which direction we should go uh in which direction we should treat the weights in order to improve the predictions. Cool. So now what I'm gonna do is I'm gonna go one by one through all of these steps and explain them and explain the math behind it. So get prediction. Uh we, we saw this already. So uh we have a previous video where I went through uh how to calculate uh competition in neural networks. So if you're interested in the specifics of this just go",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "135.289",
+            "questions": [
+                "1. What is the purpose of calculating the gradient of the error function in back propagation?",
+                "2. How does the gradient information help in updating the parameters of a neural network?",
+                "3. What does the gradient indicate regarding the direction of weight adjustments?",
+                "4. Can you explain the steps involved in the back propagation process?",
+                "5. What role does the error function play in the training of neural networks?",
+                "6. How are predictions obtained in a neural network?",
+                "7. What prior knowledge is required to understand the calculations involved in neural networks?",
+                "8. Where can one find more detailed explanations about computations in neural networks?",
+                "9. Why is it important to improve predictions in neural networks?",
+                "10. What mathematical concepts are crucial for understanding back propagation?"
+            ]
+        },
+        {
+            "id": 7,
+            "text": "uh in which direction we should treat the weights in order to improve the predictions. Cool. So now what I'm gonna do is I'm gonna go one by one through all of these steps and explain them and explain the math behind it. So get prediction. Uh we, we saw this already. So uh we have a previous video where I went through uh how to calculate uh competition in neural networks. So if you're interested in the specifics of this just go uh back to that one and watch that video cool. But in a nutshell, we have inputs, these inputs get propagated to uh uh the subsequent layers like on um the right and and then until they arrive like at the last layer where we get a prediction cool. So then we have the next step which is calculating the error. And for calculating the error, we need an error function.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "160.559",
+            "questions": [
+                "1. What is the primary objective of adjusting weights in a neural network?",
+                "2. How are inputs processed in a neural network to produce predictions?",
+                "3. What role do the subsequent layers play in the prediction process of a neural network?",
+                "4. Can you describe the significance of the last layer in a neural network?",
+                "5. What is the next step after obtaining a prediction in the neural network process?",
+                "6. Why is it necessary to calculate the error in a neural network?",
+                "7. What is an error function, and how does it relate to neural networks?",
+                "8. Where can one find more detailed information about the calculations involved in neural networks?",
+                "9. How does the propagation of inputs occur in the neural network model?",
+                "10. What are the implications of the prediction accuracy on the adjustment of weights?"
+            ]
+        },
+        {
+            "id": 8,
+            "text": "Uh we, we saw this already. So uh we have a previous video where I went through uh how to calculate uh competition in neural networks. So if you're interested in the specifics of this just go uh back to that one and watch that video cool. But in a nutshell, we have inputs, these inputs get propagated to uh uh the subsequent layers like on um the right and and then until they arrive like at the last layer where we get a prediction cool. So then we have the next step which is calculating the error. And for calculating the error, we need an error function. Uh The error function is a function of two variables. So the prediction itself and why, which in this case indicates the expected uh outcome. Cool.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "180.35",
+            "questions": [
+                "1. What is the main topic discussed in the video referenced in the text?",
+                "2. How are inputs processed in a neural network?",
+                "3. What happens to the inputs as they propagate through the layers of a neural network?",
+                "4. What is the final outcome of the neural network's processing?",
+                "5. What is the next step after obtaining predictions from the neural network?",
+                "6. Why is an error function necessary in neural networks?",
+                "7. What are the two variables that the error function depends on?",
+                "8. What does the variable 'y' represent in the context of the error function?",
+                "9. Where can viewers find more detailed information about calculating competition in neural networks?",
+                "10. How does the text describe the relationship between predictions and expected outcomes?"
+            ]
+        },
+        {
+            "id": 9,
+            "text": "uh back to that one and watch that video cool. But in a nutshell, we have inputs, these inputs get propagated to uh uh the subsequent layers like on um the right and and then until they arrive like at the last layer where we get a prediction cool. So then we have the next step which is calculating the error. And for calculating the error, we need an error function. Uh The error function is a function of two variables. So the prediction itself and why, which in this case indicates the expected uh outcome. Cool. So uh be aware that many people instead of using the expression error function, use loss function. So you can use them like interchangeably I prefer using error because I feel like it's more like it's more it's clear like to understand what we're talking about. Cool. So we've calculated the error. So now we need to go to the next step.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "194.24",
+            "questions": [
+                "1. What is the role of inputs in the process described in the text?  ",
+                "2. How are the inputs propagated through the layers of the system?  ",
+                "3. What happens at the last layer of the model?  ",
+                "4. What is the next step after obtaining a prediction?  ",
+                "5. Why is an error function necessary in this context?  ",
+                "6. What are the two variables involved in the error function?  ",
+                "7. How does the error function relate to the expected outcome represented by \"y\"?  ",
+                "8. Why do some people prefer the term \"loss function\" over \"error function\"?  ",
+                "9. What is the author's personal preference regarding the terminology used for error calculation?  ",
+                "10. What does the text suggest should be done after calculating the error?  "
+            ]
+        },
+        {
+            "id": 10,
+            "text": "Uh The error function is a function of two variables. So the prediction itself and why, which in this case indicates the expected uh outcome. Cool. So uh be aware that many people instead of using the expression error function, use loss function. So you can use them like interchangeably I prefer using error because I feel like it's more like it's more it's clear like to understand what we're talking about. Cool. So we've calculated the error. So now we need to go to the next step. But before we go to the next step, I wanted to mention that like in this example, we are using the um quadratic uh error function which is given by this nice formula over here. Nice. OK. So now we can move to the next step which is calculating the gradient of the error function. So what we want to do is calculate the derivative of e of the error function with regard to",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "220.899",
+            "questions": [
+                "1. What is the error function a function of?",
+                "2. How is the term \"error function\" often used interchangeably with another term in this context?",
+                "3. Why does the speaker prefer using the term \"error function\" over \"loss function\"?",
+                "4. What does the error function indicate in this context?",
+                "5. What type of error function is being used in the example provided?",
+                "6. What is the next step after calculating the error function?",
+                "7. What does the speaker intend to calculate regarding the error function?",
+                "8. What mathematical operation is performed on the error function to find its gradient?",
+                "9. What is the significance of calculating the gradient of the error function?",
+                "10. Can you describe the formula associated with the quadratic error function mentioned?"
+            ]
+        },
+        {
+            "id": 11,
+            "text": "So uh be aware that many people instead of using the expression error function, use loss function. So you can use them like interchangeably I prefer using error because I feel like it's more like it's more it's clear like to understand what we're talking about. Cool. So we've calculated the error. So now we need to go to the next step. But before we go to the next step, I wanted to mention that like in this example, we are using the um quadratic uh error function which is given by this nice formula over here. Nice. OK. So now we can move to the next step which is calculating the gradient of the error function. So what we want to do is calculate the derivative of e of the error function with regard to uh w so all the weights. So, and if you guys remember W 1 W-2, these are the weight um uh mattresses. And so these are the weights for the connections between like different neurons in different layers. Nice.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "234.07",
+            "questions": [
+                "1. What is the difference between the terms \"error function\" and \"loss function\" as mentioned in the text?",
+                "2. Why does the speaker prefer to use the term \"error\" over \"loss\"?",
+                "3. What type of error function is being used in the example provided?",
+                "4. What is the formula mentioned for calculating the quadratic error function?",
+                "5. What is the next step after calculating the error?",
+                "6. What does the speaker intend to calculate regarding the error function?",
+                "7. What is meant by the \"gradient\" of the error function in this context?",
+                "8. How are the weights represented in the example, and what do they signify?",
+                "9. What role do the weights play in the connections between neurons?",
+                "10. Can you explain the significance of calculating the derivative of the error function with respect to the weights?"
+            ]
+        },
+        {
+            "id": 12,
+            "text": "But before we go to the next step, I wanted to mention that like in this example, we are using the um quadratic uh error function which is given by this nice formula over here. Nice. OK. So now we can move to the next step which is calculating the gradient of the error function. So what we want to do is calculate the derivative of e of the error function with regard to uh w so all the weights. So, and if you guys remember W 1 W-2, these are the weight um uh mattresses. And so these are the weights for the connections between like different neurons in different layers. Nice. Cool. So, but how do we do that? Well, first, we should think of the uh of a neural network as a very complex function uh which is dependent on two variables. So the XS which are like this input vector here. Uh X so the inputs and W so all the weights. So",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "257.399",
+            "questions": [
+                "1. What is the purpose of the quadratic error function mentioned in the text?",
+                "2. How is the gradient of the error function calculated?",
+                "3. What does \"e\" represent in the context of the error function?",
+                "4. What are the weights referred to as in the text?",
+                "5. How are the weights related to the connections between neurons?",
+                "6. What does the text mean by describing a neural network as a complex function?",
+                "7. What are the two variables that the neural network function depends on?",
+                "8. How are the input vectors denoted in the text?",
+                "9. Why is it important to calculate the derivative of the error function with respect to the weights?",
+                "10. What role do the weight matrices play in the functioning of a neural network?"
+            ]
+        },
+        {
+            "id": 13,
+            "text": "uh w so all the weights. So, and if you guys remember W 1 W-2, these are the weight um uh mattresses. And so these are the weights for the connections between like different neurons in different layers. Nice. Cool. So, but how do we do that? Well, first, we should think of the uh of a neural network as a very complex function uh which is dependent on two variables. So the XS which are like this input vector here. Uh X so the inputs and W so all the weights. So if you remember the error function is a function of P and Y so P being the prediction, but the prediction obviously is a function is the results of the um neural network. So we can substitute this F of XW uh for P. And by doing so we find out that E",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "285.32",
+            "questions": [
+                "1. What are W1 and W2 in the context of neural networks?  ",
+                "2. How do the weights in a neural network function?  ",
+                "3. What is the significance of input vector X in a neural network?  ",
+                "4. How is the prediction (P) related to the function of the neural network?  ",
+                "5. What does the error function represent in relation to predictions and actual outcomes?  ",
+                "6. How can we express the prediction (P) using the function of the neural network?  ",
+                "7. What are the two primary variables that a neural network function depends on?  ",
+                "8. How do weights affect the connections between neurons in different layers?  ",
+                "9. Why is it important to understand the relationship between inputs, weights, and predictions in neural networks?  ",
+                "10. What role does the error function play in evaluating the performance of a neural network?  "
+            ]
+        },
+        {
+            "id": 14,
+            "text": "Cool. So, but how do we do that? Well, first, we should think of the uh of a neural network as a very complex function uh which is dependent on two variables. So the XS which are like this input vector here. Uh X so the inputs and W so all the weights. So if you remember the error function is a function of P and Y so P being the prediction, but the prediction obviously is a function is the results of the um neural network. So we can substitute this F of XW uh for P. And by doing so we find out that E the error function is a function of the weight itself. So it makes sense to calculate the, the gradient of the error function of the weights because it depends on the weight cool. So having like all of this knowledge we can move on and just like review all the elements of a neural network. I hope by now you're very familiar with all of this like elements. But if you're not, I'll give you a quick overview. So we have the",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "300.22",
+            "questions": [
+                "1. What are the two main variables that a neural network depends on?",
+                "2. How is the input vector represented in the context of a neural network?",
+                "3. What does the variable 'W' signify in a neural network?",
+                "4. How is the error function related to the prediction made by the neural network?",
+                "5. What does 'P' represent in the context of the error function?",
+                "6. Why is it important to calculate the gradient of the error function with respect to the weights?",
+                "7. What is the relationship between the prediction 'P' and the function F of X and W?",
+                "8. What are the elements of a neural network that need to be reviewed?",
+                "9. How does understanding the function of weights contribute to improving a neural network's performance?",
+                "10. What is the significance of substituting F of XW for P in the context of error function analysis?"
+            ]
+        },
+        {
+            "id": 15,
+            "text": "if you remember the error function is a function of P and Y so P being the prediction, but the prediction obviously is a function is the results of the um neural network. So we can substitute this F of XW uh for P. And by doing so we find out that E the error function is a function of the weight itself. So it makes sense to calculate the, the gradient of the error function of the weights because it depends on the weight cool. So having like all of this knowledge we can move on and just like review all the elements of a neural network. I hope by now you're very familiar with all of this like elements. But if you're not, I'll give you a quick overview. So we have the axis which are obviously the inputs, then we have like the activations. A one is equal to the inputs. W one we show this, it's the, the weights for the first layer H two is the net input vector.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "321.079",
+            "questions": [
+                "1. What is the relationship between the error function and the predictions (P) in a neural network?  ",
+                "2. How can the prediction (P) be expressed in terms of the neural network's results?  ",
+                "3. Why is the error function considered a function of the weights in a neural network?  ",
+                "4. What is the significance of calculating the gradient of the error function with respect to the weights?  ",
+                "5. What are the primary components of a neural network as mentioned in the text?  ",
+                "6. What role do the inputs (axis) play in a neural network?  ",
+                "7. How is the activation for the first layer (A1) defined in relation to the inputs and weights?  ",
+                "8. What does H2 represent in the context of a neural network?  ",
+                "9. Why is it important to understand the elements of a neural network?  ",
+                "10. What does substituting F of XW for P imply about the error function?  "
+            ]
+        },
+        {
+            "id": 16,
+            "text": "the error function is a function of the weight itself. So it makes sense to calculate the, the gradient of the error function of the weights because it depends on the weight cool. So having like all of this knowledge we can move on and just like review all the elements of a neural network. I hope by now you're very familiar with all of this like elements. But if you're not, I'll give you a quick overview. So we have the axis which are obviously the inputs, then we have like the activations. A one is equal to the inputs. W one we show this, it's the, the weights for the first layer H two is the net input vector. So it's all the net inputs for layer two. And then we just repeat a 2 W-2 H three. And then finally, a three in this case, which is the prediction itself nice, we have this information we know about the error function and its dependencies. And so what we can do is we can calculate the derivative of E with respect to W-2.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "342.38",
+            "questions": [
+                "1. What is the error function in relation to neural networks?",
+                "2. Why is it important to calculate the gradient of the error function of the weights?",
+                "3. What are the main elements of a neural network mentioned in the text?",
+                "4. How are the inputs represented in a neural network?",
+                "5. What does A1 represent in the context of the neural network?",
+                "6. What is W1 and what role does it play in the first layer of the neural network?",
+                "7. How is the net input vector for layer two represented in the text?",
+                "8. What does H3 represent in the neural network's architecture?",
+                "9. What is the significance of calculating the derivative of E with respect to W2?",
+                "10. Can you explain the relationship between activations and weights in a neural network?"
+            ]
+        },
+        {
+            "id": 17,
+            "text": "axis which are obviously the inputs, then we have like the activations. A one is equal to the inputs. W one we show this, it's the, the weights for the first layer H two is the net input vector. So it's all the net inputs for layer two. And then we just repeat a 2 W-2 H three. And then finally, a three in this case, which is the prediction itself nice, we have this information we know about the error function and its dependencies. And so what we can do is we can calculate the derivative of E with respect to W-2. And we can use a very nice rule from calculus which I'm not gonna um review here, but it's called the chain rule. And if we use the chain rule, uh we can come up with this formula",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "370.269",
+            "questions": [
+                "1. What are the inputs referred to in the text?",
+                "2. How is the activation denoted in the context of the neural network described?",
+                "3. What does W one represent in the neural network's architecture?",
+                "4. What does H two signify in relation to the net input vector?",
+                "5. How is the process repeated for the second layer as described in the text?",
+                "6. What does a three represent in the context of the neural network's output?",
+                "7. What information is necessary to calculate the derivative of the error function with respect to W-2?",
+                "8. Which calculus rule is mentioned for calculating derivatives in the text?",
+                "9. Why is the chain rule important in the context of neural network training?",
+                "10. What is the significance of the error function in neural networks?"
+            ]
+        },
+        {
+            "id": 18,
+            "text": "So it's all the net inputs for layer two. And then we just repeat a 2 W-2 H three. And then finally, a three in this case, which is the prediction itself nice, we have this information we know about the error function and its dependencies. And so what we can do is we can calculate the derivative of E with respect to W-2. And we can use a very nice rule from calculus which I'm not gonna um review here, but it's called the chain rule. And if we use the chain rule, uh we can come up with this formula uh which rewrites the derivative of the uh E uh error function with regard to W-2. So we have three blocks, three derivatives for coming up with the, with this main derivative here of the error over W-2. And he, yeah, this feels like a little bit intimidating. And I know and as I said, like this is gonna be a quick math heavy",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "385.769",
+            "questions": [
+                "1. What are the net inputs for layer two referenced in the text?",
+                "2. What does the term \"2 W-2 H three\" refer to in this context?",
+                "3. What is the final output mentioned in the passage?",
+                "4. How is the error function related to the prediction?",
+                "5. What does the text imply about the relationship between the error function and its dependencies?",
+                "6. What mathematical concept is used to calculate the derivative of E with respect to W-2?",
+                "7. What is the chain rule, and how is it applied in this scenario?",
+                "8. How many derivatives are involved in calculating the main derivative of the error over W-2?",
+                "9. Why might the content be described as \"math heavy\"?",
+                "10. What emotions or feelings does the speaker express about the complexity of the topic?"
+            ]
+        },
+        {
+            "id": 19,
+            "text": "And we can use a very nice rule from calculus which I'm not gonna um review here, but it's called the chain rule. And if we use the chain rule, uh we can come up with this formula uh which rewrites the derivative of the uh E uh error function with regard to W-2. So we have three blocks, three derivatives for coming up with the, with this main derivative here of the error over W-2. And he, yeah, this feels like a little bit intimidating. And I know and as I said, like this is gonna be a quick math heavy uh video, but uh I'm gonna try to make this uh calculations as clear and as simple as possible. So you can follow and understand what's going on. Cool. So let's calculate this three derivatives here. Let's start from the first one, the derivative of E over a three. Let's remember that we are using the",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "409.989",
+            "questions": [
+                "1. What is the chain rule in calculus?  ",
+                "2. How does the chain rule relate to calculating derivatives?  ",
+                "3. What is the purpose of rewriting the derivative of the error function with regard to W-2?  ",
+                "4. How many blocks of derivatives are mentioned in the text?  ",
+                "5. Why might the calculations discussed in the video feel intimidating?  ",
+                "6. What is the main focus of the video according to the text?  ",
+                "7. How does the speaker plan to make the calculations clear and simple?  ",
+                "8. What is the first derivative that the speaker mentions calculating?  ",
+                "9. What does the speaker refer to when mentioning \"the error over W-2\"?  ",
+                "10. What is the significance of understanding these derivatives in the context of the video?  "
+            ]
+        },
+        {
+            "id": 20,
+            "text": "uh which rewrites the derivative of the uh E uh error function with regard to W-2. So we have three blocks, three derivatives for coming up with the, with this main derivative here of the error over W-2. And he, yeah, this feels like a little bit intimidating. And I know and as I said, like this is gonna be a quick math heavy uh video, but uh I'm gonna try to make this uh calculations as clear and as simple as possible. So you can follow and understand what's going on. Cool. So let's calculate this three derivatives here. Let's start from the first one, the derivative of E over a three. Let's remember that we are using the uh quadratic error uh function here as the error function. And so if we perform the derivative of E uh with respect to a three, we end up with these results. So it's basically a three minus Y. So it's the uh prediction uh minus the actual expected outcome",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "424.35",
+            "questions": [
+                "1. What is the main focus of the video mentioned in the text?",
+                "2. How many blocks of derivatives are discussed for deriving the error function?",
+                "3. What is the significance of the variable W-2 in the context of the error function?",
+                "4. What type of error function is being used in the calculations?",
+                "5. What is the derivative of E with respect to a three expected to yield?",
+                "6. How does the author describe the complexity of the calculations?",
+                "7. What does the expression \"a three minus Y\" represent in the context of the error function?",
+                "8. What approach does the author take to simplify the mathematical calculations?",
+                "9. What kind of audience is the video aimed at, based on the author's comments?",
+                "10. Why does the author feel that the topic might be intimidating?"
+            ]
+        },
+        {
+            "id": 21,
+            "text": "uh video, but uh I'm gonna try to make this uh calculations as clear and as simple as possible. So you can follow and understand what's going on. Cool. So let's calculate this three derivatives here. Let's start from the first one, the derivative of E over a three. Let's remember that we are using the uh quadratic error uh function here as the error function. And so if we perform the derivative of E uh with respect to a three, we end up with these results. So it's basically a three minus Y. So it's the uh prediction uh minus the actual expected outcome good. So that's the first block, second block, the derivative of A three over H three. Now, for the activations uh in this example, and as like in the examples, for the previous video, we are gonna use the sigmoid function. And so the A three, the mm uh the prediction here a three is gonna be the sigmoid function calculated in H three",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "449.399",
+            "questions": [
+                "1. What is the context of the video being discussed?",
+                "2. What is the primary goal of the calculations mentioned in the text?",
+                "3. What does the derivative of E with respect to a three represent?",
+                "4. How is the quadratic error function used in this calculation?",
+                "5. What is the significance of the result \"a three minus Y\" in the derivative calculation?",
+                "6. What is the second derivative mentioned in the text, and what does it involve?",
+                "7. Which activation function is used for A three in this example?",
+                "8. How is the sigmoid function related to the calculation of A three?",
+                "9. Why is it important to simplify the calculations for the audience?",
+                "10. How does the example in this video compare to previous examples mentioned?"
+            ]
+        },
+        {
+            "id": 22,
+            "text": "uh quadratic error uh function here as the error function. And so if we perform the derivative of E uh with respect to a three, we end up with these results. So it's basically a three minus Y. So it's the uh prediction uh minus the actual expected outcome good. So that's the first block, second block, the derivative of A three over H three. Now, for the activations uh in this example, and as like in the examples, for the previous video, we are gonna use the sigmoid function. And so the A three, the mm uh the prediction here a three is gonna be the sigmoid function calculated in H three cool. So now if we want to calculate the derivative of A three over H three, we're gonna end up with the first derivative of the sigmoid function",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "471.279",
+            "questions": [
+                "1. What is the quadratic error function used for in this context?",
+                "2. How is the derivative of the error function with respect to A3 calculated?",
+                "3. What does the expression \"A3 minus Y\" represent in the error function?",
+                "4. What is the significance of the second block mentioned regarding the derivative of A3 over H3?",
+                "5. Which activation function is used in the example discussed in the text?",
+                "6. How is the prediction A3 related to the sigmoid function?",
+                "7. What is the output of the sigmoid function calculated in H3?",
+                "8. How do you calculate the derivative of A3 over H3?",
+                "9. What does the first derivative of the sigmoid function indicate in this context?",
+                "10. How does this explanation relate to concepts discussed in previous videos?"
+            ]
+        },
+        {
+            "id": 23,
+            "text": "good. So that's the first block, second block, the derivative of A three over H three. Now, for the activations uh in this example, and as like in the examples, for the previous video, we are gonna use the sigmoid function. And so the A three, the mm uh the prediction here a three is gonna be the sigmoid function calculated in H three cool. So now if we want to calculate the derivative of A three over H three, we're gonna end up with the first derivative of the sigmoid function calculated in H free. I'm using this Sigma uh symbol here uh to indicate the sigmoid function and the derivative of the sigmoid function is given by this formula here. So it's the Sigma function itself by one minus the sigmoid function. And in this case, it's calculated in H three nice.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "495.929",
+            "questions": [
+                "1. What is the first block referred to in the text?",
+                "2. How is the derivative of A three over H three calculated?",
+                "3. Which activation function is used in the example mentioned?",
+                "4. What does A three represent in the context of this example?",
+                "5. How is the sigmoid function related to the prediction A three?",
+                "6. What happens when calculating the derivative of A three over H three?",
+                "7. What symbol is used to indicate the sigmoid function in the text?",
+                "8. What is the formula for the derivative of the sigmoid function as mentioned?",
+                "9. How is the derivative of the sigmoid function expressed in relation to itself?",
+                "10. In what context is H three used in the example?"
+            ]
+        },
+        {
+            "id": 24,
+            "text": "cool. So now if we want to calculate the derivative of A three over H three, we're gonna end up with the first derivative of the sigmoid function calculated in H free. I'm using this Sigma uh symbol here uh to indicate the sigmoid function and the derivative of the sigmoid function is given by this formula here. So it's the Sigma function itself by one minus the sigmoid function. And in this case, it's calculated in H three nice. So we have the second element, let's move on to the third element. So it's the derivative of H three over W-2. So H three, you guys should know this by now it's given by the matrix multiplication of the uh activation vector by the uh weight matrix uh of the second layer",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "522.51",
+            "questions": [
+                "1. What is the process to calculate the derivative of A three over H three?",
+                "2. What does the Sigma symbol represent in the context of this text?",
+                "3. How is the derivative of the sigmoid function expressed mathematically?",
+                "4. In which specific location is the first derivative of the sigmoid function calculated?",
+                "5. What is the significance of calculating the derivative of H three over W-2?",
+                "6. How is H three defined in relation to the weight matrix and activation vector?",
+                "7. What role does the weight matrix of the second layer play in this calculation?",
+                "8. Can you explain the relationship between the sigmoid function and its derivative?",
+                "9. What mathematical operations are involved in determining H three?",
+                "10. Why is it important to understand the derivatives in the context of neural networks?"
+            ]
+        },
+        {
+            "id": 25,
+            "text": "calculated in H free. I'm using this Sigma uh symbol here uh to indicate the sigmoid function and the derivative of the sigmoid function is given by this formula here. So it's the Sigma function itself by one minus the sigmoid function. And in this case, it's calculated in H three nice. So we have the second element, let's move on to the third element. So it's the derivative of H three over W-2. So H three, you guys should know this by now it's given by the matrix multiplication of the uh activation vector by the uh weight matrix uh of the second layer nice. So this is basically a linear transformation. And so if we do a derivative of H three over W-2, we are gonna end up with A two with the activations cool. Now we have all the three elements that we need to rewrite uh the uh derivative of E over W-2. So now let's rewrite this, let's fill this up. So first elements,",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "534.849",
+            "questions": [
+                "1. What does the Sigma symbol represent in the context of this text?",
+                "2. How is the derivative of the sigmoid function calculated according to the provided formula?",
+                "3. In the text, what does \"H three\" refer to?",
+                "4. How is \"H three\" computed using the activation vector and weight matrix?",
+                "5. What does the term \"linear transformation\" imply in the context of calculating H three?",
+                "6. What is the relationship between the derivative of H three and W-2?",
+                "7. What is meant by \"A two\" in the context of the derivative of H three over W-2?",
+                "8. How many elements are mentioned as necessary to rewrite the derivative of E over W-2?",
+                "9. What is the significance of calculating derivatives in the context of this discussion?",
+                "10. What steps are involved in rewriting the derivative of E over W-2 based on the elements discussed?"
+            ]
+        },
+        {
+            "id": 26,
+            "text": "So we have the second element, let's move on to the third element. So it's the derivative of H three over W-2. So H three, you guys should know this by now it's given by the matrix multiplication of the uh activation vector by the uh weight matrix uh of the second layer nice. So this is basically a linear transformation. And so if we do a derivative of H three over W-2, we are gonna end up with A two with the activations cool. Now we have all the three elements that we need to rewrite uh the uh derivative of E over W-2. So now let's rewrite this, let's fill this up. So first elements, so the first derivative here is a three minus Y, then the derivative of the A three over H three is basically the derivative of the Sigma function calculated in H three. And finally, the last block is equal to a two nice. We have our first um element to calculate like the gradient. So we have our error function,",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "557.28",
+            "questions": [
+                "1. What is the third element being referred to in the text?",
+                "2. How is H three calculated according to the text?",
+                "3. What type of transformation does H three represent?",
+                "4. What is the significance of the derivative of H three over W-2?",
+                "5. What does the term \"A two with the activations\" refer to in the context of the derivative?",
+                "6. What are the three elements needed to rewrite the derivative of E over W-2?",
+                "7. What does the first derivative in the calculation represent?",
+                "8. How is the derivative of A three over H three defined in the text?",
+                "9. What function is mentioned that is calculated in relation to H three?",
+                "10. What is the final goal mentioned in the text regarding the calculation of the gradient?"
+            ]
+        },
+        {
+            "id": 27,
+            "text": "nice. So this is basically a linear transformation. And so if we do a derivative of H three over W-2, we are gonna end up with A two with the activations cool. Now we have all the three elements that we need to rewrite uh the uh derivative of E over W-2. So now let's rewrite this, let's fill this up. So first elements, so the first derivative here is a three minus Y, then the derivative of the A three over H three is basically the derivative of the Sigma function calculated in H three. And finally, the last block is equal to a two nice. We have our first um element to calculate like the gradient. So we have our error function, uh the derivative of the error function calculated in W-2. Now, what should we do next? Well, we should calculate the error, the derivative of the error function with respect to W one. So we are basically moving from the second layer back towards the first layer. So back propagation, we are going back from right to left. Now",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "578.09",
+            "questions": [
+                "1. What is the primary topic being discussed in the text?",
+                "2. How is the derivative of H three over W-2 related to the activations?",
+                "3. What are the three elements needed to rewrite the derivative of E over W-2?",
+                "4. What does the first derivative in the calculation represent?",
+                "5. How is the derivative of the Sigma function calculated in H three?",
+                "6. What does the last block of the equation equal to in the context of the derivative calculation?",
+                "7. What is the significance of calculating the gradient of the error function?",
+                "8. What is the next step after calculating the derivative of the error function with respect to W-2?",
+                "9. Why is the process described as back propagation?",
+                "10. In which direction does back propagation occur according to the text?"
+            ]
+        },
+        {
+            "id": 28,
+            "text": "so the first derivative here is a three minus Y, then the derivative of the A three over H three is basically the derivative of the Sigma function calculated in H three. And finally, the last block is equal to a two nice. We have our first um element to calculate like the gradient. So we have our error function, uh the derivative of the error function calculated in W-2. Now, what should we do next? Well, we should calculate the error, the derivative of the error function with respect to W one. So we are basically moving from the second layer back towards the first layer. So back propagation, we are going back from right to left. Now um the derivative of E with respect to W one is equal to this other be here. But it's not too different like from what we've seen like before, we've just like reused the, the same like um expansion rules, rewriting rules using the chain rules uh chain rule from calculus of the E of the derivative of E calculated with respect to W-2",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "604.049",
+            "questions": [
+                "1. What is the first derivative mentioned in the text?",
+                "2. How is the derivative of the Sigma function calculated in H three?",
+                "3. What does the last block equal to in the context of the given text?",
+                "4. What is the significance of calculating the gradient in this scenario?",
+                "5. How is the derivative of the error function calculated in W-2?",
+                "6. What is the process described for moving from the second layer to the first layer?",
+                "7. What does back propagation refer to in this context?",
+                "8. How is the derivative of E with respect to W one expressed in the text?",
+                "9. What expansion and rewriting rules are referenced in the text?",
+                "10. How does the chain rule from calculus apply to the derivative of E calculated with respect to W-2?"
+            ]
+        },
+        {
+            "id": 29,
+            "text": "uh the derivative of the error function calculated in W-2. Now, what should we do next? Well, we should calculate the error, the derivative of the error function with respect to W one. So we are basically moving from the second layer back towards the first layer. So back propagation, we are going back from right to left. Now um the derivative of E with respect to W one is equal to this other be here. But it's not too different like from what we've seen like before, we've just like reused the, the same like um expansion rules, rewriting rules using the chain rules uh chain rule from calculus of the E of the derivative of E calculated with respect to W-2 cool. So we can get these first element here. So the derivative of E with respect to A two and using uh the chain rule again, we can rewrite it as this formula down here with this three blocks. Now, if we take all of this and we plug in",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "633.349",
+            "questions": [
+                "1. What is the significance of calculating the derivative of the error function in the context of back propagation?",
+                "2. How does the process of moving from the second layer to the first layer relate to back propagation?",
+                "3. What does the derivative of E with respect to W one represent in this context?",
+                "4. How are the expansion and rewriting rules relevant to calculating the derivative of the error function?",
+                "5. What role does the chain rule from calculus play in calculating the derivatives mentioned in the text?",
+                "6. Can you explain the relationship between the derivatives of E with respect to W-2 and W-1?",
+                "7. What are the three blocks mentioned in the formula for the derivative of E with respect to A two?",
+                "8. How does the derivative of E with respect to A two contribute to the overall back propagation process?",
+                "9. Why is it important to reuse previous calculations in the context of deriving the error function?",
+                "10. What steps should be taken after calculating the derivative of the error function with respect to W one?"
+            ]
+        },
+        {
+            "id": 30,
+            "text": "um the derivative of E with respect to W one is equal to this other be here. But it's not too different like from what we've seen like before, we've just like reused the, the same like um expansion rules, rewriting rules using the chain rules uh chain rule from calculus of the E of the derivative of E calculated with respect to W-2 cool. So we can get these first element here. So the derivative of E with respect to A two and using uh the chain rule again, we can rewrite it as this formula down here with this three blocks. Now, if we take all of this and we plug in in here, we're gonna end up with this beast formula for the derivative of V uh with regards to W one which is given by all of these five elements. Now don't be scared. So it's quite easy to calculate. And good news is that we've already calculated these first two elements when we calculated the derivative of V with respect to W-2.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "656.94",
+            "questions": [
+                "1. What is the relationship between the derivative of E with respect to W one and the other variable mentioned?",
+                "2. How do the expansion and rewriting rules relate to the derivative calculations discussed?",
+                "3. What role does the chain rule from calculus play in the derivation process?",
+                "4. How can the derivative of E with respect to A two be expressed using the chain rule?",
+                "5. What is the significance of the \"three blocks\" mentioned in the formula?",
+                "6. What is the final formula for the derivative of V with respect to W one?",
+                "7. How many elements are involved in the final expression for the derivative of V?",
+                "8. What prior calculations are referenced in relation to the derivatives of V with respect to W-2?",
+                "9. Why should one not be intimidated by the complexity of the formulas presented?",
+                "10. What good news is mentioned about the calculation of the derivatives discussed?"
+            ]
+        },
+        {
+            "id": 31,
+            "text": "cool. So we can get these first element here. So the derivative of E with respect to A two and using uh the chain rule again, we can rewrite it as this formula down here with this three blocks. Now, if we take all of this and we plug in in here, we're gonna end up with this beast formula for the derivative of V uh with regards to W one which is given by all of these five elements. Now don't be scared. So it's quite easy to calculate. And good news is that we've already calculated these first two elements when we calculated the derivative of V with respect to W-2. So we should now focus on this three blocks, three derivatives now here. So let's",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "681.859",
+            "questions": [
+                "1. What is the first element referred to in the text regarding the derivative of E with respect to A2?",
+                "2. How is the chain rule applied in the context of the derivative mentioned?",
+                "3. What does the formula with the three blocks represent in the calculation process?",
+                "4. What is the significance of the \"beast formula\" for the derivative of V with respect to W1?",
+                "5. What are the five elements included in the derivative of V with respect to W1?",
+                "6. Why does the author encourage not to be scared when calculating the derivative?",
+                "7. Which two elements have already been calculated in the previous derivative of V with respect to W-2?",
+                "8. What should be the primary focus after calculating the first two elements?",
+                "9. How do the three blocks relate to the overall calculation of the derivatives?",
+                "10. What is the overall goal of the calculations being discussed in the text?"
+            ]
+        },
+        {
+            "id": 32,
+            "text": "in here, we're gonna end up with this beast formula for the derivative of V uh with regards to W one which is given by all of these five elements. Now don't be scared. So it's quite easy to calculate. And good news is that we've already calculated these first two elements when we calculated the derivative of V with respect to W-2. So we should now focus on this three blocks, three derivatives now here. So let's uh let's start calculating the first one of this three. So the derivative of H three with respect to A two. So H three again is given by uh the matrix multiplication of A two and W-2. And when we calculate the derivative here of H three over A two, we end up with only W-2. So the weight matrix for layer two, now let's move on next derivative. So it's a derivative of a two calculated over H two.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "705.869",
+            "questions": [
+                "1. What is the main topic discussed in the text regarding derivatives?",
+                "2. How many elements contribute to the formula for the derivative of V with respect to W one?",
+                "3. What is the relationship between the elements already calculated and the focus of the current calculations?",
+                "4. Which derivative is being calculated first among the three blocks mentioned?",
+                "5. What is H three defined as in the context of the text?",
+                "6. What result do we obtain when calculating the derivative of H three with respect to A two?",
+                "7. What does the derivative of H three over A two represent in terms of the weight matrix?",
+                "8. What is the next derivative mentioned after H three with respect to A two?",
+                "9. How are the calculations of derivatives structured in the text?",
+                "10. What previous calculation is referenced to indicate that some elements have already been determined?"
+            ]
+        },
+        {
+            "id": 33,
+            "text": "So we should now focus on this three blocks, three derivatives now here. So let's uh let's start calculating the first one of this three. So the derivative of H three with respect to A two. So H three again is given by uh the matrix multiplication of A two and W-2. And when we calculate the derivative here of H three over A two, we end up with only W-2. So the weight matrix for layer two, now let's move on next derivative. So it's a derivative of a two calculated over H two. So again, a two is the basically given by the sigmoid function uh calculated in H two. And so when we do the derivative of A two over H two, again, we have the first derivative of the sigmoid function. But this time calculated in H two",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "731.96",
+            "questions": [
+                "1. What are the three blocks or derivatives being focused on in the text?",
+                "2. How is H3 defined in relation to A2 and W-2?",
+                "3. What is the result of calculating the derivative of H3 with respect to A2?",
+                "4. What does W-2 represent in the context of the derivative calculation?",
+                "5. How is A2 defined in the text?",
+                "6. What function is used to calculate A2 based on H2?",
+                "7. What is the result of calculating the derivative of A2 over H2?",
+                "8. What type of function is the sigmoid function mentioned in the text?",
+                "9. How is the first derivative of the sigmoid function relevant to the calculation of derivatives in this context?",
+                "10. What does the text imply about the relationship between H2 and A2?"
+            ]
+        },
+        {
+            "id": 34,
+            "text": "uh let's start calculating the first one of this three. So the derivative of H three with respect to A two. So H three again is given by uh the matrix multiplication of A two and W-2. And when we calculate the derivative here of H three over A two, we end up with only W-2. So the weight matrix for layer two, now let's move on next derivative. So it's a derivative of a two calculated over H two. So again, a two is the basically given by the sigmoid function uh calculated in H two. And so when we do the derivative of A two over H two, again, we have the first derivative of the sigmoid function. But this time calculated in H two good. Now final element. So the derivative of H two calculated over W one. So H two is given by the matrix multiplication of the input vector X with the uh weight matrix one nice. So the derivative of H two over W one is just the input vector X",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "739.38",
+            "questions": [
+                "1. What is the relationship between H3 and A2 in the context of matrix multiplication?",
+                "2. What is the result of calculating the derivative of H3 with respect to A2?",
+                "3. How is A2 defined in relation to H2?",
+                "4. What function is used to calculate A2 from H2?",
+                "5. What is the significance of the first derivative of the sigmoid function in this context?",
+                "6. What does the derivative of A2 with respect to H2 yield?",
+                "7. How is H2 defined in terms of its input and weight matrix?",
+                "8. What is the result of calculating the derivative of H2 with respect to W1?",
+                "9. What does the derivative of H2 over W1 represent in this scenario?",
+                "10. How does the input vector X relate to the calculation of the derivative of H2?"
+            ]
+        },
+        {
+            "id": 35,
+            "text": "So again, a two is the basically given by the sigmoid function uh calculated in H two. And so when we do the derivative of A two over H two, again, we have the first derivative of the sigmoid function. But this time calculated in H two good. Now final element. So the derivative of H two calculated over W one. So H two is given by the matrix multiplication of the input vector X with the uh weight matrix one nice. So the derivative of H two over W one is just the input vector X cool. We have all the five elements to rewrite the derivative of E over W uh over W one. So let's rewrite that",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "769.25",
+            "questions": [
+                "1. What is the relationship between the sigmoid function and the calculation of A two in the context of H two?",
+                "2. How is the first derivative of the sigmoid function relevant to the derivative of A two over H two?",
+                "3. What does the final element refer to in the context of the derivative of H two over W one?",
+                "4. How is H two calculated using the input vector X and the weight matrix W one?",
+                "5. What does the derivative of H two over W one represent in this mathematical framework?",
+                "6. How can the input vector X be described in relation to the derivative of H two?",
+                "7. What are the five elements needed to rewrite the derivative of E over W one?",
+                "8. What is the significance of matrix multiplication in the calculation of H two?",
+                "9. How does the derivative of E over W one contribute to the overall model?",
+                "10. Can you explain the process of rewriting the derivative of E over W one using the identified elements?"
+            ]
+        },
+        {
+            "id": 36,
+            "text": "good. Now final element. So the derivative of H two calculated over W one. So H two is given by the matrix multiplication of the input vector X with the uh weight matrix one nice. So the derivative of H two over W one is just the input vector X cool. We have all the five elements to rewrite the derivative of E over W uh over W one. So let's rewrite that first element here. So the derivative of the E over A three can be rewritten as a three minus Y. Then we have the second element here. So which is the derivative of a three over H three. And this is the",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "788.299",
+            "questions": [
+                "1. What is the derivative of H two calculated over W one?",
+                "2. How is H two defined in relation to the input vector X and the weight matrix?",
+                "3. What does the derivative of H two over W one equal to?",
+                "4. What are the five elements needed to rewrite the derivative of E over W one?",
+                "5. How can the first element of the derivative of E over A three be expressed?",
+                "6. What is the expression for the derivative of A three over H three?",
+                "7. What role does the input vector X play in the calculation of the derivative of H two?",
+                "8. Why is the derivative of E over W one significant in this context?",
+                "9. What mathematical operations are involved in rewriting the derivative of E over W one?",
+                "10. Can you explain the significance of the term \"a three minus Y\" in the derivative of E over A three?"
+            ]
+        },
+        {
+            "id": 37,
+            "text": "cool. We have all the five elements to rewrite the derivative of E over W uh over W one. So let's rewrite that first element here. So the derivative of the E over A three can be rewritten as a three minus Y. Then we have the second element here. So which is the derivative of a three over H three. And this is the uh first derivative of the Sigma function calculated in H three. So the third block is basically just W-2. The fourth block is again the uh the first derivative of the Sigma function calculated in H two. And finally, we have for the fifth block our input vector X excellent. So now we have all the elements for our gradient which are the",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "813.539",
+            "questions": [
+                "1. What are the five elements needed to rewrite the derivative of E over W?",
+                "2. How is the derivative of E over A three expressed in the text?",
+                "3. What does the second element represent in the context of the derivative of A three over H three?",
+                "4. What is the significance of the first derivative of the Sigma function in the calculations?",
+                "5. How is W-2 described in the text?",
+                "6. What role does the first derivative of the Sigma function calculated in H two play in the overall process?",
+                "7. What is the final element mentioned that contributes to the gradient?",
+                "8. What is the overall purpose of rewriting the derivatives as described in the text?",
+                "9. How do the elements contribute to the calculation of the gradient?",
+                "10. Can you explain the relationship between E, W, and the input vector X mentioned in the text?"
+            ]
+        },
+        {
+            "id": 38,
+            "text": "first element here. So the derivative of the E over A three can be rewritten as a three minus Y. Then we have the second element here. So which is the derivative of a three over H three. And this is the uh first derivative of the Sigma function calculated in H three. So the third block is basically just W-2. The fourth block is again the uh the first derivative of the Sigma function calculated in H two. And finally, we have for the fifth block our input vector X excellent. So now we have all the elements for our gradient which are the derivative of the E with respect to W-2 and the derivative of the E with respect to W one. So do you see a pattern emerging here? Yeah, I guess like you can see something. So look at these two elements here. A three minus Y and multiplied by Sigma, the first derivative of the Sigma F function calculated in H three. So they are basically the same as the ones we have here.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "825.599",
+            "questions": [
+                "1. What does the derivative of E over A three represent in the context of the text?",
+                "2. How is the second element derived from A three over H three?",
+                "3. What is the significance of the first derivative of the Sigma function in this analysis?",
+                "4. What does the third block represent in the overall structure described?",
+                "5. How does the fourth block relate to the derivative of the Sigma function calculated in H two?",
+                "6. What role does the input vector X play in the gradient calculation?",
+                "7. How are the derivatives of E with respect to W-2 and W-1 utilized in this context?",
+                "8. What pattern emerges from the two elements A three minus Y and the first derivative of the Sigma function at H three?",
+                "9. Why is it important to calculate the derivatives of the Sigma function in this scenario?",
+                "10. How do the elements mentioned contribute to the understanding of the gradient in this mathematical framework?"
+            ]
+        },
+        {
+            "id": 39,
+            "text": "uh first derivative of the Sigma function calculated in H three. So the third block is basically just W-2. The fourth block is again the uh the first derivative of the Sigma function calculated in H two. And finally, we have for the fifth block our input vector X excellent. So now we have all the elements for our gradient which are the derivative of the E with respect to W-2 and the derivative of the E with respect to W one. So do you see a pattern emerging here? Yeah, I guess like you can see something. So look at these two elements here. A three minus Y and multiplied by Sigma, the first derivative of the Sigma F function calculated in H three. So they are basically the same as the ones we have here. This is great news because it means that we for calculating um the derivatives of previous layers here, we can reuse some stuff that we've calculated uh in layers that are more like towards like the right towards the end of the network. And this is the whole point of like a back propagation. So we for calculating um",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "840.679",
+            "questions": [
+                "1. What is the significance of the first derivative of the Sigma function in the context of this discussion?",
+                "2. How is the third block characterized in relation to W-2?",
+                "3. What is calculated in the fourth block and how does it relate to H two?",
+                "4. What does the fifth block represent in the overall structure?",
+                "5. How do the derivatives of E with respect to W-2 and W-1 contribute to the gradient?",
+                "6. What pattern is emerging from the elements mentioned in the text?",
+                "7. How are the terms A three minus Y and the first derivative of the Sigma function connected?",
+                "8. What advantage does reusing calculations from previous layers provide in back propagation?",
+                "9. What is the overall purpose of back propagation in neural networks?",
+                "10. How does the structure of the blocks facilitate the calculation of derivatives in the network?"
+            ]
+        },
+        {
+            "id": 40,
+            "text": "derivative of the E with respect to W-2 and the derivative of the E with respect to W one. So do you see a pattern emerging here? Yeah, I guess like you can see something. So look at these two elements here. A three minus Y and multiplied by Sigma, the first derivative of the Sigma F function calculated in H three. So they are basically the same as the ones we have here. This is great news because it means that we for calculating um the derivatives of previous layers here, we can reuse some stuff that we've calculated uh in layers that are more like towards like the right towards the end of the network. And this is the whole point of like a back propagation. So we for calculating um uh the the the derivatives of like the error function in previous",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "868.559",
+            "questions": [
+                "1. What does the derivative of E with respect to W-2 represent in this context?",
+                "2. How is the derivative of E with respect to W one related to the derivative of E with respect to W-2?",
+                "3. What pattern is emerging from the discussion of derivatives in the text?",
+                "4. What elements are being compared in the statement about \"a three minus Y\" and Sigma?",
+                "5. How does the first derivative of the Sigma F function relate to H three?",
+                "6. Why is it beneficial to reuse calculations from previous layers in a neural network?",
+                "7. What is the significance of backpropagation in calculating derivatives in neural networks?",
+                "8. How do derivatives of the error function in previous layers impact the overall learning process?",
+                "9. What does the term \"previous layers\" refer to in the context of this discussion?",
+                "10. In what way does the text suggest that certain calculations can be simplified during the backpropagation process?"
+            ]
+        },
+        {
+            "id": 41,
+            "text": "This is great news because it means that we for calculating um the derivatives of previous layers here, we can reuse some stuff that we've calculated uh in layers that are more like towards like the right towards the end of the network. And this is the whole point of like a back propagation. So we for calculating um uh the the the derivatives of like the error function in previous uh layers with respect to the weights, we can use elements that we've already calculated. So let's see this like in action again now that we know like all the pieces of the puzzle cool. So we said that the first phase here for doing back prop is to calculate the error, then once we have the errors, we use those errors to calculate the first derivative of the error with respect to W-2.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "897.83",
+            "questions": [
+                "1. What is the significance of reusing calculations from previous layers in backpropagation?",
+                "2. How does backpropagation help in calculating derivatives of the error function in a neural network?",
+                "3. What is the first phase of backpropagation mentioned in the text?",
+                "4. Why is it important to calculate the error in the backpropagation process?",
+                "5. What do we use the calculated errors for after the first phase in backpropagation?",
+                "6. What does the derivative of the error with respect to weights (W-2) represent in this context?",
+                "7. How does the process of backpropagation contribute to the training of a neural network?",
+                "8. What are some elements that can be reused in the backpropagation process?",
+                "9. Can you explain the relationship between layers in a neural network during backpropagation?",
+                "10. What are the \"pieces of the puzzle\" referred to in the text in relation to backpropagation?"
+            ]
+        },
+        {
+            "id": 42,
+            "text": "uh the the the derivatives of like the error function in previous uh layers with respect to the weights, we can use elements that we've already calculated. So let's see this like in action again now that we know like all the pieces of the puzzle cool. So we said that the first phase here for doing back prop is to calculate the error, then once we have the errors, we use those errors to calculate the first derivative of the error with respect to W-2. And then we back propagate that we use that information to calculate the derivative of the error function with respect to W one. So we're basically moving all the way backwards from right to left. And so this is the whole point of",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "926.63",
+            "questions": [
+                "1. What is the initial step in the backpropagation process as described in the text?",
+                "2. How do we calculate the first derivative of the error with respect to W-2?",
+                "3. What role do previously calculated elements play in determining derivatives in backpropagation?",
+                "4. What is the relationship between calculated errors and the weights W-1 and W-2?",
+                "5. How does the backpropagation process progress in terms of direction?",
+                "6. What is the significance of the error function in the context of backpropagation?",
+                "7. Why is it important to move backwards from right to left during the backpropagation process?",
+                "8. What is meant by \"elements that we've already calculated\" in the context of derivatives?",
+                "9. How does the understanding of all pieces of the puzzle facilitate the backpropagation process?",
+                "10. What is the end goal of calculating derivatives in backpropagation?"
+            ]
+        },
+        {
+            "id": 43,
+            "text": "uh layers with respect to the weights, we can use elements that we've already calculated. So let's see this like in action again now that we know like all the pieces of the puzzle cool. So we said that the first phase here for doing back prop is to calculate the error, then once we have the errors, we use those errors to calculate the first derivative of the error with respect to W-2. And then we back propagate that we use that information to calculate the derivative of the error function with respect to W one. So we're basically moving all the way backwards from right to left. And so this is the whole point of propagating back the error signal. Nice. So now we have an understanding of back propagation. So you should congratulate yourself because I feel there are not many people out there also machine learning practitioners who really understands like the math behind uh back propagation. Now you do nice.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "933.28",
+            "questions": [
+                "1. What is the first phase of the back propagation process according to the text?",
+                "2. How are errors used in the context of back propagation?",
+                "3. What do we calculate after determining the errors during back propagation?",
+                "4. How does the process of back propagation move in relation to the layers of a neural network?",
+                "5. What is the significance of calculating the derivative of the error function with respect to W-2?",
+                "6. Why is understanding the math behind back propagation considered a valuable skill among machine learning practitioners?",
+                "7. What does the text suggest about the understanding of back propagation among machine learning practitioners?",
+                "8. What is the role of the error signal in the back propagation process?",
+                "9. How does the text describe the movement of information during back propagation?",
+                "10. What should one feel after gaining an understanding of back propagation according to the text?"
+            ]
+        },
+        {
+            "id": 44,
+            "text": "And then we back propagate that we use that information to calculate the derivative of the error function with respect to W one. So we're basically moving all the way backwards from right to left. And so this is the whole point of propagating back the error signal. Nice. So now we have an understanding of back propagation. So you should congratulate yourself because I feel there are not many people out there also machine learning practitioners who really understands like the math behind uh back propagation. Now you do nice. So let's go back, let's say the higher level perspective. So the the training steps. So we've seen the first three steps. So we get the prop predictions, we calculate the error and then we calculate the gradient of the error function over the weight. Now, the last thing that remains to do is to actually update the parameters to update the weight. So how do we do that? Well, for doing that, we need",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "959.38",
+            "questions": [
+                "1. What is the primary purpose of back propagation in machine learning?",
+                "2. How do we calculate the derivative of the error function with respect to W one?",
+                "3. In what direction does back propagation move when processing information?",
+                "4. Why is it significant to understand the math behind back propagation?",
+                "5. What are the first three steps in the training process mentioned in the text?",
+                "6. What is the final step that remains after calculating the gradient of the error function?",
+                "7. How do we update the parameters or weights in a machine learning model?",
+                "8. What role does the error signal play in the back propagation process?",
+                "9. Why might there be a lack of understanding of back propagation among machine learning practitioners?",
+                "10. What does the author suggest about the reader's understanding of back propagation?"
+            ]
+        },
+        {
+            "id": 45,
+            "text": "propagating back the error signal. Nice. So now we have an understanding of back propagation. So you should congratulate yourself because I feel there are not many people out there also machine learning practitioners who really understands like the math behind uh back propagation. Now you do nice. So let's go back, let's say the higher level perspective. So the the training steps. So we've seen the first three steps. So we get the prop predictions, we calculate the error and then we calculate the gradient of the error function over the weight. Now, the last thing that remains to do is to actually update the parameters to update the weight. So how do we do that? Well, for doing that, we need a very important algorithm that's called gradient descent that's also used in traditional machine learning. So how does gradient descent work? Well with gradient descent, we take a step in the opposite direction to the gradient.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "979.59",
+            "questions": [
+                "1. What is the significance of understanding back propagation in machine learning?",
+                "2. How many steps are involved in the training process described in the text?",
+                "3. What are the first three steps in the training process mentioned?",
+                "4. How do we calculate the error in the training process?",
+                "5. What is the role of the gradient of the error function in updating the weights?",
+                "6. What algorithm is used to update the parameters in the training process?",
+                "7. How does gradient descent operate in relation to the gradient?",
+                "8. Why is gradient descent considered important in both deep learning and traditional machine learning?",
+                "9. What does taking a step in the opposite direction to the gradient achieve in gradient descent?",
+                "10. How does a deeper understanding of the math behind back propagation benefit machine learning practitioners?"
+            ]
+        },
+        {
+            "id": 46,
+            "text": "So let's go back, let's say the higher level perspective. So the the training steps. So we've seen the first three steps. So we get the prop predictions, we calculate the error and then we calculate the gradient of the error function over the weight. Now, the last thing that remains to do is to actually update the parameters to update the weight. So how do we do that? Well, for doing that, we need a very important algorithm that's called gradient descent that's also used in traditional machine learning. So how does gradient descent work? Well with gradient descent, we take a step in the opposite direction to the gradient. So the, the, the, the step or the size of the step is basically the learning rate and the learning rate is a parameter uh that we use. And we can trick when we do training with our neural networks to obtain better results. OK. But",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1002.89",
+            "questions": [
+                "1. What are the first three steps mentioned in the training process?",
+                "2. How are prop predictions obtained in the training steps?",
+                "3. What is the purpose of calculating the error in the training process?",
+                "4. How is the gradient of the error function calculated over the weight?",
+                "5. What is the final step that remains to be done after calculating the gradient?",
+                "6. What is the role of the algorithm called gradient descent in updating parameters?",
+                "7. In which direction does gradient descent take a step when updating weights?",
+                "8. What is the significance of the learning rate in the gradient descent process?",
+                "9. How can adjusting the learning rate impact the training results of neural networks?",
+                "10. Is gradient descent exclusively used in neural networks, or is it also applied in traditional machine learning?"
+            ]
+        },
+        {
+            "id": 47,
+            "text": "a very important algorithm that's called gradient descent that's also used in traditional machine learning. So how does gradient descent work? Well with gradient descent, we take a step in the opposite direction to the gradient. So the, the, the, the step or the size of the step is basically the learning rate and the learning rate is a parameter uh that we use. And we can trick when we do training with our neural networks to obtain better results. OK. But we now have an understanding like a back propagation and like of gradient descent. But how does gradient descent like really work? So what what, what, what does it mean to take a step in the opposite direction to the gradient? Cool for doing that? We need this uh graph down here. So on the X axis, we have the weights",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1029.359",
+            "questions": [
+                "1. What is the significance of gradient descent in machine learning?",
+                "2. How does gradient descent determine the direction in which to take a step?",
+                "3. What role does the learning rate play in the gradient descent algorithm?",
+                "4. How can the learning rate be adjusted to improve training results in neural networks?",
+                "5. What is the relationship between backpropagation and gradient descent?",
+                "6. What does it mean to take a step in the opposite direction to the gradient?",
+                "7. How is the size of the step in gradient descent calculated?",
+                "8. What information is represented on the X axis of the graph mentioned in the text?",
+                "9. In what scenarios might gradient descent be particularly useful?",
+                "10. What are some potential challenges or limitations associated with using gradient descent?"
+            ]
+        },
+        {
+            "id": 48,
+            "text": "So the, the, the, the step or the size of the step is basically the learning rate and the learning rate is a parameter uh that we use. And we can trick when we do training with our neural networks to obtain better results. OK. But we now have an understanding like a back propagation and like of gradient descent. But how does gradient descent like really work? So what what, what, what does it mean to take a step in the opposite direction to the gradient? Cool for doing that? We need this uh graph down here. So on the X axis, we have the weights and on the y axis we have the errors nice. And here we have the error function which is E as a function of W obviously. And it's this orange curve here. So let's say we start from this position here. So after",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1047.41",
+            "questions": [
+                "1. What is the significance of the learning rate in training neural networks?",
+                "2. How can the learning rate be adjusted to improve training results?",
+                "3. What is backpropagation in the context of neural networks?",
+                "4. What is gradient descent, and how does it function?",
+                "5. Why is it important to take a step in the opposite direction to the gradient?",
+                "6. How are weights represented in the context of gradient descent?",
+                "7. What does the error function represent in the training of neural networks?",
+                "8. How is the relationship between weights and errors illustrated in the graph mentioned?",
+                "9. What does the orange curve in the graph signify?",
+                "10. From which position does the training process begin as described in the text?"
+            ]
+        },
+        {
+            "id": 49,
+            "text": "we now have an understanding like a back propagation and like of gradient descent. But how does gradient descent like really work? So what what, what, what does it mean to take a step in the opposite direction to the gradient? Cool for doing that? We need this uh graph down here. So on the X axis, we have the weights and on the y axis we have the errors nice. And here we have the error function which is E as a function of W obviously. And it's this orange curve here. So let's say we start from this position here. So after uh we've uh trained uh like our network, uh for example, we've passed in like the first sample we've calculated the gradient and we've, and we know that we are like at this point like with the errors and with the weight cool. So here we need to calculate the gradient and the gradient is basically this purple line here. And the gradient what does intuitively is to give us information the direction",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1067.079",
+            "questions": [
+                "1. What is the relationship between back propagation and gradient descent?",
+                "2. How does gradient descent function in the context of training a neural network?",
+                "3. What does it mean to take a step in the opposite direction to the gradient?",
+                "4. What do the X and Y axes represent in the provided graph?",
+                "5. How is the error function represented in the graph?",
+                "6. What does the orange curve in the graph signify?",
+                "7. What happens after the first sample is passed into the network during training?",
+                "8. How is the gradient represented in the graph?",
+                "9. What information does the gradient provide regarding the direction of the optimization?",
+                "10. Why is it important to calculate the gradient while training the network?"
+            ]
+        },
+        {
+            "id": 50,
+            "text": "and on the y axis we have the errors nice. And here we have the error function which is E as a function of W obviously. And it's this orange curve here. So let's say we start from this position here. So after uh we've uh trained uh like our network, uh for example, we've passed in like the first sample we've calculated the gradient and we've, and we know that we are like at this point like with the errors and with the weight cool. So here we need to calculate the gradient and the gradient is basically this purple line here. And the gradient what does intuitively is to give us information the direction uh in which the function uh increases the fastest right cool. So if we know the gradient, what we want to do is go in the opposite direction to the gradient because we want to go down in uh the, the function because we want to minimize this function. So we want to go down here to this global minimum where the error of our network is minimized. And so we take the gradient",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1089.959",
+            "questions": [
+                "1. What does the y-axis represent in the graph described in the text?",
+                "2. What is represented by the orange curve in the context of the error function?",
+                "3. What does the term \"W\" refer to in the function E?",
+                "4. What happens after the network is trained with the first sample?",
+                "5. How is the gradient visually represented in the graph?",
+                "6. What information does the gradient provide about the function?",
+                "7. Why do we want to move in the opposite direction of the gradient?",
+                "8. What is the ultimate goal when minimizing the function mentioned in the text?",
+                "9. What does reaching the global minimum signify for the network's error?",
+                "10. How is the concept of gradient related to the process of training a neural network?"
+            ]
+        },
+        {
+            "id": 51,
+            "text": "uh we've uh trained uh like our network, uh for example, we've passed in like the first sample we've calculated the gradient and we've, and we know that we are like at this point like with the errors and with the weight cool. So here we need to calculate the gradient and the gradient is basically this purple line here. And the gradient what does intuitively is to give us information the direction uh in which the function uh increases the fastest right cool. So if we know the gradient, what we want to do is go in the opposite direction to the gradient because we want to go down in uh the, the function because we want to minimize this function. So we want to go down here to this global minimum where the error of our network is minimized. And so we take the gradient and we basically uh take a step in the opposite direction to the gradient where we have like the gradient calculated for all the weights in the network. And so we take a step that's given by the learning rate. So",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1106.189",
+            "questions": [
+                "1. What is the purpose of calculating the gradient in a neural network?",
+                "2. How does the gradient indicate the direction of function increase?",
+                "3. Why do we want to move in the opposite direction of the gradient?",
+                "4. What is meant by minimizing the function in the context of a neural network?",
+                "5. What is a global minimum, and why is it important for network training?",
+                "6. How is the learning rate related to the steps taken in the opposite direction of the gradient?",
+                "7. What role do weights play in the calculation of the gradient?",
+                "8. Can you explain the significance of the \"purple line\" mentioned in the text?",
+                "9. How do errors influence the gradient calculation during training?",
+                "10. What happens if the learning rate is too high or too low during the training process?"
+            ]
+        },
+        {
+            "id": 52,
+            "text": "uh in which the function uh increases the fastest right cool. So if we know the gradient, what we want to do is go in the opposite direction to the gradient because we want to go down in uh the, the function because we want to minimize this function. So we want to go down here to this global minimum where the error of our network is minimized. And so we take the gradient and we basically uh take a step in the opposite direction to the gradient where we have like the gradient calculated for all the weights in the network. And so we take a step that's given by the learning rate. So uh we calculate the gradient here like when we are like at this 0.1 and we jump down here to, to this point. Now we we have like uh another like sample in uh like the, the uh the network for example. And it does like forward propagation, like backward propagation. And then when we have like the gradient uh of the of the net of the weight of the network again,",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1135.599",
+            "questions": [
+                "1. What is the significance of the gradient in relation to function minimization?",
+                "2. Why do we move in the opposite direction of the gradient?",
+                "3. What is the goal of minimizing the function in the context of the network?",
+                "4. How is the learning rate related to the steps taken in the gradient descent process?",
+                "5. What happens after calculating the gradient at a specific point in the network?",
+                "6. Can you explain the concepts of forward and backward propagation in the context of neural networks?",
+                "7. How does the gradient affect the weights of the network during training?",
+                "8. What does it mean to reach a global minimum in a function?",
+                "9. How is the gradient calculated for all the weights in the network?",
+                "10. What is the role of samples in the process of updating the network's weights?"
+            ]
+        },
+        {
+            "id": 53,
+            "text": "and we basically uh take a step in the opposite direction to the gradient where we have like the gradient calculated for all the weights in the network. And so we take a step that's given by the learning rate. So uh we calculate the gradient here like when we are like at this 0.1 and we jump down here to, to this point. Now we we have like uh another like sample in uh like the, the uh the network for example. And it does like forward propagation, like backward propagation. And then when we have like the gradient uh of the of the net of the weight of the network again, uh we just like take a step in the opposite direction and we go down to three, down to 456 until we reach the global minimum. And so this is the whole point of training. So we want to",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1163.619",
+            "questions": [
+                "1. What is the significance of taking a step in the opposite direction to the gradient in training a neural network?",
+                "2. How is the learning rate involved in the process of adjusting weights in a network?",
+                "3. What does it mean to calculate the gradient for all the weights in the network?",
+                "4. Can you explain the process of forward propagation as mentioned in the text?",
+                "5. What is the purpose of backward propagation in the context of neural network training?",
+                "6. How does the gradient affect the movement towards the global minimum during training?",
+                "7. What happens at the point labeled 0.1 in the training process?",
+                "8. Why is it important to reach the global minimum during the training of a neural network?",
+                "9. How do new samples contribute to the training process described in the text?",
+                "10. What is the overall goal of the training process for a neural network as outlined in the passage?"
+            ]
+        },
+        {
+            "id": 54,
+            "text": "uh we calculate the gradient here like when we are like at this 0.1 and we jump down here to, to this point. Now we we have like uh another like sample in uh like the, the uh the network for example. And it does like forward propagation, like backward propagation. And then when we have like the gradient uh of the of the net of the weight of the network again, uh we just like take a step in the opposite direction and we go down to three, down to 456 until we reach the global minimum. And so this is the whole point of training. So we want to uh tweak the weights in such a way that we can get the minimum possible error. And when we have the minimum possible error, it means that we have good predictions because the predictions are quite similar to the act actual outputs to the correct outputs",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1180.81",
+            "questions": [
+                "1. What is the purpose of calculating the gradient in the context of neural networks?",
+                "2. How does forward propagation contribute to the training of a neural network?",
+                "3. What role does backward propagation play in adjusting the weights of a network?",
+                "4. What does it mean to take a step in the opposite direction when adjusting weights?",
+                "5. What is the significance of reaching the global minimum during the training process?",
+                "6. How do we determine when we have achieved the minimum possible error in a neural network?",
+                "7. Why is it important for predictions to be similar to the actual outputs?",
+                "8. What happens to the weights of the network as we move closer to the global minimum?",
+                "9. How does minimizing error affect the overall performance of a neural network?",
+                "10. Can you explain the relationship between weight adjustment and prediction accuracy?"
+            ]
+        },
+        {
+            "id": 55,
+            "text": "uh we just like take a step in the opposite direction and we go down to three, down to 456 until we reach the global minimum. And so this is the whole point of training. So we want to uh tweak the weights in such a way that we can get the minimum possible error. And when we have the minimum possible error, it means that we have good predictions because the predictions are quite similar to the act actual outputs to the correct outputs good. So this was like quite intense. But now I hope you have understanding of both back propagation and grand in descent and how we use them for neural networks. Cool. So what remains to do? So what should we do",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1206.56",
+            "questions": [
+                "1. What is the main objective of adjusting weights during training?",
+                "2. How does reaching the global minimum relate to error in predictions?",
+                "3. What does it mean to have the minimum possible error in a neural network?",
+                "4. How do backpropagation and gradient descent work together in training neural networks?",
+                "5. Why is it important for predictions to be similar to actual outputs?",
+                "6. What steps are involved in the process of gradient descent?",
+                "7. How do we determine when we have reached the global minimum?",
+                "8. What does the term \"weights\" refer to in the context of neural networks?",
+                "9. Can you explain the significance of having good predictions in a neural network?",
+                "10. What challenges might arise during the training process of a neural network?"
+            ]
+        },
+        {
+            "id": 56,
+            "text": "uh tweak the weights in such a way that we can get the minimum possible error. And when we have the minimum possible error, it means that we have good predictions because the predictions are quite similar to the act actual outputs to the correct outputs good. So this was like quite intense. But now I hope you have understanding of both back propagation and grand in descent and how we use them for neural networks. Cool. So what remains to do? So what should we do like next in the next video? So we'll take all of this theoretical knowledge and we're gonna turn it into implementation. So we're gonna implement back propagation and grid in the center and we're gonna expand the multi-layered perception class that we've already built so that we can train our network from scratch good.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1219.01",
+            "questions": [
+                "1. What is the purpose of tweaking the weights in a neural network?",
+                "2. How does minimizing error relate to the accuracy of predictions?",
+                "3. What are back propagation and gradient descent used for in neural networks?",
+                "4. Why is it important to have predictions that are similar to actual outputs?",
+                "5. What are the next steps mentioned for applying theoretical knowledge in the video?",
+                "6. What is the significance of implementing back propagation in a neural network?",
+                "7. How will the multi-layered perception class be expanded in the upcoming implementation?",
+                "8. What does training a network from scratch entail?",
+                "9. What challenges might arise during the implementation of back propagation and gradient descent?",
+                "10. How does understanding back propagation and gradient descent contribute to improving neural network performance?"
+            ]
+        },
+        {
+            "id": 57,
+            "text": "good. So this was like quite intense. But now I hope you have understanding of both back propagation and grand in descent and how we use them for neural networks. Cool. So what remains to do? So what should we do like next in the next video? So we'll take all of this theoretical knowledge and we're gonna turn it into implementation. So we're gonna implement back propagation and grid in the center and we're gonna expand the multi-layered perception class that we've already built so that we can train our network from scratch good. So this was the video for today. So I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell if you have any questions or doubts uh about like the content of this video because it was like quite tough. Please leave a comment, leave a questions in the comments section below and I hope I'll see you next time. Cheers.",
+            "video": "7- Training a neural network\uff1a Backward propagation and gradient descent",
+            "start_time": "1238.29",
+            "questions": [
+                "1. What are back propagation and gradient descent used for in neural networks?",
+                "2. What is the next step after understanding back propagation and gradient descent?",
+                "3. How will the theoretical knowledge of back propagation and gradient descent be applied in the next video?",
+                "4. What specific class will be expanded in the upcoming implementation?",
+                "5. What is the goal of implementing back propagation and gradient descent in the video?",
+                "6. How can viewers engage with the content if they have questions or doubts?",
+                "7. What does the speaker hope viewers will do if they enjoyed the video?",
+                "8. What does the speaker imply about the difficulty of the content presented?",
+                "9. What type of network will be trained from scratch in the next video?",
+                "10. What action does the speaker encourage viewers to take regarding notifications?"
+            ]
+        }
+    ]
+}
