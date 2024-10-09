@@ -164,58 +164,58 @@ if __name__ == "__main__":
     # Output file to save the merged result
     dataset_path = f"./{yt_channel} - transcripts/{yt_playlist} - dataset.json"
 
-    # total_costs = 0
+    total_costs = 0
     
-    # # Iterate over all generated audio files in the directory
-    # for audio_file in os.listdir(yt_playlist_path):
-    #     if audio_file.endswith(".json"):
+    # Iterate over all generated audio files in the directory
+    for audio_file in os.listdir(yt_playlist_path):
+        if audio_file.endswith(".json"):
             
-    #         filename = audio_file.split(".")[0]
+            filename = audio_file.split(".")[0]
             
-    #         file_with_questions = f"{output_yt_playlist_path}{filename} - with questions.json"
-    #         print(f"Current file: {file_with_questions}")
+            file_with_questions = f"{output_yt_playlist_path}{filename} - with questions.json"
+            print(f"Current file: {file_with_questions}")
             
-    #         # Check if transcript already exists to avoid redundant work
-    #         if not os.path.exists(file_with_questions):
-    #             print(f"-------- Processing the file: {filename} --------")
+            # Check if transcript already exists to avoid redundant work
+            if not os.path.exists(file_with_questions):
+                print(f"-------- Processing the file: {filename} --------")
                 
-    #             audio_transcription_path = f"./{yt_channel} - transcripts/{yt_playlist}/{filename}.json"
+                audio_transcription_path = f"./{yt_channel} - transcripts/{yt_playlist}/{filename}.json"
 
-    #             # Output filename
-    #             audio_segments_path = f"{output_yt_playlist_path}{filename} - with questions.json"
+                # Output filename
+                audio_segments_path = f"{output_yt_playlist_path}{filename} - with questions.json"
                 
-    #             merge_audio_segments(audio_transcription_path, audio_segments_path)
+                merge_audio_segments(audio_transcription_path, audio_segments_path)
                 
-    #             audio_segments_data = th.read_json(audio_segments_path)
+                audio_segments_data = th.read_json(audio_segments_path)
                 
-    #             for segment in audio_segments_data["audio_segments"]:
+                for segment in audio_segments_data["audio_segments"]:
                     
-    #                 # Iterate through each segment and add the questions
-    #                 text = segment["text"]
-    #                 questions, stats = generate_questions(text, n=10)
-    #                 segment["questions"] = questions
+                    # Iterate through each segment and add the questions
+                    text = segment["text"]
+                    questions, stats = generate_questions(text, n=10)
+                    segment["questions"] = questions
                     
-    #                 req_cost = openai_costs(model, stats)
-    #                 total_costs += req_cost
+                    req_cost = openai_costs(model, stats)
+                    total_costs += req_cost
                     
-    #                 print(f"The costs = {req_cost}. Total costs = {total_costs}")
-    #                 time.sleep(1)
+                    print(f"The costs = {req_cost}. Total costs = {total_costs}")
+                    time.sleep(1)
 
-    #             # Save the updated JSON file with the questions
-    #             th.save_json(audio_segments_data, audio_segments_path)
+                # Save the updated JSON file with the questions
+                th.save_json(audio_segments_data, audio_segments_path)
                 
-    #         else:
-    #             print(f"Transcript already exists for {filename}")
+            else:
+                print(f"Transcript already exists for {filename}")
                 
-    #     time.sleep(5)
+        time.sleep(5)
         
-    # # Merge json files in one dataset
-    # merged_data = merge_json_files(output_yt_playlist_path)
-    # th.save_json(merged_data, dataset_path)
+    # Merge json files in one dataset
+    merged_data = merge_json_files(output_yt_playlist_path)
+    th.save_json(merged_data, dataset_path)
     
-    # # Add youtube links to dataset with transcription chunks
-    # data_with_links = add_youtube_link(dataset_path, video_id_path)
-    # th.save_json(data_with_links, dataset_path)
+    # Add youtube links to dataset with transcription chunks
+    data_with_links = add_youtube_link(dataset_path, video_id_path)
+    th.save_json(data_with_links, dataset_path)
     
     # Transform the JSON data
     transformed_data = transform_questions(dataset_path)

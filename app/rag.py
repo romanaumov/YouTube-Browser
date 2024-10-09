@@ -119,38 +119,3 @@ def get_answer(query, playlist, search_type):
         'response_time': response_time,
         'openai_cost': openai_cost
     }
-
-
-
-
-
-# query = "What is MFCC?"
-# query = "How Mel-Spectrogram can be used in applications?"
-# query = "How Spatial-Frequency parameters can be retrieval from an audio? What methods and approaches I should use?"
-# query = "What author of the course think about Universe?"
-# query = "What is the name of the author of the video series?"
-# query = "What information is there about the author of the video series?"
-# query = "What is this video series about?"
-
-# print(f"Question: {query}")
-
-# playlist = "Audio Signal Processing for ML"
-
-# search_type = "Text"
-# response = elastic_rag(query, playlist, search_type)
-
-# print("---------------------------- RESPONSE BELOW FROM LLM ---------------------------------:\n")
-# print(response)
-# print("\n---------------------------- RESPONSE BELOW FROM LLM ---------------------------------:\n")
-
-
-# number of tokens
-# num_input_tokens = len(tokens)
-# num_output_tokens = len(response_tokens)
-
-# # the cost per 1000 tokens for OpenAI
-# input_cost = 0.005
-# output_cost = 0.015
-
-# our_cost = (input_cost/1000*num_input_tokens + output_cost/1000*num_output_tokens)
-# print(f"The cost of our request for gpt-4o is {round(our_cost, 7)} US dollars")

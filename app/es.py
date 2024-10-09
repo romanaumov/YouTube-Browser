@@ -1,8 +1,6 @@
 
 from elasticsearch import Elasticsearch
-# from tqdm.auto import tqdm
 from sentence_transformers import SentenceTransformer
-# import data_ingestion as di
 from config import ES_INDEX, ES_URL, SENTENCE_TRANSFORMERS_MODEL
 import logging
 
@@ -20,9 +18,6 @@ logger = logging.getLogger(__name__)
 model = SentenceTransformer(SENTENCE_TRANSFORMERS_MODEL)
 es_client = Elasticsearch([ES_URL])
 es_client.info()
-
-# Run to create a new index and execute data ingestion
-# di.es_create_and_indexing(es_client, model)
 
 # Search documents by query
 def keyword_search(query, playlist, num_results=5):
