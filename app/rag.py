@@ -2,6 +2,7 @@
 from openai import OpenAI
 import es
 import logging
+import time
 from config import OPENAI_API_KEY, OPENAI_MODEL
 
 
@@ -22,6 +23,7 @@ def llm(prompt):
     logger.debug("Starting the sending the query to OpenAI .....")
     messages = [{"role": "user", "content": prompt}]
     
+    start_time = time.time()
     response = client.chat.completions.create(
         model = OPENAI_MODEL,
         messages = messages, 
@@ -31,6 +33,8 @@ def llm(prompt):
         temperature = 0.7)
     
     generated_text = response.choices[0].message.content
+    end_time = time.time()
+    response_time = end_time - start_time
     
     stats = {
         "prompt_tokens": response.usage.prompt_tokens,
@@ -39,7 +43,7 @@ def llm(prompt):
     }
     logger.debug("Sending the query to OpenAI was completed.")
     logger.debug(f"Answer from OpenAI: {generated_text} ")
-    return generated_text, stats
+    return generated_text, stats, response_time
 
 
 def build_prompt(query, search_results):
@@ -63,8 +67,8 @@ def build_prompt(query, search_results):
     prompt_template = """
     You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
     Use only the facts from the CONTEXT when answering the QUESTION. 
-    If you find the answer in CONTEXT, contain a video link from the CONTEXT below.
-    Format of the answer should be an answer firstly, and then provide link at the of answer, if you found it.
+    If you find the answer in CONTEXT, contain a video link and the video name from the CONTEXT below.
+    Format of the answer should be an answer firstly, and then provide video name and link to the video, if you found it.
 
     QUESTION: {question}
 
@@ -94,13 +98,27 @@ def build_prompt(query, search_results):
     logger.debug(f"The prompt to OpenAI is: {prompt}")
     return prompt
 
-def elastic_rag(query, playlist, search_type):
+# Calculate cost for OpenAI gpt-4o-mini model
+def calculate_openai_cost(stats):
+    cost = 0
+    cost = (stats['prompt_tokens'] * 0.03 + stats['completion_tokens'] * 0.06) / 1000
+
+    return cost
+
+def get_answer(query, playlist, search_type):
     logger.debug("Starting the RAG query .....")
     search_results = es.search_answer(query, playlist, search_type)
     prompt = build_prompt(query, search_results)
-    answer, _ = llm(prompt)
+    answer, stats, response_time = llm(prompt)
+    openai_cost = calculate_openai_cost(stats)
+    
     logger.debug("RAG query was completed.")
-    return answer
+
+    return {
+        'answer': answer,
+        'response_time': response_time,
+        'openai_cost': openai_cost
+    }
 
 
 
