@@ -35,11 +35,9 @@ def init_db():
     try:
         logger.debug("Trying to create table conversations and feedback...")
         with conn.cursor() as cur:
-            cur.execute("DROP TABLE IF EXISTS feedback")
-            cur.execute("DROP TABLE IF EXISTS conversations")
 
             cur.execute("""
-                CREATE TABLE conversations (
+                CREATE TABLE IF NOT EXISTS conversations (
                     id TEXT PRIMARY KEY,
                     question TEXT NOT NULL,
                     answer TEXT NOT NULL,
@@ -50,7 +48,7 @@ def init_db():
                 );
             """)
             cur.execute("""
-                CREATE TABLE feedback (
+                CREATE TABLE IF NOT EXISTS feedback (
                     id SERIAL PRIMARY KEY,
                     conversation_id TEXT REFERENCES conversations(id),
                     feedback INTEGER NOT NULL,
@@ -102,6 +100,15 @@ def save_feedback(conversation_id, feedback, timestamp=None):
     try:
         logger.debug("Trying to save feedback...")
         with conn.cursor() as cur:
+            # First, check if the conversation ID exists in the conversations table
+            cur.execute("""
+                SELECT 1 FROM conversations WHERE id = %s
+                """, (conversation_id,))
+            if not cur.fetchone():
+                logger.error(f"Conversation ID {conversation_id} does not exist in conversations table.")
+                raise ValueError(f"Conversation ID {conversation_id} not found in conversations table.")
+            
+            # Now, insert the feedback into the feedback table
             cur.execute("""
                 INSERT INTO feedback (
                     conversation_id, feedback, timestamp) 

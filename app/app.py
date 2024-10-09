@@ -14,13 +14,10 @@ logging.basicConfig(
         # logging.StreamHandler()           # Output logs to console as well
     ]
 )
-logger = logging.getLogger(__name__)
 
 def main():
     
     logger.debug("Starting YouTube Browser streamlit app .....")
-    
-    init_db()
     
     # Session state initialization
     if "conversation_id" not in st.session_state:
@@ -48,6 +45,13 @@ def main():
     user_input = st.text_input("Write your question below:")
 
     if st.button("Send a question to AI"):
+        if not user_input:
+            st.error("Please enter a question before submitting.")
+            return
+        
+        # Generate a new conversation ID for next question
+        st.session_state.conversation_id = str(uuid.uuid4())
+        
         logger.debug(f"User asked: '{user_input}'")
         with st.spinner("AI thinks ... AI thinks ..."):
             logger.debug(f"Getting answer from YouTube Browser using {search_type} search")
@@ -80,12 +84,16 @@ def main():
             logger.debug(f"Positive feedback received. New count: {st.session_state.count}")
             save_feedback(st.session_state.conversation_id, 1)
             logger.debug("Positive feedback saved to database")
+            # Generate a new conversation ID for next question
+            st.session_state.conversation_id = str(uuid.uuid4())
     with col2:
         if st.button("👎 AI needs to get smarter!"):
             st.session_state.count -= 1
             logger.debug(f"Negative feedback received. New count: {st.session_state.count}")
             save_feedback(st.session_state.conversation_id, -1)
             logger.debug("Negative feedback saved to database")
+            # Generate a new conversation ID for next question
+            st.session_state.conversation_id = str(uuid.uuid4())
 
     st.write(f"Current count: {st.session_state.count}")
 
@@ -103,14 +111,11 @@ def main():
     st.subheader("Feedback Statistics")
     st.write(f"Thumbs up: {feedback_stats['thumbs_up']}")
     st.write(f"Thumbs down: {feedback_stats['thumbs_down']}")
-    
-    # Generate a new conversation ID for next question
-    st.session_state.conversation_id = str(uuid.uuid4())
-            
-
-logger.debug("YouTube Browser app completed")
 
 
 if __name__ == "__main__":
+    logger = logging.getLogger(__name__)
     logger.debug("YouTube Browser app started")
+    init_db()
     main()
+    logger.debug("YouTube Browser app completed")
