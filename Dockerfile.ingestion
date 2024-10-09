@@ -6,6 +6,6 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY ./app/data_ingestion.py .
 
-CMD ["streamlit", "run", "app.py"]
+CMD ["python", "data_ingestion.py"]

@@ -2,23 +2,24 @@
 from openai import OpenAI
 import es
 import logging
+from config import OPENAI_API_KEY, OPENAI_MODEL
 
-from config import (
-    OPENAI_API_KEY,
-    OPENAI_MODEL,
-)
 
-# Configure logging
+# Configure logging to save logs to a file
 logging.basicConfig(
     level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("./logs/rag.log"),   # Save logs to a file named app.log
+        # logging.StreamHandler()           # Output logs to console as well
+    ]
 )
 logger = logging.getLogger(__name__)
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 def llm(prompt):
-    
+    logger.debug("Starting the sending the query to OpenAI .....")
     messages = [{"role": "user", "content": prompt}]
     
     response = client.chat.completions.create(
@@ -36,11 +37,13 @@ def llm(prompt):
         "completion_tokens": response.usage.completion_tokens,
         "total_tokens": response.usage.total_tokens,
     }
+    logger.debug("Sending the query to OpenAI was completed.")
+    logger.debug(f"Answer from OpenAI: {generated_text} ")
     return generated_text, stats
 
 
 def build_prompt(query, search_results):
-        
+    logger.debug("Starting the build prompt .....")
     context_template = """
     Q1: {question1}
     Q2: {question2}
@@ -87,14 +90,16 @@ def build_prompt(query, search_results):
                                                     youtube_link=doc['_source']['youtube_link']).strip() + "\n\n"
     
     prompt = prompt_template.format(question=query, context=context).strip()
-
+    logger.debug("Building prompt was completed.")
+    logger.debug(f"The prompt to OpenAI is: {prompt}")
     return prompt
 
 def elastic_rag(query, playlist, search_type):
-    
+    logger.debug("Starting the RAG query .....")
     search_results = es.search_answer(query, playlist, search_type)
     prompt = build_prompt(query, search_results)
     answer, _ = llm(prompt)
+    logger.debug("RAG query was completed.")
     return answer
 
 

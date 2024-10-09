@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: streamlit_app
+    container_name: streamlit
     logging:
       driver: "json-file"
       options:
@@ -40,11 +40,35 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=false
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
     ports:
       - "${ELASTIC_PORT:-9200}:9200"
       - "9300:9300"
     volumes:
       - es_data:/usr/share/elasticsearch/data
+  
+  # Data ingestion into ElasticSearch
+  ingestion:
+    image: python:3.12 
+    container_name: ingestion
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: Dockerfile.ingestion
+    volumes:
+      - ./app:/app 				                    # Mount the directory containing the script
+    depends_on:
+      - elasticsearch  				                # Ensure Elasticsearch is running before this starts
+    command: python data_ingestion.py  	      # Run the ingestion script
+    environment:
+      - ES_URL=${ES_URL}
+      - ES_INDEX=${ES_INDEX}
+      - DATASET_PATH=${DATASET_PATH}
+      - SENTENCE_TRANSFORMERS_MODEL=${SENTENCE_TRANSFORMERS_MODEL}
 
   # PostgreSQL Database
   postgres:

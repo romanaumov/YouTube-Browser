@@ -1,22 +1,21 @@
 
 from elasticsearch import Elasticsearch
-from tqdm.auto import tqdm
+# from tqdm.auto import tqdm
 from sentence_transformers import SentenceTransformer
-import data_ingestion as di
+# import data_ingestion as di
+from config import ES_INDEX, ES_URL, SENTENCE_TRANSFORMERS_MODEL
 import logging
 
-# Configure logging
+# Configure logging to save logs to a file
 logging.basicConfig(
     level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("./logs/es.log"),   # Save logs to a file named app.log
+        # logging.StreamHandler()           # Output logs to console as well
+    ]
 )
 logger = logging.getLogger(__name__)
-
-from config import (
-    ES_INDEX,
-    ES_URL,
-    SENTENCE_TRANSFORMERS_MODEL,
-)
 
 model = SentenceTransformer(SENTENCE_TRANSFORMERS_MODEL)
 es_client = Elasticsearch([ES_URL])
@@ -27,6 +26,7 @@ es_client.info()
 
 # Search documents by query
 def keyword_search(query, playlist, num_results=5):
+    logger.debug("Starting the sending Keyword search query .....")
     search_query = {
         "size": num_results,
         "query": {
@@ -62,11 +62,12 @@ def keyword_search(query, playlist, num_results=5):
     result_docs = []
     for hit in response['hits']['hits']:
         result_docs.append(hit)
-    
+    logger.debug("Sending Keyword search query was completed.")
+    logger.debug(f"Answer from ElasticSearch for Keyword search is: {result_docs}")
     return result_docs
 
 def knn_search(query_vector, playlist, num_results=5):
-    
+    logger.debug("Starting the sending KNN search query .....")
     search_query = {
         "field": "text_vector",
         "query_vector": query_vector,
@@ -94,17 +95,18 @@ def knn_search(query_vector, playlist, num_results=5):
     result_docs = []
     for hit in response['hits']['hits']:
         result_docs.append(hit)
-    
+    logger.debug("Sending KNN search query was completed.")
+    logger.debug(f"Answer from ElasticSearch for KNN search is: {result_docs}")
     return result_docs
 
 # Search answer based on two possible approaches - keyword and vector search
 def search_answer(query, playlist, search_type):
-    
+    logger.debug(f"Starting the sending search query with the type: {search_type}")
     if search_type == "Text":
         answer = keyword_search(query, playlist)
         
     if search_type == "Vector":
         query_vector = model.encode(query)
         answer = knn_search(query_vector, playlist)
-        
+    logger.debug(f"Sending search query with the type: {search_type} was completed.")
     return answer
