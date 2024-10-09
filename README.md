@@ -15,3 +15,20 @@ The main goal of this project is to create an AI assistant that could search for
 As part of this project, an AI-Audio-Assistant was created, which provides the ability to search for information in YouTube playlists, such as in the Google search engine. AI-Audio-Assistant is a Retrieval Augmented Generation application, the main goal of which is to provide answers for user questions based on content in YouTube videos.
 The information in the AI-Audio-Assistant knowledge base contains transcribed audio files from two playlists, "Audio Deep Learning with Python" and "Audio Signal Processing for ML", from The Sound of AI channel. These playlists contain technical information on how to work with audio files, how to process an audio signal using popular Python libraries, what physical parameters an audio signal has, how to apply Deep Learning models to build AI applications based on neural networks, etc.
 As part of the project, code was written that allows you to download audio tracks from YouTube video playlists and transcribe them using the Amazon Transcribe service. As a result, transcripts of the video content were obtained with time codes, as well as broken down into chunks. However, one chunk does not always contain complete information to answer a question. For this reason, the resulting dataset was transformed so that each chunk also contained information from the two following chunks. In addition, 10 questions were generated for the contents of each chunk using LLM and also added to the dataset. In the future, based on the search for the generated questions, as well as the contents of the chunks, the ranking of answers will be performed using ElasticSearch.
+
+## Examples of questions and answers from RAG system
+
+Firstly, the question which is relevant to the playlist information (Text and Vector search).
+
+
+![How Mel-Spectrogram can be used in applications? - Text search](images/Text_search.png "How Mel-Spectrogram can be used in applications? - Text search")
+
+![How Mel-Spectrogram can be used in applications? - Vector search](images/Vector_search.png "How Mel-Spectrogram can be used in applications? - Vector search")
+
+
+Secondly, the question which author didn't cover in his videos (Text and Vector search).
+
+![What author of the course think about Aliens? - Text search](images/Aliens_text.png "How Mel-Spectrogram can be used in applications? - Text search")
+
+![What author of the course think about Aliens? - Vector search](images/Aliens_vector.png "What author of the course think about Aliens? - Vector search")
+
