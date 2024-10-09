@@ -22,35 +22,37 @@ As part of the project, code was developed that allows you to download audio tra
 
 `app` - RAG application
 
-    - `app.py` - Streamlit app (UI interface)
+    `app.py` - Streamlit app (UI interface)
 
-    - `db.py` - Postgres app (all queries to DB)
+    `db.py` - Postgres app (all queries to DB)
 
-    - `es.py` - ElasticSearch app (all queries to ElasticSearch to search info)
+    `es.py` - ElasticSearch app (all queries to ElasticSearch to search info)
 
-    - `rag.py` - RAG app (build prompt, send queries to LLM)
+    `rag.py` - RAG app (build prompt, send queries to LLM)
 
-    - `data_ingestion.py` - Ingestion app (Creating, ingestion, indexing documents)
+    `data_ingestion.py` - Ingestion app (Creating, ingestion, indexing documents)
 
-    - `config.py` - Reading environmental params into variables
+    `config.py` - Reading environmental params into variables
 
-    - `data` - Directory with datasets. Contain two transcribed playlists in json format. (at current, the system is working with one of them - Audio Signal Processing for ML - dataset. Unfortunately, I had no time to merge both playlists and ingest into elastic search)
+    `data` - Directory with datasets. Contain two transcribed playlists in json format. 
+    At current, the system is working with one of them - Audio Signal Processing for ML - dataset. 
+    Unfortunately, I had no time to merge both playlists and ingest into elastic search.
 
-    - `logs` - Directory with logs. The system save logs for each container.
+    `logs` - Directory with logs. The system save logs for each container.
 
 `data_prep` - Directory for creating dataset
 
-    - `The Sound of AI - transcripts` - Directory with transcripts of separate videos and temporary files, as well.
+    `The Sound of AI - transcripts` - Directory with transcripts of separate videos and temporary files, as well.
 
-    - `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
+    `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
 
-    - `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+    `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
 
-    - `download_audio.py` - Script for downloading audio tracks from YouTube.
+    `download_audio.py` - Script for downloading audio tracks from YouTube.
 
-    - `credentials.py` - Config to run queries to Amazon Transcribe service.
+    `credentials.py` - Config to run queries to Amazon Transcribe service.
 
-    - `text_helpers.py` - Some additional operations with text.
+    `text_helpers.py` - Some additional operations with text.
 
 `docker-compose.yaml` - Docker compose to run several containers.
 
@@ -98,8 +100,8 @@ You can see Postres database using pgAdmin at the address: `http://localhost:808
 
 In addition you can check the status and problems with the system via logging. There are two ways to check:
 
-1. See logs.
-2. Use command in terminal `docker logs -f <name_of_container>`. `-f` means see logs in real-time.
+1. Use command in terminal `docker logs -f <name_of_container>`. `-f` means see logs in real-time.
+2. See logs.
 
 
 ## Examples of questions and answers from RAG system
@@ -124,6 +126,53 @@ Secondly, the question which author didn't cover in his videos (Text and Vector 
 ### What author of the course think about Aliens? - Vector search
 
 ![What author of the course think about Aliens? - Vector search](images/Aliens_vector.png "What author of the course think about Aliens? - Vector search")
+
+
+## Meet the Evaluation Criteria
+
+* Problem description
+    * [ ] 0 points: The problem is not described
+    * [ ] 1 point: The problem is described but briefly or unclearly
+    * [x] 2 points: The problem is well-described and it's clear what problem the project solves
+* RAG flow
+    * [ ] 0 points: No knowledge base or LLM is used
+    * [ ] 1 point: No knowledge base is used, and the LLM is queried directly
+    * [x] 2 points: Both a knowledge base and an LLM are used in the RAG flow 
+* Retrieval evaluation
+    * [ ] 0 points: No evaluation of retrieval is provided
+    * [ ] 1 point: Only one retrieval approach is evaluated
+    * [x] 2 points: Multiple retrieval approaches are evaluated, and the best one is used
+* RAG evaluation
+    * [x] 0 points: No evaluation of RAG is provided
+    * [ ] 1 point: Only one RAG approach (e.g., one prompt) is evaluated
+    * [ ] 2 points: Multiple RAG approaches are evaluated, and the best one is used
+* Interface
+   * [ ] 0 points: No way to interact with the application at all
+   * [ ] 1 point: Command line interface, a script, or a Jupyter notebook
+   * [x] 2 points: UI (e.g., Streamlit), web application (e.g., Django), or an API (e.g., built with FastAPI) 
+* Ingestion pipeline
+   * [ ] 0 points: No ingestion
+   * [ ] 1 point: Semi-automated ingestion of the dataset into the knowledge base, e.g., with a Jupyter notebook
+   * [x] 2 points: Automated ingestion with a Python script or a special tool (e.g., Mage, dlt, Airflow, Prefect)
+* Monitoring
+   * [ ] 0 points: No monitoring
+   * [x] 1 point: User feedback is collected OR there's a monitoring dashboard
+   * [ ] 2 points: User feedback is collected and there's a dashboard with at least 5 charts
+* Containerization
+    * [ ] 0 points: No containerization
+    * [ ] 1 point: Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only
+    * [x] 2 points: Everything is in docker-compose
+* Reproducibility
+    * [ ] 0 points: No instructions on how to run the code, the data is missing, or it's unclear how to access it
+    * [ ] 1 point: Some instructions are provided but are incomplete, OR instructions are clear and complete, the code works, but the data is missing
+    * [x] 2 points: Instructions are clear, the dataset is accessible, it's easy to run the code, and it works. The versions for all dependencies are specified.
+* Best practices
+    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
+    * [ ] Document re-ranking (1 point)
+    * [ ] User query rewriting (1 point)
+* Bonus points (not covered in the course)
+    * [ ] Deployment to the cloud (2 points)
+    * [x] Up to 3 extra bonus points if you want to award for something extra (write in feedback for what) - Created dataset using Amazon Transcribe and logging of the entire system.
 
 
 ## Conclusion
