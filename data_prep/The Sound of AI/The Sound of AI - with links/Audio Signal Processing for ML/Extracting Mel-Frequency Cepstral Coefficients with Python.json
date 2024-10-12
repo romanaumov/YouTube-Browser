@@ -1,0 +1,263 @@
+[
+    {
+        "id": "99b3dbde",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we looked at mad frequency CEPT coefficients from a theoretical standpoint. In this video, I want to show you how you can extract MF CCS using Python and Libros. So let's get started with this Jupiter notebook. So the first thing I want to do is just import a bunch of libraries that we'll be using. So I'll import Li Brosa Libros dot display, ipython dot display, uh Pylot and then pie. So let's do that. Next thing we want to load uh an audio file. So which file are we gonna load? So it's a file that we, you should be familiar with by. Now it's a, a short passage of a piece from clothes, the Bey. So we're talking about classical music here.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "813e5356",
+        "text": "So the first thing I want to do is just import a bunch of libraries that we'll be using. So I'll import Li Brosa Libros dot display, ipython dot display, uh Pylot and then pie. So let's do that. Next thing we want to load uh an audio file. So which file are we gonna load? So it's a file that we, you should be familiar with by. Now it's a, a short passage of a piece from clothes, the Bey. So we're talking about classical music here. OK. So I'll do audio and then I have the file uh that's called the BC dot WAV. OK. So now first thing let's play back this audio file in the Jupiter network. So we'll do a in IP D dot audio and then pass in the path to the file. OK? And here we go. So let's listen to a little bit of this.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=20s",
+        "start_time": "20.389"
+    },
+    {
+        "id": "01bbb1b1",
+        "text": "So which file are we gonna load? So it's a file that we, you should be familiar with by. Now it's a, a short passage of a piece from clothes, the Bey. So we're talking about classical music here. OK. So I'll do audio and then I have the file uh that's called the BC dot WAV. OK. So now first thing let's play back this audio file in the Jupiter network. So we'll do a in IP D dot audio and then pass in the path to the file. OK? And here we go. So let's listen to a little bit of this. OK? So if you followed along during the series, you probably recognize",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=37s",
+        "start_time": "37.47"
+    },
+    {
+        "id": "dfabae36",
+        "text": "OK. So I'll do audio and then I have the file uh that's called the BC dot WAV. OK. So now first thing let's play back this audio file in the Jupiter network. So we'll do a in IP D dot audio and then pass in the path to the file. OK? And here we go. So let's listen to a little bit of this. OK? So if you followed along during the series, you probably recognize good. So the next thing that we wanna do, we want to actually load the uh the audio file using a li browser. And so, uh again, this is something that we've done multiple times. So we'll take the signal and the sampling rate over here and then we'll do a Lisa dot load. And then what we wanna pass is the audio file over here.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=52s",
+        "start_time": "52.534"
+    },
+    {
+        "id": "cbe927db",
+        "text": "OK? So if you followed along during the series, you probably recognize good. So the next thing that we wanna do, we want to actually load the uh the audio file using a li browser. And so, uh again, this is something that we've done multiple times. So we'll take the signal and the sampling rate over here and then we'll do a Lisa dot load. And then what we wanna pass is the audio file over here. And yes. And so here we have the sampling rate and here we have the signal. So let's take a look at the uh signal over here at the shape of the signal. And as you can see, we have this amount of samples uh in this uh waveform. Next step for us is extracting MF CCS, extract NF CCS. OK. So",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=82s",
+        "start_time": "82.62"
+    },
+    {
+        "id": "5c4d3813",
+        "text": "good. So the next thing that we wanna do, we want to actually load the uh the audio file using a li browser. And so, uh again, this is something that we've done multiple times. So we'll take the signal and the sampling rate over here and then we'll do a Lisa dot load. And then what we wanna pass is the audio file over here. And yes. And so here we have the sampling rate and here we have the signal. So let's take a look at the uh signal over here at the shape of the signal. And as you can see, we have this amount of samples uh in this uh waveform. Next step for us is extracting MF CCS, extract NF CCS. OK. So how do we do that? Well, this is extremely simple in Li Brosa because we have a function that does dash uh almost for free for us. So MS CC is equal to libros dot feature. And then MFCC like this and we want to pass in the signal, specify the number of MF CCS and we'll",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=88s",
+        "start_time": "88.879"
+    },
+    {
+        "id": "027addc2",
+        "text": "And yes. And so here we have the sampling rate and here we have the signal. So let's take a look at the uh signal over here at the shape of the signal. And as you can see, we have this amount of samples uh in this uh waveform. Next step for us is extracting MF CCS, extract NF CCS. OK. So how do we do that? Well, this is extremely simple in Li Brosa because we have a function that does dash uh almost for free for us. So MS CC is equal to libros dot feature. And then MFCC like this and we want to pass in the signal, specify the number of MF CCS and we'll use like a traditional number which is equal to 13 and then specify the sampling rate like this. OK. Let's do this. OK? So here we have the MF CCS. Now, now let's take a look at the uh the shape of this MF CCS. And so this should be a dimensional array or a matrix. And so we'll do MF CCS dot shape.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=117s",
+        "start_time": "117.51"
+    },
+    {
+        "id": "e983d5f9",
+        "text": "how do we do that? Well, this is extremely simple in Li Brosa because we have a function that does dash uh almost for free for us. So MS CC is equal to libros dot feature. And then MFCC like this and we want to pass in the signal, specify the number of MF CCS and we'll use like a traditional number which is equal to 13 and then specify the sampling rate like this. OK. Let's do this. OK? So here we have the MF CCS. Now, now let's take a look at the uh the shape of this MF CCS. And so this should be a dimensional array or a matrix. And so we'll do MF CCS dot shape. And as you can see, we have, the number of rows is equal to 13 and the number of columns that we have or in other words, like the different frames is equal to 1000 almost um 1300 frames or discrete time points. Next, we want to visualize the MF CCS.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=141s",
+        "start_time": "141.735"
+    },
+    {
+        "id": "4002655a",
+        "text": "use like a traditional number which is equal to 13 and then specify the sampling rate like this. OK. Let's do this. OK? So here we have the MF CCS. Now, now let's take a look at the uh the shape of this MF CCS. And so this should be a dimensional array or a matrix. And so we'll do MF CCS dot shape. And as you can see, we have, the number of rows is equal to 13 and the number of columns that we have or in other words, like the different frames is equal to 1000 almost um 1300 frames or discrete time points. Next, we want to visualize the MF CCS. So let's write, visualize MF CCS. And so we can easily do this with a native function in libros that's called spec show. So let's get started. So we'll do a plot dot uh figure as the first thing and we want to specify the figure size of yeah of our figure. So we'll do a fig size and we'll set this equal to 25 by 10. OK.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=166s",
+        "start_time": "166.24"
+    },
+    {
+        "id": "8f8a5e43",
+        "text": "And as you can see, we have, the number of rows is equal to 13 and the number of columns that we have or in other words, like the different frames is equal to 1000 almost um 1300 frames or discrete time points. Next, we want to visualize the MF CCS. So let's write, visualize MF CCS. And so we can easily do this with a native function in libros that's called spec show. So let's get started. So we'll do a plot dot uh figure as the first thing and we want to specify the figure size of yeah of our figure. So we'll do a fig size and we'll set this equal to 25 by 10. OK. And now we are gonna be using the Li Brosa dot this play dot spectra function and this is a function that enables us to visualize any spectrogram like uh feature. So we'll pass in as arguments. The, obviously, the MF CCS will want to specify that the X axis uh is gonna have like time.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=191s",
+        "start_time": "191.24"
+    },
+    {
+        "id": "594adb1b",
+        "text": "So let's write, visualize MF CCS. And so we can easily do this with a native function in libros that's called spec show. So let's get started. So we'll do a plot dot uh figure as the first thing and we want to specify the figure size of yeah of our figure. So we'll do a fig size and we'll set this equal to 25 by 10. OK. And now we are gonna be using the Li Brosa dot this play dot spectra function and this is a function that enables us to visualize any spectrogram like uh feature. So we'll pass in as arguments. The, obviously, the MF CCS will want to specify that the X axis uh is gonna have like time. And finally, we need to pass the sampling rate in. Now, this is gonna be a heat map like uh visualization. So we're gonna have like some colors. And what we wanna do is like having the ability to map these different colors to numerical values. So for that, we'll need a color bar. So we'll do a plot dot color bar. And here",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=211s",
+        "start_time": "211.75"
+    },
+    {
+        "id": "3a1fafee",
+        "text": "And now we are gonna be using the Li Brosa dot this play dot spectra function and this is a function that enables us to visualize any spectrogram like uh feature. So we'll pass in as arguments. The, obviously, the MF CCS will want to specify that the X axis uh is gonna have like time. And finally, we need to pass the sampling rate in. Now, this is gonna be a heat map like uh visualization. So we're gonna have like some colors. And what we wanna do is like having the ability to map these different colors to numerical values. So for that, we'll need a color bar. So we'll do a plot dot color bar. And here uh we have an argument called format and here we pass percentage plus to F and the last thing is just showing the um the, this visualization. So let's take a look at this. And here we go.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=240s",
+        "start_time": "240.07"
+    },
+    {
+        "id": "9080b998",
+        "text": "And finally, we need to pass the sampling rate in. Now, this is gonna be a heat map like uh visualization. So we're gonna have like some colors. And what we wanna do is like having the ability to map these different colors to numerical values. So for that, we'll need a color bar. So we'll do a plot dot color bar. And here uh we have an argument called format and here we pass percentage plus to F and the last thing is just showing the um the, this visualization. So let's take a look at this. And here we go. So here we have the visualization. And as you can see on the X axis, we have uh time and uh like this, the BC musical passage is a 32nd long. And here on the Y axis, we have the different uh coefficients. So the different MFCC coefficients and if you count, you'll see that we have 13 coefficients, right? And at each point in this diagram, we have the value for",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=266s",
+        "start_time": "266.179"
+    },
+    {
+        "id": "3f3ec290",
+        "text": "uh we have an argument called format and here we pass percentage plus to F and the last thing is just showing the um the, this visualization. So let's take a look at this. And here we go. So here we have the visualization. And as you can see on the X axis, we have uh time and uh like this, the BC musical passage is a 32nd long. And here on the Y axis, we have the different uh coefficients. So the different MFCC coefficients and if you count, you'll see that we have 13 coefficients, right? And at each point in this diagram, we have the value for a given MFCCMFCC index at a certain point in time. And here you have the,",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=292s",
+        "start_time": "292.26"
+    },
+    {
+        "id": "46eba1ce",
+        "text": "So here we have the visualization. And as you can see on the X axis, we have uh time and uh like this, the BC musical passage is a 32nd long. And here on the Y axis, we have the different uh coefficients. So the different MFCC coefficients and if you count, you'll see that we have 13 coefficients, right? And at each point in this diagram, we have the value for a given MFCCMFCC index at a certain point in time. And here you have the, the mapping between like the uh the colors and the different numerical values. Next, we want to calculate the 1st and 2nd derivatives of the MF CCS. We saw this already in the previous video and we can call these features delta and delta delta MF CCS. And they are very important",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=307s",
+        "start_time": "307.869"
+    },
+    {
+        "id": "66573b3d",
+        "text": "a given MFCCMFCC index at a certain point in time. And here you have the, the mapping between like the uh the colors and the different numerical values. Next, we want to calculate the 1st and 2nd derivatives of the MF CCS. We saw this already in the previous video and we can call these features delta and delta delta MF CCS. And they are very important to tell us how the MS CCS change over time in an audio file. OK. So first of all, yeah, let me just add a few of this. So it becomes clear what I'm doing. And then let me just add a comment saying calculate delta and delta",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=336s",
+        "start_time": "336.19"
+    },
+    {
+        "id": "08bacfdd",
+        "text": "the mapping between like the uh the colors and the different numerical values. Next, we want to calculate the 1st and 2nd derivatives of the MF CCS. We saw this already in the previous video and we can call these features delta and delta delta MF CCS. And they are very important to tell us how the MS CCS change over time in an audio file. OK. So first of all, yeah, let me just add a few of this. So it becomes clear what I'm doing. And then let me just add a comment saying calculate delta and delta to MF CCS. OK. So how can we do that. Well, this is again, very simple because Li Brosa comes with a built in function for uh doing that. So we'll say delta MF CCS is equal to Li Li Brosa dot feature dot Delta, delta. And here we just pass the MF CCS and for the delta two",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=346s",
+        "start_time": "346.5"
+    },
+    {
+        "id": "df81380b",
+        "text": "to tell us how the MS CCS change over time in an audio file. OK. So first of all, yeah, let me just add a few of this. So it becomes clear what I'm doing. And then let me just add a comment saying calculate delta and delta to MF CCS. OK. So how can we do that. Well, this is again, very simple because Li Brosa comes with a built in function for uh doing that. So we'll say delta MF CCS is equal to Li Li Brosa dot feature dot Delta, delta. And here we just pass the MF CCS and for the delta two MF CCS will use the uh very same function. So it's li browser dot feature dot delta and we'll pass once again the MF CCS here, but we should specify a keyword argument called order. And here we say the order is equal to two.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=365s",
+        "start_time": "365.0"
+    },
+    {
+        "id": "2cb0c890",
+        "text": "to MF CCS. OK. So how can we do that. Well, this is again, very simple because Li Brosa comes with a built in function for uh doing that. So we'll say delta MF CCS is equal to Li Li Brosa dot feature dot Delta, delta. And here we just pass the MF CCS and for the delta two MF CCS will use the uh very same function. So it's li browser dot feature dot delta and we'll pass once again the MF CCS here, but we should specify a keyword argument called order. And here we say the order is equal to two. And so this is the second derivative. OK. Yeah. So now let's take a look at the shape of this um",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=387s",
+        "start_time": "387.179"
+    },
+    {
+        "id": "2ce2e36c",
+        "text": "MF CCS will use the uh very same function. So it's li browser dot feature dot delta and we'll pass once again the MF CCS here, but we should specify a keyword argument called order. And here we say the order is equal to two. And so this is the second derivative. OK. Yeah. So now let's take a look at the shape of this um delta MF CCS for example. So we'll do delta MF CCS dot A shape. And as you can see, they have the very same shape that we had for MF CCS. And if you don't remember if we do am F CCS dot uh shape, you can see. Yes. So we have 13 indexes and also like in the delta MF CCS because",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=417s",
+        "start_time": "417.45"
+    },
+    {
+        "id": "4d660370",
+        "text": "And so this is the second derivative. OK. Yeah. So now let's take a look at the shape of this um delta MF CCS for example. So we'll do delta MF CCS dot A shape. And as you can see, they have the very same shape that we had for MF CCS. And if you don't remember if we do am F CCS dot uh shape, you can see. Yes. So we have 13 indexes and also like in the delta MF CCS because at the end of the day, we are just taking the first derivative, right? So 13 and then uh the number of frames that we have is equal to uh 1292. Now let me visualize delta MF CCS and delta delta MFCC. So how can we do that? Well, it's very simple. We just take like this piece of code here.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=439s",
+        "start_time": "439.39"
+    },
+    {
+        "id": "3cbd22b7",
+        "text": "delta MF CCS for example. So we'll do delta MF CCS dot A shape. And as you can see, they have the very same shape that we had for MF CCS. And if you don't remember if we do am F CCS dot uh shape, you can see. Yes. So we have 13 indexes and also like in the delta MF CCS because at the end of the day, we are just taking the first derivative, right? So 13 and then uh the number of frames that we have is equal to uh 1292. Now let me visualize delta MF CCS and delta delta MFCC. So how can we do that? Well, it's very simple. We just take like this piece of code here. Let's just get this,",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=447s",
+        "start_time": "447.7"
+    },
+    {
+        "id": "7adfedd3",
+        "text": "at the end of the day, we are just taking the first derivative, right? So 13 and then uh the number of frames that we have is equal to uh 1292. Now let me visualize delta MF CCS and delta delta MFCC. So how can we do that? Well, it's very simple. We just take like this piece of code here. Let's just get this, we'll put this one here and instead of MF CCS, we'll pass in delta uh MF CCS over here, let's do this. And so these are the delta MF CCS and now let's do the very same thing. But with a delta, delta MF CCS, it will pass in the delta to MF CCS. And here you go. OK.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=470s",
+        "start_time": "470.885"
+    },
+    {
+        "id": "2c20d6eb",
+        "text": "Let's just get this, we'll put this one here and instead of MF CCS, we'll pass in delta uh MF CCS over here, let's do this. And so these are the delta MF CCS and now let's do the very same thing. But with a delta, delta MF CCS, it will pass in the delta to MF CCS. And here you go. OK. So here we have the original MF CCS. Here we have the first derivative of the MF CCS. And here the second uh derivative of the MF CCS, the final thing that I want to show you guys is taking the MF CCS and the 1st and 2nd derivatives of the MF CCS and co concatenating them together so that we have a unique",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=494s",
+        "start_time": "494.73"
+    },
+    {
+        "id": "20f76670",
+        "text": "we'll put this one here and instead of MF CCS, we'll pass in delta uh MF CCS over here, let's do this. And so these are the delta MF CCS and now let's do the very same thing. But with a delta, delta MF CCS, it will pass in the delta to MF CCS. And here you go. OK. So here we have the original MF CCS. Here we have the first derivative of the MF CCS. And here the second uh derivative of the MF CCS, the final thing that I want to show you guys is taking the MF CCS and the 1st and 2nd derivatives of the MF CCS and co concatenating them together so that we have a unique audio uh feature that's like quite comprehensive because we have the MF CCS and we also have information about how does MF CCS change over time. Thanks to the derivatives. OK. So how can we do that? Well, this is very simple or if we use N? So we'll say that here we have uh yeah, let's call it uh comprehensive and",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=497s",
+        "start_time": "497.779"
+    },
+    {
+        "id": "cc32b886",
+        "text": "So here we have the original MF CCS. Here we have the first derivative of the MF CCS. And here the second uh derivative of the MF CCS, the final thing that I want to show you guys is taking the MF CCS and the 1st and 2nd derivatives of the MF CCS and co concatenating them together so that we have a unique audio uh feature that's like quite comprehensive because we have the MF CCS and we also have information about how does MF CCS change over time. Thanks to the derivatives. OK. So how can we do that? Well, this is very simple or if we use N? So we'll say that here we have uh yeah, let's call it uh comprehensive and MF CCS. And here we'll do a NP dot concatenate. And here we need to pass the three arrays that we wanna concatenate. So the first one is MF CCS and then we'll pass delta MF CCS and delta to MF CCS. And here we go. So now let's take a look at the shape of this comprehensive MF CCS audio feature.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=522s",
+        "start_time": "522.479"
+    },
+    {
+        "id": "d49493a6",
+        "text": "audio uh feature that's like quite comprehensive because we have the MF CCS and we also have information about how does MF CCS change over time. Thanks to the derivatives. OK. So how can we do that? Well, this is very simple or if we use N? So we'll say that here we have uh yeah, let's call it uh comprehensive and MF CCS. And here we'll do a NP dot concatenate. And here we need to pass the three arrays that we wanna concatenate. So the first one is MF CCS and then we'll pass delta MF CCS and delta to MF CCS. And here we go. So now let's take a look at the shape of this comprehensive MF CCS audio feature. And not surprisingly here. We have that the number of rows, the first axis is equal to 39. And that's because we basically are concatenating like 13 indexes like for each of the three arrays, right? And so we get like a",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=545s",
+        "start_time": "545.299"
+    },
+    {
+        "id": "85dface0",
+        "text": "MF CCS. And here we'll do a NP dot concatenate. And here we need to pass the three arrays that we wanna concatenate. So the first one is MF CCS and then we'll pass delta MF CCS and delta to MF CCS. And here we go. So now let's take a look at the shape of this comprehensive MF CCS audio feature. And not surprisingly here. We have that the number of rows, the first axis is equal to 39. And that's because we basically are concatenating like 13 indexes like for each of the three arrays, right? And so we get like a 39 here, whereas the number of columns remains unchanged. Great. By now, you should be able to extract MF CCS and 1st and 2nd derivative MF CCS using Python and Libres. And you should also be able to visualize them using Yeah, spectra from Libres.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=570s",
+        "start_time": "570.419"
+    },
+    {
+        "id": "6a8a9671",
+        "text": "And not surprisingly here. We have that the number of rows, the first axis is equal to 39. And that's because we basically are concatenating like 13 indexes like for each of the three arrays, right? And so we get like a 39 here, whereas the number of columns remains unchanged. Great. By now, you should be able to extract MF CCS and 1st and 2nd derivative MF CCS using Python and Libres. And you should also be able to visualize them using Yeah, spectra from Libres. So in the next video, we'll be looking into uh frequency domain audio features. So I guess that's all for today. I hope you enjoyed the video. If that's the case, please remember to leave a like and if you haven't subscribed yet, please consider doing it. So I'll see you next time. Cheers.",
+        "video": "Extracting Mel-Frequency Cepstral Coefficients with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "WJI-17MNpdE",
+        "youtube_link": "https://www.youtube.com/watch?v=WJI-17MNpdE&t=597s",
+        "start_time": "597.77"
+    }
+]

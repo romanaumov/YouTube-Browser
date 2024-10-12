@@ -1,0 +1,542 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time you are going to preprocess audio data and get it ready for our deep learning applications. So, and specifically, we're gonna look into how to visualize and learn waveforms, how to perform fourier transforms for getting spectrums, how we get spectrograms and how we extract MF CCS. Now, if all of this sounds like gibberish, you should definitely like watch uh my previous video where I cover like the theoretical side of all of these things. But uh let's just like get started. So we're not gonna build like any of these algorithms for like performing fourier transforms or extracting MF CCS from scratch. But rather we're gonna rely on a great audio analysis uh library called Libros. And so first thing we wanna do its import uh Libros. So, uh and as long as uh we have like not just like Libros itself but also Li Brusa dot display uh which is a nice API for visualizing uh data like spectrograms. Uh So Libres dot display is built on top of uh Maple Lib and so we want to uh import also, uh, maple lib dot PP and we'll import it as PLT. Cool. So, uh, the first thing that we want to do now is just like to, to get a file so to get an audio file. So, and I have a very nice one which is called blues 0.00000 dot wav. And yeah, let's take a look at that. So that you have an idea of what, like we'll be working on. Yeah, you get a, a uh you get the idea here. It's a, a nice, like blues song. It's just like 30 seconds of that song. Cool. So the first thing that we wanna do is load uh like this audio file. So uh for doing that, we'll call libros dot load and we'll pass in the, the path. So the file and uh we also want to specify the sum we want to load uh like this audio file with and we'll specify 22,000 and uh 50. And this is uh like perfectly fine, like when we uh work and analyze like audio uh data. Cool. And uh so here as a result, we are gonna get like a signal and a sample rate. Now, the signal is gonna be a nin pi array, one dimensional array and uh it's gonna contain uh a number of like values that's equal to the sample rate are multiplied by the duration T uh of the uh of the song. So, in this case, we are looking at 2 22,050 multiplied by 30 seconds. So basically, like the signal array is gonna have more than 600,000 values. And at each of these values, you're gonna have the amplitude of the, of the waveform uh good. OK. So now let's try to visualize this waveform. And uh for doing that, uh we can easily use Lisa dot display dot wave plots. And here in the wave plots, we want to specify the signal that we want to use and the sample rate and the sample rate uh it's equal to this thing over here. So 22,050 good. So next thing we wanna do is we want to uh specify the uh label for the X and Y axis. So for the X axis, we are expecting obviously time and for the Y axis, we have amplitude nice and the final thing we want to uh show uh this plot. And so we're gonna do a plot dot show. So if everything is correct, so we should be see, we should, we should be able to see our a nice plot and here we have it nice. So we have our nice uh waveform over here. And as you can see, the waveform tends to remain quite stable throughout the 32nd of this musical passage cool. So now uh the next step is moving from the time domain. So from the the waveform uh towards the frequency domain. And to do that, we need to perform a fast four A transform. And now for performing that, we're gonna use NP. So we'll do an import NPI as MP. So, so we'll do a FFT, it's equal to NP dot FFT dot FFT. And uh we'll uh pass in the signal, right? And so what we expect here is a uh an umpire array, one dimensional array which has as many uh values as the total number of samples we have in the, in the waveform. So it's more or less like this value here. So uh 600,000 plus and at each of those values, uh we have a complex value. Now, uh I don't want to like get into the details of how we get there because like it's completely outside the scope like of and it's not needed like for deep learning. But what we want to do is we want to move like from that complex value and get the amplitude of those values and or or sorry, get the magnitude of this value and for getting the magnitude, uh what we do is we call nimai dots absolute value and we pass in FFT. So basically, we are performing the absolute value on the complex values and then we end up with these magnitudes and these magnitudes indicate the contribution of each frequency bin to the overall sound. And so, and we want to map them onto like the, the relative like frequency bins, right? And for doing that, we'll do a frequent frequency, it's equal to NP five dots uh lens space. And A L space is a nice function that uh gives us a number of evenly spaced numbers in an interval, right. And so here the, the uh frequency interval that we want to consider is between zero Hertz and the sample rate itself. And uh the number of like evenly paced uh values that we want and it's equal to the length of magnitude. And so basically, we have like these two arrays and magnitude has like the values. So the the actual like magnitudes of each frequency bin. And so it's basically so like these two like rays together are telling us how much each frequency is contributing to the overall uh sound. OK. So now let's plot this and uh for plotting this, which by the way is the power spectrum, uh we don't have like a fancy uh Li Brosa like shortcut function rather, we should use vanilla uh mat plot lib. So we'll do plots dot uh plot and we'll pass in the frequency as well as the uh magnet. And then, yeah, I guess we want to pass the, the labels as well. So on the X label given, we are in the frequency domain, we are expecting frequencies, it's frequency. And on the y uh uh label, we are expecting magnitudes magnitude plot to show um it's all good. But before uh running the scripts, let me just like comment this out so that we are gonna have just one plot, the one we are interested in. OK. So let's run this and hopefully we have our power spectrum. That's great. And as you can see, most of the energy is concentrated in the lower frequencies and the higher we go with the frequencies and the less energy, the less contribution they will uh give us. Now, let's take a look at this um uh plot and there's when we analyze it, there's a very curious thing which is the plot is symmetrical and it's the, the, the kind of like point of symmetry here is the half of the plot which represents like half of the sample rate. Now this is like a property of the fourier transform. And that can be explained with a concept from DS P which is the um Nyquist theorem. I'm not going to get into those details again because we don't need them. But what we need to understand is that we don't need the whole plot because basically the only part of the plot that's bringing us like uh novel uh information is the, the first half, right, the left uh most half. And that's because like once we, we cross half the frequency here, we're just like repeating uh like the, the same like information. So we just want to focus on the first half. So let's, let's do that here. So uh we can just like go back here and say that we want the left frequency frequency and this is gonna be equal to frequency. And uh we'll just like consider like from like the zero index to like half. And that we can express by saying this is equal to end of the length of frequency itself. And this is like divided by two. So we are uh just like considering the first half year of the frequency array and we should do the same thing for the magnitude uh array. So let's do this and this is the same. And now we'll just change frequency for left frequency and magnitude for left magnitude. So now let's rerun the script. And now here we have it, our power spectrum focusing only on half of the sample rate. So uh until uh yeah, I'd say like 11,000 something uh right Hertz there. And uh again, yeah, we, we can easily see that like most of the of the energy is in the uh like lower frequencies nice. The only problem that we have with the power spectrum is that it is a static snapshot of the whole sound. And it's considered averaging like the um the energy of the different frequency beams throughout the whole sound. And we, what we want to do is like understanding how this uh frequencies are contributing to the overall sound throughout time. So in order to do that we need to do a short time uh for transform an SSTFT and get a spectrogram. So the spectrogram is gonna give us information about the amplitude as a function of both frequency and time. So how do we get a Stft? Well, we use libros for that. So we do libros dot core and then we call Stft nice. And uh here uh we should pass a few uh different values. So first of all, obviously, we need to fasten the, the signal, but then there are another couple of values. So one, it's, we can call it an uh number of samples per FFT. And uh we are gonna set this to 2048 and this is expressed in a number of samples. And so this is basically like the window uh that we are considering when um uh performing a single uh fourier transform, fast fourier transform, right. So we are considering this amount of samples and then there's another value and that's called the hop length. And so let's set this to 512. So again, this is in number of samples and this is the amount we are shifting uh each fourier transform like to the right because as you know, when we do a short term fourier transform, we slide uh like an interval and at each interval like we, we calculate a, a fast fourier transform and the hop length tells us how much we are shifting. We are sliding towards the right. OK. Cool. So like these two values that I've given here, so 2048 and 512 are quite like cus I mean, ordinary values that we use. Like we when analyzing music and even speech really? OK. So let's pass those two things in. So the hop length is equal to the hop length and the NFFT is equal to NFFT good. And so now we have the short time uh fourier transform. And again, uh now we need to move like from like these values to like the magnitude to the spec the spectrogram like itself. So to do that. So first of all, let's call this variable spectra uhm. And then we want to do an MP dot Absolute value and we'll pass in uh the short time uh four transform that we've extracted cool. And so here, basically, we are passing from those like complex numbers towards like the, the magnitude. And here we, we get the whole uh spectrogram right now let's block the results. So to uh do this, we are gonna use a uh function from libres display and the function it's called spec show. And spec show is a nice uh function that enables us to visualize uh spectrogram like um data. So, and this type of data, as you'll see, it's kind of like a heat map. So you have X axis y axis plus like a color that represents a third variable. So uh what do we need here? So here uh we need uh obviously like the, the spectrogram, right, then uh we need to pass the sample rate and then we want to pass the hub length cool. And as usual, we want to take uh and put to this plot the X label and the Y label. So for the X axis at this time, we have time for the Y axis we have frequency now. So as we said, uh the spectrogram is a function. So it's the uh amplitude as a function of like time and frequency and uh the amplitude itself is expressed through a color. And so we can plot a color bar to see how the amplitude there is like a throughout like the spectrogram. OK. So now, as usual, let's uh comment, comment this out so that we were gonna have just the um the plot for the spectrogram. And now let's move on and run the script and here we go, we have our spectrogram cool. OK. So as you can see, most of the frequencies basically have very, very low amplitudes. So they contribute very, very little to the overall sound. And here like down in the bottom, you can see that there are certain like bursts of energy at the lower like frequencies which is also like what we would expect from the uh power um spectrum spectrum like that we say like before, right? But now there's a way of like us moving like a little bit like this amplitude and like to like visualize them like in a, in a nicer way and in a way that makes also like more sense, like for the way we perceive loudness, which is not linear, which is like the way we are like visualizing these amplitudes here, but rather it's a logarithmic. And so we're gonna use uh so we're gonna calculate the so-called log uh spectrogram. And uh yeah, we can do it here. So we'll do a log spectrogram. And uh for doing that, we can use a nice uh li browser uh F function uh that's called amplitude to decimal. So we are taking uh the amplitude from our original spectrum which we should pass in and then we are converting them to decibel. Uh we, and I mean, when we do that, we use, we apply a logarithm cool. So now we have the log spectrogram. So let's pass that in here and let's take a look at the results and here we go. Nice. OK. So as you can see here, like all of these things like become like a little bit like more uh uh like intelligible I would say. And uh like here, like with the blue, we have like very, very quiet, sounds like minus 30 like decibels. And uh while we go towards like these more reddish like colors, we, we just like increase like the, the, the perceived basically like insensitive right. And as expected, we have most of the energy uh that's kind of concentrated in this like lower frequencies. And if you guys re recall the uh the waveform, like, it was like quite, I would say, like quite stable, like throughout and like, and that could have been a little bit like of a, of a hint into also like the, the way uh like the the spectrogram like would behave to a certain extent. And obviously like what we see here is that like the spectrogram remains like quite stable throughout time. Cool. OK. So now we've seen uh like the spectrogram, the log spectrogram. Now we want to calculate the last thing. So we want to extract the MF CCS. So how do we do that? Well, that's as simple as calling Li Brosa dots feature dot MFCC nice. And so here uh for uh calculating this, we need to pass the signal. So the original signal and then we want to pass uh a, a bunch of like different uh values uh like for example, the uh number uh like the, the, the number of samples per FFT and this is equal to this, we want to pass in the hop length which is equal to the hop length. And so here I'm just missed them. Oops uh over here. And uh we also want to pass another value that's called number of MF CCS. So the number of coefficients that we want to extract and let's say we want to extract uh 13 which is like a fair like number that's commonly used, like also for analyzing music. Uh OK. So now we have the MF CCS and as you can see here, we are passing these values. So the NFNFFT and the hop length to the window and the hop length that we usually use when we extract uh like the SDFT and you can see it here, right? And why is that the case? Well, because if you recall from the previous video, um one of the things, the first thing that we do for extracting an MFCC is performing a short time fourier transform. Cool. OK. So now we have the MFCC uh and we want to plot that. So to do that, we are gonna use the spec show um function from Libera display once again. But this time instead of the log spectrogram, we're gonna pass in the MF CCS uh right? And uh the X label is gonna be time, the Y label, obviously it's not gonna be frequency but the MFCC itself. So it's gonna be like the different coefficients we want to call it bar and we want to plot dot show this. So let's um comment uh out the, the plot for the lux spectrogram and let's rerun the scripts. And so if all goes well, yeah, we have our MF CCS over time and nice. So here like on the Y axis, you'll see like these intervals uh like here and each of these is basically like a A coefficient. And if you count it should be like 13 and on the X axis we have time. And so we basically see here how, how the different MF CCS are evolving over time. And once again, like the, the MFCC like plots is quite stable. Cool. OK. So we basically went through all the stuff that we need for preprocessing audio data for deep learning. Now, you know how to look at it at the waveform, how to extract like signal from a wave file, how to perform a fourier transform, how to arrive at a power spectrum spectrograms, log spectrograms, and most importantly MF CCS, which we're gonna be using in the next video where we're gonna do something super exciting. So we're gonna use an M LP, a multi-layered perception for uh classifying music genres. So we're gonna have a data set of uh short experts of uh music and we're gonna classify uh the type of like genres like they belong to. Cool. I hope you really like enjoyed this uh video. If that's the case, please leave a like and if you have any questions as usual, like post them in the comments section below and I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time you are going to preprocess audio data and get it ready for our deep learning applications. So,",
+                "start_time": "0.0",
+                "end_time": "12.029"
+            },
+            {
+                "id": 1,
+                "transcript": "and specifically, we're gonna look into how to visualize and learn waveforms, how to perform fourier transforms for getting spectrums, how we get spectrograms and how we extract MF CCS. Now, if all of this sounds like gibberish, you should definitely like watch uh my previous video where I cover like the theoretical side of all of these things. But uh let's just like get started.",
+                "start_time": "12.22",
+                "end_time": "37.72"
+            },
+            {
+                "id": 2,
+                "transcript": "So we're not gonna build like any of these algorithms for like performing fourier transforms or extracting MF CCS from scratch. But rather we're gonna rely on a great audio analysis uh library called Libros. And so first thing we wanna do its import uh Libros.",
+                "start_time": "38.02",
+                "end_time": "56.759"
+            },
+            {
+                "id": 3,
+                "transcript": "So, uh and as long as uh we have like not just like Libros itself but also Li Brusa dot display uh which is a nice API for visualizing uh data like spectrograms. Uh So Libres dot display is built on top of uh Maple Lib and so we want to uh import also, uh, maple lib dot PP and we'll import it as PLT. Cool.",
+                "start_time": "57.119",
+                "end_time": "86.11"
+            },
+            {
+                "id": 4,
+                "transcript": "So, uh, the first thing that we want to do now is just like to, to get a file so to get an audio file. So, and I have a very nice one which is called blues 0.00000 dot wav. And yeah, let's take a look at that. So that you have an idea of what, like we'll be working on.",
+                "start_time": "86.4",
+                "end_time": "107.48"
+            },
+            {
+                "id": 5,
+                "transcript": "Yeah, you get a, a uh you get the idea here. It's a, a nice, like blues song. It's just like 30 seconds of that song. Cool. So the first thing that we wanna do is load uh like this audio file. So uh for doing that, we'll call libros dot",
+                "start_time": "118.849",
+                "end_time": "137.55"
+            },
+            {
+                "id": 6,
+                "transcript": "load and we'll pass in the, the path. So the file and uh we also want to specify the sum we want to load uh like this audio file with and we'll specify 22,000 and uh 50. And this is uh like perfectly fine, like when we uh work and analyze like audio uh data. Cool.",
+                "start_time": "138.08",
+                "end_time": "165.66"
+            },
+            {
+                "id": 7,
+                "transcript": "And uh so here as a result, we are gonna get like a signal and a sample rate. Now, the signal is gonna be a nin pi array, one dimensional array and uh it's gonna contain uh a number of like values that's equal to the sample rate are multiplied by the duration T",
+                "start_time": "165.919",
+                "end_time": "191.8"
+            },
+            {
+                "id": 8,
+                "transcript": "uh of the uh of the song. So, in this case, we are looking at 2 22,050 multiplied by 30 seconds. So basically, like the signal array is gonna have more than 600,000 values. And at each of these values, you're gonna have the amplitude of the, of the waveform uh good. OK. So now let's try to visualize this waveform.",
+                "start_time": "192.08",
+                "end_time": "221.679"
+            },
+            {
+                "id": 9,
+                "transcript": "And uh for doing that, uh we can easily use Lisa dot display dot wave plots. And here in the wave plots, we want to specify the signal that we want to use and the sample rate and the sample rate uh it's equal to this thing over here. So 22,050",
+                "start_time": "222.0",
+                "end_time": "249.539"
+            },
+            {
+                "id": 10,
+                "transcript": "good. So next thing we wanna do is we want to uh specify the uh label for the X and Y axis. So for the X axis, we are",
+                "start_time": "249.86",
+                "end_time": "262.309"
+            },
+            {
+                "id": 11,
+                "transcript": "expecting obviously time and for the Y axis, we have amplitude",
+                "start_time": "262.91",
+                "end_time": "270.66"
+            },
+            {
+                "id": 12,
+                "transcript": "nice and the final thing",
+                "start_time": "271.869",
+                "end_time": "274.899"
+            },
+            {
+                "id": 13,
+                "transcript": "we want to",
+                "start_time": "275.94",
+                "end_time": "277.079"
+            },
+            {
+                "id": 14,
+                "transcript": "uh show uh this plot. And so we're gonna do a plot dot show. So if everything is correct, so we should be see, we should, we should be able to see our",
+                "start_time": "277.7",
+                "end_time": "288.48"
+            },
+            {
+                "id": 15,
+                "transcript": "a nice plot and here we have it",
+                "start_time": "289.109",
+                "end_time": "291.899"
+            },
+            {
+                "id": 16,
+                "transcript": "nice. So we have our nice uh waveform over here. And as you can see, the waveform tends to remain quite stable throughout the 32nd of this musical passage",
+                "start_time": "292.529",
+                "end_time": "305.779"
+            },
+            {
+                "id": 17,
+                "transcript": "cool. So now uh the next step is moving from the time domain. So from the the waveform uh towards the frequency domain. And to do that, we need to perform a fast four A transform. And now for performing that,",
+                "start_time": "306.48",
+                "end_time": "323.269"
+            },
+            {
+                "id": 18,
+                "transcript": "we're gonna use NP. So we'll do an import NPI as MP.",
+                "start_time": "323.829",
+                "end_time": "328.23"
+            },
+            {
+                "id": 19,
+                "transcript": "So, so we'll do a FFT, it's equal to NP dot FFT dot FFT. And uh we'll uh pass in the signal,",
+                "start_time": "329.589",
+                "end_time": "342.88"
+            },
+            {
+                "id": 20,
+                "transcript": "right? And so what we expect here is a uh an umpire array, one dimensional array which has as many uh values as the total number of samples we have in the, in the waveform. So it's more or less like this value here. So uh 600,000 plus and at each of those values, uh we have a complex value. Now,",
+                "start_time": "343.29",
+                "end_time": "369.82"
+            },
+            {
+                "id": 21,
+                "transcript": "uh I don't want to like get into the details of how we get there because like it's completely outside the scope like of and it's not needed like for deep learning. But what we want to do is we want to move like from that complex value and get the amplitude of those values and or or sorry, get the magnitude of this value and for getting the magnitude,",
+                "start_time": "370.04",
+                "end_time": "396.22"
+            },
+            {
+                "id": 22,
+                "transcript": "uh what we do is we call nimai dots absolute value and we pass in FFT. So basically, we are performing the absolute value on the complex values and then we end up with these magnitudes and these magnitudes indicate the",
+                "start_time": "397.07",
+                "end_time": "417.329"
+            },
+            {
+                "id": 23,
+                "transcript": "contribution of each frequency bin to the overall sound. And so, and we want to map them onto like the, the relative like frequency bins, right? And for doing that, we'll do a frequent frequency, it's equal to NP five dots uh lens space.",
+                "start_time": "417.869",
+                "end_time": "441.559"
+            },
+            {
+                "id": 24,
+                "transcript": "And A L space is a nice function that uh gives us a number of evenly spaced numbers in an interval,",
+                "start_time": "442.279",
+                "end_time": "452.97"
+            },
+            {
+                "id": 25,
+                "transcript": "right. And so here the, the uh frequency interval that we want to consider is between zero Hertz and the sample rate itself. And uh the number of like evenly paced uh values that we want and it's equal to the length of magnitude.",
+                "start_time": "453.299",
+                "end_time": "473.69"
+            },
+            {
+                "id": 26,
+                "transcript": "And so basically, we have like these two arrays and magnitude has like the values. So the the actual like magnitudes of each frequency bin. And so it's basically so like these two like rays together are telling us how much each frequency is contributing to the overall uh sound. OK. So now let's plot this and uh for plotting this, which by the way is the power spectrum,",
+                "start_time": "475.029",
+                "end_time": "504.739"
+            },
+            {
+                "id": 27,
+                "transcript": "uh we don't have like a fancy uh Li Brosa like shortcut function rather, we should use vanilla uh mat plot lib. So we'll do plots dot uh plot and we'll pass in the frequency as well as the uh magnet. And then, yeah, I guess we want to pass the, the labels as well. So on the X label given, we are in the frequency domain, we are expecting",
+                "start_time": "504.88",
+                "end_time": "533.96"
+            },
+            {
+                "id": 28,
+                "transcript": "frequencies, it's frequency. And on the y uh uh label, we are expecting magnitudes magnitude plot to show um it's all good. But before uh running the scripts, let me just like comment this out so that we are gonna have just one plot, the one we are interested in. OK. So let's run this and hopefully we have our power spectrum.",
+                "start_time": "534.179",
+                "end_time": "560.349"
+            },
+            {
+                "id": 29,
+                "transcript": "That's great. And as you can see, most of the energy is concentrated in the lower frequencies and the higher we go with the frequencies and the less energy, the less contribution they will uh give us. Now, let's take a look at this um uh plot and there's when we analyze it, there's a very curious thing which is",
+                "start_time": "560.71",
+                "end_time": "585.88"
+            },
+            {
+                "id": 30,
+                "transcript": "the plot is symmetrical and it's the, the, the kind of like point of symmetry here is the half of the plot which represents like half of the sample rate.",
+                "start_time": "586.21",
+                "end_time": "599.02"
+            },
+            {
+                "id": 31,
+                "transcript": "Now this is like a property of the fourier transform. And that can be explained with a concept from DS P which is the um Nyquist theorem. I'm not going to get into those details again because we don't need them. But what we need to understand is that we don't need the whole plot because basically the only part of the plot that's bringing us like uh novel uh information is the, the first half, right, the left uh most half.",
+                "start_time": "599.409",
+                "end_time": "627.7"
+            },
+            {
+                "id": 32,
+                "transcript": "And that's because like once we, we cross half the frequency here, we're just like repeating uh like the, the same like information. So we just want to focus on the first half. So let's, let's do that here. So uh we can just like go back here and say that we want the left frequency",
+                "start_time": "627.869",
+                "end_time": "649.9"
+            },
+            {
+                "id": 33,
+                "transcript": "frequency and this is gonna be equal to frequency. And uh we'll just like consider like from like the zero index to like half. And that we can express by saying this is equal to end of the length of frequency itself. And this is like divided by two. So we are",
+                "start_time": "651.0",
+                "end_time": "679.84"
+            },
+            {
+                "id": 34,
+                "transcript": "uh just like considering the first half year of the frequency array and we should do the same thing for the magnitude uh array.",
+                "start_time": "680.0",
+                "end_time": "689.299"
+            },
+            {
+                "id": 35,
+                "transcript": "So let's do this and this is the same. And now we'll just",
+                "start_time": "690.169",
+                "end_time": "695.869"
+            },
+            {
+                "id": 36,
+                "transcript": "change frequency for left frequency and magnitude for left magnitude. So now let's rerun the script.",
+                "start_time": "697.4",
+                "end_time": "704.309"
+            },
+            {
+                "id": 37,
+                "transcript": "And now here we have it, our power spectrum focusing only on half of the sample rate. So",
+                "start_time": "705.859",
+                "end_time": "714.39"
+            },
+            {
+                "id": 38,
+                "transcript": "uh until uh yeah, I'd say like 11,000 something",
+                "start_time": "715.049",
+                "end_time": "719.63"
+            },
+            {
+                "id": 39,
+                "transcript": "uh right Hertz there. And uh again, yeah, we, we can easily see that like most of the of the energy is in the uh like lower frequencies nice. The only problem that we have with the power spectrum is that it is a static snapshot of the whole sound. And it's considered averaging like the",
+                "start_time": "720.45",
+                "end_time": "742.53"
+            },
+            {
+                "id": 40,
+                "transcript": "um the energy of the different frequency beams throughout the whole sound. And we, what we want to do is like understanding how this uh frequencies are contributing to the overall sound throughout time. So in order to do that we need to do a short time",
+                "start_time": "742.669",
+                "end_time": "760.65"
+            },
+            {
+                "id": 41,
+                "transcript": "uh for transform an SSTFT and get a spectrogram. So the spectrogram is gonna give us information about the amplitude as a function of both frequency and time. So how do we get a Stft? Well, we use libros for that. So we do libros dot core and then we call Stft nice.",
+                "start_time": "761.669",
+                "end_time": "790.179"
+            },
+            {
+                "id": 42,
+                "transcript": "And uh here uh we should pass a few uh different values. So first of all, obviously, we need to fasten the, the signal, but then there are another couple of values. So one, it's, we can call it an uh number of samples per FFT.",
+                "start_time": "790.53",
+                "end_time": "809.229"
+            },
+            {
+                "id": 43,
+                "transcript": "And uh we are gonna set this to 2048 and this is expressed in a number of samples. And so this is basically like the window uh that we are considering when um",
+                "start_time": "809.94",
+                "end_time": "828.599"
+            },
+            {
+                "id": 44,
+                "transcript": "uh performing a single uh fourier transform, fast fourier transform, right. So we are considering this amount of samples and then there's another value",
+                "start_time": "829.19",
+                "end_time": "840.7"
+            },
+            {
+                "id": 45,
+                "transcript": "and that's called the hop length.",
+                "start_time": "841.32",
+                "end_time": "843.65"
+            },
+            {
+                "id": 46,
+                "transcript": "And so let's set this to 512. So again, this is in number of samples and this is the amount we are shifting",
+                "start_time": "844.309",
+                "end_time": "855.94"
+            },
+            {
+                "id": 47,
+                "transcript": "uh each fourier transform like to the right because as you know, when we do a short term fourier transform, we slide uh like an interval and at each interval like we, we calculate a, a fast fourier transform and the hop length tells us how much we are shifting. We are sliding towards the right. OK. Cool.",
+                "start_time": "856.26",
+                "end_time": "877.65"
+            },
+            {
+                "id": 48,
+                "transcript": "So like these two values that I've given here, so 2048 and 512 are quite like cus I mean, ordinary values that we use. Like we when analyzing music and even speech really? OK. So let's pass those two things in. So the hop length is equal to the hop length and the NFFT is equal to NFFT good. And so now we have the short time uh fourier transform.",
+                "start_time": "878.21",
+                "end_time": "907.039"
+            },
+            {
+                "id": 49,
+                "transcript": "And again, uh now we need to move like from like these values to like the magnitude to the spec the spectrogram like itself. So to do that. So first of all, let's call this variable spectra uhm. And then we want to do an MP dot Absolute value and we'll pass in uh the short time uh four transform that we've extracted",
+                "start_time": "907.419",
+                "end_time": "936.859"
+            },
+            {
+                "id": 50,
+                "transcript": "cool. And so here, basically, we are passing from those like complex numbers towards like the, the magnitude. And here we, we get the whole uh spectrogram right now let's block the results.",
+                "start_time": "937.0",
+                "end_time": "950.2"
+            },
+            {
+                "id": 51,
+                "transcript": "So to uh do this, we are gonna use a uh function from libres display and the function it's called spec show. And spec show is a nice uh function that enables us to visualize uh spectrogram like um data.",
+                "start_time": "951.059",
+                "end_time": "973.52"
+            },
+            {
+                "id": 52,
+                "transcript": "So, and this type of data, as you'll see, it's kind of like a heat map. So you have X axis y axis plus like a color that represents a third variable.",
+                "start_time": "973.729",
+                "end_time": "982.409"
+            },
+            {
+                "id": 53,
+                "transcript": "So uh what do we need here? So here uh we need uh obviously like the, the spectrogram, right, then uh we need to pass the sample rate",
+                "start_time": "983.34",
+                "end_time": "996.059"
+            },
+            {
+                "id": 54,
+                "transcript": "and then we want to pass the hub length",
+                "start_time": "996.64",
+                "end_time": "1000.539"
+            },
+            {
+                "id": 55,
+                "transcript": "cool. And as usual, we want to take uh and put to this plot the X label and the Y label. So for the X axis at this time, we have",
+                "start_time": "1002.21",
+                "end_time": "1015.75"
+            },
+            {
+                "id": 56,
+                "transcript": "time for the Y axis we have frequency",
+                "start_time": "1016.409",
+                "end_time": "1020.429"
+            },
+            {
+                "id": 57,
+                "transcript": "now. So as we said, uh the spectrogram is a function. So it's the uh amplitude as a function of like time and frequency and uh the amplitude itself is expressed through a color. And so we can plot a color bar to see how the amplitude",
+                "start_time": "1022.03",
+                "end_time": "1042.838"
+            },
+            {
+                "id": 58,
+                "transcript": "there is like a throughout like the spectrogram. OK. So now, as usual, let's uh comment, comment this out so that we were gonna have just the um the plot for the spectrogram. And now let's move on and run the script",
+                "start_time": "1043.39",
+                "end_time": "1060.93"
+            },
+            {
+                "id": 59,
+                "transcript": "and here we go, we have our spectrogram",
+                "start_time": "1063.18",
+                "end_time": "1066.959"
+            },
+            {
+                "id": 60,
+                "transcript": "cool. OK. So as you can see, most of the frequencies basically have very, very low amplitudes. So they contribute very, very little to the overall sound.",
+                "start_time": "1067.619",
+                "end_time": "1083.609"
+            },
+            {
+                "id": 61,
+                "transcript": "And here like down in the bottom, you can see that there are certain like bursts of energy at the lower like frequencies which is also like what we would expect from the uh power um spectrum spectrum like that we say like before, right?",
+                "start_time": "1083.75",
+                "end_time": "1100.939"
+            },
+            {
+                "id": 62,
+                "transcript": "But now there's a way of like us moving like a little bit like this amplitude and like to like visualize them like in a, in a nicer way and in a way that makes also like more sense, like for the way we perceive loudness, which is not linear, which is like the way we are like visualizing these amplitudes here, but rather it's a logarithmic. And so we're gonna use uh so we're gonna calculate the so-called log uh spectrogram.",
+                "start_time": "1101.15",
+                "end_time": "1129.369"
+            },
+            {
+                "id": 63,
+                "transcript": "And uh yeah, we can do it here. So we'll do a log spectrogram. And uh for doing that, we can use a nice uh li browser uh F function uh that's called amplitude to decimal. So we are taking uh the amplitude from our original spectrum which we should pass in",
+                "start_time": "1130.53",
+                "end_time": "1153.17"
+            },
+            {
+                "id": 64,
+                "transcript": "and then we are converting them to decibel. Uh we, and I mean, when we do that, we use, we apply",
+                "start_time": "1153.469",
+                "end_time": "1161.079"
+            },
+            {
+                "id": 65,
+                "transcript": "a logarithm cool. So now we have the log spectrogram. So let's pass that in here and let's take a look at the results",
+                "start_time": "1161.699",
+                "end_time": "1170.579"
+            },
+            {
+                "id": 66,
+                "transcript": "and here we go. Nice.",
+                "start_time": "1171.949",
+                "end_time": "1175.569"
+            },
+            {
+                "id": 67,
+                "transcript": "OK. So as you can see here, like all of these things like become like a little bit like more uh uh like intelligible I would say.",
+                "start_time": "1176.16",
+                "end_time": "1184.67"
+            },
+            {
+                "id": 68,
+                "transcript": "And uh like here, like with the blue, we have like very, very quiet, sounds like minus 30 like decibels. And uh while we go towards like these more reddish like colors, we, we just like increase like the, the, the perceived basically like insensitive right. And as expected, we have most of the energy uh that's kind of concentrated in this like lower frequencies.",
+                "start_time": "1185.229",
+                "end_time": "1212.469"
+            },
+            {
+                "id": 69,
+                "transcript": "And if you guys re recall the uh the waveform, like, it was like quite, I would say, like quite stable, like throughout and like, and that could have been a little bit like of a,",
+                "start_time": "1212.64",
+                "end_time": "1225.869"
+            },
+            {
+                "id": 70,
+                "transcript": "of a hint into also like the, the way uh like the the spectrogram like would behave to a certain extent. And obviously like what we see here is that like the spectrogram remains like quite stable throughout time.",
+                "start_time": "1226.469",
+                "end_time": "1239.719"
+            },
+            {
+                "id": 71,
+                "transcript": "Cool. OK. So now we've seen uh like the spectrogram, the log spectrogram. Now we want to calculate the last thing. So we want to extract the MF CCS.",
+                "start_time": "1240.41",
+                "end_time": "1252.089"
+            },
+            {
+                "id": 72,
+                "transcript": "So how do we do that? Well, that's as simple as calling Li Brosa dots feature dot MFCC",
+                "start_time": "1252.64",
+                "end_time": "1263.449"
+            },
+            {
+                "id": 73,
+                "transcript": "nice. And so here uh for uh calculating this, we need to pass the signal. So the original signal and then we want to pass uh a, a bunch of like different uh values uh like for example, the uh number",
+                "start_time": "1264.089",
+                "end_time": "1282.89"
+            },
+            {
+                "id": 74,
+                "transcript": "uh like the, the, the number of samples per FFT and",
+                "start_time": "1283.8",
+                "end_time": "1288.989"
+            },
+            {
+                "id": 75,
+                "transcript": "this is equal to this, we want to pass in the hop length",
+                "start_time": "1289.959",
+                "end_time": "1293.41"
+            },
+            {
+                "id": 76,
+                "transcript": "which is equal to the hop length. And so here I'm just missed them. Oops",
+                "start_time": "1294.01",
+                "end_time": "1298.88"
+            },
+            {
+                "id": 77,
+                "transcript": "uh over here.",
+                "start_time": "1299.489",
+                "end_time": "1300.75"
+            },
+            {
+                "id": 78,
+                "transcript": "And uh we also want to pass another value that's called number of MF CCS. So the number of coefficients that we want to extract and let's say we want to extract uh 13 which is like a fair like number that's commonly used, like also for analyzing music.",
+                "start_time": "1301.319",
+                "end_time": "1321.54"
+            },
+            {
+                "id": 79,
+                "transcript": "Uh OK. So now we have the MF CCS and as you can see here, we are passing these values. So the NFNFFT and the hop length to the window and the hop length that we usually use when we extract uh like the SDFT and you can see it here, right? And why is that the case? Well, because if you recall from the previous video,",
+                "start_time": "1322.119",
+                "end_time": "1346.43"
+            },
+            {
+                "id": 80,
+                "transcript": "um one of the things, the first thing that we do for extracting an MFCC is performing a short time fourier transform.",
+                "start_time": "1346.68",
+                "end_time": "1354.469"
+            },
+            {
+                "id": 81,
+                "transcript": "Cool. OK. So now we have the MFCC uh and we want to plot that. So to do that, we are gonna use the spec show um function from Libera display once again. But this time instead of the log spectrogram, we're gonna pass in the MF CCS",
+                "start_time": "1355.79",
+                "end_time": "1374.239"
+            },
+            {
+                "id": 82,
+                "transcript": "uh right? And uh the X label is gonna be time, the Y label, obviously it's not gonna be frequency but the MFCC itself. So it's gonna be like the different coefficients we want to call it bar and we want to plot dot show this. So let's um",
+                "start_time": "1375.9",
+                "end_time": "1394.54"
+            },
+            {
+                "id": 83,
+                "transcript": "comment uh out the, the plot for the lux spectrogram and let's rerun the scripts. And so if all goes well, yeah, we have our MF CCS over time and nice. So here like on the Y axis, you'll see like these intervals uh like here and each of these is basically like a A coefficient. And if you count it should be like 13",
+                "start_time": "1395.209",
+                "end_time": "1421.989"
+            },
+            {
+                "id": 84,
+                "transcript": "and on the X axis we have time. And so we basically see here how, how the different MF CCS are evolving over time. And once again, like the, the MFCC like plots is quite stable. Cool. OK. So we basically went through",
+                "start_time": "1422.41",
+                "end_time": "1442.02"
+            },
+            {
+                "id": 85,
+                "transcript": "all the stuff that we need for preprocessing audio data for deep learning. Now, you know how to look at it at the waveform, how to extract like signal from a wave file, how to perform a fourier transform, how to arrive at a power spectrum spectrograms, log spectrograms, and most importantly MF CCS, which we're gonna be using in the next video",
+                "start_time": "1442.449",
+                "end_time": "1467.089"
+            },
+            {
+                "id": 86,
+                "transcript": "where we're gonna do something super exciting. So we're gonna use an M LP, a multi-layered perception for uh classifying music genres. So we're gonna have a data set of uh short experts of uh music and we're gonna classify uh the type of like genres like they belong to. Cool. I hope you really like enjoyed this uh video. If that's the case, please leave a like",
+                "start_time": "1467.219",
+                "end_time": "1496.52"
+            },
+            {
+                "id": 87,
+                "transcript": "and if you have any questions as usual, like post them in the comments section below and I'll see you next time. Cheers.",
+                "start_time": "1497.15",
+                "end_time": "1503.9"
+            }
+        ]
+    }
+}

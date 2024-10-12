@@ -1,0 +1,614 @@
+[
+    {
+        "id": "2997ff99",
+        "text": "Hi, everybody and welcome to yet another video in the audio signal processing from machine learning series. This time we continue our quest, our journey into the wonderful world of the fourier transform. Specifically, we'll look at the discrete fourier transform. But before getting like our heads down into the DM T or Discord fourier transform, I want to remind you once again about the sound of A I Slack community, which is a community where you can just learn a lot of stuff about audio processing and A I music in general and you can network with very cool people. So if you're interested in joining, I'll leave you the sign up link in the description below. But now let's move on to the cool stuff. OK. Last time, if you guys remember we defined this beast of an equation here, which in other words is simply the fourier transform expressed through complex numbers. Now, I'm not gonna get into the details here and I take for granted that you already know that. But if that's not the case, I suggest you to check out this video, which by the way is my last video. OK?",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "5dac8dc2",
+        "text": "T or Discord fourier transform, I want to remind you once again about the sound of A I Slack community, which is a community where you can just learn a lot of stuff about audio processing and A I music in general and you can network with very cool people. So if you're interested in joining, I'll leave you the sign up link in the description below. But now let's move on to the cool stuff. OK. Last time, if you guys remember we defined this beast of an equation here, which in other words is simply the fourier transform expressed through complex numbers. Now, I'm not gonna get into the details here and I take for granted that you already know that. But if that's not the case, I suggest you to check out this video, which by the way is my last video. OK? So uh this formula works for analog signals or in other words, signals that are continuous in time. But the reality is that when we deal like with audio signals or just like any type of signal in general in today's world, we actually deal with a discrete",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=24s",
+        "start_time": "24.139"
+    },
+    {
+        "id": "6b2e9898",
+        "text": "Last time, if you guys remember we defined this beast of an equation here, which in other words is simply the fourier transform expressed through complex numbers. Now, I'm not gonna get into the details here and I take for granted that you already know that. But if that's not the case, I suggest you to check out this video, which by the way is my last video. OK? So uh this formula works for analog signals or in other words, signals that are continuous in time. But the reality is that when we deal like with audio signals or just like any type of signal in general in today's world, we actually deal with a discrete signals. And this discrete signals are the ones that we use and we manipulate uh with digital machines like our computers or like edge devices, whatever you want. Really? So how do we move from our GFT our continuous signal to a uh digital signal? Well, we go through the process of digital,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=49s",
+        "start_time": "49.43"
+    },
+    {
+        "id": "12a3d217",
+        "text": "So uh this formula works for analog signals or in other words, signals that are continuous in time. But the reality is that when we deal like with audio signals or just like any type of signal in general in today's world, we actually deal with a discrete signals. And this discrete signals are the ones that we use and we manipulate uh with digital machines like our computers or like edge devices, whatever you want. Really? So how do we move from our GFT our continuous signal to a uh digital signal? Well, we go through the process of digital, in other words, like we sample an analog signal which is like the one that you see here in red and we just like take certain points which we can, which we can call sample points. And so here we take like the first sample points and we use like capital T which is a sampling period which basically tells us",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=74s",
+        "start_time": "74.48"
+    },
+    {
+        "id": "15ff98c4",
+        "text": "signals. And this discrete signals are the ones that we use and we manipulate uh with digital machines like our computers or like edge devices, whatever you want. Really? So how do we move from our GFT our continuous signal to a uh digital signal? Well, we go through the process of digital, in other words, like we sample an analog signal which is like the one that you see here in red and we just like take certain points which we can, which we can call sample points. And so here we take like the first sample points and we use like capital T which is a sampling period which basically tells us uh after how much time we actually take a sample. So here we have like the first um sample point, then the second and the third, you get the idea. Now if you want to know more about the digitalization process which has both some",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=95s",
+        "start_time": "95.949"
+    },
+    {
+        "id": "56e81356",
+        "text": "in other words, like we sample an analog signal which is like the one that you see here in red and we just like take certain points which we can, which we can call sample points. And so here we take like the first sample points and we use like capital T which is a sampling period which basically tells us uh after how much time we actually take a sample. So here we have like the first um sample point, then the second and the third, you get the idea. Now if you want to know more about the digitalization process which has both some and quantization, I suggest you to go check out a previous video that I had on this topic and it should be like up here. But I hope like you've already watched that and because like we know some of those ideas for moving forward, OK. So",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=117s",
+        "start_time": "117.419"
+    },
+    {
+        "id": "1bb4a63d",
+        "text": "uh after how much time we actually take a sample. So here we have like the first um sample point, then the second and the third, you get the idea. Now if you want to know more about the digitalization process which has both some and quantization, I suggest you to go check out a previous video that I had on this topic and it should be like up here. But I hope like you've already watched that and because like we know some of those ideas for moving forward, OK. So um when we digitalize the signal, so what happens is basically that uh like our original like analog signal GFT which is continuous in time. It's kind of like transforms into this X of N an X of even the convention for saying that we are taking a sample. The point here is that we have like a discrete. So this MS differently like from this T like are these",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=139s",
+        "start_time": "139.059"
+    },
+    {
+        "id": "71a83657",
+        "text": "and quantization, I suggest you to go check out a previous video that I had on this topic and it should be like up here. But I hope like you've already watched that and because like we know some of those ideas for moving forward, OK. So um when we digitalize the signal, so what happens is basically that uh like our original like analog signal GFT which is continuous in time. It's kind of like transforms into this X of N an X of even the convention for saying that we are taking a sample. The point here is that we have like a discrete. So this MS differently like from this T like are these crete, so we have like N zero or N one N two and three and X then is a sample taken at a particular time. But what's that particular time? Well, if we want to know like the, the points, so the time T at which we've taken the sample, we have to multiply and which is the current sample we are in could be 123 by the sampling period.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=155s",
+        "start_time": "155.544"
+    },
+    {
+        "id": "afdf8c18",
+        "text": "um when we digitalize the signal, so what happens is basically that uh like our original like analog signal GFT which is continuous in time. It's kind of like transforms into this X of N an X of even the convention for saying that we are taking a sample. The point here is that we have like a discrete. So this MS differently like from this T like are these crete, so we have like N zero or N one N two and three and X then is a sample taken at a particular time. But what's that particular time? Well, if we want to know like the, the points, so the time T at which we've taken the sample, we have to multiply and which is the current sample we are in could be 123 by the sampling period. OK. So this gives you like an idea of the type of like transformation that we will need for moving from continuous fourier transform to discrete fourier transform.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=173s",
+        "start_time": "173.38"
+    },
+    {
+        "id": "e294b765",
+        "text": "crete, so we have like N zero or N one N two and three and X then is a sample taken at a particular time. But what's that particular time? Well, if we want to know like the, the points, so the time T at which we've taken the sample, we have to multiply and which is the current sample we are in could be 123 by the sampling period. OK. So this gives you like an idea of the type of like transformation that we will need for moving from continuous fourier transform to discrete fourier transform. But now let's try to build the DFT or discrete fourier transform starting from the continuous fourier transform. And so we here we'll see how each of the elements in the fourier transform get mapped onto their like discrete counterparts. OK. We start from the",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=201s",
+        "start_time": "201.86"
+    },
+    {
+        "id": "079718cb",
+        "text": "OK. So this gives you like an idea of the type of like transformation that we will need for moving from continuous fourier transform to discrete fourier transform. But now let's try to build the DFT or discrete fourier transform starting from the continuous fourier transform. And so we here we'll see how each of the elements in the fourier transform get mapped onto their like discrete counterparts. OK. We start from the definition of the four transform itself. And so in the continuous case, we call this like G hat of F and in the discrete case, we call it X hat of F and obviously this is the convention that we were using before to say that here we are dealing with samples, not with an analog signal. OK. So let's move on to the juicy stuff. OK. So in the continuous case, in the top",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=230s",
+        "start_time": "230.8"
+    },
+    {
+        "id": "bece6288",
+        "text": "But now let's try to build the DFT or discrete fourier transform starting from the continuous fourier transform. And so we here we'll see how each of the elements in the fourier transform get mapped onto their like discrete counterparts. OK. We start from the definition of the four transform itself. And so in the continuous case, we call this like G hat of F and in the discrete case, we call it X hat of F and obviously this is the convention that we were using before to say that here we are dealing with samples, not with an analog signal. OK. So let's move on to the juicy stuff. OK. So in the continuous case, in the top equation, you see that we are using integral here, so we are integrating uh over time. And that's because we have like a time is continuous. So we have like infinite points in time And when you sum something like that's infinite, like this continues, you use like a, an integral, right? But in our case, the idea is that we have like discrete points,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=244s",
+        "start_time": "244.07"
+    },
+    {
+        "id": "74d1842c",
+        "text": "definition of the four transform itself. And so in the continuous case, we call this like G hat of F and in the discrete case, we call it X hat of F and obviously this is the convention that we were using before to say that here we are dealing with samples, not with an analog signal. OK. So let's move on to the juicy stuff. OK. So in the continuous case, in the top equation, you see that we are using integral here, so we are integrating uh over time. And that's because we have like a time is continuous. So we have like infinite points in time And when you sum something like that's infinite, like this continues, you use like a, an integral, right? But in our case, the idea is that we have like discrete points, discrete samples. And so what we do is we use a sum which basically tells us that we shoot sum over N which are like the, the different points where we take the, the samples. OK. So let's move on. Now, this one is quite easy and we already saw it, right? So we don't want to deal with GFT anymore, but rather we want to deal with the sample. So X them and the next one",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=265s",
+        "start_time": "265.204"
+    },
+    {
+        "id": "8f71ff4f",
+        "text": "equation, you see that we are using integral here, so we are integrating uh over time. And that's because we have like a time is continuous. So we have like infinite points in time And when you sum something like that's infinite, like this continues, you use like a, an integral, right? But in our case, the idea is that we have like discrete points, discrete samples. And so what we do is we use a sum which basically tells us that we shoot sum over N which are like the, the different points where we take the, the samples. OK. So let's move on. Now, this one is quite easy and we already saw it, right? So we don't want to deal with GFT anymore, but rather we want to deal with the sample. So X them and the next one which is like this um exponential here, more or less stays the same, right? You can see. And this is like the, if you remember from my previous video, this is like the uh the kind of like pure turn we decompose uh our original signal into uh And now the point is that we only have like one little modification instead of having T we have N over here.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=293s",
+        "start_time": "293.38"
+    },
+    {
+        "id": "528b10cd",
+        "text": "discrete samples. And so what we do is we use a sum which basically tells us that we shoot sum over N which are like the, the different points where we take the, the samples. OK. So let's move on. Now, this one is quite easy and we already saw it, right? So we don't want to deal with GFT anymore, but rather we want to deal with the sample. So X them and the next one which is like this um exponential here, more or less stays the same, right? You can see. And this is like the, if you remember from my previous video, this is like the uh the kind of like pure turn we decompose uh our original signal into uh And now the point is that we only have like one little modification instead of having T we have N over here. Uh So this like should uh just like, let you understand that from a very high level like conceptual point, what we are doing here is that instead of dealing with T time as a continuous variable, we are taking these snapshots at N, right. And these are like snapshots that take like discrete points in time.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=320s",
+        "start_time": "320.519"
+    },
+    {
+        "id": "4aa50928",
+        "text": "which is like this um exponential here, more or less stays the same, right? You can see. And this is like the, if you remember from my previous video, this is like the uh the kind of like pure turn we decompose uh our original signal into uh And now the point is that we only have like one little modification instead of having T we have N over here. Uh So this like should uh just like, let you understand that from a very high level like conceptual point, what we are doing here is that instead of dealing with T time as a continuous variable, we are taking these snapshots at N, right. And these are like snapshots that take like discrete points in time. So all in all what we do instead of using T we use like this snapshot. And OK, this is great because we have like a first version of the discrete fourier transform. But we need to take that around a little bit. OK. Now let's take a look at the visual interpretation of this first version of the um discrete fourier transform. If you",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=349s",
+        "start_time": "349.85"
+    },
+    {
+        "id": "bd913138",
+        "text": "Uh So this like should uh just like, let you understand that from a very high level like conceptual point, what we are doing here is that instead of dealing with T time as a continuous variable, we are taking these snapshots at N, right. And these are like snapshots that take like discrete points in time. So all in all what we do instead of using T we use like this snapshot. And OK, this is great because we have like a first version of the discrete fourier transform. But we need to take that around a little bit. OK. Now let's take a look at the visual interpretation of this first version of the um discrete fourier transform. If you remember what we said uh back in the like in our previous videos. Uh is that like when we visualize the fourier transform, when we, we take the visual interpretation of that, what we do actually is we are just like taking the area that's below a uh our like a signal, our analog signal in that case, right?",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=379s",
+        "start_time": "379.57"
+    },
+    {
+        "id": "8eaeb3a8",
+        "text": "So all in all what we do instead of using T we use like this snapshot. And OK, this is great because we have like a first version of the discrete fourier transform. But we need to take that around a little bit. OK. Now let's take a look at the visual interpretation of this first version of the um discrete fourier transform. If you remember what we said uh back in the like in our previous videos. Uh is that like when we visualize the fourier transform, when we, we take the visual interpretation of that, what we do actually is we are just like taking the area that's below a uh our like a signal, our analog signal in that case, right? And now what we do like with the disc four transform is something like conceptually similar and you can see it here, right? So here like on the Y axis, you have like amplitude uh on the X axis, you have like time and here like in blue, you have like this abstract, let's call it like it's our original analog signal. And now like we sample that at certain points in time.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=402s",
+        "start_time": "402.29"
+    },
+    {
+        "id": "963c1756",
+        "text": "remember what we said uh back in the like in our previous videos. Uh is that like when we visualize the fourier transform, when we, we take the visual interpretation of that, what we do actually is we are just like taking the area that's below a uh our like a signal, our analog signal in that case, right? And now what we do like with the disc four transform is something like conceptually similar and you can see it here, right? So here like on the Y axis, you have like amplitude uh on the X axis, you have like time and here like in blue, you have like this abstract, let's call it like it's our original analog signal. And now like we sample that at certain points in time. And what we do with the fourier transform, basically, it's just like we take uh like the areas like of these rectangles and the rectangles approximate the overall area that stays below the blue curve, which is our original analog signal. And as you can see here, when we take these rectangles here, we have like certain errors because we are only approximating the",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=428s",
+        "start_time": "428.44"
+    },
+    {
+        "id": "d5ce1afe",
+        "text": "And now what we do like with the disc four transform is something like conceptually similar and you can see it here, right? So here like on the Y axis, you have like amplitude uh on the X axis, you have like time and here like in blue, you have like this abstract, let's call it like it's our original analog signal. And now like we sample that at certain points in time. And what we do with the fourier transform, basically, it's just like we take uh like the areas like of these rectangles and the rectangles approximate the overall area that stays below the blue curve, which is our original analog signal. And as you can see here, when we take these rectangles here, we have like certain errors because we are only approximating the actual area below the signal. But the point is like we still have like errors obviously. Uh If you make like this mental exercise and you think that we take like a smaller sampling period, we would have like way more like vertical bars like this rectangles like this and",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=454s",
+        "start_time": "454.779"
+    },
+    {
+        "id": "9af7daf2",
+        "text": "And what we do with the fourier transform, basically, it's just like we take uh like the areas like of these rectangles and the rectangles approximate the overall area that stays below the blue curve, which is our original analog signal. And as you can see here, when we take these rectangles here, we have like certain errors because we are only approximating the actual area below the signal. But the point is like we still have like errors obviously. Uh If you make like this mental exercise and you think that we take like a smaller sampling period, we would have like way more like vertical bars like this rectangles like this and which basically would lead to uh like a smaller error overall. OK. But that's basically like the idea. So we take this, the area that's given by something like all of these rectangles, each of this rectangle obviously like represents like a a sample, right.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=480s",
+        "start_time": "480.309"
+    },
+    {
+        "id": "53f650a0",
+        "text": "actual area below the signal. But the point is like we still have like errors obviously. Uh If you make like this mental exercise and you think that we take like a smaller sampling period, we would have like way more like vertical bars like this rectangles like this and which basically would lead to uh like a smaller error overall. OK. But that's basically like the idea. So we take this, the area that's given by something like all of these rectangles, each of this rectangle obviously like represents like a a sample, right. OK. So now let's move on and see that we still have a problem with our definition of the discrete fourier transform. And that's why I said this is like the, the first definition that needs to be tweaked a little bit to be perfect for our purposes. And so we have a couple of problems here. So",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=506s",
+        "start_time": "506.406"
+    },
+    {
+        "id": "51a3f732",
+        "text": "which basically would lead to uh like a smaller error overall. OK. But that's basically like the idea. So we take this, the area that's given by something like all of these rectangles, each of this rectangle obviously like represents like a a sample, right. OK. So now let's move on and see that we still have a problem with our definition of the discrete fourier transform. And that's why I said this is like the, the first definition that needs to be tweaked a little bit to be perfect for our purposes. And so we have a couple of problems here. So uh problem number one is that we are still dealing with a continuous frequency. And problem number two is that we are dealing potentially like with an infinite number of samples or at least like this is what the fourier transform is supposed to be. It",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=527s",
+        "start_time": "527.671"
+    },
+    {
+        "id": "3d88e444",
+        "text": "OK. So now let's move on and see that we still have a problem with our definition of the discrete fourier transform. And that's why I said this is like the, the first definition that needs to be tweaked a little bit to be perfect for our purposes. And so we have a couple of problems here. So uh problem number one is that we are still dealing with a continuous frequency. And problem number two is that we are dealing potentially like with an infinite number of samples or at least like this is what the fourier transform is supposed to be. It supposed to uh sum over like infinite time. In in our case, this translates into an infinite number of samples. So yeah, let's take a look at the um formula for the discrete fourier transform and try to explain what I mean by those two issues. So regarding the frequency, I'm basically saying that this frequency is in a fourier transform is supposed to be like infinite or like actually continuous, right?",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=549s",
+        "start_time": "549.179"
+    },
+    {
+        "id": "9d30fc9e",
+        "text": "uh problem number one is that we are still dealing with a continuous frequency. And problem number two is that we are dealing potentially like with an infinite number of samples or at least like this is what the fourier transform is supposed to be. It supposed to uh sum over like infinite time. In in our case, this translates into an infinite number of samples. So yeah, let's take a look at the um formula for the discrete fourier transform and try to explain what I mean by those two issues. So regarding the frequency, I'm basically saying that this frequency is in a fourier transform is supposed to be like infinite or like actually continuous, right? So and that's just like something that we can't do like with our digital machines because like everything that resounds uh or sounds similar to like infinite doesn't work with our machines for computational and memory problems, right?",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=570s",
+        "start_time": "570.26"
+    },
+    {
+        "id": "7876796d",
+        "text": "supposed to uh sum over like infinite time. In in our case, this translates into an infinite number of samples. So yeah, let's take a look at the um formula for the discrete fourier transform and try to explain what I mean by those two issues. So regarding the frequency, I'm basically saying that this frequency is in a fourier transform is supposed to be like infinite or like actually continuous, right? So and that's just like something that we can't do like with our digital machines because like everything that resounds uh or sounds similar to like infinite doesn't work with our machines for computational and memory problems, right? OK. So we have to sort that out but first we have to sort out this other issue which is basically that with the original continuous where we transform, we want to integrate across infinite time possible like time that goes like the age of the universe and beyond. Because it's in,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=588s",
+        "start_time": "588.715"
+    },
+    {
+        "id": "9bc4c727",
+        "text": "So and that's just like something that we can't do like with our digital machines because like everything that resounds uh or sounds similar to like infinite doesn't work with our machines for computational and memory problems, right? OK. So we have to sort that out but first we have to sort out this other issue which is basically that with the original continuous where we transform, we want to integrate across infinite time possible like time that goes like the age of the universe and beyond. Because it's in, in other words, we would need to create like an infinite number of samples for that. But that's not really like what we can do either like with our digital machines. So how do we solve these two big problems? Well, we hack around them, right? So hack number one is for time.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=618s",
+        "start_time": "618.739"
+    },
+    {
+        "id": "cded3eb9",
+        "text": "OK. So we have to sort that out but first we have to sort out this other issue which is basically that with the original continuous where we transform, we want to integrate across infinite time possible like time that goes like the age of the universe and beyond. Because it's in, in other words, we would need to create like an infinite number of samples for that. But that's not really like what we can do either like with our digital machines. So how do we solve these two big problems? Well, we hack around them, right? So hack number one is for time. So what we do here is quite sensible and it makes sense. Um Basically what we do is we consider the frequencies we want to decompose our original signal into to be nonzero only in a finite time interval.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=634s",
+        "start_time": "634.669"
+    },
+    {
+        "id": "46bfb0d3",
+        "text": "in other words, we would need to create like an infinite number of samples for that. But that's not really like what we can do either like with our digital machines. So how do we solve these two big problems? Well, we hack around them, right? So hack number one is for time. So what we do here is quite sensible and it makes sense. Um Basically what we do is we consider the frequencies we want to decompose our original signal into to be nonzero only in a finite time interval. Does this make sense? Yes. Why is that? Well, let's take like as an example, like a song. So we have a song that's three minutes long. Well, it makes sense to only take into consideration there three minutes worth of samples, not the infinite number of samples that comes like with infinite time, right? And that's because we assume that this three minutes of song are the ones",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=654s",
+        "start_time": "654.445"
+    },
+    {
+        "id": "cc6ff318",
+        "text": "So what we do here is quite sensible and it makes sense. Um Basically what we do is we consider the frequencies we want to decompose our original signal into to be nonzero only in a finite time interval. Does this make sense? Yes. Why is that? Well, let's take like as an example, like a song. So we have a song that's three minutes long. Well, it makes sense to only take into consideration there three minutes worth of samples, not the infinite number of samples that comes like with infinite time, right? And that's because we assume that this three minutes of song are the ones that will provide us the uh information about like the uh the frequency we want to decompose that song into. OK. And so what that basically means is that instead of uh considering an infinite number of samples, we can only focus on a finite number of samples. And this is like definitely something that we can then handle with our machines. OK? All good for time. Let's move on to frequency.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=674s",
+        "start_time": "674.4"
+    },
+    {
+        "id": "8151b330",
+        "text": "Does this make sense? Yes. Why is that? Well, let's take like as an example, like a song. So we have a song that's three minutes long. Well, it makes sense to only take into consideration there three minutes worth of samples, not the infinite number of samples that comes like with infinite time, right? And that's because we assume that this three minutes of song are the ones that will provide us the uh information about like the uh the frequency we want to decompose that song into. OK. And so what that basically means is that instead of uh considering an infinite number of samples, we can only focus on a finite number of samples. And this is like definitely something that we can then handle with our machines. OK? All good for time. Let's move on to frequency. Well, here there's hack number two. So instead of like taking uh all possible frequencies, an infinite number of frequencies because we treat frequency as a continuous variable. What we do is we compute the uh transform for only a finite number of frequencies. And now you may be wondering but uh how many frequencies we want to uh",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=693s",
+        "start_time": "693.719"
+    },
+    {
+        "id": "150dc5e0",
+        "text": "that will provide us the uh information about like the uh the frequency we want to decompose that song into. OK. And so what that basically means is that instead of uh considering an infinite number of samples, we can only focus on a finite number of samples. And this is like definitely something that we can then handle with our machines. OK? All good for time. Let's move on to frequency. Well, here there's hack number two. So instead of like taking uh all possible frequencies, an infinite number of frequencies because we treat frequency as a continuous variable. What we do is we compute the uh transform for only a finite number of frequencies. And now you may be wondering but uh how many frequencies we want to uh consider when we actually calculate the discrete fourier transform? Well, we have like a nice little hack here and basically the number of frequencies and that we consider is equal to the number of samples and that we have in the signal that we want to take the discrete fourier transform of",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=720s",
+        "start_time": "720.969"
+    },
+    {
+        "id": "7e831b5e",
+        "text": "Well, here there's hack number two. So instead of like taking uh all possible frequencies, an infinite number of frequencies because we treat frequency as a continuous variable. What we do is we compute the uh transform for only a finite number of frequencies. And now you may be wondering but uh how many frequencies we want to uh consider when we actually calculate the discrete fourier transform? Well, we have like a nice little hack here and basically the number of frequencies and that we consider is equal to the number of samples and that we have in the signal that we want to take the discrete fourier transform of OK. But why N should be equal to M for a couple of reasons. Reason number one is very important. And it's the, it's something that we've seen like in a previous video. And it's basically this idea that we can do, we can have like a round trip from the frequency domain to the time domain.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=748s",
+        "start_time": "748.539"
+    },
+    {
+        "id": "90d2613d",
+        "text": "consider when we actually calculate the discrete fourier transform? Well, we have like a nice little hack here and basically the number of frequencies and that we consider is equal to the number of samples and that we have in the signal that we want to take the discrete fourier transform of OK. But why N should be equal to M for a couple of reasons. Reason number one is very important. And it's the, it's something that we've seen like in a previous video. And it's basically this idea that we can do, we can have like a round trip from the frequency domain to the time domain. And or I should say we start from the time domain, we move to the frequency domain. But then using uh an inverse for transform, we can go back to the um a time domain. And if we have like M which is equal to N, we basically can move like quite easily from the frequency from the time domain to the frequency domain. And then from the frequency domain back to the time domain.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=773s",
+        "start_time": "773.099"
+    },
+    {
+        "id": "fd49d443",
+        "text": "OK. But why N should be equal to M for a couple of reasons. Reason number one is very important. And it's the, it's something that we've seen like in a previous video. And it's basically this idea that we can do, we can have like a round trip from the frequency domain to the time domain. And or I should say we start from the time domain, we move to the frequency domain. But then using uh an inverse for transform, we can go back to the um a time domain. And if we have like M which is equal to N, we basically can move like quite easily from the frequency from the time domain to the frequency domain. And then from the frequency domain back to the time domain. A second reason is because having M equal to N is very, is um efficient from a computational standpoint. So these are the two reasons why we use the same number of frequencies as the number of samples that we have. Now let's put into context what we've just said uh with words and take a look at the math at what happens at the actual",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=798s",
+        "start_time": "798.01"
+    },
+    {
+        "id": "abe2b429",
+        "text": "And or I should say we start from the time domain, we move to the frequency domain. But then using uh an inverse for transform, we can go back to the um a time domain. And if we have like M which is equal to N, we basically can move like quite easily from the frequency from the time domain to the frequency domain. And then from the frequency domain back to the time domain. A second reason is because having M equal to N is very, is um efficient from a computational standpoint. So these are the two reasons why we use the same number of frequencies as the number of samples that we have. Now let's put into context what we've just said uh with words and take a look at the math at what happens at the actual uh with the actual uh formulas here. So we start with our original definition of the discrete fourier transform. And here we have like these two problems, right. Problem number one, we have like an infinite number of",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=817s",
+        "start_time": "817.809"
+    },
+    {
+        "id": "abba8ff1",
+        "text": "A second reason is because having M equal to N is very, is um efficient from a computational standpoint. So these are the two reasons why we use the same number of frequencies as the number of samples that we have. Now let's put into context what we've just said uh with words and take a look at the math at what happens at the actual uh with the actual uh formulas here. So we start with our original definition of the discrete fourier transform. And here we have like these two problems, right. Problem number one, we have like an infinite number of in this sum because we have an infinite number of samples. Problem number two, we have like frequency which is continues. So we work our first hack. And what happens is that we get this guy over here.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=843s",
+        "start_time": "843.919"
+    },
+    {
+        "id": "297e980b",
+        "text": "uh with the actual uh formulas here. So we start with our original definition of the discrete fourier transform. And here we have like these two problems, right. Problem number one, we have like an infinite number of in this sum because we have an infinite number of samples. Problem number two, we have like frequency which is continues. So we work our first hack. And what happens is that we get this guy over here. So now we're not summing an infinite number of samples, but rather we uh constrain we consider only an N number of samples and this is great. Now, we wave our magic when once, once again, and we finally get to the",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=868s",
+        "start_time": "868.109"
+    },
+    {
+        "id": "2bcd25ca",
+        "text": "in this sum because we have an infinite number of samples. Problem number two, we have like frequency which is continues. So we work our first hack. And what happens is that we get this guy over here. So now we're not summing an infinite number of samples, but rather we uh constrain we consider only an N number of samples and this is great. Now, we wave our magic when once, once again, and we finally get to the definition of the discrete fourier transform as is used like throughout the world and perhaps the universe and it's this one over here. And as you can see like the last bit that we changed was this, instead of having the frequency F, we have this K divided",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=883s",
+        "start_time": "883.135"
+    },
+    {
+        "id": "880d1e9a",
+        "text": "So now we're not summing an infinite number of samples, but rather we uh constrain we consider only an N number of samples and this is great. Now, we wave our magic when once, once again, and we finally get to the definition of the discrete fourier transform as is used like throughout the world and perhaps the universe and it's this one over here. And as you can see like the last bit that we changed was this, instead of having the frequency F, we have this K divided by N or capital N. Now we changed it here and we obviously changed it here as well because we had F here previously. OK. But what is this K thing? Well, to understand what is K,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=898s",
+        "start_time": "898.429"
+    },
+    {
+        "id": "cccc5ec2",
+        "text": "definition of the discrete fourier transform as is used like throughout the world and perhaps the universe and it's this one over here. And as you can see like the last bit that we changed was this, instead of having the frequency F, we have this K divided by N or capital N. Now we changed it here and we obviously changed it here as well because we had F here previously. OK. But what is this K thing? Well, to understand what is K, we should understand like where like K, the range of K and K uh ranges from zero to N minus one or in other words, from zero to N minus one. So we have N capital N uh numbers, capital N values, right? And this is in other words, like K has the same uh uh the range as N has, right? Uh",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=920s",
+        "start_time": "920.489"
+    },
+    {
+        "id": "74e12ae2",
+        "text": "by N or capital N. Now we changed it here and we obviously changed it here as well because we had F here previously. OK. But what is this K thing? Well, to understand what is K, we should understand like where like K, the range of K and K uh ranges from zero to N minus one or in other words, from zero to N minus one. So we have N capital N uh numbers, capital N values, right? And this is in other words, like K has the same uh uh the range as N has, right? Uh So, but let's try to understand what this means. Like frequency wise. So",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=937s",
+        "start_time": "937.729"
+    },
+    {
+        "id": "31915cc5",
+        "text": "we should understand like where like K, the range of K and K uh ranges from zero to N minus one or in other words, from zero to N minus one. So we have N capital N uh numbers, capital N values, right? And this is in other words, like K has the same uh uh the range as N has, right? Uh So, but let's try to understand what this means. Like frequency wise. So the frequency of a given value K and this frequency obviously is expressed in Hertz is given by this formula here. So it's K divided by N times T capital T where T is the sampling period.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=955s",
+        "start_time": "955.39"
+    },
+    {
+        "id": "57bb4016",
+        "text": "So, but let's try to understand what this means. Like frequency wise. So the frequency of a given value K and this frequency obviously is expressed in Hertz is given by this formula here. So it's K divided by N times T capital T where T is the sampling period. If you guys remember from a previous video in this series, the sampling period is the inverse of the sampling rate. In other words, what we can do is a rewrite this formula like this. So K divided by capital N and all of these guys multiplied by the sample",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=985s",
+        "start_time": "985.69"
+    },
+    {
+        "id": "03779aa0",
+        "text": "the frequency of a given value K and this frequency obviously is expressed in Hertz is given by this formula here. So it's K divided by N times T capital T where T is the sampling period. If you guys remember from a previous video in this series, the sampling period is the inverse of the sampling rate. In other words, what we can do is a rewrite this formula like this. So K divided by capital N and all of these guys multiplied by the sample rate. Now, what does this tell us? Well, this tell us that in other words, like the range of the uh frequency that we have as an output from the fourier transform is between zero when K is zero. And basically the sampling sampling rate.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=991s",
+        "start_time": "991.869"
+    },
+    {
+        "id": "ab1a50d6",
+        "text": "If you guys remember from a previous video in this series, the sampling period is the inverse of the sampling rate. In other words, what we can do is a rewrite this formula like this. So K divided by capital N and all of these guys multiplied by the sample rate. Now, what does this tell us? Well, this tell us that in other words, like the range of the uh frequency that we have as an output from the fourier transform is between zero when K is zero. And basically the sampling sampling rate. So this is like the kind of like uh frequency range that we consider when we apply a fourier transform. And at the same time,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1013s",
+        "start_time": "1013.01"
+    },
+    {
+        "id": "5b5c6280",
+        "text": "rate. Now, what does this tell us? Well, this tell us that in other words, like the range of the uh frequency that we have as an output from the fourier transform is between zero when K is zero. And basically the sampling sampling rate. So this is like the kind of like uh frequency range that we consider when we apply a fourier transform. And at the same time, uh we take uh a number of divisions like of this range between zero and sampling rate that's equal to the number of samples that we have in the original signal. And that's given by capital N.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1032s",
+        "start_time": "1032.65"
+    },
+    {
+        "id": "9debb3a1",
+        "text": "So this is like the kind of like uh frequency range that we consider when we apply a fourier transform. And at the same time, uh we take uh a number of divisions like of this range between zero and sampling rate that's equal to the number of samples that we have in the original signal. And that's given by capital N. OK. So now I want to show you uh something really, really cool. And so we're gonna take a look at the uh magnitude spectrum that comes out from a digital fourier transform. So if you guys remember, so the output of a fourier transform is the fourier coefficients which provides",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1052s",
+        "start_time": "1052.5"
+    },
+    {
+        "id": "07363dd3",
+        "text": "uh we take uh a number of divisions like of this range between zero and sampling rate that's equal to the number of samples that we have in the original signal. And that's given by capital N. OK. So now I want to show you uh something really, really cool. And so we're gonna take a look at the uh magnitude spectrum that comes out from a digital fourier transform. So if you guys remember, so the output of a fourier transform is the fourier coefficients which provides information for each, at each frequency, they give us two parameters. One is the phase, the other one is the magnitude and the magnitude is the one that we are the most interested in when we are analyzing audio uh data. And that's because it tells us how much present a certain frequency is in an original signal, right? OK. So",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1065s",
+        "start_time": "1065.64"
+    },
+    {
+        "id": "85f628a6",
+        "text": "OK. So now I want to show you uh something really, really cool. And so we're gonna take a look at the uh magnitude spectrum that comes out from a digital fourier transform. So if you guys remember, so the output of a fourier transform is the fourier coefficients which provides information for each, at each frequency, they give us two parameters. One is the phase, the other one is the magnitude and the magnitude is the one that we are the most interested in when we are analyzing audio uh data. And that's because it tells us how much present a certain frequency is in an original signal, right? OK. So uh what, what I, what I've done here is basically, I've just plotted the magnitude uh coefficient that comes out from a digital fourier discrete fourier transform. And as you can see here, we have like something that's really, really interesting.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1082s",
+        "start_time": "1082.619"
+    },
+    {
+        "id": "37639ba7",
+        "text": "information for each, at each frequency, they give us two parameters. One is the phase, the other one is the magnitude and the magnitude is the one that we are the most interested in when we are analyzing audio uh data. And that's because it tells us how much present a certain frequency is in an original signal, right? OK. So uh what, what I, what I've done here is basically, I've just plotted the magnitude uh coefficient that comes out from a digital fourier discrete fourier transform. And as you can see here, we have like something that's really, really interesting. And on the X axis, obviously, we have like the frequency as expressed in Hertz. And here you can see that the original sampling rate was probably around 22,000 Hertz. I know what that was and it was like 22,050 Hertz to be precise. But what's happening here,",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1106s",
+        "start_time": "1106.68"
+    },
+    {
+        "id": "6a4f93a4",
+        "text": "uh what, what I, what I've done here is basically, I've just plotted the magnitude uh coefficient that comes out from a digital fourier discrete fourier transform. And as you can see here, we have like something that's really, really interesting. And on the X axis, obviously, we have like the frequency as expressed in Hertz. And here you can see that the original sampling rate was probably around 22,000 Hertz. I know what that was and it was like 22,050 Hertz to be precise. But what's happening here, it seems like there's something crazy. So we have like a nice, like little like distribution of energy like in the lower frequencies. And then all of a sudden in the higher frequencies, we have again, like a lot of energy here in these higher frequencies. Is this something real or is this some kind of artifact? Well, if we inspect this like more closely we see that like these two",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1132s",
+        "start_time": "1132.849"
+    },
+    {
+        "id": "62443689",
+        "text": "And on the X axis, obviously, we have like the frequency as expressed in Hertz. And here you can see that the original sampling rate was probably around 22,000 Hertz. I know what that was and it was like 22,050 Hertz to be precise. But what's happening here, it seems like there's something crazy. So we have like a nice, like little like distribution of energy like in the lower frequencies. And then all of a sudden in the higher frequencies, we have again, like a lot of energy here in these higher frequencies. Is this something real or is this some kind of artifact? Well, if we inspect this like more closely we see that like these two like energy like distributions are like the same, but they are mirrored. In other words, there's a central point of symmetry and what's happening like on the right of this symmetry is the mirrored version of the what what's happening like on the left hand side. In other words, we have redundancies. And",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1151s",
+        "start_time": "1151.92"
+    },
+    {
+        "id": "d1a46b49",
+        "text": "it seems like there's something crazy. So we have like a nice, like little like distribution of energy like in the lower frequencies. And then all of a sudden in the higher frequencies, we have again, like a lot of energy here in these higher frequencies. Is this something real or is this some kind of artifact? Well, if we inspect this like more closely we see that like these two like energy like distributions are like the same, but they are mirrored. In other words, there's a central point of symmetry and what's happening like on the right of this symmetry is the mirrored version of the what what's happening like on the left hand side. In other words, we have redundancies. And uh if we take a look at this, like very careful, we discover that this happens when K is equal to N divided by two. In other words, at the central frequency, which is basically the sampling rate divided by two. So this is like kind of like a central symmetry.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1170s",
+        "start_time": "1170.459"
+    },
+    {
+        "id": "ed08aa94",
+        "text": "like energy like distributions are like the same, but they are mirrored. In other words, there's a central point of symmetry and what's happening like on the right of this symmetry is the mirrored version of the what what's happening like on the left hand side. In other words, we have redundancies. And uh if we take a look at this, like very careful, we discover that this happens when K is equal to N divided by two. In other words, at the central frequency, which is basically the sampling rate divided by two. So this is like kind of like a central symmetry. And what this means like for our purposes is that we only need to consider the left hand side of this plot. So in other words, we are only interested like in up to sampling rate divided by two",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1198s",
+        "start_time": "1198.17"
+    },
+    {
+        "id": "1c40fb74",
+        "text": "uh if we take a look at this, like very careful, we discover that this happens when K is equal to N divided by two. In other words, at the central frequency, which is basically the sampling rate divided by two. So this is like kind of like a central symmetry. And what this means like for our purposes is that we only need to consider the left hand side of this plot. So in other words, we are only interested like in up to sampling rate divided by two uh frequency, right? What happens like above that is just like a repetition of what we saw below that frequency. So this is like something to keep in mind when we are dealing with like fourier transforms or even like spectrograms as we'll see coming in the f in next videos. OK. But we've seen this particular frequency, that's the sampling ra uh rate divided by two",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1220s",
+        "start_time": "1220.719"
+    },
+    {
+        "id": "a0b2e3ad",
+        "text": "And what this means like for our purposes is that we only need to consider the left hand side of this plot. So in other words, we are only interested like in up to sampling rate divided by two uh frequency, right? What happens like above that is just like a repetition of what we saw below that frequency. So this is like something to keep in mind when we are dealing with like fourier transforms or even like spectrograms as we'll see coming in the f in next videos. OK. But we've seen this particular frequency, that's the sampling ra uh rate divided by two already in a previous video. And that's called the Nyquist frequency. And that's the frequency, the kind of like a threshold above which we're not capable of reconstructing a digital signal into like its original analog signal without injecting some form of like a liaising. Now, if you want to like",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1242s",
+        "start_time": "1242.4"
+    },
+    {
+        "id": "b85a77ec",
+        "text": "uh frequency, right? What happens like above that is just like a repetition of what we saw below that frequency. So this is like something to keep in mind when we are dealing with like fourier transforms or even like spectrograms as we'll see coming in the f in next videos. OK. But we've seen this particular frequency, that's the sampling ra uh rate divided by two already in a previous video. And that's called the Nyquist frequency. And that's the frequency, the kind of like a threshold above which we're not capable of reconstructing a digital signal into like its original analog signal without injecting some form of like a liaising. Now, if you want to like just like brush up a little bit like what like a liaising is and the N frequency I suggest you to go check out this video up here. One last thing that I want to cover is a particular algorithm that's very handy for calculating the discrete fourier transform. And not surprisingly because of how it works, it's called the fast fourier transform.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1259s",
+        "start_time": "1259.01"
+    },
+    {
+        "id": "2e11edd4",
+        "text": "already in a previous video. And that's called the Nyquist frequency. And that's the frequency, the kind of like a threshold above which we're not capable of reconstructing a digital signal into like its original analog signal without injecting some form of like a liaising. Now, if you want to like just like brush up a little bit like what like a liaising is and the N frequency I suggest you to go check out this video up here. One last thing that I want to cover is a particular algorithm that's very handy for calculating the discrete fourier transform. And not surprisingly because of how it works, it's called the fast fourier transform. And this algorithm was discovered by um Gauss and fourier almost like at the same time. So the problem is that with the discrete fourier transform, we have like a way of like computing like this fourier coefficients that's quite expensive. The number of operations that we need to carry out is",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1284s",
+        "start_time": "1284.609"
+    },
+    {
+        "id": "4c70dbe3",
+        "text": "just like brush up a little bit like what like a liaising is and the N frequency I suggest you to go check out this video up here. One last thing that I want to cover is a particular algorithm that's very handy for calculating the discrete fourier transform. And not surprisingly because of how it works, it's called the fast fourier transform. And this algorithm was discovered by um Gauss and fourier almost like at the same time. So the problem is that with the discrete fourier transform, we have like a way of like computing like this fourier coefficients that's quite expensive. The number of operations that we need to carry out is capital N squared, which is quite a lot if you have like a lot of um samples. So the great thing about the fast four A transform is that it, it is way more efficient. And the number of operations that we need to calculate here is given by N multiplied by log two of N.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1310s",
+        "start_time": "1310.135"
+    },
+    {
+        "id": "76501874",
+        "text": "And this algorithm was discovered by um Gauss and fourier almost like at the same time. So the problem is that with the discrete fourier transform, we have like a way of like computing like this fourier coefficients that's quite expensive. The number of operations that we need to carry out is capital N squared, which is quite a lot if you have like a lot of um samples. So the great thing about the fast four A transform is that it, it is way more efficient. And the number of operations that we need to calculate here is given by N multiplied by log two of N. So how do we have like this uh the fast fourier transform? Well, I'm not going to get into the details here, but the kind of like high level intuition is that the fast fourier transform exploits like redundancies which happen",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1336s",
+        "start_time": "1336.219"
+    },
+    {
+        "id": "49be9a72",
+        "text": "capital N squared, which is quite a lot if you have like a lot of um samples. So the great thing about the fast four A transform is that it, it is way more efficient. And the number of operations that we need to calculate here is given by N multiplied by log two of N. So how do we have like this uh the fast fourier transform? Well, I'm not going to get into the details here, but the kind of like high level intuition is that the fast fourier transform exploits like redundancies which happen across sinusoids. So in other words, you calculate like certain things only like once or like just like a few times because then you can reapply them uh in other like situations. And by doing so you can save a lot of computation, but",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1360s",
+        "start_time": "1360.14"
+    },
+    {
+        "id": "22471208",
+        "text": "So how do we have like this uh the fast fourier transform? Well, I'm not going to get into the details here, but the kind of like high level intuition is that the fast fourier transform exploits like redundancies which happen across sinusoids. So in other words, you calculate like certain things only like once or like just like a few times because then you can reapply them uh in other like situations. And by doing so you can save a lot of computation, but there's no free launch like in this universe. Right. And so because of that, we have like certain constraints. And so if we want for the FFT to work, then we should choose like an N wisely and N should be a power of two. That's when we have N as a power of two. That's where like the, the, the kind of like the stars align. And",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1383s",
+        "start_time": "1383.18"
+    },
+    {
+        "id": "903879cb",
+        "text": "across sinusoids. So in other words, you calculate like certain things only like once or like just like a few times because then you can reapply them uh in other like situations. And by doing so you can save a lot of computation, but there's no free launch like in this universe. Right. And so because of that, we have like certain constraints. And so if we want for the FFT to work, then we should choose like an N wisely and N should be a power of two. That's when we have N as a power of two. That's where like the, the, the kind of like the stars align. And then we can uh kind of unleash the power of the FFT algorithm. Now this is a very important algorithm and all the stuff that we see an implementation that we use. For example, the um fourier transform when we calculate dash language nun P or Saipi or even Li Breza uh actually rely on the fast fourier transform algorithm.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1399s",
+        "start_time": "1399.454"
+    },
+    {
+        "id": "adeea31e",
+        "text": "there's no free launch like in this universe. Right. And so because of that, we have like certain constraints. And so if we want for the FFT to work, then we should choose like an N wisely and N should be a power of two. That's when we have N as a power of two. That's where like the, the, the kind of like the stars align. And then we can uh kind of unleash the power of the FFT algorithm. Now this is a very important algorithm and all the stuff that we see an implementation that we use. For example, the um fourier transform when we calculate dash language nun P or Saipi or even Li Breza uh actually rely on the fast fourier transform algorithm. OK. So that's it uh like for this video. Now you should have like a very good understanding of the fourier transform. So we started with intuition of the fourier transform. We moved to like com",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1415s",
+        "start_time": "1415.939"
+    },
+    {
+        "id": "45114763",
+        "text": "then we can uh kind of unleash the power of the FFT algorithm. Now this is a very important algorithm and all the stuff that we see an implementation that we use. For example, the um fourier transform when we calculate dash language nun P or Saipi or even Li Breza uh actually rely on the fast fourier transform algorithm. OK. So that's it uh like for this video. Now you should have like a very good understanding of the fourier transform. So we started with intuition of the fourier transform. We moved to like com complex numbers and understood how we can actually use complex numbers for defining the fourier transform in a continuous context. Now, you know about the discrete version of the fourier transform. So you may be wondering",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1441s",
+        "start_time": "1441.099"
+    },
+    {
+        "id": "36ef570d",
+        "text": "OK. So that's it uh like for this video. Now you should have like a very good understanding of the fourier transform. So we started with intuition of the fourier transform. We moved to like com complex numbers and understood how we can actually use complex numbers for defining the fourier transform in a continuous context. Now, you know about the discrete version of the fourier transform. So you may be wondering should we still be and hear and talk more about the fourier transform? And the answer is yes, definitely. So next time we'll leave like all of this theory behind us and we'll just like do a little bit of like of implementation and play around and extract the magnitude spectrum from a bunch of sounds and kind of like, I",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1466s",
+        "start_time": "1466.63"
+    },
+    {
+        "id": "6cded66f",
+        "text": "complex numbers and understood how we can actually use complex numbers for defining the fourier transform in a continuous context. Now, you know about the discrete version of the fourier transform. So you may be wondering should we still be and hear and talk more about the fourier transform? And the answer is yes, definitely. So next time we'll leave like all of this theory behind us and we'll just like do a little bit of like of implementation and play around and extract the magnitude spectrum from a bunch of sounds and kind of like, I understand what they mean from a uh semantic viewpoint and understand how they differ among themselves. OK, so I hope you enjoyed this video. If that's the case, please leave a like if you haven't subscribed to the channel, please consider doing so. If you have any questions as usual, leave them in the comment section below. That's all for today. I'll see you next time. Cheers.",
+        "video": "Discrete Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "ZUi_jdOyxIQ",
+        "youtube_link": "https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=1482s",
+        "start_time": "1482.334"
+    }
+]

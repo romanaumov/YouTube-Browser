@@ -1,0 +1,458 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna try to tackle overfitting. So specifically, we're gonna look into techniques that we can use to identify overfitting and then to solve it. Cool. So if you guys remember last time we built a multi layer of perception that's able to do music genre classification, but we had a issue and the issue was overfitting, which basically means that the uh model was doing very well on the training set, but it was having issues with data, it had never seen before, right? So first of all, what we want to do is find a way of identifying all the fitting. And for doing that, we can use a couple of plots that are very informative. So it's basically taking a look at the accuracy and the error of both the train set and uh the test set over time over all the epochs and training cycles. So for doing that, obviously, we need to retain information about the training process. And uh fortunately for us, tensorflow has a super do like way of doing that. And so if we look at here uh When we train the model, we just like do a model dot Fit, you should know this by now guys. And if you don't just get back and watch my previous videos on this, but the the return of this Fit method is a history object. Basically that uh retains information about the accuracy and the error of both the uh train set and the test set over time. Cool. So we can just store that information during a history equal to this thing. Now, the next step that we want to do is basically to plot the accuracy and error over the AEX. Now, we don't have this function yet, but we'll fake it for the time being. And so we would say plots history and obviously we'll pass in this history argument. Cool. So now we should build this plot history function. So we'll define it over here. So we'll do a define plot history. And as we know, plot history accepts an argument, we'll call it history. And uh so here uh we need to build like this plot. Well, we want to build like a plot with a couple of subplots, right? So one is for the error and the other one is for the accuracy. But for building plots, as we know, we need to use Maloy I uh which is like this super interesting and super cool um a library for a plotting and we need to import that right. So we'll do an import mat uh plot lab dot plots and we'll import that as PLT, right? So here, what we wanna do is we'll get a figure and an access and we'll do a plot dot subplots and we'll pass in two. So basically what this does, it returns like a figure object and, and there's axis over here and we'll say that we want two subplots, right? OK. So as the first step let's build, so let's create the accuracy. So plots, OK. So let's say so the the accuracy plot is gonna be axis in zero. And here we need to plot the stuff that we want to plot, right? And so here we want to plot uh first of all the um accuracy of the train set over time, right? And then the accuracy of the test set. So here we know that the accuracy of the train set is stored in a dictionary called not surprisingly history. And the the key is accuracy, right? So it's not really that surprising, but it's quite straightforward, right? And we want to associate a label uh to this and we'll just call it train accuracy, right? And now we are just going to duplicate that line. And instead of like the accuracy, we want the train accuracy, which is stored as va accuracy, right? And uh so the label in this case is gonna be called uh test accuracy cool. So now we want to uh set the um the name of the, the Y axis, right? And so that is gonna be a set Y label and this is accuracy good. So now we have the uh y label. Next thing uh we want to s uh just like place the legend so that we can read the legend. And so we'll do a uh axis zero dot uh legend. And here we have an argument that's called lock location And we'll say that we want this in the lower right corner. And finally, we want to uh set a uh title. So we'll do a set title which is gonna give a title to our subplots and the title not surprisingly is gonna be accuracy evil, right? And so this way we have all of our subplot for uh the accuracy. Now we can just like take this copy and, and just uh change a few things around to create the error subplot, right? So here this is not zero anymore. This is gonna be one. And then here we don't want to retrieve the accuracy. We want to retrieve the error which is indicated here, it's stored as loss. Now, if you've been watching my videos, you know, guys that I prefer error to loss. But unfortunately, the guys at tensor flow think it differently. Cool. So the label here is gonna be train error. Then we want to retrieve the uh error for uh the test set. So we'll do a valley a vowel underscore uh loss. And then the label is gonna be test uh error over here. And then we'll set the way uh a label and this time to error. And uh we want to locate the legend in the upper right corner and you'll see why that's the case in a second. And the title is gonna be uh Error, Evil. And then uh yeah, let's just put a, an X label here. We'll set the X label and obviously the X label is epoch cool. So now we have the two subplots, but we still need to, to show that. So we'll do a plot dot show. That's great. OK. So now we should have everything in place. So I'm gonna run this script that's gonna use the um the music genre classifier that we built uh last time. And so we'll see how to identify all the fitting, looking at these two very important uh plots. Cool. So now I'm running, I'm gonna run the script. It's gonna take some time. So I'll just post the video and take it back and here we are back with the results of the uh training process. So as you can see here, guys, we have this nice plot of the accuracy over time and the uh overall like accuracy for the train uh set is quite high. And as you can see over time, it basically went all the way up almost like to 100%. And I remember guys like this down here are all like epochs and we have like 100 epochs, right? Uh But for the test accuracy, we just like go up, up and then we just like scale at around like 60%. So as you can see here, there's a huge huge difference over time in the test accuracy compared uh against the the train accuracy. And so that is in itself a huge uh indication of overfitting. Now, let's take a look at the error evaluation subplot as well. And here we have like a similar thing, right? So we have the train error that obviously like goes down down down over time, it becomes like very, very like little, whereas like the error goes down for quite a while and then it just like remains unchanged and then it actually starts to increase again, right? So this again is another indication that our model is hugely overfitting. So now the question is how do we solve this issue? Because obviously we want for our model to be able to generalize to data it has never seen before. Well, it turns out that there are a bunch of different techniques that we can use. So let's take a look at a few of those. So here we have five that I listed. So we have simpler architecture data augmentation, early stop in dropout and regularization. Now, uh I'm gonna implement in terms of flow only drop out and a regularization. Uh But I'm gonna talk about like all of them, right? So let's start from the, the first one which is also like the, the simplest, probably also like to understand uh here. Uh The whole point is that uh if we have a model that's like overfitting quite a lot, perhaps what we want to do is to try having a simpler architecture. So, and how do we achieve that? Well, uh we can achieve that by doing a couple of things first, we can remove uh layers. So if we have, for example, like four or five hidden layers, we can go down to three or two and then we can decrease the number of neurons that we have in each layer. And the reason behind this is that uh like the more complex the architecture and the more the architecture, uh the more the more the model is gonna be able like to actually interpret like all the patterns and getting like and learning everything also like beyond what's like Generali and all like the the I would say like also like the artifacts and uh nuances of the trains set like itself. So by going with a simpler architecture, we kind of like remove all of that. And that basically means that the the model is gonna be uh probably like more likely to perform better like on more general data. So this is like the the the first uh option that we have to uh fight against overfitting now. Uh You might, you may be asking but uh how do I do that? So what, what, what, what is, what, what is a simple architecture? Well, there's really no universal rule here. So you have just like to play around with stuff and, and see like what works for you. What I usually do is I start with relatively simple networks with few like layers and few neurons and uh then I just like add them up in order to have like a a model that's like more uh more powerful like and it's able like to express like and to learn the complexity of the data. Cool. So this is about using a simple architecture. Now we have another option which is called data augmentation. In our case, we're gonna do audio data augmentation. And here the whole idea is basically, it's quite simple, right? And it's basically like the more data you have and the better your uh model is gonna perform uh both on uh your screens set, but hopefully also like on your team, which is basically all the data that the model has never seen, right? But sometimes it's very difficult to get like uh extra data. So what we want to do is we want to artificially uh build new uh training uh samples, right? And for doing that, what we can do is we can apply transformations to uh our trains set to all of our training samples in the case of audio, what this basically means is to for example, uh apply certain transformations like pitch shifting. So where we just like move the pitch either up or down, we can also like time stretch. So we basically change the speed like of the audio file or we can add background noise. And so in that way, we are able like to, to, to just like recreate artificial versions like of the original like training samples. And so that we're gonna have like more data, which hopefully is gonna kind of like prevent us from overfitting. Now, there's a whole art and science about a audio data augmentation and we're not gonna get into the details, but the whole point is you apply a bunch of light transformations and obviously you can combine also those. So for example, you can combine pitch shifting with time stretching or you can add noise and then time stretch an audio file, right? But the whole point is to create a lot of like new data uh that is somehow related to the to the original one, but then it has uh like, I mean way more training samples. Now, the important thing to remember here is that when we do audio data augmentation, uh we want to use like the uh we want to do it like directly on the train set. So we don't want to do audio data augmentation, the whole data sets and then use the augmented data also for testing purposes because otherwise there you are cheating a little bit because I mean, at the end of the day, the transform data is somehow related to the uh like original data, right? And so you want to keep the um augmented data only for training purposes. So that when you uh work on the test set, that is like a completely unseen batch of data for the model, right? So this is like the second technique we have, then we have a third one which is like quite heuristic based and quite simple to understand it's called early stopping. And so here the whole point is that we want to choose certain rules to stop the training. And so for doing that, let let's look at the error uh like plot down here, right? So in blue, we have the train error and then in orange and we have the test error, right. So basically, uh with early stopping, for example, in this case, we could say, hey, if the uh test uh error doesn't improve after, I don't know, let's say uh seven um iterations then just uh stop uh the training, right? And so here you can decide how many epics you want to wait uh before uh you stop. And obviously, you can also like decide how much like is the improvement that you want to like expect uh right. And so like in this case, as you can see, this is like very, very handy because we are stopping training before we start uh overfitting. Because as you see after that, the uh test error remains like more or less stable whereas the train error goes down, which is like a typical signal indication of overfitting, right. So this is for early stopping. Now we have another couple of very useful uh techniques to fight against overfitting. The first one is called drop out. So drop out is a technique that enables us to randomly drop neurons while training. And by doing that, we increase the network robustness. So how does that work? So here we have uh down here we have like uh our network, right? So now when we train say for example, we have like the the the the first like batch of data in. So we may decide to randomly drop certain neurons. And so here, for example, we have like these two neurons like in gray which have been dropped. So all the connections like don't work for these neurons. And so the training just happens uh like through like the the the remaining part of the network, right? And so now like with the with the second batch of data, for example, we could just like change the neurons and this is gonna be done uh like randomly stochastically, right? We have a certain uh probability of dropping neurons in a in a layer. So here for example, we drop this neuron in the second hidden layer and we restore like the previous neurons, for example, right? And the question here is why, why does this work? So what's the point of all of this? Well, it turns out that if we do this, we are increasing the network robustness because the network can't rely on uh specific neurons like too much. So all the neurons have to take somewhat responsibility of the uh prediction um process, right? Because sometimes like some of these neurons don't exist. And so like the neuron, uh the network has to kind of like reshape and reive responsibilities to all of the neurons so that none of them is uh like indispensable. Right? Cool. So now uh there's a hyper parameter here that's called the dropout like probability. And now again, here there's really no universal rule. And this uh so usually like what you would use like is anything between like 10 to 50% of drop in neurons like in, in different layers. Uh right. But again, it's somewhat uh connected to like your problem. So you have to figure out like what works for your problem specifically, right. So this was a drop out. And now we have a final technique that's called uh regularization, right? And so this technique is um very interesting and very effective and it basically adds a penalty to the error function. And basically, it's the whole point is that we want to punish large weights. And uh so the larger the weights and the, the higher like the, the penalties like that, we're gonna, that we're gonna give like to the error function. So here we have a couple of uh types of uh regularization that are usually used in deep learning L one and L two regularization. So let's take a look at them like in uh specifically one by one. OK. So here we have L one regularization. So here, the whole point is that we want to minimize the absolute value of the weight. Now down here, you can recognize the error function quadratic function that we've used like so far, like in our theoretical um discussion of neural nets. Now these like uh we have like the quadratic error here and then we add this regular regularization uh thing. And now, as you can see here, we have like the, the sum of all like the uh the weights of the absolute value of the weights. And then we have LAMBDA which is like the term, the regularization like term. So the larger lambda and then the higher like the, the penalty that we give to the network, obviously lambda is another uh like hyper parameter that we need to tweak in order to like optimize our network, right. So L one regular regularization is really good because it's uh robust to uh our layers. And it kind of like generates a simple, simpler models like overall. Now we can also use L two regularization and the difference with L one regularization is that we minimize the squared uh value of the, of the weights. And you can see it here. And because we do that uh L two regularization is way less robust to outliers. But the great thing about L two regularization is that it can uh learn uh quite complex patterns. So I already know that what you want to ask. So should I use L one or L two regularization? Now, again, this is kind of like more an art than a science. But the overall like rule uh a thumb that I can give you here is that if you have like uh data kind of like relatively like simple to train, simple to learn data, probably you should go with L one. But if you have like data, it's kind of like, I don't know uh that's a little bit like more complex to learn. The patterns are more complex than go with L two. I would say like that in most audio and music based uh deep learning tasks you usually want to use L two regularization. Cool. So now we have an overview of all the different techniques that we can use for uh fighting over fitting. Now let's just go back to, to the code. So we can easily implement drop outs and regularization using tensorflow. Well, it's as as easily as it can be really. So for drop outs, we are gonna implement it for all the hidden layers. So for doing that, we'll just do a Kas dot layers dot drop out and then we'll pass in the dropout probability which we set to 30%. So 0.3 good. So now uh I'm gonna copy this and just paste it below the 2nd and 3rd hidden layer and drop out is done. Cool. What about regularization? Well, for regularization, we need to pass in an extra argument to this uh dense layers. So we'll do it for um hidden layer 12 and three cool. So the extra argument is called a kernel regularizer. And we just need to call Kas dot regularizer dot uh We'll do an L two here. And if you guys remember L two has a hyper parameter called a Lambda, which is kind of like the, the penalty multiplier and we'll put it to no 0.001 cool. So now I'll just like take this and paste it for layer hidden layer two and three. Great. We've done our, yeah, basically, we, we've implemented our way of like solving overfitting for this music genre classifier. So we should just like see if this works. And in order for doing that, we need to re run the model and take a look at the plots of the accuracy and the error. So I'll see you in a second here. We are with the results of our training process. And as you can see from the accuracy and error plots, things are going quite well. We've basically almost completely solved, prevented overfitting from happening. And so let's take a look at the uh error uh plot down here. So I'm just gonna zoom in uh to take a look at this. And uh as you can see here, uh the error of uh the test is quite comparable to uh the train error up until like I would say like, yeah, uh epoch uh number 70 then like the train error is going down, whereas like the test error is remaining more or less the same. And we can see that issue also in the accuracy. Uh So plot over here like around like, yeah, I would say like epoch 70 we start having the train accuracy going up and the test accuracy stabilizing, which basically means we are overfitting a little bit. But overall, we basically like so overfitting here, if we wanted to do like even a better job, we could use like some early stopping that probably would stop. Um uh like the training process around like epoch 17 cool. But this is great news cos now we know how to fight against all the fitting and as we've seen drop out and regularization work really, really well cool. So the next time we're gonna look into a more complex type of neural network called a convolutional neural network that's been used like for uh like image data quite a lot. But it's also very, very useful on audio data. So stay tuned for that. I hope you've enjoyed this video. If that's the case, please like it and uh consider subscribing. So if you have any questions, please leave them in the comment section below and I hope I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna try to tackle overfitting. So specifically, we're gonna look into techniques that we can use to identify overfitting and then to solve it. Cool. So if you guys remember last time we built a multi layer of perception that's able to do music genre classification, but we had a",
+                "start_time": "0.36",
+                "end_time": "25.152"
+            },
+            {
+                "id": 1,
+                "transcript": "issue and the issue was overfitting, which basically means that the uh model was doing very well on the training set, but it was having issues with data, it had never seen before, right? So first of all, what we want to do is find a way of identifying all the fitting. And for doing that, we can use a couple of plots that are very informative. So it's basically",
+                "start_time": "25.163",
+                "end_time": "49.956"
+            },
+            {
+                "id": 2,
+                "transcript": "taking a look at the accuracy and the error of both the train set and uh the test set over time over all the epochs and training cycles. So for doing that, obviously, we need to retain information about the training process. And uh fortunately for us, tensorflow has a super",
+                "start_time": "49.965",
+                "end_time": "74.769"
+            },
+            {
+                "id": 3,
+                "transcript": "do like way of doing that. And so if we look at here uh When we train the model, we just like do a model dot Fit, you should know this by now guys. And if you don't just get back and watch my previous videos on this,",
+                "start_time": "74.959",
+                "end_time": "90.959"
+            },
+            {
+                "id": 4,
+                "transcript": "but the the return of this Fit method is a history object. Basically that uh retains information about the accuracy and the error of both the uh train set and the test set over time.",
+                "start_time": "90.97",
+                "end_time": "106.98"
+            },
+            {
+                "id": 5,
+                "transcript": "Cool. So we can just store that information during a history equal to this thing. Now, the next step that we want to do is basically to plot the accuracy and error over the AEX.",
+                "start_time": "107.269",
+                "end_time": "124.069"
+            },
+            {
+                "id": 6,
+                "transcript": "Now, we don't have this function yet, but we'll fake it for the time being. And so we would say plots history and obviously we'll pass in this history argument. Cool. So now we should build this plot history function. So we'll define it over here.",
+                "start_time": "124.76",
+                "end_time": "144.96"
+            },
+            {
+                "id": 7,
+                "transcript": "So we'll do a define plot history. And as we know, plot history accepts an argument, we'll call it history. And uh so here uh we need to build like this plot. Well, we want to build like a plot with a couple of subplots, right? So one is for the error and the other one is for the accuracy. But for building plots, as we know, we need to use Maloy I uh which is like this super interesting and super cool",
+                "start_time": "145.149",
+                "end_time": "174.089"
+            },
+            {
+                "id": 8,
+                "transcript": "um a library for a plotting and we need to import that right. So we'll do an import mat uh plot lab dot plots and we'll import that as PLT,",
+                "start_time": "174.339",
+                "end_time": "188.1"
+            },
+            {
+                "id": 9,
+                "transcript": "right? So here, what we wanna do is we'll get a figure and an access and we'll do a plot dot subplots and we'll pass in two. So basically what this does, it returns like a figure object and, and there's axis over here and we'll say that we want two subplots, right?",
+                "start_time": "189.32",
+                "end_time": "216.13"
+            },
+            {
+                "id": 10,
+                "transcript": "OK. So as the first step let's build, so let's create the accuracy. So plots,",
+                "start_time": "216.289",
+                "end_time": "224.22"
+            },
+            {
+                "id": 11,
+                "transcript": "OK. So",
+                "start_time": "225.369",
+                "end_time": "227.229"
+            },
+            {
+                "id": 12,
+                "transcript": "let's say so the the accuracy plot is gonna be axis in zero. And here we need to plot the stuff that we want to plot, right? And so here we want to plot uh first of all the um accuracy of the train set over time, right? And then the accuracy of the test set. So here we know that the accuracy of the train set",
+                "start_time": "228.46",
+                "end_time": "255.72"
+            },
+            {
+                "id": 13,
+                "transcript": "is stored in a dictionary called not surprisingly history. And the the key is",
+                "start_time": "256.239",
+                "end_time": "263.92"
+            },
+            {
+                "id": 14,
+                "transcript": "accuracy, right? So it's not really that surprising, but it's quite straightforward, right? And we want to associate a label uh to this and we'll just call it train accuracy, right? And now we are just going to duplicate that line. And instead of like the accuracy, we want the train accuracy, which is stored as va accuracy, right?",
+                "start_time": "264.549",
+                "end_time": "289.07"
+            },
+            {
+                "id": 15,
+                "transcript": "And uh so the label in this case is gonna be called uh test accuracy cool. So now we want to uh set the um the name of the, the Y axis, right? And so that is gonna be a set Y label and this is accuracy good. So now we have the uh y label. Next thing",
+                "start_time": "289.42",
+                "end_time": "316.279"
+            },
+            {
+                "id": 16,
+                "transcript": "uh we want to s uh just like place the legend so that we can read the legend. And so we'll do a uh axis zero dot uh legend. And here we have an argument that's called lock location And we'll say that we want this in the lower right corner. And finally, we want to uh set a",
+                "start_time": "316.48",
+                "end_time": "341.92"
+            },
+            {
+                "id": 17,
+                "transcript": "uh title. So we'll do a set title which is gonna give a title to our subplots and the title not surprisingly is gonna be accuracy evil, right? And so this way we have all of our subplot for uh the accuracy. Now we can just like take this copy and, and just uh change a few things around to create the error subplot,",
+                "start_time": "342.14",
+                "end_time": "371.48"
+            },
+            {
+                "id": 18,
+                "transcript": "right? So here this is not zero anymore. This is gonna be one. And then here we don't want to retrieve the accuracy. We want to retrieve the error which is indicated here, it's stored as loss. Now, if you've been watching my videos, you know, guys that I prefer error to loss. But unfortunately, the guys at tensor flow think it differently. Cool. So the label here is gonna be train error.",
+                "start_time": "371.649",
+                "end_time": "399.79"
+            },
+            {
+                "id": 19,
+                "transcript": "Then we want to retrieve the uh error for uh the test set. So we'll do a valley a vowel underscore uh loss. And then the label is gonna be test uh error over here. And then we'll set the way uh a label and this time to error. And uh we want to locate the legend in the upper right corner and you'll see why that's the case in a second.",
+                "start_time": "400.35",
+                "end_time": "429.13"
+            },
+            {
+                "id": 20,
+                "transcript": "And the title is gonna be uh Error, Evil.",
+                "start_time": "429.41",
+                "end_time": "433.799"
+            },
+            {
+                "id": 21,
+                "transcript": "And then uh yeah, let's just put a, an X label here. We'll set the X label and obviously the X label is",
+                "start_time": "434.38",
+                "end_time": "442.239"
+            },
+            {
+                "id": 22,
+                "transcript": "epoch cool. So now we have the two subplots, but we still need to, to show that. So we'll do a plot dot show.",
+                "start_time": "443.1",
+                "end_time": "453.79"
+            },
+            {
+                "id": 23,
+                "transcript": "That's great. OK. So now we should have everything in place. So I'm gonna run this script that's gonna use the um the music genre classifier that we built uh last time. And so we'll see how to identify all the fitting, looking at these two very important uh plots. Cool. So now I'm running, I'm gonna run the script. It's gonna take some time. So I'll just post the video and take it back",
+                "start_time": "454.41",
+                "end_time": "481.839"
+            },
+            {
+                "id": 24,
+                "transcript": "and here we are back with the results of the uh training process. So as you can see here, guys, we have this nice plot of the accuracy over time and the uh overall like accuracy for the train uh set is quite high. And as you can see over time, it basically went all the way up almost like to 100%. And I remember guys like this down here are all like epochs and we have like 100 epochs, right?",
+                "start_time": "482.209",
+                "end_time": "510.369"
+            },
+            {
+                "id": 25,
+                "transcript": "Uh But for the test accuracy, we just like go up, up and then we just like scale at around like 60%. So as you can see here, there's a huge huge difference over time in the test accuracy compared uh against the the train accuracy. And so that is in itself a huge uh indication of overfitting.",
+                "start_time": "510.809",
+                "end_time": "533.109"
+            },
+            {
+                "id": 26,
+                "transcript": "Now, let's take a look at the error evaluation subplot as well. And here we have like a similar thing, right? So we have the train error that obviously like goes down down down over time, it becomes like very, very like little, whereas like the",
+                "start_time": "533.409",
+                "end_time": "549.989"
+            },
+            {
+                "id": 27,
+                "transcript": "error goes down for quite a while and then it just like remains unchanged and then it actually starts to increase again, right? So this again is another indication that our model is hugely overfitting. So",
+                "start_time": "550.0",
+                "end_time": "567.38"
+            },
+            {
+                "id": 28,
+                "transcript": "now the question is how do we solve this issue? Because obviously we want for our model to be able to generalize to data it has never seen before. Well, it turns out that there are a bunch of different techniques that we can use. So let's take a look at a few of those.",
+                "start_time": "567.559",
+                "end_time": "584.01"
+            },
+            {
+                "id": 29,
+                "transcript": "So here we have five that I listed. So we have simpler architecture data augmentation, early stop in dropout and regularization.",
+                "start_time": "585.59",
+                "end_time": "595.84"
+            },
+            {
+                "id": 30,
+                "transcript": "Now, uh I'm gonna implement in terms of flow only drop out and a regularization. Uh But I'm gonna talk about like all of them, right? So let's start from the, the first one which is also like the, the simplest, probably also like to understand",
+                "start_time": "596.359",
+                "end_time": "612.64"
+            },
+            {
+                "id": 31,
+                "transcript": "uh here. Uh The whole point is that uh if we have a model that's like overfitting quite a lot, perhaps what we want to do is to try having a simpler architecture. So, and how do we achieve that? Well, uh we can achieve that by doing a couple of things first, we can remove uh layers. So if we have, for example, like four or five hidden layers, we can go down to three or two",
+                "start_time": "613.239",
+                "end_time": "638.7"
+            },
+            {
+                "id": 32,
+                "transcript": "and then we can decrease the number of neurons that we have in each layer. And the reason behind this is that uh like the more complex the architecture and the more the architecture, uh the more the more the model is gonna be able like to actually interpret like all the patterns and getting like and learning everything also like beyond what's like Generali and all like the the I would say like also like the artifacts and",
+                "start_time": "639.179",
+                "end_time": "667.849"
+            },
+            {
+                "id": 33,
+                "transcript": "uh nuances of the trains set like itself. So by going with a simpler architecture, we kind of like remove all of that. And that basically means that the the model is gonna be uh probably like more likely to perform better like on more general data.",
+                "start_time": "668.059",
+                "end_time": "685.33"
+            },
+            {
+                "id": 34,
+                "transcript": "So this is like the the the first uh option that we have to uh fight against overfitting now. Uh You might, you may be asking but uh how do I do that? So what, what, what, what is, what, what is a simple architecture? Well, there's really no",
+                "start_time": "685.57",
+                "end_time": "702.914"
+            },
+            {
+                "id": 35,
+                "transcript": "universal rule here. So you have just like to play around with stuff and, and see like what works for you. What I usually do is I start with relatively simple networks with few like layers and few neurons and uh then I just like add them up in order to have like a a model that's like more uh more powerful like and it's able like to express like and to learn the complexity of the data.",
+                "start_time": "702.924",
+                "end_time": "729.409"
+            },
+            {
+                "id": 36,
+                "transcript": "Cool. So this is about using a simple architecture. Now we have another option which is called data augmentation. In our case, we're gonna do audio data augmentation. And here the whole idea is basically, it's quite simple, right? And it's basically like the more data you have and the better your uh model is gonna perform uh both on uh your screens set, but hopefully also like on your team,",
+                "start_time": "729.799",
+                "end_time": "758.085"
+            },
+            {
+                "id": 37,
+                "transcript": "which is basically all the data that the model has never seen, right? But sometimes it's very difficult to get like uh extra data. So what we want to do is we want to artificially uh build new uh training uh samples, right?",
+                "start_time": "758.094",
+                "end_time": "775.75"
+            },
+            {
+                "id": 38,
+                "transcript": "And for doing that, what we can do is we can apply transformations to uh our trains set to all of our training samples in the case of audio, what this basically means is to for example, uh apply certain transformations like pitch shifting. So where we just like move the pitch either up or down, we can also like time stretch. So we basically change",
+                "start_time": "775.929",
+                "end_time": "801.09"
+            },
+            {
+                "id": 39,
+                "transcript": "the speed like of the audio file or we can add background noise. And so in that way, we are able like to, to, to just like recreate artificial versions like of the original like training samples. And so that we're gonna have like more data, which hopefully is gonna kind of like prevent us from overfitting. Now,",
+                "start_time": "801.099",
+                "end_time": "826.27"
+            },
+            {
+                "id": 40,
+                "transcript": "there's a whole art and science about a audio data augmentation and we're not gonna get into the details, but the whole point is you apply a bunch of light transformations and obviously you can combine also those. So for example, you can combine pitch shifting with time stretching or you can add noise and then time stretch an audio file, right?",
+                "start_time": "826.419",
+                "end_time": "844.419"
+            },
+            {
+                "id": 41,
+                "transcript": "But the whole point is to create a lot of like new data uh that is somehow related to the to the original one, but then it has uh like, I mean way more training samples. Now, the important thing to remember here is that when we do audio data augmentation, uh we want to use like the uh we want to do it like directly on the train set.",
+                "start_time": "844.63",
+                "end_time": "867.89"
+            },
+            {
+                "id": 42,
+                "transcript": "So we don't want to do audio data augmentation, the whole data sets and then use the augmented data also for testing purposes because otherwise there you are cheating a little bit because I mean, at the end of the day, the transform data is somehow",
+                "start_time": "868.08",
+                "end_time": "884.03"
+            },
+            {
+                "id": 43,
+                "transcript": "related to the uh like original data, right? And so you want to keep the um augmented data only for training purposes. So that when you uh work on the test set, that is like a completely unseen batch of data for the model,",
+                "start_time": "884.039",
+                "end_time": "901.229"
+            },
+            {
+                "id": 44,
+                "transcript": "right? So this is like the second technique we have, then we have a third one which is like quite heuristic based and quite simple to understand it's called early stopping. And so here the whole point is that we want to choose certain rules to stop the training. And so for doing that, let let's look at the error uh like plot down here, right? So in blue, we have the train error and then in orange and we have the test error, right.",
+                "start_time": "901.39",
+                "end_time": "930.78"
+            },
+            {
+                "id": 45,
+                "transcript": "So basically, uh with early stopping, for example, in this case, we could say, hey, if the uh test uh error doesn't improve after, I don't know, let's say uh seven",
+                "start_time": "931.059",
+                "end_time": "943.83"
+            },
+            {
+                "id": 46,
+                "transcript": "um iterations then just uh stop uh the training, right? And so here you can decide how many epics you want to wait uh before uh you stop. And obviously, you can also like decide how much like is the improvement that you want to like expect",
+                "start_time": "944.359",
+                "end_time": "961.739"
+            },
+            {
+                "id": 47,
+                "transcript": "uh right. And so like in this case, as you can see, this is like very, very handy because we are stopping training before we start uh overfitting. Because as you see after that, the uh test error remains like more or less stable whereas the train error goes down, which is like a typical signal indication of overfitting, right.",
+                "start_time": "961.969",
+                "end_time": "984.53"
+            },
+            {
+                "id": 48,
+                "transcript": "So this is for early stopping. Now we have another couple of very useful uh techniques to fight against overfitting. The first one is called drop out. So drop out is a technique that enables us",
+                "start_time": "984.88",
+                "end_time": "1002.489"
+            },
+            {
+                "id": 49,
+                "transcript": "to randomly drop neurons while training. And by doing that, we increase the network robustness. So how does that work? So here we have uh down here we have like uh our network, right? So now when we train say for example, we have like the the the the first like batch of data in. So we may decide to randomly drop certain neurons. And so here, for example, we have like these two neurons like in gray",
+                "start_time": "1002.71",
+                "end_time": "1031.38"
+            },
+            {
+                "id": 50,
+                "transcript": "which have been dropped. So all the connections like don't work for these neurons. And so the training just happens uh like through like the the the remaining part of the network, right? And so now like with the with the second batch of data, for example, we could just like change the neurons and this is gonna be done uh like randomly stochastically, right?",
+                "start_time": "1031.568",
+                "end_time": "1053.81"
+            },
+            {
+                "id": 51,
+                "transcript": "We have a certain uh probability of dropping neurons in a in a layer. So here for example, we drop this neuron in the second hidden layer and we restore like the previous neurons, for example, right?",
+                "start_time": "1054.04",
+                "end_time": "1066.79"
+            },
+            {
+                "id": 52,
+                "transcript": "And the question here is why, why does this work? So what's the point of all of this? Well, it turns out that if we do this, we are increasing the network robustness because the network can't rely on uh specific neurons like too much. So all the neurons have to take somewhat responsibility of the uh prediction um process, right?",
+                "start_time": "1066.959",
+                "end_time": "1093.9"
+            },
+            {
+                "id": 53,
+                "transcript": "Because sometimes like some of these neurons don't exist. And so like the neuron, uh the network has to kind of like reshape and reive responsibilities to all of the neurons so that none of them is uh like indispensable. Right? Cool. So now uh there's a hyper parameter here that's called the dropout like probability.",
+                "start_time": "1094.14",
+                "end_time": "1119.38"
+            },
+            {
+                "id": 54,
+                "transcript": "And now again, here there's really no universal rule. And this uh so usually like what you would use like is anything between like 10 to 50% of drop in neurons like in, in different layers. Uh right. But again, it's somewhat uh",
+                "start_time": "1119.52",
+                "end_time": "1138.359"
+            },
+            {
+                "id": 55,
+                "transcript": "connected to like your problem. So you have to figure out like what works for your problem specifically, right. So this was a drop out. And now we have a final technique that's called uh regularization, right? And so this technique is um very interesting and very effective and it basically adds a penalty to the error function.",
+                "start_time": "1138.5",
+                "end_time": "1167.199"
+            },
+            {
+                "id": 56,
+                "transcript": "And basically, it's the whole point is that we want to punish large weights. And uh so the larger the weights and the, the higher like the, the penalties like that, we're gonna, that we're gonna give like to the error function.",
+                "start_time": "1167.39",
+                "end_time": "1182.51"
+            },
+            {
+                "id": 57,
+                "transcript": "So here we have a couple of uh types of uh regularization that are usually used in deep learning L one and L two regularization. So let's take a look at them like in uh specifically one by one. OK. So here we have L one regularization.",
+                "start_time": "1183.119",
+                "end_time": "1199.04"
+            },
+            {
+                "id": 58,
+                "transcript": "So here, the whole point is that we want to minimize the absolute value of the weight. Now down here, you can recognize the error function quadratic function that we've used like so far, like in our theoretical um discussion of neural nets. Now these like",
+                "start_time": "1199.31",
+                "end_time": "1217.369"
+            },
+            {
+                "id": 59,
+                "transcript": "uh we have like the quadratic error here and then we add this regular regularization uh thing. And now, as you can see here, we have like the, the sum of all like the uh the weights of the absolute value of the weights. And then we have LAMBDA which is like the term, the regularization like term. So the larger lambda and then the higher like the, the penalty that we give to the network, obviously lambda",
+                "start_time": "1217.68",
+                "end_time": "1246.28"
+            },
+            {
+                "id": 60,
+                "transcript": "is another uh like hyper parameter that we need to tweak in order to like optimize our network, right. So L one regular regularization is really good because it's uh robust to uh our layers. And it kind of like generates a simple, simpler models like overall. Now we can also use L two regularization and the difference with L one regularization is that we minimize the squared",
+                "start_time": "1246.949",
+                "end_time": "1275.459"
+            },
+            {
+                "id": 61,
+                "transcript": "uh value of the, of the weights. And you can see it here. And because we do that uh L two regularization is way less robust to outliers. But the great thing about L two regularization is that it can uh learn uh quite complex patterns. So I already know that what you want to ask. So should I use L one or L two regularization? Now, again, this is",
+                "start_time": "1275.65",
+                "end_time": "1302.93"
+            },
+            {
+                "id": 62,
+                "transcript": "kind of like more an art than a science. But the overall like rule uh a thumb that I can give you here is that if you have like uh data kind of like relatively like simple to train, simple to learn data, probably you should go with L one. But if you have like data, it's kind of like, I don't know uh that's a little bit like more complex to learn. The patterns are more complex than go with L two.",
+                "start_time": "1303.189",
+                "end_time": "1329.569"
+            },
+            {
+                "id": 63,
+                "transcript": "I would say like that in most audio and music based uh deep learning tasks you usually want to use L two regularization. Cool. So now we have an overview of all the different techniques that we can use for uh fighting over fitting. Now let's just go back to, to the code.",
+                "start_time": "1330.229",
+                "end_time": "1351.0"
+            },
+            {
+                "id": 64,
+                "transcript": "So we can easily implement drop outs and regularization using tensorflow. Well, it's as as easily as it can be really.",
+                "start_time": "1351.609",
+                "end_time": "1360.77"
+            },
+            {
+                "id": 65,
+                "transcript": "So for drop outs, we are gonna implement it for all the hidden layers. So for doing that, we'll just do a Kas dot layers dot drop out and then we'll pass in the dropout probability which we set to 30%. So 0.3 good. So now",
+                "start_time": "1361.069",
+                "end_time": "1384.719"
+            },
+            {
+                "id": 66,
+                "transcript": "uh I'm gonna copy this and just paste it below the 2nd and 3rd hidden layer and drop out is done. Cool. What about regularization? Well, for regularization, we need to pass in an extra argument to this uh dense layers. So we'll do it for um hidden layer 12 and three cool. So the extra argument is called a kernel regularizer.",
+                "start_time": "1385.03",
+                "end_time": "1414.869"
+            },
+            {
+                "id": 67,
+                "transcript": "And we just need to call Kas dot regularizer dot uh We'll do an L two here. And if you guys remember L two has a hyper parameter called a Lambda, which is kind of like the, the penalty multiplier and we'll put it to no 0.001 cool. So now I'll just like take this and paste it for layer hidden layer two and three. Great.",
+                "start_time": "1415.0",
+                "end_time": "1444.989"
+            },
+            {
+                "id": 68,
+                "transcript": "We've done our, yeah, basically, we, we've implemented our way of like solving overfitting for this music genre classifier. So we should just like see if this works. And in order for doing that, we need to re run the model and take a look at the plots of the accuracy and the error. So I'll see you in a second here. We",
+                "start_time": "1445.119",
+                "end_time": "1470.135"
+            },
+            {
+                "id": 69,
+                "transcript": "are with the results of our training process. And as you can see from the accuracy and error plots, things are going quite well. We've basically almost completely solved, prevented overfitting from happening. And so let's take a look at the uh error uh plot down here. So I'm just gonna zoom in uh to take a look at this. And uh as you can see here, uh the error of uh the test",
+                "start_time": "1470.145",
+                "end_time": "1498.229"
+            },
+            {
+                "id": 70,
+                "transcript": "is quite comparable to uh the train error up until like I would say like, yeah, uh epoch uh number 70 then like the train error is going down, whereas like the test error is remaining more or less the same. And we can see that issue also in the accuracy. Uh So plot over here like around like,",
+                "start_time": "1498.53",
+                "end_time": "1519.5"
+            },
+            {
+                "id": 71,
+                "transcript": "yeah, I would say like epoch 70 we start having the train accuracy going up and the test accuracy stabilizing, which basically means we are overfitting a little bit. But overall, we basically like so overfitting here, if we wanted to do like even a better job, we could use like some early stopping that probably would stop. Um uh like the training process around like epoch 17",
+                "start_time": "1519.93",
+                "end_time": "1543.43"
+            },
+            {
+                "id": 72,
+                "transcript": "cool. But this is great news cos now we know how to fight against all the fitting and as we've seen drop out and regularization work really, really well cool. So the next time we're gonna look into a more complex type of neural network",
+                "start_time": "1543.63",
+                "end_time": "1561.449"
+            },
+            {
+                "id": 73,
+                "transcript": "called a convolutional neural network that's been used like for uh like image data quite a lot. But it's also very, very useful on audio data. So stay tuned for that. I hope you've enjoyed this video. If that's the case, please like it and uh consider subscribing. So if you have any questions, please leave them in the comment section below and I hope I'll see you next time. Cheers.",
+                "start_time": "1561.459",
+                "end_time": "1588.699"
+            }
+        ]
+    }
+}

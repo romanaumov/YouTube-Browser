@@ -1,0 +1,308 @@
+[
+    {
+        "id": "ba95eee1",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we looked at the theory behind mel spectrograms. This time we'll be using that knowledge and we'll extract mel spectrograms using Python and li browser. So without any further ado, let's get started. So the first thing that we wanna do is just like import a bunch of like packages. So li browser, li browser doc display and map, put lip just like for review stuff. Next, we want to actually load uh an audio file with lib browser. So the first thing that we'll do is just um get a reference to uh the path to the file. And next we want to do is just like play you guys back like this audio file and you should be familiar with this because it's the one that we used also uh when we actually extracted uh vanilla spectrograms a couple of years ago. So let's listen to this scale and we have a second repetition of the same pattern.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "3ae79999",
+        "text": "stuff. Next, we want to actually load uh an audio file with lib browser. So the first thing that we'll do is just um get a reference to uh the path to the file. And next we want to do is just like play you guys back like this audio file and you should be familiar with this because it's the one that we used also uh when we actually extracted uh vanilla spectrograms a couple of years ago. So let's listen to this scale and we have a second repetition of the same pattern. OK. Simple C major scale uh with a piano.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=28s",
+        "start_time": "28.94"
+    },
+    {
+        "id": "c563e8c8",
+        "text": "and we have a second repetition of the same pattern. OK. Simple C major scale uh with a piano. OK. So next up what we wanna do is just like a uh yeah load uh this audio file in Li Brosa. And so for that, and you should be familiar with this right now. We do a Li Brosa dot load and we pass in the path to the file. What we get back is a signal uh which is just like an empire array and then ad sample rate and the default sample rate with libros is 22,050 Hertz. OK. So",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=60s",
+        "start_time": "60.209"
+    },
+    {
+        "id": "a1786af2",
+        "text": "OK. Simple C major scale uh with a piano. OK. So next up what we wanna do is just like a uh yeah load uh this audio file in Li Brosa. And so for that, and you should be familiar with this right now. We do a Li Brosa dot load and we pass in the path to the file. What we get back is a signal uh which is just like an empire array and then ad sample rate and the default sample rate with libros is 22,050 Hertz. OK. So uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=63s",
+        "start_time": "63.819"
+    },
+    {
+        "id": "ce38ba2c",
+        "text": "OK. So next up what we wanna do is just like a uh yeah load uh this audio file in Li Brosa. And so for that, and you should be familiar with this right now. We do a Li Brosa dot load and we pass in the path to the file. What we get back is a signal uh which is just like an empire array and then ad sample rate and the default sample rate with libros is 22,050 Hertz. OK. So uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=68s",
+        "start_time": "68.339"
+    },
+    {
+        "id": "35f1fc30",
+        "text": "uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s",
+        "start_time": "96.919"
+    },
+    {
+        "id": "ce21c400",
+        "text": "So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we can then just like get a, a whole filter bank. So we do uh a Li Breza dot filters dot mail and then we should pass some parameters. First of all, we pass the frame size which I've put to 2048 the simple rate and the number of malls that we want to use. And in other words, like this is like kind of like the number of like mel bands that we'll uh see. OK,",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=106s",
+        "start_time": "106.139"
+    },
+    {
+        "id": "ca404d21",
+        "text": "uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we can then just like get a, a whole filter bank. So we do uh a Li Breza dot filters dot mail and then we should pass some parameters. First of all, we pass the frame size which I've put to 2048 the simple rate and the number of malls that we want to use. And in other words, like this is like kind of like the number of like mel bands that we'll uh see. OK, let's do that. So nothing really like showed up really. But in all actuality, what happened is that now we have the filter bands. So let's take a look at the shape here. So if you remember from my previous video, I said that this is a mesh",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=130s",
+        "start_time": "130.326"
+    },
+    {
+        "id": "9c8310f7",
+        "text": "can then just like get a, a whole filter bank. So we do uh a Li Breza dot filters dot mail and then we should pass some parameters. First of all, we pass the frame size which I've put to 2048 the simple rate and the number of malls that we want to use. And in other words, like this is like kind of like the number of like mel bands that we'll uh see. OK, let's do that. So nothing really like showed up really. But in all actuality, what happened is that now we have the filter bands. So let's take a look at the shape here. So if you remember from my previous video, I said that this is a mesh and on uh the rows like the dimension uh like the first dimension is equal to uh has a size of like 10 in this case, which is equal to the number of uh meal bands. And the second dimension",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=154s",
+        "start_time": "154.511"
+    },
+    {
+        "id": "40c8efe9",
+        "text": "let's do that. So nothing really like showed up really. But in all actuality, what happened is that now we have the filter bands. So let's take a look at the shape here. So if you remember from my previous video, I said that this is a mesh and on uh the rows like the dimension uh like the first dimension is equal to uh has a size of like 10 in this case, which is equal to the number of uh meal bands. And the second dimension has uh a size which is equal to the nus frequency uh of the frame size plus one. So in other words, it's this tt 22,048 divided by two plus one which is equal to 1025. So it checks out. OK. So now what I want to do next is try to visualize this male filter banks. Now, from",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=179s",
+        "start_time": "179.759"
+    },
+    {
+        "id": "c55f3ff0",
+        "text": "and on uh the rows like the dimension uh like the first dimension is equal to uh has a size of like 10 in this case, which is equal to the number of uh meal bands. And the second dimension has uh a size which is equal to the nus frequency uh of the frame size plus one. So in other words, it's this tt 22,048 divided by two plus one which is equal to 1025. So it checks out. OK. So now what I want to do next is try to visualize this male filter banks. Now, from my previous video, you may remember, sorry, it wasn't that. It's this one. You may remember that this is a way that we can visualize the male filter band. So uh uh on the x axis, we have frequency on the Y axis over here, we have the weights and we have like all of the different male bands. And here like these points which weight equal one are the centers of the,",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=195s",
+        "start_time": "195.389"
+    },
+    {
+        "id": "637af11d",
+        "text": "has uh a size which is equal to the nus frequency uh of the frame size plus one. So in other words, it's this tt 22,048 divided by two plus one which is equal to 1025. So it checks out. OK. So now what I want to do next is try to visualize this male filter banks. Now, from my previous video, you may remember, sorry, it wasn't that. It's this one. You may remember that this is a way that we can visualize the male filter band. So uh uh on the x axis, we have frequency on the Y axis over here, we have the weights and we have like all of the different male bands. And here like these points which weight equal one are the centers of the, of the filter of the, of the male bands, right? And then we have like this triangular filters like this. OK. So now let's try to visualize this in another way. So what we can do is we can use the Libras display dot spec show if you remember this spec function kind of like",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=211s",
+        "start_time": "211.199"
+    },
+    {
+        "id": "29fa5ce5",
+        "text": "my previous video, you may remember, sorry, it wasn't that. It's this one. You may remember that this is a way that we can visualize the male filter band. So uh uh on the x axis, we have frequency on the Y axis over here, we have the weights and we have like all of the different male bands. And here like these points which weight equal one are the centers of the, of the filter of the, of the male bands, right? And then we have like this triangular filters like this. OK. So now let's try to visualize this in another way. So what we can do is we can use the Libras display dot spec show if you remember this spec function kind of like um displays of spectrogram like variables. But we can use it really for any type of um bi dimensional array or matrix. And so we know that filter banks like is an array so well is that a bi dimensional array or it is a matrix? And so we can just like plot it using spectra. OK. So now let's try to do this and let's see what's the results over here? Cool.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=236s",
+        "start_time": "236.919"
+    },
+    {
+        "id": "54587a5a",
+        "text": "of the filter of the, of the male bands, right? And then we have like this triangular filters like this. OK. So now let's try to visualize this in another way. So what we can do is we can use the Libras display dot spec show if you remember this spec function kind of like um displays of spectrogram like variables. But we can use it really for any type of um bi dimensional array or matrix. And so we know that filter banks like is an array so well is that a bi dimensional array or it is a matrix? And so we can just like plot it using spectra. OK. So now let's try to do this and let's see what's the results over here? Cool. OK. So on the X axis here you have frequency expressed in Hertz on the Y axis, you have the 10 different uh uh mel bands, right? And you can see that we have like 10 Melbournes because you, you can see we can count like these blocks right there. So 123456789 and then uh 10 over here.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=263s",
+        "start_time": "263.279"
+    },
+    {
+        "id": "a7211ed3",
+        "text": "um displays of spectrogram like variables. But we can use it really for any type of um bi dimensional array or matrix. And so we know that filter banks like is an array so well is that a bi dimensional array or it is a matrix? And so we can just like plot it using spectra. OK. So now let's try to do this and let's see what's the results over here? Cool. OK. So on the X axis here you have frequency expressed in Hertz on the Y axis, you have the 10 different uh uh mel bands, right? And you can see that we have like 10 Melbournes because you, you can see we can count like these blocks right there. So 123456789 and then uh 10 over here. And what, what also what we also see here is that we have like this kind of like bands over here and uh the color uh corresponds to the weight that we have uh for a male band at a certain frequency expressed in Hertz and the brighter the color and the closer we get to a which equal to.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=283s",
+        "start_time": "283.625"
+    },
+    {
+        "id": "b7f08d5f",
+        "text": "OK. So on the X axis here you have frequency expressed in Hertz on the Y axis, you have the 10 different uh uh mel bands, right? And you can see that we have like 10 Melbournes because you, you can see we can count like these blocks right there. So 123456789 and then uh 10 over here. And what, what also what we also see here is that we have like this kind of like bands over here and uh the color uh corresponds to the weight that we have uh for a male band at a certain frequency expressed in Hertz and the brighter the color and the closer we get to a which equal to. So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=310s",
+        "start_time": "310.17"
+    },
+    {
+        "id": "ccd861d8",
+        "text": "And what, what also what we also see here is that we have like this kind of like bands over here and uh the color uh corresponds to the weight that we have uh for a male band at a certain frequency expressed in Hertz and the brighter the color and the closer we get to a which equal to. So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=333s",
+        "start_time": "333.739"
+    },
+    {
+        "id": "92c04495",
+        "text": "So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=358s",
+        "start_time": "358.73"
+    },
+    {
+        "id": "dcc249c7",
+        "text": "we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=383s",
+        "start_time": "383.72"
+    },
+    {
+        "id": "66a3468a",
+        "text": "So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um the uh like vanilla spectrogram as well as the co creating like a male uh filter back. So we pass in the the signal. So in this case, it's our scale signal. Then we should specify the some the frame size, the H length. And these are",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=409s",
+        "start_time": "409.929"
+    },
+    {
+        "id": "239fcd99",
+        "text": "uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um the uh like vanilla spectrogram as well as the co creating like a male uh filter back. So we pass in the the signal. So in this case, it's our scale signal. Then we should specify the some the frame size, the H length. And these are uh this is all the information that we need for extracting the spectrogram. And then we also need to pass the number of male bands which yeah, let's put it just like equal to 90 for example, right?",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=434s",
+        "start_time": "434.029"
+    },
+    {
+        "id": "e17b93e4",
+        "text": "the uh like vanilla spectrogram as well as the co creating like a male uh filter back. So we pass in the the signal. So in this case, it's our scale signal. Then we should specify the some the frame size, the H length. And these are uh this is all the information that we need for extracting the spectrogram. And then we also need to pass the number of male bands which yeah, let's put it just like equal to 90 for example, right? And as I said, what ma spectrogram does under the hood is calculating the uh vanilla spectrogram. It creates the male filter banks and apply the male filter banks uh to the spectrogram. OK. So let's run this. And next, what I want to show you guys is the shape of this um males spectrogram, right?",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=453s",
+        "start_time": "453.299"
+    },
+    {
+        "id": "36b8ce71",
+        "text": "uh this is all the information that we need for extracting the spectrogram. And then we also need to pass the number of male bands which yeah, let's put it just like equal to 90 for example, right? And as I said, what ma spectrogram does under the hood is calculating the uh vanilla spectrogram. It creates the male filter banks and apply the male filter banks uh to the spectrogram. OK. So let's run this. And next, what I want to show you guys is the shape of this um males spectrogram, right? And so what we get here is a, a bi dimensional ray uh once again and the shape here is like, so the the, the first dimension has like size equal to 90. And this checks out because the, the number of rays that we have in the mount spectrogram hm uh should be equal to the number of um mel bands and in this case is equal to 90. So it checks out and this second dimension",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=471s",
+        "start_time": "471.929"
+    },
+    {
+        "id": "f6c9dd60",
+        "text": "And as I said, what ma spectrogram does under the hood is calculating the uh vanilla spectrogram. It creates the male filter banks and apply the male filter banks uh to the spectrogram. OK. So let's run this. And next, what I want to show you guys is the shape of this um males spectrogram, right? And so what we get here is a, a bi dimensional ray uh once again and the shape here is like, so the the, the first dimension has like size equal to 90. And this checks out because the, the number of rays that we have in the mount spectrogram hm uh should be equal to the number of um mel bands and in this case is equal to 90. So it checks out and this second dimension as a size which is equal to the number of frames or temporal bins that we extract from the signal, which in this case is equal to 342. OK. So next up what we want to do is just like move from the power spectrogram, apply a logarithm logarithm to and then move to decibels. And so what we do by doing so is moving from mount spectrograms to log me spectrograms. And",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=483s",
+        "start_time": "483.809"
+    },
+    {
+        "id": "745dffa9",
+        "text": "And so what we get here is a, a bi dimensional ray uh once again and the shape here is like, so the the, the first dimension has like size equal to 90. And this checks out because the, the number of rays that we have in the mount spectrogram hm uh should be equal to the number of um mel bands and in this case is equal to 90. So it checks out and this second dimension as a size which is equal to the number of frames or temporal bins that we extract from the signal, which in this case is equal to 342. OK. So next up what we want to do is just like move from the power spectrogram, apply a logarithm logarithm to and then move to decibels. And so what we do by doing so is moving from mount spectrograms to log me spectrograms. And uh this is like very important and we saw this also like a couple of years ago when we extracted uh by spectrograms. And that's because like the way we actually uh perceive amplitude is lori make is not linear. So this passage is quite important uh if you want to use like male spectrograms. OK. So let's do that,",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=505s",
+        "start_time": "505.179"
+    },
+    {
+        "id": "6fd9ef83",
+        "text": "as a size which is equal to the number of frames or temporal bins that we extract from the signal, which in this case is equal to 342. OK. So next up what we want to do is just like move from the power spectrogram, apply a logarithm logarithm to and then move to decibels. And so what we do by doing so is moving from mount spectrograms to log me spectrograms. And uh this is like very important and we saw this also like a couple of years ago when we extracted uh by spectrograms. And that's because like the way we actually uh perceive amplitude is lori make is not linear. So this passage is quite important uh if you want to use like male spectrograms. OK. So let's do that, that obviously doesn't change at all the shape of the um male spectrogram. Uh Yeah, let me just like show you that. So I'll do a quick log male uh spectrogram like this and I'll do a uh sh",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=532s",
+        "start_time": "532.26"
+    },
+    {
+        "id": "6eee6432",
+        "text": "uh this is like very important and we saw this also like a couple of years ago when we extracted uh by spectrograms. And that's because like the way we actually uh perceive amplitude is lori make is not linear. So this passage is quite important uh if you want to use like male spectrograms. OK. So let's do that, that obviously doesn't change at all the shape of the um male spectrogram. Uh Yeah, let me just like show you that. So I'll do a quick log male uh spectrogram like this and I'll do a uh sh shape. And so what we get over here is the same shape that we used to have to the mouse back. So the transformation happens at each, for each item in the matrix, but the overall shape of the matrix uh is not changed. OK.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=560s",
+        "start_time": "560.869"
+    },
+    {
+        "id": "8ff123a9",
+        "text": "that obviously doesn't change at all the shape of the um male spectrogram. Uh Yeah, let me just like show you that. So I'll do a quick log male uh spectrogram like this and I'll do a uh sh shape. And so what we get over here is the same shape that we used to have to the mouse back. So the transformation happens at each, for each item in the matrix, but the overall shape of the matrix uh is not changed. OK. Good. So uh the final thing that we want to do here is just actually show the uh male spectrogram. And once again for doing that, we'll use this Li Breza dot display dot uh spec show. So I'm not gonna get into the details here, cos I've quoted them like multiple times in previous videos. So you guys should be aware of all of this. OK? And here we have like our nice little um mouse spectrogram. So",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=580s",
+        "start_time": "580.07"
+    },
+    {
+        "id": "3a687003",
+        "text": "shape. And so what we get over here is the same shape that we used to have to the mouse back. So the transformation happens at each, for each item in the matrix, but the overall shape of the matrix uh is not changed. OK. Good. So uh the final thing that we want to do here is just actually show the uh male spectrogram. And once again for doing that, we'll use this Li Breza dot display dot uh spec show. So I'm not gonna get into the details here, cos I've quoted them like multiple times in previous videos. So you guys should be aware of all of this. OK? And here we have like our nice little um mouse spectrogram. So on the X axis, we have time and uh this is like this great time and uh each bin is a frame or yeah, it's a temporal bin. And on the Y axis, uh we have the frequency ex well, it's actually expressed in uh the different like mel bands, right? And in this case, we have like 90 bins. And as you can see here, we have like",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=595s",
+        "start_time": "595.539"
+    },
+    {
+        "id": "2c00c4a3",
+        "text": "Good. So uh the final thing that we want to do here is just actually show the uh male spectrogram. And once again for doing that, we'll use this Li Breza dot display dot uh spec show. So I'm not gonna get into the details here, cos I've quoted them like multiple times in previous videos. So you guys should be aware of all of this. OK? And here we have like our nice little um mouse spectrogram. So on the X axis, we have time and uh this is like this great time and uh each bin is a frame or yeah, it's a temporal bin. And on the Y axis, uh we have the frequency ex well, it's actually expressed in uh the different like mel bands, right? And in this case, we have like 90 bins. And as you can see here, we have like an overall pattern that full is you can't like kind of like guess that we have like a scale here. So we start here with the melt bend which is like close to like a seed and we go up to d uh up until like we go to this point which is like the uh the uh octave uh above. And then you also have like the relative harmonics over here. OK.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=611s",
+        "start_time": "611.359"
+    },
+    {
+        "id": "c9d3fdf2",
+        "text": "on the X axis, we have time and uh this is like this great time and uh each bin is a frame or yeah, it's a temporal bin. And on the Y axis, uh we have the frequency ex well, it's actually expressed in uh the different like mel bands, right? And in this case, we have like 90 bins. And as you can see here, we have like an overall pattern that full is you can't like kind of like guess that we have like a scale here. So we start here with the melt bend which is like close to like a seed and we go up to d uh up until like we go to this point which is like the uh the uh octave uh above. And then you also have like the relative harmonics over here. OK. But um it's kind of like a little bit difficult to understand that like the X axis is uh in this case, like it's divided uh like its discretion has like 90 mel bands because yeah, it's diff it's difficult to see like the discrete points there. So what we can do is just like move this number of mel bands over here from 90 to say 10 and just like rerun the whole thing. Uh So yeah, now, obviously like the mass spectrogram shape is equal to 10",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=637s",
+        "start_time": "637.84"
+    },
+    {
+        "id": "6dcdbf94",
+        "text": "an overall pattern that full is you can't like kind of like guess that we have like a scale here. So we start here with the melt bend which is like close to like a seed and we go up to d uh up until like we go to this point which is like the uh the uh octave uh above. And then you also have like the relative harmonics over here. OK. But um it's kind of like a little bit difficult to understand that like the X axis is uh in this case, like it's divided uh like its discretion has like 90 mel bands because yeah, it's diff it's difficult to see like the discrete points there. So what we can do is just like move this number of mel bands over here from 90 to say 10 and just like rerun the whole thing. Uh So yeah, now, obviously like the mass spectrogram shape is equal to 10 uh and 342 as the second dimension because we have 10 mel bands. OK. So moving on. So yeah, and now we actually see that on the X axis, we have like 10 discrete blocks, right? So we have 123456789 and 10 over there.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=662s",
+        "start_time": "662.83"
+    },
+    {
+        "id": "c50bcd00",
+        "text": "But um it's kind of like a little bit difficult to understand that like the X axis is uh in this case, like it's divided uh like its discretion has like 90 mel bands because yeah, it's diff it's difficult to see like the discrete points there. So what we can do is just like move this number of mel bands over here from 90 to say 10 and just like rerun the whole thing. Uh So yeah, now, obviously like the mass spectrogram shape is equal to 10 uh and 342 as the second dimension because we have 10 mel bands. OK. So moving on. So yeah, and now we actually see that on the X axis, we have like 10 discrete blocks, right? So we have 123456789 and 10 over there. Cool. OK. So by now you should be able to extract male spectrograms and visualize them as well as like extracting male Fitter Banks and visualize them with Python and specifically using the Li Brosa uh library.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=686s",
+        "start_time": "686.299"
+    },
+    {
+        "id": "5069b6ac",
+        "text": "uh and 342 as the second dimension because we have 10 mel bands. OK. So moving on. So yeah, and now we actually see that on the X axis, we have like 10 discrete blocks, right? So we have 123456789 and 10 over there. Cool. OK. So by now you should be able to extract male spectrograms and visualize them as well as like extracting male Fitter Banks and visualize them with Python and specifically using the Li Brosa uh library. OK. So uh I hope you enjoyed this video and you found it uh useful. If that's the case, please leave a like to the video and if you want to watch more videos like this and you're not subscribed to the sound of the I channel, please remember to subscribe if you have any questions as always leave them in the comments section below. Uh That's all for today. I guess I'll see you next time. Cheers.",
+        "video": "Extracting Mel Spectrograms with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "TdnVE5m3o_0",
+        "youtube_link": "https://www.youtube.com/watch?v=TdnVE5m3o_0&t=715s",
+        "start_time": "715.859"
+    }
+]

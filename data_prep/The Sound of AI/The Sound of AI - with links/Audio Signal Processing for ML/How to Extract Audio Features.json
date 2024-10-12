@@ -1,0 +1,551 @@
+[
+    {
+        "id": "7512d62f",
+        "text": "Hi, everybody and welcome to New VND audio processing for machine learning series. This time, we'll look at the extraction pipelines that we need to extract both time domain features and frequency domain features. Before starting looking into this, I just want to remind you about the sound of the Eye Slack community, which is a community with people interested in all things A I audio A I music and audio digital signal processing. So if you want to improve your skills and network with cool people, just consider signing up there and Olivia sign up link to the community in the description below. Now let's go back to the cool stuff in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "a10e8669",
+        "text": "A I audio A I music and audio digital signal processing. So if you want to improve your skills and network with cool people, just consider signing up there and Olivia sign up link to the community in the description below. Now let's go back to the cool stuff in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency. Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=26s",
+        "start_time": "26.92"
+    },
+    {
+        "id": "d2693c57",
+        "text": "in the previous video. We took a look at a few different types of uh audio features. So time domain features which uh leave in the time domain, frequency domain features which leave in the frequency domain and finally time frequency domain features which are features that provide us with information both about time and frequency. Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK?",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=44s",
+        "start_time": "44.75"
+    },
+    {
+        "id": "fd440ad0",
+        "text": "Now we want to take a look at the uh extraction pipelines that we can use to extract time and frequency domain features. So let's start with time domain features first. OK. So for the extraction pipeline, obviously, the first step is just to look at an analog sound, right? So it could be the sound of a violin, a noise. And then once we get that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK? So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=66s",
+        "start_time": "66.93"
+    },
+    {
+        "id": "eddd3b8d",
+        "text": "that sound, we want to convert that into something that makes sense and we can somehow like edit and manipulate with our computers. And for doing that, we need to go through the analog digital conversion process. In other words, we need to sample and quantize the analog sound sound so that we get a digital signal. OK? So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here. OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=91s",
+        "start_time": "91.985"
+    },
+    {
+        "id": "81f8a172",
+        "text": "So if you are not familiar with this process, I suggest you check out my video, previous video in this series that covers this like quite in detail, you should have it over here. OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20 to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=117s",
+        "start_time": "117.23"
+    },
+    {
+        "id": "2e60655c",
+        "text": "OK? So now once you have the uh digitalized version of the sounds, the next step that we want to do here is called framing. In other words, we want to bundle together a bunch of samples. And so here you see that for example, frame one goes from sample number 1 to 100 28 frame two goes from sample 64 to 100 92 frame three from sample 100 20 to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=128s",
+        "start_time": "128.089"
+    },
+    {
+        "id": "89dc04d0",
+        "text": "to 256 and so on and so forth. Now, um there's like an interesting thing here which is that these frames are somehow overlapped, right? But uh I'm not gonna reveal you the secret right now. I'm not gonna explain why that's the case. Now. You'll know by the end of this video. So stay tuned for that. OK. So now let's understand a little bit better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM. Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=156s",
+        "start_time": "156.565"
+    },
+    {
+        "id": "44a8f7dc",
+        "text": "better why we use a framing before we extract uh features, acoustic features. Well, so we can think of frames as audio chunks that are perceivable things that we can perceive. Now, the problem is that if we take a look at a sample, one single sample at a sampling rate of 44.1 kilohertz, which is the sampling rate for the CD ROM. Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=185s",
+        "start_time": "185.042"
+    },
+    {
+        "id": "39061a4e",
+        "text": "Uh We find out that that sample has a duration of NN point N 227 milliseconds, right? This is like very, very short amount of time. Now, if you're wondering how I got this number, well, that is just like the inverse of the sampling rate. So it's one divided by, in this case, 44,100 right? Uh So now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=213s",
+        "start_time": "213.74"
+    },
+    {
+        "id": "e9939798",
+        "text": "now we know that like one sample, it's like very, very short. And we know that the duration of this single sample is way below the threshold of the time resolution for our hearing, human hearing, which is around 10 milliseconds, which basically means that all the things that are below 10 milliseconds, we can just like we cannot appreciate that as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=240s",
+        "start_time": "240.339"
+    },
+    {
+        "id": "779b9ee2",
+        "text": "as acoustic events. So with frames, what we want to do is to have enough time of enough duration of an audio signal so that we can appreciate that. And that makes sense from an acoustic perspective because it is like what we can hear and the features that we want to extract are somehow related to what we can experience as human beings. OK. So now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two. Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=265s",
+        "start_time": "265.315"
+    },
+    {
+        "id": "9207289b",
+        "text": "now another thing about frames is usually that uh we, they have a frame size or in other words, they have a number of frames which is usually a power of two. Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=292s",
+        "start_time": "292.54"
+    },
+    {
+        "id": "0ac06bff",
+        "text": "Now, why is that the case? This sounds really weird, right. Well, that's because uh usually what we want to do when we move into like the frequency domain is just like apply the fourier transform. And it turns out that when we apply the fast fourier transform, which is a variant of the fourier transform having um uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=305s",
+        "start_time": "305.41"
+    },
+    {
+        "id": "c112eb21",
+        "text": "uh a number of samples that that's a power of two is gonna speed up the process a lot, right? So it's just like a matter of like speed here. OK. So now typical values for the frames oscillates between 256 to 8000, 100 92. Now let's take a look at the duration of a frame and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=328s",
+        "start_time": "328.429"
+    },
+    {
+        "id": "9dfc86de",
+        "text": "and we have this formula down here. So we have the duration of a frame that's equal to the inverse. So one of the sampling rate, so one divided by the sampling rate and we have to multiply this by capital k which is the frame size. And in other words, this first element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame. This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=353s",
+        "start_time": "353.69"
+    },
+    {
+        "id": "9ba0f5a6",
+        "text": "element here tells us the duration of a single sample. And then we multiply that by the total number of samples that we have in a frame. This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=374s",
+        "start_time": "374.6"
+    },
+    {
+        "id": "ff4fb5e6",
+        "text": "This way we get the whole duration of a frame. OK. So now let's plug some usual numbers. So we can plug 44.1 kg Hertz for the sampling rate, which is like a totally normal uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=386s",
+        "start_time": "386.209"
+    },
+    {
+        "id": "34cd0d3e",
+        "text": "uh sampling rate. And then we plug in 412 which is a totally normal um frame size at this sampling rate. And we get the duration of a frame to be around 11.6 milliseconds, which is just above the time resolution um time, the human hearing time resolution, which is like around 10 milliseconds. Uh Let's go back uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=400s",
+        "start_time": "400.519"
+    },
+    {
+        "id": "9bcbcdb7",
+        "text": "uh to the um fissure extraction pipeline for the time domain. OK. So the, the last uh process that we saw here was framing. Now, once we've applied framing, the next step is just to compute the features uh the time domain features on each of the different frames. But now what we want to do after that is to aggregate those results so that we get like a single uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here. And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=429s",
+        "start_time": "429.334"
+    },
+    {
+        "id": "52c89764",
+        "text": "uh kind of like feature vector whatever for the whole uh sound. So it's a scripture for the whole duration of a sound. And we can aggregate that by using statistical means like the mean, the median, the sum or things that are a little bit more sophisticated like Gaussian mixture models, for example GM MS here. And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=458s",
+        "start_time": "458.369"
+    },
+    {
+        "id": "04958161",
+        "text": "And so, out of this uh process, we get a final value, it could be like a value. So a feature value, it could be a vector, a feature vector or even a matrix, a feature matrix. And this basically is a snapshot for the whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature. As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=485s",
+        "start_time": "485.17"
+    },
+    {
+        "id": "0731f357",
+        "text": "whole duration of the audio signal that we are analyzing. OK. So this is the um feature. So the extraction pipeline for the uh for time domain features now let's move on to the frequency domain feature. As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us,",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=501s",
+        "start_time": "501.635"
+    },
+    {
+        "id": "f7e9bd00",
+        "text": "As you'll see, many of the steps are basically the same as this that we found in the time domain uh uh feature extraction pipeline. So obviously, we start from an analog sound, we do some A DC. So we apply sampling, we apply quantization, we get our digitalized version of the of the of the sound. So we have this audio signal, we frame the signal and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us, it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=518s",
+        "start_time": "518.359"
+    },
+    {
+        "id": "7edb121d",
+        "text": "and now we have a bunch of frames. Now what's next? Well, what we want to do here is basically move from the time domain to the frequency domain. And we usually do that with a ma magic tool which is the fourier transform for now. Yeah, I'm just like using the this like magic wand because for us, it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that. OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=545s",
+        "start_time": "545.979"
+    },
+    {
+        "id": "d84ad672",
+        "text": "it's just like a black box for now. So it's some kind of like magic that happens and we move from the time representation to the frequency representation, but uh we'll definitely cover like the fourier transform more in detail in coming videos. So stay tuned for that. OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=570s",
+        "start_time": "570.5"
+    },
+    {
+        "id": "fbaaa8cd",
+        "text": "OK. So uh just like uh a little refresher on time domain and frequency domain. So the ti in time domain, we have the sound that's uh basically like visualized as a uh the amplitude as a function of time. And so we see all the events across time for a uh for, for the sound. Whereas when we move to the frequency domain in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK. Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=591s",
+        "start_time": "591.64"
+    },
+    {
+        "id": "7de00613",
+        "text": "in here, we just look at all the frequency components of a sound and we see how much they contribute to the overall sound. And indeed on the X axis, we have the frequency uh domain, uh the, the frequency or Hertz. And on the Y axis, we have the magnitude which tells us how much uh each of the different frequency bands contribute to the overall sound good. OK. Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage. OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=617s",
+        "start_time": "617.674"
+    },
+    {
+        "id": "cb0cd57a",
+        "text": "Uh Now, so we would expect that's like the next natural step in the um extraction pipeline would be to apply the fourier transform. And that would be like just like natural. OK. So that we can move from 10 domain to frequency domain. But unfortunately, there's a major issue which is called spectral leakage. OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=645s",
+        "start_time": "645.909"
+    },
+    {
+        "id": "2623dfb1",
+        "text": "OK. So let's see what spectral leakage is and whether we can solve it. OK. So spectral leakage happens when we are processing a signal. So we, when we are taking the fourier transform of a signal that isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods. So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=668s",
+        "start_time": "668.909"
+    },
+    {
+        "id": "3cc4e1d7",
+        "text": "isn't an integer number of periods. And this basically happens all the time because like you have uh a certain amount of time worth of audio and it's rarely the case that that amount of time has an integer number of periods. So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=684s",
+        "start_time": "684.489"
+    },
+    {
+        "id": "e8a53450",
+        "text": "So what usually happens is that the end points of a signal are usually like discontinuous. In other words, these guys here are discontinuous because they are not an integer number of uh periods. And so what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=701s",
+        "start_time": "701.799"
+    },
+    {
+        "id": "f4293141",
+        "text": "what happens here is that if we have these discontinuities, this discontinuities get translated into the uh spectrum or like the frequency domain as high frequency components. But this high frequency components really don't exist in the original signal. They are just some kind of artifact that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform. So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=721s",
+        "start_time": "721.96"
+    },
+    {
+        "id": "2fdff735",
+        "text": "that appears because of the discontinuities at the end points of the signal that we are processing with the fourier transform. So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=747s",
+        "start_time": "747.039"
+    },
+    {
+        "id": "6c0dd25e",
+        "text": "So in other words, what happens is that some of these discontinuities frequencies at the discontinuities are just like leak into other higher frequencies, hence the name spectral leakage. So now let's try to visualize this. So we are here in the time uh representation, we apply the fourier transform and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide. Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=755s",
+        "start_time": "755.289"
+    },
+    {
+        "id": "4c012d5a",
+        "text": "and we get our spectrum or the frequency domain. And um and here you it may, you we may have like uh higher frequencies which have like higher high contributions, right? And it's like here like in this uh red box in the uh in the spectrum in this slide. Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed shouldn't be the case because these are artifacts. OK. Now, is there a way we can",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=782s",
+        "start_time": "782.2"
+    },
+    {
+        "id": "df806d70",
+        "text": "Uh Now this is an example of spectral leakage. So these components, frequency components don't really exist. They are just an artifact that comes from the discontinuities that we have in the original uh signal that we've analyzed. So when you have spectral leakage, usually you would get like some higher frequencies which have like some substantial contribution to the sound and which indeed shouldn't be the case because these are artifacts. OK. Now, is there a way we can resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=805s",
+        "start_time": "805.659"
+    },
+    {
+        "id": "4ea18467",
+        "text": "shouldn't be the case because these are artifacts. OK. Now, is there a way we can resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform. And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=835s",
+        "start_time": "835.21"
+    },
+    {
+        "id": "16f50bb6",
+        "text": "resolve this issue? We can minimize spectral leakage? Well, luckily for us, there is one and it's called windowing, right. OK. So let's take a look at windowing. So uh the idea behind windowing is that we apply a windowing function to each frame before we feed the frames into the fourier transform. And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that. OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=843s",
+        "start_time": "843.159"
+    },
+    {
+        "id": "4f200942",
+        "text": "And by doing so we basically eliminate the samples which are at the end points of a frame. In other words, we completely remove the information from the end points. And what that does is it generates a periodic signal which minimizes spectral leakage. And we are happy for that. OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=868s",
+        "start_time": "868.4"
+    },
+    {
+        "id": "7ecfd98c",
+        "text": "OK. So a famous windowing function that you'll use probably 90 95% of the time when you do a fourier transforms is called the hand window. Here you have the uh this function here. And so K here it just represents the sample. So this function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=893s",
+        "start_time": "893.69"
+    },
+    {
+        "id": "843399a3",
+        "text": "function is a function like of the the hand window is a function of the uh samples. And as you can see here, we use like a cosine and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame uh containing uh 256 samples. Here, we have the",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=914s",
+        "start_time": "914.929"
+    },
+    {
+        "id": "c3247f6b",
+        "text": "and then we have visualization of uh the hand window for 50 samples. And as you can see here, it creates like this kind of like bell shaped curve where the end points tend to be uh go to zero, right? OK. So now let's try to apply that to a signal. So we start with uh a signal. And so this is just like one frame uh containing uh 256 samples. Here, we have the uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=925s",
+        "start_time": "925.369"
+    },
+    {
+        "id": "3d6d7e6e",
+        "text": "uh containing uh 256 samples. Here, we have the uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply the original signal by the hand window at each correspondent sample, right?",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=953s",
+        "start_time": "953.859"
+    },
+    {
+        "id": "9d0a6e6f",
+        "text": "uh the hand window and now we can apply the hand window to the original signal so that we get a new signal that has been windowed, right? And this is the math that we run for obtaining the, for like applying the hand window to the original um uh signal. In other words, what we do is we multiply the original signal by the hand window at each correspondent sample, right? And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=960s",
+        "start_time": "960.909"
+    },
+    {
+        "id": "52833a6b",
+        "text": "the original signal by the hand window at each correspondent sample, right? And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK. But now we have another problem,",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=988s",
+        "start_time": "988.539"
+    },
+    {
+        "id": "6561ae5a",
+        "text": "And what we obtain is something that looks like this. And as you can see here, uh because we've applied the hand window, now we've completely smoothened the end points, right? And so we don't have those discontinuities anymore now because the, the signal just goes naturally to zero thanks to the windowing that we've used. OK. But now we have another problem, we have another big problem. So now imagine we take",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=997s",
+        "start_time": "997.82"
+    },
+    {
+        "id": "77f033d9",
+        "text": "But now we have another problem, we have another big problem. So now imagine we take a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1026s",
+        "start_time": "1026.56"
+    },
+    {
+        "id": "362af87f",
+        "text": "we have another big problem. So now imagine we take a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1029s",
+        "start_time": "1029.818"
+    },
+    {
+        "id": "fa75be3b",
+        "text": "a, a number of frames and we put them together, uh we just like glue them together. So here we have like three different frames that I've glued together. Now, as you can see, obviously, what happens here is that at the end points of these frames. So at the beginning and at the end we lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum. Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1035s",
+        "start_time": "1035.26"
+    },
+    {
+        "id": "54b625b7",
+        "text": "lose signal, right? And why do we lose signal? Well, because we just uh removed it through the application of a uh windowing function. OK. And this is something that we don't want to do. We don't want to lose signal in uh when we do a fourier transform. So how do we solve that? It seems like an impossible conundrum. Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1054s",
+        "start_time": "1054.479"
+    },
+    {
+        "id": "27e092bf",
+        "text": "Now, the solution is overlapping frames and we'll see that in a second so that we can solve the initial mystery of overlapping frames that I mentioned at the beginning of this video. But before we get there there, let's just like take a look at normal non overlapping frames. So what we would usually do like with non overlapping frames is that we just like choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here. But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1079s",
+        "start_time": "1079.569"
+    },
+    {
+        "id": "4273f7db",
+        "text": "choose a frame size and we apply that uh to a signal. And so this is like, for example, this vertical red bar represents like the first frame for this signal, then we move on to the second, the 3rd, 4th, 5th and 6th frames. And as you can see, we don't have any overlaps here. But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1104s",
+        "start_time": "1104.43"
+    },
+    {
+        "id": "81ca54fb",
+        "text": "But if we were to do this, after windowing, we would lose signal. So how do we solve that with overlapping frames? And so let's visualize overlapping frames. So we start with the first um frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1127s",
+        "start_time": "1127.26"
+    },
+    {
+        "id": "a2d10589",
+        "text": "frame here and then we have the second frame and as you can see there's a part there that overlaps. And yeah, this is like the way we overlap frames. And by doing so what it means is that we kind of like uh account for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1142s",
+        "start_time": "1142.01"
+    },
+    {
+        "id": "74d51770",
+        "text": "for the information that we lose at the end points because we are overlapping frames. OK? And so we can continue to and have a third frame over here, 1/4 and 1/5 basically, you get the idea. So we just like overlap these frames every time. OK. So now let's take a look at a couple of important concepts. So we already so like the frame size, which is get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size. So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1160s",
+        "start_time": "1160.89"
+    },
+    {
+        "id": "4a878d9f",
+        "text": "get this basically and it's like the number of frames that we consider. Um uh sorry, the number of samples that we consider for each frame. And then we have another very important concept which is called the hop length. Sometimes you'll hear uh this concept referred to as hop size. So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform. So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1186s",
+        "start_time": "1186.849"
+    },
+    {
+        "id": "c9c84d7c",
+        "text": "So the hop length is basically tells us the amount of samples that we shift to the right every time we take a new sample. OK. Now let's move on because now we we, we are at a point in our feature extraction pipeline for frequency domain uh features where we can apply the fourier transform. So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline. So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK,",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1207s",
+        "start_time": "1207.709"
+    },
+    {
+        "id": "78d6512c",
+        "text": "So indeed, after windowing, we apply the fourier transform and we get a spectrum hopefully with minimized spectral leakage. And then after that, we just go back to like the same steps that we used for the time domain feature extraction pipe pipeline. So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK, good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1236s",
+        "start_time": "1236.05"
+    },
+    {
+        "id": "7e416e10",
+        "text": "So we compute frequency domain features on each frame, then we aggregate uh these results uh for the whole the entirety of the audio signal using some statistical means. And finally, we would get AAA frequency feature uh frequency domain feature value vector or matrix. OK, good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them. So what's next? Well, it's time to start digging into time domain features and next time we'll start looking into time Domain features, a bunch of these and understand what they are and how we can use them for different applications in machine learning. So stay tuned for that. So",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1256s",
+        "start_time": "1256.689"
+    },
+    {
+        "id": "7877e06b",
+        "text": "good. So now you have a clear idea of the pipelines that we should use when we are dealing with time domain features and frequency domain features so that we can extract them. So what's next? Well, it's time to start digging into time domain features and next time we'll start looking into time Domain features, a bunch of these and understand what they are and how we can use them for different applications in machine learning. So stay tuned for that. So that's it for today. I hope you've enjoyed this video. If that's the case, please remember to uh leave a like if you have any questions as usual, leave them in the comments section below. I'll try to answer this and I guess that's all for today and I'll see you next time. Cheers.",
+        "video": "How to Extract Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8A-W1xk7qs8",
+        "youtube_link": "https://www.youtube.com/watch?v=8A-W1xk7qs8&t=1284s",
+        "start_time": "1284.329"
+    }
+]

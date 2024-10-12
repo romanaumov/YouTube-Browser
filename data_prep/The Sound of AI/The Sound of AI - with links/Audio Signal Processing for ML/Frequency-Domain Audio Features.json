@@ -1,0 +1,407 @@
+[
+    {
+        "id": "4a38757f",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. This time, we'll look into frequency domain audio features specifically. We'll be looking at the math and theory behind it. And I'm also gonna give you the intuition. But before we get started, I want to remind you about the sound of A I is Luck community, which is a community of people who are interested in all things A I audio music and signal processing. So you can join, get feedback on your projects and network with very cool people. So if you haven't joined yet, I highly suggest you to go check out the sign up link in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series,",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "34f57e75",
+        "text": "I want to remind you about the sound of A I is Luck community, which is a community of people who are interested in all things A I audio music and signal processing. So you can join, get feedback on your projects and network with very cool people. So if you haven't joined yet, I highly suggest you to go check out the sign up link in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series, uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=20s",
+        "start_time": "20.01"
+    },
+    {
+        "id": "6cd2b97c",
+        "text": "in the description box below. But now let's move on to the cool stuff. So in the last couple of videos, we looked into mal frequency subs coefficients or MF CCS. And now it's time to move on to frequency domain audio features and we can do this because now if you followed along with the series, uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=39s",
+        "start_time": "39.689"
+    },
+    {
+        "id": "494f0030",
+        "text": "uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=59s",
+        "start_time": "59.59"
+    },
+    {
+        "id": "1b20e6cf",
+        "text": "um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=86s",
+        "start_time": "86.889"
+    },
+    {
+        "id": "9907f301",
+        "text": "computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=108s",
+        "start_time": "108.462"
+    },
+    {
+        "id": "6fca785c",
+        "text": "required for this video if you want to really understand it is the understanding of short time fourier transform and the understanding of what a spectrogram is. Now, once again, I have a bunch of videos on that. So just go check them out in this series. I just want to share a couple of math conventions that we'll be using during the video. So the first one is this MTON and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=130s",
+        "start_time": "130.035"
+    },
+    {
+        "id": "64ac8d72",
+        "text": "and this will stand for the magnitude of the signal at a given frequency bin and, and at a given frame T and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=151s",
+        "start_time": "151.77"
+    },
+    {
+        "id": "cac15de4",
+        "text": "and then the other convention that we'll be using is that capital N is equal to the number of frequency bins that we have in the uh spectrogram. Let's jump to the first audio feature that's band energy ratio. And this feature provides us information about the relation between the energy in the lower and the higher frequency bands. So uh we can think of this as a measure of how dominant the lower frequency are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=162s",
+        "start_time": "162.57"
+    },
+    {
+        "id": "8f3443b3",
+        "text": "are. Let's take a look at the math behind the band energy ratio so that we can understand how it actually works. So as you can see here, we have a formula and there's a fraction and the fraction needs to be expected because we are talking about a ratio of two elements, right? So now let's take a look at each of the items. Uh So here, both in the numerator and denominator, we have the power of the signal at time uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK. So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=191s",
+        "start_time": "191.49"
+    },
+    {
+        "id": "c6fd88c1",
+        "text": "uh T and frequency BN. And this is the power because we're talking about the um magnitude of the signal squared, which is the power as you should know by now. OK. So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=220s",
+        "start_time": "220.539"
+    },
+    {
+        "id": "dbeb77e7",
+        "text": "So uh the other thing that I want to draw your attention to is this capital F. OK? Because we are talking about, we, we are considering a couple of like uh sums here right? In the uh denominator, we sum from the frequency being F capital F to capital N. And then in up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=233s",
+        "start_time": "233.029"
+    },
+    {
+        "id": "4c342ae2",
+        "text": "up here in the numerator, we are summing the powers from the first frequency being to F capital F minus one. OK. So that capital F is called the split frequency. So what's the split frequency? Well, it is that frequency that tells us or like provides the difference between the lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=253s",
+        "start_time": "253.102"
+    },
+    {
+        "id": "afd5c656",
+        "text": "lower frequencies and the higher frequencies. So now let me visualize this because it's gonna become very, very easy to understand. OK. So here we have like our usual spectrogram, we have time on the X axis and on the y axis we have frequency. Now the split frequency is just a horizontal line like this. So in this case, the um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=273s",
+        "start_time": "273.175"
+    },
+    {
+        "id": "3508a0d7",
+        "text": "um split frequency is at 2000 Hertz. Now, so this is the the threshold below that frequency, we have lower frequencies and above that split frequency, we have higher frequencies. Now this frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense. OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=293s",
+        "start_time": "293.559"
+    },
+    {
+        "id": "7d304b45",
+        "text": "frequency is completely arbitrary. So you can put it wherever you want really. But uh so we can just like move it down here, for example, say around 800 Hertz, but a usual split frequency value is 2000 Hertz. It makes a lot of sense. OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=310s",
+        "start_time": "310.075"
+    },
+    {
+        "id": "25540846",
+        "text": "OK. So now let's go back to the math here. And so with this idea in mind, we can recognize that in the lower part of this fraction. So at the numerator, we have uh the power in the lower frequency bands. And so how do we get to that? Well, we have a sum here. And we are summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK. And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=326s",
+        "start_time": "326.91"
+    },
+    {
+        "id": "a814e2c6",
+        "text": "summing the power for each frequency bin at a given point in time. And that is starting from the first frequency bin up to the split frequency minus one. So this is all the power that we have in the lower frequencies. OK. And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have. OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=347s",
+        "start_time": "347.809"
+    },
+    {
+        "id": "d745f7ab",
+        "text": "And at the denominator, we actually have the opposite of that. So we have the power in the higher frequency bands. And we can see that because of the indexes here in the sum. So we start at the split frequency and then we go all the way up to uh capital N which is the, the higher number, the higher frequency bin that we have. OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram. OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the,",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=368s",
+        "start_time": "368.859"
+    },
+    {
+        "id": "121788ab",
+        "text": "OK. One thing that I want to stress here is that the B we are taking the band energy ratio at a specific frame. So in other words, here, once you have like all your frames in the spectrogram, you're gonna apply this uh formula to each frame to each point uh in time that you have in the spectrogram. OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the, the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=391s",
+        "start_time": "391.25"
+    },
+    {
+        "id": "2fe1222f",
+        "text": "OK? So this is the band's energy ratio. Now let's try to visualize this. So as we said here, we have that uh purple horizontal line that is split frequency. So now let's take a frame. So it's this rectangle red rectangle here, obviously, this is not a frame because we have a lot of frames in it. But let's assume this is just like a frame. OK? So now we take the, the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio. Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=414s",
+        "start_time": "414.019"
+    },
+    {
+        "id": "b95d9a60",
+        "text": "the power and we summit here in the um higher frequencies, we do the same thing like in the lower frequencies and then we just apply the uh a fraction ratio there. So we divide like this green power here by the uh the power here like in this uh blue bar and that is the band energy ratio. Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK. Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right?",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=438s",
+        "start_time": "438.589"
+    },
+    {
+        "id": "8b9e39ff",
+        "text": "Ok. So what can we use the band to energy ratio for? Well, we can use it for all sorts of things uh in music and speech processing and specifically band energy ratio has been extensively used in to discriminate music from speech and for certain music classification problems like music genre classification or mood uh classification. OK. Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right? And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right?",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=463s",
+        "start_time": "463.38"
+    },
+    {
+        "id": "ae80d943",
+        "text": "Now let's move on to the second uh audio feature which is the spectral Centroid and this is a very common famous one I should say, right? And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right? And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the,",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=488s",
+        "start_time": "488.97"
+    },
+    {
+        "id": "925909f6",
+        "text": "And so the spectral Centroid in a nutshell. So the intuition is that it it's gonna tell us it's gonna provide us the center of gravity of the magnitude spectrum. In other words, it'll give us the frequency band where we have uh most of the energy concentrated, right? And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the, the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=500s",
+        "start_time": "500.019"
+    },
+    {
+        "id": "3390e157",
+        "text": "And the cool thing about the spectral centro is that it uh nicely maps onto a very prominent timbrel feature which is brightness. So how open or dull a certain sound is. So now let's take a look at uh the the math behind the spectral Centroid. And before we actually look at the formalization like which uh mathematical symbols, let's take a look at the, the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will. So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=520s",
+        "start_time": "520.799"
+    },
+    {
+        "id": "23e23146",
+        "text": "the kind of like uh quality formation. So the spectral Centroid is the weighted min of the frequencies or the frequency bins if you will. So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=549s",
+        "start_time": "549.51"
+    },
+    {
+        "id": "e90fccde",
+        "text": "So what are we talking about here? Well, this is like easier likes in math than, than said, right. And so this is like the, the, the formula for the spectral Centroid at a given frame T. So, and as you can see here, we have like all the usual stuff that we have in a weighted uh min. So here we have like the uh fre frequency bin N and then here we have the, the weights for N so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK. So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=560s",
+        "start_time": "560.84"
+    },
+    {
+        "id": "eaf67dc4",
+        "text": "so and the weights obviously are not, they are like the magnitude for that frequency bin at that specifically at that specific uh frame T. OK. So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=590s",
+        "start_time": "590.289"
+    },
+    {
+        "id": "795b7b30",
+        "text": "So we can also see that down here we have the sum weight. And yeah, as you can see here, we're talking about a weighted uh min and this is the weighted min of the frequency bins, right. OK. So where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications. OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=606s",
+        "start_time": "606.229"
+    },
+    {
+        "id": "d4656c3d",
+        "text": "where can we use the spectral Centroid? Well, once again, uh the spectral Centroid has been extensively used in audio classification or in music classification uh problems. And it's one of like the key uh frequency domain audio features. And yeah, it's been like very, very extensively used throughout time and different applications. OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=623s",
+        "start_time": "623.229"
+    },
+    {
+        "id": "fb090e15",
+        "text": "OK. So now let's move on to the bandwidth. So the bandwidth is somewhat uh related to the uh spectral Centroid. And we can think of the bandwidth as that spectral range which is of interest and it's around the Centroid. Or in other words, we can think the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=646s",
+        "start_time": "646.5"
+    },
+    {
+        "id": "0a01b9dc",
+        "text": "the bandwidth as the variant from the spectral Centroid. Once again, the bandwidth has a direct relation or a correlation with the perceived timer. Now let's take a look at the formalization here. So the bandwidth once again is a way mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK. And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=666s",
+        "start_time": "666.882"
+    },
+    {
+        "id": "2c4eb3f8",
+        "text": "mean but this time it's not a weighted mean of the frequencies but rather weighted mean of the distances of frequency band from the spectral Centroid. OK. I know this can sound a little bit uh yeah difficult complex. So now let's take a look at the math and understand that at the end of it today, it's quite simple. So here we have the formula for the bandwidth at a specific frame T OK. And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=687s",
+        "start_time": "687.265"
+    },
+    {
+        "id": "c58d5e97",
+        "text": "And as you can see, we are once again talking about a weighted M here. So here we have the weights and the weights as always are just like the, the, the magnitude for the signal at the specific time T we are analyzing at end at the frequency band. And then we have like this element here and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK. And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=716s",
+        "start_time": "716.969"
+    },
+    {
+        "id": "e549393a",
+        "text": "and this element is indeed the distance of the frequency band from the spectral Centroid. And we can like easily see it. This is like the absolute value uh between the frequency band uh N minus the uh spectral Centroid cal the value of the spectral Centroid calculated at time T OK. And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min. OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=743s",
+        "start_time": "743.049"
+    },
+    {
+        "id": "b4d5f8eb",
+        "text": "And down here, once again, we have the sum of weights. And as you can see, this is once again a weighted min. OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=768s",
+        "start_time": "768.659"
+    },
+    {
+        "id": "417c1a4f",
+        "text": "OK. But now let's try to understand how the bandwidth like um changes depending on how the energy is uh distributed across all the different frequency bands. So, so if the energy is spread across the frequency bands, so it's kind of, yeah, it's just like spread, then uh what happens is that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=776s",
+        "start_time": "776.489"
+    },
+    {
+        "id": "7b0df642",
+        "text": "that the the bandwidth is going to the value for the bandwidth is going to increase. On the other hand, if the energy is kind of concentrated in a in a kind of like small frequency band in just like a few frequency bands, then what happens is that the bandwidth is going to go, the value for the bandwidth is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=799s",
+        "start_time": "799.724"
+    },
+    {
+        "id": "ae189d74",
+        "text": "is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s",
+        "start_time": "822.96"
+    },
+    {
+        "id": "5c6618fd",
+        "text": "low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=846s",
+        "start_time": "846.195"
+    },
+    {
+        "id": "7ae55a62",
+        "text": "OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features. And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=869s",
+        "start_time": "869.57"
+    },
+    {
+        "id": "4b1b5cad",
+        "text": "uh as I said, have been uh used quite a lot uh during like the traditional machine learning era, right, where like we were using like knowledge uh engineering, like for coming up with uh interesting and significant um audio features. And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms. OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next,",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=895s",
+        "start_time": "895.239"
+    },
+    {
+        "id": "02d64d81",
+        "text": "And so yeah, all of these frequency domain audio features have been extensively used like in that period now, they are little bit less. So because like moving to deep learning uh applications, well, we tend to use um audio features that are more role like like spectrograms, mouse spectrograms or even just waveforms. OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next, we're gonna be implementing uh one of these audio features from scratch and that's the band energy ratio and we use Python for doing that as we've done throughout this series. And then we're going to be visualizing the uh band energy ratio for pieces of music in different genres and try to understand if we can tell them apart based only on the band energy uh ratio.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=915s",
+        "start_time": "915.325"
+    },
+    {
+        "id": "656cc019",
+        "text": "OK. So by now, you should have a good understanding of this basic uh frequency domain audio features. Uh As I said, there are way more than this. But now with this idea in mind and with this basic understanding, you can go there and you can easily understand all the other ones that are out there. So what's up next? Well, we talked about the theory behind this uh frequency domain audio features in this video. Next, we're gonna be implementing uh one of these audio features from scratch and that's the band energy ratio and we use Python for doing that as we've done throughout this series. And then we're going to be visualizing the uh band energy ratio for pieces of music in different genres and try to understand if we can tell them apart based only on the band energy uh ratio. Ok, I hope you enjoyed the video. If that's the case, please remember to leave a like if you haven't subscribed and you want to watch more videos like this consider uh doing so. If you have any questions as usual, please leave them in the comment section below. That's all for today. I'll see you next time. Cheers.",
+        "video": "Frequency-Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "3-bjAoAxQ9o",
+        "youtube_link": "https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=935s",
+        "start_time": "935.729"
+    }
+]

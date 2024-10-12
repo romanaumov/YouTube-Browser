@@ -1,0 +1,641 @@
+[
+    {
+        "id": "ee16b312",
+        "text": "Hi, everybody and welcome to a new video in the audio processing for machine learning series. This time, we are basically starting the whole series and it's going to be quite theoretical because I want to introduce a few basic ideas. So what's sound? What are waveforms? So what's frequency and how can we use all of those uh notions in audio processing? OK. So let's get started with the basic idea here. So what what is sound well uh sound is produced by uh vibrating objects. So these objects vibrate and these vibrations cause our air molecules to oscillate and to bump into each other and by bumping into each other, these uh air molecules kind of like change the uh state of the air pressure in in like the local region where they are acting. And so they create in this process a wave. So in other words, we can think of sound as a wave that transmits transfer some energy from one point to another through air molecules. OK. But the question is what is a mechanical wave? And I'm talking about mechanical waves here because the sound is",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "94eee13f",
+        "text": "well uh sound is produced by uh vibrating objects. So these objects vibrate and these vibrations cause our air molecules to oscillate and to bump into each other and by bumping into each other, these uh air molecules kind of like change the uh state of the air pressure in in like the local region where they are acting. And so they create in this process a wave. So in other words, we can think of sound as a wave that transmits transfer some energy from one point to another through air molecules. OK. But the question is what is a mechanical wave? And I'm talking about mechanical waves here because the sound is is a mechanical wave. So a mechanical wave is a wave that oscillates and that an oscillation that travels through space and the energy travels from, as I said, one point to another. And the particularity of mechanical waves is that they need a medium through with",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=27s",
+        "start_time": "27.52"
+    },
+    {
+        "id": "7592d3f8",
+        "text": "And so they create in this process a wave. So in other words, we can think of sound as a wave that transmits transfer some energy from one point to another through air molecules. OK. But the question is what is a mechanical wave? And I'm talking about mechanical waves here because the sound is is a mechanical wave. So a mechanical wave is a wave that oscillates and that an oscillation that travels through space and the energy travels from, as I said, one point to another. And the particularity of mechanical waves is that they need a medium through with which the wave can expand and propagate through. In the case of sound, most of the time this medium is just air, right? And when we have this sound wave or a mechanical wave, the medium gets the forms. And in the case of sound, what happens is like as I mentioned before is that like this um",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=55s",
+        "start_time": "55.299"
+    },
+    {
+        "id": "223ab57b",
+        "text": "is a mechanical wave. So a mechanical wave is a wave that oscillates and that an oscillation that travels through space and the energy travels from, as I said, one point to another. And the particularity of mechanical waves is that they need a medium through with which the wave can expand and propagate through. In the case of sound, most of the time this medium is just air, right? And when we have this sound wave or a mechanical wave, the medium gets the forms. And in the case of sound, what happens is like as I mentioned before is that like this um uh molecules tend to uh bump into each other. And when that happens, we have like higher points of uh pressure, right? And then when they just like kind of like move away from each other, we have like points of more like rare function of less air pressure. And obviously, we can",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=78s",
+        "start_time": "78.629"
+    },
+    {
+        "id": "2a9b3fd7",
+        "text": "which the wave can expand and propagate through. In the case of sound, most of the time this medium is just air, right? And when we have this sound wave or a mechanical wave, the medium gets the forms. And in the case of sound, what happens is like as I mentioned before is that like this um uh molecules tend to uh bump into each other. And when that happens, we have like higher points of uh pressure, right? And then when they just like kind of like move away from each other, we have like points of more like rare function of less air pressure. And obviously, we can uh represents visualize all of this by using a pressure plot. OK. So, but obviously, this is not the type of pressure that I want to talk about here is like air pressure, right? OK. So",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=101s",
+        "start_time": "101.959"
+    },
+    {
+        "id": "9e87d898",
+        "text": "uh molecules tend to uh bump into each other. And when that happens, we have like higher points of uh pressure, right? And then when they just like kind of like move away from each other, we have like points of more like rare function of less air pressure. And obviously, we can uh represents visualize all of this by using a pressure plot. OK. So, but obviously, this is not the type of pressure that I want to talk about here is like air pressure, right? OK. So basically, the idea here is uh like we can visualize a sound wave uh as a in this case, like as a simple like sine wave, right? And so we have at the center here, the average atmospheric pressure and then we have over time points of compression which are connected with this like",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=125s",
+        "start_time": "125.569"
+    },
+    {
+        "id": "81ab12ca",
+        "text": "uh represents visualize all of this by using a pressure plot. OK. So, but obviously, this is not the type of pressure that I want to talk about here is like air pressure, right? OK. So basically, the idea here is uh like we can visualize a sound wave uh as a in this case, like as a simple like sine wave, right? And so we have at the center here, the average atmospheric pressure and then we have over time points of compression which are connected with this like denser uh points where like air molecules collide with each other. And then we have like these points of rare refraction where just the air molecules are more spaced out, right? So this is like the whole idea of a sound wave that just kind of like travels through space using air as a medium.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=150s",
+        "start_time": "150.96"
+    },
+    {
+        "id": "857f01db",
+        "text": "basically, the idea here is uh like we can visualize a sound wave uh as a in this case, like as a simple like sine wave, right? And so we have at the center here, the average atmospheric pressure and then we have over time points of compression which are connected with this like denser uh points where like air molecules collide with each other. And then we have like these points of rare refraction where just the air molecules are more spaced out, right? So this is like the whole idea of a sound wave that just kind of like travels through space using air as a medium. OK. So now we can represent a complex uh sound using a waveform which once again is basically like a pressure plot. So we are we are plotting",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=165s",
+        "start_time": "165.55"
+    },
+    {
+        "id": "410a0888",
+        "text": "denser uh points where like air molecules collide with each other. And then we have like these points of rare refraction where just the air molecules are more spaced out, right? So this is like the whole idea of a sound wave that just kind of like travels through space using air as a medium. OK. So now we can represent a complex uh sound using a waveform which once again is basically like a pressure plot. So we are we are plotting the deviation of air from this uh air pressure from this zero level against time. And so which a wave form like this that I'm sure like you'll be familiar with uh with, we can just like represent a whole piece of music, some noise, whatever we want really. And it's a nice way of visualizing and having",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=187s",
+        "start_time": "187.345"
+    },
+    {
+        "id": "a8e89b64",
+        "text": "OK. So now we can represent a complex uh sound using a waveform which once again is basically like a pressure plot. So we are we are plotting the deviation of air from this uh air pressure from this zero level against time. And so which a wave form like this that I'm sure like you'll be familiar with uh with, we can just like represent a whole piece of music, some noise, whatever we want really. And it's a nice way of visualizing and having a quick understanding of visualization of what uh like a sound like looks like. OK. And as we'll see, the waveform is going to be like fundamental for doing certain transformations which are gonna be very important to get important features about audio signals. OK. So now",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=209s",
+        "start_time": "209.399"
+    },
+    {
+        "id": "68f23dad",
+        "text": "the deviation of air from this uh air pressure from this zero level against time. And so which a wave form like this that I'm sure like you'll be familiar with uh with, we can just like represent a whole piece of music, some noise, whatever we want really. And it's a nice way of visualizing and having a quick understanding of visualization of what uh like a sound like looks like. OK. And as we'll see, the waveform is going to be like fundamental for doing certain transformations which are gonna be very important to get important features about audio signals. OK. So now a wave form is great because it provides us with an array of different information.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=224s",
+        "start_time": "224.229"
+    },
+    {
+        "id": "9b48ea86",
+        "text": "a quick understanding of visualization of what uh like a sound like looks like. OK. And as we'll see, the waveform is going to be like fundamental for doing certain transformations which are gonna be very important to get important features about audio signals. OK. So now a wave form is great because it provides us with an array of different information. It's not just about uh like the frequency information but also about intensity timer other types of temporal information duration. So for example, if we have like a complex uh waveform for like a piece of music, we can identify onsets and the duration of the nets and all of these kind of cues and it's kind of like a mesmerizing that all of that comes from like a very simple uh graph to",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=244s",
+        "start_time": "244.63"
+    },
+    {
+        "id": "4b17db0a",
+        "text": "a wave form is great because it provides us with an array of different information. It's not just about uh like the frequency information but also about intensity timer other types of temporal information duration. So for example, if we have like a complex uh waveform for like a piece of music, we can identify onsets and the duration of the nets and all of these kind of cues and it's kind of like a mesmerizing that all of that comes from like a very simple uh graph to the graph. Cool. OK. So now we can divide sound into a couple of like classes of categories. So we have periodic and a periodic sound. So in the case of periodic sound, this is like a sound where the compressions and rare fractions repeat regularly, right? So you can fix a period at which you have peaks or you have dips.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=266s",
+        "start_time": "266.69"
+    },
+    {
+        "id": "283eb4d8",
+        "text": "It's not just about uh like the frequency information but also about intensity timer other types of temporal information duration. So for example, if we have like a complex uh waveform for like a piece of music, we can identify onsets and the duration of the nets and all of these kind of cues and it's kind of like a mesmerizing that all of that comes from like a very simple uh graph to the graph. Cool. OK. So now we can divide sound into a couple of like classes of categories. So we have periodic and a periodic sound. So in the case of periodic sound, this is like a sound where the compressions and rare fractions repeat regularly, right? So you can fix a period at which you have peaks or you have dips. Now, the simplest form of periodic sound is a single sine wave. And so we know like the the math behind sound sound waves uh like really, really well. So that is like very convenient for us. Now, a more complex type of sound that is like the sound, for example of an orchestra playing",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=273s",
+        "start_time": "273.54"
+    },
+    {
+        "id": "b5194565",
+        "text": "the graph. Cool. OK. So now we can divide sound into a couple of like classes of categories. So we have periodic and a periodic sound. So in the case of periodic sound, this is like a sound where the compressions and rare fractions repeat regularly, right? So you can fix a period at which you have peaks or you have dips. Now, the simplest form of periodic sound is a single sine wave. And so we know like the the math behind sound sound waves uh like really, really well. So that is like very convenient for us. Now, a more complex type of sound that is like the sound, for example of an orchestra playing uh is the so called complex sound that as we'll see in a few um videos is the result of multiple sine waves that gets uh kind of like combined as superimposed together.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=302s",
+        "start_time": "302.785"
+    },
+    {
+        "id": "28bba5e1",
+        "text": "Now, the simplest form of periodic sound is a single sine wave. And so we know like the the math behind sound sound waves uh like really, really well. So that is like very convenient for us. Now, a more complex type of sound that is like the sound, for example of an orchestra playing uh is the so called complex sound that as we'll see in a few um videos is the result of multiple sine waves that gets uh kind of like combined as superimposed together. Now, so this is the type of like periodic sounds. Then we have a periodic sound obviously like the the name here is a clear hint. So uh with a periodic sound, we don't have like periodicity in the audio signal.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=332s",
+        "start_time": "332.57"
+    },
+    {
+        "id": "edb1fa47",
+        "text": "uh is the so called complex sound that as we'll see in a few um videos is the result of multiple sine waves that gets uh kind of like combined as superimposed together. Now, so this is the type of like periodic sounds. Then we have a periodic sound obviously like the the name here is a clear hint. So uh with a periodic sound, we don't have like periodicity in the audio signal. And we can differentiate between two types of a periodic sounds so continuous and transient. So continuous, a periodic sound is just noise. Basically, you have like a jumble of points as a wave from which don't follow any pattern whatsoever in the air pressure, it's just like some random points uh sampled through like the uh on the um air pressure uh axis. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=350s",
+        "start_time": "350.16"
+    },
+    {
+        "id": "17734d14",
+        "text": "Now, so this is the type of like periodic sounds. Then we have a periodic sound obviously like the the name here is a clear hint. So uh with a periodic sound, we don't have like periodicity in the audio signal. And we can differentiate between two types of a periodic sounds so continuous and transient. So continuous, a periodic sound is just noise. Basically, you have like a jumble of points as a wave from which don't follow any pattern whatsoever in the air pressure, it's just like some random points uh sampled through like the uh on the um air pressure uh axis. OK. So the transient, a periodic sound is a little bit different. So all of those like popping sounds or like clicks and things like that can be uh folded like a transient. So these are just like bursts of um energy and which change like the air pressure. Uh suddenly it's kind of like a pulse thing. And then again, there you don't have any uh type of periodicity whatsoever.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=365s",
+        "start_time": "365.369"
+    },
+    {
+        "id": "556d808e",
+        "text": "And we can differentiate between two types of a periodic sounds so continuous and transient. So continuous, a periodic sound is just noise. Basically, you have like a jumble of points as a wave from which don't follow any pattern whatsoever in the air pressure, it's just like some random points uh sampled through like the uh on the um air pressure uh axis. OK. So the transient, a periodic sound is a little bit different. So all of those like popping sounds or like clicks and things like that can be uh folded like a transient. So these are just like bursts of um energy and which change like the air pressure. Uh suddenly it's kind of like a pulse thing. And then again, there you don't have any uh type of periodicity whatsoever. OK. So now let's uh try to start with the simplest things first, which is like I having like a simple",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=382s",
+        "start_time": "382.1"
+    },
+    {
+        "id": "05e0edfe",
+        "text": "So the transient, a periodic sound is a little bit different. So all of those like popping sounds or like clicks and things like that can be uh folded like a transient. So these are just like bursts of um energy and which change like the air pressure. Uh suddenly it's kind of like a pulse thing. And then again, there you don't have any uh type of periodicity whatsoever. OK. So now let's uh try to start with the simplest things first, which is like I having like a simple sine wave. OK. So here we have the waveform for like a simple sine wave. And here also down here we have the math for that. And as you can see, we can easily um create the equation of the sine wave sine wave by uh using a bunch of like different parameters. So this a capital A here is the amplitude and then we have F which is the frequency T is just uh time",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=407s",
+        "start_time": "407.48"
+    },
+    {
+        "id": "026f2005",
+        "text": "OK. So now let's uh try to start with the simplest things first, which is like I having like a simple sine wave. OK. So here we have the waveform for like a simple sine wave. And here also down here we have the math for that. And as you can see, we can easily um create the equation of the sine wave sine wave by uh using a bunch of like different parameters. So this a capital A here is the amplitude and then we have F which is the frequency T is just uh time and then P is the phase. Now let's try to take a look at each of these parameters in isolation. So that you get an idea of like how they influence the waveform itself. OK. So frequency is connected with the",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=434s",
+        "start_time": "434.82"
+    },
+    {
+        "id": "7ec8eb95",
+        "text": "sine wave. OK. So here we have the waveform for like a simple sine wave. And here also down here we have the math for that. And as you can see, we can easily um create the equation of the sine wave sine wave by uh using a bunch of like different parameters. So this a capital A here is the amplitude and then we have F which is the frequency T is just uh time and then P is the phase. Now let's try to take a look at each of these parameters in isolation. So that you get an idea of like how they influence the waveform itself. OK. So frequency is connected with the period. So to uh the period is it is very simple to understand as a concept, right? It's just like the amount of time that we need to elapse before having to uh picks or for example, to um dips, right.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=444s",
+        "start_time": "444.049"
+    },
+    {
+        "id": "cce72f21",
+        "text": "and then P is the phase. Now let's try to take a look at each of these parameters in isolation. So that you get an idea of like how they influence the waveform itself. OK. So frequency is connected with the period. So to uh the period is it is very simple to understand as a concept, right? It's just like the amount of time that we need to elapse before having to uh picks or for example, to um dips, right. OK. So this is the period. Now, the frequency is just the inverse of the period where we've um I indicated period with capital T here. And frequency is expressed in Hertz which is number of cycles per second.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=472s",
+        "start_time": "472.959"
+    },
+    {
+        "id": "627044ba",
+        "text": "period. So to uh the period is it is very simple to understand as a concept, right? It's just like the amount of time that we need to elapse before having to uh picks or for example, to um dips, right. OK. So this is the period. Now, the frequency is just the inverse of the period where we've um I indicated period with capital T here. And frequency is expressed in Hertz which is number of cycles per second. OK. So now the amplitude ST uh is a yeah, quite uh simple intuitive uh concept as well to understand. And it's basically how high or low this perturbation in air pressure goes, the higher it goes",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=489s",
+        "start_time": "489.45"
+    },
+    {
+        "id": "299a21e6",
+        "text": "OK. So this is the period. Now, the frequency is just the inverse of the period where we've um I indicated period with capital T here. And frequency is expressed in Hertz which is number of cycles per second. OK. So now the amplitude ST uh is a yeah, quite uh simple intuitive uh concept as well to understand. And it's basically how high or low this perturbation in air pressure goes, the higher it goes and the higher the amplitude obviously, right. So this is like uh we, we can take like this uh information just by starting from zero and then looking at the difference, for example, between the peak the the value of the amplitude at the peak and the uh and at zero, right? And so there we have the amplitude,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=508s",
+        "start_time": "508.73"
+    },
+    {
+        "id": "fcc6ed5d",
+        "text": "OK. So now the amplitude ST uh is a yeah, quite uh simple intuitive uh concept as well to understand. And it's basically how high or low this perturbation in air pressure goes, the higher it goes and the higher the amplitude obviously, right. So this is like uh we, we can take like this uh information just by starting from zero and then looking at the difference, for example, between the peak the the value of the amplitude at the peak and the uh and at zero, right? And so there we have the amplitude, OK. Then the final parameter that we were kind of like uh pondering was a phase which is indicated with the P lecture from the Greek alphabet. OK. So phase, what phase tells us is basically like",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=528s",
+        "start_time": "528.71"
+    },
+    {
+        "id": "16b1a05c",
+        "text": "and the higher the amplitude obviously, right. So this is like uh we, we can take like this uh information just by starting from zero and then looking at the difference, for example, between the peak the the value of the amplitude at the peak and the uh and at zero, right? And so there we have the amplitude, OK. Then the final parameter that we were kind of like uh pondering was a phase which is indicated with the P lecture from the Greek alphabet. OK. So phase, what phase tells us is basically like um it, it, it enables us to shift the waveform to the right or to the left and face basically tells us what is the position of the, the waveform at time zero, right.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=548s",
+        "start_time": "548.08"
+    },
+    {
+        "id": "dad1780d",
+        "text": "OK. Then the final parameter that we were kind of like uh pondering was a phase which is indicated with the P lecture from the Greek alphabet. OK. So phase, what phase tells us is basically like um it, it, it enables us to shift the waveform to the right or to the left and face basically tells us what is the position of the, the waveform at time zero, right. OK. So with amplitude with frequency and with phase, we are able of determining uh all the parameters and have like a complete understanding of a sine wave. And as we'll see in future videos, this is extremely important because so complex sounds can just be f as a combination or super imposition of many sine waves together. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=568s",
+        "start_time": "568.46"
+    },
+    {
+        "id": "11ef6e63",
+        "text": "um it, it, it enables us to shift the waveform to the right or to the left and face basically tells us what is the position of the, the waveform at time zero, right. OK. So with amplitude with frequency and with phase, we are able of determining uh all the parameters and have like a complete understanding of a sine wave. And as we'll see in future videos, this is extremely important because so complex sounds can just be f as a combination or super imposition of many sine waves together. OK. Cool. OK. Now let's take a look at frequency and amplitude a little bit more. And so as you can see here, uh we have like here with this red graph like two waves. And so the, the one above here has like this frequency or like, well that actually like is the period, right?",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=587s",
+        "start_time": "587.01"
+    },
+    {
+        "id": "5639c719",
+        "text": "OK. So with amplitude with frequency and with phase, we are able of determining uh all the parameters and have like a complete understanding of a sine wave. And as we'll see in future videos, this is extremely important because so complex sounds can just be f as a combination or super imposition of many sine waves together. OK. Cool. OK. Now let's take a look at frequency and amplitude a little bit more. And so as you can see here, uh we have like here with this red graph like two waves. And so the, the one above here has like this frequency or like, well that actually like is the period, right? And this one down here as this period here, which is uh like shorter. So the frequency being the inverse is higher. So what's the relationship between frequency and sound? Well, the higher the frequency, the higher the sound that we perceive right",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=603s",
+        "start_time": "603.859"
+    },
+    {
+        "id": "b183bd15",
+        "text": "Cool. OK. Now let's take a look at frequency and amplitude a little bit more. And so as you can see here, uh we have like here with this red graph like two waves. And so the, the one above here has like this frequency or like, well that actually like is the period, right? And this one down here as this period here, which is uh like shorter. So the frequency being the inverse is higher. So what's the relationship between frequency and sound? Well, the higher the frequency, the higher the sound that we perceive right now, a similar thing can happen with amplitude. So we, we see here with this purple graph uh in the top right where the amplitude is quite low. And then down here uh like um bottom right, we have a sine wave with a higher amplitude and that perceptually translates to have a louder sound.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=633s",
+        "start_time": "633.919"
+    },
+    {
+        "id": "05325e20",
+        "text": "And this one down here as this period here, which is uh like shorter. So the frequency being the inverse is higher. So what's the relationship between frequency and sound? Well, the higher the frequency, the higher the sound that we perceive right now, a similar thing can happen with amplitude. So we, we see here with this purple graph uh in the top right where the amplitude is quite low. And then down here uh like um bottom right, we have a sine wave with a higher amplitude and that perceptually translates to have a louder sound. So larger amplitude are connected with louder sounds. And this like makes sense uh intuitively because the amplitude just measures the amount of perturbation that uh happens in the air pressure, right? And the higher the perturbation, the higher the energy that we transfer and the the louder that will sound.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=654s",
+        "start_time": "654.169"
+    },
+    {
+        "id": "5a2b49c9",
+        "text": "now, a similar thing can happen with amplitude. So we, we see here with this purple graph uh in the top right where the amplitude is quite low. And then down here uh like um bottom right, we have a sine wave with a higher amplitude and that perceptually translates to have a louder sound. So larger amplitude are connected with louder sounds. And this like makes sense uh intuitively because the amplitude just measures the amount of perturbation that uh happens in the air pressure, right? And the higher the perturbation, the higher the energy that we transfer and the the louder that will sound. OK. So now here we have like a basic uh understanding of how frequency and amplitude uh map onto like perceptual aspects. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=671s",
+        "start_time": "671.599"
+    },
+    {
+        "id": "99aec0ed",
+        "text": "So larger amplitude are connected with louder sounds. And this like makes sense uh intuitively because the amplitude just measures the amount of perturbation that uh happens in the air pressure, right? And the higher the perturbation, the higher the energy that we transfer and the the louder that will sound. OK. So now here we have like a basic uh understanding of how frequency and amplitude uh map onto like perceptual aspects. OK. So now an interesting thing that I want to cover here is the hearing range. And as we'll see, this is extremely important for decisions in audio processing like sample R and, and a bunch of other things. Now, different animals usually have like very different hearing ranges. So uh humans,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=696s",
+        "start_time": "696.575"
+    },
+    {
+        "id": "d0eaf35e",
+        "text": "OK. So now here we have like a basic uh understanding of how frequency and amplitude uh map onto like perceptual aspects. OK. So now an interesting thing that I want to cover here is the hearing range. And as we'll see, this is extremely important for decisions in audio processing like sample R and, and a bunch of other things. Now, different animals usually have like very different hearing ranges. So uh humans, for example, have a hearing range which is between 20 Hertz and 20,000 Hertz. But if we go and we take a look at the hearing range for cats and dogs, we see that they are capable of hearing also higher frequencies, the frequencies that are",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=721s",
+        "start_time": "721.9"
+    },
+    {
+        "id": "338e3f64",
+        "text": "So now an interesting thing that I want to cover here is the hearing range. And as we'll see, this is extremely important for decisions in audio processing like sample R and, and a bunch of other things. Now, different animals usually have like very different hearing ranges. So uh humans, for example, have a hearing range which is between 20 Hertz and 20,000 Hertz. But if we go and we take a look at the hearing range for cats and dogs, we see that they are capable of hearing also higher frequencies, the frequencies that are we humans call ultrasounds just because like we, I mean, guess like we everything is trapo percent. And so what we can hear and goes beyond like what the the highest rhythms we can hear is called ultrasounds and basically like the both cats and dogs and definitely bats can hear ultrasounds, right? So now let's take a look at a few um",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=733s",
+        "start_time": "733.039"
+    },
+    {
+        "id": "c262ead4",
+        "text": "for example, have a hearing range which is between 20 Hertz and 20,000 Hertz. But if we go and we take a look at the hearing range for cats and dogs, we see that they are capable of hearing also higher frequencies, the frequencies that are we humans call ultrasounds just because like we, I mean, guess like we everything is trapo percent. And so what we can hear and goes beyond like what the the highest rhythms we can hear is called ultrasounds and basically like the both cats and dogs and definitely bats can hear ultrasounds, right? So now let's take a look at a few um examples of like sounds and where they are mapped into the hearing range. So uh I if we take a look at the concert orchestra, for example, in the middle here, so you'll see that the concert orchestra more or less like covers the whole uh uh spectrum of hearing range of human hearing range. And like, like, I mean, that's like makes sense. And so here you have, for example, like the male singing voice,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=753s",
+        "start_time": "753.403"
+    },
+    {
+        "id": "e5e7200e",
+        "text": "we humans call ultrasounds just because like we, I mean, guess like we everything is trapo percent. And so what we can hear and goes beyond like what the the highest rhythms we can hear is called ultrasounds and basically like the both cats and dogs and definitely bats can hear ultrasounds, right? So now let's take a look at a few um examples of like sounds and where they are mapped into the hearing range. So uh I if we take a look at the concert orchestra, for example, in the middle here, so you'll see that the concert orchestra more or less like covers the whole uh uh spectrum of hearing range of human hearing range. And like, like, I mean, that's like makes sense. And so here you have, for example, like the male singing voice, which is between somewhere I'd say like 60 to 2000, even like 5000. And then the female speaking voice, which is usually like an octave above the male speaking voice as a rule of thumb. And so it starts around like 200 Hertz and it goes all the way up to 10,000 Hertz. OK. So you're like, you get an idea of different types of sounds and how they mapped onto uh Hertz and our hearing range. OK. So now",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=773s",
+        "start_time": "773.765"
+    },
+    {
+        "id": "ab02aaba",
+        "text": "examples of like sounds and where they are mapped into the hearing range. So uh I if we take a look at the concert orchestra, for example, in the middle here, so you'll see that the concert orchestra more or less like covers the whole uh uh spectrum of hearing range of human hearing range. And like, like, I mean, that's like makes sense. And so here you have, for example, like the male singing voice, which is between somewhere I'd say like 60 to 2000, even like 5000. And then the female speaking voice, which is usually like an octave above the male speaking voice as a rule of thumb. And so it starts around like 200 Hertz and it goes all the way up to 10,000 Hertz. OK. So you're like, you get an idea of different types of sounds and how they mapped onto uh Hertz and our hearing range. OK. So now uh what we've talked about until up until now is a kind of objective measure of sound, which is frequency. Now, the way we hear frequency and we perceive frequency, it's kind of like very subjective and it's not really like that objective, like a tool. And now pit is the,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=799s",
+        "start_time": "799.07"
+    },
+    {
+        "id": "932e5cdf",
+        "text": "which is between somewhere I'd say like 60 to 2000, even like 5000. And then the female speaking voice, which is usually like an octave above the male speaking voice as a rule of thumb. And so it starts around like 200 Hertz and it goes all the way up to 10,000 Hertz. OK. So you're like, you get an idea of different types of sounds and how they mapped onto uh Hertz and our hearing range. OK. So now uh what we've talked about until up until now is a kind of objective measure of sound, which is frequency. Now, the way we hear frequency and we perceive frequency, it's kind of like very subjective and it's not really like that objective, like a tool. And now pit is the, the concept that we use uh for the perception of frequency, right? OK. So the, the great thing and the interesting thing I should say like about pitch is that uh we don't hear pitch in a kind we don't hear, I should say frequency in a linear way, but rather in a logarithmic way. So um one other like interesting thing here is that two frequencies",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=826s",
+        "start_time": "826.895"
+    },
+    {
+        "id": "3cfa39d2",
+        "text": "uh what we've talked about until up until now is a kind of objective measure of sound, which is frequency. Now, the way we hear frequency and we perceive frequency, it's kind of like very subjective and it's not really like that objective, like a tool. And now pit is the, the concept that we use uh for the perception of frequency, right? OK. So the, the great thing and the interesting thing I should say like about pitch is that uh we don't hear pitch in a kind we don't hear, I should say frequency in a linear way, but rather in a logarithmic way. So um one other like interesting thing here is that two frequencies are perceived to be more or less like the same if they differ by a power of two.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=857s",
+        "start_time": "857.03"
+    },
+    {
+        "id": "b20bb868",
+        "text": "the concept that we use uh for the perception of frequency, right? OK. So the, the great thing and the interesting thing I should say like about pitch is that uh we don't hear pitch in a kind we don't hear, I should say frequency in a linear way, but rather in a logarithmic way. So um one other like interesting thing here is that two frequencies are perceived to be more or less like the same if they differ by a power of two. And so this is like the concept of octave that's coming into place and we'll cover this. But for now, I want you to understand that the way we perceive uh pitch or the way we perceive frequency through page. It's kind of like very different and different from like frequency itself because we have this kind of like logarithmic perception of frequency. OK. So to understand the concept of pitch, we need to understand the concept of me. Now,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=879s",
+        "start_time": "879.679"
+    },
+    {
+        "id": "d9066431",
+        "text": "are perceived to be more or less like the same if they differ by a power of two. And so this is like the concept of octave that's coming into place and we'll cover this. But for now, I want you to understand that the way we perceive uh pitch or the way we perceive frequency through page. It's kind of like very different and different from like frequency itself because we have this kind of like logarithmic perception of frequency. OK. So to understand the concept of pitch, we need to understand the concept of me. Now, uh media notes um are kind of like very common and very handy uh convention for just like uh transferring information about like musical notes and stuff like that. But what we want to uh understand here is that how they map",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=908s",
+        "start_time": "908.979"
+    },
+    {
+        "id": "ca189893",
+        "text": "And so this is like the concept of octave that's coming into place and we'll cover this. But for now, I want you to understand that the way we perceive uh pitch or the way we perceive frequency through page. It's kind of like very different and different from like frequency itself because we have this kind of like logarithmic perception of frequency. OK. So to understand the concept of pitch, we need to understand the concept of me. Now, uh media notes um are kind of like very common and very handy uh convention for just like uh transferring information about like musical notes and stuff like that. But what we want to uh understand here is that how they map uh to onto like pitch and a keyboard. So now here we have like a piano keyboard, right? And the idea of midi notes is that we can attach to each keyboard, a number, a a midi number, right? So for example, the middle C down here uh has a midi note uh which is equal to 60.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=916s",
+        "start_time": "916.789"
+    },
+    {
+        "id": "7e93f2ca",
+        "text": "uh media notes um are kind of like very common and very handy uh convention for just like uh transferring information about like musical notes and stuff like that. But what we want to uh understand here is that how they map uh to onto like pitch and a keyboard. So now here we have like a piano keyboard, right? And the idea of midi notes is that we can attach to each keyboard, a number, a a midi number, right? So for example, the middle C down here uh has a midi note uh which is equal to 60. Now, uh we can map this midi notes to note names. So this midi note 60 is equal to C four. Now, what does that stand for? So we have like a four and note name like two parameters there. So one is a letter and yeah, that's just like the, the the note names, right? CD eff sharp, all these things, right? And the other one is a number. So what's that number? Well, that",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=945s",
+        "start_time": "945.599"
+    },
+    {
+        "id": "a9f4cd29",
+        "text": "uh to onto like pitch and a keyboard. So now here we have like a piano keyboard, right? And the idea of midi notes is that we can attach to each keyboard, a number, a a midi number, right? So for example, the middle C down here uh has a midi note uh which is equal to 60. Now, uh we can map this midi notes to note names. So this midi note 60 is equal to C four. Now, what does that stand for? So we have like a four and note name like two parameters there. So one is a letter and yeah, that's just like the, the the note names, right? CD eff sharp, all these things, right? And the other one is a number. So what's that number? Well, that number represents the octave we are at. So now, I guess like most of you are familiar with the concept of like a scale like or an octave and you've like perhaps played around like with a, with a keyboard, like a piano yourself. But if you're not, the basic idea is that we have",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=964s",
+        "start_time": "964.15"
+    },
+    {
+        "id": "9a82093b",
+        "text": "Now, uh we can map this midi notes to note names. So this midi note 60 is equal to C four. Now, what does that stand for? So we have like a four and note name like two parameters there. So one is a letter and yeah, that's just like the, the the note names, right? CD eff sharp, all these things, right? And the other one is a number. So what's that number? Well, that number represents the octave we are at. So now, I guess like most of you are familiar with the concept of like a scale like or an octave and you've like perhaps played around like with a, with a keyboard, like a piano yourself. But if you're not, the basic idea is that we have a pattern of notes that always repeats itself, so we start like with C we go to C# D and Efgab and then we can go up and save and here we have like the very same pattern, the very same 12 notes",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=986s",
+        "start_time": "986.919"
+    },
+    {
+        "id": "53b5276e",
+        "text": "number represents the octave we are at. So now, I guess like most of you are familiar with the concept of like a scale like or an octave and you've like perhaps played around like with a, with a keyboard, like a piano yourself. But if you're not, the basic idea is that we have a pattern of notes that always repeats itself, so we start like with C we go to C# D and Efgab and then we can go up and save and here we have like the very same pattern, the very same 12 notes which we call uh sentences. So there are like 12 sentences in the whole octave. OK. So now what's the difference between this, this, this and this? Well, basically like the, the notes uh that get like the same uh name. So C will sound basically the same but they'll sound somehow like higher. So it's difficult to explain but basically like the tone itself is the same, but it will be perceived as higher. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1013s",
+        "start_time": "1013.83"
+    },
+    {
+        "id": "4690df94",
+        "text": "a pattern of notes that always repeats itself, so we start like with C we go to C# D and Efgab and then we can go up and save and here we have like the very same pattern, the very same 12 notes which we call uh sentences. So there are like 12 sentences in the whole octave. OK. So now what's the difference between this, this, this and this? Well, basically like the, the notes uh that get like the same uh name. So C will sound basically the same but they'll sound somehow like higher. So it's difficult to explain but basically like the tone itself is the same, but it will be perceived as higher. OK. So, and basically like with the number here in the note name, like the C four, the four just expresses the octave we are at and obviously the octave like is this interval that we have like between uh for example, like C four and C five? OK. Cool. So how does that map onto the idea of frequency?",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1031s",
+        "start_time": "1031.78"
+    },
+    {
+        "id": "6c8091da",
+        "text": "which we call uh sentences. So there are like 12 sentences in the whole octave. OK. So now what's the difference between this, this, this and this? Well, basically like the, the notes uh that get like the same uh name. So C will sound basically the same but they'll sound somehow like higher. So it's difficult to explain but basically like the tone itself is the same, but it will be perceived as higher. OK. So, and basically like with the number here in the note name, like the C four, the four just expresses the octave we are at and obviously the octave like is this interval that we have like between uh for example, like C four and C five? OK. Cool. So how does that map onto the idea of frequency? So let's take a look at that. So we start with the, with a simple note, a fundamental note which is a four or pitch or midi note uh 69 and this is set at 440 hertz. Now, the idea is that if we go up a knot, so to a five will",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1052s",
+        "start_time": "1052.569"
+    },
+    {
+        "id": "8ac453e1",
+        "text": "So, and basically like with the number here in the note name, like the C four, the four just expresses the octave we are at and obviously the octave like is this interval that we have like between uh for example, like C four and C five? OK. Cool. So how does that map onto the idea of frequency? So let's take a look at that. So we start with the, with a simple note, a fundamental note which is a four or pitch or midi note uh 69 and this is set at 440 hertz. Now, the idea is that if we go up a knot, so to a five will have the frequency that's double that it's 880 Hertz. So the, the basic uh takeaway point here is that when you have like notes that are like a, an octave above, they'll have a frequency that's double the frequency of the same note at the octave below, right? OK. So",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1081s",
+        "start_time": "1081.16"
+    },
+    {
+        "id": "d8029b9d",
+        "text": "So let's take a look at that. So we start with the, with a simple note, a fundamental note which is a four or pitch or midi note uh 69 and this is set at 440 hertz. Now, the idea is that if we go up a knot, so to a five will have the frequency that's double that it's 880 Hertz. So the, the basic uh takeaway point here is that when you have like notes that are like a, an octave above, they'll have a frequency that's double the frequency of the same note at the octave below, right? OK. So now if we take all of these ideas and we plot them on a pitch frequency chart, you'll see that. Now the um connection like the, the mapping between frequency and pitch is a logarithmic one. And you can see like here the nice logarithm",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1103s",
+        "start_time": "1103.436"
+    },
+    {
+        "id": "af680a2e",
+        "text": "have the frequency that's double that it's 880 Hertz. So the, the basic uh takeaway point here is that when you have like notes that are like a, an octave above, they'll have a frequency that's double the frequency of the same note at the octave below, right? OK. So now if we take all of these ideas and we plot them on a pitch frequency chart, you'll see that. Now the um connection like the, the mapping between frequency and pitch is a logarithmic one. And you can see like here the nice logarithm uh function here and here uh on the y axis on the pitch axis, we just have like a zero, a one, a two, a three, a four, so on and so forth. And you'll see that basically like at every octave we go above, we would just like double the uh frequency in Hertz down here. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1125s",
+        "start_time": "1125.712"
+    },
+    {
+        "id": "8c929596",
+        "text": "now if we take all of these ideas and we plot them on a pitch frequency chart, you'll see that. Now the um connection like the, the mapping between frequency and pitch is a logarithmic one. And you can see like here the nice logarithm uh function here and here uh on the y axis on the pitch axis, we just have like a zero, a one, a two, a three, a four, so on and so forth. And you'll see that basically like at every octave we go above, we would just like double the uh frequency in Hertz down here. OK. So this is like a very interesting aspect and it seems that in sound like the way we perceive sound across the board, not just like for frequency, but also for example, for um",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1149s",
+        "start_time": "1149.68"
+    },
+    {
+        "id": "affdec0c",
+        "text": "uh function here and here uh on the y axis on the pitch axis, we just have like a zero, a one, a two, a three, a four, so on and so forth. And you'll see that basically like at every octave we go above, we would just like double the uh frequency in Hertz down here. OK. So this is like a very interesting aspect and it seems that in sound like the way we perceive sound across the board, not just like for frequency, but also for example, for um uh amplitude for like intensity is a logarithmic. And not only that, but if you're talking about music, even like the, the very concept of time and rhythm is somehow logarithm, a logarithmic and based on powers of two, OK. But yeah, I guess we'll look into depth in the coming views. OK. So how do we map pit onto frequency? Here? We can use a very simple equation.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1171s",
+        "start_time": "1171.54"
+    },
+    {
+        "id": "9c1376ef",
+        "text": "So this is like a very interesting aspect and it seems that in sound like the way we perceive sound across the board, not just like for frequency, but also for example, for um uh amplitude for like intensity is a logarithmic. And not only that, but if you're talking about music, even like the, the very concept of time and rhythm is somehow logarithm, a logarithmic and based on powers of two, OK. But yeah, I guess we'll look into depth in the coming views. OK. So how do we map pit onto frequency? Here? We can use a very simple equation. So you have like this frequency F as a function of P which is the peach and we will pass the peach in as a media note. And here you have this nice function. So you have two to the power of P minus 69 divided by 12. And all of this guy is multiplied by 440 0. And this 440 0 you can recognize that's just the frequency of pit",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1193s",
+        "start_time": "1193.459"
+    },
+    {
+        "id": "3a850576",
+        "text": "uh amplitude for like intensity is a logarithmic. And not only that, but if you're talking about music, even like the, the very concept of time and rhythm is somehow logarithm, a logarithmic and based on powers of two, OK. But yeah, I guess we'll look into depth in the coming views. OK. So how do we map pit onto frequency? Here? We can use a very simple equation. So you have like this frequency F as a function of P which is the peach and we will pass the peach in as a media note. And here you have this nice function. So you have two to the power of P minus 69 divided by 12. And all of this guy is multiplied by 440 0. And this 440 0 you can recognize that's just the frequency of pit uh 69 at maybe not 69. Because like if you plug into this P here, 69 this the whole thing here will become one. And if you multiply that by 440 basically you just get 440 which is the frequency for uh pitch 69 or a four. OK? So now let's try to",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1206s",
+        "start_time": "1206.949"
+    },
+    {
+        "id": "60ff4180",
+        "text": "So you have like this frequency F as a function of P which is the peach and we will pass the peach in as a media note. And here you have this nice function. So you have two to the power of P minus 69 divided by 12. And all of this guy is multiplied by 440 0. And this 440 0 you can recognize that's just the frequency of pit uh 69 at maybe not 69. Because like if you plug into this P here, 69 this the whole thing here will become one. And if you multiply that by 440 basically you just get 440 which is the frequency for uh pitch 69 or a four. OK? So now let's try to plug like a, an example number here. OK. So here we are plugging 60 which is middle C or uh I think it's C four, right? And uh we plug it in here and when we, when it's all said and done, we get back 261.6 and that's the frequency for pitch 60. Now,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1235s",
+        "start_time": "1235.685"
+    },
+    {
+        "id": "70348887",
+        "text": "uh 69 at maybe not 69. Because like if you plug into this P here, 69 this the whole thing here will become one. And if you multiply that by 440 basically you just get 440 which is the frequency for uh pitch 69 or a four. OK? So now let's try to plug like a, an example number here. OK. So here we are plugging 60 which is middle C or uh I think it's C four, right? And uh we plug it in here and when we, when it's all said and done, we get back 261.6 and that's the frequency for pitch 60. Now, so as we said, an octave is divided into 12 semitones. OK? So 12 different notes that are uh that have like the same distance like a among themselves, right? OK. So they basically divide the whole octave in 12, equal parts. OK.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1264s",
+        "start_time": "1264.67"
+    },
+    {
+        "id": "208ca65c",
+        "text": "plug like a, an example number here. OK. So here we are plugging 60 which is middle C or uh I think it's C four, right? And uh we plug it in here and when we, when it's all said and done, we get back 261.6 and that's the frequency for pitch 60. Now, so as we said, an octave is divided into 12 semitones. OK? So 12 different notes that are uh that have like the same distance like a among themselves, right? OK. So they basically divide the whole octave in 12, equal parts. OK. So the uh so what's the relationship between two subsequent pitches? OK. And so we can just like take a look at that by using like this uh function, this uh equation here. So the frequency of P plus one which is like the subsequent pitch to uh to the one that we are analyzing. So the subsequent semi turn",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1288s",
+        "start_time": "1288.88"
+    },
+    {
+        "id": "49b4df8a",
+        "text": "so as we said, an octave is divided into 12 semitones. OK? So 12 different notes that are uh that have like the same distance like a among themselves, right? OK. So they basically divide the whole octave in 12, equal parts. OK. So the uh so what's the relationship between two subsequent pitches? OK. And so we can just like take a look at that by using like this uh function, this uh equation here. So the frequency of P plus one which is like the subsequent pitch to uh to the one that we are analyzing. So the subsequent semi turn it divided by FP the ratio is given by two to the power of one divided by 12.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1314s",
+        "start_time": "1314.77"
+    },
+    {
+        "id": "f2720a3c",
+        "text": "So the uh so what's the relationship between two subsequent pitches? OK. And so we can just like take a look at that by using like this uh function, this uh equation here. So the frequency of P plus one which is like the subsequent pitch to uh to the one that we are analyzing. So the subsequent semi turn it divided by FP the ratio is given by two to the power of one divided by 12. OK. And that's equal to one point no 59. So this is like the ratio between two subsequent sentences and this remains always the same throughout like the entire like keyboard of a piano if you will. OK. So now one thing that you, I want you to notice here is that like this is like quite intuitive and it's because uh if we,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1335s",
+        "start_time": "1335.199"
+    },
+    {
+        "id": "39d3bb5d",
+        "text": "it divided by FP the ratio is given by two to the power of one divided by 12. OK. And that's equal to one point no 59. So this is like the ratio between two subsequent sentences and this remains always the same throughout like the entire like keyboard of a piano if you will. OK. So now one thing that you, I want you to notice here is that like this is like quite intuitive and it's because uh if we, so basically we are saying that uh like every time we go up an octave like this factor uh is gonna be like equal to two like the factor like the, the multiplication factor of the frequency is gonna be equal to two. But if you could just up up a semi turn, so this is gonna be equal to two",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1359s",
+        "start_time": "1359.67"
+    },
+    {
+        "id": "8fc3dd8f",
+        "text": "OK. And that's equal to one point no 59. So this is like the ratio between two subsequent sentences and this remains always the same throughout like the entire like keyboard of a piano if you will. OK. So now one thing that you, I want you to notice here is that like this is like quite intuitive and it's because uh if we, so basically we are saying that uh like every time we go up an octave like this factor uh is gonna be like equal to two like the factor like the, the multiplication factor of the frequency is gonna be equal to two. But if you could just up up a semi turn, so this is gonna be equal to two to the, to the power of one divided by 12 because we know that we are dividing the, the, the octave in 12 semis. OK. Cool. OK. So now to finish uh this um video, I want to talk about a sense. So this is like another very important um concept and it's related with the idea of like music perception mainly. So the idea is basically that we have,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1368s",
+        "start_time": "1368.0"
+    },
+    {
+        "id": "66c58584",
+        "text": "so basically we are saying that uh like every time we go up an octave like this factor uh is gonna be like equal to two like the factor like the, the multiplication factor of the frequency is gonna be equal to two. But if you could just up up a semi turn, so this is gonna be equal to two to the, to the power of one divided by 12 because we know that we are dividing the, the, the octave in 12 semis. OK. Cool. OK. So now to finish uh this um video, I want to talk about a sense. So this is like another very important um concept and it's related with the idea of like music perception mainly. So the idea is basically that we have, we, we have like a quite decent resolution when it comes time to pitch. Obviously, we are capable of like picking up like different semitones and understanding that there's a difference in pitch there. But we are better than that. So we are capable of like, um,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1393s",
+        "start_time": "1393.079"
+    },
+    {
+        "id": "654f903d",
+        "text": "to the, to the power of one divided by 12 because we know that we are dividing the, the, the octave in 12 semis. OK. Cool. OK. So now to finish uh this um video, I want to talk about a sense. So this is like another very important um concept and it's related with the idea of like music perception mainly. So the idea is basically that we have, we, we have like a quite decent resolution when it comes time to pitch. Obviously, we are capable of like picking up like different semitones and understanding that there's a difference in pitch there. But we are better than that. So we are capable of like, um, appreciating pitch differences that are smaller than a Samsung. So how can we measure that? Well, here is where scents come into place. So the idea of a scent is that, uh, it, the, the whole octave is divided in 1200 cents. So we have 100 cents for each semi. Ok. And so here, the cool thing is that's obviously like there's a,",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1414s",
+        "start_time": "1414.38"
+    },
+    {
+        "id": "ff964dae",
+        "text": "we, we have like a quite decent resolution when it comes time to pitch. Obviously, we are capable of like picking up like different semitones and understanding that there's a difference in pitch there. But we are better than that. So we are capable of like, um, appreciating pitch differences that are smaller than a Samsung. So how can we measure that? Well, here is where scents come into place. So the idea of a scent is that, uh, it, the, the whole octave is divided in 1200 cents. So we have 100 cents for each semi. Ok. And so here, the cool thing is that's obviously like there's a, as a threshold below which we can't just like really tell the difference between two pitches, but that threshold of so called noticeable pitch difference is between 10 and 25 cents depending like on who you are. Your, I guess your age and your background, if you are like a musician or you're not, probably if you're a musician, like you are capable of appreciating",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1442s",
+        "start_time": "1442.5"
+    },
+    {
+        "id": "0cd49872",
+        "text": "appreciating pitch differences that are smaller than a Samsung. So how can we measure that? Well, here is where scents come into place. So the idea of a scent is that, uh, it, the, the whole octave is divided in 1200 cents. So we have 100 cents for each semi. Ok. And so here, the cool thing is that's obviously like there's a, as a threshold below which we can't just like really tell the difference between two pitches, but that threshold of so called noticeable pitch difference is between 10 and 25 cents depending like on who you are. Your, I guess your age and your background, if you are like a musician or you're not, probably if you're a musician, like you are capable of appreciating uh pitch, uh difference is way better than non musicians. Ok. Cool. So by now, you should have like a fair understanding of what, what sound is, what a waveform is and everything that has to do with frequency and pitch. So",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1459s",
+        "start_time": "1459.28"
+    },
+    {
+        "id": "32be0f92",
+        "text": "as a threshold below which we can't just like really tell the difference between two pitches, but that threshold of so called noticeable pitch difference is between 10 and 25 cents depending like on who you are. Your, I guess your age and your background, if you are like a musician or you're not, probably if you're a musician, like you are capable of appreciating uh pitch, uh difference is way better than non musicians. Ok. Cool. So by now, you should have like a fair understanding of what, what sound is, what a waveform is and everything that has to do with frequency and pitch. So the next time we'll continue delving into a sound and all the different parameters which actually describe sound precisely. We're going to talk about intensity, power and loudness that are all features that are somehow uh correlated or connected with the idea of amplitude. And then we'll also uh",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1486s",
+        "start_time": "1486.005"
+    },
+    {
+        "id": "14aebe1f",
+        "text": "uh pitch, uh difference is way better than non musicians. Ok. Cool. So by now, you should have like a fair understanding of what, what sound is, what a waveform is and everything that has to do with frequency and pitch. So the next time we'll continue delving into a sound and all the different parameters which actually describe sound precisely. We're going to talk about intensity, power and loudness that are all features that are somehow uh correlated or connected with the idea of amplitude. And then we'll also uh venture into a very cool topic, which is that of tre the timer of sound. And this is like a very difficult one like to grasp because it's very nuanced and it's very, very, I don't know, like very ambiguous, I would say and subjective. OK. So I hope you enjoyed this video. If that's the case, please remember to leave a like and if you haven't subscribed to the channel, please do. So you'll get like all the",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1512s",
+        "start_time": "1512.969"
+    },
+    {
+        "id": "15d59809",
+        "text": "the next time we'll continue delving into a sound and all the different parameters which actually describe sound precisely. We're going to talk about intensity, power and loudness that are all features that are somehow uh correlated or connected with the idea of amplitude. And then we'll also uh venture into a very cool topic, which is that of tre the timer of sound. And this is like a very difficult one like to grasp because it's very nuanced and it's very, very, I don't know, like very ambiguous, I would say and subjective. OK. So I hope you enjoyed this video. If that's the case, please remember to leave a like and if you haven't subscribed to the channel, please do. So you'll get like all the um videos that I'm posting. And finally, I want to remember uh that we have a community which is on a Slack workspace that's called the Sound of A I where if you join, you're gonna be able to just like join the discussion, ask questions with the community. Get feedback and yeah. Happen to know like very cool people. OK. That's all for today. I hope I'll see you next time. Cheers.",
+        "video": "Sound and Waveforms",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "bnHHVo3j124",
+        "youtube_link": "https://www.youtube.com/watch?v=bnHHVo3j124&t=1532s",
+        "start_time": "1532.459"
+    }
+]

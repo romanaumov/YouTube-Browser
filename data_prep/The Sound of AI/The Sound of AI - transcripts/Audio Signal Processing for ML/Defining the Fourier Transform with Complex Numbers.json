@@ -1,0 +1,818 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. Last time we introduced complex numbers and we said that we would need this to introduce many aspects of audio signal processing. And so this time we'll just build on top of that knowledge and we'll use complex numbers to define the fourier transform in complex terms. And as you'll see, this is gonna be super compact and super elegant. But before we get started, I just want to remind you about the sound of the I Slack community here. You can talk with a lot of like cool people who are interested in A IOU and A I music and you can also get feedback. So I really suggest you to check this out. I'll leave you the sign up link in the description below now onto the cool stuff. So I want to remind you about like a couple of things that I introduced some math stuff that I introduced over the last couple of meters. And the first couple of formulas are these two and this is the formula on top over here for um getting like the face as a parameter of the fourier transform. And then we have the mag and as you can see here, we have just like the way we can extract that. Now, I'm not going to get you into the details here because I covered this in a couple of videos ago when I gave you an introduction and intuition of the four year transform. So I definitely suggest you to check that out if you haven't. And so you should have the video over here cool. But now what are like the face and magnitude on a very high level where these are like the two parameters that we extract when we decompose a complex sound using the fourier transform. So we have a decompose uh sine wave frequency. And for that frequency, we extract a face and a magnitude and the magnitude tells us how much of that pure turn we have in the original signal good. So the next thing that I want to remind you about is this nice formula for, for a complex number. So here we have a complex number that's, that's defined as the absolute value of the com complex number multiplied by E to the I times gamma where I is the imaginary unit. So this is the polar definition of a complex number using the exponential here, once again, if you don't know uh this or if you haven't checked out my previous video on CNA numbers, definitely do check this out because all of this video will build on top of my previous two videos. OK. So now let's move on. So what's the intuition that we use to define the fourier transform using complex numbers? Well, the idea here is that whenever we um apply a fourier transform, what we end up with for each frequency for each li is a pair of parameters. So one is magnitude as we saw it and the other one is phase. And the idea is that we can use this magnitude and phase as polar coordinates of a complex number. In other words, we can encode both of these coefficients. So the magnitude and phase in a single complex number. So yeah, but let's see how that looks like uh in in in in empirically like applied. So let's start like with the um mathematical equations that I introduced earlier. So here we have like our phase once again the magnitude and here we have the definition of a complex number in polar coordinates. OK. So how do we get the fourier transform coefficients? Well, this is the formula, right. So basically we can encode both the um magnitude as well as the phase in a single complex number. And this is called the complex fourier transform coefficient. And we have one of these for each of the frequencies we decompose our original signal intake. OK. So now let's take a look a a closer look at this. So basically, as you can see this is um we can just like map this um complex coefficient to this complex definition of a well polar representation of a complex number. So the absolute value of C gets mapped to the magnitude divided by square root of two. Now, if you're wondering why we use the square root of two here is just because of like some normalization reasons. I'm not going to get into the details there, but it really doesn't matter that much because it's just divided by a concept. It's all it is right then the other thing that we have is gamma, the angle over here. And as you can see, gamma over here is equal to two pi phi and where Phi is basically the face and we also take like the minus here. And so in other words, like gamma here uh has this minus as well in it over here. Cool. OK. So now let's go back to kind of like a visual representation of like this um fourier transform coefficients. So you should be familiar with this already from my previous video. But if you're not, I'll just like give you like an overview here about how we can interpret a complex number visually. And in this case, the complex number is our fourier transform coefficient for frequency F. So this guy here is nothing more than a point in the complex plane in the complex plane. Obviously, we have the horizontal axis where we have like the real part of the complex number and the vertical axis where we have the imaginary parts of the complex number. So cf are free transform coefficient for frequency F is equal to like a point in this um a complex plane. And now if we want to map like the different parts to like this number, so we can see that the distance of our complex number from the origin is given by the absolute value of the coefficient itself. So this guy over here, right? So it's the magnitude divided by the square root of two. And then we have gamma and gamma is the angle between the positive real axis and the line that connects the uh our coefficient complex number with the origin and gamma once again is given by this two pi multiplied by the face. OK. And the face here, I should remind you is between zero and one and being B and B between zero and one. It means that we can go and just like design or just like trace the whole circle here. Cool. OK. So what does this minus uh do? Right. So the cool thing about this minus is that when we increase the, the phase, what happens is that we are rotating clockwise? So if we increase the phase here, we just go down here, then we go down here. OK. So usually we are the complex number definition. Uh you just like rotate counterclockwise as we saw in the previous video but here we add a minus in this definition so that we can rotate clockwise when the phase increases cool. OK. So now I want to uh like show you how we actually get to the fourier transform. And what's the uh definition of the fourier transform mathematically? And but for doing that, I just want to start from a continuous audio signal. So our continuous audio signal is GFT and this is a function and mathematically this function G uh does this thing. So it gets a real number as an input and it outputs another real number. And this is as simple as a as having like this plot here, right? It's, we should be familiar by now with this. It's a, it's a, it's a wave form. OK. So, and on the X axis, we have time and for each time we get back a an amplitude or intensity value. And this is why we, this function G which is our continuous audio signal gets a real number time as input and it provides us uh it outputs a uh another real number, sorry about that, another real number which is the actual sound pressure, intensity or amplitude. OK. Cool. This is in stark contrast with the actual complex fourier transform. So the complex fourier transform we can indicate with GH of F and the output of this is our coefficient, the fourier transform coefficients that we saw a couple of minutes ago, right? And we have one of those coefficients. In other words, one of those complex numbers for each frequency cool. OK. But how does like these fourier transform like look like? So this this function, well, this is slightly different from the original signal. And that's because this function takes as input a real number which is the frequency right and the frequency is expressed in Hertz. But then it doesn't output a real number but rather it outputs a complex number and the complex number that it outputs is the fourier transform coefficient cool. So let's take a look at this in the um complex plane. So we already see this like so for frequency F one, for example, the output of the complex fourier transform is a point can be visualized as a point in the complex plane cool. This is really, really interesting. So now probably you start to understand why we are using a complex representation for the fourier transform. The great thing about this is that given the fourier transform comes out with two uh different parameters. So magnitude and phase we can just like package them up into a handy tool which is a complex number and then easily visualize that on a complex plane. Isn't that like fascinating how like math works so well when we describe like natural physical things in nature, right? Cool. OK. So this is another example of a uh of a of an output that we get from the complex fourier transform. And perhaps this is at F two, right? And then if we go to F three, we may have still another coefficients that's over here. Cool. OK. Now, you have a little bit of an understanding of how like this uh complex fourier transform like works. But what about its mathematical definition? So how do we get to this cof to the uh fourier transform coefficient? Well, once again, let's start from the original uh stuff that we looked at uh a couple of videos ago. So here we have the formula for both the um magnitude and the face that come out from a fourier transform. And here we have the definition of the complex fourier transform cool. So I know this can look a little bit scary here but bear with me because we are going to look into a visual interpretation of this and you'll see that this is actually quite simple to grasp. OK. So as we said before, so the output of this G hatch at a specific fee is nothing more than uh a complex number on the complex plane. And it's our uh for a transform coefficient, right? But now how do we actually get this guy starting from this beast of an integral here that has this exponential way, like some kind of weird like complex values and things like that. OK. So the first thing like we, we we will do here is to look into the different parts of this uh formula. So the, the, the first one that we'll look into. And by now you should be familiar with this is this exponential over here. So the exponential here um basically traces the unit circle in the complex plane. So ST increases, we just go through, we just like trace the whole unit circle. But now we are tracing the unit circle going clockwise. And why is that? Because we have this minus symbol over here. Now, the other thing to keep in mind here is that the speed at which we can complete a circle depends on this F value, which is the frequency. So for example, uh let's assume that frequency is equal to one is one Hertz, then it'll take us one second to go through to just complete one full circle. Now, if the frequency is equals to two, it'll take us half a second. And that's because the period, if you remember is always like the inverse of frequency. So it will be like one divided by two, which is uh no 0.5 seconds. OK. So here you get the idea of how we can kind of like represent a sinusoidal, a sine wave um using like complex numbers here. And this is going to be like the pure term that we use for decomposing a uh the original signal, right? And basically the idea is that we are going to be using many different frequencies for decomposing the original complex uh signal which is like this uh GFT and into its different frequency components. The next component that we need to check out in our complex fourier transform formula is the signal GFT. Now I've created a custom signal because obviously I want to show you how the complex fourier transform works vis and how we can interpret that visually. So I've created a Jupiter notebook and here I have a bunch of functions. I'm not going to go through them line by line just because yeah, that's not like what like this video is about. But if you want to just dig into like this notebook, feel free to do it. I'll just leave you the link uh to the github where the core is. Uh the code is stored in my description below. But now let's take a look at this signal. So what I've done here, you can quickly take a look at this. So I take in like a frequency and I use that like as a fundamental frequency. And so I have like a sine wave and I it's superimposed in a couple of other sine waves, the sine to and sine three and these have double the original the fundamental frequency and triple the fundamental uh frequency cool. OK. So now let's uh take a look at the results for that. And so I have like this nice util utility function that I defined. So plot signal. So I'm passing in the time and the time is between zero and 10 seconds and I have like 10,000 steps and then passing the signal. And as you can see, we have our signal which is time uh against uh intensity over here. The next thing we want to check in our complex fourier transform is the multiplication between our original signal and the puritan. What does that look like visually? So let's check that out. OK. So we are back in the um Jupiter notebook. And so here I have a function that's called plot fourier transform. So here I can pass a pure turn frequency and I'll put this equal to one Hertz for the time being. And this is basically, it's gonna build a uh a sine wave and that's gonna be like our exponential over here. And then we're gonna have the signal frequency and we need to pass that in and I'll pass in that equal to one. And what that will do behind the scenes is that it will create this signal. And now when we plot the fourier transform, what we are doing is basically multiplying our uh signal by the sine wave of frequency one Hertz. OK. So now the next thing that once you pass in obviously like is time and so we will take once again like 10 seconds and I'll have like 1000 steps between those 10 seconds. OK. So here we go. Isn't this beautiful? So this is the complex plane and this is uh the horizontal axis is the real axis and the vertical axis is the imaginary axis. And here what we see this shape is the multiplication of the original signal which the sine wave frequency one. So the Pewter cool. OK. But how can we interpret this? So what what's happening? So what's happening is that we are taking the original signal and we are wrapping that around the complex plane. Isn't that really, really cool? OK. So now if I change the pent frequency slightly, say instead of one Hertz, I have 1.1 Hertz, what happens here is this crazy thing? Wow. So that tiny difference and I mean that tiny difference like in frequency caused all of this difference in it in its output. So how can we interpret this? Well, to see how to interpret this, we need to just like zoom into like the, the time domain. So I'll just like take a look at one second. So we'll, we'll just consider time between zero and one and see what happens here. And as you can see, we have like this shape over here. Now if we move to two seconds, the next step is like drawing this other shape. Now if I continue at each step, you'll see that we continue drawing more stuff until we get to 10 where we basically like rotated oops, we rotated all the way around cool. OK. So now another thing that I want to show you is that if we go to say two, you can see that once again we have like quite stable shape, right? And the same thing also happens with free. OK? But if I do 3.1 for example, we have like once again, this crazy thing. And why is that the case? Well, it's not the case because if you take a look at our signal, so we have like the fundamental frequency is one and then we have like the harmonics that are like a frequency equal to equals to Hertz and three Hertz. And so in those points, so it means on an intuitive level. What happen there? It basically means that whenever we have like frequencies that are represented that are present in the original sound, then we have a more stable output like this isn't that cool? OK. But now we have like this kind of like interpretation of the um multiplication between our signal and the pure sound. But what about this beast? What about the integral? What does that look like? So I'm gonna show you that. So, and for showing, showing you dash I need another flag in here that's called plots center of gravity. And I'll put this equal to true. Now, intuitively what I want to do here is basically take all of the different points and average them all. And if we do that, what happens is basically, so if, if we were dealing with some kind of like physical system. This would be the same as taking the center of gravity of that system, right? So we take all the points and then we average them. And now I want to plot this center of gravity here and as you can see is this red dot over here cool. Now we are passing in the, we are decomposing uh using the a puritan frequency of three Hertz. Now let's go back to the fundamental. So one Hertz over here and it's the same, right? So we have this center of gravity that's here. OK. Now what happens if we take the center of gravity of 1 to 1, for example, right. So we want to decompose our signal with a sine wave that has frequency 1.1 and the result is the origin is that somewhat unexpected? Well, I'd say no, why is that, why is not, why is not that thing unexpected? Well, that's because we are averaging across all the different points. And here, as you can see, we have like full symmetry and when we average everything, we just end up with zero because all the different points are canceling out. OK. Cool. So this seems to like resonate with, with the intuitive like uh understanding that we had of the free transform, right? So whenever we have a frequency component that's represented, we have a magnitude that's different from zero necessarily. OK. Where, whereas when we are dealing with frequency components that are not present in the original signal, then we, we end up with magnitudes that are equal to zero, right? Because we don't have any traces of that in the original signal. Now, the thing here is that, so now let's go back to one here. Uh The cool thing here is that we can think of the complex fourier transform coefficient as this point in the complex plane, right? And so now you get a kind of like idea of how we get to that single point uh taking the foreign transform and basically going through the hassle of calculating all of this best, right. So what we do is we wrap around as the first step everything uh the the signal around the complex plane. And then we can we take the average of the center of gravity of this and that is going to be a complex number and that is the uh coefficient the full transform transform coefficients that has information about the face as well as about the magnitude. And the magnitude is given by the distance of this dot from the center of gravity dot from the origin and the face is given by the angle from the positive real axis. OK. But I was just cheating a little bit because this is not really what's happening with the fourier transform. There's still another tiny thing that we are missing here here. I said that we are taking the um the center of gravity. So the average, but this is not really what we are doing here. So we're not averaging all these values across time, right? But rather what we are doing is summing them up and the integral basically tells us to su to sum them up. So now let's see what happens if I plot the sum of all of these guys. So once again, I have another flag here that I can easily call and I'll say plot sum is equal to true. Now, let's do this and see what happens. Whoa That's weird. What's going on there, right? OK. So why do we have minus 500 for this green dot which is our sum and this is actually the coefficient um the fourier transform coefficient. So why is it minus 500? Well, that's because we are actually summing all of the values here. And now uh across time now we have like 1000 steps here that we are summing. Now, if instead of like um 1000 steps here, we only took 100 steps. What we would end up with is this guy here? OK, around more or less minus 50 on the imaginary axis, right? And why is that the case? Well, because here we are only summing 100 steps, not 1000. And do you see any sort of connection with the uh center of gravity here? So probably this is going to show you this easier. So the center of gravity is around like minus 0.5 on the imaginary axis, whereas the sum in this case is equal to five. So what we are doing here is we are taking the center of gravity and then we are multiplying that by the numbers of time steps that we have in this case, it's equal to 10. So it's minus 0.5 times 10 and we get minus five. OK. So you, you get the idea here. So in other words, uh like what we do is basically conceptually is we take the center of gravity and then we multiply that by the number of steps that we have that we are considering. And so the higher the number of steps that we are considering and then the, the higher the the the number of times we are multiplying the center of gravity for cool but good. But what happens if we, we have like that 1.1 frequency instead which like the whole like symmetrical, really cool shape. So now let's go back to say between zero and 10 and here we'll do uh 1000 steps. So what's your guess? What are we going to see? Where is the green, where does like the green dot land? And as you can see it lands just right in the center. And why is that the case? Well, because once again, we are summing all the different points at different times, but they are just like canceling out And so this is how we end up with those peaks on the frequencies that are actually are present in the original sound. Now, you should have a visual understanding of how we get to the fourier transform coefficient. So just like to wrap this up, so we start with the signal, then we wrap uh the signal around the complex plane by multiplying the signal by a pure turn. And then what we do, we sum all the results uh for each time step. OK. Cool. But why do we have a, an integral sign here? Shouldn't we use like a sum kind of thing? Well, this really depends on the fact that we are using like um a continuous representation. So let me show you what it meant here. So first of all, let me, I don't want to see all of these guys. I'll put falls here and falls here. So now uh let's uh I don't want the lines to be plot. I just want uh points. So I'll do this. OK? So now let me start with only say between zero and one second and we'll only take 10 steps. And so here we have like 10 sets. Oh By the way, I have to rerun this, otherwise I'm gonna get these lines. So let me rerun this and now I have like all of these points. OK? So now I'm just like taking 10 points uh for uh in, in this like one second. Interval. Now, if I take 100 points and this is gonna look a little bit more uh yeah, continuous. Like in a sense now, if I continue like this, uh I'll get to 1000 then I can get 10,000. Uh And we can uh continue like however we want. But basically, the idea is that uh if we end up like with infinity here, so we have like uh as many steps as we want, then we are lacking continuous. Uh We are like dealing with a continuous variable because time is continuous and then the sum uh symbol becomes the integral. So yeah, this is the mystery of the integral explained for you. OK. So I hope that he really got the visual understanding of the complex fourier transform because I know you can feel like a lot. But once you uh think of this in visual terms, it all becomes like easier. OK. So now going back to this definition, if you remember from the previous video, we had this Euler formula. And so what we can do here is just like plug this guy inside of here. And so what happens is that we can rewrite this initial um complex fourier transform like this. And this has the advantage of having like a real part in an imaginary part because as we know, uh G uh hat of F is gonna be a complex uh number and that is gonna be the complex. Um four transform coefficient cool. OK. So moving on, so we can take the magnitude of the fourier transform. And for doing that, what we do is basically we just like take the absolute value of this function. And now if we go back to the complex fourier transform coefficient, we see that we, we can take like this coefficient or the magnitude D of F it's basically equal to the absolute value of the fourier transform of F multiplied by um square root of two. And this is because we know that uh like this guy here, so the absolute value of the fourier transform is equal to this guy. Once again, this square root of two is a normalization uh constant. So yeah, let's not bother about that because it's not really that important at all. Now, in terms of the phase, the phase we can define by taking um the A gamma. So the angle of uh the frequency F divided by two pi and take the minus there. And now we have like that gamma is equal to this guy here. So two pi multiplied by times the uh phase cool. That's great. So now you should have like a real good deep understanding of the fourier transform. Now, you know what the magnitude is, what the phase is, how we can encode the magnet and the phase into a complex number which we call the fourier transform um coefficient. And now we also know the mathematical formula for getting the fourier transform. And we definitely understand the visual uh interpretation of that, which is great. So what's missing there? Well, what's missing is the inverse transform, but I promise this is going to be like super quick compared to what we've gone through so far. So we saw this a couple of videos ago already. But basically, we know that it's possible to go back from the frequency domain to the time domain using the inverse fourier transform. And we saw this uh also in practice doing some a simplified version of this doing some adjective synthesis a couple of videos ago where I took different uh Syo sine waves and I just like added them up and I could recreate a create a complex sound. And basically, that's what we actually do with the inverse fourier transform. But there's a representation for this. So there's an actual mathematical representation for this and it's given by this other integral over here. And now the, the kind of like high level intuition here is that we just take all the different uh frequency components, we just multiply them by the magnitude and we add the phase and then we add them all up and we recon construct the original signal GFT. And the point here is that the original signal and the fourier transform do have the same data. So we can go from one to the other back and forth. However, how many times we want and then we'll never lose any information. Now, I know once again, this can feel a little bit frightening, but let's take a look at this visually very quick. So here this guy, once again, we should be familiar with this by now, this is the pure tone of a frequency F. So in other words, we can visualize this uh like a simple like sine wave like this. And then when the next step is to actually multiply the fourier transform coefficient. So the complex fourier transform coefficient by the pin. And when we do this, what we, we actually do is we wait the puritan with the magnitude and add the phase. And so we basically move from this original puritan signal to this new signal that has potentially a different phase and a different amplitude because of the magnitude cool. So now what's the last step? Well, we have to integrate by now, we should know that integrating basically means adding up OK, a series of like infinite terms. And in this case, we're not integrating across time but rather across frequency. And in other words, what we are doing here is we add up all the weighted sinusoids and we get to the original sound. So we take for example, this first sine wave, the second sine wave, the third sine wave, we reconstruct them uh waiting them with the magnitude and not in the face, then we add them all up and we get this original signal cool. So this is uh really, really cool stuff and now we are ready to look at the fourier round trip. So here we have like this couple of uh formulas here. The top one now we know is the fourier transform. The bottom one is the inverse fourier transform. Let's take a look at them and wonder at them and they are fantastic. They are basically the same more or less function. The only thing that changes really is that here in the case of the fourier transform, we are integrating over time. Whereas in the case of the inverse fourier transform, we are integrating over frequency. So isn't this beautiful? So all of that complexity captured in an elegant way with a very straightforward and minimal formula. And also this idea of like getting back and forth from the time domain to the frequency domain and from the frequency of the time domain is just wonderful. And now I hope you understand why we went through the hustle of introducing compact numbers because now we have a super compact definition of the fourier transform and its inverse just by relying on this mathematical contract. OK. So this was a long one, wasn't it? But I I hope like it was like really work for you. Now I can finally go back to this uh pink Floyd iconic cover for the dark side of the moon. So now we really cracked the magic that happens in this algorithm down here. So we are now know how we can get a complex sound and divide that into its frequency components and vice versa, get all of the frequency components and put them back into a complex sound. We now know about the four transform. I hope like this uh was like a worth journey for you. For me, it's been really, really cool just like to cover all of these things in detail now. So what should we do next? Well, we have a problem and the problem is that so far, we've treated everything in all the theory for the fourier transform. Uh in which a continuous mathematics, basically, we assumed that we were dealing with analog or continuous signals. But in reality, whenever we are actually applying a free transform, we are dealing with a digital signals, discrete signals. And so what we do is we start from a analog signal and then we sample that we digitalize that. And if you want to know how to do that, you can check out this video. But so what's remaining to do regarding the fourier transform is understanding how we can adapt the theory that we've studied so far to the discrete uh world. And that's the world of our digital computers and that's the world that we'll use for actually extracting information from a uh signal. Cool. So next time we'll look into the discrete fourier transform cool. That's really it for today, I know it was a long one. I hope like it was worth for you going through all of this. But now you should have a very deep understanding of the fourier transform. So if you have any questions and I know that there's a lot to suggest for you today. Uh Just like, feel free to leave a comment in the comment section below and I hope I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. Last time we introduced complex numbers and we said that we would need this to introduce many aspects of audio signal processing. And so this time we'll just build on top of that knowledge and we'll use complex numbers to define",
+                "start_time": "0.0",
+                "end_time": "20.379"
+            },
+            {
+                "id": 1,
+                "transcript": "the fourier transform in complex terms. And as you'll see, this is gonna be super compact and super elegant. But before we get started, I just want to remind you about the sound of the I Slack community here. You can talk with a lot of like cool people who are interested in A IOU and A I music and you can also get feedback. So I really suggest you to check this out. I'll leave you the sign up link in the description below now onto the cool",
+                "start_time": "20.61",
+                "end_time": "48.071"
+            },
+            {
+                "id": 2,
+                "transcript": "stuff. So I want to remind you about like a couple of things that I introduced some math stuff that I introduced over the last couple of meters. And the first couple of formulas are these two and this is the formula on top over here for um getting like the face as a parameter of the fourier transform. And then we have the mag",
+                "start_time": "48.082",
+                "end_time": "75.543"
+            },
+            {
+                "id": 3,
+                "transcript": "and as you can see here, we have just like the way we can extract that. Now, I'm not going to get you into the details here because I covered this in a couple of videos ago when I gave you an introduction and intuition of the four year transform. So I definitely suggest you to check that out if you haven't. And so you should have the video over here cool. But now what are like the face and magnitude on a very high level where these are like the",
+                "start_time": "75.554",
+                "end_time": "103.015"
+            },
+            {
+                "id": 4,
+                "transcript": "two parameters that we extract when we decompose a complex sound using the fourier transform. So we have a decompose uh sine wave frequency. And for that frequency, we extract a face and a magnitude and the magnitude tells us how much of that pure turn we have in the original signal",
+                "start_time": "103.026",
+                "end_time": "130.5"
+            },
+            {
+                "id": 5,
+                "transcript": "good. So the next thing that I want to remind you about is this nice formula for, for a complex number. So here we have a complex number that's, that's defined as the absolute value of the com complex number multiplied by E to the I times gamma where I is the imaginary unit. So this is the polar definition of a complex number using the exponential here, once again,",
+                "start_time": "130.75",
+                "end_time": "158.449"
+            },
+            {
+                "id": 6,
+                "transcript": "if you don't know uh this or if you haven't checked out my previous video on CNA numbers, definitely do check this out because all of this video will build on top of my previous two videos. OK.",
+                "start_time": "158.619",
+                "end_time": "172.229"
+            },
+            {
+                "id": 7,
+                "transcript": "So now let's move on. So what's the intuition that we use to define the fourier transform using complex numbers? Well, the idea here is that whenever we um apply a fourier transform, what we end up with for each frequency for each li is",
+                "start_time": "172.479",
+                "end_time": "196.475"
+            },
+            {
+                "id": 8,
+                "transcript": "a pair of parameters. So one is magnitude as we saw it and the other one is phase. And the idea is that we can use this magnitude and phase as polar coordinates of a complex number. In other words, we can encode both of these coefficients. So the magnitude and phase in a single complex number. So yeah, but let's see how that looks like",
+                "start_time": "196.485",
+                "end_time": "225.05"
+            },
+            {
+                "id": 9,
+                "transcript": "uh in in in in empirically like applied. So let's start like with the um mathematical equations that I introduced earlier. So here we have like our phase once again the magnitude and here we have the definition of a complex number in polar coordinates. OK. So how do we get the fourier transform coefficients? Well, this is the formula, right.",
+                "start_time": "225.25",
+                "end_time": "253.669"
+            },
+            {
+                "id": 10,
+                "transcript": "So basically we can encode both the um magnitude as well as the phase in a single",
+                "start_time": "253.839",
+                "end_time": "264.88"
+            },
+            {
+                "id": 11,
+                "transcript": "complex number. And this is called the complex fourier transform coefficient. And we have one of these for each of the frequencies we decompose our original signal intake. OK. So now let's take a look a a closer look at this. So",
+                "start_time": "265.41",
+                "end_time": "282.959"
+            },
+            {
+                "id": 12,
+                "transcript": "basically, as you can see this is um we can just like map this um complex coefficient to this complex definition of a well polar representation of a complex number. So the absolute value of C gets mapped to the magnitude divided by square root of two.",
+                "start_time": "283.149",
+                "end_time": "306.42"
+            },
+            {
+                "id": 13,
+                "transcript": "Now, if you're wondering why we use the square root of two here is just because of like some normalization reasons. I'm not going to get into the details there, but it really doesn't matter that much because it's just divided by a concept. It's all it is right",
+                "start_time": "306.75",
+                "end_time": "322.559"
+            },
+            {
+                "id": 14,
+                "transcript": "then the other thing that we have is gamma, the angle over here. And as you can see, gamma over here is equal to two pi phi and where Phi is basically the face and we also take like the minus here. And so in other words, like gamma here uh has this minus as well in it over here.",
+                "start_time": "322.869",
+                "end_time": "350.579"
+            },
+            {
+                "id": 15,
+                "transcript": "Cool. OK. So now let's go back to kind of like a visual representation of like this um fourier transform coefficients. So you should be familiar with this already from my previous video. But if you're not, I'll just like give you like an overview here about how we can interpret a complex number visually. And in this case, the complex number is our fourier transform coefficient for frequency F.",
+                "start_time": "350.79",
+                "end_time": "380.579"
+            },
+            {
+                "id": 16,
+                "transcript": "So this guy here is nothing more than a point in the complex plane",
+                "start_time": "380.82",
+                "end_time": "388.329"
+            },
+            {
+                "id": 17,
+                "transcript": "in the complex plane. Obviously, we have the horizontal axis where we have like the real part of the complex number and the vertical axis where we have the imaginary parts of the complex number. So cf are free transform coefficient for frequency F is equal to like a point in this um a complex plane. And now if we want to map like the different parts to like this number, so we can see that",
+                "start_time": "388.559",
+                "end_time": "417.019"
+            },
+            {
+                "id": 18,
+                "transcript": "the distance of our complex number from the origin is given by the absolute value of the coefficient itself. So this guy over here, right?",
+                "start_time": "417.85",
+                "end_time": "430.44"
+            },
+            {
+                "id": 19,
+                "transcript": "So it's the magnitude divided by the square root of two. And then we have gamma and gamma is the angle between the positive real axis and the line that connects the uh our coefficient complex number with the origin and gamma once again is given by this two pi multiplied by the face. OK.",
+                "start_time": "431.13",
+                "end_time": "455.57"
+            },
+            {
+                "id": 20,
+                "transcript": "And the face here, I should remind you is between zero and one and being B and B between zero and one. It means that we can go and just like design or just like trace the whole circle here. Cool. OK. So what does this minus",
+                "start_time": "455.829",
+                "end_time": "477.45"
+            },
+            {
+                "id": 21,
+                "transcript": "uh do? Right. So the cool thing about this minus is that when we increase the, the phase, what happens is that we are rotating clockwise? So if we increase the phase here, we just go down here, then we go down here. OK. So usually we are the complex number definition.",
+                "start_time": "477.959",
+                "end_time": "504.329"
+            },
+            {
+                "id": 22,
+                "transcript": "Uh you just like rotate counterclockwise as we saw in the previous video but here we add a minus in this definition so that we can rotate clockwise when the phase increases cool.",
+                "start_time": "504.57",
+                "end_time": "522.07"
+            },
+            {
+                "id": 23,
+                "transcript": "OK. So now I want to uh like show you how we actually get to the fourier transform. And what's the uh definition of the fourier transform mathematically? And but for doing that, I just want to start from a continuous audio signal.",
+                "start_time": "522.58",
+                "end_time": "544.03"
+            },
+            {
+                "id": 24,
+                "transcript": "So our continuous audio signal is GFT and this is a function and mathematically this function G uh does this thing. So it gets a real number as an input and it outputs another real number. And this is as simple as a as having like this plot here, right? It's, we should be familiar by now with this. It's a, it's a, it's a wave form. OK.",
+                "start_time": "544.369",
+                "end_time": "571.32"
+            },
+            {
+                "id": 25,
+                "transcript": "So, and on the X axis, we have time and for each time we get back a an amplitude or intensity value. And this is why we, this function G which is our continuous audio signal gets a real number time as input and it provides us uh it outputs a uh another real number, sorry about that,",
+                "start_time": "571.599",
+                "end_time": "596.659"
+            },
+            {
+                "id": 26,
+                "transcript": "another real number which is the actual sound pressure, intensity or amplitude.",
+                "start_time": "596.89",
+                "end_time": "601.84"
+            },
+            {
+                "id": 27,
+                "transcript": "OK. Cool. This is in stark contrast with the actual complex fourier transform. So the complex fourier transform we can indicate with GH of F and the output of this is our coefficient, the fourier transform coefficients that we saw a couple of minutes ago, right? And we have one of those coefficients.",
+                "start_time": "602.38",
+                "end_time": "631.58"
+            },
+            {
+                "id": 28,
+                "transcript": "In other words, one of those complex numbers for each frequency cool. OK. But how does like these fourier transform like look like? So this this function, well, this is slightly different from the original signal. And that's because this function takes as input a real number which is the frequency right and the frequency is expressed in Hertz. But then",
+                "start_time": "632.409",
+                "end_time": "662.359"
+            },
+            {
+                "id": 29,
+                "transcript": "it doesn't output a real number but rather it outputs a complex number and the complex number that it outputs is the fourier transform coefficient cool.",
+                "start_time": "662.63",
+                "end_time": "674.94"
+            },
+            {
+                "id": 30,
+                "transcript": "So let's take a look at this in the um complex plane. So we already see this like so for frequency F one, for example, the output of the complex fourier transform is a point can be visualized as a point in the complex plane",
+                "start_time": "675.89",
+                "end_time": "701.219"
+            },
+            {
+                "id": 31,
+                "transcript": "cool. This is really, really interesting. So now probably you start to understand why we are using a complex representation for the fourier transform. The great thing about this is that given the fourier transform comes out with two",
+                "start_time": "701.349",
+                "end_time": "715.859"
+            },
+            {
+                "id": 32,
+                "transcript": "uh different parameters. So magnitude and phase we can just like package them up into a handy tool which is a complex number and then easily visualize that on a complex plane. Isn't that like fascinating how like math works so well when we describe like natural physical things in nature, right? Cool. OK. So this is another example of a",
+                "start_time": "716.07",
+                "end_time": "744.479"
+            },
+            {
+                "id": 33,
+                "transcript": "uh of a of an output that we get from the complex fourier transform. And perhaps this is at F two, right? And then if we go to F three, we may have still another coefficients that's over here. Cool.",
+                "start_time": "745.27",
+                "end_time": "760.09"
+            },
+            {
+                "id": 34,
+                "transcript": "OK. Now, you have a little bit of an understanding of how like this uh complex fourier transform like works. But what about its mathematical definition? So how do we get to this cof to the uh fourier transform coefficient? Well, once again, let's start from the original uh stuff that we looked at uh a couple of videos ago. So here we have the formula for both the",
+                "start_time": "760.65",
+                "end_time": "789.96"
+            },
+            {
+                "id": 35,
+                "transcript": "um magnitude and the face that come out from a fourier transform. And here we have the definition of the complex fourier transform cool. So I know this can look a little bit scary here but bear with me because we are going to look into a visual interpretation of this and you'll see that this is actually quite simple to grasp.",
+                "start_time": "790.09",
+                "end_time": "820.059"
+            },
+            {
+                "id": 36,
+                "transcript": "OK. So as we said before, so the output of this G hatch at a specific fee is nothing more than uh a complex number on the complex plane. And it's our uh for a transform coefficient, right?",
+                "start_time": "820.419",
+                "end_time": "837.614"
+            },
+            {
+                "id": 37,
+                "transcript": "But now how do we actually get this guy starting from this beast of an integral here that has this exponential way, like some kind of weird like complex values and things like that. OK. So the first thing like we, we we will do here is to look into the different parts of this uh formula.",
+                "start_time": "837.625",
+                "end_time": "862.809"
+            },
+            {
+                "id": 38,
+                "transcript": "So the, the, the first one that we'll look into. And by now you should be familiar with this is this exponential over here. So the exponential here",
+                "start_time": "862.989",
+                "end_time": "873.419"
+            },
+            {
+                "id": 39,
+                "transcript": "um basically traces the unit circle in the complex plane. So ST increases, we just go through, we just like trace the whole unit circle. But now we are tracing the unit circle going clockwise. And why is that? Because we have this minus symbol over here.",
+                "start_time": "874.059",
+                "end_time": "902.28"
+            },
+            {
+                "id": 40,
+                "transcript": "Now, the other thing to keep in mind here is that the speed at which we can complete a circle depends on this F value, which is the frequency. So for example, uh let's assume that frequency is equal to one is one Hertz, then it'll take us one second to go through to just complete one full circle. Now, if the frequency is equals to two,",
+                "start_time": "902.46",
+                "end_time": "930.979"
+            },
+            {
+                "id": 41,
+                "transcript": "it'll take us half a second.",
+                "start_time": "931.239",
+                "end_time": "934.32"
+            },
+            {
+                "id": 42,
+                "transcript": "And that's because the period, if you remember is always like the inverse of frequency. So it will be like one divided by two, which is uh no 0.5 seconds. OK. So here you get the idea of how we can kind of like represent a sinusoidal, a sine wave um",
+                "start_time": "934.84",
+                "end_time": "955.349"
+            },
+            {
+                "id": 43,
+                "transcript": "using like complex numbers here. And this is going to be like the pure term that we use for decomposing a uh the original signal, right? And basically the idea is that we are going to be using many different frequencies for decomposing the original complex uh signal which is like this uh GFT",
+                "start_time": "955.559",
+                "end_time": "981.929"
+            },
+            {
+                "id": 44,
+                "transcript": "and into its different frequency components. The next component that we need to check out in our complex fourier transform formula is the signal GFT. Now I've created a custom signal because obviously I want to show you how the complex fourier transform works vis and how we can interpret that visually. So I've created a Jupiter notebook and here I have a bunch of",
+                "start_time": "982.169",
+                "end_time": "1008.39"
+            },
+            {
+                "id": 45,
+                "transcript": "functions. I'm not going to go through them line by line just because yeah, that's not like what like this video is about. But if you want to just dig into like this notebook, feel free to do it. I'll just leave you the link uh to the github where the core is. Uh the code is stored in my description below. But now let's take a look at this signal.",
+                "start_time": "1008.4",
+                "end_time": "1030.41"
+            },
+            {
+                "id": 46,
+                "transcript": "So what I've done here, you can quickly take a look at this. So I take in like a frequency and I use that like as a fundamental frequency. And so I have like a sine wave and I it's superimposed in a couple of other sine waves, the sine to and sine three and these have double the original the fundamental frequency and triple the fundamental uh frequency",
+                "start_time": "1030.68",
+                "end_time": "1055.5"
+            },
+            {
+                "id": 47,
+                "transcript": "cool. OK. So now let's uh take a look at the results for that. And so I have like this nice util utility function that I defined. So plot signal. So I'm passing in the time and the time is between zero and 10 seconds and I have like 10,000 steps and then passing the signal. And as you can see, we have our signal which is time",
+                "start_time": "1055.689",
+                "end_time": "1083.439"
+            },
+            {
+                "id": 48,
+                "transcript": "uh against uh intensity over here. The next thing we want to check in our complex fourier transform is the multiplication between our original signal and the puritan. What does that look like visually? So let's check that out. OK. So we are back in the um Jupiter notebook. And so here I have a function that's called plot fourier transform. So here I can pass a pure turn frequency and I'll put this equal to one Hertz for the time being.",
+                "start_time": "1083.67",
+                "end_time": "1112.859"
+            },
+            {
+                "id": 49,
+                "transcript": "And this is basically, it's gonna build a uh a sine wave and that's gonna be like our exponential over here. And then we're gonna have the signal frequency and we need to pass that in and I'll pass in that equal to one. And what that will do behind the scenes is that it will create this signal.",
+                "start_time": "1113.069",
+                "end_time": "1136.52"
+            },
+            {
+                "id": 50,
+                "transcript": "And now when we plot the fourier transform, what we are doing is basically multiplying our uh signal by the sine wave of frequency one Hertz. OK. So now the next thing that once you pass in obviously like is time and so we will take once again like 10 seconds and I'll have like 1000 steps between those 10 seconds. OK. So here we go.",
+                "start_time": "1137.3",
+                "end_time": "1165.209"
+            },
+            {
+                "id": 51,
+                "transcript": "Isn't this beautiful? So this is the complex plane and this is uh the horizontal axis is the real axis and the vertical axis is the imaginary axis. And here what we see this shape is the multiplication of the original signal which the sine wave frequency one. So the Pewter cool. OK. But",
+                "start_time": "1166.29",
+                "end_time": "1189.579"
+            },
+            {
+                "id": 52,
+                "transcript": "how can we interpret this? So what what's happening? So what's happening is that we are taking the original signal and we are wrapping that around the complex plane.",
+                "start_time": "1189.89",
+                "end_time": "1205.27"
+            },
+            {
+                "id": 53,
+                "transcript": "Isn't that really, really cool? OK. So now if I change the pent frequency slightly, say instead of one Hertz, I have 1.1 Hertz, what happens here is this crazy thing? Wow.",
+                "start_time": "1205.829",
+                "end_time": "1221.03"
+            },
+            {
+                "id": 54,
+                "transcript": "So that tiny difference and I mean that tiny difference like in frequency caused all of this difference in it in its output. So how can we interpret this? Well, to see how to interpret this, we need to just like zoom into like the, the time domain. So I'll just like take a look at one second. So we'll, we'll just consider time between zero and one and see what happens here. And as you can see, we have like this",
+                "start_time": "1221.319",
+                "end_time": "1248.39"
+            },
+            {
+                "id": 55,
+                "transcript": "shape over here. Now if we move to two seconds,",
+                "start_time": "1248.77",
+                "end_time": "1253.02"
+            },
+            {
+                "id": 56,
+                "transcript": "the next step is like drawing this other shape. Now if I continue at each step, you'll see that we continue drawing more stuff until we get to 10 where we basically like rotated",
+                "start_time": "1253.599",
+                "end_time": "1272.119"
+            },
+            {
+                "id": 57,
+                "transcript": "oops, we rotated all the way around cool. OK. So now another thing that I want to show you is that if we go to say two,",
+                "start_time": "1272.77",
+                "end_time": "1285.76"
+            },
+            {
+                "id": 58,
+                "transcript": "you can see that once again we have like quite stable shape, right? And the same thing also happens with free.",
+                "start_time": "1289.02",
+                "end_time": "1300.479"
+            },
+            {
+                "id": 59,
+                "transcript": "OK?",
+                "start_time": "1301.75",
+                "end_time": "1302.459"
+            },
+            {
+                "id": 60,
+                "transcript": "But if I do 3.1 for example, we have like once again, this crazy thing. And why is that the case?",
+                "start_time": "1303.239",
+                "end_time": "1312.76"
+            },
+            {
+                "id": 61,
+                "transcript": "Well, it's not the case because if you take a look at our signal, so we have like the fundamental frequency is one and then we have like the harmonics that are like a frequency equal to equals to Hertz and three Hertz. And so in those points, so it means on an intuitive level. What happen",
+                "start_time": "1313.339",
+                "end_time": "1340.515"
+            },
+            {
+                "id": 62,
+                "transcript": "there? It basically means that whenever we have like frequencies that are represented that are present in the original sound, then we have a more stable output like this",
+                "start_time": "1340.525",
+                "end_time": "1356.01"
+            },
+            {
+                "id": 63,
+                "transcript": "isn't that cool? OK. But now we have like this kind of like interpretation of the um multiplication between our signal and the pure sound. But what about this beast? What about the integral?",
+                "start_time": "1356.81",
+                "end_time": "1371.469"
+            },
+            {
+                "id": 64,
+                "transcript": "What does that look like? So I'm gonna show you that.",
+                "start_time": "1371.989",
+                "end_time": "1377.0"
+            },
+            {
+                "id": 65,
+                "transcript": "So, and for showing, showing you dash I need another flag in here that's called plots center of gravity. And I'll put this equal to true. Now, intuitively what I want to do here",
+                "start_time": "1377.949",
+                "end_time": "1396.16"
+            },
+            {
+                "id": 66,
+                "transcript": "is basically",
+                "start_time": "1396.91",
+                "end_time": "1399.199"
+            },
+            {
+                "id": 67,
+                "transcript": "take all of the different points and average them all. And if we do that, what happens is basically, so if, if we were dealing with some kind of like physical system. This would be the same as taking the center of gravity of that system, right? So we take all the points and then we average them.",
+                "start_time": "1400.68",
+                "end_time": "1422.829"
+            },
+            {
+                "id": 68,
+                "transcript": "And now I want to plot this center of gravity here and as you can see is this red dot over here cool. Now we are passing in the, we are decomposing uh using the a puritan frequency of three Hertz. Now let's go back to the fundamental. So one Hertz",
+                "start_time": "1423.39",
+                "end_time": "1443.51"
+            },
+            {
+                "id": 69,
+                "transcript": "over here and it's the same, right? So we have this center of gravity that's here. OK. Now what happens if we take the center of gravity of 1 to 1, for example, right. So we want to decompose our signal with a sine wave that has frequency 1.1 and the result is the origin",
+                "start_time": "1444.189",
+                "end_time": "1470.449"
+            },
+            {
+                "id": 70,
+                "transcript": "is that somewhat unexpected? Well, I'd say no, why is that, why is not, why is not that thing unexpected? Well, that's because we are averaging across all the different points. And here, as you can see, we have like full symmetry and when we average everything, we just end up with zero because all the different points are canceling out. OK. Cool.",
+                "start_time": "1471.26",
+                "end_time": "1499.099"
+            },
+            {
+                "id": 71,
+                "transcript": "So this seems to like resonate with, with the intuitive like uh understanding that we had of the free transform, right? So whenever we have a frequency component that's represented, we have a magnitude that's different from zero necessarily. OK. Where, whereas when we are",
+                "start_time": "1499.52",
+                "end_time": "1525.295"
+            },
+            {
+                "id": 72,
+                "transcript": "dealing with frequency components that are not present in the original signal, then we, we end up with magnitudes that are equal to zero, right? Because we don't have any traces of that in the original signal. Now,",
+                "start_time": "1525.305",
+                "end_time": "1542.39"
+            },
+            {
+                "id": 73,
+                "transcript": "the thing here is that, so now let's go back to one here.",
+                "start_time": "1544.27",
+                "end_time": "1549.18"
+            },
+            {
+                "id": 74,
+                "transcript": "Uh The cool thing here is that we can think of the complex fourier transform coefficient as this point in the complex plane, right? And so now you get a",
+                "start_time": "1549.839",
+                "end_time": "1566.66"
+            },
+            {
+                "id": 75,
+                "transcript": "kind of like idea of how we get to that single point uh taking the foreign transform and basically going through the hassle of calculating all of this best, right.",
+                "start_time": "1566.9",
+                "end_time": "1582.339"
+            },
+            {
+                "id": 76,
+                "transcript": "So what we do is we wrap around as the first step everything uh the the signal around the complex plane. And then we can we take the average of the center of gravity of this and that is going to be a complex number and that is the uh coefficient the full transform transform coefficients that has information about the face as well as about the",
+                "start_time": "1582.849",
+                "end_time": "1611.91"
+            },
+            {
+                "id": 77,
+                "transcript": "magnitude. And the magnitude is given by the distance of this dot from the center of gravity dot from the origin and the face is given by the angle from the positive real axis.",
+                "start_time": "1612.209",
+                "end_time": "1626.76"
+            },
+            {
+                "id": 78,
+                "transcript": "OK.",
+                "start_time": "1627.569",
+                "end_time": "1628.31"
+            },
+            {
+                "id": 79,
+                "transcript": "But I was just cheating a little bit because this is not really what's happening with the fourier transform. There's still another tiny thing that we are missing here here. I said that we are taking the um",
+                "start_time": "1629.199",
+                "end_time": "1644.459"
+            },
+            {
+                "id": 80,
+                "transcript": "the center of gravity. So the average, but this is not really what we are doing here. So we're not averaging all these values across time, right? But rather what we are doing is summing them up",
+                "start_time": "1645.109",
+                "end_time": "1662.41"
+            },
+            {
+                "id": 81,
+                "transcript": "and the integral basically tells us to su to sum them up.",
+                "start_time": "1662.93",
+                "end_time": "1668.189"
+            },
+            {
+                "id": 82,
+                "transcript": "So now let's see what happens if I plot the sum of all of these guys. So once again, I have another flag here that I can easily call and I'll say plot sum is equal to true. Now, let's do this and see what happens.",
+                "start_time": "1668.819",
+                "end_time": "1689.3"
+            },
+            {
+                "id": 83,
+                "transcript": "Whoa That's weird.",
+                "start_time": "1689.829",
+                "end_time": "1691.859"
+            },
+            {
+                "id": 84,
+                "transcript": "What's going on there, right? OK. So why do we have minus 500 for this green dot which is our sum and this is actually the coefficient um the fourier transform coefficient. So why is it minus 500? Well, that's because we are actually summing all of the values here. And now",
+                "start_time": "1692.39",
+                "end_time": "1721.709"
+            },
+            {
+                "id": 85,
+                "transcript": "uh across time now we have like 1000 steps here that we are summing. Now, if instead of like um 1000 steps here, we only took 100 steps. What we would end up with",
+                "start_time": "1721.839",
+                "end_time": "1740.959"
+            },
+            {
+                "id": 86,
+                "transcript": "is this guy here? OK, around more or less minus 50 on the imaginary axis, right? And why is that the case? Well, because here we are only summing 100 steps, not 1000. And do you see any sort of connection with the uh center of gravity here? So probably this is going to show you this",
+                "start_time": "1741.589",
+                "end_time": "1770.54"
+            },
+            {
+                "id": 87,
+                "transcript": "easier.",
+                "start_time": "1771.31",
+                "end_time": "1772.119"
+            },
+            {
+                "id": 88,
+                "transcript": "So the center of gravity is around like minus",
+                "start_time": "1773.13",
+                "end_time": "1777.3"
+            },
+            {
+                "id": 89,
+                "transcript": "0.5 on the imaginary axis, whereas the sum in this case is equal to five. So what we are doing here is we are taking the center of gravity and then we are multiplying that by the numbers of time steps that we have in this case, it's equal to 10. So it's minus 0.5 times 10 and we get minus five. OK. So you, you get the idea here. So",
+                "start_time": "1777.689",
+                "end_time": "1807.079"
+            },
+            {
+                "id": 90,
+                "transcript": "in other words, uh like what we do is basically conceptually is we take the center of gravity and then we multiply that by the number of steps that we have that we are considering. And so the higher the number of steps that we are considering and then the, the higher the the the number of times we are multiplying the center of gravity for cool but",
+                "start_time": "1807.3",
+                "end_time": "1832.89"
+            },
+            {
+                "id": 91,
+                "transcript": "good. But what happens if we, we have like that 1.1 frequency instead which like the whole like symmetrical, really cool shape. So now let's go back to say between zero and 10 and here we'll do uh 1000 steps.",
+                "start_time": "1833.88",
+                "end_time": "1851.109"
+            },
+            {
+                "id": 92,
+                "transcript": "So what's your guess? What are we going to see? Where is the green, where does like the green dot land?",
+                "start_time": "1851.93",
+                "end_time": "1860.719"
+            },
+            {
+                "id": 93,
+                "transcript": "And as you can see it lands just right in the center. And why is that the case? Well, because once again, we are summing all the different points at different times, but they are just like canceling out",
+                "start_time": "1861.699",
+                "end_time": "1876.479"
+            },
+            {
+                "id": 94,
+                "transcript": "And so this is how we end up with those peaks on the frequencies that are actually are present in the original sound. Now, you should have a visual understanding of how we get to the fourier transform coefficient. So",
+                "start_time": "1877.06",
+                "end_time": "1899.849"
+            },
+            {
+                "id": 95,
+                "transcript": "just like to wrap this up, so we start with the signal, then we wrap uh the signal around the complex plane by multiplying the signal by a pure turn.",
+                "start_time": "1900.27",
+                "end_time": "1914.989"
+            },
+            {
+                "id": 96,
+                "transcript": "And then what we do, we sum all the results uh for each time step. OK. Cool. But why do we have a, an integral sign here? Shouldn't we use like a sum kind of thing? Well, this really depends on the fact that we are using like um a continuous representation. So let me show you what it meant here. So first of all, let me,",
+                "start_time": "1915.189",
+                "end_time": "1940.709"
+            },
+            {
+                "id": 97,
+                "transcript": "I don't want to see all of these guys. I'll put falls here and falls here.",
+                "start_time": "1941.05",
+                "end_time": "1948.04"
+            },
+            {
+                "id": 98,
+                "transcript": "So now uh let's uh I don't want the lines to be plot. I just want uh points. So I'll do this.",
+                "start_time": "1948.609",
+                "end_time": "1958.699"
+            },
+            {
+                "id": 99,
+                "transcript": "OK?",
+                "start_time": "1960.199",
+                "end_time": "1960.9"
+            },
+            {
+                "id": 100,
+                "transcript": "So now let me start with only say",
+                "start_time": "1961.54",
+                "end_time": "1967.239"
+            },
+            {
+                "id": 101,
+                "transcript": "between zero and one second and we'll only take 10 steps.",
+                "start_time": "1968.0",
+                "end_time": "1972.39"
+            },
+            {
+                "id": 102,
+                "transcript": "And so here we have like 10 sets. Oh By the way, I have to rerun this, otherwise I'm gonna get these lines. So let me rerun this and now I have like all of these points. OK? So now I'm just like taking 10 points uh",
+                "start_time": "1973.589",
+                "end_time": "1989.01"
+            },
+            {
+                "id": 103,
+                "transcript": "for uh in, in this like one second. Interval. Now, if I take 100 points and this is gonna look a little bit more uh yeah, continuous. Like in a sense now, if I continue like this, uh I'll get to 1000 then I can get 10,000. Uh And we can uh continue like however we want. But basically, the idea is that",
+                "start_time": "1989.729",
+                "end_time": "2017.829"
+            },
+            {
+                "id": 104,
+                "transcript": "uh if we end up like with infinity here, so we have like uh as many steps as we want, then we are lacking continuous. Uh We are like dealing with a continuous variable because time is continuous and then the sum uh symbol becomes the integral. So yeah, this is the mystery of the integral explained for you. OK.",
+                "start_time": "2018.92",
+                "end_time": "2044.689"
+            },
+            {
+                "id": 105,
+                "transcript": "So I hope that he really got the visual understanding of the complex fourier transform because I know you can feel like a lot. But once you uh think of this in visual terms, it all becomes like easier. OK. So now going back to this definition, if you remember from the previous video, we had this Euler formula. And so what we can do here is just like plug",
+                "start_time": "2044.88",
+                "end_time": "2074.1"
+            },
+            {
+                "id": 106,
+                "transcript": "this guy inside of here. And so what happens is that we can rewrite this initial um complex fourier transform like this. And this has the advantage of having like a real part in an imaginary part because as we know, uh G uh hat of F is gonna be a complex uh number and that is gonna be the complex. Um four transform coefficient cool.",
+                "start_time": "2074.35",
+                "end_time": "2104.32"
+            },
+            {
+                "id": 107,
+                "transcript": "OK. So moving on, so we can take the magnitude of the fourier transform. And for doing that, what we do is basically we just like take the absolute value of this function.",
+                "start_time": "2104.459",
+                "end_time": "2117.659"
+            },
+            {
+                "id": 108,
+                "transcript": "And now if we go back to the complex fourier transform coefficient, we see that we, we can take like this coefficient or the magnitude D of F it's basically equal to the absolute value of the fourier transform of F multiplied by",
+                "start_time": "2118.06",
+                "end_time": "2140.03"
+            },
+            {
+                "id": 109,
+                "transcript": "um square root of two. And this is because we know that uh like this guy here, so the absolute value of the fourier transform is equal to this guy. Once again, this square root of two is a normalization uh constant. So yeah, let's not bother about that because it's not really that important at all. Now, in terms of the phase, the phase we can define by taking",
+                "start_time": "2140.679",
+                "end_time": "2169.719"
+            },
+            {
+                "id": 110,
+                "transcript": "um the",
+                "start_time": "2169.899",
+                "end_time": "2171.629"
+            },
+            {
+                "id": 111,
+                "transcript": "A gamma. So the angle of uh the frequency F divided by two pi and take the minus there. And now we have like that gamma is equal to this guy here. So two pi multiplied by times the uh phase cool.",
+                "start_time": "2172.969",
+                "end_time": "2191.169"
+            },
+            {
+                "id": 112,
+                "transcript": "That's great. So now you should have like a real good deep understanding of the fourier transform. Now, you know what the magnitude is, what the phase is, how we can encode the magnet",
+                "start_time": "2192.09",
+                "end_time": "2207.55"
+            },
+            {
+                "id": 113,
+                "transcript": "and the phase into a complex number which we call the fourier transform um coefficient. And now we also know the mathematical formula for getting the fourier transform. And we definitely understand the visual uh interpretation of that, which is great. So what's missing there? Well,",
+                "start_time": "2207.56",
+                "end_time": "2233.84"
+            },
+            {
+                "id": 114,
+                "transcript": "what's missing is the inverse transform, but I promise this is going to be like super quick compared to what we've gone through so far. So we saw this a couple of videos ago already. But basically, we know that it's possible to go back from the frequency domain to the time domain using the",
+                "start_time": "2234.04",
+                "end_time": "2253.324"
+            },
+            {
+                "id": 115,
+                "transcript": "inverse fourier transform. And we saw this uh also in practice doing some a simplified version of this doing some adjective synthesis a couple of videos ago where I took different uh Syo sine waves and I just like added them up and I could recreate a create a complex sound. And basically, that's what we actually do with the inverse fourier transform. But there's a",
+                "start_time": "2253.334",
+                "end_time": "2281.77"
+            },
+            {
+                "id": 116,
+                "transcript": "representation for this. So there's an actual mathematical representation for this and it's given by this other integral over here. And now the, the kind of like high level intuition here is that we just take all the different uh frequency components, we just multiply them by the magnitude and we add the phase and then we add them all up and we recon",
+                "start_time": "2282.159",
+                "end_time": "2309.625"
+            },
+            {
+                "id": 117,
+                "transcript": "construct the original signal GFT. And the point here is that the original signal and the fourier transform do have the same data. So we can go from one to the other back and forth. However, how many times we want and then we'll never lose any information. Now, I know once again, this can feel a little bit frightening, but let's take a look at this visually very quick. So",
+                "start_time": "2309.635",
+                "end_time": "2336.09"
+            },
+            {
+                "id": 118,
+                "transcript": "here this guy, once again, we should be familiar with this by now, this is the pure tone of a frequency F. So in other words, we can visualize this uh like a simple like sine wave like this.",
+                "start_time": "2336.26",
+                "end_time": "2352.169"
+            },
+            {
+                "id": 119,
+                "transcript": "And then when the next step is to actually multiply the fourier transform coefficient. So the complex fourier transform coefficient by the pin. And when we do this, what we,",
+                "start_time": "2352.439",
+                "end_time": "2369.395"
+            },
+            {
+                "id": 120,
+                "transcript": "we actually do is we wait the puritan with the magnitude and add the phase. And so we basically move from this original puritan signal to this new signal that has potentially a different phase and a different amplitude because of the magnitude cool. So now what's the last step? Well, we have to integrate by now, we should know that integrating basically means adding up",
+                "start_time": "2369.405",
+                "end_time": "2396.219"
+            },
+            {
+                "id": 121,
+                "transcript": "OK, a series of like infinite terms. And in this case, we're not integrating across time but rather across frequency. And in other words, what we are doing here is we add up all the weighted sinusoids and we get to the original",
+                "start_time": "2396.729",
+                "end_time": "2414.935"
+            },
+            {
+                "id": 122,
+                "transcript": "sound. So we take for example, this first sine wave, the second sine wave, the third sine wave, we reconstruct them uh waiting them with the magnitude and not in the face, then we add them all up and we get this original signal",
+                "start_time": "2414.945",
+                "end_time": "2433.159"
+            },
+            {
+                "id": 123,
+                "transcript": "cool. So this is uh really, really cool stuff and now we are ready to look at the fourier round trip. So here we have like this couple of uh formulas here. The top one now we know is the fourier transform. The bottom one is the inverse fourier transform. Let's take a look at them and wonder at them",
+                "start_time": "2433.85",
+                "end_time": "2459.179"
+            },
+            {
+                "id": 124,
+                "transcript": "and they are fantastic. They are basically the same more or less function. The only thing that changes really is that here in the case of the fourier transform, we are integrating over time. Whereas in the case of the inverse fourier transform, we are integrating over frequency.",
+                "start_time": "2459.439",
+                "end_time": "2482.649"
+            },
+            {
+                "id": 125,
+                "transcript": "So isn't this beautiful? So all of that complexity captured in an elegant way with a very straightforward and minimal formula.",
+                "start_time": "2482.909",
+                "end_time": "2495.169"
+            },
+            {
+                "id": 126,
+                "transcript": "And also this idea of like getting back and forth from the time domain to the frequency domain and from the frequency of the time domain is just wonderful. And now I hope you understand why we went through the hustle of introducing compact numbers because now we have a super compact definition of the fourier transform and its inverse just by relying on this mathematical contract.",
+                "start_time": "2495.33",
+                "end_time": "2521.669"
+            },
+            {
+                "id": 127,
+                "transcript": "OK. So this was a long one, wasn't it? But I I hope like it was like really work for you. Now I can finally go back to this uh pink Floyd iconic cover for the dark side of the moon.",
+                "start_time": "2521.979",
+                "end_time": "2537.699"
+            },
+            {
+                "id": 128,
+                "transcript": "So now we really cracked the magic that happens in this algorithm down here. So we are now know how we can get a complex sound and divide that into its frequency components and vice versa, get all of the frequency components and put them back into a complex sound. We now know about the four transform.",
+                "start_time": "2537.879",
+                "end_time": "2564.81"
+            },
+            {
+                "id": 129,
+                "transcript": "I hope like this uh was like a worth journey for you. For me, it's been really, really cool just like to cover all of these things in detail now. So what should we do next? Well, we have a problem",
+                "start_time": "2564.979",
+                "end_time": "2580.649"
+            },
+            {
+                "id": 130,
+                "transcript": "and the problem is that so far, we've treated everything in all the theory for the fourier transform. Uh in which a continuous mathematics, basically, we assumed that we were dealing with analog or continuous signals. But in reality,",
+                "start_time": "2580.84",
+                "end_time": "2599.995"
+            },
+            {
+                "id": 131,
+                "transcript": "whenever we are actually applying a free transform, we are dealing with a digital signals, discrete signals. And so what we do is we start from a analog signal and then we sample that we digitalize that. And if you want to know how to do that, you can check out this video. But",
+                "start_time": "2600.004",
+                "end_time": "2620.379"
+            },
+            {
+                "id": 132,
+                "transcript": "so what's remaining to do regarding the fourier transform is understanding how we can adapt the theory that we've studied so far to the discrete uh world. And that's the world of our digital computers and that's the world that we'll use for actually extracting information from a uh signal. Cool. So next time we'll look into the discrete fourier transform",
+                "start_time": "2620.8",
+                "end_time": "2646.5"
+            },
+            {
+                "id": 133,
+                "transcript": "cool. That's really it for today, I know it was a long one. I hope like it was worth for you going through all of this. But now you should have a very deep understanding of the fourier transform. So if you have any questions and I know that there's a lot to suggest for you today. Uh Just like, feel free to leave a comment in the comment section below and I hope I'll see you next time. Cheers.",
+                "start_time": "2647.04",
+                "end_time": "2671.05"
+            }
+        ]
+    }
+}

@@ -1,0 +1,200 @@
+[
+    {
+        "id": "68180525",
+        "text": "Hi, everybody and welcome to deep learning for audio with Python. In this course, we're gonna learn a lot about deep learning. So what about the learning goals? So first of all, I want you to understand the capabilities and limits of deep learning. So what's possible and what's not possible? Then after that, we're gonna learn a lot about the fundamental theory behind neural networks. We're gonna learn a little bit about the math, for example, that powers this very powerful algorithms. And then we're gonna move on to more practice based stuff and we're gonna learn how to code deep learning uh networks using industry standards, deep learning libraries like tensorflow. And then obviously we're going to play around with a bunch of different types of neural networks. So like R and MS CNN s and we're gonna learn what all of these acronyms like really stand for. Cool. The one thing that you should understand about this course is that its focus is",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=7s",
+        "start_time": "7.639"
+    },
+    {
+        "id": "43b3160c",
+        "text": "So what about the learning goals? So first of all, I want you to understand the capabilities and limits of deep learning. So what's possible and what's not possible? Then after that, we're gonna learn a lot about the fundamental theory behind neural networks. We're gonna learn a little bit about the math, for example, that powers this very powerful algorithms. And then we're gonna move on to more practice based stuff and we're gonna learn how to code deep learning uh networks using industry standards, deep learning libraries like tensorflow. And then obviously we're going to play around with a bunch of different types of neural networks. So like R and MS CNN s and we're gonna learn what all of these acronyms like really stand for. Cool. The one thing that you should understand about this course is that its focus is on audio and music. Now, can you follow this course? Even if you're not interested in audio at all? Yes, you can because at the end of the day, this is a deep learning course. And so you're gonna learn all the theory and implementation about deep learning, but bear in mind that all the examples are good or most of the examples I should say are gonna be using audio data or music.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=16s",
+        "start_time": "16.01"
+    },
+    {
+        "id": "5346597b",
+        "text": "learn how to code deep learning uh networks using industry standards, deep learning libraries like tensorflow. And then obviously we're going to play around with a bunch of different types of neural networks. So like R and MS CNN s and we're gonna learn what all of these acronyms like really stand for. Cool. The one thing that you should understand about this course is that its focus is on audio and music. Now, can you follow this course? Even if you're not interested in audio at all? Yes, you can because at the end of the day, this is a deep learning course. And so you're gonna learn all the theory and implementation about deep learning, but bear in mind that all the examples are good or most of the examples I should say are gonna be using audio data or music. Now, what about the technologies that we're gonna use? So obviously, we're gonna use Python and on top of that, we're gonna use tensorflow. So why did they choose both technologies? Right.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=42s",
+        "start_time": "42.233"
+    },
+    {
+        "id": "15a6e208",
+        "text": "on audio and music. Now, can you follow this course? Even if you're not interested in audio at all? Yes, you can because at the end of the day, this is a deep learning course. And so you're gonna learn all the theory and implementation about deep learning, but bear in mind that all the examples are good or most of the examples I should say are gonna be using audio data or music. Now, what about the technologies that we're gonna use? So obviously, we're gonna use Python and on top of that, we're gonna use tensorflow. So why did they choose both technologies? Right. So Python and tensorflow are both industry standards for artificial intelligence. So if you're trying to like pick up a job in A I or machine learning, obviously, you'll already know that Python like is the way to go. You're gonna be required to to to to know or learn Python.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=68s",
+        "start_time": "68.456"
+    },
+    {
+        "id": "dd7fc5ba",
+        "text": "Now, what about the technologies that we're gonna use? So obviously, we're gonna use Python and on top of that, we're gonna use tensorflow. So why did they choose both technologies? Right. So Python and tensorflow are both industry standards for artificial intelligence. So if you're trying to like pick up a job in A I or machine learning, obviously, you'll already know that Python like is the way to go. You're gonna be required to to to to know or learn Python. And then obviously on top of that, there's this super nice deep learning library called tensorflow, which is used almost everywhere in start ups at corporations and even in academia and for doing research. Now, the great thing about",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=95s",
+        "start_time": "95.669"
+    },
+    {
+        "id": "0e49428b",
+        "text": "So Python and tensorflow are both industry standards for artificial intelligence. So if you're trying to like pick up a job in A I or machine learning, obviously, you'll already know that Python like is the way to go. You're gonna be required to to to to know or learn Python. And then obviously on top of that, there's this super nice deep learning library called tensorflow, which is used almost everywhere in start ups at corporations and even in academia and for doing research. Now, the great thing about tensorflow is that on top of tensorflow, you have kind of like high level interface that's called carers that enables you to create very complex networks using very little code. So that's fantastic and that's very nice, like just like to get started with deep learning. And finally, another reason why we are going to use tensorflow is is because it is open source. And so if you want to tweak things around you actually can",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=106s",
+        "start_time": "106.41"
+    },
+    {
+        "id": "fd33f39a",
+        "text": "And then obviously on top of that, there's this super nice deep learning library called tensorflow, which is used almost everywhere in start ups at corporations and even in academia and for doing research. Now, the great thing about tensorflow is that on top of tensorflow, you have kind of like high level interface that's called carers that enables you to create very complex networks using very little code. So that's fantastic and that's very nice, like just like to get started with deep learning. And finally, another reason why we are going to use tensorflow is is because it is open source. And so if you want to tweak things around you actually can now what about the content? So what are we gonna actually learn So you're gonna get an intro to artificial intelligence, machine learning and deep learning. So you, we're gonna kind of like learn the differences and the overlap. So there's different fields and self.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=126s",
+        "start_time": "126.55"
+    },
+    {
+        "id": "49068847",
+        "text": "tensorflow is that on top of tensorflow, you have kind of like high level interface that's called carers that enables you to create very complex networks using very little code. So that's fantastic and that's very nice, like just like to get started with deep learning. And finally, another reason why we are going to use tensorflow is is because it is open source. And so if you want to tweak things around you actually can now what about the content? So what are we gonna actually learn So you're gonna get an intro to artificial intelligence, machine learning and deep learning. So you, we're gonna kind of like learn the differences and the overlap. So there's different fields and self. But then after that, we're going to move on and jump into the different flavors of neural networks that are out there. So we'll start with something that's been like historically, the initial network that has been widely adopted and that's the multi layer perception.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=144s",
+        "start_time": "144.119"
+    },
+    {
+        "id": "a2fd3026",
+        "text": "now what about the content? So what are we gonna actually learn So you're gonna get an intro to artificial intelligence, machine learning and deep learning. So you, we're gonna kind of like learn the differences and the overlap. So there's different fields and self. But then after that, we're going to move on and jump into the different flavors of neural networks that are out there. So we'll start with something that's been like historically, the initial network that has been widely adopted and that's the multi layer perception. Then after that, we're gonna get into convolutional neural networks or CNN S. And you may be familiar at least like with this acronym and these networks are super useful for doing processing with images or and also like",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=174s",
+        "start_time": "174.97"
+    },
+    {
+        "id": "eca663c9",
+        "text": "But then after that, we're going to move on and jump into the different flavors of neural networks that are out there. So we'll start with something that's been like historically, the initial network that has been widely adopted and that's the multi layer perception. Then after that, we're gonna get into convolutional neural networks or CNN S. And you may be familiar at least like with this acronym and these networks are super useful for doing processing with images or and also like audio. And then we're gonna jump on to uh recurrent neural networks or Aron NS. And these are fantastic algorithms that you want to use for predicting like time series and for handling uh time series types of data. And then finally, we're gonna look into guns or generative adversarial networks that are super fashionable these days.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=191s",
+        "start_time": "191.85"
+    },
+    {
+        "id": "37efdcb6",
+        "text": "Then after that, we're gonna get into convolutional neural networks or CNN S. And you may be familiar at least like with this acronym and these networks are super useful for doing processing with images or and also like audio. And then we're gonna jump on to uh recurrent neural networks or Aron NS. And these are fantastic algorithms that you want to use for predicting like time series and for handling uh time series types of data. And then finally, we're gonna look into guns or generative adversarial networks that are super fashionable these days. So what should you expect from this course? What type of style in terms of like the learning? Well, we're gonna have three different blocks I would say, well, we're gonna learn quite a lot about the theory. Now, I'm not gonna go super deep into math because at the end of the day, this is not a math course, but you're gonna learn quite a lot about",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=209s",
+        "start_time": "209.16"
+    },
+    {
+        "id": "9f4751fe",
+        "text": "audio. And then we're gonna jump on to uh recurrent neural networks or Aron NS. And these are fantastic algorithms that you want to use for predicting like time series and for handling uh time series types of data. And then finally, we're gonna look into guns or generative adversarial networks that are super fashionable these days. So what should you expect from this course? What type of style in terms of like the learning? Well, we're gonna have three different blocks I would say, well, we're gonna learn quite a lot about the theory. Now, I'm not gonna go super deep into math because at the end of the day, this is not a math course, but you're gonna learn quite a lot about basic linear algebra and derivatives and these kind of things because we need them to understand how neural networks work and how to tweak them in order to have like very effective uh like uh algorithms for solving our problems. Now, we're going to use all of these",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=225s",
+        "start_time": "225.059"
+    },
+    {
+        "id": "7430bece",
+        "text": "So what should you expect from this course? What type of style in terms of like the learning? Well, we're gonna have three different blocks I would say, well, we're gonna learn quite a lot about the theory. Now, I'm not gonna go super deep into math because at the end of the day, this is not a math course, but you're gonna learn quite a lot about basic linear algebra and derivatives and these kind of things because we need them to understand how neural networks work and how to tweak them in order to have like very effective uh like uh algorithms for solving our problems. Now, we're going to use all of these theory and we are going to implement that. And uh so basically, we're going to have a bunch of different coding tutorials where we're going to use both Python for coding neural networks from scratch. But then on top of that, we're gonna have tensorflow code where we're going to create very complex neural networks.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=249s",
+        "start_time": "249.229"
+    },
+    {
+        "id": "0160e00e",
+        "text": "basic linear algebra and derivatives and these kind of things because we need them to understand how neural networks work and how to tweak them in order to have like very effective uh like uh algorithms for solving our problems. Now, we're going to use all of these theory and we are going to implement that. And uh so basically, we're going to have a bunch of different coding tutorials where we're going to use both Python for coding neural networks from scratch. But then on top of that, we're gonna have tensorflow code where we're going to create very complex neural networks. Now, the third part of this is we're gonna have a bunch of different applications, kind of real world applications. I would say where we're gonna test all of the knowledge that we've acquired from theory and basic uh tensorflow code.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=269s",
+        "start_time": "269.692"
+    },
+    {
+        "id": "5b4e9027",
+        "text": "theory and we are going to implement that. And uh so basically, we're going to have a bunch of different coding tutorials where we're going to use both Python for coding neural networks from scratch. But then on top of that, we're gonna have tensorflow code where we're going to create very complex neural networks. Now, the third part of this is we're gonna have a bunch of different applications, kind of real world applications. I would say where we're gonna test all of the knowledge that we've acquired from theory and basic uh tensorflow code. So obviously, this is like a very important question. So where do I get code and slides? So I'm gonna have a github page like my github page and I'm gonna post all of this uh lessons online. And so you can just like browse them and download what you need. And obviously all of this information is gonna be below in the description of each video in the series.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=290s",
+        "start_time": "290.156"
+    },
+    {
+        "id": "846d18bc",
+        "text": "Now, the third part of this is we're gonna have a bunch of different applications, kind of real world applications. I would say where we're gonna test all of the knowledge that we've acquired from theory and basic uh tensorflow code. So obviously, this is like a very important question. So where do I get code and slides? So I'm gonna have a github page like my github page and I'm gonna post all of this uh lessons online. And so you can just like browse them and download what you need. And obviously all of this information is gonna be below in the description of each video in the series. Cool. So who's this course for now? Uh when I designed this course I had in mind, Python developers who want to pick up deep learning skills.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=310s",
+        "start_time": "310.92"
+    },
+    {
+        "id": "85b33861",
+        "text": "So obviously, this is like a very important question. So where do I get code and slides? So I'm gonna have a github page like my github page and I'm gonna post all of this uh lessons online. And so you can just like browse them and download what you need. And obviously all of this information is gonna be below in the description of each video in the series. Cool. So who's this course for now? Uh when I designed this course I had in mind, Python developers who want to pick up deep learning skills. And so this is not a course for um beginners rather like for actual developers and also this, if you are like a DEA who's already playing around with a bunch of this deep learning libraries like tensorflow, for example. But you want to learn more about how you can. So how like neural networks really work like under the hood. So this is really perfect for you because you're gonna get like a an understanding like at a deeper level.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=326s",
+        "start_time": "326.45"
+    },
+    {
+        "id": "1a26f0e2",
+        "text": "Cool. So who's this course for now? Uh when I designed this course I had in mind, Python developers who want to pick up deep learning skills. And so this is not a course for um beginners rather like for actual developers and also this, if you are like a DEA who's already playing around with a bunch of this deep learning libraries like tensorflow, for example. But you want to learn more about how you can. So how like neural networks really work like under the hood. So this is really perfect for you because you're gonna get like a an understanding like at a deeper level. Now, obviously, this course is also very useful for devs who have an interest in audio and music. Because at the end of the day, you're going to be introduced to A I music and A I audio. And if you are a practitioner who's got some experience in audio, digital signal processing or DS P and you want to step up your game even more and get into A I. Again, this is like the right uh course uh for you.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=349s",
+        "start_time": "349.98"
+    },
+    {
+        "id": "2e958f4c",
+        "text": "And so this is not a course for um beginners rather like for actual developers and also this, if you are like a DEA who's already playing around with a bunch of this deep learning libraries like tensorflow, for example. But you want to learn more about how you can. So how like neural networks really work like under the hood. So this is really perfect for you because you're gonna get like a an understanding like at a deeper level. Now, obviously, this course is also very useful for devs who have an interest in audio and music. Because at the end of the day, you're going to be introduced to A I music and A I audio. And if you are a practitioner who's got some experience in audio, digital signal processing or DS P and you want to step up your game even more and get into A I. Again, this is like the right uh course uh for you. And finally, I think like another category who would benefit quite a lot from this course are data analysts who want to learn more about machine learning and who want to learn more about uh A I as well and how to cut things out.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=362s",
+        "start_time": "362.5"
+    },
+    {
+        "id": "015fad74",
+        "text": "Now, obviously, this course is also very useful for devs who have an interest in audio and music. Because at the end of the day, you're going to be introduced to A I music and A I audio. And if you are a practitioner who's got some experience in audio, digital signal processing or DS P and you want to step up your game even more and get into A I. Again, this is like the right uh course uh for you. And finally, I think like another category who would benefit quite a lot from this course are data analysts who want to learn more about machine learning and who want to learn more about uh A I as well and how to cut things out. As I mentioned. This is not a course for Python beginners rather, you should have some intermediate coding skills. Because at the end of the day, I'm not gonna teach you how to code. The focus of this course is on A I not coding itself. Now, if you know uh quite a lot about basic linear algebra, that's fantastic, but it's definitely not necessary because I'm going to cover all the math. We'll need to understand neural networks",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=390s",
+        "start_time": "390.809"
+    },
+    {
+        "id": "5d28026a",
+        "text": "And finally, I think like another category who would benefit quite a lot from this course are data analysts who want to learn more about machine learning and who want to learn more about uh A I as well and how to cut things out. As I mentioned. This is not a course for Python beginners rather, you should have some intermediate coding skills. Because at the end of the day, I'm not gonna teach you how to code. The focus of this course is on A I not coding itself. Now, if you know uh quite a lot about basic linear algebra, that's fantastic, but it's definitely not necessary because I'm going to cover all the math. We'll need to understand neural networks at the same time. If you know about audio digital signal processing, that's fantastic. But it's not really necessary because again, I'm going to cover all the DS P stuff that we really need.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=416s",
+        "start_time": "416.88"
+    },
+    {
+        "id": "9d15588b",
+        "text": "As I mentioned. This is not a course for Python beginners rather, you should have some intermediate coding skills. Because at the end of the day, I'm not gonna teach you how to code. The focus of this course is on A I not coding itself. Now, if you know uh quite a lot about basic linear algebra, that's fantastic, but it's definitely not necessary because I'm going to cover all the math. We'll need to understand neural networks at the same time. If you know about audio digital signal processing, that's fantastic. But it's not really necessary because again, I'm going to cover all the DS P stuff that we really need. Cool. So this was it for the course overview. So now just brace yourself, deep learning is coming. Bye.",
+        "video": "1- Deep Learning (for Audio) with Python: Course Overview",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "fMqL5vckiU0",
+        "youtube_link": "https://www.youtube.com/watch?v=fMqL5vckiU0&t=431s",
+        "start_time": "431.679"
+    }
+]

@@ -39,18 +39,18 @@ As part of the project, code was developed that allows you to download audio tra
     `config.py` - Reading environmental params into variables
 
     `data` - Directory with datasets. Contain two transcribed playlists in json format. 
-    At current, the system is working with one of them - Audio Signal Processing for ML - dataset. 
-    Unfortunately, I had no time to merge both playlists and ingest into elastic search.
 
     `logs` - Directory with logs. The system save logs for each container.
 
 `data_prep` - Directory for creating dataset
 
-    `The Sound of AI - transcripts` - Directory with transcripts of separate videos and temporary files, as well.
+    `The Sound of AI` - Directory with transcripts of separate videos, temporary files, and final datasets as well.
 
     `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
 
     `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+
+    `create_ground_truth_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
 
     `download_audio.py` - Script for downloading audio tracks from YouTube.
 
@@ -60,11 +60,17 @@ As part of the project, code was developed that allows you to download audio tra
 
 `docker-compose.yaml` - Docker compose to run several containers.
 
-`Dockerfile` - Docker file to run Streamlit app.
+`Dockerfile.streamlit` - Docker file to run Streamlit app.
 
 `Dockerfile.ingestion` - Docker file to run Ingestion in automatic mode while all containers starting.
 
 `requirements.txt` - File with list of Python libraries which used in the system.
+
+`grafana.md` - SQL queries to PostgreSQL database for using in Grafana UI.
+
+`.env` - File with environment variables, which will be exported to the system while application starting.
+
+`dashboard.json` - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
 
 
 ## How to reproduce the project
@@ -100,7 +106,7 @@ docker-compose up -d
 
 After starting dockers you the streamlit application will be available at the address: `http://localhost:8501/`
 
-You can see Postres database using pgAdmin at the address: `http://localhost:8080/browser/`
+You can see PostgreSQL database using pgAdmin at the address: `http://localhost:8080/browser/`
 
 In addition you can check the status and problems with the system via logging. There are two ways to check:
 
@@ -110,29 +116,48 @@ In addition you can check the status and problems with the system via logging. T
 
 ## Examples of questions and answers from RAG system
 
-Firstly, the question which is relevant to the playlist information (Text and Vector search).
-
-### How Mel-Spectrogram can be used in applications? - Text search
-
-![How Mel-Spectrogram can be used in applications? - Text search](images/Text_search.png "How Mel-Spectrogram can be used in applications? - Text search")
-
-### How Mel-Spectrogram can be used in applications? - Vector search
-
-![How Mel-Spectrogram can be used in applications? - Vector search](images/Vector_search.png "How Mel-Spectrogram can be used in applications? - Vector search")
+**Firstly, the question which is relevant to the playlist information (Text and Vector search).**
 
 
-Secondly, the question which author didn't cover in his videos (Text and Vector search).
+### How to extract frequency from audio file? - Text search
 
-### What author of the course think about Aliens? - Text search
+![How to extract frequency from audio file? - Text search](images/frequency_text.png "How to extract frequency from audio file? - Text search")
 
-![What author of the course think about Aliens? - Text search](images/Aliens_text.png "How Mel-Spectrogram can be used in applications? - Text search")
+### How to extract frequency from audio file? - Vector search
 
-### What author of the course think about Aliens? - Vector search
-
-![What author of the course think about Aliens? - Vector search](images/Aliens_vector.png "What author of the course think about Aliens? - Vector search")
+![How to extract frequency from audio file? - Vector search](images/frequency_vector.png "How to extract frequency from audio file? - Vector search")
 
 
-## Meet the Evaluation Criteria
+**Secondly, the question which author didn't cover in his videos (Text and Vector search).**
+
+
+### What is the best way to get to Antarctica? - Text search
+
+![What is the best way to get to Antarctica? - Text search](images/antarctica_text.png "What is the best way to get to Antarctica? - Text search")
+
+### What is the best way to get to Antarctica? - Vector search
+
+![What is the best way to get to Antarctica? - Vector search](images/antarctica_vector.png "What is the best way to get to Antarctica? - Vector search")
+
+
+## Examples of Monitoring using Grafana
+
+SQL queries to PostgreSQL database was saved in the following file: [SQL queries](grafana.md)
+
+There were developed the following dashboards:
+
+1. Model Response Time
+2. Answer Relevance Distribution
+3. OpenAI Tokens Usage
+4. OpenAI Costs
+5. Recent Conversations
+6. Feedback Statistics
+
+
+![Grafana dashboard](images/grafana_dashboard.png "Grafana dashboard")
+
+
+## Meet the Project Evaluation Criteria
 
 * Problem description
     * [ ] 0 points: The problem is not described
@@ -143,25 +168,25 @@ Secondly, the question which author didn't cover in his videos (Text and Vector 
     * [ ] 1 point: No knowledge base is used, and the LLM is queried directly
     * [x] 2 points: Both a knowledge base and an LLM are used in the RAG flow 
 * Retrieval evaluation
-    * [ ] 0 points: No evaluation of retrieval is provided
+    * [x] 0 points: No evaluation of retrieval is provided
     * [ ] 1 point: Only one retrieval approach is evaluated
-    * [x] 2 points: Multiple retrieval approaches are evaluated, and the best one is used
+    * [ ] 2 points: Multiple retrieval approaches are evaluated, and the best one is used
 * RAG evaluation
-    * [x] 0 points: No evaluation of RAG is provided
-    * [ ] 1 point: Only one RAG approach (e.g., one prompt) is evaluated
+    * [ ] 0 points: No evaluation of RAG is provided
+    * [x] 1 point: Only one RAG approach (e.g., one prompt) is evaluated
     * [ ] 2 points: Multiple RAG approaches are evaluated, and the best one is used
 * Interface
-   * [ ] 0 points: No way to interact with the application at all
-   * [ ] 1 point: Command line interface, a script, or a Jupyter notebook
-   * [x] 2 points: UI (e.g., Streamlit), web application (e.g., Django), or an API (e.g., built with FastAPI) 
+    * [ ] 0 points: No way to interact with the application at all
+    * [ ] 1 point: Command line interface, a script, or a Jupyter notebook
+    * [x] 2 points: UI (e.g., Streamlit), web application (e.g., Django), or an API (e.g., built with FastAPI) 
 * Ingestion pipeline
-   * [ ] 0 points: No ingestion
-   * [ ] 1 point: Semi-automated ingestion of the dataset into the knowledge base, e.g., with a Jupyter notebook
-   * [x] 2 points: Automated ingestion with a Python script or a special tool (e.g., Mage, dlt, Airflow, Prefect)
+    * [ ] 0 points: No ingestion
+    * [ ] 1 point: Semi-automated ingestion of the dataset into the knowledge base, e.g., with a Jupyter notebook
+    * [x] 2 points: Automated ingestion with a Python script or a special tool (e.g., Mage, dlt, Airflow, Prefect)
 * Monitoring
-   * [ ] 0 points: No monitoring
-   * [x] 1 point: User feedback is collected OR there's a monitoring dashboard
-   * [ ] 2 points: User feedback is collected and there's a dashboard with at least 5 charts
+    * [ ] 0 points: No monitoring
+    * [ ] 1 point: User feedback is collected OR there's a monitoring dashboard
+    * [x] 2 points: User feedback is collected and there's a dashboard with at least 5 charts
 * Containerization
     * [ ] 0 points: No containerization
     * [ ] 1 point: Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only
@@ -176,7 +201,7 @@ Secondly, the question which author didn't cover in his videos (Text and Vector 
     * [ ] User query rewriting (1 point)
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
-    * [x] Up to 3 extra bonus points if you want to award for something extra (write in feedback for what) - Created dataset using Amazon Transcribe and logging of the entire system.
+    * [x] Up to 3 extra bonus points (created dataset using Amazon Transcribe, automatic ingestion as separate container and logging of the entire system)
 
 
 ## Conclusion
@@ -193,8 +218,9 @@ The entire YouTube Browser project was developed as a part of LLM Zoomcamp. The 
 
 ## Future tasks
 
-- Add Grafana application to display statistics. The container with Grafana was deployed using Docker container. Need to write scripts to read statistics from PostgreSQL database
 - Add evaluation metrics to have more precise criteria for evaluation ranking documents and answers from LLM.
+- Try Hybrid search: combining both text and vector search and evaluate it.
 - Deploy to the cloud.
+- Re-design UI.
 
 If you have any questions, please feel free to ask me.

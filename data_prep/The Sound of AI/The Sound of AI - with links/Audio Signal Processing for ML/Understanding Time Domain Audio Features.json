@@ -1,0 +1,452 @@
+[
+    {
+        "id": "ccd05d29",
+        "text": "Hi, everybody and welcome to a new exciting video and the audio signal processing for machine learning series. Last time we introduced the extraction pipelines for both time domain and frequency domain features. This time, I'm going to be introducing time domain audio features specifically, I'm going to focus on a few very important types them in audio features and explain the theory behind them. But before we get started, let me recall you once uh remind you once again about the sound of the I Slack community. This is a community of people interested in all things A I audio A I music audio signal processing. So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "75d85a84",
+        "text": "them in audio features and explain the theory behind them. But before we get started, let me recall you once uh remind you once again about the sound of the I Slack community. This is a community of people interested in all things A I audio A I music audio signal processing. So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=20s",
+        "start_time": "20.485"
+    },
+    {
+        "id": "699bf384",
+        "text": "So if you want to improve your knowledge in the field and network with great people, I highly suggest you to go check out the sign up link that I've left in the description below now on to the good stuff. OK. So these are the 310 domain features that we'll be uh focusing on today. So these are amplitude envelope root mean square energy and zero crossing rate. So all of these features are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models. And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=41s",
+        "start_time": "41.169"
+    },
+    {
+        "id": "7202d793",
+        "text": "are low level acoustic features and they are instantaneous. In other words, we take these features at each frame in an audio signal, then obviously, we can just like take like all of these values that we have for each frame and then we can aggregate them with some statistical means like mean sum or things that are a little bit more sophisticated like Gaussian mixture models. And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=69s",
+        "start_time": "69.58"
+    },
+    {
+        "id": "b50c29da",
+        "text": "And but yeah, so if you don't remember like the definition of a frame or like the categorization of audio features, I highly suggest you go check out this video up here that will clarify all of those things for you. The first time the main feature that we look into is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame. So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=98s",
+        "start_time": "98.239"
+    },
+    {
+        "id": "f295c90a",
+        "text": "is the amplitude envelope. And that's the max amplitude value taken out of all the samples that we have in a frame. Now, I'll show you the math for calculating that don't be scared because I'll break it down uh piece by piece for you. What we want to find is the amplitude envelope at frame T. So it's, it's a specific frame. So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK. So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this,",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=116s",
+        "start_time": "116.254"
+    },
+    {
+        "id": "211bc070",
+        "text": "So now let's start with this SFK. So what's that? Well, that's just like the amplitude calculated at sample K. Now, another ingredient uh that we want to know about is this capital K, which is the frame size or in other words, the number of samples that we have in a given frame. OK. So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this, it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=141s",
+        "start_time": "141.039"
+    },
+    {
+        "id": "a27a2c98",
+        "text": "So now we want to take the max amplitude value of all the samples in the frame. So we have to define this max between the first sample of frame T and we can access that by multiplying the uh frame we are at. So this, it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T. And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=162s",
+        "start_time": "162.75"
+    },
+    {
+        "id": "fea088f5",
+        "text": "it could be like a frame 012, whatever you want. And capital K, which is the frame size. And this will give the first sample of frame T. And we want to calculate the max, as we said between first sample of frame T and obviously the last sample of frame T. And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=181s",
+        "start_time": "181.384"
+    },
+    {
+        "id": "257f3cc3",
+        "text": "And we can calculate this by first of all accessing the next frame. And that is like T plus one, we want to multiply that by the frame size. And these will give us the first sample of frame T plus one. So we want to go back to the last frame of T. And so we have to um subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here. OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=200s",
+        "start_time": "200.55"
+    },
+    {
+        "id": "a1fa57de",
+        "text": "subtract one to, to T plus one multiplied by K, right. OK. So this is the amplitude envelope at frame T. But we know that we want, what we want to do is to calculate the amplitude envelope for all the frames. So for each frame in an audio signal, we are gonna use these uh formula here. OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=222s",
+        "start_time": "222.08"
+    },
+    {
+        "id": "e574ca41",
+        "text": "OK. I know this can feel a little bit abstract. Uh So let's try to visualize this to like unsend this like a process a little bit better. So here we have like our normal audio signal here. I'm gonna take like a few uh like I'm gonna be framing this audio signal. So this is the first frame, second frame, 3rd, 4th, 5th 6th, right? And I can continue once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=249s",
+        "start_time": "249.66"
+    },
+    {
+        "id": "607c1687",
+        "text": "once again if you don't remember what framing is, what like all of these things concepts are. It's like frames just go back to uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green. Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=276s",
+        "start_time": "276.029"
+    },
+    {
+        "id": "521ff448",
+        "text": "uh a couple of videos ago in this series. Cos dare like I explained this like very in depth. OK. So now how do we get the amplitude envelope here? Well, what we do like what we did mathematically now we can do visually. In other words, we want to take for each frame, the highest value the max value of the amplitude. And it's this guy little guy here in green. Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=285s",
+        "start_time": "285.92"
+    },
+    {
+        "id": "bcc88018",
+        "text": "Now, if we move to the second um frame, we have like this guy here, that's the max value here. We have like this max value that's over here. Uh here for the fourth fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=313s",
+        "start_time": "313.38"
+    },
+    {
+        "id": "b2fe2605",
+        "text": "fifth frame we'll get here. And I expect for the sixth frame to have the uh max amplitude uh over here. OK. So this is like visual what we are, what we did earlier like uh with a mathematical formula. OK. I hope like this is clear, it's quite like simple to grasp like once you understand the intuition behind it. OK. Now, um the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=327s",
+        "start_time": "327.309"
+    },
+    {
+        "id": "bb9f693d",
+        "text": "the question is, so what does like amplitude envelope tell us about the audio signal? Well, it gives us like a rough idea of the loudness of the signal. And that's obviously because the amplitude is related with intensity and for uh loudness. OK. So uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=353s",
+        "start_time": "353.51"
+    },
+    {
+        "id": "d9f9930d",
+        "text": "uh the problem with the amplitude envelope is that it is like very sensitive to outliers. And that's because you're just like getting one value uh one sample, one the amplitude for one sample out of all the, the samples that you have in a frame. And so you may have like an outlier. So in other words, you may have like a a frame uh like that has like all, let's say almost like zero amplitude for all samples and then you have a spike and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection. In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=373s",
+        "start_time": "373.089"
+    },
+    {
+        "id": "8ff734ee",
+        "text": "and then you get that spike. But that spike isn't really that representative of the whole frame, right? That's the basic idea why amplitude envelope is sensitive to our layers. Now, uh where do we use amplitude envelope? Well, it can be used in a bunch of different uh applications but uh a few like important ones are like onset detection. In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=401s",
+        "start_time": "401.64"
+    },
+    {
+        "id": "a03a7fba",
+        "text": "In other words, like answer detection is basically so if you have like a note, you want to just like uh understand when that note like starts, it could be a musical note, it could be like the utterance of a word or a phone. And so with amplitude envelope, you, you can kind of like ga guess where that like event acoustic event starts. And that's because amplitude envelope gives us information uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=425s",
+        "start_time": "425.98"
+    },
+    {
+        "id": "ac309739",
+        "text": "uh about amplitude. And you would expect that at an onset you have like a burst of energy. So a spike in the amplitude and we can also use amplitude envelope for higher level classification problems like music genre classification. For example, now I'm not going to show you like graphs or visualizations like of amplitude envelope here like in this video. But in the next we'll be looking at uh the comparison like of envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame. OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=454s",
+        "start_time": "454.41"
+    },
+    {
+        "id": "51e3707f",
+        "text": "envelope taken for like different pieces of music from different genres. And we'll see if indeed there is a difference there. OK. So stay tuned for that. But now let's move on to the second time domain audio feature that's called root mean square energy. So what we do here is basically we took the root mean square of all the samples in a frame. OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=483s",
+        "start_time": "483.825"
+    },
+    {
+        "id": "7aec5a30",
+        "text": "OK. So I know like if you're not familiar with like statistics and math like this once again can sound like very scary. And indeed this uh formula doesn't help much. But once again, I'm gonna break this down. So uh you can understand that. So here, what we are doing is we are taking the root M square energy at frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy. Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=513s",
+        "start_time": "513.549"
+    },
+    {
+        "id": "e97dedd3",
+        "text": "frame T once again, as we said, all of these audio features are instantaneously, we take the values for each frame. OK. So here, the new thing which shouldn't be like too new for you is the as this uh s of K which is the amplitude uh at the sample K, but it's squared this night. So if we have like the square of the amplitude, basically we have the energy. Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=535s",
+        "start_time": "535.859"
+    },
+    {
+        "id": "6e056672",
+        "text": "Uh So this guy is the energy of the cave sample. So what we do here is we sum the energy for all the samples in frame T once again, like this is just like the sum symbol and we are uh like adding up like all the energy for all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame. And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=564s",
+        "start_time": "564.479"
+    },
+    {
+        "id": "5dd974f8",
+        "text": "all the samples in frame T. And then once we have like this sum, what we want to do is we want to take the m of the sum of the energy. And we'll achieve that by dividing the sum of the energy by the frame size, which is the number of samples that we have in the given frame. And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness. And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=586s",
+        "start_time": "586.07"
+    },
+    {
+        "id": "bb812eb0",
+        "text": "And after we've done that, we just apply the um the, the root over here. And that's it. So basically, we have the root min square energy. Now, uh once again, the root min square energy is an indicator of loudness because energy is strictly related to loudness. And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=609s",
+        "start_time": "609.919"
+    },
+    {
+        "id": "2cf085ff",
+        "text": "And the great thing about Roitman Square energy. And one of the reasons why like it is like overwhelmingly used uh at least like in traditional like digital signal, audio, digital signal processing is that it is less sensitive to liers than the amplitude envelope. And this is because we're not just like sampling a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples. And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=634s",
+        "start_time": "634.559"
+    },
+    {
+        "id": "3f6920c9",
+        "text": "a single sample value uh for a frame, but rather we're just like getting information from all the samples. And then we take like the root M square for that's calculated across like all the samples. And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=655s",
+        "start_time": "655.45"
+    },
+    {
+        "id": "45b6e39c",
+        "text": "And in this way, we are less sensitive to outliers like spikes in amplitude in one sample in all of the frames. OK. So now what are the applications for root M square energy? Once again, there are many, many applications here. I want to um talk about a couple of this. So uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=674s",
+        "start_time": "674.844"
+    },
+    {
+        "id": "defc2951",
+        "text": "uh we can use ROM square energy for identifying new segments in an audio signal. And that's because the uh R MS tends to like change quite a lot when you have like new segments, new like events. And so we can use, we can leverage rhythm in square energy for all things like in audio segmentation, it could be done like for um for example, like for deciding uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action. The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=698s",
+        "start_time": "698.01"
+    },
+    {
+        "id": "31b153a3",
+        "text": "uh like whether like someone is talking or it's not talking and you have like this change and you want to segment who's talking and things like that. And obviously, we can also use R MS for music genre classification. And we'll see some of this like over the next few videos in uh action. The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval. And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=727s",
+        "start_time": "727.28"
+    },
+    {
+        "id": "3313e6f5",
+        "text": "The third time domain audio feature that I want to introduce in this video is called zero crossing rate. This is a quite popular acoustic feature used both in speech recognition and in music information retrieval. And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=746s",
+        "start_time": "746.489"
+    },
+    {
+        "id": "6eb2bca2",
+        "text": "And it's a quite intuitive one because it provides us information about the number of times that a signal crosses the horizontal axis. So before getting into the math, let's visualize this. OK. So here we have uh a signal, a simple signal worth of a frame we can assume and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK. Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=760s",
+        "start_time": "760.739"
+    },
+    {
+        "id": "aeb93fa8",
+        "text": "and then the zero crossing rate is equal to the count of like this green dots. OK. So uh for each of these green dots, we have a crossing of the horizontal axis. In other words, like for this signal, the zero crossing rate is equal to 123456. OK. Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down. OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=781s",
+        "start_time": "781.14"
+    },
+    {
+        "id": "da5bf6da",
+        "text": "Now the question is, how do we calculate the zero crossing rate mathematically? Well, here you have the formula for that. Once again, don't be scared about this. We'll just like break it down. OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=802s",
+        "start_time": "802.09"
+    },
+    {
+        "id": "dac556fe",
+        "text": "OK. The basic intuition here is that we compare the um the amplitude of value for consecutive uh pairs of samples. And we look at whether there are differences like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=816s",
+        "start_time": "816.0"
+    },
+    {
+        "id": "3f439b4b",
+        "text": "like in the signs of those amplitude for those consecutive samples. OK. So first of all, you should or we should familiarize with this sine function if you're not familiar with that already, basically what the sine function which is indicated by this SGN what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero. Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=833s",
+        "start_time": "833.195"
+    },
+    {
+        "id": "056c36fa",
+        "text": "what it does, it gives us a back the sign of a given value. So in this case, for example, if the amplitude is greater than zero sine function gives us back plus one. That's because the amplitude is positive. If the amplitude is negative, we get back minus one. If the amplitude is equal to zero, we get, we get back zero. Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=850s",
+        "start_time": "850.719"
+    },
+    {
+        "id": "1114b48d",
+        "text": "Now how do we calculate the uh the zero crossing rate like for each pair of samples? Well, what we do is we take the sign for uh the amplitude at sample K. And then we subtract to that the sign for the amplitude at sample K plus one. So we are basically comparing the two consecutive samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=876s",
+        "start_time": "876.789"
+    },
+    {
+        "id": "f9b36d44",
+        "text": "samples here. Now, the cool thing about this is that if we have um both um aptitude values that have like the, the same sign, so if they're both plus or minus, what happens here is that we get out of this just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample. So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are,",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=905s",
+        "start_time": "905.255"
+    },
+    {
+        "id": "0e779e6a",
+        "text": "just like zero. So we don't get like any information regarding, well, we don't get any value that's gonna increase the zero crossing rate. But if we have alternate opposite signs, so say for example, like at sample K, we have like a negative amplitude and at, at sample K plus one, we have a positive sample. So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are, so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=924s",
+        "start_time": "924.14"
+    },
+    {
+        "id": "d87f9919",
+        "text": "So what happens is that we get a value of two here and that's because yeah, let's just like take a look at this. So if we have like minus here, it means like that we have like minus one minus one minus plus one gives us like minus two, we have to take the absolute value of that. So that's equal to two. But now we are, so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=948s",
+        "start_time": "948.78"
+    },
+    {
+        "id": "e12e7393",
+        "text": "so this, this is gonna give us information only for 10 crossing, not two. So we have to divide this two by two and it's given over here so that we're gonna have just like a value of one here. Now, what we do is we uh kind of like uh sum over all the samples that we have in a um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing. So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=971s",
+        "start_time": "971.69"
+    },
+    {
+        "id": "45de5f7e",
+        "text": "um in a frame. And so that we are gonna get like the values for all these zero crossings that we have in a frame. OK. So that's like a simple, like mathematical formula that's very elegant for defining zero crossing rate. Now, let's take a look at some applications. As I said, this is like uh like zero crossing rate is extensively used in speech recognition as well as like in music processing. So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=994s",
+        "start_time": "994.859"
+    },
+    {
+        "id": "45d33c6d",
+        "text": "So we can use zero crossing rate for recognizing percussive versus like pitched sounds. And that's because percussive sounds usually tend to have like quite random like zero crossing rate. So like they tend to change like the zero crossing rate like quite a lot, whereas like pitch sounds tend to be like way more stable in the zero crossing rates. And uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=1023s",
+        "start_time": "1023.65"
+    },
+    {
+        "id": "f27b9ae2",
+        "text": "uh we can also use zero crossing rate as a very regiment uh like monophonic pitch estimation algorithm. In other words, there's a um kind of like relationship between like the number of zero crossings like and the pitch. And if we have like a monophonic pitch, basically the idea is that that the higher zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation. And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice,",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=1045s",
+        "start_time": "1045.54"
+    },
+    {
+        "id": "457d81d9",
+        "text": "zero, the number of zero crossings that we have and the higher the pitch is gonna be. Now this is not bulletproof. And now we have like way more sophisticated uh like uh monophonic pitch estimators, but zero crossing rate still like is a, is a basic idea that we can use like to get a monophonic pitch estimation. And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice, um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=1067s",
+        "start_time": "1067.91"
+    },
+    {
+        "id": "70fa4cd4",
+        "text": "And finally, if we want to look at the speech recognition uh uh like space, we can use zero crossing rate for distinguishing between signals which contain like voice and signals that are like usually that are unvoiced. And that's because uh when we are like dealing with like voice, um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and implement this time domain audio features and use sometimes Al li browser for extracting them directly from audio signals. But specifically for the next video will implement the amplitude envelope from scratch and then we visualize the amplitude envelope for pieces of music which come from different music genres",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=1090s",
+        "start_time": "1090.459"
+    },
+    {
+        "id": "5732a82a",
+        "text": "um voice signal, we usually have like a zero crossing rate like that is like lower than what we have like in unvoiced like pieces of signals. And that probably has to do with the fact that like those invoiced parts are like noisier. And yeah, and that's the case in the next few videos, we'll get our hands dirty and implement this time domain audio features and use sometimes Al li browser for extracting them directly from audio signals. But specifically for the next video will implement the amplitude envelope from scratch and then we visualize the amplitude envelope for pieces of music which come from different music genres so that we can appreciate if there is any difference uh of amplitude envelope for different genres. OK. That's all for today. I hope you enjoyed this video. If that's the case, please remember to leave a like if you have any questions as usual, feel free to uh leave a comment in the comment section below and I'll see you next time. Cheers.",
+        "video": "Understanding Time Domain Audio Features",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "SRrQ_v-OOSg",
+        "youtube_link": "https://www.youtube.com/watch?v=SRrQ_v-OOSg&t=1112s",
+        "start_time": "1112.91"
+    }
+]

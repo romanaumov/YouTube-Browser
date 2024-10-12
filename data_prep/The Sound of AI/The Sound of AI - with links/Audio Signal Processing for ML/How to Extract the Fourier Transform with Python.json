@@ -1,0 +1,803 @@
+[
+    {
+        "id": "d495d9f5",
+        "text": "Hi, everybody and welcome to new exciting video and the audio signal processing for machine learning series. Last time we looked uh at the theory behind the discrete fourier transform and the fast fourier transform, which is a flavor of discrete fourier transform. This time, I want to actually extract the fourier transform coefficients using Python and specifically Noon P. Beyond that, I'm going to show you also a bunch of uh different um magnitude spectra for instruments which play the same note so that we can at least have a glance into why we perceive their timer uh differently. OK. So let's get started with our Gipson notebook. And here, first thing I want to import a few libraries that are gonna be useful for our purpose today.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=0s",
+        "start_time": "0.409"
+    },
+    {
+        "id": "df6fa89c",
+        "text": "This time, I want to actually extract the fourier transform coefficients using Python and specifically Noon P. Beyond that, I'm going to show you also a bunch of uh different um magnitude spectra for instruments which play the same note so that we can at least have a glance into why we perceive their timer uh differently. OK. So let's get started with our Gipson notebook. And here, first thing I want to import a few libraries that are gonna be useful for our purpose today. So I'll import nin pi as NP. And as I said, we'll use nin pi to extract the fast fourier transform. Then I'll import mat plot leap dot pi plot SPLT. We'll use this library to plot the magnitude spectrums and then I'll uh import or S",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=16s",
+        "start_time": "16.86"
+    },
+    {
+        "id": "36d80c4e",
+        "text": "same note so that we can at least have a glance into why we perceive their timer uh differently. OK. So let's get started with our Gipson notebook. And here, first thing I want to import a few libraries that are gonna be useful for our purpose today. So I'll import nin pi as NP. And as I said, we'll use nin pi to extract the fast fourier transform. Then I'll import mat plot leap dot pi plot SPLT. We'll use this library to plot the magnitude spectrums and then I'll uh import or S I'll import libros to load the uh audio files. And finally, I want to import IPYTHON dot uh display as IP D and we'll use, uh, this to, uh, listen to the audio files directly in our Jupiter notebook. Ok. So,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=34s",
+        "start_time": "34.365"
+    },
+    {
+        "id": "1521afc7",
+        "text": "So I'll import nin pi as NP. And as I said, we'll use nin pi to extract the fast fourier transform. Then I'll import mat plot leap dot pi plot SPLT. We'll use this library to plot the magnitude spectrums and then I'll uh import or S I'll import libros to load the uh audio files. And finally, I want to import IPYTHON dot uh display as IP D and we'll use, uh, this to, uh, listen to the audio files directly in our Jupiter notebook. Ok. So, uh, now what I want to do is just like unload the audio files and show them and listen to them directly here in the,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=53s",
+        "start_time": "53.069"
+    },
+    {
+        "id": "2deda0bb",
+        "text": "I'll import libros to load the uh audio files. And finally, I want to import IPYTHON dot uh display as IP D and we'll use, uh, this to, uh, listen to the audio files directly in our Jupiter notebook. Ok. So, uh, now what I want to do is just like unload the audio files and show them and listen to them directly here in the, um, Jupiter notebook. And so first thing that I want to do is create a base deer and that is gonna point to the directory that, uh, contains, uh, all the different audio files that I want to show you guys. And so I'll start with home and then Valerio, then Pie Charm projects,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=78s",
+        "start_time": "78.099"
+    },
+    {
+        "id": "721c8163",
+        "text": "uh, now what I want to do is just like unload the audio files and show them and listen to them directly here in the, um, Jupiter notebook. And so first thing that I want to do is create a base deer and that is gonna point to the directory that, uh, contains, uh, all the different audio files that I want to show you guys. And so I'll start with home and then Valerio, then Pie Charm projects, audio signal processing for ML. And we are at the 14th.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=103s",
+        "start_time": "103.62"
+    },
+    {
+        "id": "cb4c3612",
+        "text": "um, Jupiter notebook. And so first thing that I want to do is create a base deer and that is gonna point to the directory that, uh, contains, uh, all the different audio files that I want to show you guys. And so I'll start with home and then Valerio, then Pie Charm projects, audio signal processing for ML. And we are at the 14th. Uh, and finally, I'm gonna have this audio directory here. OK. So this is the paster and then I'm gonna have this, uh, yeah, let's call it violin uh file. And",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=112s",
+        "start_time": "112.18"
+    },
+    {
+        "id": "6e291394",
+        "text": "audio signal processing for ML. And we are at the 14th. Uh, and finally, I'm gonna have this audio directory here. OK. So this is the paster and then I'm gonna have this, uh, yeah, let's call it violin uh file. And so you'll search here. Where is, it should be over here, right? Ok. So here, uh, I'm in the base here and as you can see, we have a bunch of different uh files. So let me just go back to the GPI notebook. So the violin file is called uh violin C",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=137s",
+        "start_time": "137.32"
+    },
+    {
+        "id": "10c6dbe7",
+        "text": "Uh, and finally, I'm gonna have this audio directory here. OK. So this is the paster and then I'm gonna have this, uh, yeah, let's call it violin uh file. And so you'll search here. Where is, it should be over here, right? Ok. So here, uh, I'm in the base here and as you can see, we have a bunch of different uh files. So let me just go back to the GPI notebook. So the violin file is called uh violin C violin C dot A W.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=143s",
+        "start_time": "143.729"
+    },
+    {
+        "id": "c7ab57c7",
+        "text": "so you'll search here. Where is, it should be over here, right? Ok. So here, uh, I'm in the base here and as you can see, we have a bunch of different uh files. So let me just go back to the GPI notebook. So the violin file is called uh violin C violin C dot A W. Then we have the sax file and this is called if I remember correctly Sax dot WAV. And then we have this piano file",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=160s",
+        "start_time": "160.139"
+    },
+    {
+        "id": "34e5a75f",
+        "text": "violin C dot A W. Then we have the sax file and this is called if I remember correctly Sax dot WAV. And then we have this piano file which is equal to",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=184s",
+        "start_time": "184.1"
+    },
+    {
+        "id": "6b536818",
+        "text": "Then we have the sax file and this is called if I remember correctly Sax dot WAV. And then we have this piano file which is equal to piano dot wav. And finally, we have the nice file. So we're also going to see the magnitude spectrum for some nice and this is called nice dot W. Ok. But the piano one is called piano C dot W. Ok.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=188s",
+        "start_time": "188.41"
+    },
+    {
+        "id": "a8e8c2e7",
+        "text": "which is equal to piano dot wav. And finally, we have the nice file. So we're also going to see the magnitude spectrum for some nice and this is called nice dot W. Ok. But the piano one is called piano C dot W. Ok. Good. So now let's try to load this audio directly into Jupiter networks so that we can, uh listen to that. And so for doing this, we'll do an IP D dot uh audio",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=203s",
+        "start_time": "203.779"
+    },
+    {
+        "id": "93948229",
+        "text": "piano dot wav. And finally, we have the nice file. So we're also going to see the magnitude spectrum for some nice and this is called nice dot W. Ok. But the piano one is called piano C dot W. Ok. Good. So now let's try to load this audio directly into Jupiter networks so that we can, uh listen to that. And so for doing this, we'll do an IP D dot uh audio and we need uh to pass the file path to like all of these different files. And so we'll do I OS dot path dot join and we'll pass the base here as well as for the violin, the violin file over here.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=207s",
+        "start_time": "207.16"
+    },
+    {
+        "id": "1b55feb2",
+        "text": "Good. So now let's try to load this audio directly into Jupiter networks so that we can, uh listen to that. And so for doing this, we'll do an IP D dot uh audio and we need uh to pass the file path to like all of these different files. And so we'll do I OS dot path dot join and we'll pass the base here as well as for the violin, the violin file over here. And yes, as you can see, we loaded that I'm gonna load all of these guys uh first and then we're gonna quickly listen to them, but they're very, very short. OK? So yeah, let me",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=227s",
+        "start_time": "227.32"
+    },
+    {
+        "id": "6fe778dc",
+        "text": "and we need uh to pass the file path to like all of these different files. And so we'll do I OS dot path dot join and we'll pass the base here as well as for the violin, the violin file over here. And yes, as you can see, we loaded that I'm gonna load all of these guys uh first and then we're gonna quickly listen to them, but they're very, very short. OK? So yeah, let me do this set file. So I'm gonna pass in the, what is it? The piano file and finally I want to pass in the noise file over here.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=239s",
+        "start_time": "239.57"
+    },
+    {
+        "id": "69fe8d14",
+        "text": "And yes, as you can see, we loaded that I'm gonna load all of these guys uh first and then we're gonna quickly listen to them, but they're very, very short. OK? So yeah, let me do this set file. So I'm gonna pass in the, what is it? The piano file and finally I want to pass in the noise file over here. OK.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=260s",
+        "start_time": "260.059"
+    },
+    {
+        "id": "1d99deb8",
+        "text": "do this set file. So I'm gonna pass in the, what is it? The piano file and finally I want to pass in the noise file over here. OK. So yeah, let's listen to this first thing. So here is I see four notes for the violin.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=273s",
+        "start_time": "273.39"
+    },
+    {
+        "id": "dfc0e40f",
+        "text": "OK. So yeah, let's listen to this first thing. So here is I see four notes for the violin. OK. So the C four notes uh So think of like the piano keyboard, the C four is the middle C. So it's the C at the center of the keyboard. Then we have ac for not for the saxophone.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=290s",
+        "start_time": "290.75"
+    },
+    {
+        "id": "9bdb37d7",
+        "text": "So yeah, let's listen to this first thing. So here is I see four notes for the violin. OK. So the C four notes uh So think of like the piano keyboard, the C four is the middle C. So it's the C at the center of the keyboard. Then we have ac for not for the saxophone. OK? And then I see five notes for uh piano.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=292s",
+        "start_time": "292.019"
+    },
+    {
+        "id": "324f1bf9",
+        "text": "OK. So the C four notes uh So think of like the piano keyboard, the C four is the middle C. So it's the C at the center of the keyboard. Then we have ac for not for the saxophone. OK? And then I see five notes for uh piano. So this is still a sea, but it's an octave above them like the, the middle sea. And finally, we have some noise.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=303s",
+        "start_time": "303.7"
+    },
+    {
+        "id": "a058238d",
+        "text": "OK? And then I see five notes for uh piano. So this is still a sea, but it's an octave above them like the, the middle sea. And finally, we have some noise. We are all used to this kind of noise. Next, we want to load this uh, files as an umpire race and for doing that, we are going to be using Libros, ok? So I'll load the violin C for sound and I'm gonna get back also the sample rate",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=319s",
+        "start_time": "319.209"
+    },
+    {
+        "id": "16b26539",
+        "text": "So this is still a sea, but it's an octave above them like the, the middle sea. And finally, we have some noise. We are all used to this kind of noise. Next, we want to load this uh, files as an umpire race and for doing that, we are going to be using Libros, ok? So I'll load the violin C for sound and I'm gonna get back also the sample rate and I'm gonna use a Li Brosa dot load. And what I want to pass in is the, this guy. So basically the five pa to the violin file.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=327s",
+        "start_time": "327.48"
+    },
+    {
+        "id": "9424db01",
+        "text": "We are all used to this kind of noise. Next, we want to load this uh, files as an umpire race and for doing that, we are going to be using Libros, ok? So I'll load the violin C for sound and I'm gonna get back also the sample rate and I'm gonna use a Li Brosa dot load. And what I want to pass in is the, this guy. So basically the five pa to the violin file. OK. So this is for violin, but we should do the very same thing for uh Sax and Sax is gonna be Sax C four. Now, the sample rate is gonna be defaulted to 22,050 Hertz and we just mm",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=335s",
+        "start_time": "335.059"
+    },
+    {
+        "id": "40478378",
+        "text": "and I'm gonna use a Li Brosa dot load. And what I want to pass in is the, this guy. So basically the five pa to the violin file. OK. So this is for violin, but we should do the very same thing for uh Sax and Sax is gonna be Sax C four. Now, the sample rate is gonna be defaulted to 22,050 Hertz and we just mm need like the first one then I mean like here the sample rate is going to be the same. So I'm just gonna be using a underscore because I say, well, I really don't care about that. There we go. OK? So this is the same but here it's not the violin file. It's actually the sax file. Then we have the piano but it's not C four. It's gonna be C five. Once again, I'll put an underscore here",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=358s",
+        "start_time": "358.72"
+    },
+    {
+        "id": "704c4332",
+        "text": "OK. So this is for violin, but we should do the very same thing for uh Sax and Sax is gonna be Sax C four. Now, the sample rate is gonna be defaulted to 22,050 Hertz and we just mm need like the first one then I mean like here the sample rate is going to be the same. So I'm just gonna be using a underscore because I say, well, I really don't care about that. There we go. OK? So this is the same but here it's not the violin file. It's actually the sax file. Then we have the piano but it's not C four. It's gonna be C five. Once again, I'll put an underscore here and this is going to be a piano file. And finally, here we have our noise",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=372s",
+        "start_time": "372.399"
+    },
+    {
+        "id": "d90869e0",
+        "text": "need like the first one then I mean like here the sample rate is going to be the same. So I'm just gonna be using a underscore because I say, well, I really don't care about that. There we go. OK? So this is the same but here it's not the violin file. It's actually the sax file. Then we have the piano but it's not C four. It's gonna be C five. Once again, I'll put an underscore here and this is going to be a piano file. And finally, here we have our noise and",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=389s",
+        "start_time": "389.299"
+    },
+    {
+        "id": "65b80b53",
+        "text": "and this is going to be a piano file. And finally, here we have our noise and let's pass in the no file. So yeah, so now we should have all of these guys uh with us. So let me show you that the sample rate is 22 2050 Hertz and uh you can see it here and that's the default value for libros. So that's fine. Now, let's take a look at the violin C four. So this is a",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=415s",
+        "start_time": "415.47"
+    },
+    {
+        "id": "2ff98cee",
+        "text": "and let's pass in the no file. So yeah, so now we should have all of these guys uh with us. So let me show you that the sample rate is 22 2050 Hertz and uh you can see it here and that's the default value for libros. So that's fine. Now, let's take a look at the violin C four. So this is a and then pi array now. So, and this is basically like the, the waveform associated with this audio file. And if we take a look at the shape, we're going to see that this is like a uh an array and which has like only like one dimension. And the",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=425s",
+        "start_time": "425.51"
+    },
+    {
+        "id": "fcd0f3f3",
+        "text": "let's pass in the no file. So yeah, so now we should have all of these guys uh with us. So let me show you that the sample rate is 22 2050 Hertz and uh you can see it here and that's the default value for libros. So that's fine. Now, let's take a look at the violin C four. So this is a and then pi array now. So, and this is basically like the, the waveform associated with this audio file. And if we take a look at the shape, we're going to see that this is like a uh an array and which has like only like one dimension. And the um like, I mean like in, in, in that one axis, we have around 60,000 samples and this is the number of samples that we have like in the audio file which is cool. OK. So now let's try to extract the full transform coefficients and I'll hold it for, let's say the violent sound. So we'll do a",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=427s",
+        "start_time": "427.589"
+    },
+    {
+        "id": "0e3d19ed",
+        "text": "and then pi array now. So, and this is basically like the, the waveform associated with this audio file. And if we take a look at the shape, we're going to see that this is like a uh an array and which has like only like one dimension. And the um like, I mean like in, in, in that one axis, we have around 60,000 samples and this is the number of samples that we have like in the audio file which is cool. OK. So now let's try to extract the full transform coefficients and I'll hold it for, let's say the violent sound. So we'll do a uh FT or let's do violin FT where FT stands for fourier transform. And so if we're doing that, we'll use a NP dot FFT dot FFT. Now, if you feel that this FFT dot FFT is redundant, I'll tell you that this first FFT is a module that contains a bunch of different implementations of the fast forward a transform one of which is the classical",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=450s",
+        "start_time": "450.269"
+    },
+    {
+        "id": "eae142fc",
+        "text": "um like, I mean like in, in, in that one axis, we have around 60,000 samples and this is the number of samples that we have like in the audio file which is cool. OK. So now let's try to extract the full transform coefficients and I'll hold it for, let's say the violent sound. So we'll do a uh FT or let's do violin FT where FT stands for fourier transform. And so if we're doing that, we'll use a NP dot FFT dot FFT. Now, if you feel that this FFT dot FFT is redundant, I'll tell you that this first FFT is a module that contains a bunch of different implementations of the fast forward a transform one of which is the classical FFT. So that's why you have like this double FFT thing here. OK. So here we need to pass the actual uh signal, right. So this VC four and now basically by doing so we move from the uh time domain here to the frequency domain over there. OK. So now let's take a look at this uh fourier coefficients. So,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=468s",
+        "start_time": "468.35"
+    },
+    {
+        "id": "6b0f1ff0",
+        "text": "uh FT or let's do violin FT where FT stands for fourier transform. And so if we're doing that, we'll use a NP dot FFT dot FFT. Now, if you feel that this FFT dot FFT is redundant, I'll tell you that this first FFT is a module that contains a bunch of different implementations of the fast forward a transform one of which is the classical FFT. So that's why you have like this double FFT thing here. OK. So here we need to pass the actual uh signal, right. So this VC four and now basically by doing so we move from the uh time domain here to the frequency domain over there. OK. So now let's take a look at this uh fourier coefficients. So, uh let's take a look at the shape of this array and we'll take it over here and we'll do a violin ft dot uh shape.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=493s",
+        "start_time": "493.6"
+    },
+    {
+        "id": "0e15aeb5",
+        "text": "FFT. So that's why you have like this double FFT thing here. OK. So here we need to pass the actual uh signal, right. So this VC four and now basically by doing so we move from the uh time domain here to the frequency domain over there. OK. So now let's take a look at this uh fourier coefficients. So, uh let's take a look at the shape of this array and we'll take it over here and we'll do a violin ft dot uh shape. And uh as you can see here, so this is uh this has the same shape that we had for the signal uh itself. Now, uh if you don't remember why, that's the case, I really suggest you to go check out my previous video, which should be here on the discrete, the theory behind the discrete fourier transform. But basically, the idea in a nutshell is that we are gonna have like as many",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=520s",
+        "start_time": "520.21"
+    },
+    {
+        "id": "f370a9d5",
+        "text": "uh let's take a look at the shape of this array and we'll take it over here and we'll do a violin ft dot uh shape. And uh as you can see here, so this is uh this has the same shape that we had for the signal uh itself. Now, uh if you don't remember why, that's the case, I really suggest you to go check out my previous video, which should be here on the discrete, the theory behind the discrete fourier transform. But basically, the idea in a nutshell is that we are gonna have like as many frequency beams",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=547s",
+        "start_time": "547.719"
+    },
+    {
+        "id": "50cefe40",
+        "text": "And uh as you can see here, so this is uh this has the same shape that we had for the signal uh itself. Now, uh if you don't remember why, that's the case, I really suggest you to go check out my previous video, which should be here on the discrete, the theory behind the discrete fourier transform. But basically, the idea in a nutshell is that we are gonna have like as many frequency beams uh uh as the number of samples that we have in the original time domain uh representation. So this checks out. OK. So now let's take a look at what we have uh for one frequency bin. So we're going to take like the, the first fourier transform coefficient fourier coefficient for violin FT.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=558s",
+        "start_time": "558.489"
+    },
+    {
+        "id": "c388cc0a",
+        "text": "frequency beams uh uh as the number of samples that we have in the original time domain uh representation. So this checks out. OK. So now let's take a look at what we have uh for one frequency bin. So we're going to take like the, the first fourier transform coefficient fourier coefficient for violin FT. And as you can see here, this is a complex number and you have the uh real parts here and here you have the imaginary part of the, of this complex number. Now, once again, if you don't know what I'm talking about uh about like complex numbers, I suggest you like to go check out my video on complex numbers and it should be over here.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=587s",
+        "start_time": "587.19"
+    },
+    {
+        "id": "8d6e0744",
+        "text": "uh uh as the number of samples that we have in the original time domain uh representation. So this checks out. OK. So now let's take a look at what we have uh for one frequency bin. So we're going to take like the, the first fourier transform coefficient fourier coefficient for violin FT. And as you can see here, this is a complex number and you have the uh real parts here and here you have the imaginary part of the, of this complex number. Now, once again, if you don't know what I'm talking about uh about like complex numbers, I suggest you like to go check out my video on complex numbers and it should be over here. And then if you can't remember why the four A transform uh like produces uh complex numbers. I suggest you to go check out this video that provides you with a lot of um information about the fourier transform itself. OK. So uh here we have like this complex number and we know that this complex number provides information both about a phase as well as uh the magnitude.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=589s",
+        "start_time": "589.909"
+    },
+    {
+        "id": "e102eeb4",
+        "text": "And as you can see here, this is a complex number and you have the uh real parts here and here you have the imaginary part of the, of this complex number. Now, once again, if you don't know what I'm talking about uh about like complex numbers, I suggest you like to go check out my video on complex numbers and it should be over here. And then if you can't remember why the four A transform uh like produces uh complex numbers. I suggest you to go check out this video that provides you with a lot of um information about the fourier transform itself. OK. So uh here we have like this complex number and we know that this complex number provides information both about a phase as well as uh the magnitude. And now the thing is that for most applications in A IO A, we usually don't care that much about face. So when we analyze signals, what we really care is to understand how much is each frequency is present in a, in an audio signal. And for that, we just need the magnitude. So what we do usually we it's",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=615s",
+        "start_time": "615.929"
+    },
+    {
+        "id": "7d97868f",
+        "text": "And then if you can't remember why the four A transform uh like produces uh complex numbers. I suggest you to go check out this video that provides you with a lot of um information about the fourier transform itself. OK. So uh here we have like this complex number and we know that this complex number provides information both about a phase as well as uh the magnitude. And now the thing is that for most applications in A IO A, we usually don't care that much about face. So when we analyze signals, what we really care is to understand how much is each frequency is present in a, in an audio signal. And for that, we just need the magnitude. So what we do usually we it's discard the information about phase and we only retain information about the magnitude. And so we move from the fourier coefficients uh to the magnitude spectrum. So how do we do that? Well, that is very simple because we just like take the absolute value of the fourier coefficients. In other words, we can take the magnitude spectrum of the violin",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=644s",
+        "start_time": "644.7"
+    },
+    {
+        "id": "377e29fc",
+        "text": "And now the thing is that for most applications in A IO A, we usually don't care that much about face. So when we analyze signals, what we really care is to understand how much is each frequency is present in a, in an audio signal. And for that, we just need the magnitude. So what we do usually we it's discard the information about phase and we only retain information about the magnitude. And so we move from the fourier coefficients uh to the magnitude spectrum. So how do we do that? Well, that is very simple because we just like take the absolute value of the fourier coefficients. In other words, we can take the magnitude spectrum of the violin uh sound here by taking NIN P dot apps which stands for absolute value of the violin FT. So we pass the uh free transform coefficients to the absolute value uh function and we get back to the magnitude spectrum. Now this is not the violin, it's just violin like this.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=674s",
+        "start_time": "674.15"
+    },
+    {
+        "id": "769fa927",
+        "text": "discard the information about phase and we only retain information about the magnitude. And so we move from the fourier coefficients uh to the magnitude spectrum. So how do we do that? Well, that is very simple because we just like take the absolute value of the fourier coefficients. In other words, we can take the magnitude spectrum of the violin uh sound here by taking NIN P dot apps which stands for absolute value of the violin FT. So we pass the uh free transform coefficients to the absolute value uh function and we get back to the magnitude spectrum. Now this is not the violin, it's just violin like this. Oh No, sorry. I just messed up everything. So it's not the violin, but it's the violin. OK. So now uh let's take a look at what happens here if we visualize like the first um coefficient for the magnitude spectrum. Now, as you can see here, we don't have the uh a complex number",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=701s",
+        "start_time": "701.869"
+    },
+    {
+        "id": "fc4b05e5",
+        "text": "uh sound here by taking NIN P dot apps which stands for absolute value of the violin FT. So we pass the uh free transform coefficients to the absolute value uh function and we get back to the magnitude spectrum. Now this is not the violin, it's just violin like this. Oh No, sorry. I just messed up everything. So it's not the violin, but it's the violin. OK. So now uh let's take a look at what happens here if we visualize like the first um coefficient for the magnitude spectrum. Now, as you can see here, we don't have the uh a complex number anymore. We actually have one single like real number. And that is indeed the magnitude associated with this initial frequency bin over here. OK. So",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=730s",
+        "start_time": "730.03"
+    },
+    {
+        "id": "82f493a7",
+        "text": "Oh No, sorry. I just messed up everything. So it's not the violin, but it's the violin. OK. So now uh let's take a look at what happens here if we visualize like the first um coefficient for the magnitude spectrum. Now, as you can see here, we don't have the uh a complex number anymore. We actually have one single like real number. And that is indeed the magnitude associated with this initial frequency bin over here. OK. So now you should have an idea of how to extract uh the uh fourier transform and how to calculate the magnitude spectrum. But what we want to do here next is to actually visualize the magnitude uh spectra for all of these different sounds that we have here so that we can compare them.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=755s",
+        "start_time": "755.219"
+    },
+    {
+        "id": "a3d3cd8f",
+        "text": "anymore. We actually have one single like real number. And that is indeed the magnitude associated with this initial frequency bin over here. OK. So now you should have an idea of how to extract uh the uh fourier transform and how to calculate the magnitude spectrum. But what we want to do here next is to actually visualize the magnitude uh spectra for all of these different sounds that we have here so that we can compare them. OK. So for that, I'm gonna create a little function called a plot magnitude spectrum.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=780s",
+        "start_time": "780.83"
+    },
+    {
+        "id": "798519b9",
+        "text": "now you should have an idea of how to extract uh the uh fourier transform and how to calculate the magnitude spectrum. But what we want to do here next is to actually visualize the magnitude uh spectra for all of these different sounds that we have here so that we can compare them. OK. So for that, I'm gonna create a little function called a plot magnitude spectrum. So this function is gonna accept a few parameters. So first of all the signal itself in the time domain, then it's gonna take a title so that we can give a title to our uh plots and then it's gonna accept a uh sample rate. OK. Yeah. Why do they do that well?",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=794s",
+        "start_time": "794.71"
+    },
+    {
+        "id": "915a9f5e",
+        "text": "OK. So for that, I'm gonna create a little function called a plot magnitude spectrum. So this function is gonna accept a few parameters. So first of all the signal itself in the time domain, then it's gonna take a title so that we can give a title to our uh plots and then it's gonna accept a uh sample rate. OK. Yeah. Why do they do that well? OK.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=817s",
+        "start_time": "817.109"
+    },
+    {
+        "id": "60f9dd17",
+        "text": "So this function is gonna accept a few parameters. So first of all the signal itself in the time domain, then it's gonna take a title so that we can give a title to our uh plots and then it's gonna accept a uh sample rate. OK. Yeah. Why do they do that well? OK. So now the first thing that we want to do is to calculate the fourier transform and we already say how to do that. And we'll do a NIN pi dot FFT dot FFT and we'll pass the uh signal, then we'll calculate the magnitude uh spectrum. And for that, we need to pass, we need to create like this NP dot apps and we'll pass the fourier transformer",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=827s",
+        "start_time": "827.979"
+    },
+    {
+        "id": "9e0441fc",
+        "text": "OK. So now the first thing that we want to do is to calculate the fourier transform and we already say how to do that. And we'll do a NIN pi dot FFT dot FFT and we'll pass the uh signal, then we'll calculate the magnitude uh spectrum. And for that, we need to pass, we need to create like this NP dot apps and we'll pass the fourier transformer and then we want to plot the magnitude uh spectrum. And so how do we do that? Well, first of all, we need to initialize a figure. And so we'll do a plot dot uh figure and we'll pass in a, a fixed size",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=850s",
+        "start_time": "850.13"
+    },
+    {
+        "id": "91842648",
+        "text": "So now the first thing that we want to do is to calculate the fourier transform and we already say how to do that. And we'll do a NIN pi dot FFT dot FFT and we'll pass the uh signal, then we'll calculate the magnitude uh spectrum. And for that, we need to pass, we need to create like this NP dot apps and we'll pass the fourier transformer and then we want to plot the magnitude uh spectrum. And so how do we do that? Well, first of all, we need to initialize a figure. And so we'll do a plot dot uh figure and we'll pass in a, a fixed size and this is a keyword argument. And here I'm going to pass in 18 for the width and five for the height.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=851s",
+        "start_time": "851.59"
+    },
+    {
+        "id": "28e0d8ac",
+        "text": "and then we want to plot the magnitude uh spectrum. And so how do we do that? Well, first of all, we need to initialize a figure. And so we'll do a plot dot uh figure and we'll pass in a, a fixed size and this is a keyword argument. And here I'm going to pass in 18 for the width and five for the height. And then the next thing that we want to do is to um kind of like create the X axis and these are gonna be like our frequency beams. And so we can call this uh like frequency. And so how are we gonna do this? So I'll, we're gonna be using this uh L space um A function from NPI.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=880s",
+        "start_time": "880.979"
+    },
+    {
+        "id": "eb3eaa21",
+        "text": "and this is a keyword argument. And here I'm going to pass in 18 for the width and five for the height. And then the next thing that we want to do is to um kind of like create the X axis and these are gonna be like our frequency beams. And so we can call this uh like frequency. And so how are we gonna do this? So I'll, we're gonna be using this uh L space um A function from NPI. So let me just like write this and then I'll explain what it does. So we'll take this between uh zero and the simple rate. And then here I'm gonna pass in the length of magnitude spectrum. So what's uh uh I've done here is basically taking a, a range. So we're gonna have like the frequency which is uh between zero and the uh sample rate.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=902s",
+        "start_time": "902.59"
+    },
+    {
+        "id": "9494bc75",
+        "text": "And then the next thing that we want to do is to um kind of like create the X axis and these are gonna be like our frequency beams. And so we can call this uh like frequency. And so how are we gonna do this? So I'll, we're gonna be using this uh L space um A function from NPI. So let me just like write this and then I'll explain what it does. So we'll take this between uh zero and the simple rate. And then here I'm gonna pass in the length of magnitude spectrum. So what's uh uh I've done here is basically taking a, a range. So we're gonna have like the frequency which is uh between zero and the uh sample rate. And then uh what I'm gonna do is I'm gonna like create as many divisions, as many frequency beams as the num as the length of the magnitude uh spectrum. So this is for frequency, then what we'll do next is just like plotting",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=911s",
+        "start_time": "911.599"
+    },
+    {
+        "id": "a482ffe3",
+        "text": "So let me just like write this and then I'll explain what it does. So we'll take this between uh zero and the simple rate. And then here I'm gonna pass in the length of magnitude spectrum. So what's uh uh I've done here is basically taking a, a range. So we're gonna have like the frequency which is uh between zero and the uh sample rate. And then uh what I'm gonna do is I'm gonna like create as many divisions, as many frequency beams as the num as the length of the magnitude uh spectrum. So this is for frequency, then what we'll do next is just like plotting So we'll do a plot dot uh plot, we need to pass the X axis and this is gonna be frequency. Our Y axis is obviously the uh magnitude uh spectrum over here. And then uh what we want to do next is to pass the X label.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=939s",
+        "start_time": "939.919"
+    },
+    {
+        "id": "6a55712d",
+        "text": "And then uh what I'm gonna do is I'm gonna like create as many divisions, as many frequency beams as the num as the length of the magnitude uh spectrum. So this is for frequency, then what we'll do next is just like plotting So we'll do a plot dot uh plot, we need to pass the X axis and this is gonna be frequency. Our Y axis is obviously the uh magnitude uh spectrum over here. And then uh what we want to do next is to pass the X label. And here as a, as the label for our X axis, we'll put in frequency which is measured in Hertz and then we'll do a plot dot uh title and the title is gonna be equal to title.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=969s",
+        "start_time": "969.359"
+    },
+    {
+        "id": "d7d8da75",
+        "text": "So we'll do a plot dot uh plot, we need to pass the X axis and this is gonna be frequency. Our Y axis is obviously the uh magnitude uh spectrum over here. And then uh what we want to do next is to pass the X label. And here as a, as the label for our X axis, we'll put in frequency which is measured in Hertz and then we'll do a plot dot uh title and the title is gonna be equal to title. And finally, we'll do a plot dot show so that we can show our plots. OK. So now if I haven't made any mistakes, we should be able to visualize the magnitude spectrum here. So now let me pass the uh yeah, let's take the",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=989s",
+        "start_time": "989.07"
+    },
+    {
+        "id": "16ec0c87",
+        "text": "And here as a, as the label for our X axis, we'll put in frequency which is measured in Hertz and then we'll do a plot dot uh title and the title is gonna be equal to title. And finally, we'll do a plot dot show so that we can show our plots. OK. So now if I haven't made any mistakes, we should be able to visualize the magnitude spectrum here. So now let me pass the uh yeah, let's take the VNC four. Are you here",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1011s",
+        "start_time": "1011.82"
+    },
+    {
+        "id": "8fe94da0",
+        "text": "And finally, we'll do a plot dot show so that we can show our plots. OK. So now if I haven't made any mistakes, we should be able to visualize the magnitude spectrum here. So now let me pass the uh yeah, let's take the VNC four. Are you here uh pass that signal then as the title I'll just pass in violin and then the sample H it is going to be equal to sample. H Let's see. Oh Here we go. Nice that we have our magnitude spectrum. And as expected on the X axis, we have the frequency",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1033s",
+        "start_time": "1033.63"
+    },
+    {
+        "id": "f1445450",
+        "text": "VNC four. Are you here uh pass that signal then as the title I'll just pass in violin and then the sample H it is going to be equal to sample. H Let's see. Oh Here we go. Nice that we have our magnitude spectrum. And as expected on the X axis, we have the frequency uh all the different frequency bins uh expressed in Hertz on the Y axis, we have the magnitude. Now, if you remember from my previous video, uh you probably know that uh like what we're going to get out of like this spectrum is some kind of like central cym met. And indeed, you see that",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1056s",
+        "start_time": "1056.81"
+    },
+    {
+        "id": "b3ac896c",
+        "text": "uh pass that signal then as the title I'll just pass in violin and then the sample H it is going to be equal to sample. H Let's see. Oh Here we go. Nice that we have our magnitude spectrum. And as expected on the X axis, we have the frequency uh all the different frequency bins uh expressed in Hertz on the Y axis, we have the magnitude. Now, if you remember from my previous video, uh you probably know that uh like what we're going to get out of like this spectrum is some kind of like central cym met. And indeed, you see that we have like central symmetry. So basically we can kind of like consider only the uh frequencies up to like the, the center point which is the NRS uh frequency.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1063s",
+        "start_time": "1063.449"
+    },
+    {
+        "id": "07a8aa2c",
+        "text": "uh all the different frequency bins uh expressed in Hertz on the Y axis, we have the magnitude. Now, if you remember from my previous video, uh you probably know that uh like what we're going to get out of like this spectrum is some kind of like central cym met. And indeed, you see that we have like central symmetry. So basically we can kind of like consider only the uh frequencies up to like the, the center point which is the NRS uh frequency. OK. So uh let's do that. And so I want to like make this like a little bit more uh flexible. So what I'll do is I'll change this function and I'll uh introduce like another uh argument called a frequency ratio. And I'll put like this as default equal to one.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1080s",
+        "start_time": "1080.969"
+    },
+    {
+        "id": "95fa2dee",
+        "text": "we have like central symmetry. So basically we can kind of like consider only the uh frequencies up to like the, the center point which is the NRS uh frequency. OK. So uh let's do that. And so I want to like make this like a little bit more uh flexible. So what I'll do is I'll change this function and I'll uh introduce like another uh argument called a frequency ratio. And I'll put like this as default equal to one. OK? But basically here uh I want to calculate the number of frequency beans right? Using the frequency uh ratio. Now this is going to be equal to",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1103s",
+        "start_time": "1103.739"
+    },
+    {
+        "id": "636c64bd",
+        "text": "OK. So uh let's do that. And so I want to like make this like a little bit more uh flexible. So what I'll do is I'll change this function and I'll uh introduce like another uh argument called a frequency ratio. And I'll put like this as default equal to one. OK? But basically here uh I want to calculate the number of frequency beans right? Using the frequency uh ratio. Now this is going to be equal to the frequency that we have. Well, the length of the frequency that we have here. And then we'll multiply that by the frequency ratio uh obviously like this number is gonna be a float. So we need to cast it to uh an integer. So I'll do this like that. OK?",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1116s",
+        "start_time": "1116.65"
+    },
+    {
+        "id": "63ddf9db",
+        "text": "OK? But basically here uh I want to calculate the number of frequency beans right? Using the frequency uh ratio. Now this is going to be equal to the frequency that we have. Well, the length of the frequency that we have here. And then we'll multiply that by the frequency ratio uh obviously like this number is gonna be a float. So we need to cast it to uh an integer. So I'll do this like that. OK? And so now uh like by doing so we can only, we can take like only a,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1139s",
+        "start_time": "1139.14"
+    },
+    {
+        "id": "1434ba9d",
+        "text": "the frequency that we have. Well, the length of the frequency that we have here. And then we'll multiply that by the frequency ratio uh obviously like this number is gonna be a float. So we need to cast it to uh an integer. So I'll do this like that. OK? And so now uh like by doing so we can only, we can take like only a, a part of the original number of like frequency bins. And so now what we can do is just like go in here and slice the frequency and magnitude spectrum um variables here, arrays and only like consider uh from zero up to the number of frequency bins that we want to consider. And I'll do the very same thing for the um magnitude spectrum",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1155s",
+        "start_time": "1155.939"
+    },
+    {
+        "id": "e4321ef6",
+        "text": "And so now uh like by doing so we can only, we can take like only a, a part of the original number of like frequency bins. And so now what we can do is just like go in here and slice the frequency and magnitude spectrum um variables here, arrays and only like consider uh from zero up to the number of frequency bins that we want to consider. And I'll do the very same thing for the um magnitude spectrum here. OK? So now if I put the frequency ratio equal to one, well we still have the same thing. And as you can see the frequency in Hertz goes up to 22,000 uh 50 Hertz. Yeah. Let me just like uh remove this. Oh By the way, given. Yeah, I said this.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1180s",
+        "start_time": "1180.489"
+    },
+    {
+        "id": "81cc2293",
+        "text": "a part of the original number of like frequency bins. And so now what we can do is just like go in here and slice the frequency and magnitude spectrum um variables here, arrays and only like consider uh from zero up to the number of frequency bins that we want to consider. And I'll do the very same thing for the um magnitude spectrum here. OK? So now if I put the frequency ratio equal to one, well we still have the same thing. And as you can see the frequency in Hertz goes up to 22,000 uh 50 Hertz. Yeah. Let me just like uh remove this. Oh By the way, given. Yeah, I said this. So this is the sound of A I uh slack uh community. And so if you want to join here, you can get like information about like all things like A I audio and A I music and you can also like network with very, very cool people know things",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1187s",
+        "start_time": "1187.26"
+    },
+    {
+        "id": "b64a9425",
+        "text": "here. OK? So now if I put the frequency ratio equal to one, well we still have the same thing. And as you can see the frequency in Hertz goes up to 22,000 uh 50 Hertz. Yeah. Let me just like uh remove this. Oh By the way, given. Yeah, I said this. So this is the sound of A I uh slack uh community. And so if you want to join here, you can get like information about like all things like A I audio and A I music and you can also like network with very, very cool people know things about like the uh like community, like updates and new things you can ask for advice or you can just uh yeah, talk about papers and other cool stuff all around like a IO you that if you are interested in joining the sound of A I community, I'll leave you the sign up link in the uh comment in the description below",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1216s",
+        "start_time": "1216.979"
+    },
+    {
+        "id": "65608f34",
+        "text": "So this is the sound of A I uh slack uh community. And so if you want to join here, you can get like information about like all things like A I audio and A I music and you can also like network with very, very cool people know things about like the uh like community, like updates and new things you can ask for advice or you can just uh yeah, talk about papers and other cool stuff all around like a IO you that if you are interested in joining the sound of A I community, I'll leave you the sign up link in the uh comment in the description below after this little teacher with the sound of A I is like community. Let's go back to like the plot here. And as we said, so when we have the frequency ratio which is equal to one still we get all of our um f the frequency like has all the original frequency bins. And so it's",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1239s",
+        "start_time": "1239.42"
+    },
+    {
+        "id": "62372be8",
+        "text": "about like the uh like community, like updates and new things you can ask for advice or you can just uh yeah, talk about papers and other cool stuff all around like a IO you that if you are interested in joining the sound of A I community, I'll leave you the sign up link in the uh comment in the description below after this little teacher with the sound of A I is like community. Let's go back to like the plot here. And as we said, so when we have the frequency ratio which is equal to one still we get all of our um f the frequency like has all the original frequency bins. And so it's up to the uh sample rate frequency which is 22,050 Hertz. But if we change date, say to 0.5 we'll just have uh we'll just consider the frequencies up up to the Nicholas frequency which is half the sample rate, which in this case is 11,000 Hertz.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1260s",
+        "start_time": "1260.969"
+    },
+    {
+        "id": "6ae446b2",
+        "text": "after this little teacher with the sound of A I is like community. Let's go back to like the plot here. And as we said, so when we have the frequency ratio which is equal to one still we get all of our um f the frequency like has all the original frequency bins. And so it's up to the uh sample rate frequency which is 22,050 Hertz. But if we change date, say to 0.5 we'll just have uh we'll just consider the frequencies up up to the Nicholas frequency which is half the sample rate, which in this case is 11,000 Hertz. And uh but still here we see that most of the energy is contained in like lower frequencies. So I to zoom in, I'll just like put a 0.1 here. And as you can see here, like this is like nice because here we can actually see the different frequencies that are like involved in shaping",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1282s",
+        "start_time": "1282.979"
+    },
+    {
+        "id": "c5ffa46b",
+        "text": "up to the uh sample rate frequency which is 22,050 Hertz. But if we change date, say to 0.5 we'll just have uh we'll just consider the frequencies up up to the Nicholas frequency which is half the sample rate, which in this case is 11,000 Hertz. And uh but still here we see that most of the energy is contained in like lower frequencies. So I to zoom in, I'll just like put a 0.1 here. And as you can see here, like this is like nice because here we can actually see the different frequencies that are like involved in shaping this violin C four sound. And so here at around 2060 Hertz, we have AAA first pick and this is the fundamental frequency of C four and engaged like this is the frequency of AC four note.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1302s",
+        "start_time": "1302.579"
+    },
+    {
+        "id": "d082d2ed",
+        "text": "And uh but still here we see that most of the energy is contained in like lower frequencies. So I to zoom in, I'll just like put a 0.1 here. And as you can see here, like this is like nice because here we can actually see the different frequencies that are like involved in shaping this violin C four sound. And so here at around 2060 Hertz, we have AAA first pick and this is the fundamental frequency of C four and engaged like this is the frequency of AC four note. Then we have like the first harmonic, which it should be around 520 Hertz uh which is very present. And then we have the third, the 4th 5th harmonic and so forth. The interesting thing here is that the uh first harmonic of this violin T four sound has more energy than the fundamental. So which is kind of like interested in itself.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1323s",
+        "start_time": "1323.79"
+    },
+    {
+        "id": "353cdbc3",
+        "text": "this violin C four sound. And so here at around 2060 Hertz, we have AAA first pick and this is the fundamental frequency of C four and engaged like this is the frequency of AC four note. Then we have like the first harmonic, which it should be around 520 Hertz uh which is very present. And then we have the third, the 4th 5th harmonic and so forth. The interesting thing here is that the uh first harmonic of this violin T four sound has more energy than the fundamental. So which is kind of like interested in itself. OK. So now let's compare this with the sax saxophone sound. So Sax C four and here, Papa sa",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1343s",
+        "start_time": "1343.06"
+    },
+    {
+        "id": "c8fda1f3",
+        "text": "Then we have like the first harmonic, which it should be around 520 Hertz uh which is very present. And then we have the third, the 4th 5th harmonic and so forth. The interesting thing here is that the uh first harmonic of this violin T four sound has more energy than the fundamental. So which is kind of like interested in itself. OK. So now let's compare this with the sax saxophone sound. So Sax C four and here, Papa sa and as you can see, we have a quite similar um spectrum uh magnitude spectrum here. And this is to be expected because like both instruments are playing the very same note, which is this C four. And so you see I pick here on uh around like the fundamental frequency and on the first harmonic. But on a closer look, you'll see that the, the relative presence of these harmonics and the",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1363s",
+        "start_time": "1363.06"
+    },
+    {
+        "id": "efc963ce",
+        "text": "OK. So now let's compare this with the sax saxophone sound. So Sax C four and here, Papa sa and as you can see, we have a quite similar um spectrum uh magnitude spectrum here. And this is to be expected because like both instruments are playing the very same note, which is this C four. And so you see I pick here on uh around like the fundamental frequency and on the first harmonic. But on a closer look, you'll see that the, the relative presence of these harmonics and the fundamental is different for the violin and the saxophone. And so this is one of the reasons why we perceive this sounds as different in timer that they still have like the same frequency uh because they're both playing the same C for note, but they sound different. And one of the reasons why that's the case, it's because they, their energy content, which we can see through this power spectrum is different.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1390s",
+        "start_time": "1390.869"
+    },
+    {
+        "id": "754d88d2",
+        "text": "and as you can see, we have a quite similar um spectrum uh magnitude spectrum here. And this is to be expected because like both instruments are playing the very same note, which is this C four. And so you see I pick here on uh around like the fundamental frequency and on the first harmonic. But on a closer look, you'll see that the, the relative presence of these harmonics and the fundamental is different for the violin and the saxophone. And so this is one of the reasons why we perceive this sounds as different in timer that they still have like the same frequency uh because they're both playing the same C for note, but they sound different. And one of the reasons why that's the case, it's because they, their energy content, which we can see through this power spectrum is different. OK. So now let's take a look at the C five notes on uh the piano. So I'll do a piano C five and let's call this piano,",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1402s",
+        "start_time": "1402.42"
+    },
+    {
+        "id": "96d2dbcb",
+        "text": "fundamental is different for the violin and the saxophone. And so this is one of the reasons why we perceive this sounds as different in timer that they still have like the same frequency uh because they're both playing the same C for note, but they sound different. And one of the reasons why that's the case, it's because they, their energy content, which we can see through this power spectrum is different. OK. So now let's take a look at the C five notes on uh the piano. So I'll do a piano C five and let's call this piano, right? And now, obviously like the fundamental here is not 260 but it's rather 520 Hertz because we are a NCTA above C four because we are in C five and that basically doubles the um frequency of the fundamental.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1431s",
+        "start_time": "1431.17"
+    },
+    {
+        "id": "687a651e",
+        "text": "OK. So now let's take a look at the C five notes on uh the piano. So I'll do a piano C five and let's call this piano, right? And now, obviously like the fundamental here is not 260 but it's rather 520 Hertz because we are a NCTA above C four because we are in C five and that basically doubles the um frequency of the fundamental. And, but the, the cool thing here is that you can see that uh the pick is on the fundamental, then the first harmonic partial uh is kind of like less present than the fundamental",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1460s",
+        "start_time": "1460.119"
+    },
+    {
+        "id": "a1a03a4d",
+        "text": "right? And now, obviously like the fundamental here is not 260 but it's rather 520 Hertz because we are a NCTA above C four because we are in C five and that basically doubles the um frequency of the fundamental. And, but the, the cool thing here is that you can see that uh the pick is on the fundamental, then the first harmonic partial uh is kind of like less present than the fundamental and then like the other like harmonics just like fade away in their presence. This is different from what happens with the violin and the saxophone where the first harmonic partial is more present than the fundamental.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1472s",
+        "start_time": "1472.989"
+    },
+    {
+        "id": "df625f93",
+        "text": "And, but the, the cool thing here is that you can see that uh the pick is on the fundamental, then the first harmonic partial uh is kind of like less present than the fundamental and then like the other like harmonics just like fade away in their presence. This is different from what happens with the violin and the saxophone where the first harmonic partial is more present than the fundamental. OK. So now, uh as a final thing, let's take a look at the noise signal.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1491s",
+        "start_time": "1491.719"
+    },
+    {
+        "id": "ccb6af32",
+        "text": "and then like the other like harmonics just like fade away in their presence. This is different from what happens with the violin and the saxophone where the first harmonic partial is more present than the fundamental. OK. So now, uh as a final thing, let's take a look at the noise signal. So we'll have like noise here and I'll put in here a noise. All right. And as you can see here, what happens is that you have uh a lot of activity, a lot of energy in all the different frequency bins.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1506s",
+        "start_time": "1506.859"
+    },
+    {
+        "id": "6bb18498",
+        "text": "OK. So now, uh as a final thing, let's take a look at the noise signal. So we'll have like noise here and I'll put in here a noise. All right. And as you can see here, what happens is that you have uh a lot of activity, a lot of energy in all the different frequency bins. For sure. We have some kind of like pick here towards like the lower frequencies. But then as you can see, like all the frequency bins have a little bit of like of energy in them. And that's what I um noisy signal looks like. OK.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1523s",
+        "start_time": "1523.9"
+    },
+    {
+        "id": "8f712363",
+        "text": "So we'll have like noise here and I'll put in here a noise. All right. And as you can see here, what happens is that you have uh a lot of activity, a lot of energy in all the different frequency bins. For sure. We have some kind of like pick here towards like the lower frequencies. But then as you can see, like all the frequency bins have a little bit of like of energy in them. And that's what I um noisy signal looks like. OK. Cool. So I think like we, we did like some cool stuff like in this video because now you should be able like to extract the um four transform with Python using NP. And then you should also be able to visualize the",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1531s",
+        "start_time": "1531.319"
+    },
+    {
+        "id": "765c3489",
+        "text": "For sure. We have some kind of like pick here towards like the lower frequencies. But then as you can see, like all the frequency bins have a little bit of like of energy in them. And that's what I um noisy signal looks like. OK. Cool. So I think like we, we did like some cool stuff like in this video because now you should be able like to extract the um four transform with Python using NP. And then you should also be able to visualize the magnitude spectrum using lip. And finally, we also now know the difference between like different instruments and what uh that uh like means in terms of like uh perceptual um characteristics lack of sound. OK. So now one thing that I want to draw your attention to before I dash off and I finish off like this video is that",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1547s",
+        "start_time": "1547.625"
+    },
+    {
+        "id": "6cdc6e4d",
+        "text": "Cool. So I think like we, we did like some cool stuff like in this video because now you should be able like to extract the um four transform with Python using NP. And then you should also be able to visualize the magnitude spectrum using lip. And finally, we also now know the difference between like different instruments and what uh that uh like means in terms of like uh perceptual um characteristics lack of sound. OK. So now one thing that I want to draw your attention to before I dash off and I finish off like this video is that uh each uh yeah of this magnitude spectra is a kind of like a snapshot that we take and it's a snapshot that provides us information across all the duration of a sound. It doesn't give us, give us any information about what happens",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1565s",
+        "start_time": "1565.3"
+    },
+    {
+        "id": "df149867",
+        "text": "magnitude spectrum using lip. And finally, we also now know the difference between like different instruments and what uh that uh like means in terms of like uh perceptual um characteristics lack of sound. OK. So now one thing that I want to draw your attention to before I dash off and I finish off like this video is that uh each uh yeah of this magnitude spectra is a kind of like a snapshot that we take and it's a snapshot that provides us information across all the duration of a sound. It doesn't give us, give us any information about what happens uh with relation to the frequency like second by second or like moment by moment, we just lose that information because we average everything across all the duration of a sound. Wouldn't it be fantastic if we could have information about the frequency and uh it as a function of time as well? Well, that would be fantastic indeed. And",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1582s",
+        "start_time": "1582.589"
+    },
+    {
+        "id": "f3a84085",
+        "text": "uh each uh yeah of this magnitude spectra is a kind of like a snapshot that we take and it's a snapshot that provides us information across all the duration of a sound. It doesn't give us, give us any information about what happens uh with relation to the frequency like second by second or like moment by moment, we just lose that information because we average everything across all the duration of a sound. Wouldn't it be fantastic if we could have information about the frequency and uh it as a function of time as well? Well, that would be fantastic indeed. And it's going to be the topic of my next video, which is going to introduce the theory behind the short time fourier transform. And the short time fourier transform is going to enable us to extract spectra spectrum, the spectrum from an audio signal. And this is the main currency that we use in A I, audio and music information retrieval to make",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1608s",
+        "start_time": "1608.739"
+    },
+    {
+        "id": "b37a71bd",
+        "text": "uh with relation to the frequency like second by second or like moment by moment, we just lose that information because we average everything across all the duration of a sound. Wouldn't it be fantastic if we could have information about the frequency and uh it as a function of time as well? Well, that would be fantastic indeed. And it's going to be the topic of my next video, which is going to introduce the theory behind the short time fourier transform. And the short time fourier transform is going to enable us to extract spectra spectrum, the spectrum from an audio signal. And this is the main currency that we use in A I, audio and music information retrieval to make sense of uh digital audio signals. So stay tuned for that. That's all for today. I hope you've enjoyed the video. If that's the case, please leave a like and if you haven't subscribed to the channel, please consider doing so. If you have any questions as usual, feel free to leave them in the comments section below. See you next time. Cheers.",
+        "video": "How to Extract the Fourier Transform with Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "R-5uxKTRjzM",
+        "youtube_link": "https://www.youtube.com/watch?v=R-5uxKTRjzM&t=1630s",
+        "start_time": "1630.42"
+    }
+]

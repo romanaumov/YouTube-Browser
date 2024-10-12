@@ -1,0 +1,686 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This time, I'll be introducing the fourier transform. Now, when I was uh planning this video, I thought what's the best way of introducing the fourier transform? And I thought, well, perhaps I should just give you a little bit of intuition there and then go straight into uh implementation or even just use the browser for extracting a spectrum through the fourier transform. But then I thought, well, the fourier transform is at core of signal processing. So just sprinkling a little bit of math here and there and intuition is not going to be enough for you. So you really want to have a deep understanding of the fourier transform and all of its implications. This is why I've decided to divide this topic into a number of videos. And this first video is going to give you a an introduction and the high level of intuition of the fourier transform. But towards the end, I'll just be giving you a little bit of math to formalize what we'll be discussing throughout the video. So stay tuned for more about the fourier transform. But before we get started, I want to invite you once again to the sound of the eye is lacking community. If you don't know it, this is a community where uh we are a bunch of people interested in A I music signal processing A I audio, all of these kind of things. And there you can ask for feedback, improve your skills, share research and talk with very cool people. So if you're interested in that, just go check out the sign up link in the description below. OK. Now on to the real stuff to introduce the concept of that are behind um the fourier transform. I want to use an analogy here. And for that, I'm gonna use one of the most iconic cover ever created in the rock world and from one of the bands that I love the most pink Floyd. So this is the cover for dark side of the moon. So what does this have to do with the fourier transform? Well, it's the analogy here that counts a lot. So here we have a beam, a light beam, right? So this is a complex waveform, it goes through a prism and then out of the prism, we get the different like spectral bands, the different colors divided, right. So the basic idea is complex waveform. We have kind of like a machine or an algorithm which in this case is the prism. And then we get all the different components which make up uh light. OK. So with the fourier transform, we do something that's very, very similar to this. So the high level intuition here is that we have a complex sound and then using the fourier transform, which in our analogy is the prism, we decompose the complex sound into its frequency components. Because if you remember from one of my initial videos, uh complex sounds are made up of many different uh pure turns added up superimposed together. OK. So this is like basically the first intuition that you have. Now when we do this, when we use the four year transform, what we do really is a journey from the time domain to the frequency domain. So probably if you followed along this series, you've seen like this type of like slide time and again, but let me repeat that uh for yeah, the sake of yeah, understanding everything very deeply. OK. So here we have like a sound you know wave plot and here we have time on the X axis right. Then we use the fourier transfer some magic happens and we get the same sound but this time uh plotted in the frequency domain. So we have a frequency analysis of the very same sound. And in other words, on the x axis, we have frequency and where you see this spot, it means that the relative um frequencies at that specific Hertz are an important component of that original sound. Now, the question is how do we do this? So how do we go from the time domain to the frequency domain? Well, that's the topic of today's video at an intuition level. OK. Now let's go one level of resolution further uh down and get like a better intuition of what's going on with the fourier transform. So uh when we apply the fourier transform, we do a bunch of things. So the first thing that we do is we compare the original signal with a bunch of sinusoids with various frequencies, right. So we have the original signal and then we have uh a bunch of sine waves and we want to compare the original signal to those sine waves which are gonna have different frequencies. And so out of that comparison, what we get is a magnitude and a phase. Now what does the magnitude tells us? Well, uh the magnitude tells us how similar the uh original signal and the P turn or the sign turn are. So the higher the magnitude, the higher the similarity between the original signal and the sinusoid with that specific uh frequency. Now we'll take a look at the phase in uh uh a few minutes. But here uh this is kind of like the, the deeper intuition, but still, it may feel a little bit abstract. So now let's go to check out some code that I've written in a Jupiter notebook and see how this applies specifically and just like visualize some of these intuitions. OK? So now uh it's not important uh to look at the code here. And many of the stuff that I've uh like many of like these lines of code that I've read here, I already explained to you like in previous videos. Uh But what's important is to look at the results of these things. OK. So now let me get started. So I'll import uh all of these libraries which will need to plot and analyze sounds. OK. So the first thing that I want to do is to uh actually show you the sound that we'll be analyzing. So let's listen to this. OK. It's just a piano key specifically, it's C five note C five. OK? And it's held for almost like a second and a half. OK. So here we'll just load the audio file which uh Li Brosa, as, as I said, uh you've seen how to do this in previous video if you followed the series, if you haven't just like, check that out, OK. So the next step is to actually plot the waveform. And yeah, here we have like our nice little waveform. So once again, here we are in the time domain. So X axis is time, Y axis is amplitude and as you can see, so we have the attack of the sound and then we have a little bit of the DC and then yeah, the sound ends towards like 1.4 seconds. OK. So the next step is the crucial one is the one that we use for deriving the free transform. And we do that by using uh S IP specifically the FFT module. And we use the FFT which stands for fast fourier transform um function in the FFT module. So we pass it in the signal and we get the fourier transform. Now, I'm not going to show you what that result actually is because you need to have like mm a deeper understanding of math complex numbers and things that, that which you'll have in a few videos. But for now, the important thing to understand is that if we do the absolute, if we take the absolute value of the fourier transform, we actually get the magnitudes and this is the y axis of our spectrum. Whereas on the X axis obviously, we have the frequencies. Now how should we like distribute the frequencies on the X axis? So the frequencies are gonna be between zero Hertz and the sampling rate. OK. And then we'll divide this in in a number of steps that's equal to the length of the, of the magnitude array. OK. So with all of this in mind, we can now plot the spectrum and here we go. So here we have the spectrum and as you can see, we can see a peak in the magnitude around 523 Hertz. And this is more or less the frequency the specific frequency for the note C five. And so this is the so called fundamental of the, of the, of the sound that we've heard and then we have a few spikes. So here around uh 1004, um 1 hun 1040 Hertz something and here and 1/4 1 here and a little bit of 1/5 down here, but it's almost like unnoticeable that one. OK. So the, this profile is quite specific, right? And, and it feels like there there's some like symmetry like natural uh thing to it. And it's the fact that this is a harmonic sound. In other words, these guys over here are harmonics or overtones of the fundamental frequency. In other words, this frequency is just twice the frequency of the fundamental, the frequency associated with this third spike is three times the frequency of the fundamental. And here it's four times that OK. Good. Now, if you don't remember uh what all the turns are like or partials or these things I have a video about that is one of the initial videos and it should be linked up here. OK. So now we've seen how we can move basically from the time domain to the frequency domain. But still the fourier transform is a completely black box for us. Now, I want to start unravel it for you guys and give you an understanding of how the this process and the fourier transform works. But for that, what I want to do is zoom into the waveform and actually uh be at a resolution where we can actually see like all the cycles in um the wave associated with this sound. OK. So for doing that be before we do that. Yeah, let's, let's take a look at it at a few numbers. So the length of the signal or in other words, the number of samples that we have, it's around 34,000 samples. The sampling rate, if I remember correctly here should be a 22,050 Hertz. And the duration of each sample is the inverse of Dutch, which is four times 10 to um the power of minus five. So it's a very, very short amount of time for each sample. Now, uh let's take a look at the duration of a cycle for our fundamental frequency. So 523 Hertz and so obviously, this is one divided by 523. And if you take a look at these results, so this is uh almost two milliseconds. So we have a cycle every two milliseconds. So now what I want to do, it's just like zoom in and to the waveform and only consider 400 samples because 400 samples are gonna give us uh 0.02 seconds. And this is, this will enable us to see more or less like 10 cycles of our waveforms. And that is something like that, we can definitely visualize. OK. So all of that to say that um I have like this new plot where we zoom into the waveform. And here I'm only considering 400 samples. In other words, I'm slicing the signal which is on the Y axis. And I'm only considering the, the samples between like 20,400. OK. So let's take a look at this and here you have the results. So now we are at a resolution where we can actually see the um all the cycles. OK. So now what's the point of all of this? Well, the point is that uh what we want to do is to actually compare this signal against sinusoids with different um frequencies. OK. And see the similarity there. So, and I want to show you how we can do that visually. OK. So now let me just go back here and I want to uh remind you of the equation for a sine wave, which is given by this formula here. So it's like the sine of two pi uh which uh multiplies F uh times T where F is the frequency T is just time minus P where P is the face and we'll see what the face does in a second. OK. So yeah, let's just go back here. So the thing that we want to do here is just create a sinusoid. And here I'll put the frequency equal to 523 which is our fundamental frequency for the time being, we'll have a phase of zero. And here we have our function, our sine wave over here. OK. And then I'm just gonna plot that once again uh between 10,000 samples and 10,000 of 400 samples. So just 400 samples so that we can uh kind of like superimpose this to the original signal uh in a few minutes. OK. So here we have our nice uh SYO at 5, 523 hurts. Now, let's take a look at the face. So what does the uh face do? Well, for that, what I suggest doing is just create another um another um uh sinusoid which will call over here. Yeah, it's a little bit difficult to work with this extra big cursor. So over here, so this is phase two. Everything else will be uh like the same. So we'll just like change the phase here. And obviously I need to plots signed to as well over here. It's not there, it's down here. And I'll use say, I don't know like a yellow color color for this. OK. So now let's use the same face. And so if we use the same face, uh so we, we have a mistake here. Oh Yes, because this is face two. OK. So let's go. Yeah. And obviously like the two sinusoids are completely aligned on top of each other. But now if I change the phase, say like I go 0.2 for uh sinus, the the yellow sinusoid, uh you'll see that the um sinusoid is now shifting, shifting towards the right. If I get to 0.5 the sinusoids are completely like in opposite phase. So in other words, when we have a pick with the red sinusoid, we have a deep uh with the uh yellow sinusoid and vice versa. And the closer I get to, to one and the closer I'm just like realigning them. And so once we are back at one, so they are aligned once again. So what this means is that if I continue giving like higher numbers for phase two, we'll just like start again the, the circle because yeah, I mean, we are like using a, a periodic function in the end. OK. So 1.5 it's basically equal to uh we get like the same function of the same sine wave that we had for 0.5. And if we go to, we change the phase to two. Well, once again, we are just back to the um to being aligned once again with the uh initial sine wave. OK. So all of this to say that we can assume that the phase moves between zero and one just because uh the, the function is periodic. OK. So now what's the big deal like with this uh sine waves? Right? So the point is that we want to compare uh the signal and the sino if you guys remember what I said with the deeper intuition. So uh in order to, to move from the frequent, from the time domain to the frequency domain, we compare the signal with sinusoids of various frequencies. And then for each frequency, we get a magnitude and the phase. OK. And the and high magnitude indicates high similarity between the signal and a sinusoid. Now, let's see how this actually applies here visually. OK. So what I'm doing here is I'm plotting uh both the original signal as well as a uh sinusoid here and the sinusoid is going to be shown in red. OK. And here for the sinusoid, I'm using the fundamental frequency. So 523 and the phase is set at uh zero. OK. So let's take a look at this. OK. That's really cool. But as you can see, we, I mean, like the two waveforms like more or less like seem to have like a similar uh like cycle, right? So similar frequency. And that's because obviously the original signal has the fundamental which is at 523. Uh but there are somewhat out of phase. So we want to align this. So how do we do that? Well, we can just uh increase the phase and see what happens. So let me redo this and as you can see now we are kind of align the two and I know because I've tried it before that we have a very good alignment when we use a face, which is equal to N 0.55 55. And here we go. So as you can see now, the two signals are quite uh like aligned, they're quite similar. But here we are talking about similarities. So how do we calculate similarity? Well, we have many ways of calculating similarities for two functions But one that's like very intuitive and simple is to combine the two signals by multiplying them. And in this case, it would be a multiplication sample by sample. So point by point we multiply the two signals and then we just look at the area. So we add all the positive areas and we feel like the, the area below uh the um the new combined signal and we add the positive area and we subtract the negative area. So let me explain what that is. And for doing that, we just add this line of code here which I already had prepared. So, and as you can see here on the Y axis, we are now multiplying the sign um signal with the original signal and we'll have the color of this combined signal in yellow. So let's see what happens here. OK. And you can see this now, I'm taking the area. In other words, I'm filling up the area below um the, the waveform. And as you can see here, we have basically, it's all like positive area. And the intuition here is that the higher the area, the positive area that we have for the combined signal and the higher the similarity between the two original, the two signals. So the Sinusoid, as well as the original signal and the intuition behind this is that if I, when I multiply both of this and they have the same sign, so they are both. So the signal and the uh Sinusoid have both like positive sign or both negative sign, then they're gonna end up with like a positive value, right? Whereas uh if they have an alternate opposite science, then we'll end up like with negative values. And so when we add like that positive area to the negative area, we just end up with a uh value that tells us how much similar these two signals are really are OK. But uh one thing that I want to show you here is that if I change the phase here, so let's assume we go down to zero. So phase is equal to zero. Now all of a sudden we have all negative areas, right? And so there's no similarity at all, even if we have the same sine wave. So with the with the same frequency and amplitude, but still the phase is extremely important. But because in this case, uh is just there's no similarity whatsoever. So we only have like negative areas here, negative values for the combined um sine wave, not sine wave for the combined signal. OK. So if we go and say take a 0.2 for example, uh yeah, still this is mostly like negative but now let's try 0.4. OK. Yeah, this is a good example. So which phase at no 0.4 we have uh a bit of negative areas as well as a bit of positive areas. So yeah, it's a little bit of mixed bag. There's some level of like similarity between the two signals, but it's not uh perfect. OK. So this is the intuition that we can use to understand how we move from uh the time domain to the frequency domain. And it's just as simple as doing a bunch of things. So we choose a frequency first and then we create a sine wave out of like that frequency. Then the next step is we want to optimize for the face so that we know that we've chosen the phase that gives the maximum similarity. So the maximum area possible. And finally, we calculate the magnitude and the magnitude is basically the similarity or in other words, the positive area of the combined signal uh minus the negative area. OK. But this is just for one single frequency in a fourier transform, we have to try and do this for all possible frequencies in the real set. OK. So we start with a frequency, then we, we continue and do like the same steps for the next frequency and we move on and on and on and on. And by doing so we are able to see which frequencies have a, an important are important components of the original signals. And those will be um kind of indicated by because they have a high value for the magnitude. And this is like what happens here. So if we go back here, so here we see like the the spectrum once again. So yeah, let me just find, let's just go back to, to the best uh phase that I could find. So 0.55. So as you can see here, uh the fact that we have like this nice alignment between the frequency at the sage at 523 Hertz and the original signal is reflected in the power spectrum here. And that's because we have this peak in the magnitude which is around 523 Hertz. So that tells us that we have this high level of similarity between the sine wave at the pure to at 523 Hertz and the original signal. OK. So this is uh interesting. So now I hope like you, you get the understanding and the intuition behind the fourier transform. Now, the next step is to take a look at a little bit of mathematical formalization of what we've said so far and don't be scared about like this massive creation here. So I'll just break it down for you. But in, in a nutshell, this is what we've just said. So what we are looking for here is the phase for like the optimized phase for a given frequency F OK. So these two things that we have in here is just the multiplication of the signal and the sinusoid. So SFT is just our original signal. And here we have our sinusoid and we multiply those. Now the next step is to calculate the area and we do that with this integral symbol. Now you don't need to understand calculus. But the intuition here is that we are basically calculating the uh positive area of the combined signal and then subtracted that's the negative area. And that's what we are doing with the integral, which is across time. So it's basically we, we take like all uh the, the, the time throughout like the uh a given signal. And finally, what we do is we take the arc marks. In other words, we want to select the phase in the interval 01 and we show why we only consider 01. And so we want to take like this phase that maximizes the area. And in other words, what we are doing here is what I was doing manually before tweaking the phase in order to find the phase that would actually, and maximize the positive area that we have when we combine the two signals. OK. So it's this is simple intuition to understand, OK. The next step that we want to do is to actually take the um magnitude. And so how do we take the magnitude? Well, it's basically the same thing, right? So we are once again calculating the, combining the two signals and then we calculate the area uh that we have once we multiply the original signal with the synod. And finally, this is the only, the only step that's different from the, the previous one that we, so uh we just want to select the max area. And uh for selecting that we are going to try like all the possible like uh values for a phase between zero and one. But if we have that value already, because we've optimized before we'll just use that value and plug it in here directly. It's important to say that the calculations that we've carried out here are in a continuous space. In other words, uh because we use this integral here, we are basically assuming that time is continuous or in other words, uh like time is a real number, it changes as a real number. OK. So time is continuous, but frequency is continuous as well, right? So while this is the case for the, the theory, well, what we've done already, for example, uh with our code uh doesn't uh use like continuous representation. Uh Just because uh computers can't use continuous representation, we have to sample a continuous function and use a discrete version of that. Now, uh if you want to know more about continuous versus um discrete uh signals, I suggest you to go check out one of my first videos on this topic. Uh But the whole point here that I want to make is that the theory that we're going to study at least like over the next couple of videos is going to be about continuous for a uh transform. But then we'll move on and take a look at the discrete fourier transform. And there the math is going to be slightly different. And uh that is going to be the math that we will actually be using for understanding how to implement an algorithm that can extract the fourier transform in the case of discrete signals. OK. So uh up until now you you've learned how to move from the time domain to the frequency domain. But you may be wondering is there a way of going the other way around? So the round trip, so we go from time to frequency domain but then can we go to frequency domain to time domain? And this would be the equivalent of saying OK. So now we start with these uh different like color bands, we put them into the prism, this fantastic algorithm and we end up with the, with a complex light wave. OK. Can we do that with the fourier transform? And the answer is yes, we can reconstruct a signal by superimposing all the sinusoids, all the frequency components that we've extracted out of the original signal. So we superimpose the sinusoids and we weigh them by their relative magnitude. So the ones that uh have a higher magnitude are gonna have like a higher impact in making the original signal. And then obviously, we want to use the uh the original, the phase that we extracted as well. And the point here is that the original signal and the fourier transform have the same information and we can go back and forth from time to frequency domain as we please. So and the process of going back from frequency domain to time domain is called inverse fourier transform. So we start from the frequency domain, we apply an inverse fourier transform and we go all the way back to the original signal and the time domain. OK. So this is like an idea that's not exactly the same as that of adjective synthesis, but it's kind of like similar. So in adjective synthesis, you have synthesizers which basically use different sinusoids and you can superimpose them. So combined by adding them up um in order to create complex sounds. And if you think about it, this is somewhat similar to what we were saying with the inverse fourier transform. So let me show you these in a an example. So I found uh like this very cool uh website. So where you can try out adjective sensor. So here like you have uh a bunch of different frequencies. So here this is like C four. So tw uh 261 Hertz. Then we have 523 Hertz, which is C five, which is the fundamental frequency of R uh sound. And then you go up. So basically here you have like all the overturns of these C four fundamental frequency. OK. So let's unmute this. So you should be able to, yeah, let me put this down a little bit. OK. So you should be able to, to hear this C four, right? So now let me add uh the first overturn and take a look at how the main signal is gonna be modified, right? OK. So let me add some other overtones. Yeah, let's just go down a little bit. OK. That's cool. Isn't it cool? So this is like a really cool example of how we can superimpose PP turns or syn sides and get a complex waveform like this one. OK. So yeah, I guess like this was it for this introductory session on a fourier transform. So now where do we go from here? Well, we want to start looking into the math, the real math behind the fourier transform. And for doing that, we are gonna need to get familiar with an another type of numbers that perhaps you've heard or you're familiar with. But if you're not, I suggest you check out my next video which is going to be on complex numbers. And as we'll see you in a few videos, complex numbers are going to be very important for working with fourier transforms because they're very handy for representing what we are doing here. OK? So that's all for today. I hope you enjoyed this video and you found it useful. If that's the case, please remember to leave a like. And if you haven't subscribed to the channel, please consider doing so. If you have any questions or doubts in your mind about what I've covered today, please don't hesitate to leave a comment in the comment section below. I guess I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This time, I'll be introducing the fourier transform.",
+                "start_time": "0.0",
+                "end_time": "10.26"
+            },
+            {
+                "id": 1,
+                "transcript": "Now, when I was uh planning this video, I thought what's the best way of introducing the fourier transform? And I thought, well, perhaps I should just give you a little bit of intuition there and then go straight into uh implementation or even just use the browser for extracting a spectrum through the fourier transform. But then I thought, well, the fourier transform is at",
+                "start_time": "10.8",
+                "end_time": "34.229"
+            },
+            {
+                "id": 2,
+                "transcript": "core of signal processing. So just sprinkling a little bit of math here and there and intuition is not going to be enough for you. So you really want to have a deep understanding of the fourier transform and all of its implications. This is why I've decided to divide this topic into a number of videos. And this first video is going to give you a",
+                "start_time": "34.24",
+                "end_time": "57.669"
+            },
+            {
+                "id": 3,
+                "transcript": "an introduction and the high level of intuition of the fourier transform. But towards the end, I'll just be giving you a little bit of math to formalize what we'll be discussing throughout the video. So stay tuned for more about the fourier transform. But before we get started, I want to invite you once again to the sound of the eye is lacking",
+                "start_time": "57.68",
+                "end_time": "81.11"
+            },
+            {
+                "id": 4,
+                "transcript": "community. If you don't know it, this is a community where uh we are a bunch of people interested in A I music signal processing A I audio, all of these kind of things. And there you can ask for feedback, improve your skills, share research and talk with very cool people. So if you're interested in that, just go check out the sign up link in the description below. OK. Now on to the real stuff",
+                "start_time": "81.12",
+                "end_time": "107.66"
+            },
+            {
+                "id": 5,
+                "transcript": "to introduce the concept of that are behind um the fourier transform. I want to use an analogy here. And for that, I'm gonna use one of the most iconic cover ever created in the rock world and from one of the bands that I love the most pink Floyd. So this is the cover for dark side of the moon. So what does this",
+                "start_time": "108.12",
+                "end_time": "130.679"
+            },
+            {
+                "id": 6,
+                "transcript": "have to do with the fourier transform? Well, it's the analogy here that counts a lot. So here we have a beam, a light beam, right? So this is a complex waveform, it goes through a prism and then out of the prism, we get the",
+                "start_time": "131.139",
+                "end_time": "149.949"
+            },
+            {
+                "id": 7,
+                "transcript": "different like spectral bands, the different colors divided, right. So the basic idea is complex waveform. We have kind of like a machine or an algorithm which in this case is the prism. And then we get all the different components which make up uh light. OK. So with the fourier transform, we do something that's very, very similar to this.",
+                "start_time": "149.96",
+                "end_time": "174.74"
+            },
+            {
+                "id": 8,
+                "transcript": "So the high level intuition here is that we have a complex sound and then using the fourier transform, which in our analogy is the prism, we decompose the complex sound into its frequency components. Because if you remember from one of my initial videos, uh complex sounds are made up of many different uh pure turns",
+                "start_time": "174.97",
+                "end_time": "200.88"
+            },
+            {
+                "id": 9,
+                "transcript": "added up superimposed together. OK. So this is like basically the first intuition that you have. Now when we do this, when we use the four year transform, what we do really is a journey from the",
+                "start_time": "201.149",
+                "end_time": "216.72"
+            },
+            {
+                "id": 10,
+                "transcript": "time domain to the frequency domain. So probably if you followed along this series, you've seen like this type of like slide time and again, but let me repeat that uh for yeah, the sake of yeah, understanding everything very deeply. OK. So here we have like a sound you know wave plot and here we have time on the X axis right.",
+                "start_time": "216.729",
+                "end_time": "239.94"
+            },
+            {
+                "id": 11,
+                "transcript": "Then we use the fourier transfer some magic happens and we get the same sound but this time uh plotted in the frequency domain. So we have a frequency analysis of the very same sound. And in other words, on the x axis, we have frequency and where you see this spot,",
+                "start_time": "240.779",
+                "end_time": "261.95"
+            },
+            {
+                "id": 12,
+                "transcript": "it means that the relative um frequencies at that specific Hertz are an important component of that original sound. Now, the question is how do we do this? So how do we go from the time domain to the frequency domain? Well, that's the topic of today's video at an intuition level. OK.",
+                "start_time": "261.959",
+                "end_time": "284.25"
+            },
+            {
+                "id": 13,
+                "transcript": "Now let's go one level of resolution further uh down and get like a better intuition of what's going on with the fourier transform. So",
+                "start_time": "284.47",
+                "end_time": "296.829"
+            },
+            {
+                "id": 14,
+                "transcript": "uh when we apply the fourier transform, we do a bunch of things. So the first thing that we do is we compare the original signal with a bunch of sinusoids with various frequencies, right. So we have the original signal",
+                "start_time": "297.04",
+                "end_time": "317.17"
+            },
+            {
+                "id": 15,
+                "transcript": "and then we have uh a bunch of sine waves and we want to compare the original signal to those sine waves which are gonna have different frequencies. And so out of that comparison, what we get is a magnitude and a phase. Now what does the magnitude tells us? Well,",
+                "start_time": "317.179",
+                "end_time": "340.51"
+            },
+            {
+                "id": 16,
+                "transcript": "uh the magnitude tells us how similar the uh original signal and the P turn or the sign turn are. So the higher the magnitude, the higher the similarity between the original signal and the sinusoid with that specific uh frequency. Now we'll take a look at the phase in uh uh a few minutes. But here",
+                "start_time": "340.679",
+                "end_time": "367.619"
+            },
+            {
+                "id": 17,
+                "transcript": "uh this is kind of like the, the deeper intuition, but still, it may feel a little bit abstract. So now let's go to check out some code that I've written in a Jupiter notebook and see how this applies specifically and just like visualize some of these intuitions.",
+                "start_time": "367.98",
+                "end_time": "384.69"
+            },
+            {
+                "id": 18,
+                "transcript": "OK? So now uh it's not important uh to look at the code here. And many of the stuff that I've uh like many of like these lines of code that I've read here, I already explained to you like in previous videos. Uh But what's important is to look at the results of these things. OK.",
+                "start_time": "384.859",
+                "end_time": "403.899"
+            },
+            {
+                "id": 19,
+                "transcript": "So now let me get started. So I'll import uh all of these libraries which will need to plot and analyze sounds. OK. So the first thing that I want to do is to uh actually show you the sound that we'll be analyzing. So let's listen to this.",
+                "start_time": "404.07",
+                "end_time": "420.959"
+            },
+            {
+                "id": 20,
+                "transcript": "OK. It's just a piano key specifically, it's C five note C five. OK? And it's held for almost like a second and a half. OK. So here we'll just load the audio file which uh Li Brosa, as, as I said, uh you've seen how to do this in previous video if you followed the series, if you haven't just like, check that out,",
+                "start_time": "423.019",
+                "end_time": "445.059"
+            },
+            {
+                "id": 21,
+                "transcript": "OK. So the next step is to actually plot the waveform. And yeah, here we have like our nice little waveform. So once again, here we are in the time domain. So X axis is time, Y axis is amplitude and as you can see, so we have the attack of the sound and then we have a little bit of the DC and then yeah, the sound ends towards like 1.4 seconds. OK.",
+                "start_time": "445.75",
+                "end_time": "473.359"
+            },
+            {
+                "id": 22,
+                "transcript": "So the next step is the crucial one is the one that we use for deriving the free transform.",
+                "start_time": "473.679",
+                "end_time": "482.839"
+            },
+            {
+                "id": 23,
+                "transcript": "And we do that by using uh S IP specifically the FFT module. And we use the FFT which stands for fast fourier transform um function in the FFT module. So we pass it in the signal and we get the fourier transform. Now, I'm not going to show you what that result actually is because you need to have like mm",
+                "start_time": "483.109",
+                "end_time": "507.529"
+            },
+            {
+                "id": 24,
+                "transcript": "a deeper understanding of math complex numbers and things that, that which you'll have in a few videos. But for now, the important thing to understand is that if we do the absolute, if we take the absolute value of the fourier transform, we actually get the magnitudes and this is the y axis of our spectrum.",
+                "start_time": "507.66",
+                "end_time": "531.58"
+            },
+            {
+                "id": 25,
+                "transcript": "Whereas on the X axis obviously, we have the frequencies. Now how should we like distribute the frequencies on the X axis? So the frequencies are gonna be between zero Hertz and the sampling rate. OK. And then we'll divide this in in a number of steps that's equal to the length of the, of the magnitude array.",
+                "start_time": "531.799",
+                "end_time": "560.76"
+            },
+            {
+                "id": 26,
+                "transcript": "OK. So with all of this in mind, we can now plot the spectrum",
+                "start_time": "561.099",
+                "end_time": "567.26"
+            },
+            {
+                "id": 27,
+                "transcript": "and here we go. So here we have the spectrum and as you can see, we can see a peak in the magnitude around 523 Hertz. And this is more or less the frequency the specific frequency for the note C five.",
+                "start_time": "567.869",
+                "end_time": "586.369"
+            },
+            {
+                "id": 28,
+                "transcript": "And so this is the so called fundamental of the, of the, of the sound that we've heard and then we have a few spikes. So here around uh 1004, um 1 hun 1040 Hertz something and here",
+                "start_time": "586.78",
+                "end_time": "607.219"
+            },
+            {
+                "id": 29,
+                "transcript": "and 1/4 1 here and a little bit of 1/5 down here, but it's almost like unnoticeable that one. OK. So the, this profile is quite specific, right? And, and it feels like there there's some like symmetry like natural uh thing to it. And it's the fact that this is a harmonic sound. In other words, these guys over here",
+                "start_time": "607.57",
+                "end_time": "630.525"
+            },
+            {
+                "id": 30,
+                "transcript": "are harmonics or overtones of the fundamental frequency. In other words, this frequency is just twice the frequency of the fundamental, the frequency associated with this third spike is three times the frequency of the fundamental. And here it's four times that OK.",
+                "start_time": "630.534",
+                "end_time": "653.5"
+            },
+            {
+                "id": 31,
+                "transcript": "Good. Now, if you don't remember uh what all the turns are like or partials or these things I have a video about that is one of the initial videos and it should be linked up here. OK. So now we've seen how we can move basically from the time domain to the frequency domain. But still the fourier transform is a completely black box for us. Now,",
+                "start_time": "654.109",
+                "end_time": "679.71"
+            },
+            {
+                "id": 32,
+                "transcript": "I want to start unravel it for you guys and give you an understanding of how the this process and the fourier transform works. But for that, what I want to do is zoom into the waveform and actually uh be at a resolution where we can actually see like all the cycles in um the wave associated with this sound. OK.",
+                "start_time": "679.95",
+                "end_time": "705.26"
+            },
+            {
+                "id": 33,
+                "transcript": "So for doing that be before we do that. Yeah, let's, let's take a look at it at a few numbers. So the length of the signal or in other words, the number of samples that we have, it's around 34,000 samples. The sampling rate, if I remember correctly here should be a 22,050 Hertz. And the duration of each sample is the inverse of Dutch, which is four times 10 to",
+                "start_time": "705.419",
+                "end_time": "733.669"
+            },
+            {
+                "id": 34,
+                "transcript": "um the power of minus five. So it's a very, very short amount of time for each sample.",
+                "start_time": "733.869",
+                "end_time": "740.109"
+            },
+            {
+                "id": 35,
+                "transcript": "Now, uh let's take a look at the duration of a cycle for our fundamental frequency. So 523 Hertz and so obviously, this is one divided by 523. And if you take a look at these results, so this is uh almost two milliseconds. So we have a cycle every two milliseconds. So now what I want to do,",
+                "start_time": "740.33",
+                "end_time": "767.544"
+            },
+            {
+                "id": 36,
+                "transcript": "it's just like zoom in and to the waveform and only consider 400 samples because 400 samples are gonna give us uh 0.02 seconds. And this is, this will enable us to see more or less like 10 cycles of our waveforms. And that is something like that, we can definitely visualize. OK.",
+                "start_time": "767.554",
+                "end_time": "794.78"
+            },
+            {
+                "id": 37,
+                "transcript": "So all of that to say that um I have like this new plot where we zoom into the waveform. And here I'm only considering 400 samples. In other words,",
+                "start_time": "794.94",
+                "end_time": "807.559"
+            },
+            {
+                "id": 38,
+                "transcript": "I'm slicing the signal which is on the Y axis. And I'm only considering the, the samples between like 20,400. OK. So let's take a look at this and here you have the results. So now we are at a resolution where we can actually see the um all the cycles. OK.",
+                "start_time": "807.83",
+                "end_time": "832.32"
+            },
+            {
+                "id": 39,
+                "transcript": "So now what's the point of all of this? Well, the point is that uh what we want to do is to actually compare this signal against sinusoids with different um frequencies. OK. And see the similarity there. So, and I want to show you how we can do that visually.",
+                "start_time": "832.729",
+                "end_time": "854.039"
+            },
+            {
+                "id": 40,
+                "transcript": "OK. So now let me just go back here and I want to uh remind you of the equation for a sine wave, which is given by this formula here. So it's like the sine of two pi uh which uh multiplies F",
+                "start_time": "854.469",
+                "end_time": "873.659"
+            },
+            {
+                "id": 41,
+                "transcript": "uh times T where F is the frequency T is just time minus P where P is the face and we'll see what the face does in a second. OK. So yeah, let's just go back here.",
+                "start_time": "873.82",
+                "end_time": "889.14"
+            },
+            {
+                "id": 42,
+                "transcript": "So the thing that we want to do here is just create a sinusoid. And here I'll put the frequency equal to 523 which is our fundamental frequency for the time being, we'll have a phase of zero. And here we have our function, our sine wave over here.",
+                "start_time": "889.659",
+                "end_time": "908.44"
+            },
+            {
+                "id": 43,
+                "transcript": "OK. And then I'm just gonna plot that once again uh between 10,000 samples and 10,000 of 400 samples. So just 400 samples so that we can uh kind of like superimpose this to the original signal uh in a few minutes. OK. So here we have our nice uh SYO at 5, 523",
+                "start_time": "908.799",
+                "end_time": "935.76"
+            },
+            {
+                "id": 44,
+                "transcript": "hurts. Now, let's take a look at the face. So what does the uh face do? Well, for that, what I suggest doing is just create another um",
+                "start_time": "936.119",
+                "end_time": "949.419"
+            },
+            {
+                "id": 45,
+                "transcript": "another um uh sinusoid which will call",
+                "start_time": "951.64",
+                "end_time": "956.58"
+            },
+            {
+                "id": 46,
+                "transcript": "over here. Yeah, it's a little bit difficult to work with this extra big cursor.",
+                "start_time": "957.359",
+                "end_time": "964.469"
+            },
+            {
+                "id": 47,
+                "transcript": "So over here, so this is phase two. Everything else will be uh like the same. So we'll just like change the phase here. And obviously I need to",
+                "start_time": "965.059",
+                "end_time": "977.59"
+            },
+            {
+                "id": 48,
+                "transcript": "plots signed to as well over here. It's not there, it's down here. And I'll use say, I don't know like a yellow color color for this.",
+                "start_time": "978.739",
+                "end_time": "989.38"
+            },
+            {
+                "id": 49,
+                "transcript": "OK. So now let's use the same face. And so if we use the same face, uh so we, we have a mistake here.",
+                "start_time": "989.979",
+                "end_time": "998.38"
+            },
+            {
+                "id": 50,
+                "transcript": "Oh Yes, because this is face two. OK.",
+                "start_time": "999.21",
+                "end_time": "1002.01"
+            },
+            {
+                "id": 51,
+                "transcript": "So let's go. Yeah. And obviously like the two sinusoids are completely aligned on top of each other. But now if I change the phase, say like I go 0.2 for uh sinus, the the yellow sinusoid, uh you'll see that the",
+                "start_time": "1003.15",
+                "end_time": "1021.15"
+            },
+            {
+                "id": 52,
+                "transcript": "um sinusoid is now shifting, shifting towards the right. If I get to 0.5",
+                "start_time": "1021.729",
+                "end_time": "1029.15"
+            },
+            {
+                "id": 53,
+                "transcript": "the sinusoids are completely like in opposite phase. So in other words, when we have a pick with the red sinusoid, we have a deep uh with the uh yellow sinusoid and vice versa. And the closer I get to, to one and the closer I'm just like realigning them. And so once we are back at one, so they are aligned once again.",
+                "start_time": "1029.849",
+                "end_time": "1056.939"
+            },
+            {
+                "id": 54,
+                "transcript": "So what this means is that if I continue giving like higher numbers for phase two, we'll just like start again the, the circle because yeah, I mean, we are like using a, a periodic function in the end. OK. So 1.5 it's basically equal to uh we get like the same function",
+                "start_time": "1057.099",
+                "end_time": "1074.81"
+            },
+            {
+                "id": 55,
+                "transcript": "of the same sine wave that we had for 0.5. And if we go to, we change the phase to two. Well, once again, we are just back to the um to being aligned once again with the uh initial sine wave. OK. So all of this to say that we can assume that the phase moves between zero and one just because uh the, the function is periodic. OK.",
+                "start_time": "1074.989",
+                "end_time": "1103.91"
+            },
+            {
+                "id": 56,
+                "transcript": "So now what's the big deal like with this uh sine waves? Right? So the point is that we want to compare uh the signal and the sino if you guys remember what I said with the deeper intuition. So",
+                "start_time": "1104.42",
+                "end_time": "1123.849"
+            },
+            {
+                "id": 57,
+                "transcript": "uh in order to, to move from the frequent, from the time domain to the frequency domain, we compare the signal with sinusoids of various frequencies. And then for each frequency, we get a magnitude and the phase. OK. And the and high magnitude indicates high similarity between the signal and a sinusoid. Now, let's see how this actually applies here visually. OK. So what I'm doing here is I'm plotting",
+                "start_time": "1123.979",
+                "end_time": "1153.14"
+            },
+            {
+                "id": 58,
+                "transcript": "uh both the original signal as well as a uh sinusoid here and the sinusoid is going to be shown in red. OK. And here for the sinusoid, I'm using the fundamental frequency. So 523 and the phase is set at uh zero. OK. So let's take a look at this. OK.",
+                "start_time": "1153.3",
+                "end_time": "1175.089"
+            },
+            {
+                "id": 59,
+                "transcript": "That's really cool. But as you can see, we, I mean, like the two waveforms like more or less like seem to have like a similar uh like cycle, right? So similar frequency. And that's because obviously the original signal has the fundamental which is at 523.",
+                "start_time": "1176.01",
+                "end_time": "1196.76"
+            },
+            {
+                "id": 60,
+                "transcript": "Uh but there are somewhat out of phase. So we want to align this. So how do we do that? Well, we can just uh increase the phase and see what happens. So let me redo this and as you can see now we are kind of align the two and I know because I've tried it before that we have a very good alignment when we use a face, which is equal to N 0.55 55. And here we go.",
+                "start_time": "1197.239",
+                "end_time": "1223.4"
+            },
+            {
+                "id": 61,
+                "transcript": "So as you can see now, the two signals are quite uh like aligned, they're quite similar. But here we are talking about similarities. So how do we calculate similarity? Well,",
+                "start_time": "1223.579",
+                "end_time": "1238.439"
+            },
+            {
+                "id": 62,
+                "transcript": "we have many ways of calculating similarities for two functions But one that's like very intuitive and simple is to combine the two signals by multiplying them. And in this case, it would be a multiplication sample by sample. So point by point we multiply the two signals and then we just look at the area. So we add all the positive areas and we feel like the, the area below",
+                "start_time": "1239.05",
+                "end_time": "1267.04"
+            },
+            {
+                "id": 63,
+                "transcript": "uh the um the new combined signal and we add the positive area and we subtract the negative area. So let me explain what that is. And for doing that, we just add",
+                "start_time": "1267.28",
+                "end_time": "1280.13"
+            },
+            {
+                "id": 64,
+                "transcript": "this line of code here which I already had prepared. So, and as you can see here on the Y axis, we are now multiplying the sign um signal with the original signal and we'll have the color of this combined signal in yellow. So let's see",
+                "start_time": "1280.64",
+                "end_time": "1298.869"
+            },
+            {
+                "id": 65,
+                "transcript": "what happens here. OK. And you can see this now, I'm taking the area. In other words, I'm filling up the area below um the, the waveform. And as you can see here, we have basically, it's all like positive area.",
+                "start_time": "1299.67",
+                "end_time": "1318.25"
+            },
+            {
+                "id": 66,
+                "transcript": "And the intuition here is that the higher the area, the positive area that we have for the combined signal and the higher the similarity between the two original, the two signals. So the Sinusoid, as well as the original signal",
+                "start_time": "1318.5",
+                "end_time": "1338.609"
+            },
+            {
+                "id": 67,
+                "transcript": "and the intuition behind this is that if I, when I multiply both of this and they have the same sign, so they are both. So the signal and the uh Sinusoid have both like positive sign or both negative sign, then",
+                "start_time": "1338.9",
+                "end_time": "1357.989"
+            },
+            {
+                "id": 68,
+                "transcript": "they're gonna end up with like a positive value, right? Whereas uh if they have an alternate opposite science, then we'll end up like with negative values. And so when we add like that positive area to the negative area, we just end up with a uh value that tells us how much similar these two signals are really are",
+                "start_time": "1358.0",
+                "end_time": "1383.28"
+            },
+            {
+                "id": 69,
+                "transcript": "OK. But uh one thing that I want to show you here is that if I change the phase here, so let's assume we go down to zero. So phase is equal to zero. Now all of a sudden we have all negative areas, right? And so there's no similarity at all, even if we have the same",
+                "start_time": "1383.869",
+                "end_time": "1405.329"
+            },
+            {
+                "id": 70,
+                "transcript": "sine wave. So with the with the same frequency and amplitude, but still the phase is extremely important. But because in this case, uh is just there's no similarity whatsoever. So we only have like negative areas here, negative values for the combined um sine wave, not sine wave for the combined signal. OK. So if we go and say take a 0.2 for example,",
+                "start_time": "1405.55",
+                "end_time": "1434.04"
+            },
+            {
+                "id": 71,
+                "transcript": "uh yeah, still this is mostly like negative but now let's try 0.4. OK. Yeah, this is a good example. So which phase at no 0.4 we have uh a bit of negative areas as well as a bit of positive areas. So yeah, it's a little bit of mixed bag. There's some level of like similarity between the two signals, but it's not uh perfect. OK.",
+                "start_time": "1435.099",
+                "end_time": "1460.64"
+            },
+            {
+                "id": 72,
+                "transcript": "So this is the intuition that we can use to understand how we move from uh the time domain to the frequency domain. And it's just",
+                "start_time": "1461.14",
+                "end_time": "1474.439"
+            },
+            {
+                "id": 73,
+                "transcript": "as simple as",
+                "start_time": "1475.4",
+                "end_time": "1476.75"
+            },
+            {
+                "id": 74,
+                "transcript": "doing a bunch of things. So we choose a frequency first and then we create a sine wave out of like that frequency. Then the next step is we want to optimize for the face so that we know that we've chosen the phase that gives the maximum similarity.",
+                "start_time": "1477.29",
+                "end_time": "1500.05"
+            },
+            {
+                "id": 75,
+                "transcript": "So the maximum area possible. And finally, we calculate the magnitude and the magnitude is basically the similarity or in other words, the positive area of the combined signal uh minus the negative area. OK.",
+                "start_time": "1500.06",
+                "end_time": "1521.439"
+            },
+            {
+                "id": 76,
+                "transcript": "But this is just for one single frequency in a fourier transform, we have to try and do this for all possible frequencies in the real set. OK. So we start with a frequency, then we, we continue and do like the same steps for the next frequency and we move on and on and on and on.",
+                "start_time": "1522.4",
+                "end_time": "1545.56"
+            },
+            {
+                "id": 77,
+                "transcript": "And by doing so we are able to see which frequencies have a, an important are important components of the original signals. And those will be um kind of indicated by because they have a high value for the magnitude. And this is like what happens here. So if we go back here,",
+                "start_time": "1545.979",
+                "end_time": "1573.41"
+            },
+            {
+                "id": 78,
+                "transcript": "so here we see like the the spectrum once again. So yeah, let me just find, let's just go back to, to the best uh phase that I could find. So 0.55. So as you can see here, uh the fact that we have like this nice alignment between the frequency at the sage at 523 Hertz and the original signal is reflected in the power spectrum here.",
+                "start_time": "1573.63",
+                "end_time": "1599.479"
+            },
+            {
+                "id": 79,
+                "transcript": "And that's because we have this peak in the magnitude which is around 523 Hertz. So that tells us that we have this high level of similarity between the sine wave at the pure to at 523 Hertz and the original signal.",
+                "start_time": "1599.959",
+                "end_time": "1621.16"
+            },
+            {
+                "id": 80,
+                "transcript": "OK. So this is uh interesting. So now I hope like you, you get the understanding and the intuition behind the fourier transform. Now, the next step is to take a look at a little bit of mathematical formalization of what we've said so far and don't be scared about like this massive creation here.",
+                "start_time": "1622.079",
+                "end_time": "1644.819"
+            },
+            {
+                "id": 81,
+                "transcript": "So I'll just break it down for you. But in, in a nutshell, this is what we've just said. So what we are looking for here is the phase for like the optimized phase for a given frequency F OK. So",
+                "start_time": "1645.01",
+                "end_time": "1663.26"
+            },
+            {
+                "id": 82,
+                "transcript": "these two things that we have in here is just the multiplication of the signal and the sinusoid. So SFT is just our original signal. And here we have our sinusoid and we multiply those.",
+                "start_time": "1664.199",
+                "end_time": "1677.05"
+            },
+            {
+                "id": 83,
+                "transcript": "Now the next step is to calculate the area and we do that with this integral symbol. Now you don't need to understand calculus. But the intuition here is that we are basically calculating the",
+                "start_time": "1677.91",
+                "end_time": "1696.88"
+            },
+            {
+                "id": 84,
+                "transcript": "uh positive area of the combined signal and then subtracted that's the negative area. And that's what we are doing with the integral, which is across time. So it's basically we, we take like all uh the, the, the time throughout like the uh a given signal.",
+                "start_time": "1697.18",
+                "end_time": "1717.4"
+            },
+            {
+                "id": 85,
+                "transcript": "And finally, what we do is we take the arc marks. In other words, we want to select the phase in the interval 01 and we show why we only consider 01. And so we want to take like this phase that maximizes the area. And in other words, what we are doing here is what I was doing manually before tweaking the phase in order to find the phase that would actually,",
+                "start_time": "1717.599",
+                "end_time": "1746.25"
+            },
+            {
+                "id": 86,
+                "transcript": "and maximize the positive area that we have when we combine the two signals. OK. So it's this is simple intuition to understand,",
+                "start_time": "1746.42",
+                "end_time": "1758.25"
+            },
+            {
+                "id": 87,
+                "transcript": "OK. The next step that we want to do is to actually take the um magnitude. And so how do we take the magnitude? Well, it's basically the same thing, right? So we are once again calculating the, combining the two signals and then we calculate the area uh that we have once we multiply the original signal with the synod.",
+                "start_time": "1758.92",
+                "end_time": "1785.26"
+            },
+            {
+                "id": 88,
+                "transcript": "And finally, this is the only, the only step that's different from the, the previous one that we, so uh we just want to select the max area. And uh for selecting that we are going to try like all the possible like uh values for a phase between zero and one. But if we have that value already, because we've optimized before we'll just use that value and plug it in here directly.",
+                "start_time": "1785.43",
+                "end_time": "1815.319"
+            },
+            {
+                "id": 89,
+                "transcript": "It's important to say that the calculations that we've carried out here are in a continuous space. In other words, uh because we use this integral here, we are basically assuming that time is continuous or in other words, uh like time is a real number, it changes as a real number. OK. So time is continuous, but frequency is continuous as well, right?",
+                "start_time": "1815.75",
+                "end_time": "1843.93"
+            },
+            {
+                "id": 90,
+                "transcript": "So while this is the case for the, the theory, well, what we've done already, for example, uh with our code uh doesn't uh use like continuous representation. Uh Just because uh computers can't use continuous representation, we have to sample a continuous function and use a discrete version of that.",
+                "start_time": "1844.14",
+                "end_time": "1866.859"
+            },
+            {
+                "id": 91,
+                "transcript": "Now, uh if you want to know more about continuous versus um discrete uh signals, I suggest you to go check out one of my first videos on this topic. Uh But the whole point here that I want to make is that the theory that we're going to study at least like over the next couple of videos is going to be about continuous for a",
+                "start_time": "1867.13",
+                "end_time": "1889.53"
+            },
+            {
+                "id": 92,
+                "transcript": "uh transform. But then we'll move on and take a look at the discrete fourier transform. And there the math is going to be slightly different. And uh that is going to be the math that we will actually be using for understanding how to implement an algorithm that can extract the fourier transform in the case of discrete signals. OK. So",
+                "start_time": "1889.67",
+                "end_time": "1911.189"
+            },
+            {
+                "id": 93,
+                "transcript": "uh up until now you you've learned how to move from the time domain to the frequency domain. But you may be wondering is there a way of going the other way around? So the round trip, so we go from time",
+                "start_time": "1911.949",
+                "end_time": "1927.91"
+            },
+            {
+                "id": 94,
+                "transcript": "to frequency domain but then can we go to frequency domain to time domain? And this would be the equivalent of saying OK. So now we start with these uh different like color bands, we put them into the prism, this fantastic algorithm and we end up with the,",
+                "start_time": "1928.26",
+                "end_time": "1947.229"
+            },
+            {
+                "id": 95,
+                "transcript": "with a complex light wave. OK. Can we do that with the fourier transform? And the answer is yes, we can reconstruct a signal by superimposing all the sinusoids, all the frequency components that we've extracted out of the original signal. So we superimpose the sinusoids and we weigh them by their relative magnitude.",
+                "start_time": "1947.359",
+                "end_time": "1975.479"
+            },
+            {
+                "id": 96,
+                "transcript": "So the ones that uh have a higher magnitude are gonna have like a higher impact in making the original signal. And then obviously, we want to use the uh the original, the phase that we extracted as well. And the point here is that the original signal and the fourier transform have the same information and we can go back and forth from time to frequency domain as we please. So",
+                "start_time": "1975.839",
+                "end_time": "2004.38"
+            },
+            {
+                "id": 97,
+                "transcript": "and the process of going back from frequency domain to time domain is called inverse fourier transform. So we start from the frequency domain, we apply an inverse fourier transform and we go all the way back to the original signal and the time domain. OK. So",
+                "start_time": "2004.689",
+                "end_time": "2026.64"
+            },
+            {
+                "id": 98,
+                "transcript": "this is like an idea that's not exactly the same as that of adjective synthesis, but it's kind of like similar. So in adjective synthesis, you have synthesizers which basically use different sinusoids and you can superimpose them. So combined by adding them up um in order to create complex sounds. And if you think about it, this is somewhat similar to what we were saying with the inverse fourier transform.",
+                "start_time": "2027.14",
+                "end_time": "2056.56"
+            },
+            {
+                "id": 99,
+                "transcript": "So let me show you these in a an example. So I found uh like this very cool uh website. So where you can try out adjective sensor. So here like you have uh a bunch of different frequencies. So here this is like C four. So tw uh 261 Hertz. Then we have 523 Hertz, which is C five, which is the fundamental frequency of R uh sound. And then",
+                "start_time": "2056.81",
+                "end_time": "2085.138"
+            },
+            {
+                "id": 100,
+                "transcript": "you go up. So basically here you have like all the overturns of these C four fundamental frequency. OK. So let's unmute this. So you should be able to, yeah, let me",
+                "start_time": "2085.28",
+                "end_time": "2097.79"
+            },
+            {
+                "id": 101,
+                "transcript": "put this down a little bit. OK. So you should be able to, to hear this C four, right? So now let me add",
+                "start_time": "2098.879",
+                "end_time": "2107.389"
+            },
+            {
+                "id": 102,
+                "transcript": "uh the first overturn and take a look at how the main signal is gonna be modified,",
+                "start_time": "2108.419",
+                "end_time": "2116.34"
+            },
+            {
+                "id": 103,
+                "transcript": "right?",
+                "start_time": "2119.0",
+                "end_time": "2120.02"
+            },
+            {
+                "id": 104,
+                "transcript": "OK. So let me add some other overtones.",
+                "start_time": "2120.969",
+                "end_time": "2123.82"
+            },
+            {
+                "id": 105,
+                "transcript": "Yeah, let's just go down a little bit.",
+                "start_time": "2136.34",
+                "end_time": "2138.54"
+            },
+            {
+                "id": 106,
+                "transcript": "OK.",
+                "start_time": "2141.149",
+                "end_time": "2141.81"
+            },
+            {
+                "id": 107,
+                "transcript": "That's cool. Isn't it",
+                "start_time": "2142.959",
+                "end_time": "2144.62"
+            },
+            {
+                "id": 108,
+                "transcript": "cool? So this is like a really cool example of how we can superimpose PP turns or syn sides and get a complex waveform like this one. OK.",
+                "start_time": "2150.8",
+                "end_time": "2165.79"
+            },
+            {
+                "id": 109,
+                "transcript": "So yeah, I guess like this was it for this introductory session on a fourier transform. So now where do we go from here? Well, we want to start looking into the math, the real math behind the fourier transform. And for doing that, we are gonna need to get familiar with an",
+                "start_time": "2166.33",
+                "end_time": "2188.979"
+            },
+            {
+                "id": 110,
+                "transcript": "another type of numbers that perhaps you've heard or you're familiar with. But if you're not, I suggest you check out my next video which is going to be on complex numbers. And as we'll see you in a few videos, complex numbers are going to be very important for working with fourier transforms because they're very handy for representing what we are doing here.",
+                "start_time": "2188.989",
+                "end_time": "2211.649"
+            },
+            {
+                "id": 111,
+                "transcript": "OK? So that's all for today. I hope you enjoyed this video and you found it useful. If that's the case, please remember to leave a like. And if you haven't subscribed to the channel, please consider doing so. If you have any questions or doubts in your mind about what I've covered today, please don't hesitate to leave a comment in the comment section below. I guess I'll see you next time. Cheers.",
+                "start_time": "2212.03",
+                "end_time": "2236.389"
+            }
+        ]
+    }
+}

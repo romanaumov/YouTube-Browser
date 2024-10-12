@@ -1,0 +1,929 @@
+[
+    {
+        "id": "7070b367",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time, we looked at the theory behind a few frequency domain audio features. This time, I'm gonna implement one of those from scratch in Python. And the one that I'll be implementing is called band energy ratio. I'm not gonna get too much into the the theoretical details of this because I've done this like in the previous video. So if you find yourself not understanding what I'm talking about, just go back to my previous video which should be over here. OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=0s",
+        "start_time": "0.31"
+    },
+    {
+        "id": "23a22f10",
+        "text": "I'll be implementing is called band energy ratio. I'm not gonna get too much into the the theoretical details of this because I've done this like in the previous video. So if you find yourself not understanding what I'm talking about, just go back to my previous video which should be over here. OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down. OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=16s",
+        "start_time": "16.704"
+    },
+    {
+        "id": "8f95bbaa",
+        "text": "OK? So let's take a look at this notebook. Uh And as you can see, I've already implemented some code and that's because this is like stuff that we've seen multiple times throughout this series and I didn't want to spend my time like coding, typing this down. OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too. So, yeah, this is a lush string",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=33s",
+        "start_time": "33.34"
+    },
+    {
+        "id": "97a203b5",
+        "text": "OK? So the first thing that it is I uh import some libraries that we need, then I load the audio file. So I have a couple of audio files that uh I'll be working with today. So one is a red, red hot chili peppers song and we've heard this time and again throughout the series. And the other one is a classical music piece by uh Claude uh De Bey. So let's quickly listen to this too. So, yeah, this is a lush string driven orchestra piece by uh the PC.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=48s",
+        "start_time": "48.79"
+    },
+    {
+        "id": "8528de7d",
+        "text": "So, yeah, this is a lush string driven orchestra piece by uh the PC. And here we have the song by the red hot chili peppers.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=77s",
+        "start_time": "77.279"
+    },
+    {
+        "id": "3b6bcef0",
+        "text": "driven orchestra piece by uh the PC. And here we have the song by the red hot chili peppers. OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=81s",
+        "start_time": "81.599"
+    },
+    {
+        "id": "7ee73437",
+        "text": "And here we have the song by the red hot chili peppers. OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=86s",
+        "start_time": "86.51"
+    },
+    {
+        "id": "bff27011",
+        "text": "OK? You get the idea, right? And so what I do next is just I load the audio files which are Li Brosa using the this Libros do load and I get the um the waveform really. So like an Empire Ray and then the the sample rate which is the 42 22,050 Hertz. And then given we are working with uh frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=93s",
+        "start_time": "93.18"
+    },
+    {
+        "id": "f8860f7f",
+        "text": "frequency domain features and bands energy ratio is a frequency domain uh feature. What I want to do is just extract the spectrogram. And so how do I do that? Well, uh I just here once again, uh a simple function from Libros that's called Libros dot Stft and I pass in a couple of constants. So the frame size and the hot size and I obtain the spectrogram for the BC and red hot chili peppers. Now, if you don't know what a spectrogram is I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=117s",
+        "start_time": "117.029"
+    },
+    {
+        "id": "e807d632",
+        "text": "I or like short time fourier transform is I have a bunch of videos on this uh topics uh in this series. So I highly suggest you to go check out before like moving along with this video. Let's now move on to the cool stuff and start calculating the band energy ratio. So let me add a few boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok. So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=145s",
+        "start_time": "145.964"
+    },
+    {
+        "id": "f009f4b9",
+        "text": "boxes down here and I'll use some mark down to say yeah, coate a band energy uh ratio. Ok. So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=167s",
+        "start_time": "167.679"
+    },
+    {
+        "id": "b2125bda",
+        "text": "So let's take a quick look at the definition of the band energy ratio. So here we have the definition from yeah uh the the previous video basically. So and here you can see that the band energy ratio at time two. So at a given frame is given by this formula here. So the, the key thing that we want to uh get of as the first point is the split frequency F capture F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=180s",
+        "start_time": "180.96"
+    },
+    {
+        "id": "727043d2",
+        "text": "F because this is the one if you recall, that's gonna tell us uh that's gonna give us like the threshold that we'll use to say. OK. So all the frequencies above this frequency are uh belong to the higher frequencies and all the frequencies below the split frequency below to the lower frequencies. But now, obviously, uh we can pass in a continuous frequency like in Hertz like 2000 Hertz or 3000 Hertz. But the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=205s",
+        "start_time": "205.949"
+    },
+    {
+        "id": "896da3c2",
+        "text": "the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=231s",
+        "start_time": "231.22"
+    },
+    {
+        "id": "83da2d27",
+        "text": "frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=256s",
+        "start_time": "256.239"
+    },
+    {
+        "id": "48cccda4",
+        "text": "So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=277s",
+        "start_time": "277.6"
+    },
+    {
+        "id": "8929da5d",
+        "text": "uh I want to just like take the shape here of this. And as you can see like in the uh the, the shape of this spectrogram is given, it's, it's kind of like a two dimensional array, right? And so on the first dimension we have 1025 and that is the number of frequency bins that we have, right? And so what we want to really understand is like what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=307s",
+        "start_time": "307.279"
+    },
+    {
+        "id": "da71f468",
+        "text": "what do does 1025 frequency bins like uh correspond to in terms of like frequency range? OK. So, and how do we do that? Well, this is like uh something that we can easily do because uh we know that the spectrogram um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=329s",
+        "start_time": "329.739"
+    },
+    {
+        "id": "717310b7",
+        "text": "um reduces the its like frequency range from the sample range, it moves on to the NICS frequency. And so we can obtain that by uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency delta per bin",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=348s",
+        "start_time": "348.269"
+    },
+    {
+        "id": "fc9b8932",
+        "text": "uh doing the sample rate divided by two, the next logical step here is to calculate the delta uh frequency between two adjacent uh bins. So in other words, how much, so when we move, say from frequency bin to number three to frequency bin four, so how much do we actually move in the continuous frequency? Right. And so we can do that by saying that the frequency delta per bin is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=359s",
+        "start_time": "359.049"
+    },
+    {
+        "id": "768fa042",
+        "text": "delta per bin is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=389s",
+        "start_time": "389.44"
+    },
+    {
+        "id": "93ab76a4",
+        "text": "is equal to the frequency range divided by the total number of frequency bins that we have. And we can easily get that from the spectrogram. So we do a spectrogram dot a shape and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=393s",
+        "start_time": "393.839"
+    },
+    {
+        "id": "4838dd57",
+        "text": "and we take the first dimension and the first dimension as we sow is equal to the number of bins that we have in the spectrogram. OK. So now we know the frequency delta for each bin. And so we are now ready to uh calculate the um split frequency bin. So the split frequency bin uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=409s",
+        "start_time": "409.489"
+    },
+    {
+        "id": "a5b85193",
+        "text": "uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s",
+        "start_time": "434.359"
+    },
+    {
+        "id": "cff68ab4",
+        "text": "And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=461s",
+        "start_time": "461.839"
+    },
+    {
+        "id": "67895251",
+        "text": "the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=477s",
+        "start_time": "477.195"
+    },
+    {
+        "id": "81213833",
+        "text": "and what this function does, it's a form of rounding and it always round uh rounds uh numbers down. So for example, say I have 10.4 and then if I apply the floor uh when it gets back a stem and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10 0.0 like this. OK? So here we have the split frequency bin. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=505s",
+        "start_time": "505.079"
+    },
+    {
+        "id": "6c5cf927",
+        "text": "and I get it as a, as a float number. Uh If I have like 10.9 again, I'm gonna get 10 0.0 like this. OK? So here we have the split frequency bin. So now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=523s",
+        "start_time": "523.59"
+    },
+    {
+        "id": "417672e0",
+        "text": "0.0 like this. OK? So here we have the split frequency bin. So now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND. OK. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=532s",
+        "start_time": "532.809"
+    },
+    {
+        "id": "afe5dc6e",
+        "text": "now we can return it. But as I mentioned, this is a float number. So we want to cast it to an IND. OK. So this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=540s",
+        "start_time": "540.01"
+    },
+    {
+        "id": "9a519e38",
+        "text": "OK. So this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=549s",
+        "start_time": "549.349"
+    },
+    {
+        "id": "d237a2f2",
+        "text": "this should be ready. So now let's try it. So we can say split frequency uh bin and then we use this one, calculate split frequency bin. So as the spectrogra M, we just pass the, the PC spectrogram. And then uh as the split frequency, we, we're gonna be using 2000 Hertz which is a totally fine uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050. And now let's print this",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=552s",
+        "start_time": "552.52"
+    },
+    {
+        "id": "b8152116",
+        "text": "uh split frequency. And as the sample reach, I'm gonna use the default rere one which is 22,050. And now let's print this split frequency bin like this. And as you can see, OK. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=579s",
+        "start_time": "579.63"
+    },
+    {
+        "id": "b8a36464",
+        "text": "And now let's print this split frequency bin like this. And as you can see, OK. So uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK?",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=587s",
+        "start_time": "587.109"
+    },
+    {
+        "id": "238027b2",
+        "text": "split frequency bin like this. And as you can see, OK. So uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK? So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=591s",
+        "start_time": "591.409"
+    },
+    {
+        "id": "4edff969",
+        "text": "uh the 2000 Hertz split frequency has been uh mapped onto this frequency bin which is 100 and 85 which is 100 and 85 out of uh 1025 frequency bins that we have in the spectrogram. OK? So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram, it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=597s",
+        "start_time": "597.429"
+    },
+    {
+        "id": "78674084",
+        "text": "So with this knowledge, we can now move on and actually calculate the um band energy ratio. So let's write the function here. So we'll do that definition with defined kate band energy uh ratio. And this function gets three parameters once again. So it gets the spectrogram, it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=614s",
+        "start_time": "614.76"
+    },
+    {
+        "id": "aaf4f70c",
+        "text": "it gets the split frequency and the sample rate C and obviously these are the same that we are using in calculated frequency bin. OK. So the uh first step is to actually get the split frequency bin, right? And so we can easily do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK?",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=643s",
+        "start_time": "643.669"
+    },
+    {
+        "id": "b506afd3",
+        "text": "do this by using our newly implemented function. So we'll call calculator splits frequency bin and we'll pass in all of these arguments. And that function will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK? And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=665s",
+        "start_time": "665.789"
+    },
+    {
+        "id": "5f000de9",
+        "text": "will be so nice as to give us back the expected split frequency uh bin. OK. So now the next thing that we wanna do is to move to the power spectrogram. OK? And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram. Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=679s",
+        "start_time": "679.75"
+    },
+    {
+        "id": "51a0affd",
+        "text": "And why do we do that? Well, we do that because as you can recall, probably like from this formula from last B or just like looking at it. Now, we are interested in the uh power spectrograms here. So this MT of N squared is basically like the magnitude spectrogram. Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=696s",
+        "start_time": "696.429"
+    },
+    {
+        "id": "4661c60e",
+        "text": "Uh So it's kind of like the power spectrogram, right? Because we are taking the magnitude spectrogram here uh for a given frame at a groan frequency bin. And we are squaring it, which basically means we are moving from the magnitude spectrogram to to from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram. And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=717s",
+        "start_time": "717.309"
+    },
+    {
+        "id": "72fd7850",
+        "text": "from the magnitude to the, to the power. OK. And so rather than calculating this uh power uh at each point in time and frequency bin will just like calculate it once initially. So what I want to do, as I said is like move to, to the power spectrogram. And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram. And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=732s",
+        "start_time": "732.734"
+    },
+    {
+        "id": "6b3da11e",
+        "text": "And so how can I do that? Well, this is quite simple because uh we start from the spectrogram which has complex values and we apply the uh absolute value to Dutch. And so we'll do an NPI dot Arbs and I'll pass in the uh spectrogram. And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame. So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=752s",
+        "start_time": "752.53"
+    },
+    {
+        "id": "86410546",
+        "text": "And if we did only this, we would have the magnitude um spectrogram. But now we are going to be squaring this so that we can get the power spectrogram. Now, there's another trick that we need to apply here. And that's because we're going to be calculating the band energy ratio at each frame. So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension. So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=773s",
+        "start_time": "773.9"
+    },
+    {
+        "id": "11d7fc14",
+        "text": "So we want to iterate through the power spectrogram and, and be able to iterate like frame by frame. But now if you take a look at the spectrogram like this, here, you'll see that the shape is given by. Yeah, it's a two by this, it's a two dimensional, right? But the first dimension is the the frequency dimension and the second one is the time dimension. So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=796s",
+        "start_time": "796.549"
+    },
+    {
+        "id": "6058a31e",
+        "text": "So in other words, here we have like the number of frequency bins and here we have the number of frames. Now if we want to iterate uh through this uh yeah, the spectrogram or the power spectrogram uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=823s",
+        "start_time": "823.02"
+    },
+    {
+        "id": "2cdd1046",
+        "text": "uh based off time. So what we need to do is just like invert, get the so called transpose of this um thing here of the spectrogram. And so how can we do that? And that's very, very simple. So let me just like get this and say W spec transpose and this is equal to the BC spec dot capital T and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here, you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=835s",
+        "start_time": "835.84"
+    },
+    {
+        "id": "827e486b",
+        "text": "and this will give us the so called transpose of the spectrogram of, of a matrix or NR A. So now if we take a look at the shape here, you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram. So we'll do like this. A power spectrum is equal to power",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=864s",
+        "start_time": "864.349"
+    },
+    {
+        "id": "99e8feb2",
+        "text": "you'll see that's what happened was kind of like the inversion of these two dimensions. So now I have the um the time dimension first, so the number of frames and then I have the frequency as the second dimension. And this is what we want to do on our power spectrogram. So we'll do like this. A power spectrum is equal to power spec",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=877s",
+        "start_time": "877.539"
+    },
+    {
+        "id": "bfdcb1f6",
+        "text": "So we'll do like this. A power spectrum is equal to power spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=894s",
+        "start_time": "894.44"
+    },
+    {
+        "id": "7834aa27",
+        "text": "spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=902s",
+        "start_time": "902.479"
+    },
+    {
+        "id": "a1209a8d",
+        "text": "dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=904s",
+        "start_time": "904.78"
+    },
+    {
+        "id": "dc42cc2f",
+        "text": "variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram. I'd say we'll do four frequencies",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=917s",
+        "start_time": "917.95"
+    },
+    {
+        "id": "da61be91",
+        "text": "a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram. I'd say we'll do four frequencies and frame",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=936s",
+        "start_time": "936.5"
+    },
+    {
+        "id": "537c395f",
+        "text": "I'd say we'll do four frequencies and frame uh in power",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=955s",
+        "start_time": "955.69"
+    },
+    {
+        "id": "9bb1b860",
+        "text": "and frame uh in power spectrogram.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=962s",
+        "start_time": "962.26"
+    },
+    {
+        "id": "2cbd4bb9",
+        "text": "uh in power spectrogram. So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=966s",
+        "start_time": "966.63"
+    },
+    {
+        "id": "8c7e31a2",
+        "text": "spectrogram. So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=970s",
+        "start_time": "970.14"
+    },
+    {
+        "id": "05224e7a",
+        "text": "So what should we do here? Well, so here we are iterating through all the frames and getting like the the the the value like of the of the uh for each frequencies, right? Like uh for each frame. In other words, what we want to do here is calculate the band energy ratio for each frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies and the denominator corresponds to the sum of the power in the higher frequencies.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=973s",
+        "start_time": "973.07"
+    },
+    {
+        "id": "706627a7",
+        "text": "frame. So let me put a password time being. And so what should we do here? Well, it's quite straightforward. So what we want to uh calculate uh is like this two items. So the numerator and the denominator. So the numerator is basically the the sum of the power in the lower energies and the denominator corresponds to the sum of the power in the higher frequencies. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=996s",
+        "start_time": "996.5"
+    },
+    {
+        "id": "b8ed26ee",
+        "text": "and the denominator corresponds to the sum of the power in the higher frequencies. So let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1022s",
+        "start_time": "1022.169"
+    },
+    {
+        "id": "9f337a08",
+        "text": "So let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra here.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1029s",
+        "start_time": "1029.77"
+    },
+    {
+        "id": "2c378d03",
+        "text": "let's do that. So we'll do some power low uh frequencies frequencies. And how do we calculate this? Well, uh we can use NP dot Sun and then we'll pass in the frequencies infra here. But we want",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1031s",
+        "start_time": "1031.708"
+    },
+    {
+        "id": "2e85fa0b",
+        "text": "here. But we want some across all the values or across all the frequencies. But rather",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1053s",
+        "start_time": "1053.4"
+    },
+    {
+        "id": "73f60f10",
+        "text": "But we want some across all the values or across all the frequencies. But rather just take the first uh frequency bins up to the split frequency",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1055s",
+        "start_time": "1055.13"
+    },
+    {
+        "id": "62a751c2",
+        "text": "some across all the values or across all the frequencies. But rather just take the first uh frequency bins up to the split frequency then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1057s",
+        "start_time": "1057.609"
+    },
+    {
+        "id": "0a35d651",
+        "text": "just take the first uh frequency bins up to the split frequency then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1064s",
+        "start_time": "1064.51"
+    },
+    {
+        "id": "390fbfd4",
+        "text": "then. OK. So, and uh it's gonna be easy to do the same thing for the high frequency. But so let me just like rewrite this as high. So some power high frequencies and so here will sum the values uh uh all the, the, the values for the power at all the different frequency bins in the higher um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin. OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1074s",
+        "start_time": "1074.0"
+    },
+    {
+        "id": "d3c916d8",
+        "text": "um part of the spectrum. And so what this actually means is that we'll slice this starting from the split frequency bin and then go up to like the, the the last frequency bin, the highest frequency bin. OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1098s",
+        "start_time": "1098.18"
+    },
+    {
+        "id": "f3bbb576",
+        "text": "OK. So now with this, we have both of the elements. So the numerator and the denominator here in this um formula. So what remains to you to do is just like to divide this. OK. So we'll do that the uh band energy uh ratio uh current frame is equal to the sum power of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So the next step here is to just uh append",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1115s",
+        "start_time": "1115.579"
+    },
+    {
+        "id": "9c526dd0",
+        "text": "of the uh low frequencies divided by the sum of the power for the high frequencies like this. OK. So the next step here is to just uh append the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1143s",
+        "start_time": "1143.099"
+    },
+    {
+        "id": "dbdf11f7",
+        "text": "the next step here is to just uh append the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1154s",
+        "start_time": "1154.949"
+    },
+    {
+        "id": "841eb3ad",
+        "text": "the band energy ratio for the current frame to the band energy ratio. List here so that we can catch the value of the uh band uh energy ratio uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1161s",
+        "start_time": "1161.349"
+    },
+    {
+        "id": "1e6c6c91",
+        "text": "uh for the current frame. So we'll do a band energy ratio dot uh append and we'll pass in the band energy ratio of the current frame like this. Ok? So now we are ready to return and I'll just cast this list to a NPI array. So I'll do an NPI dot array and we'll pass the band energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1174s",
+        "start_time": "1174.719"
+    },
+    {
+        "id": "466cf60b",
+        "text": "energy ratio like this, ok? So now let's see if this works. So what I want to do is to get the band energy ratio for uh the BC. And so the way I'll do this is I'll call the calculator band energy ratio and I'll pass in the spectrogram and the spectrogram here is gonna be this, the PC spec then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it, uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1202s",
+        "start_time": "1202.28"
+    },
+    {
+        "id": "d85724ed",
+        "text": "then I'll need to specify the split frequency. So the split frequency will be using 2000. That as I said is a totally fine uh split frequency. And then for the Sa Mle rate, we, if you remember guys like when we load it, uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr over here",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1230s",
+        "start_time": "1230.839"
+    },
+    {
+        "id": "165e6311",
+        "text": "uh the waveform here, we got back like the simple rates that's defaulted to 22 2050. But I'll get like this sr over here like this,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1248s",
+        "start_time": "1248.39"
+    },
+    {
+        "id": "4a1aa4f7",
+        "text": "over here like this, ok? So now let's take a look at the band's energy ratio",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1258s",
+        "start_time": "1258.27"
+    },
+    {
+        "id": "608fd546",
+        "text": "like this, ok? So now let's take a look at the band's energy ratio um shape.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1261s",
+        "start_time": "1261.189"
+    },
+    {
+        "id": "159a37df",
+        "text": "ok? So now let's take a look at the band's energy ratio um shape. Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1263s",
+        "start_time": "1263.17"
+    },
+    {
+        "id": "2cba34af",
+        "text": "um shape. Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1270s",
+        "start_time": "1270.109"
+    },
+    {
+        "id": "afd3a596",
+        "text": "Let's take a look at this, ok? So this is a numpy array uh which only like one dimension and it has 1292 items in it. And is it correct? Well, it is correct because if you guys remember here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array. And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1274s",
+        "start_time": "1274.68"
+    },
+    {
+        "id": "a5a67343",
+        "text": "here, like in the spectrogram, we had uh well, this is the transpo spectrogram. So here like in the first dimension, we have the, the, the time dimension which is equal to 1292 which is the same number for spent energy ratio array. And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot chili pepper,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1293s",
+        "start_time": "1293.25"
+    },
+    {
+        "id": "13b40b45",
+        "text": "And that basically means that we're getting like values for all the uh different frames that we have in the spectrum, which is what we were looking for. Ok. So now let me do the same thing. So let me also get the band energy ratio for the red hot chili pepper, red hots",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1309s",
+        "start_time": "1309.869"
+    },
+    {
+        "id": "88787148",
+        "text": "chili pepper, red hots song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1328s",
+        "start_time": "1328.859"
+    },
+    {
+        "id": "4aeba0fc",
+        "text": "red hots song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case, music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1330s",
+        "start_time": "1330.65"
+    },
+    {
+        "id": "bbaa31f1",
+        "text": "song. And so here obviously I need to pass the red hot spectrogram. OK? Good. OK. So the last thing that now remains to do is they actually visualize this uh bent energy ratio curves. And I also want to compare this two so that we can draw some conclusion about sp energy ratio curves in different genres like in this case, music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1333s",
+        "start_time": "1333.839"
+    },
+    {
+        "id": "8bf2f227",
+        "text": "music and classical music. OK. So now, first of all, let me add uh a few blocks like this and then I'll Yeah, well, not that I want the mark mark down and I'll say V URL bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1358s",
+        "start_time": "1358.959"
+    },
+    {
+        "id": "e02b5da0",
+        "text": "bands and A G ratio curves. First thing we wanna do is create a figure. So we'll do plot dot uh figure and I'll pass a fig size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1377s",
+        "start_time": "1377.01"
+    },
+    {
+        "id": "edb6f1b9",
+        "text": "size and I'll set this to 25 by 10 like this. OK? So next we want to create a plot, so we'll do plot dot plot and here we should pass three things. So the value for the X axis, which is gonna be time for us and then the value for the Y axis, which is the actual um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt. OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK?",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1391s",
+        "start_time": "1391.959"
+    },
+    {
+        "id": "3c343585",
+        "text": "um band energy ratio array and then an optional color so that we can identify the two different curves for the BC uh stuff and for red hot chili pepper salt. OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK? So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1413s",
+        "start_time": "1413.81"
+    },
+    {
+        "id": "6774e9e0",
+        "text": "OK? So let's do the first thing. So we'll pass t now t doesn't exist yet. So, uh but for the time being, I'll put it there as a placeholder, then I'll pass the band energy ratio for the BC as the Y axis and then for uh the color outside blue for the BC. OK? So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1426s",
+        "start_time": "1426.01"
+    },
+    {
+        "id": "64485587",
+        "text": "So we'll do the same thing for the uh red hot chili pepper song. So here I'll pass the relative uh band to energy ratio uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T. So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1446s",
+        "start_time": "1446.16"
+    },
+    {
+        "id": "6a4dcdee",
+        "text": "uh array. And here we'll set this color equal to uh red. And finally, we'll do a plot dot show. Now, obviously, if I get on and press enter, I get uh an error because the T is not defined. We don't have a value for that. So I should implement that first thing I want to just like bring up one of these boxes here so that I can find T. So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1456s",
+        "start_time": "1456.52"
+    },
+    {
+        "id": "cd79a377",
+        "text": "So 1st, 1st off, I need to define uh frames and this is gonna be equal to a range and I'll get the uh length of the say bear the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres. And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1484s",
+        "start_time": "1484.589"
+    },
+    {
+        "id": "9ffe69ce",
+        "text": "the BC band energy ratio uh array for the BC. And the, the length is going to be equal for the BC and the red hot chili pepper. So I can use just one. OK. So here, now I have like this value for this variable frames and now I can move on and implement T and here what I can do is use uh Libres. And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1499s",
+        "start_time": "1499.38"
+    },
+    {
+        "id": "7fcb1617",
+        "text": "And uh here Libres has a nice utility function called frames to uh time. And what it it needs as arguments is the frames. And then I should um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So uh here T",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1522s",
+        "start_time": "1522.979"
+    },
+    {
+        "id": "bc502b82",
+        "text": "um specify the hop length and the hop length I think we specified up here as a constant called hop size, which is equal to 512. So totally uh yeah, traditional number for that. OK. So we'll do this. OK? And so here what it gets is basically like the, the value of time at each frame. So let, let me show you what I mean by that. So uh here T is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1540s",
+        "start_time": "1540.569"
+    },
+    {
+        "id": "402fbba8",
+        "text": "uh here T is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs. So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1568s",
+        "start_time": "1568.17"
+    },
+    {
+        "id": "0be6df52",
+        "text": "is an array and the uh length uh of T is equal to 1292. So these are all like the, the frames and for at each frame, uh we're just like converting uh from just like in to like the relative time given the hop length that we are using now that we have T we can move on and plot our band energy ratio for the two songs. So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1570s",
+        "start_time": "1570.88"
+    },
+    {
+        "id": "d7bfbf2a",
+        "text": "So, and as you can see in blue, we have the band energy ratio for the BC piece. And in red, we have the one for the red hot chili pepper song. And there's a stark difference between the two and basically the B energy ratio is way higher for the BC PS than the red hot chili peppers ones. And that's usually the case, it's something that you find uh quite often when you compare classical music with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music. OK. So uh by now, you should be able to have, well, you should have like a very deep understanding of band energy ratio, how to calculate it from scratch with Python. And you probably also have an idea of how bent energy ratio like works in different genres, which is great. So that's all really for today. So next time we'll be uh looking into the remaining two frequency to all your features and how to like implement,",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1598s",
+        "start_time": "1598.81"
+    },
+    {
+        "id": "aa029723",
+        "text": "with rock music. And that's because in classical music, most of the energy is concentrated in the lower end of the spectrum. Whereas in rock music, you have a more balanced distribution and that's probably has to do with the fact that there are a lot of like noisy uh sounds like snares or like stuff like this that just like provides energy or offers energy in the higher end of the spectrum in rock music. OK. So uh by now, you should be able to have, well, you should have like a very deep understanding of band energy ratio, how to calculate it from scratch with Python. And you probably also have an idea of how bent energy ratio like works in different genres, which is great. So that's all really for today. So next time we'll be uh looking into the remaining two frequency to all your features and how to like implement, but we won't implement them from scratch, but rather we'll be using uh Li Breza for uh implementing them. So if you've enjoyed the video, please leave a like if you haven't subscribed and want more content like this, please uh subscribe to the channel and I guess I'll see you next time. Cheers.",
+        "video": "Implementing Band Energy Ratio in Python from Scratch",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "8UJ8ZDR7yUs",
+        "youtube_link": "https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=1625s",
+        "start_time": "1625.27"
+    }
+]

@@ -1,0 +1,440 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we learned about a short time, four year transform and spectrograms in a theoretical way. This time, it's time to actually use Python and the audio processing library lib browser to extract spectrograms from audio files. So let's get started. So I already wrote a Jupiter notebook here. And so I'm gonna just like run through it and I'm gonna tell you like what I'm doing and the different steps like to actually extract uh spectrogram. So the first thing that we want to do is just like import some uh like libraries. So we import OS so that we can uh load audio like our audio files, we import to Li Brosa Libres dot display for uh just like showing visualizing like the spectrograms and we'll import like noon pie and map lib dot plot for um actually doing or just like plotting uh the spectrograms like in other results that we'll have. OK. So let import all of this and then we want to just like load audio files with Li Brosa. So uh we are gonna be working with four different audio files. So the first one is just like a skill and uh yeah, it's just like a reside. It's like at this path. Then we're gonna have um uh kind of like a 32nd snippet from the BC. 30 seconds snippets from red hot chili peppers and 32nd snippet from uh Duke Ellington. So we have like three different musical genres represented some classical music with the BC. rock music, with the red hot chili peppers and jazz with Duke Helling. OK. But first thing, let's try to listen to this music. So, or, and so we get like an idea of what we're dealing with. And so here we go. So if you do I IP D dot audio and you pass the uh the file, then you're gonna be able to directly listen to the uh to the audio files in the Jupiter notebook. By the way, this IP D comes from this input over here. So you just like input ipython dot display as IP D and then you can use it. OK? So now let's listen to like this different uh audio files. So the first one is gonna be a uh scale uh played on a piano. OK. Yeah, it's just repeated a couple of times. Then we have the music from the busy from the red hot chili peppers and from Duke Ellington. So let's listen. So if you guys followed along so far with the series you probably already recognize this piece cos we used it in a previous video. So here you have like a huge crescendo, right? With all of this string instrument, right? You get the idea. So very nice, smooth uh like string driven uh orchestral piece. And then we have a song from the Red Hot Chili. OK. You get the idea and probably you are all too familiar with that song. Then moving on to this jazz piece from Duke all by Duke Mhm Very smooth, right? OK. You get the idea. So what we'll do is try to extract the uh spectrogram from this and visualize them and compare them. OK. So what we want to do first is just let you load the, all your files with libros. So we've done this multiple times in earlier videos. Uh So uh what we do is just like lib rosa dot load and we pass like the name of the uh or the, the path to the file we get back is a signal, a NPI array. And then we can also get back the sample rate which when it's defaulted is gonna be equal to 22,050 Hertz. OK. So let's move on to this next step. What we can do, what we should do is extract the short time fourier transform. And this is very easy with the Liberator because we have a function that does that uh super quickly. So the first thing we wanna do is just let's just set a couple of parameters. So we'll set the frame size equal to 2048 H uh samples. Sorry. And the H size is gonna be equal to 512 samples. Again, these are quite typical parameters for like the frame size and the H size. Uh If you don't know what I'm talking about, I highly suggest you to go check out my previous video on the theory behind the short term fourier transform. I'm just like taking for granted that you've watched that video or you are familiar with the short term fourier transform. So I'm not gonna get into details what all of these parameters actually mean in this um video. OK. So let's move on. Now, I can extract the short time period transform using this function which is Great Libres SDFT and then I should pass in the signal. And the first thing that we'll see here and the spectrogram that we'll analyze this are with regard with the, with the scale, just like to see how that is represented in a spectrogram. And it's gonna be easier to visualize than like all the other music that we've uh listened earlier. Then we should pass the frame size and we should pass it. Uh So with this keyword argument called N dash FFT uh A and underscore FFT and then we pass the hop uh length um keyword argument and we pass our hop size over here. OK. So we do this and then now let's take a look at the shape of the short time fourier transform. So as we uh so in the previous video, this is, is gonna be like a bidi menal array and specifically like the first dimension is relative to the, the frequency. Uh And so here we have like um all the frequency bins and these, these are equal. So like this number is equal to half the frame size plus one. So it's basically 2048 divided by two, which is 1024 plus 1, 1025. OK. So it checks out good. And here uh like on the columns, uh the second dimension of this metrics, we have the um number of frames. It's basically like the temporal bins. And in this case, we have like a 342 temporal bins. And if you want to know how to get from uh like a signal to like a certain number of frames just like to make that calculation, I have like the formula in the previous video regarding short time fourier transform. OK. So now the next thing that we want to see is the actual type of the different items that we have in the short time four transform result or in the matrix. So here we just like take the item at uh col uh row zero, column zero. And as you can see the type is a complex number. And this doesn't come as a surprise because the output of a short time fourier transform is a series of like complex fourier coefficients. And so, uh yeah, so we expect that each of the items which is a fourier coefficient for a given uh like frequency bin and a given like frame is a complex number. But now what we want to do is actually calculate these spectrograms. So we need to to move from the short term fourier transform to the spectrogram. So how do we do that? Well, that's easily done because we just like take the squared magnitude of the short term fourier transform. So we just like use like this NP dot ABS absolute value and we pass in the uh short time free transform results here and then we square the results and this is going to be equal to the spectrogram. OK. Yeah. Not that let me move on. Let's take a look at the shape here. And once again, not surprisingly, we have like this shape. So 1025 number of Beins and 342 uh number of frames, which is the same that we used to have like with the short term fourier transform results. And that checks out because all we are doing is just like taking the magnitude the squared magnitude. So the the shape of the matrix uh of the original matrix doesn't change. But what does change is the type of the items. In this case, we have uh floats. And this makes sense because we are taking like the, the magnitude here. And so basically, we are moving from the complex number to like a real number. And this is the spectrogram and this is like what we can actually visualize um uh on a hit map. And so let's see how we can easily visualize the spectrogram uh with uh Li Brosa. And so here I wrote like a little function and here this is the signature. So you see uh Y capital Y is just like the um uh it's the spectrogram, then I pass in the sample rates the H length and the Y axis. And here like a default is, let's say uh linear. We'll see what this means like in a second. But before, let's just uh take a look at what I do here, I just like instantiate um a figure uh specifying like the, the, the figure size here using like my lip. And then here comes the magic we can use Lisa dot display dot spec show to uh visualize uh any type of spectrogram like um signals. And so here what uh like this function expects is why is it basically like the um spectrogram? Then the uh sample rate, the hop length, the X axis which is gonna be equal to time. So we're gonna have like on the X axis, we're gonna have like time and on the y axis, we're gonna have like a type of um representation that's uh linear. And then I'm gonna add a color bar here and you'll see what this does. It's basically like a legend that uh provides us information about like the uh how to map the colors into like the different like intensities of the uh of the signal of the amplitude. OK. So now let me run this and now we can plot the spectrogram and I'll pass in the uh spectrogram for like the scale scale like audio file, I'll pass in the sample rate and the hub size. And so let's see what happens here. And here we go our first visualization of a spectrogram, but this doesn't look great. Does it they obviously like the idea here is that the, the brighter the color and the more energy you have like in that uh frequency bin, right? And so we see a little bit of like activity down here and it's repeated. And so probably you can guess that this is like the two scale like the fundamental frequencies of the scales. And in in indeed you see that these like tend to like run up uh and it's repeated twice because if you remember like in that audio file, we had the same scale repeated twice, but still like everything is black. So it means that it has like very, very little energy. So why is that the case? Well, it turns out that this is how it sounds like work. So uh but uh it's like the way we actually perceive like these energies and amplitude is not really linear as is the case like in this representation here. But it, it's actually uh logarithmic. And so uh to get like closer to the way we perceive a sound, we need to do a kind of uh transformation of the uh intensities like of all the amplitude here. And so we need to, to move like all of this like amplitudes from the uh basic like linear representation to a logarithmic representation, which is like more perceptually significant. We can easily move from a linear representation of amplitude to a logarithmic one using uh this uh the function from Libera called power to DB. And the B stands for uh decibels. Now, if you are not familiar with decibels, I suggest you to go check out this video where I talk about decibels and introduce them and explain like how they work. But basically under the hood, what happens is that decibels are actually applying some kind of like a logarithmic transformation that when you use this power to be, you're moving like from the power uh representation like of the intensity like to uh decimals. And so we do this and we get back a a log amplitude uh spectrogram here. And so we can then just like plot that with our function. So plot spectrogram instead of passing the actual like spectrogram of scale, we pass the log amplitude spectrogram and again, we pass the sample rate and the hop size. OK. So if we do that, we get these results, which is way better than the one that had we had before. So here we start to see like some uh energy like bursts of energy like down here. And as you can see here, probably like this, this is like a constant uh like notes, then you move up, you move up, up, up up. So this probably is just like the fundamental frequencies for the scale that we played. And if you're wondering about like all of this other kind of like burst uh like of energies like at a higher frequencies, those are uh the harmonic components of the original of the fundamental frequency for the scale. Now we have like twice the same thing because if you remember like, yeah, we had twice the the scale like performed and so the same pattern is repeated twice. I I bet like that just like copy paste it like that the same scale like uh in the same in the audio file. OK. But here there's still something that's like a little bit weird which is like that on the frequency side. Uh I mean everything like it is very squashed. And then that the reason why is that the case is because like we are using some kind of like a linear frequency representation right. But if you followed along with the series in one of like the initial videos that we had in the series, I explained that the way we perceive a frequency is, is a logarithmic, it's not a linear. So what we want to do probably uh to have a representation of the spectrogram that's more kind of like in line with the way that we perceive a frequency is to actually apply some logarithmic transformation on the frequency as well as the amplitude. So how do we do that? Well, that's extremely simple uh with Li Brosa. And so what we want to do is to create a log frequency log spectrogram uh um representation. And so what we do like in the function that I wrote, you just like pass this uh keyword argument of Y axis and you put it to log. But what this actually does under the hood, it is uh we are just like passing that in uh this like y axis in the Lisa dot display dot spec shell uh function and we pass it here. And so uh the default that we were using was like y axis is equal to linear. And in other words, we are using like a linear representation of the frequency. But if we put it equal to log, we're gonna be using like a log representation of frequency. OK. So now let's take a look at this and see how it looks like. OK. Good. So as you can see here, we have a uh log uh representation and now like this is like way more like spaced out. And as you can see, so this makes a lot of sense because like we start with a uh basically like the middle C or like C four, the, the central C on the keyboard, which is like this not here, then we go up to ad so we do a CD then up to EFGAB and then back to C but at the octave above. And so we can clearly see all of the scale going up here. And it has also like some slightly like different duration, like each note is played with a different duration. So I'll just like play you back like the, the scale once again. So you can notice that. OK. OK. And it's this, right. Right. OK. Uh Good. So the next thing that I want to do is just like visualize all the other songs from, yeah, the different genres. So like the uh classical orchestral piece from the BC, the red hot chili pepper, like rock song and the jazz ballad from uh Duke Ellington. OK. So I'll quickly go explain what to do here, but it's basically what, what we've already done in a more extended way uh with the, with the scale. Uh But basically what I do here is I extract the short time fourier transform as a first thing. And then uh I just uh get the magnitude, the squared magnitude and then apply this power to decibels. And then we get these signals for the PC for red dot And for Duke. And these are the log spectrograms for this different uh like songs. And then I just like pass those like into like this block spectrogram function. And I asked to have a log representation of the frequency. And so what we're gonna see is a log frequency log amplitude uh spectrogram. OK. So let's take a look at this. OK. So the first one is the spectrogram for the classical music piece. This is the red hot chili peppers one and this is like the jazz piece. OK. So is there any major difference that yeah, we can see just like straight away. Yes, there is. So in the case of classical music or this orchestral piece with a lot of like smooth string sounds, you see that the kind of like the this distribution of the energy like in the different frequencies it tends like to change, right? Quite a lot. And obviously the redder in this spectrogram like the, the, the color and the more energy you have like in that frequency of that specific moment in time, right? And uh so here, as you see, like if you remember, we had like a huge crescendo a kind of like increasing intensity uh towards like the the center of like the, the, the snippet of that like the BC uh orchestral piece and here you have it down here. So you have like higher frequency see that get like uh kind of like higher energies like this. And then if you listen to the end of the piece, it tends to kind of fade away and you can kind of visualize that because like the this uh colors tends to like kind of like fade out. It's they are not as red as they used to be like in this central part. For example. Now let's compare this kind of like zoo spectrogram to the red hot chili pepper one, right? This is, this feels like a way more kind of I I would say like like a pattern like that repeats itself like quite a lot and we have a lot of like activity in the lower uh like frequencies. And this has also to do with the presence of uh like a kick drum. So you have like this base um kind of like they snare like with the, with the, with the bass drum uh kind of uh creating like this typical like rock pattern and you can see it here like in with all of this activity here, you have like a lot of repetition. So take a look, for example, at this like patterns like here like in red like this OK. So you see that with the rock piece, you have like a lot of energy like in the lower um frequencies and you have like these patterns that you can kind of recognize and that's because the music is based off like patterns rhythmical as well as like um melodic ones. OK? And, and then you have like the jazz piece uh by Jake Ellington. And here I could say that's a little bit like of the two worlds, right? So you still have like certain patterns that you can clearly see. And that's because we, we had like some kind of like a basic, like a groove with a drum kit and with bass. Um but still like, it's kind of like more fluid, right? It's not as strict as the rock piece by the red hot chili peppers, right? OK. So here, like at a glance, you, you can't see that spectrograms can reveal a lot about different musical genres, obviously. Like this is just like i an anecdotal example, but more, yeah, more often than not, these are like certain features that you actually see across different genres, like when you like, look at their spectrogram. So you can have like a, a fair guess if you're experienced in uh visual spectrograms, whether like you're dealing with a classical music, kind of like peace or you're dealing with a, a rock uh like ballad or whatever, that's all for today. I hope you enjoyed the video. Next time we're gonna move on to another flavor of spectrograms called male spectrograms, which are more psychological perceptually relevant than the royal spectrograms that we've seen here. So if you've enjoyed the video and found it useful, please leave a like if you haven't subscribed and you would like to see more videos like this. Well, just subscribe to the channel and if you have any questions as always, just like, leave them in the comments section below. I hope I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we learned about a short time, four year transform and spectrograms in a theoretical way. This time, it's time to actually use Python and the audio processing library lib browser to extract",
+                "start_time": "0.0",
+                "end_time": "21.95"
+            },
+            {
+                "id": 1,
+                "transcript": "spectrograms from audio files. So let's get started. So I already wrote a Jupiter notebook here. And so I'm gonna just like run through it and I'm gonna tell you like what I'm doing and the different steps like to actually extract uh spectrogram. So the first thing that we want to do is just like import some uh like libraries. So we import OS so that we can",
+                "start_time": "21.959",
+                "end_time": "43.909"
+            },
+            {
+                "id": 2,
+                "transcript": "uh load audio like our audio files, we import to Li Brosa Libres dot display for uh just like showing visualizing like the spectrograms and we'll import like noon pie and map lib dot plot for um actually doing or just like plotting uh the spectrograms like in other results that we'll have. OK. So let import all of this and then we want to just like load audio files with Li Brosa. So",
+                "start_time": "43.919",
+                "end_time": "72.709"
+            },
+            {
+                "id": 3,
+                "transcript": "uh we are gonna be working with four different audio files. So the first one is just like a skill and uh yeah, it's just like a reside. It's like at this path. Then we're gonna have um",
+                "start_time": "72.879",
+                "end_time": "85.76"
+            },
+            {
+                "id": 4,
+                "transcript": "uh kind of like a 32nd snippet from the BC. 30 seconds snippets from red hot chili peppers and 32nd snippet from uh Duke Ellington. So we have like three different musical genres represented some classical music with the BC. rock music, with the red hot chili peppers and jazz with Duke Helling. OK. But first thing, let's try to",
+                "start_time": "86.069",
+                "end_time": "109.0"
+            },
+            {
+                "id": 5,
+                "transcript": "listen to this music. So, or, and so we get like an idea of what we're dealing with. And so here we go. So if you do I IP D dot audio and you pass the uh the file, then you're gonna be able to directly listen to the uh to the audio files in the Jupiter notebook. By the way, this IP D comes from",
+                "start_time": "109.569",
+                "end_time": "132.32"
+            },
+            {
+                "id": 6,
+                "transcript": "this input over here. So you just like input ipython dot display as IP D and then you can use it. OK? So now let's listen to like this different uh audio files. So the first one is gonna be a uh scale uh played on a piano.",
+                "start_time": "132.57",
+                "end_time": "147.13"
+            },
+            {
+                "id": 7,
+                "transcript": "OK.",
+                "start_time": "150.25",
+                "end_time": "151.059"
+            },
+            {
+                "id": 8,
+                "transcript": "Yeah, it's just repeated a couple of times. Then we have the music from the busy from the red hot chili peppers and from Duke Ellington. So let's listen.",
+                "start_time": "153.529",
+                "end_time": "163.149"
+            },
+            {
+                "id": 9,
+                "transcript": "So if you guys followed along so far with the series you probably already recognize this piece cos we used it in a previous video.",
+                "start_time": "165.429",
+                "end_time": "174.369"
+            },
+            {
+                "id": 10,
+                "transcript": "So here you have like a huge crescendo, right? With all of this string instrument,",
+                "start_time": "178.199",
+                "end_time": "184.0"
+            },
+            {
+                "id": 11,
+                "transcript": "right? You get the idea. So very nice, smooth uh like string driven uh orchestral piece. And then we have a song from the Red Hot Chili.",
+                "start_time": "186.199",
+                "end_time": "197.32"
+            },
+            {
+                "id": 12,
+                "transcript": "OK. You get the idea and probably you are all too familiar with that song. Then moving on to this jazz piece from Duke all by Duke",
+                "start_time": "210.13",
+                "end_time": "219.86"
+            },
+            {
+                "id": 13,
+                "transcript": "Mhm",
+                "start_time": "220.66",
+                "end_time": "220.889"
+            },
+            {
+                "id": 14,
+                "transcript": "Very smooth, right?",
+                "start_time": "225.33",
+                "end_time": "227.449"
+            },
+            {
+                "id": 15,
+                "transcript": "OK. You get the idea. So what we'll do is try to extract the uh spectrogram from this and visualize them and compare them. OK. So what we want to do first is just let you load the, all your files with libros. So we've done this multiple times in earlier videos. Uh So uh what we do is just like lib rosa dot load and we pass like the name of the uh or the, the path to the file",
+                "start_time": "233.35",
+                "end_time": "257.144"
+            },
+            {
+                "id": 16,
+                "transcript": "we get back is a signal, a NPI array. And then we can also get back the sample rate which when it's defaulted is gonna be equal to 22,050 Hertz. OK. So let's move on to this next step. What we can do, what we should do is extract the short time fourier transform. And this is very easy with the Liberator because we have a function that does that uh super quickly.",
+                "start_time": "257.154",
+                "end_time": "282.059"
+            },
+            {
+                "id": 17,
+                "transcript": "So the first thing we wanna do is just let's just set a couple of parameters. So we'll set the frame size equal to 2048 H uh samples. Sorry. And the H size is gonna be equal to 512 samples. Again, these are quite typical parameters for like the frame size and the H size.",
+                "start_time": "282.23",
+                "end_time": "303.299"
+            },
+            {
+                "id": 18,
+                "transcript": "Uh If you don't know what I'm talking about, I highly suggest you to go check out my previous video on the theory behind the short term fourier transform. I'm just like taking for granted that you've watched that video or you are familiar with the short term fourier transform. So I'm not gonna get into details what all of these parameters actually mean in this um video.",
+                "start_time": "303.619",
+                "end_time": "324.559"
+            },
+            {
+                "id": 19,
+                "transcript": "OK. So let's move on. Now, I can extract the short time period transform using this function which is Great Libres SDFT and then I should pass in the signal. And the first thing that we'll see here and the spectrogram that we'll analyze this",
+                "start_time": "324.72",
+                "end_time": "344.869"
+            },
+            {
+                "id": 20,
+                "transcript": "are with regard with the, with the scale, just like to see how that is represented in a spectrogram. And it's gonna be easier to visualize than like all the other music that we've uh listened earlier. Then we should pass the frame size and we should pass it. Uh So with this keyword argument called N dash FFT",
+                "start_time": "345.41",
+                "end_time": "366.29"
+            },
+            {
+                "id": 21,
+                "transcript": "uh A and underscore FFT and then we pass the hop uh length um keyword argument and we pass our hop size over here. OK. So we do this and then now let's take a look at the shape of the short time fourier transform. So as we uh so in the previous video, this is, is gonna be like a bidi menal array and specifically like the first dimension is relative to the, the frequency.",
+                "start_time": "366.519",
+                "end_time": "393.829"
+            },
+            {
+                "id": 22,
+                "transcript": "Uh And so here we have like um all the frequency bins and these, these are equal. So like this number is equal to half the frame size plus",
+                "start_time": "394.029",
+                "end_time": "406.589"
+            },
+            {
+                "id": 23,
+                "transcript": "one. So it's basically 2048 divided by two, which is 1024 plus 1, 1025. OK. So it checks out good. And here uh like on the columns, uh the second dimension of this metrics, we have the um number of frames. It's basically like the temporal bins. And in this case, we have like a 342 temporal bins. And if you want to know how to",
+                "start_time": "406.95",
+                "end_time": "434.812"
+            },
+            {
+                "id": 24,
+                "transcript": "get from uh like a signal to like a certain number of frames just like to make that calculation, I have like the formula in the previous video regarding short time fourier transform. OK. So now the next thing that we want to see is the actual type of the different items that we have in the short time four transform result or in the matrix. So here we just like take the",
+                "start_time": "434.822",
+                "end_time": "462.686"
+            },
+            {
+                "id": 25,
+                "transcript": "item at uh col uh row zero, column zero. And as you can see the type is a complex number. And this doesn't come as a surprise because the output of a short time fourier transform is a series of like complex fourier coefficients. And so, uh yeah, so we expect that each of the items which is a fourier coefficient for a given uh like frequency bin and a given like frame is a complex number.",
+                "start_time": "462.696",
+                "end_time": "490.57"
+            },
+            {
+                "id": 26,
+                "transcript": "But now what we want to do is actually calculate these spectrograms. So we need to to move from the short term fourier transform to the spectrogram. So how do we do that? Well, that's easily done because we just like take the squared magnitude of the short term fourier transform. So we just like use like this NP dot ABS absolute value and we pass in the uh",
+                "start_time": "490.809",
+                "end_time": "514.57"
+            },
+            {
+                "id": 27,
+                "transcript": "short time free transform results here and then we square the results and this is going to be equal to the spectrogram. OK. Yeah. Not that let me move on. Let's take a look at the shape here. And once again, not surprisingly, we have like this shape. So 1025 number of Beins and 342",
+                "start_time": "514.58",
+                "end_time": "538.349"
+            },
+            {
+                "id": 28,
+                "transcript": "uh number of frames, which is the same that we used to have like with the short term fourier transform results. And that checks out because all we are doing is just like taking the magnitude the squared magnitude. So the the shape of the matrix uh of the original matrix doesn't change. But what does change",
+                "start_time": "538.52",
+                "end_time": "558.544"
+            },
+            {
+                "id": 29,
+                "transcript": "is the type of the items. In this case, we have uh floats. And this makes sense because we are taking like the, the magnitude here. And so basically, we are moving from the complex number to like a real number. And this is the spectrogram and this is like what we can actually visualize um uh on a hit map. And so let's see how we can easily visualize the spectrogram uh with uh Li Brosa.",
+                "start_time": "558.554",
+                "end_time": "586.179"
+            },
+            {
+                "id": 30,
+                "transcript": "And so here I wrote like a little function and here this is the signature. So you see uh Y capital Y is just like the um",
+                "start_time": "586.469",
+                "end_time": "596.53"
+            },
+            {
+                "id": 31,
+                "transcript": "uh it's the spectrogram, then I pass in the sample rates the H length and the Y axis. And here like a default is, let's say uh linear. We'll see what this means like in a second. But before, let's just uh take a look at what I do here, I just like instantiate um a figure uh specifying like the, the, the figure size here using",
+                "start_time": "596.789",
+                "end_time": "618.145"
+            },
+            {
+                "id": 32,
+                "transcript": "like my lip. And then here comes the magic we can use Lisa dot display dot spec show to uh visualize uh any type of spectrogram like um signals. And so here what uh like this function expects is why is it basically like the um spectrogram?",
+                "start_time": "618.155",
+                "end_time": "639.52"
+            },
+            {
+                "id": 33,
+                "transcript": "Then the uh sample rate, the hop length, the X axis which is gonna be equal to time. So we're gonna have like on the X axis, we're gonna have like time and on the y axis, we're gonna have like a type of um representation that's uh linear. And then I'm gonna add a color bar here and you'll see what this does. It's basically like a legend that uh provides us information about like the",
+                "start_time": "639.77",
+                "end_time": "666.179"
+            },
+            {
+                "id": 34,
+                "transcript": "uh how to map the colors into like the different like intensities of the uh of the signal of the amplitude. OK. So now let me run this and now we can plot the spectrogram and I'll pass in the uh spectrogram for like the scale scale like audio file, I'll pass in the sample rate and the hub size. And so let's see what happens here. And here we go our first visualization of a spectrogram, but this doesn't look great. Does it",
+                "start_time": "666.409",
+                "end_time": "695.989"
+            },
+            {
+                "id": 35,
+                "transcript": "they",
+                "start_time": "696.28",
+                "end_time": "696.809"
+            },
+            {
+                "id": 36,
+                "transcript": "obviously like the idea here is that the, the brighter the color and the more energy you have like in that uh frequency bin, right? And so we see a little bit of like activity down here and it's repeated. And so probably you can guess that this is like the two scale like the fundamental frequencies of the scales. And in in indeed you see that these like tend to like run up",
+                "start_time": "697.349",
+                "end_time": "721.34"
+            },
+            {
+                "id": 37,
+                "transcript": "uh and it's repeated twice because if you remember like in that audio file, we had the same scale repeated twice, but still like everything is black. So it means that it has like very, very little energy. So why is that the case? Well, it turns out that this is how it sounds like work. So uh but uh it's like the way we actually perceive like these energies and amplitude is not really linear as is the case like in this representation here. But it, it's actually uh logarithmic.",
+                "start_time": "721.96",
+                "end_time": "751.349"
+            },
+            {
+                "id": 38,
+                "transcript": "And so uh to get like closer to the way we perceive a sound, we need to do a kind of uh transformation of the uh intensities like of all the amplitude here. And so we need to, to move like all of this like amplitudes from",
+                "start_time": "751.59",
+                "end_time": "770.83"
+            },
+            {
+                "id": 39,
+                "transcript": "the uh basic like linear representation to a logarithmic representation, which is like more perceptually significant. We can easily move from a linear representation of amplitude to a logarithmic one using uh this uh",
+                "start_time": "771.08",
+                "end_time": "790.13"
+            },
+            {
+                "id": 40,
+                "transcript": "the function from Libera called power to DB. And the B stands for uh decibels. Now, if you are not familiar with decibels, I suggest you to go check out this video where I talk about decibels and introduce them and explain like how they work. But basically under the hood, what happens is that decibels are actually applying some kind of like a logarithmic transformation",
+                "start_time": "790.14",
+                "end_time": "809.2"
+            },
+            {
+                "id": 41,
+                "transcript": "that when you use this power to be, you're moving like from the power uh representation like of the intensity like to uh decimals. And so we do this and we get back a a log amplitude uh spectrogram here. And so we can then just like",
+                "start_time": "809.33",
+                "end_time": "827.429"
+            },
+            {
+                "id": 42,
+                "transcript": "plot that with our function. So plot spectrogram instead of passing the actual like spectrogram of scale, we pass the log amplitude spectrogram and again, we pass the sample rate and the hop size. OK. So if we do that, we get these results, which is way better than the one that had we had before.",
+                "start_time": "827.44",
+                "end_time": "845.549"
+            },
+            {
+                "id": 43,
+                "transcript": "So here we start to see like some uh energy like bursts of energy like down here. And as you can see here, probably like this, this is like a constant uh like notes, then you move up, you move up, up, up up. So this probably is just like the fundamental frequencies for the scale that we played.",
+                "start_time": "845.75",
+                "end_time": "865.76"
+            },
+            {
+                "id": 44,
+                "transcript": "And if you're wondering about like all of this other kind of like burst uh like of energies like at a higher frequencies, those are uh the harmonic components of the original of the fundamental frequency for the scale. Now we have like twice the same thing because if you remember",
+                "start_time": "865.94",
+                "end_time": "886.205"
+            },
+            {
+                "id": 45,
+                "transcript": "like, yeah, we had twice the the scale like performed and so the same pattern is repeated twice. I I bet like that just like copy paste it like that the same scale like uh in the same in the audio file. OK. But here there's still something that's like a little bit weird which is like that on the frequency side. Uh",
+                "start_time": "886.215",
+                "end_time": "909.489"
+            },
+            {
+                "id": 46,
+                "transcript": "I mean everything like it is very squashed. And then that the reason why is that the case is because like we are using some kind of like a linear frequency representation right. But if you followed along with the series in one of like the initial videos that we had in the series, I explained that the way we perceive a frequency is,",
+                "start_time": "909.71",
+                "end_time": "931.224"
+            },
+            {
+                "id": 47,
+                "transcript": "is a logarithmic, it's not a linear. So what we want to do probably uh to have a representation of the spectrogram that's more kind of like in line with the way that we perceive a frequency is to actually apply some logarithmic transformation on the frequency as well as the amplitude.",
+                "start_time": "931.234",
+                "end_time": "952.76"
+            },
+            {
+                "id": 48,
+                "transcript": "So how do we do that? Well, that's extremely simple uh with Li Brosa. And so what we want to do is to create a log frequency log spectrogram uh um representation. And so what we do like in the function that I wrote, you just like pass this uh keyword argument of Y axis and you put it to log. But what this actually does under the hood, it is",
+                "start_time": "953.159",
+                "end_time": "977.909"
+            },
+            {
+                "id": 49,
+                "transcript": "uh we are just like passing that in uh this like y axis in the Lisa dot display dot spec shell uh function and we pass it here. And so uh the default that we were using was like y axis is equal to linear. And in other words, we are using like a linear representation of the frequency. But if we put it equal to log, we're gonna be using like a log representation of frequency. OK. So now let's take a look at this and see how it looks like. OK. Good.",
+                "start_time": "978.359",
+                "end_time": "1007.099"
+            },
+            {
+                "id": 50,
+                "transcript": "So as you can see here, we have a uh log uh representation and now like this is like way more like spaced out. And as you can see,",
+                "start_time": "1007.469",
+                "end_time": "1017.609"
+            },
+            {
+                "id": 51,
+                "transcript": "so this makes a lot of sense because like we start with a uh basically like the middle C or like C four, the, the central C on the keyboard, which is like this not here, then we go up to ad so we do a CD then up to EFGAB and then back to C but at the octave above. And so we can",
+                "start_time": "1017.809",
+                "end_time": "1038.67"
+            },
+            {
+                "id": 52,
+                "transcript": "clearly see all of the scale going up here. And it has also like some slightly like different duration, like each note is played with a different duration. So I'll just like play you back like the, the scale once again. So you can notice that. OK.",
+                "start_time": "1038.88",
+                "end_time": "1055.469"
+            },
+            {
+                "id": 53,
+                "transcript": "OK.",
+                "start_time": "1059.859",
+                "end_time": "1060.579"
+            },
+            {
+                "id": 54,
+                "transcript": "And it's this, right. Right. OK.",
+                "start_time": "1062.869",
+                "end_time": "1069.859"
+            },
+            {
+                "id": 55,
+                "transcript": "Uh Good. So the next thing that I want to do is just like visualize all the other songs from, yeah, the different genres. So like the uh classical orchestral piece from the BC, the red hot chili pepper, like rock song and the jazz ballad from uh Duke Ellington.",
+                "start_time": "1070.67",
+                "end_time": "1095.14"
+            },
+            {
+                "id": 56,
+                "transcript": "OK. So I'll quickly go explain what to do here, but it's basically what, what we've already done in a more extended way uh with the, with the scale.",
+                "start_time": "1095.4",
+                "end_time": "1104.619"
+            },
+            {
+                "id": 57,
+                "transcript": "Uh But basically what I do here is I extract the short time fourier transform as a first thing. And then uh I just uh get the magnitude, the squared magnitude and then apply this power to decibels. And then we get these signals for the PC for red dot And for Duke. And these are the",
+                "start_time": "1104.939",
+                "end_time": "1127.729"
+            },
+            {
+                "id": 58,
+                "transcript": "log spectrograms for this different uh like songs. And then I just like pass those like into like this block spectrogram function. And I asked to have a log representation of the frequency. And so what we're gonna see is a log frequency log amplitude uh spectrogram. OK. So let's take a look at this. OK. So the first one is the spectrogram for the classical music piece. This is the red hot chili peppers one and this is like the jazz piece.",
+                "start_time": "1128.29",
+                "end_time": "1157.56"
+            },
+            {
+                "id": 59,
+                "transcript": "OK. So is there any major difference that yeah, we can see just like straight away. Yes, there is. So in the case of classical music or this orchestral piece with a lot of like smooth string sounds, you see that the kind of like the this",
+                "start_time": "1157.81",
+                "end_time": "1176.219"
+            },
+            {
+                "id": 60,
+                "transcript": "distribution of the energy like in the different frequencies it tends like to change, right? Quite a lot. And obviously the redder in this spectrogram like the, the, the color and the more energy you have like in that frequency of that specific moment in time, right?",
+                "start_time": "1176.229",
+                "end_time": "1194.65"
+            },
+            {
+                "id": 61,
+                "transcript": "And uh so here, as you see, like if you remember, we had like a huge crescendo a kind of like increasing intensity uh towards like the the center of like the, the, the snippet of that like the BC uh orchestral piece and here you have it down here. So you have like higher frequency",
+                "start_time": "1194.81",
+                "end_time": "1214.579"
+            },
+            {
+                "id": 62,
+                "transcript": "see that get like uh kind of like higher energies like this. And then if you listen to the end of the piece, it tends to kind of fade away and you can kind of visualize that because like the this uh colors tends to like kind of like fade out. It's they are not as red as they used to be like in this central part. For example. Now let's compare this kind of like zoo spectrogram to the red hot chili pepper one,",
+                "start_time": "1214.589",
+                "end_time": "1239.14"
+            },
+            {
+                "id": 63,
+                "transcript": "right? This is, this feels like a way more kind of I I would say like like a pattern like that repeats itself like quite a lot and we have a lot of like activity in the lower uh like frequencies. And this has also to do with the presence of uh like a kick drum. So you have like this base um kind of like they",
+                "start_time": "1239.329",
+                "end_time": "1265.8"
+            },
+            {
+                "id": 64,
+                "transcript": "snare like with the, with the, with the bass drum uh kind of uh creating like this typical like rock pattern and you can see it here like in with all of this activity here, you have like a lot of repetition. So take a look, for example, at this like patterns like here like in red",
+                "start_time": "1265.81",
+                "end_time": "1283.189"
+            },
+            {
+                "id": 65,
+                "transcript": "like this OK. So you see that with the rock piece, you have like a lot of energy like in the lower um frequencies and you have like these patterns that you can kind of recognize and that's because the music is based off like patterns rhythmical as well as like um melodic ones. OK?",
+                "start_time": "1284.479",
+                "end_time": "1303.05"
+            },
+            {
+                "id": 66,
+                "transcript": "And, and then you have like the jazz piece uh by Jake Ellington. And here I could say that's a little bit like of the two worlds, right? So you still have like certain patterns that you can clearly see. And that's because we, we had like some kind of like a basic, like a groove with a drum kit and with bass. Um",
+                "start_time": "1303.3",
+                "end_time": "1324.589"
+            },
+            {
+                "id": 67,
+                "transcript": "but still like, it's kind of like more fluid, right? It's not as strict as the rock piece by the red hot chili peppers, right? OK. So here, like at a glance, you, you can't see that spectrograms can reveal a lot about different musical genres, obviously. Like this is just like i an anecdotal example, but more, yeah, more often than not, these are like certain features that you actually see",
+                "start_time": "1324.93",
+                "end_time": "1353.734"
+            },
+            {
+                "id": 68,
+                "transcript": "across different genres, like when you like, look at their spectrogram. So you can have like a, a fair guess if you're experienced in uh visual spectrograms, whether like you're dealing with a classical music, kind of like peace or you're dealing with a, a rock uh like ballad or whatever,",
+                "start_time": "1353.744",
+                "end_time": "1372.53"
+            },
+            {
+                "id": 69,
+                "transcript": "that's all for today. I hope you enjoyed the video. Next time we're gonna move on to another flavor of spectrograms called male spectrograms, which are more psychological perceptually relevant than the royal spectrograms that we've seen here. So if you've enjoyed the video and found it useful, please leave a like if you haven't subscribed and you would like to see more videos like this. Well, just subscribe to the channel",
+                "start_time": "1372.709",
+                "end_time": "1398.31"
+            },
+            {
+                "id": 70,
+                "transcript": "and if you have any questions as always, just like, leave them in the comments section below. I hope I'll see you next time. Cheers.",
+                "start_time": "1398.459",
+                "end_time": "1405.05"
+            }
+        ]
+    }
+}

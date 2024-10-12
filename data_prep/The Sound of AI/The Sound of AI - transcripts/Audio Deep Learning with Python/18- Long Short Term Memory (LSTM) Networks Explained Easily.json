@@ -1,0 +1,500 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to another video in the Deep learning for audio with Python series. This time, we're gonna introduce a super exciting type of network recurrent network called a long short term memory network, right? But before getting into that, let's remember like what we've done uh last time and why we need this LST MS, right? So we la in the last video, we looked into simple R and MS and we saw that they're really good for time series type of data. But we also found out that they have a few issues mainly that they really don't have a long term memory and that's uh the network can't really uh use like context from the past. And that's because like it can't learn patterns with a long dependencies. And this is like a huge issue as we've seen last time because I mean, a lot of like audio music data uh depends like on long patterns. And so we need to find a way to overcome this issue introducing long short term memory networks or LSD MS. So LSD, MS are a special type of recurrent neural networks. And the idea is that we have a memory cell that will enable us to learn longer term uh patterns. Now don't get super excited here because uh LSC MS performed really well and they've helped us so much, for example, in music generation and a bunch of different o other tasks that have to do with audio. But the point being is that they detect pattern which up to like 100 steps, but they start to struggle when we have hundreds and hundreds here, let alone thousands of steps. So let's get started and understand how these LSDM networks uh work. But for doing that, we want to create a comparison between simple R and NS and LSD MS. Now, here we have a, a nice diagram where we have a, a simple R and N unrolled. Now, this is not my diagram and I'm using like this super cool graphics uh that come from a, an article that's like super important like in the community. And it's a blog post that's called Understanding uh LSDM networks. And I linked uh the article below in the description uh section of this video and I urge you to just like go there and check that out cause like it has, oh it's really, really good to understand uh like LSC MS and it's a bit like complementary to what I'm presenting here. Now, getting back right to the good stuff. So here we have this diagram where we have an unrolled uh like recurrent layer. Uh but with a simple RNM. And if you guys remember, remember from last time, so here the memory cell itself is a simple dense layer with a tan H hyperbolic tangent activation function. And uh we have both the inputs at time T so XT and the states uh vector from the previous time step that contribute and now con concatenate it together and fed into the TH and then we get like an output out there and the output is like is twofold, right? So we have like the output and then we have the new uh current state which is like the, the state vector, but like output and state vector are the same. Now, let's take a look at LSD MS and here we go, it's a little bit different, right? So, I mean, the whole architecture is basically the very same. So we can unroll an LSTM like in the same way that we do with a simple RNN unit. What really changes? It's this guy here, which is basically the cell itself. So there are a bunch of different things that go on uh like in the cell that like the, the simple R and N cell. Uh yeah, doesn't do at all. And it's all of these things that will enable us with an LSDM to learn longer term uh patterns. Cool. OK. So now let's take a look at an LLSDM cell from a very high uh point of view. So you may have noticed this but uh an LSDM cell contains a simple R and M cell. It's a tan h um dense layer and we'll see this in a while. But I mean, so the, the idea is that you can think of like this LSTM as a uh as a kind of like augmentation of a simple RNM cell where we have like these RNM cell and then a bunch of other components. So one of the most important components, there is a second state vector that we can call the cell state. And basically this is the one that uh will uh have like information about long term memory. So it's kinds of stores uh patterns like that are longer term. And then we have a bunch of like gates, uh the four gate gates, the input gate and the output gates and all of these gates which are basically connected with a, with a sigmoid dense layer uh acts as a filter. So they filter uh the information and then decide like what to forget what to input and what to output. Now don't be scared about all of this complexity because we're gonna break down all of these things one by one. So and here we have it in all of its beauty, the LSDM cell. So there are a bunch of things here. So let's start like from the simple ones. So just like the things that more or less we already know. So it is X uh T it's basically just like the input. And so this is like a data point. And let's remember here, we are analyzing like the, the, the behavior of this cell like at each time step. And so XD is just like a point in a sequence, right, a sample good. Then we have the output over here which is HT and it's just like the output of this cell, which is somehow connected with the hidden state because it's basically the same thing. So the output and the hidden states are the same thing. And then we have this secondary um state vector that's called uh the cell state over here which we call uh CT. So it's the cell state at time step T good. So now let's move on. So here you might have seen this but this is our simple RNN cell which is already in the LSTM here. And as you can see, so here we have this tan H and this is a dense layer now with like this um all of these units here with this sigmoid thing, Sigma tan H uh which like the yellow box that represents dense layers with uh an activation function that in this case is 10 tan H. And in this other case is is like a sigmoid function but going back to the simple RNM cell. So this is a simple R and M cell. So we have a tonic um a dense layer and the input is a uh is XT. So the basic like the, the, the data as well as the HT minus one, which is the state vector or a hidden state from the previous time step good. OK. So let's take a look at this hidden state. So we can think of this hidden state as the short term memory of the LSTM. So keeps information uh kind of like the, the stuff like that's happening like in the, in the last uh like in the current state. And it kind of like uh yeah stores that kind of information. Then uh we also have like this secondary state vector which we can call the cell state. And this cell state is the one responsible for the long term memory. So for storing uh longer term uh dependencies and patterns. And as you can see here, uh the the cell state flows quite nicely through the LSTM and it's only updated in two points. So here where we have like this multiplication which is a element wise multiplication, we'll see this in a while. But so here we have like this multiplication and here we have like this sum element wise sum between like two matrices that we'll see. So all of this to say that uh for the cell state, we have very few computations, just two. And when you have few competitions, the result is that you can stabilize the gradients. And so you are kind of like a better suited to avoid vanishing gradients, which is like the main issue with training rnns cool. OK. So let's take a look at this two updates that we have like a little bit like more um specifically. So the first one uh decides what to forget. So when we get like to that point, the cell state uh gets uh updated and we decide what to forget from this long term memory state factor. The second one decides what new info to add to the cell state. And so if you think about this, it's basically, so the C state uh gives us like uh tries to keep track of the most important information. It drops the things that are like less important and it adds things that are very important. And so like when we train the network, we basically train an LSTM to be very effective at understanding which patterns to forget because they are not that important all in all and which patterns to uh to remember because they are super important for our uh tasks. Good. OK. So now we're gonna look into the full get segment. I would call it like this wave for get component of the LSTM. And so here, as we said, like this component uh yeah, it's uh kind of responsible for forgetting stuff from the cell state. OK. So I'm gonna drop some math here and I don't be scared about that because like it's quite intuitive. And if you've followed so far, like the, the series, uh it's not really that different from the stuff that I've uh covered when we started looking into uh computation and neural networks. And uh yeah, and all of that stuff. But if you don't remember that I have the uh video for that should be over here just like click that and check that out. OK. So back to the important stuff now. So we have this FT which is a forget uh matrix uh for T and uh it is like the results of the forget gate and the forget gate being like this guy here, like this sigma um dense layer over here. So what happens here? It's very simple. So we concatenate the input at the current time step with the uh state vector, the hidden vector from the previous time step over a year. And uh we concatenate that and then we apply uh a segment function to like this guy here. And then here we have this BF it's just like a biased term. And this WF is the weight matrix uh for like this dense layer for the forget layer good. And so once we do this, we get a matrix uh that's uh that's like the filter for what we should forget. And we'll get to that in a second. But basically, when we calculate that we are at this point here, so we've just gone through the forget gate now. Uh we are using a sigmoid function. And uh if you guys remember the sigmoid function like shrinks the output between zero and one. And this is great to use as a filter because basically, we're gonna have like for all of the values of this FT matrix, a value between zero and one. So the things that are the uh the indexes that are closer to zeros are the relative indexes that we're gonna forget in the cell state. Whereas like when we have indexes with values that are closer to one, we're gonna keep those values. So zero, forget one is remember. But now how do we forget stuff or how do we remember stuff? Yeah, that's when these element wise multiplication kicks in. So what we do basically is we take the cell state at T minus one. So the the cell state like from the previous um time step and then we perform an element wise multiplication with the FT matrix. But obviously to perform element wise multiplication, you need to have like these two matrices that have the same dimension. And so we can just like multiply element by element there. And the result is this CTF which uh is a very heavy kind of like uh yeah convention to say this is like the the cell state from uh the previous time step where we decide what to forget at this time step, right? OK. So this could feel a little bit abstract. So I'm gonna provide you with an example. OK. So we have like our nice equation over here and here, let's say we have like the cell states uh that's given by three values, right? Uh OK. So it's 124. So, and this is the cell state at T minus one. And then uh we've uh we've like calculated the input gates and we have this uh value over here for FT which is 101. Now let's try to get to CTF. So how should we do that? Well, that's super simple. So we take uh CT minus one and we element wise multiply with FT. So we have 124 multiplied by 101. And if you do multiplication element index by index, so one by one is 12 by zero is 04 by one is four. So the result is 104. So here we've decided what to retain and what to forget. So take a look at the first item and the third item. So index zero and two like in this list of CT minus one. And the result is that we are keeping that information in and why is that? Well, that's because the FT is equal to one for those two indexes. So the filter that we are using is just like telling us. Yeah, I want to keep that information because I believe it's important. What about the poor second index in CTF there? Well, unfortunately, we are dropping that as you can see here. So it becomes zero. And the reason why it's very easy to understand is because the in the, the forgets uh matrix there, we have like for the correspondence um uh index zero which acts like as a, as a filter that drops that value, right? So now we have an understanding of how like this forget thing uh works on the cell state. OK. So now let's move on to uh the next step. So we said that we have forget input and output as like the main components of a an LSTM. So now let's focus an input. So the input here um it's kind of like it's made by two parts, right? So we have like our uh simple R and N module which is this tan h uh dense layer and then we have the uh input gate which is this sigmoid uh dense layer over here. OK. So for the time being, let's calculate the input, let's process the input gate and, and get like a, a matrix out of it, right? And this is gonna act as a filter on the simple R and M component, right? Let's see how this works. So for the, this it, which is the, yeah, as, as I said, like the, the results of the input gate, we we're gonna get like a um again a matrix that has like the same uh dimensionality uh as the, as what comes out of like the tonic uh layer over here. And we get it by just using a sigmoid function that we apply to the concatenation of hat minus one and XT and to which like we apply or we multiply this W I uh metrics. And obviously, as always, we have like a bias term here, but let's not bother about that. Cool. So here, uh with this, it, we have like this value this matrix that comes like at this point. Now let's see what happens like with at, at the other point over here. So we're basically uh gonna build a uh CT prime. So which is basically like the new cell state. Uh That is a function obviously of the um uh hidden state at the previous time step as well as the um input data at the current time uh time step. And the two again are combined concatenation together cool. But this time we are using a tan H to a hyperbolic tangent uh as the nonlinearity. And now this is like where we are at at this point. So this value is C prime CT prime is over here good. So after the tan each layer good, OK. So now we should uh calculate the um the element wise multiplication between CT prime and it. So basically what we are doing here is we are taking the, the new cells state, the information that we want to pass in the new cell state here, CCT prime and we are modulating that we are filtering that with it the same way we've done with the four G segment, right? And so here these two matrices are gonna have the same uh dimensionality, we're gonna multiply them and it is gonna decide what's important to keep in the input. So what's relevant and what's just like some garbage that I shouldn't care at all. And the result is this CT I, so it's basically the uh the cell state at times C but the inputs, right? So the new stuff that we want to add to the cell state basically, right? OK. So now the next step is to arrive at CT. So which is basically this guy here. So the, the cell state at the current time step and in order to do that, what we do is at this point, we do this uh element wise um uh sum and so we sum CTF to CT I what? So uh let's just like, remember like uh all of these like different elements. So CTF is basically told us like what to forget from the previous state. And so now we want to use that um matrix and add the new stuff to it, which is this CT I over here that came out of, out of like this purple square, right? And we are adding them up over here. And so first part tells us like, what to forget about uh the uh in, in the long term memory, the second element CT I tells us like what it's important to add as new information, right? And the result is CT the South state. Whoa this is some cool stuff guys. OK. So we now need to understand only like the last component of the LSTM which is the output, which is I would say like really, really important, right? OK. So once again, we have another gate which is this sigmoid uh layer here and uh we calculate this output filter. So this is a matrix and we call it OT which is calculated which is gonna be like over here. So once we've applied the sigmoid function once again to the concatenation of the hidden state at the previous time step with the input at the current time ST time step, right? Good. So now what remains to do is arrive at HT which is the hidden state for the current time step as well as the output that will hopefully feed into the dense layer over here. So let's see how we get to HD. It's quite straightforward because once again, this is like something that happens like at this point over here, we have uh HT that's given by the uh element wise multiplication between the filter, the output filter ot with the um with the cell states passed through tan H. Now, this tan H over here is not a dense layer. It's just like the, the function itself. And you may be wondering, but why are we using that? Can we just use CT uh which is like the, the, the C, well, the great thing about tan H once again is that it squeezes the, the uh the values between minus one and one. And so, I mean, the value is like constrained and it can explode at that point, which is great, good. OK. So HT is given like by these things that's good. And yeah, so once we've uh done like all of this, we are like at this point here. So just after like this uh multiplication uh operator over there. And at that point, as I said, we take HT and we use it like for two reasons. So one is like we, we use it as the hidden state for the current for the current time step. And we also output it over here and this HT is gonna be fed into the dense layer for arriving hopefully at a good uh prediction good. This was uh quite uh intense, but this is like the LSTM. So now you know about uh long, short term memory cell states, but you should also understand that the one that we've uh seen, it's kind of like the, the basic form of it, but there are a bunch of different variants there. And one of the most important ones I would say is the gated recurrent unit or GR eu or group. And So here you have like the diagram for it again. Uh So if you want to learn more about gros, I have uh linked uh an article which I, which is like, really good and you should go like, check that out because I'm not gonna, I'm not gonna get into groove like right now because I think like LSDM are already like, quite interesting and then are quite like something good. Uh But uh main point being that like grew is a variation of an, an LST MA basic LSTM. And but again, you still have like a bunch of like gates and more or less like the principles that we use like in Groos are somehow like similar to LSD MS good. So that's great. So we, we've basically gone through like all LST MS theory and now you should have like a very good and deep understanding of how LST MS work and this idea of like retaining long term memory as well as like short term memory and using like this long term uh state vectors to do like better predictions to have like better because we have better context from the past. Now. What are we gonna do next? Well, it's time for us to move from uh theory to implementation. So the first step that we'll do is gonna be like preprocess some uh data for and getting it ready for uh using it into R and M. So this is gonna be the topic for the next video. I hope you've enjoyed this video. If that's the case again, just like, subscribe if you want to have like more videos like this and remember to hit the notification bell if you have any questions. As always, please leave them in the comments section below. I'll try to answer as many as many questions as I can and I guess I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to another video in the Deep learning for audio with Python series. This time, we're gonna introduce a super exciting type of network recurrent network called a long short term memory network, right? But before getting into that, let's remember like what we've done uh",
+                "start_time": "0.129",
+                "end_time": "19.885"
+            },
+            {
+                "id": 1,
+                "transcript": "last time and why we need this LST MS, right? So we la in the last video, we looked into simple R and MS and we saw that they're really good for time series type of data. But we also found out that they have a few issues mainly that they really don't have a long term memory",
+                "start_time": "19.895",
+                "end_time": "39.659"
+            },
+            {
+                "id": 2,
+                "transcript": "and that's uh the network can't really uh use like context from the past. And that's because like it can't learn patterns with a long dependencies. And this is like a huge issue as we've seen last time because I mean, a lot of like audio music data uh depends like on long patterns. And so we need to find a way to overcome this issue",
+                "start_time": "39.799",
+                "end_time": "64.849"
+            },
+            {
+                "id": 3,
+                "transcript": "introducing long short term memory networks or LSD MS. So LSD, MS are a special type of recurrent neural networks. And the idea is that we have a memory cell that will enable us to learn longer term uh patterns.",
+                "start_time": "65.069",
+                "end_time": "84.48"
+            },
+            {
+                "id": 4,
+                "transcript": "Now don't get super excited here because uh LSC MS performed really well and they've helped us so much, for example, in music generation and a bunch of different o other tasks that have to do with audio. But the point being is that they detect pattern which",
+                "start_time": "84.489",
+                "end_time": "103.91"
+            },
+            {
+                "id": 5,
+                "transcript": "up to like 100 steps, but they start to struggle when we have hundreds and hundreds here, let alone thousands of steps. So let's get started and understand how these LSDM networks uh work. But for doing that, we want to create a comparison between simple R and NS and LSD MS. Now, here we have a, a nice diagram",
+                "start_time": "104.23",
+                "end_time": "130.25"
+            },
+            {
+                "id": 6,
+                "transcript": "where we have a, a simple R and N unrolled. Now, this is not my diagram and I'm using like this super cool graphics uh that come from a, an article that's like super important like in the community. And it's a blog post that's called Understanding uh LSDM networks. And I linked uh the article below in the description",
+                "start_time": "130.449",
+                "end_time": "154.809"
+            },
+            {
+                "id": 7,
+                "transcript": "uh section of this video and I urge you to just like go there and check that out cause like it has, oh it's really, really good to understand uh like LSC MS and it's a bit like complementary to what I'm presenting here.",
+                "start_time": "155.009",
+                "end_time": "167.75"
+            },
+            {
+                "id": 8,
+                "transcript": "Now, getting back right to the good stuff. So here we have this diagram where we have an unrolled uh like recurrent layer. Uh but with a simple RNM. And if you guys remember, remember from last time, so here the memory cell itself is a simple dense layer with a tan H hyperbolic tangent activation function. And",
+                "start_time": "167.889",
+                "end_time": "192.16"
+            },
+            {
+                "id": 9,
+                "transcript": "uh we have both the inputs at time T so XT and the states uh vector from the previous time step that contribute and now con concatenate it together and fed into the TH and then we get like an output out there and the output is like is twofold, right? So we have like the output",
+                "start_time": "192.169",
+                "end_time": "216.449"
+            },
+            {
+                "id": 10,
+                "transcript": "and then we have the new uh current state which is like the, the state vector, but like output and state vector are the same. Now,",
+                "start_time": "216.679",
+                "end_time": "226.919"
+            },
+            {
+                "id": 11,
+                "transcript": "let's take a look at LSD MS and here we go,",
+                "start_time": "227.679",
+                "end_time": "232.58"
+            },
+            {
+                "id": 12,
+                "transcript": "it's a little bit different, right? So, I mean, the whole architecture is basically the very same. So we can unroll an LSTM like in the same way that we do with a simple RNN unit. What really changes? It's this guy here, which is basically the cell itself. So there are a bunch of different things that go on uh like in the cell that like the, the simple R and N cell. Uh yeah, doesn't do at all.",
+                "start_time": "233.47",
+                "end_time": "262.91"
+            },
+            {
+                "id": 13,
+                "transcript": "And it's all of these things that will enable us with an LSDM to learn longer term uh patterns.",
+                "start_time": "263.45",
+                "end_time": "271.019"
+            },
+            {
+                "id": 14,
+                "transcript": "Cool. OK. So now let's take a look at an LLSDM cell from a very high uh point of view. So you may have noticed this but uh an LSDM cell contains a simple R and M cell. It's a tan h um dense layer and we'll see this in a while. But I mean,",
+                "start_time": "271.85",
+                "end_time": "294.339"
+            },
+            {
+                "id": 15,
+                "transcript": "so the, the idea is that you can think of like this LSTM as a uh as a kind of like augmentation of a simple RNM cell where we have like these RNM cell and then a bunch of other components. So",
+                "start_time": "294.549",
+                "end_time": "307.459"
+            },
+            {
+                "id": 16,
+                "transcript": "one of the most important components, there is a second state vector that we can call the cell state. And basically this is the one that uh will uh have like information about long term memory. So it's kinds of stores uh patterns like that are longer term.",
+                "start_time": "307.66",
+                "end_time": "325.059"
+            },
+            {
+                "id": 17,
+                "transcript": "And then we have a bunch of like gates, uh the four gate gates, the input gate and the output gates and all of these gates which are basically connected with a, with a sigmoid dense layer uh acts as a filter. So they filter uh the information and then decide like what to forget what to input and what to output.",
+                "start_time": "325.26",
+                "end_time": "349.38"
+            },
+            {
+                "id": 18,
+                "transcript": "Now don't be scared about all of this complexity because we're gonna break down all of these things one by one. So and here we have it in all of its beauty, the LSDM cell. So there are a bunch of things here. So let's start like from the simple ones. So just like the things that more or less we already know. So it is X uh T it's basically just like the input. And so this is like a data point.",
+                "start_time": "349.549",
+                "end_time": "377.239"
+            },
+            {
+                "id": 19,
+                "transcript": "And let's remember here, we are analyzing like the, the, the behavior of this cell like at each time step. And so XD is just like a point in a sequence, right, a sample",
+                "start_time": "377.47",
+                "end_time": "390.369"
+            },
+            {
+                "id": 20,
+                "transcript": "good. Then we have the output over here which is HT and it's just like the output of this cell, which is somehow connected with the hidden state because it's basically the same thing.",
+                "start_time": "391.109",
+                "end_time": "407.47"
+            },
+            {
+                "id": 21,
+                "transcript": "So the output and the hidden states are the same thing. And then we have this secondary um state vector that's called uh the cell state over here which we call uh CT. So it's the cell state at time step T good. So now let's move on. So here you might have seen this but this is our simple RNN cell which is already in the LSTM here.",
+                "start_time": "407.64",
+                "end_time": "435.489"
+            },
+            {
+                "id": 22,
+                "transcript": "And as you can see, so here we have this tan H and this is a dense layer now with like this um all of these units here with this sigmoid thing, Sigma tan H uh which like the yellow box that represents dense layers with uh an activation function that in this case is 10 tan H. And in this other case is is like a sigmoid function but going back to the simple RNM cell.",
+                "start_time": "435.7",
+                "end_time": "465.084"
+            },
+            {
+                "id": 23,
+                "transcript": "So this is a simple R and M cell. So we have a tonic um a dense layer and the input is a uh is XT. So the basic like the, the, the data as well as the HT minus one, which is the state vector or a hidden state from the previous time step good.",
+                "start_time": "465.095",
+                "end_time": "494.489"
+            },
+            {
+                "id": 24,
+                "transcript": "OK. So let's take a look at this hidden state. So we can think of this hidden state as the short term memory of the LSTM. So keeps information uh kind of like the, the stuff like that's happening like in the, in the last uh like in the current state. And it kind of like uh yeah stores that kind of information. Then",
+                "start_time": "495.679",
+                "end_time": "520.968"
+            },
+            {
+                "id": 25,
+                "transcript": "uh we also have like this secondary state vector which we can call the cell state. And this cell state is the one responsible for the long term memory. So for storing uh longer term uh dependencies and patterns. And as you can see here, uh the the cell state flows quite nicely",
+                "start_time": "521.2",
+                "end_time": "544.21"
+            },
+            {
+                "id": 26,
+                "transcript": "through the LSTM and it's only updated in two points. So here where we have like this multiplication which is a element wise multiplication, we'll see this in a while. But so here we have like this multiplication and here we have like this sum element wise sum between like two matrices that we'll see. So all of this to say that uh for the cell state, we have very few computations, just two.",
+                "start_time": "544.219",
+                "end_time": "573.45"
+            },
+            {
+                "id": 27,
+                "transcript": "And when you have few competitions, the result is that you can stabilize the gradients. And so you are kind of like a better suited to avoid vanishing gradients, which is like the main issue with training rnns cool. OK. So let's take a look at this two updates that we have like a little bit like more um specifically. So the first one",
+                "start_time": "574.049",
+                "end_time": "599.64"
+            },
+            {
+                "id": 28,
+                "transcript": "uh decides what to forget. So when we get like to that point, the cell state uh gets uh updated and we decide what to forget from this long term memory state factor. The second one decides what new info to add to the cell state. And so if you think about this, it's basically,",
+                "start_time": "599.799",
+                "end_time": "623.02"
+            },
+            {
+                "id": 29,
+                "transcript": "so the C state uh gives us like uh tries to keep track of the most important information. It drops the things that are like less important and it adds things that are very important. And so like when we train the network,",
+                "start_time": "623.239",
+                "end_time": "640.65"
+            },
+            {
+                "id": 30,
+                "transcript": "we basically train an LSTM to be very effective at understanding which patterns to forget because they are not that important all in all and which patterns to uh to remember because they are super important for our uh tasks. Good. OK. So now we're gonna look into the full get segment. I would call it like this wave for get component of the LSTM.",
+                "start_time": "640.659",
+                "end_time": "669.59"
+            },
+            {
+                "id": 31,
+                "transcript": "And so here, as we said, like this component uh yeah, it's uh kind of responsible for forgetting stuff from the cell state. OK.",
+                "start_time": "669.909",
+                "end_time": "680.78"
+            },
+            {
+                "id": 32,
+                "transcript": "So I'm gonna drop some math here",
+                "start_time": "681.39",
+                "end_time": "684.76"
+            },
+            {
+                "id": 33,
+                "transcript": "and I don't be scared about that because like it's quite intuitive. And if you've followed so far, like the, the series, uh it's not really that different from the stuff that I've uh covered when we started looking into uh computation and neural networks. And uh yeah, and all of that stuff. But if you don't remember that I have the uh video for that should be over here just like click that and check that out.",
+                "start_time": "684.989",
+                "end_time": "712.299"
+            },
+            {
+                "id": 34,
+                "transcript": "OK. So back to the important stuff now. So we have this FT which is a forget uh matrix uh for T and uh it is like the results of the forget gate and the forget gate being like this guy here, like this sigma um dense layer over here.",
+                "start_time": "712.789",
+                "end_time": "736.239"
+            },
+            {
+                "id": 35,
+                "transcript": "So what happens here? It's very simple. So we concatenate the input at the current time step with the uh state vector, the hidden vector from the previous time step over a year.",
+                "start_time": "736.51",
+                "end_time": "750.65"
+            },
+            {
+                "id": 36,
+                "transcript": "And uh we concatenate that and then we apply uh a segment function to like this guy here. And then here we have this BF it's just like a biased term. And this WF is the weight matrix uh for like this dense layer for the forget layer good.",
+                "start_time": "751.02",
+                "end_time": "770.989"
+            },
+            {
+                "id": 37,
+                "transcript": "And so once we do this, we get a matrix uh that's uh that's like the filter for what we should forget. And we'll get to that in a second. But basically, when we calculate that we are at this point here, so we've just gone through the forget gate now.",
+                "start_time": "771.19",
+                "end_time": "789.4"
+            },
+            {
+                "id": 38,
+                "transcript": "Uh we are using a sigmoid function. And uh if you guys remember the sigmoid function like shrinks the output between zero and one. And this is great to use as a filter because basically, we're gonna have like for all of the values of this FT matrix, a value between zero and one.",
+                "start_time": "790.15",
+                "end_time": "814.09"
+            },
+            {
+                "id": 39,
+                "transcript": "So the things that are the uh the indexes that are closer to zeros are the relative indexes that we're gonna forget in the cell state. Whereas like when we have indexes with values that are closer to one, we're gonna keep those values. So zero, forget one is remember. But now how do we forget stuff or how do we remember stuff? Yeah, that's when",
+                "start_time": "814.39",
+                "end_time": "841.539"
+            },
+            {
+                "id": 40,
+                "transcript": "these element wise multiplication kicks in. So what we do basically is we take the cell state at T minus one. So the the cell state like from the previous um time step and then we perform an element wise multiplication with the FT matrix. But obviously to perform element wise multiplication, you need to have like these two matrices that have the same dimension.",
+                "start_time": "841.84",
+                "end_time": "870.789"
+            },
+            {
+                "id": 41,
+                "transcript": "And so we can just like multiply element by element there. And the result is this CTF which uh is a very heavy kind of like uh yeah convention to say this is like the the cell state from uh the previous time step where we decide what to forget at this time step, right? OK.",
+                "start_time": "870.969",
+                "end_time": "897.65"
+            },
+            {
+                "id": 42,
+                "transcript": "So this could feel a little bit abstract. So I'm gonna provide you with an example. OK. So we have like our nice equation over here and here, let's say we have like the cell states uh that's given by three values, right? Uh OK. So it's 124. So, and this is the cell state at T minus one. And then",
+                "start_time": "897.89",
+                "end_time": "922.07"
+            },
+            {
+                "id": 43,
+                "transcript": "uh we've uh we've like calculated the input gates and we have this uh value over here for FT which is 101. Now let's try to get to CTF. So",
+                "start_time": "922.26",
+                "end_time": "939.63"
+            },
+            {
+                "id": 44,
+                "transcript": "how should we do that? Well, that's super simple. So we take uh CT minus one and we element wise multiply with FT. So we have 124 multiplied by 101. And if you do multiplication element index by index, so one by one is 12 by zero is 04 by one is four. So the result is 104. So here we've decided what to retain and what to forget.",
+                "start_time": "940.03",
+                "end_time": "968.219"
+            },
+            {
+                "id": 45,
+                "transcript": "So take a look at the first item and the third item. So index zero and two like in this list of CT minus one.",
+                "start_time": "968.44",
+                "end_time": "978.299"
+            },
+            {
+                "id": 46,
+                "transcript": "And the result is that we are keeping that information in and why is that? Well, that's because the FT is equal to one for those two indexes. So the filter that we are using is just like telling us. Yeah, I want to keep that information because I believe it's important.",
+                "start_time": "979.059",
+                "end_time": "999.34"
+            },
+            {
+                "id": 47,
+                "transcript": "What about the poor second index in CTF there? Well, unfortunately, we are dropping that as you can see here. So it becomes zero. And the reason why it's very easy to understand is because the in the, the forgets uh matrix there, we have like for the correspondence um uh index zero which acts like as a, as a filter that drops that value,",
+                "start_time": "999.77",
+                "end_time": "1027.078"
+            },
+            {
+                "id": 48,
+                "transcript": "right? So now we have an understanding of how like this forget thing uh works on the cell state. OK. So now let's move on to uh the next step. So we said that we have forget input and output as like the main components of a an LSTM. So now let's focus an input. So the input here",
+                "start_time": "1027.81",
+                "end_time": "1050.17"
+            },
+            {
+                "id": 49,
+                "transcript": "um it's kind of like it's made by two parts, right? So we have like our uh simple R and N module which is this tan h uh dense layer and then we have the uh input gate which is this sigmoid uh dense layer over here.",
+                "start_time": "1050.76",
+                "end_time": "1070.869"
+            },
+            {
+                "id": 50,
+                "transcript": "OK. So for the time being, let's calculate the input, let's process the input gate and, and get like a, a matrix out of it, right? And this is gonna act as a filter on the simple R and M component, right? Let's see how this works. So for the, this it, which is the, yeah, as, as I said, like the, the results of the input gate, we we're gonna get like a",
+                "start_time": "1071.06",
+                "end_time": "1099.489"
+            },
+            {
+                "id": 51,
+                "transcript": "um again a matrix that has like the same uh dimensionality uh as the, as what comes out of like the tonic uh layer over here. And we get it by just using a sigmoid function that we apply to the",
+                "start_time": "1099.67",
+                "end_time": "1118.9"
+            },
+            {
+                "id": 52,
+                "transcript": "concatenation of hat minus one and XT and to which like we apply or we multiply this W I uh metrics. And obviously, as always, we have like a bias term here, but let's not bother about that. Cool. So here,",
+                "start_time": "1119.079",
+                "end_time": "1136.969"
+            },
+            {
+                "id": 53,
+                "transcript": "uh with this, it, we have like this value this matrix that comes like at this point. Now let's see what happens like with at, at the other point over here. So we're basically",
+                "start_time": "1137.099",
+                "end_time": "1150.479"
+            },
+            {
+                "id": 54,
+                "transcript": "uh gonna build a uh CT prime. So which is basically like the new cell state. Uh That is a function obviously of the um uh hidden state at the previous time step as well as the um input data at the current time uh time step. And the two again are combined concatenation together",
+                "start_time": "1151.04",
+                "end_time": "1180.03"
+            },
+            {
+                "id": 55,
+                "transcript": "cool. But this time we are using a tan H",
+                "start_time": "1180.17",
+                "end_time": "1183.719"
+            },
+            {
+                "id": 56,
+                "transcript": "to a hyperbolic tangent uh as the nonlinearity. And now this is like where we are at at this point. So this value is C prime CT prime is over here good. So after the tan each layer",
+                "start_time": "1184.42",
+                "end_time": "1201.4"
+            },
+            {
+                "id": 57,
+                "transcript": "good, OK. So now we should uh calculate the um the element wise multiplication between CT prime and it. So basically what we are doing here is we are taking the, the new cells state, the information that we want to pass in the new cell state here, CCT prime",
+                "start_time": "1202.319",
+                "end_time": "1229.68"
+            },
+            {
+                "id": 58,
+                "transcript": "and we are modulating that we are filtering that with it the same way we've done with the four G segment, right? And so here these two matrices are gonna have the same uh dimensionality, we're gonna multiply them and it is gonna decide what's important to keep in the input. So what's relevant and what's just like some garbage that I shouldn't care at all.",
+                "start_time": "1229.819",
+                "end_time": "1257.719"
+            },
+            {
+                "id": 59,
+                "transcript": "And the result is this CT I, so it's basically the uh the cell state at times C but the inputs, right? So the new stuff that we want to add to the cell state basically, right? OK. So now the next step is to arrive at CT. So which is basically this guy here. So the, the cell state",
+                "start_time": "1257.89",
+                "end_time": "1285.92"
+            },
+            {
+                "id": 60,
+                "transcript": "at the current time step and in order to do that, what we do is",
+                "start_time": "1286.239",
+                "end_time": "1293.069"
+            },
+            {
+                "id": 61,
+                "transcript": "at this point, we do this uh element wise um uh sum and so we sum CTF to CT I",
+                "start_time": "1293.589",
+                "end_time": "1306.979"
+            },
+            {
+                "id": 62,
+                "transcript": "what? So uh let's just like, remember like uh all of these like different elements. So CTF is basically told us like what to forget from the previous state. And so now we want to use that um matrix and add the new stuff to it, which is this CT I over here that came out of, out of like",
+                "start_time": "1307.29",
+                "end_time": "1331.224"
+            },
+            {
+                "id": 63,
+                "transcript": "this purple square, right? And we are adding them up over here. And so first part tells us like, what to forget about uh the uh in, in the long term memory, the second element CT I tells us like what it's important to add as new information, right? And the result is CT the South state.",
+                "start_time": "1331.234",
+                "end_time": "1355.18"
+            },
+            {
+                "id": 64,
+                "transcript": "Whoa this is some cool stuff guys. OK. So we now need to understand only like the last component of the LSTM which is the output, which is I would say like really, really important, right? OK. So once again, we have another gate which is this sigmoid uh layer here",
+                "start_time": "1356.239",
+                "end_time": "1382.349"
+            },
+            {
+                "id": 65,
+                "transcript": "and uh we calculate this output filter. So this is a matrix and we call it OT which is calculated which is gonna be like over here. So once we've applied the sigmoid function once again to the concatenation of the hidden state at the previous time step with the input at the current time ST time step, right?",
+                "start_time": "1382.599",
+                "end_time": "1409.979"
+            },
+            {
+                "id": 66,
+                "transcript": "Good. So now what remains to do is arrive at HT which is the hidden state for the current time step as well as the output that will hopefully feed into the dense layer over here. So",
+                "start_time": "1410.65",
+                "end_time": "1428.219"
+            },
+            {
+                "id": 67,
+                "transcript": "let's see how we get to HD. It's quite straightforward because once again,",
+                "start_time": "1428.939",
+                "end_time": "1434.439"
+            },
+            {
+                "id": 68,
+                "transcript": "this is like something that happens like at this point over here, we have uh HT that's given by the uh element wise multiplication between the filter, the output filter ot with",
+                "start_time": "1435.41",
+                "end_time": "1452.4"
+            },
+            {
+                "id": 69,
+                "transcript": "the um with the cell states passed through tan H. Now, this tan H over here is not a dense layer. It's just like the, the function itself. And you may be wondering, but why are we using that? Can we just use CT uh which is like the, the, the C, well, the great thing about tan H once again is that it",
+                "start_time": "1452.41",
+                "end_time": "1475.599"
+            },
+            {
+                "id": 70,
+                "transcript": "squeezes the, the uh the values between minus one and one. And so, I mean, the value is like constrained and it can explode at that point, which is great, good. OK. So HT is given like by these things",
+                "start_time": "1476.14",
+                "end_time": "1492.0"
+            },
+            {
+                "id": 71,
+                "transcript": "that's good. And yeah, so once we've uh done like all of this, we are like at this point here. So just after like this uh multiplication",
+                "start_time": "1492.68",
+                "end_time": "1505.78"
+            },
+            {
+                "id": 72,
+                "transcript": "uh operator over there. And at that point, as I said, we take HT and we use it like for two reasons. So one is like we, we use it as the hidden state for the current for the current time step. And we also output it over here and this HT is gonna be fed into the dense layer for arriving hopefully at a good uh prediction",
+                "start_time": "1505.91",
+                "end_time": "1529.02"
+            },
+            {
+                "id": 73,
+                "transcript": "good.",
+                "start_time": "1529.81",
+                "end_time": "1530.839"
+            },
+            {
+                "id": 74,
+                "transcript": "This was uh quite uh intense, but this is like the LSTM. So now you know about uh long, short term memory cell states, but you should also understand that the one that we've uh seen, it's kind of like the, the basic form of it, but there are a bunch of different variants there. And one of the most important ones I would say is the gated recurrent unit or GR eu or group.",
+                "start_time": "1532.349",
+                "end_time": "1561.77"
+            },
+            {
+                "id": 75,
+                "transcript": "And So here you have like the diagram for it again. Uh So if you want to learn more about gros, I have uh linked uh an article which I, which is like, really good and you should go like, check that out because I'm not gonna, I'm not gonna get into groove like right now because I think like LSDM are already like, quite interesting and then are quite like something good.",
+                "start_time": "1562.16",
+                "end_time": "1589.9"
+            },
+            {
+                "id": 76,
+                "transcript": "Uh But uh main point being that like grew is a variation of an, an LST MA basic LSTM. And but again, you still have like a bunch of like gates and more or less like the principles that we use like in Groos are somehow like similar to LSD MS good.",
+                "start_time": "1590.29",
+                "end_time": "1611.54"
+            },
+            {
+                "id": 77,
+                "transcript": "So",
+                "start_time": "1612.31",
+                "end_time": "1613.449"
+            },
+            {
+                "id": 78,
+                "transcript": "that's great. So we, we've basically gone through like all LST MS theory and now you should have like a very good and deep understanding of how LST MS work and this idea of like retaining long term memory as well as like short term memory and using like this long term uh state vectors to do like better predictions to have like better because we have better context from the past. Now.",
+                "start_time": "1613.939",
+                "end_time": "1642.76"
+            },
+            {
+                "id": 79,
+                "transcript": "What are we gonna do next? Well, it's time for us to move from uh theory to implementation. So the first step that we'll do is gonna be like preprocess some uh data for and getting it ready for uh using it into R and M. So this is gonna be the topic for the next video. I hope you've enjoyed this video.",
+                "start_time": "1643.01",
+                "end_time": "1666.42"
+            },
+            {
+                "id": 80,
+                "transcript": "If that's the case again, just like, subscribe if you want to have like more videos like this and remember to hit the notification bell if you have any questions. As always, please leave them in the comments section below. I'll try to answer as many as many questions as I can and I guess I'll see you next time. Cheers.",
+                "start_time": "1666.739",
+                "end_time": "1687.709"
+            }
+        ]
+    }
+}

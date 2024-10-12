@@ -1,0 +1,992 @@
+[
+    {
+        "id": "9ca9870a",
+        "text": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This time, I'll be introducing the fourier transform. Now, when I was uh planning this video, I thought what's the best way of introducing the fourier transform? And I thought, well, perhaps I should just give you a little bit of intuition there and then go straight into uh implementation or even just use the browser for extracting a spectrum through the fourier transform. But then I thought, well, the fourier transform is at core of signal processing. So just sprinkling a little bit of math here and there and intuition is not going to be enough for you. So you really want to have a deep understanding of the fourier transform and all of its implications. This is why I've decided to divide this topic into a number of videos. And this first video is going to give you a",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "c9aa27f5",
+        "text": "Now, when I was uh planning this video, I thought what's the best way of introducing the fourier transform? And I thought, well, perhaps I should just give you a little bit of intuition there and then go straight into uh implementation or even just use the browser for extracting a spectrum through the fourier transform. But then I thought, well, the fourier transform is at core of signal processing. So just sprinkling a little bit of math here and there and intuition is not going to be enough for you. So you really want to have a deep understanding of the fourier transform and all of its implications. This is why I've decided to divide this topic into a number of videos. And this first video is going to give you a an introduction and the high level of intuition of the fourier transform. But towards the end, I'll just be giving you a little bit of math to formalize what we'll be discussing throughout the video. So stay tuned for more about the fourier transform. But before we get started, I want to invite you once again to the sound of the eye is lacking",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=10s",
+        "start_time": "10.8"
+    },
+    {
+        "id": "60e5275e",
+        "text": "core of signal processing. So just sprinkling a little bit of math here and there and intuition is not going to be enough for you. So you really want to have a deep understanding of the fourier transform and all of its implications. This is why I've decided to divide this topic into a number of videos. And this first video is going to give you a an introduction and the high level of intuition of the fourier transform. But towards the end, I'll just be giving you a little bit of math to formalize what we'll be discussing throughout the video. So stay tuned for more about the fourier transform. But before we get started, I want to invite you once again to the sound of the eye is lacking community. If you don't know it, this is a community where uh we are a bunch of people interested in A I music signal processing A I audio, all of these kind of things. And there you can ask for feedback, improve your skills, share research and talk with very cool people. So if you're interested in that, just go check out the sign up link in the description below. OK. Now on to the real stuff",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=34s",
+        "start_time": "34.24"
+    },
+    {
+        "id": "e63e67d8",
+        "text": "an introduction and the high level of intuition of the fourier transform. But towards the end, I'll just be giving you a little bit of math to formalize what we'll be discussing throughout the video. So stay tuned for more about the fourier transform. But before we get started, I want to invite you once again to the sound of the eye is lacking community. If you don't know it, this is a community where uh we are a bunch of people interested in A I music signal processing A I audio, all of these kind of things. And there you can ask for feedback, improve your skills, share research and talk with very cool people. So if you're interested in that, just go check out the sign up link in the description below. OK. Now on to the real stuff to introduce the concept of that are behind um the fourier transform. I want to use an analogy here. And for that, I'm gonna use one of the most iconic cover ever created in the rock world and from one of the bands that I love the most pink Floyd. So this is the cover for dark side of the moon. So what does this",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=57s",
+        "start_time": "57.68"
+    },
+    {
+        "id": "5780a176",
+        "text": "community. If you don't know it, this is a community where uh we are a bunch of people interested in A I music signal processing A I audio, all of these kind of things. And there you can ask for feedback, improve your skills, share research and talk with very cool people. So if you're interested in that, just go check out the sign up link in the description below. OK. Now on to the real stuff to introduce the concept of that are behind um the fourier transform. I want to use an analogy here. And for that, I'm gonna use one of the most iconic cover ever created in the rock world and from one of the bands that I love the most pink Floyd. So this is the cover for dark side of the moon. So what does this have to do with the fourier transform? Well, it's the analogy here that counts a lot. So here we have a beam, a light beam, right? So this is a complex waveform, it goes through a prism and then out of the prism, we get the",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=81s",
+        "start_time": "81.12"
+    },
+    {
+        "id": "1bfbc08c",
+        "text": "to introduce the concept of that are behind um the fourier transform. I want to use an analogy here. And for that, I'm gonna use one of the most iconic cover ever created in the rock world and from one of the bands that I love the most pink Floyd. So this is the cover for dark side of the moon. So what does this have to do with the fourier transform? Well, it's the analogy here that counts a lot. So here we have a beam, a light beam, right? So this is a complex waveform, it goes through a prism and then out of the prism, we get the different like spectral bands, the different colors divided, right. So the basic idea is complex waveform. We have kind of like a machine or an algorithm which in this case is the prism. And then we get all the different components which make up uh light. OK. So with the fourier transform, we do something that's very, very similar to this.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=108s",
+        "start_time": "108.12"
+    },
+    {
+        "id": "6af75684",
+        "text": "have to do with the fourier transform? Well, it's the analogy here that counts a lot. So here we have a beam, a light beam, right? So this is a complex waveform, it goes through a prism and then out of the prism, we get the different like spectral bands, the different colors divided, right. So the basic idea is complex waveform. We have kind of like a machine or an algorithm which in this case is the prism. And then we get all the different components which make up uh light. OK. So with the fourier transform, we do something that's very, very similar to this. So the high level intuition here is that we have a complex sound and then using the fourier transform, which in our analogy is the prism, we decompose the complex sound into its frequency components. Because if you remember from one of my initial videos, uh complex sounds are made up of many different uh pure turns",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=131s",
+        "start_time": "131.139"
+    },
+    {
+        "id": "fe4c7d24",
+        "text": "different like spectral bands, the different colors divided, right. So the basic idea is complex waveform. We have kind of like a machine or an algorithm which in this case is the prism. And then we get all the different components which make up uh light. OK. So with the fourier transform, we do something that's very, very similar to this. So the high level intuition here is that we have a complex sound and then using the fourier transform, which in our analogy is the prism, we decompose the complex sound into its frequency components. Because if you remember from one of my initial videos, uh complex sounds are made up of many different uh pure turns added up superimposed together. OK. So this is like basically the first intuition that you have. Now when we do this, when we use the four year transform, what we do really is a journey from the",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=149s",
+        "start_time": "149.96"
+    },
+    {
+        "id": "f0d09c19",
+        "text": "So the high level intuition here is that we have a complex sound and then using the fourier transform, which in our analogy is the prism, we decompose the complex sound into its frequency components. Because if you remember from one of my initial videos, uh complex sounds are made up of many different uh pure turns added up superimposed together. OK. So this is like basically the first intuition that you have. Now when we do this, when we use the four year transform, what we do really is a journey from the time domain to the frequency domain. So probably if you followed along this series, you've seen like this type of like slide time and again, but let me repeat that uh for yeah, the sake of yeah, understanding everything very deeply. OK. So here we have like a sound you know wave plot and here we have time on the X axis right.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=174s",
+        "start_time": "174.97"
+    },
+    {
+        "id": "42448476",
+        "text": "added up superimposed together. OK. So this is like basically the first intuition that you have. Now when we do this, when we use the four year transform, what we do really is a journey from the time domain to the frequency domain. So probably if you followed along this series, you've seen like this type of like slide time and again, but let me repeat that uh for yeah, the sake of yeah, understanding everything very deeply. OK. So here we have like a sound you know wave plot and here we have time on the X axis right. Then we use the fourier transfer some magic happens and we get the same sound but this time uh plotted in the frequency domain. So we have a frequency analysis of the very same sound. And in other words, on the x axis, we have frequency and where you see this spot,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=201s",
+        "start_time": "201.149"
+    },
+    {
+        "id": "a5a6c051",
+        "text": "time domain to the frequency domain. So probably if you followed along this series, you've seen like this type of like slide time and again, but let me repeat that uh for yeah, the sake of yeah, understanding everything very deeply. OK. So here we have like a sound you know wave plot and here we have time on the X axis right. Then we use the fourier transfer some magic happens and we get the same sound but this time uh plotted in the frequency domain. So we have a frequency analysis of the very same sound. And in other words, on the x axis, we have frequency and where you see this spot, it means that the relative um frequencies at that specific Hertz are an important component of that original sound. Now, the question is how do we do this? So how do we go from the time domain to the frequency domain? Well, that's the topic of today's video at an intuition level. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=216s",
+        "start_time": "216.729"
+    },
+    {
+        "id": "8513d3e2",
+        "text": "Then we use the fourier transfer some magic happens and we get the same sound but this time uh plotted in the frequency domain. So we have a frequency analysis of the very same sound. And in other words, on the x axis, we have frequency and where you see this spot, it means that the relative um frequencies at that specific Hertz are an important component of that original sound. Now, the question is how do we do this? So how do we go from the time domain to the frequency domain? Well, that's the topic of today's video at an intuition level. OK. Now let's go one level of resolution further uh down and get like a better intuition of what's going on with the fourier transform. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=240s",
+        "start_time": "240.779"
+    },
+    {
+        "id": "fb44cdb2",
+        "text": "it means that the relative um frequencies at that specific Hertz are an important component of that original sound. Now, the question is how do we do this? So how do we go from the time domain to the frequency domain? Well, that's the topic of today's video at an intuition level. OK. Now let's go one level of resolution further uh down and get like a better intuition of what's going on with the fourier transform. So uh when we apply the fourier transform, we do a bunch of things. So the first thing that we do is we compare the original signal with a bunch of sinusoids with various frequencies, right. So we have the original signal",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=261s",
+        "start_time": "261.959"
+    },
+    {
+        "id": "e3584ba4",
+        "text": "Now let's go one level of resolution further uh down and get like a better intuition of what's going on with the fourier transform. So uh when we apply the fourier transform, we do a bunch of things. So the first thing that we do is we compare the original signal with a bunch of sinusoids with various frequencies, right. So we have the original signal and then we have uh a bunch of sine waves and we want to compare the original signal to those sine waves which are gonna have different frequencies. And so out of that comparison, what we get is a magnitude and a phase. Now what does the magnitude tells us? Well,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=284s",
+        "start_time": "284.47"
+    },
+    {
+        "id": "d659baba",
+        "text": "uh when we apply the fourier transform, we do a bunch of things. So the first thing that we do is we compare the original signal with a bunch of sinusoids with various frequencies, right. So we have the original signal and then we have uh a bunch of sine waves and we want to compare the original signal to those sine waves which are gonna have different frequencies. And so out of that comparison, what we get is a magnitude and a phase. Now what does the magnitude tells us? Well, uh the magnitude tells us how similar the uh original signal and the P turn or the sign turn are. So the higher the magnitude, the higher the similarity between the original signal and the sinusoid with that specific uh frequency. Now we'll take a look at the phase in uh uh a few minutes. But here",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=297s",
+        "start_time": "297.04"
+    },
+    {
+        "id": "8a9b7096",
+        "text": "and then we have uh a bunch of sine waves and we want to compare the original signal to those sine waves which are gonna have different frequencies. And so out of that comparison, what we get is a magnitude and a phase. Now what does the magnitude tells us? Well, uh the magnitude tells us how similar the uh original signal and the P turn or the sign turn are. So the higher the magnitude, the higher the similarity between the original signal and the sinusoid with that specific uh frequency. Now we'll take a look at the phase in uh uh a few minutes. But here uh this is kind of like the, the deeper intuition, but still, it may feel a little bit abstract. So now let's go to check out some code that I've written in a Jupiter notebook and see how this applies specifically and just like visualize some of these intuitions.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=317s",
+        "start_time": "317.179"
+    },
+    {
+        "id": "8eb0c12e",
+        "text": "uh the magnitude tells us how similar the uh original signal and the P turn or the sign turn are. So the higher the magnitude, the higher the similarity between the original signal and the sinusoid with that specific uh frequency. Now we'll take a look at the phase in uh uh a few minutes. But here uh this is kind of like the, the deeper intuition, but still, it may feel a little bit abstract. So now let's go to check out some code that I've written in a Jupiter notebook and see how this applies specifically and just like visualize some of these intuitions. OK? So now uh it's not important uh to look at the code here. And many of the stuff that I've uh like many of like these lines of code that I've read here, I already explained to you like in previous videos. Uh But what's important is to look at the results of these things. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=340s",
+        "start_time": "340.679"
+    },
+    {
+        "id": "24871b10",
+        "text": "uh this is kind of like the, the deeper intuition, but still, it may feel a little bit abstract. So now let's go to check out some code that I've written in a Jupiter notebook and see how this applies specifically and just like visualize some of these intuitions. OK? So now uh it's not important uh to look at the code here. And many of the stuff that I've uh like many of like these lines of code that I've read here, I already explained to you like in previous videos. Uh But what's important is to look at the results of these things. OK. So now let me get started. So I'll import uh all of these libraries which will need to plot and analyze sounds. OK. So the first thing that I want to do is to uh actually show you the sound that we'll be analyzing. So let's listen to this.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=367s",
+        "start_time": "367.98"
+    },
+    {
+        "id": "236fae66",
+        "text": "OK? So now uh it's not important uh to look at the code here. And many of the stuff that I've uh like many of like these lines of code that I've read here, I already explained to you like in previous videos. Uh But what's important is to look at the results of these things. OK. So now let me get started. So I'll import uh all of these libraries which will need to plot and analyze sounds. OK. So the first thing that I want to do is to uh actually show you the sound that we'll be analyzing. So let's listen to this. OK. It's just a piano key specifically, it's C five note C five. OK? And it's held for almost like a second and a half. OK. So here we'll just load the audio file which uh Li Brosa, as, as I said, uh you've seen how to do this in previous video if you followed the series, if you haven't just like, check that out,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=384s",
+        "start_time": "384.859"
+    },
+    {
+        "id": "952e9158",
+        "text": "So now let me get started. So I'll import uh all of these libraries which will need to plot and analyze sounds. OK. So the first thing that I want to do is to uh actually show you the sound that we'll be analyzing. So let's listen to this. OK. It's just a piano key specifically, it's C five note C five. OK? And it's held for almost like a second and a half. OK. So here we'll just load the audio file which uh Li Brosa, as, as I said, uh you've seen how to do this in previous video if you followed the series, if you haven't just like, check that out, OK. So the next step is to actually plot the waveform. And yeah, here we have like our nice little waveform. So once again, here we are in the time domain. So X axis is time, Y axis is amplitude and as you can see, so we have the attack of the sound and then we have a little bit of the DC and then yeah, the sound ends towards like 1.4 seconds. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=404s",
+        "start_time": "404.07"
+    },
+    {
+        "id": "fe0dc9e0",
+        "text": "OK. It's just a piano key specifically, it's C five note C five. OK? And it's held for almost like a second and a half. OK. So here we'll just load the audio file which uh Li Brosa, as, as I said, uh you've seen how to do this in previous video if you followed the series, if you haven't just like, check that out, OK. So the next step is to actually plot the waveform. And yeah, here we have like our nice little waveform. So once again, here we are in the time domain. So X axis is time, Y axis is amplitude and as you can see, so we have the attack of the sound and then we have a little bit of the DC and then yeah, the sound ends towards like 1.4 seconds. OK. So the next step is the crucial one is the one that we use for deriving the free transform.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=423s",
+        "start_time": "423.019"
+    },
+    {
+        "id": "8540c295",
+        "text": "OK. So the next step is to actually plot the waveform. And yeah, here we have like our nice little waveform. So once again, here we are in the time domain. So X axis is time, Y axis is amplitude and as you can see, so we have the attack of the sound and then we have a little bit of the DC and then yeah, the sound ends towards like 1.4 seconds. OK. So the next step is the crucial one is the one that we use for deriving the free transform. And we do that by using uh S IP specifically the FFT module. And we use the FFT which stands for fast fourier transform um function in the FFT module. So we pass it in the signal and we get the fourier transform. Now, I'm not going to show you what that result actually is because you need to have like mm",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=445s",
+        "start_time": "445.75"
+    },
+    {
+        "id": "45a2ccaa",
+        "text": "So the next step is the crucial one is the one that we use for deriving the free transform. And we do that by using uh S IP specifically the FFT module. And we use the FFT which stands for fast fourier transform um function in the FFT module. So we pass it in the signal and we get the fourier transform. Now, I'm not going to show you what that result actually is because you need to have like mm a deeper understanding of math complex numbers and things that, that which you'll have in a few videos. But for now, the important thing to understand is that if we do the absolute, if we take the absolute value of the fourier transform, we actually get the magnitudes and this is the y axis of our spectrum.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=473s",
+        "start_time": "473.679"
+    },
+    {
+        "id": "e62dc102",
+        "text": "And we do that by using uh S IP specifically the FFT module. And we use the FFT which stands for fast fourier transform um function in the FFT module. So we pass it in the signal and we get the fourier transform. Now, I'm not going to show you what that result actually is because you need to have like mm a deeper understanding of math complex numbers and things that, that which you'll have in a few videos. But for now, the important thing to understand is that if we do the absolute, if we take the absolute value of the fourier transform, we actually get the magnitudes and this is the y axis of our spectrum. Whereas on the X axis obviously, we have the frequencies. Now how should we like distribute the frequencies on the X axis? So the frequencies are gonna be between zero Hertz and the sampling rate. OK. And then we'll divide this in in a number of steps that's equal to the length of the, of the magnitude array.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=483s",
+        "start_time": "483.109"
+    },
+    {
+        "id": "ae682ac5",
+        "text": "a deeper understanding of math complex numbers and things that, that which you'll have in a few videos. But for now, the important thing to understand is that if we do the absolute, if we take the absolute value of the fourier transform, we actually get the magnitudes and this is the y axis of our spectrum. Whereas on the X axis obviously, we have the frequencies. Now how should we like distribute the frequencies on the X axis? So the frequencies are gonna be between zero Hertz and the sampling rate. OK. And then we'll divide this in in a number of steps that's equal to the length of the, of the magnitude array. OK. So with all of this in mind, we can now plot the spectrum",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=507s",
+        "start_time": "507.66"
+    },
+    {
+        "id": "b5d54de3",
+        "text": "Whereas on the X axis obviously, we have the frequencies. Now how should we like distribute the frequencies on the X axis? So the frequencies are gonna be between zero Hertz and the sampling rate. OK. And then we'll divide this in in a number of steps that's equal to the length of the, of the magnitude array. OK. So with all of this in mind, we can now plot the spectrum and here we go. So here we have the spectrum and as you can see, we can see a peak in the magnitude around 523 Hertz. And this is more or less the frequency the specific frequency for the note C five.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=531s",
+        "start_time": "531.799"
+    },
+    {
+        "id": "c058a2ba",
+        "text": "OK. So with all of this in mind, we can now plot the spectrum and here we go. So here we have the spectrum and as you can see, we can see a peak in the magnitude around 523 Hertz. And this is more or less the frequency the specific frequency for the note C five. And so this is the so called fundamental of the, of the, of the sound that we've heard and then we have a few spikes. So here around uh 1004, um 1 hun 1040 Hertz something and here",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=561s",
+        "start_time": "561.099"
+    },
+    {
+        "id": "0cfa0a29",
+        "text": "and here we go. So here we have the spectrum and as you can see, we can see a peak in the magnitude around 523 Hertz. And this is more or less the frequency the specific frequency for the note C five. And so this is the so called fundamental of the, of the, of the sound that we've heard and then we have a few spikes. So here around uh 1004, um 1 hun 1040 Hertz something and here and 1/4 1 here and a little bit of 1/5 down here, but it's almost like unnoticeable that one. OK. So the, this profile is quite specific, right? And, and it feels like there there's some like symmetry like natural uh thing to it. And it's the fact that this is a harmonic sound. In other words, these guys over here",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=567s",
+        "start_time": "567.869"
+    },
+    {
+        "id": "e55450fb",
+        "text": "And so this is the so called fundamental of the, of the, of the sound that we've heard and then we have a few spikes. So here around uh 1004, um 1 hun 1040 Hertz something and here and 1/4 1 here and a little bit of 1/5 down here, but it's almost like unnoticeable that one. OK. So the, this profile is quite specific, right? And, and it feels like there there's some like symmetry like natural uh thing to it. And it's the fact that this is a harmonic sound. In other words, these guys over here are harmonics or overtones of the fundamental frequency. In other words, this frequency is just twice the frequency of the fundamental, the frequency associated with this third spike is three times the frequency of the fundamental. And here it's four times that OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=586s",
+        "start_time": "586.78"
+    },
+    {
+        "id": "a7208f7e",
+        "text": "and 1/4 1 here and a little bit of 1/5 down here, but it's almost like unnoticeable that one. OK. So the, this profile is quite specific, right? And, and it feels like there there's some like symmetry like natural uh thing to it. And it's the fact that this is a harmonic sound. In other words, these guys over here are harmonics or overtones of the fundamental frequency. In other words, this frequency is just twice the frequency of the fundamental, the frequency associated with this third spike is three times the frequency of the fundamental. And here it's four times that OK. Good. Now, if you don't remember uh what all the turns are like or partials or these things I have a video about that is one of the initial videos and it should be linked up here. OK. So now we've seen how we can move basically from the time domain to the frequency domain. But still the fourier transform is a completely black box for us. Now,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=607s",
+        "start_time": "607.57"
+    },
+    {
+        "id": "ba575f68",
+        "text": "are harmonics or overtones of the fundamental frequency. In other words, this frequency is just twice the frequency of the fundamental, the frequency associated with this third spike is three times the frequency of the fundamental. And here it's four times that OK. Good. Now, if you don't remember uh what all the turns are like or partials or these things I have a video about that is one of the initial videos and it should be linked up here. OK. So now we've seen how we can move basically from the time domain to the frequency domain. But still the fourier transform is a completely black box for us. Now, I want to start unravel it for you guys and give you an understanding of how the this process and the fourier transform works. But for that, what I want to do is zoom into the waveform and actually uh be at a resolution where we can actually see like all the cycles in um the wave associated with this sound. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=630s",
+        "start_time": "630.534"
+    },
+    {
+        "id": "e3dd7480",
+        "text": "Good. Now, if you don't remember uh what all the turns are like or partials or these things I have a video about that is one of the initial videos and it should be linked up here. OK. So now we've seen how we can move basically from the time domain to the frequency domain. But still the fourier transform is a completely black box for us. Now, I want to start unravel it for you guys and give you an understanding of how the this process and the fourier transform works. But for that, what I want to do is zoom into the waveform and actually uh be at a resolution where we can actually see like all the cycles in um the wave associated with this sound. OK. So for doing that be before we do that. Yeah, let's, let's take a look at it at a few numbers. So the length of the signal or in other words, the number of samples that we have, it's around 34,000 samples. The sampling rate, if I remember correctly here should be a 22,050 Hertz. And the duration of each sample is the inverse of Dutch, which is four times 10 to",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=654s",
+        "start_time": "654.109"
+    },
+    {
+        "id": "a5a0b9d0",
+        "text": "I want to start unravel it for you guys and give you an understanding of how the this process and the fourier transform works. But for that, what I want to do is zoom into the waveform and actually uh be at a resolution where we can actually see like all the cycles in um the wave associated with this sound. OK. So for doing that be before we do that. Yeah, let's, let's take a look at it at a few numbers. So the length of the signal or in other words, the number of samples that we have, it's around 34,000 samples. The sampling rate, if I remember correctly here should be a 22,050 Hertz. And the duration of each sample is the inverse of Dutch, which is four times 10 to um the power of minus five. So it's a very, very short amount of time for each sample.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=679s",
+        "start_time": "679.95"
+    },
+    {
+        "id": "0afeafb2",
+        "text": "So for doing that be before we do that. Yeah, let's, let's take a look at it at a few numbers. So the length of the signal or in other words, the number of samples that we have, it's around 34,000 samples. The sampling rate, if I remember correctly here should be a 22,050 Hertz. And the duration of each sample is the inverse of Dutch, which is four times 10 to um the power of minus five. So it's a very, very short amount of time for each sample. Now, uh let's take a look at the duration of a cycle for our fundamental frequency. So 523 Hertz and so obviously, this is one divided by 523. And if you take a look at these results, so this is uh almost two milliseconds. So we have a cycle every two milliseconds. So now what I want to do,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=705s",
+        "start_time": "705.419"
+    },
+    {
+        "id": "15b32e6e",
+        "text": "um the power of minus five. So it's a very, very short amount of time for each sample. Now, uh let's take a look at the duration of a cycle for our fundamental frequency. So 523 Hertz and so obviously, this is one divided by 523. And if you take a look at these results, so this is uh almost two milliseconds. So we have a cycle every two milliseconds. So now what I want to do, it's just like zoom in and to the waveform and only consider 400 samples because 400 samples are gonna give us uh 0.02 seconds. And this is, this will enable us to see more or less like 10 cycles of our waveforms. And that is something like that, we can definitely visualize. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=733s",
+        "start_time": "733.869"
+    },
+    {
+        "id": "71004fb7",
+        "text": "Now, uh let's take a look at the duration of a cycle for our fundamental frequency. So 523 Hertz and so obviously, this is one divided by 523. And if you take a look at these results, so this is uh almost two milliseconds. So we have a cycle every two milliseconds. So now what I want to do, it's just like zoom in and to the waveform and only consider 400 samples because 400 samples are gonna give us uh 0.02 seconds. And this is, this will enable us to see more or less like 10 cycles of our waveforms. And that is something like that, we can definitely visualize. OK. So all of that to say that um I have like this new plot where we zoom into the waveform. And here I'm only considering 400 samples. In other words,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=740s",
+        "start_time": "740.33"
+    },
+    {
+        "id": "ed2a3e41",
+        "text": "it's just like zoom in and to the waveform and only consider 400 samples because 400 samples are gonna give us uh 0.02 seconds. And this is, this will enable us to see more or less like 10 cycles of our waveforms. And that is something like that, we can definitely visualize. OK. So all of that to say that um I have like this new plot where we zoom into the waveform. And here I'm only considering 400 samples. In other words, I'm slicing the signal which is on the Y axis. And I'm only considering the, the samples between like 20,400. OK. So let's take a look at this and here you have the results. So now we are at a resolution where we can actually see the um all the cycles. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=767s",
+        "start_time": "767.554"
+    },
+    {
+        "id": "9203b719",
+        "text": "So all of that to say that um I have like this new plot where we zoom into the waveform. And here I'm only considering 400 samples. In other words, I'm slicing the signal which is on the Y axis. And I'm only considering the, the samples between like 20,400. OK. So let's take a look at this and here you have the results. So now we are at a resolution where we can actually see the um all the cycles. OK. So now what's the point of all of this? Well, the point is that uh what we want to do is to actually compare this signal against sinusoids with different um frequencies. OK. And see the similarity there. So, and I want to show you how we can do that visually.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=794s",
+        "start_time": "794.94"
+    },
+    {
+        "id": "fab6e49c",
+        "text": "I'm slicing the signal which is on the Y axis. And I'm only considering the, the samples between like 20,400. OK. So let's take a look at this and here you have the results. So now we are at a resolution where we can actually see the um all the cycles. OK. So now what's the point of all of this? Well, the point is that uh what we want to do is to actually compare this signal against sinusoids with different um frequencies. OK. And see the similarity there. So, and I want to show you how we can do that visually. OK. So now let me just go back here and I want to uh remind you of the equation for a sine wave, which is given by this formula here. So it's like the sine of two pi uh which uh multiplies F",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=807s",
+        "start_time": "807.83"
+    },
+    {
+        "id": "0a60c3a5",
+        "text": "So now what's the point of all of this? Well, the point is that uh what we want to do is to actually compare this signal against sinusoids with different um frequencies. OK. And see the similarity there. So, and I want to show you how we can do that visually. OK. So now let me just go back here and I want to uh remind you of the equation for a sine wave, which is given by this formula here. So it's like the sine of two pi uh which uh multiplies F uh times T where F is the frequency T is just time minus P where P is the face and we'll see what the face does in a second. OK. So yeah, let's just go back here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=832s",
+        "start_time": "832.729"
+    },
+    {
+        "id": "473088dc",
+        "text": "OK. So now let me just go back here and I want to uh remind you of the equation for a sine wave, which is given by this formula here. So it's like the sine of two pi uh which uh multiplies F uh times T where F is the frequency T is just time minus P where P is the face and we'll see what the face does in a second. OK. So yeah, let's just go back here. So the thing that we want to do here is just create a sinusoid. And here I'll put the frequency equal to 523 which is our fundamental frequency for the time being, we'll have a phase of zero. And here we have our function, our sine wave over here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=854s",
+        "start_time": "854.469"
+    },
+    {
+        "id": "00d0b9f8",
+        "text": "uh times T where F is the frequency T is just time minus P where P is the face and we'll see what the face does in a second. OK. So yeah, let's just go back here. So the thing that we want to do here is just create a sinusoid. And here I'll put the frequency equal to 523 which is our fundamental frequency for the time being, we'll have a phase of zero. And here we have our function, our sine wave over here. OK. And then I'm just gonna plot that once again uh between 10,000 samples and 10,000 of 400 samples. So just 400 samples so that we can uh kind of like superimpose this to the original signal uh in a few minutes. OK. So here we have our nice uh SYO at 5, 523",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=873s",
+        "start_time": "873.82"
+    },
+    {
+        "id": "ffe79dde",
+        "text": "So the thing that we want to do here is just create a sinusoid. And here I'll put the frequency equal to 523 which is our fundamental frequency for the time being, we'll have a phase of zero. And here we have our function, our sine wave over here. OK. And then I'm just gonna plot that once again uh between 10,000 samples and 10,000 of 400 samples. So just 400 samples so that we can uh kind of like superimpose this to the original signal uh in a few minutes. OK. So here we have our nice uh SYO at 5, 523 hurts. Now, let's take a look at the face. So what does the uh face do? Well, for that, what I suggest doing is just create another um",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=889s",
+        "start_time": "889.659"
+    },
+    {
+        "id": "15014708",
+        "text": "OK. And then I'm just gonna plot that once again uh between 10,000 samples and 10,000 of 400 samples. So just 400 samples so that we can uh kind of like superimpose this to the original signal uh in a few minutes. OK. So here we have our nice uh SYO at 5, 523 hurts. Now, let's take a look at the face. So what does the uh face do? Well, for that, what I suggest doing is just create another um another um uh sinusoid which will call",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=908s",
+        "start_time": "908.799"
+    },
+    {
+        "id": "adc284ba",
+        "text": "hurts. Now, let's take a look at the face. So what does the uh face do? Well, for that, what I suggest doing is just create another um another um uh sinusoid which will call over here. Yeah, it's a little bit difficult to work with this extra big cursor.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=936s",
+        "start_time": "936.119"
+    },
+    {
+        "id": "db945256",
+        "text": "another um uh sinusoid which will call over here. Yeah, it's a little bit difficult to work with this extra big cursor. So over here, so this is phase two. Everything else will be uh like the same. So we'll just like change the phase here. And obviously I need to",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=951s",
+        "start_time": "951.64"
+    },
+    {
+        "id": "c904cd5b",
+        "text": "over here. Yeah, it's a little bit difficult to work with this extra big cursor. So over here, so this is phase two. Everything else will be uh like the same. So we'll just like change the phase here. And obviously I need to plots signed to as well over here. It's not there, it's down here. And I'll use say, I don't know like a yellow color color for this.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=957s",
+        "start_time": "957.359"
+    },
+    {
+        "id": "930e939b",
+        "text": "So over here, so this is phase two. Everything else will be uh like the same. So we'll just like change the phase here. And obviously I need to plots signed to as well over here. It's not there, it's down here. And I'll use say, I don't know like a yellow color color for this. OK. So now let's use the same face. And so if we use the same face, uh so we, we have a mistake here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=965s",
+        "start_time": "965.059"
+    },
+    {
+        "id": "21eeaf0c",
+        "text": "plots signed to as well over here. It's not there, it's down here. And I'll use say, I don't know like a yellow color color for this. OK. So now let's use the same face. And so if we use the same face, uh so we, we have a mistake here. Oh Yes, because this is face two. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=978s",
+        "start_time": "978.739"
+    },
+    {
+        "id": "de70698a",
+        "text": "OK. So now let's use the same face. And so if we use the same face, uh so we, we have a mistake here. Oh Yes, because this is face two. OK. So let's go. Yeah. And obviously like the two sinusoids are completely aligned on top of each other. But now if I change the phase, say like I go 0.2 for uh sinus, the the yellow sinusoid, uh you'll see that the",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=989s",
+        "start_time": "989.979"
+    },
+    {
+        "id": "4557a21c",
+        "text": "Oh Yes, because this is face two. OK. So let's go. Yeah. And obviously like the two sinusoids are completely aligned on top of each other. But now if I change the phase, say like I go 0.2 for uh sinus, the the yellow sinusoid, uh you'll see that the um sinusoid is now shifting, shifting towards the right. If I get to 0.5",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=999s",
+        "start_time": "999.21"
+    },
+    {
+        "id": "ea8d6dbf",
+        "text": "So let's go. Yeah. And obviously like the two sinusoids are completely aligned on top of each other. But now if I change the phase, say like I go 0.2 for uh sinus, the the yellow sinusoid, uh you'll see that the um sinusoid is now shifting, shifting towards the right. If I get to 0.5 the sinusoids are completely like in opposite phase. So in other words, when we have a pick with the red sinusoid, we have a deep uh with the uh yellow sinusoid and vice versa. And the closer I get to, to one and the closer I'm just like realigning them. And so once we are back at one, so they are aligned once again.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1003s",
+        "start_time": "1003.15"
+    },
+    {
+        "id": "4331e6f8",
+        "text": "um sinusoid is now shifting, shifting towards the right. If I get to 0.5 the sinusoids are completely like in opposite phase. So in other words, when we have a pick with the red sinusoid, we have a deep uh with the uh yellow sinusoid and vice versa. And the closer I get to, to one and the closer I'm just like realigning them. And so once we are back at one, so they are aligned once again. So what this means is that if I continue giving like higher numbers for phase two, we'll just like start again the, the circle because yeah, I mean, we are like using a, a periodic function in the end. OK. So 1.5 it's basically equal to uh we get like the same function",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1021s",
+        "start_time": "1021.729"
+    },
+    {
+        "id": "5d31e50f",
+        "text": "the sinusoids are completely like in opposite phase. So in other words, when we have a pick with the red sinusoid, we have a deep uh with the uh yellow sinusoid and vice versa. And the closer I get to, to one and the closer I'm just like realigning them. And so once we are back at one, so they are aligned once again. So what this means is that if I continue giving like higher numbers for phase two, we'll just like start again the, the circle because yeah, I mean, we are like using a, a periodic function in the end. OK. So 1.5 it's basically equal to uh we get like the same function of the same sine wave that we had for 0.5. And if we go to, we change the phase to two. Well, once again, we are just back to the um to being aligned once again with the uh initial sine wave. OK. So all of this to say that we can assume that the phase moves between zero and one just because uh the, the function is periodic. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1029s",
+        "start_time": "1029.849"
+    },
+    {
+        "id": "95f1e4d0",
+        "text": "So what this means is that if I continue giving like higher numbers for phase two, we'll just like start again the, the circle because yeah, I mean, we are like using a, a periodic function in the end. OK. So 1.5 it's basically equal to uh we get like the same function of the same sine wave that we had for 0.5. And if we go to, we change the phase to two. Well, once again, we are just back to the um to being aligned once again with the uh initial sine wave. OK. So all of this to say that we can assume that the phase moves between zero and one just because uh the, the function is periodic. OK. So now what's the big deal like with this uh sine waves? Right? So the point is that we want to compare uh the signal and the sino if you guys remember what I said with the deeper intuition. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1057s",
+        "start_time": "1057.099"
+    },
+    {
+        "id": "9bf6ca1d",
+        "text": "of the same sine wave that we had for 0.5. And if we go to, we change the phase to two. Well, once again, we are just back to the um to being aligned once again with the uh initial sine wave. OK. So all of this to say that we can assume that the phase moves between zero and one just because uh the, the function is periodic. OK. So now what's the big deal like with this uh sine waves? Right? So the point is that we want to compare uh the signal and the sino if you guys remember what I said with the deeper intuition. So uh in order to, to move from the frequent, from the time domain to the frequency domain, we compare the signal with sinusoids of various frequencies. And then for each frequency, we get a magnitude and the phase. OK. And the and high magnitude indicates high similarity between the signal and a sinusoid. Now, let's see how this actually applies here visually. OK. So what I'm doing here is I'm plotting",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1074s",
+        "start_time": "1074.989"
+    },
+    {
+        "id": "6df1ef72",
+        "text": "So now what's the big deal like with this uh sine waves? Right? So the point is that we want to compare uh the signal and the sino if you guys remember what I said with the deeper intuition. So uh in order to, to move from the frequent, from the time domain to the frequency domain, we compare the signal with sinusoids of various frequencies. And then for each frequency, we get a magnitude and the phase. OK. And the and high magnitude indicates high similarity between the signal and a sinusoid. Now, let's see how this actually applies here visually. OK. So what I'm doing here is I'm plotting uh both the original signal as well as a uh sinusoid here and the sinusoid is going to be shown in red. OK. And here for the sinusoid, I'm using the fundamental frequency. So 523 and the phase is set at uh zero. OK. So let's take a look at this. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1104s",
+        "start_time": "1104.42"
+    },
+    {
+        "id": "1842ba29",
+        "text": "uh in order to, to move from the frequent, from the time domain to the frequency domain, we compare the signal with sinusoids of various frequencies. And then for each frequency, we get a magnitude and the phase. OK. And the and high magnitude indicates high similarity between the signal and a sinusoid. Now, let's see how this actually applies here visually. OK. So what I'm doing here is I'm plotting uh both the original signal as well as a uh sinusoid here and the sinusoid is going to be shown in red. OK. And here for the sinusoid, I'm using the fundamental frequency. So 523 and the phase is set at uh zero. OK. So let's take a look at this. OK. That's really cool. But as you can see, we, I mean, like the two waveforms like more or less like seem to have like a similar uh like cycle, right? So similar frequency. And that's because obviously the original signal has the fundamental which is at 523.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1123s",
+        "start_time": "1123.979"
+    },
+    {
+        "id": "636cc86c",
+        "text": "uh both the original signal as well as a uh sinusoid here and the sinusoid is going to be shown in red. OK. And here for the sinusoid, I'm using the fundamental frequency. So 523 and the phase is set at uh zero. OK. So let's take a look at this. OK. That's really cool. But as you can see, we, I mean, like the two waveforms like more or less like seem to have like a similar uh like cycle, right? So similar frequency. And that's because obviously the original signal has the fundamental which is at 523. Uh but there are somewhat out of phase. So we want to align this. So how do we do that? Well, we can just uh increase the phase and see what happens. So let me redo this and as you can see now we are kind of align the two and I know because I've tried it before that we have a very good alignment when we use a face, which is equal to N 0.55 55. And here we go.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1153s",
+        "start_time": "1153.3"
+    },
+    {
+        "id": "cbe98959",
+        "text": "That's really cool. But as you can see, we, I mean, like the two waveforms like more or less like seem to have like a similar uh like cycle, right? So similar frequency. And that's because obviously the original signal has the fundamental which is at 523. Uh but there are somewhat out of phase. So we want to align this. So how do we do that? Well, we can just uh increase the phase and see what happens. So let me redo this and as you can see now we are kind of align the two and I know because I've tried it before that we have a very good alignment when we use a face, which is equal to N 0.55 55. And here we go. So as you can see now, the two signals are quite uh like aligned, they're quite similar. But here we are talking about similarities. So how do we calculate similarity? Well,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1176s",
+        "start_time": "1176.01"
+    },
+    {
+        "id": "0ab61039",
+        "text": "Uh but there are somewhat out of phase. So we want to align this. So how do we do that? Well, we can just uh increase the phase and see what happens. So let me redo this and as you can see now we are kind of align the two and I know because I've tried it before that we have a very good alignment when we use a face, which is equal to N 0.55 55. And here we go. So as you can see now, the two signals are quite uh like aligned, they're quite similar. But here we are talking about similarities. So how do we calculate similarity? Well, we have many ways of calculating similarities for two functions But one that's like very intuitive and simple is to combine the two signals by multiplying them. And in this case, it would be a multiplication sample by sample. So point by point we multiply the two signals and then we just look at the area. So we add all the positive areas and we feel like the, the area below",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1197s",
+        "start_time": "1197.239"
+    },
+    {
+        "id": "3e777801",
+        "text": "So as you can see now, the two signals are quite uh like aligned, they're quite similar. But here we are talking about similarities. So how do we calculate similarity? Well, we have many ways of calculating similarities for two functions But one that's like very intuitive and simple is to combine the two signals by multiplying them. And in this case, it would be a multiplication sample by sample. So point by point we multiply the two signals and then we just look at the area. So we add all the positive areas and we feel like the, the area below uh the um the new combined signal and we add the positive area and we subtract the negative area. So let me explain what that is. And for doing that, we just add",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1223s",
+        "start_time": "1223.579"
+    },
+    {
+        "id": "acbb371f",
+        "text": "we have many ways of calculating similarities for two functions But one that's like very intuitive and simple is to combine the two signals by multiplying them. And in this case, it would be a multiplication sample by sample. So point by point we multiply the two signals and then we just look at the area. So we add all the positive areas and we feel like the, the area below uh the um the new combined signal and we add the positive area and we subtract the negative area. So let me explain what that is. And for doing that, we just add this line of code here which I already had prepared. So, and as you can see here on the Y axis, we are now multiplying the sign um signal with the original signal and we'll have the color of this combined signal in yellow. So let's see",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1239s",
+        "start_time": "1239.05"
+    },
+    {
+        "id": "6aada71b",
+        "text": "uh the um the new combined signal and we add the positive area and we subtract the negative area. So let me explain what that is. And for doing that, we just add this line of code here which I already had prepared. So, and as you can see here on the Y axis, we are now multiplying the sign um signal with the original signal and we'll have the color of this combined signal in yellow. So let's see what happens here. OK. And you can see this now, I'm taking the area. In other words, I'm filling up the area below um the, the waveform. And as you can see here, we have basically, it's all like positive area.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1267s",
+        "start_time": "1267.28"
+    },
+    {
+        "id": "172194b9",
+        "text": "this line of code here which I already had prepared. So, and as you can see here on the Y axis, we are now multiplying the sign um signal with the original signal and we'll have the color of this combined signal in yellow. So let's see what happens here. OK. And you can see this now, I'm taking the area. In other words, I'm filling up the area below um the, the waveform. And as you can see here, we have basically, it's all like positive area. And the intuition here is that the higher the area, the positive area that we have for the combined signal and the higher the similarity between the two original, the two signals. So the Sinusoid, as well as the original signal",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1280s",
+        "start_time": "1280.64"
+    },
+    {
+        "id": "40ea29db",
+        "text": "what happens here. OK. And you can see this now, I'm taking the area. In other words, I'm filling up the area below um the, the waveform. And as you can see here, we have basically, it's all like positive area. And the intuition here is that the higher the area, the positive area that we have for the combined signal and the higher the similarity between the two original, the two signals. So the Sinusoid, as well as the original signal and the intuition behind this is that if I, when I multiply both of this and they have the same sign, so they are both. So the signal and the uh Sinusoid have both like positive sign or both negative sign, then",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1299s",
+        "start_time": "1299.67"
+    },
+    {
+        "id": "c0aa5104",
+        "text": "And the intuition here is that the higher the area, the positive area that we have for the combined signal and the higher the similarity between the two original, the two signals. So the Sinusoid, as well as the original signal and the intuition behind this is that if I, when I multiply both of this and they have the same sign, so they are both. So the signal and the uh Sinusoid have both like positive sign or both negative sign, then they're gonna end up with like a positive value, right? Whereas uh if they have an alternate opposite science, then we'll end up like with negative values. And so when we add like that positive area to the negative area, we just end up with a uh value that tells us how much similar these two signals are really are",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1318s",
+        "start_time": "1318.5"
+    },
+    {
+        "id": "e6589553",
+        "text": "and the intuition behind this is that if I, when I multiply both of this and they have the same sign, so they are both. So the signal and the uh Sinusoid have both like positive sign or both negative sign, then they're gonna end up with like a positive value, right? Whereas uh if they have an alternate opposite science, then we'll end up like with negative values. And so when we add like that positive area to the negative area, we just end up with a uh value that tells us how much similar these two signals are really are OK. But uh one thing that I want to show you here is that if I change the phase here, so let's assume we go down to zero. So phase is equal to zero. Now all of a sudden we have all negative areas, right? And so there's no similarity at all, even if we have the same",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1338s",
+        "start_time": "1338.9"
+    },
+    {
+        "id": "27ef917c",
+        "text": "they're gonna end up with like a positive value, right? Whereas uh if they have an alternate opposite science, then we'll end up like with negative values. And so when we add like that positive area to the negative area, we just end up with a uh value that tells us how much similar these two signals are really are OK. But uh one thing that I want to show you here is that if I change the phase here, so let's assume we go down to zero. So phase is equal to zero. Now all of a sudden we have all negative areas, right? And so there's no similarity at all, even if we have the same sine wave. So with the with the same frequency and amplitude, but still the phase is extremely important. But because in this case, uh is just there's no similarity whatsoever. So we only have like negative areas here, negative values for the combined um sine wave, not sine wave for the combined signal. OK. So if we go and say take a 0.2 for example,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1358s",
+        "start_time": "1358.0"
+    },
+    {
+        "id": "51a16f37",
+        "text": "OK. But uh one thing that I want to show you here is that if I change the phase here, so let's assume we go down to zero. So phase is equal to zero. Now all of a sudden we have all negative areas, right? And so there's no similarity at all, even if we have the same sine wave. So with the with the same frequency and amplitude, but still the phase is extremely important. But because in this case, uh is just there's no similarity whatsoever. So we only have like negative areas here, negative values for the combined um sine wave, not sine wave for the combined signal. OK. So if we go and say take a 0.2 for example, uh yeah, still this is mostly like negative but now let's try 0.4. OK. Yeah, this is a good example. So which phase at no 0.4 we have uh a bit of negative areas as well as a bit of positive areas. So yeah, it's a little bit of mixed bag. There's some level of like similarity between the two signals, but it's not uh perfect. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1383s",
+        "start_time": "1383.869"
+    },
+    {
+        "id": "42a81154",
+        "text": "sine wave. So with the with the same frequency and amplitude, but still the phase is extremely important. But because in this case, uh is just there's no similarity whatsoever. So we only have like negative areas here, negative values for the combined um sine wave, not sine wave for the combined signal. OK. So if we go and say take a 0.2 for example, uh yeah, still this is mostly like negative but now let's try 0.4. OK. Yeah, this is a good example. So which phase at no 0.4 we have uh a bit of negative areas as well as a bit of positive areas. So yeah, it's a little bit of mixed bag. There's some level of like similarity between the two signals, but it's not uh perfect. OK. So this is the intuition that we can use to understand how we move from uh the time domain to the frequency domain. And it's just",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1405s",
+        "start_time": "1405.55"
+    },
+    {
+        "id": "f7fb12a6",
+        "text": "uh yeah, still this is mostly like negative but now let's try 0.4. OK. Yeah, this is a good example. So which phase at no 0.4 we have uh a bit of negative areas as well as a bit of positive areas. So yeah, it's a little bit of mixed bag. There's some level of like similarity between the two signals, but it's not uh perfect. OK. So this is the intuition that we can use to understand how we move from uh the time domain to the frequency domain. And it's just as simple as",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1435s",
+        "start_time": "1435.099"
+    },
+    {
+        "id": "790f1e52",
+        "text": "So this is the intuition that we can use to understand how we move from uh the time domain to the frequency domain. And it's just as simple as doing a bunch of things. So we choose a frequency first and then we create a sine wave out of like that frequency. Then the next step is we want to optimize for the face so that we know that we've chosen the phase that gives the maximum similarity.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1461s",
+        "start_time": "1461.14"
+    },
+    {
+        "id": "c3b9fd81",
+        "text": "as simple as doing a bunch of things. So we choose a frequency first and then we create a sine wave out of like that frequency. Then the next step is we want to optimize for the face so that we know that we've chosen the phase that gives the maximum similarity. So the maximum area possible. And finally, we calculate the magnitude and the magnitude is basically the similarity or in other words, the positive area of the combined signal uh minus the negative area. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1475s",
+        "start_time": "1475.4"
+    },
+    {
+        "id": "7bd44572",
+        "text": "doing a bunch of things. So we choose a frequency first and then we create a sine wave out of like that frequency. Then the next step is we want to optimize for the face so that we know that we've chosen the phase that gives the maximum similarity. So the maximum area possible. And finally, we calculate the magnitude and the magnitude is basically the similarity or in other words, the positive area of the combined signal uh minus the negative area. OK. But this is just for one single frequency in a fourier transform, we have to try and do this for all possible frequencies in the real set. OK. So we start with a frequency, then we, we continue and do like the same steps for the next frequency and we move on and on and on and on.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1477s",
+        "start_time": "1477.29"
+    },
+    {
+        "id": "52d22051",
+        "text": "So the maximum area possible. And finally, we calculate the magnitude and the magnitude is basically the similarity or in other words, the positive area of the combined signal uh minus the negative area. OK. But this is just for one single frequency in a fourier transform, we have to try and do this for all possible frequencies in the real set. OK. So we start with a frequency, then we, we continue and do like the same steps for the next frequency and we move on and on and on and on. And by doing so we are able to see which frequencies have a, an important are important components of the original signals. And those will be um kind of indicated by because they have a high value for the magnitude. And this is like what happens here. So if we go back here,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1500s",
+        "start_time": "1500.06"
+    },
+    {
+        "id": "abdcb170",
+        "text": "But this is just for one single frequency in a fourier transform, we have to try and do this for all possible frequencies in the real set. OK. So we start with a frequency, then we, we continue and do like the same steps for the next frequency and we move on and on and on and on. And by doing so we are able to see which frequencies have a, an important are important components of the original signals. And those will be um kind of indicated by because they have a high value for the magnitude. And this is like what happens here. So if we go back here, so here we see like the the spectrum once again. So yeah, let me just find, let's just go back to, to the best uh phase that I could find. So 0.55. So as you can see here, uh the fact that we have like this nice alignment between the frequency at the sage at 523 Hertz and the original signal is reflected in the power spectrum here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1522s",
+        "start_time": "1522.4"
+    },
+    {
+        "id": "6a3b99e5",
+        "text": "And by doing so we are able to see which frequencies have a, an important are important components of the original signals. And those will be um kind of indicated by because they have a high value for the magnitude. And this is like what happens here. So if we go back here, so here we see like the the spectrum once again. So yeah, let me just find, let's just go back to, to the best uh phase that I could find. So 0.55. So as you can see here, uh the fact that we have like this nice alignment between the frequency at the sage at 523 Hertz and the original signal is reflected in the power spectrum here. And that's because we have this peak in the magnitude which is around 523 Hertz. So that tells us that we have this high level of similarity between the sine wave at the pure to at 523 Hertz and the original signal.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1545s",
+        "start_time": "1545.979"
+    },
+    {
+        "id": "56fec6d0",
+        "text": "so here we see like the the spectrum once again. So yeah, let me just find, let's just go back to, to the best uh phase that I could find. So 0.55. So as you can see here, uh the fact that we have like this nice alignment between the frequency at the sage at 523 Hertz and the original signal is reflected in the power spectrum here. And that's because we have this peak in the magnitude which is around 523 Hertz. So that tells us that we have this high level of similarity between the sine wave at the pure to at 523 Hertz and the original signal. OK. So this is uh interesting. So now I hope like you, you get the understanding and the intuition behind the fourier transform. Now, the next step is to take a look at a little bit of mathematical formalization of what we've said so far and don't be scared about like this massive creation here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1573s",
+        "start_time": "1573.63"
+    },
+    {
+        "id": "56f6a770",
+        "text": "And that's because we have this peak in the magnitude which is around 523 Hertz. So that tells us that we have this high level of similarity between the sine wave at the pure to at 523 Hertz and the original signal. OK. So this is uh interesting. So now I hope like you, you get the understanding and the intuition behind the fourier transform. Now, the next step is to take a look at a little bit of mathematical formalization of what we've said so far and don't be scared about like this massive creation here. So I'll just break it down for you. But in, in a nutshell, this is what we've just said. So what we are looking for here is the phase for like the optimized phase for a given frequency F OK. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1599s",
+        "start_time": "1599.959"
+    },
+    {
+        "id": "ed3309b2",
+        "text": "OK. So this is uh interesting. So now I hope like you, you get the understanding and the intuition behind the fourier transform. Now, the next step is to take a look at a little bit of mathematical formalization of what we've said so far and don't be scared about like this massive creation here. So I'll just break it down for you. But in, in a nutshell, this is what we've just said. So what we are looking for here is the phase for like the optimized phase for a given frequency F OK. So these two things that we have in here is just the multiplication of the signal and the sinusoid. So SFT is just our original signal. And here we have our sinusoid and we multiply those.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1622s",
+        "start_time": "1622.079"
+    },
+    {
+        "id": "132ebae8",
+        "text": "So I'll just break it down for you. But in, in a nutshell, this is what we've just said. So what we are looking for here is the phase for like the optimized phase for a given frequency F OK. So these two things that we have in here is just the multiplication of the signal and the sinusoid. So SFT is just our original signal. And here we have our sinusoid and we multiply those. Now the next step is to calculate the area and we do that with this integral symbol. Now you don't need to understand calculus. But the intuition here is that we are basically calculating the",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1645s",
+        "start_time": "1645.01"
+    },
+    {
+        "id": "d532d1f1",
+        "text": "these two things that we have in here is just the multiplication of the signal and the sinusoid. So SFT is just our original signal. And here we have our sinusoid and we multiply those. Now the next step is to calculate the area and we do that with this integral symbol. Now you don't need to understand calculus. But the intuition here is that we are basically calculating the uh positive area of the combined signal and then subtracted that's the negative area. And that's what we are doing with the integral, which is across time. So it's basically we, we take like all uh the, the, the time throughout like the uh a given signal.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1664s",
+        "start_time": "1664.199"
+    },
+    {
+        "id": "3a97a928",
+        "text": "Now the next step is to calculate the area and we do that with this integral symbol. Now you don't need to understand calculus. But the intuition here is that we are basically calculating the uh positive area of the combined signal and then subtracted that's the negative area. And that's what we are doing with the integral, which is across time. So it's basically we, we take like all uh the, the, the time throughout like the uh a given signal. And finally, what we do is we take the arc marks. In other words, we want to select the phase in the interval 01 and we show why we only consider 01. And so we want to take like this phase that maximizes the area. And in other words, what we are doing here is what I was doing manually before tweaking the phase in order to find the phase that would actually,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1677s",
+        "start_time": "1677.91"
+    },
+    {
+        "id": "e5cd972d",
+        "text": "uh positive area of the combined signal and then subtracted that's the negative area. And that's what we are doing with the integral, which is across time. So it's basically we, we take like all uh the, the, the time throughout like the uh a given signal. And finally, what we do is we take the arc marks. In other words, we want to select the phase in the interval 01 and we show why we only consider 01. And so we want to take like this phase that maximizes the area. And in other words, what we are doing here is what I was doing manually before tweaking the phase in order to find the phase that would actually, and maximize the positive area that we have when we combine the two signals. OK. So it's this is simple intuition to understand,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1697s",
+        "start_time": "1697.18"
+    },
+    {
+        "id": "4b8d0e28",
+        "text": "And finally, what we do is we take the arc marks. In other words, we want to select the phase in the interval 01 and we show why we only consider 01. And so we want to take like this phase that maximizes the area. And in other words, what we are doing here is what I was doing manually before tweaking the phase in order to find the phase that would actually, and maximize the positive area that we have when we combine the two signals. OK. So it's this is simple intuition to understand, OK. The next step that we want to do is to actually take the um magnitude. And so how do we take the magnitude? Well, it's basically the same thing, right? So we are once again calculating the, combining the two signals and then we calculate the area uh that we have once we multiply the original signal with the synod.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1717s",
+        "start_time": "1717.599"
+    },
+    {
+        "id": "aa4a1317",
+        "text": "and maximize the positive area that we have when we combine the two signals. OK. So it's this is simple intuition to understand, OK. The next step that we want to do is to actually take the um magnitude. And so how do we take the magnitude? Well, it's basically the same thing, right? So we are once again calculating the, combining the two signals and then we calculate the area uh that we have once we multiply the original signal with the synod. And finally, this is the only, the only step that's different from the, the previous one that we, so uh we just want to select the max area. And uh for selecting that we are going to try like all the possible like uh values for a phase between zero and one. But if we have that value already, because we've optimized before we'll just use that value and plug it in here directly.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1746s",
+        "start_time": "1746.42"
+    },
+    {
+        "id": "c98b0c8f",
+        "text": "OK. The next step that we want to do is to actually take the um magnitude. And so how do we take the magnitude? Well, it's basically the same thing, right? So we are once again calculating the, combining the two signals and then we calculate the area uh that we have once we multiply the original signal with the synod. And finally, this is the only, the only step that's different from the, the previous one that we, so uh we just want to select the max area. And uh for selecting that we are going to try like all the possible like uh values for a phase between zero and one. But if we have that value already, because we've optimized before we'll just use that value and plug it in here directly. It's important to say that the calculations that we've carried out here are in a continuous space. In other words, uh because we use this integral here, we are basically assuming that time is continuous or in other words, uh like time is a real number, it changes as a real number. OK. So time is continuous, but frequency is continuous as well, right?",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1758s",
+        "start_time": "1758.92"
+    },
+    {
+        "id": "ab937f4f",
+        "text": "And finally, this is the only, the only step that's different from the, the previous one that we, so uh we just want to select the max area. And uh for selecting that we are going to try like all the possible like uh values for a phase between zero and one. But if we have that value already, because we've optimized before we'll just use that value and plug it in here directly. It's important to say that the calculations that we've carried out here are in a continuous space. In other words, uh because we use this integral here, we are basically assuming that time is continuous or in other words, uh like time is a real number, it changes as a real number. OK. So time is continuous, but frequency is continuous as well, right? So while this is the case for the, the theory, well, what we've done already, for example, uh with our code uh doesn't uh use like continuous representation. Uh Just because uh computers can't use continuous representation, we have to sample a continuous function and use a discrete version of that.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1785s",
+        "start_time": "1785.43"
+    },
+    {
+        "id": "73a34d71",
+        "text": "It's important to say that the calculations that we've carried out here are in a continuous space. In other words, uh because we use this integral here, we are basically assuming that time is continuous or in other words, uh like time is a real number, it changes as a real number. OK. So time is continuous, but frequency is continuous as well, right? So while this is the case for the, the theory, well, what we've done already, for example, uh with our code uh doesn't uh use like continuous representation. Uh Just because uh computers can't use continuous representation, we have to sample a continuous function and use a discrete version of that. Now, uh if you want to know more about continuous versus um discrete uh signals, I suggest you to go check out one of my first videos on this topic. Uh But the whole point here that I want to make is that the theory that we're going to study at least like over the next couple of videos is going to be about continuous for a",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1815s",
+        "start_time": "1815.75"
+    },
+    {
+        "id": "276c8668",
+        "text": "So while this is the case for the, the theory, well, what we've done already, for example, uh with our code uh doesn't uh use like continuous representation. Uh Just because uh computers can't use continuous representation, we have to sample a continuous function and use a discrete version of that. Now, uh if you want to know more about continuous versus um discrete uh signals, I suggest you to go check out one of my first videos on this topic. Uh But the whole point here that I want to make is that the theory that we're going to study at least like over the next couple of videos is going to be about continuous for a uh transform. But then we'll move on and take a look at the discrete fourier transform. And there the math is going to be slightly different. And uh that is going to be the math that we will actually be using for understanding how to implement an algorithm that can extract the fourier transform in the case of discrete signals. OK. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1844s",
+        "start_time": "1844.14"
+    },
+    {
+        "id": "e1dfd250",
+        "text": "Now, uh if you want to know more about continuous versus um discrete uh signals, I suggest you to go check out one of my first videos on this topic. Uh But the whole point here that I want to make is that the theory that we're going to study at least like over the next couple of videos is going to be about continuous for a uh transform. But then we'll move on and take a look at the discrete fourier transform. And there the math is going to be slightly different. And uh that is going to be the math that we will actually be using for understanding how to implement an algorithm that can extract the fourier transform in the case of discrete signals. OK. So uh up until now you you've learned how to move from the time domain to the frequency domain. But you may be wondering is there a way of going the other way around? So the round trip, so we go from time",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1867s",
+        "start_time": "1867.13"
+    },
+    {
+        "id": "1e8b1e83",
+        "text": "uh transform. But then we'll move on and take a look at the discrete fourier transform. And there the math is going to be slightly different. And uh that is going to be the math that we will actually be using for understanding how to implement an algorithm that can extract the fourier transform in the case of discrete signals. OK. So uh up until now you you've learned how to move from the time domain to the frequency domain. But you may be wondering is there a way of going the other way around? So the round trip, so we go from time to frequency domain but then can we go to frequency domain to time domain? And this would be the equivalent of saying OK. So now we start with these uh different like color bands, we put them into the prism, this fantastic algorithm and we end up with the,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1889s",
+        "start_time": "1889.67"
+    },
+    {
+        "id": "a3bc4439",
+        "text": "uh up until now you you've learned how to move from the time domain to the frequency domain. But you may be wondering is there a way of going the other way around? So the round trip, so we go from time to frequency domain but then can we go to frequency domain to time domain? And this would be the equivalent of saying OK. So now we start with these uh different like color bands, we put them into the prism, this fantastic algorithm and we end up with the, with a complex light wave. OK. Can we do that with the fourier transform? And the answer is yes, we can reconstruct a signal by superimposing all the sinusoids, all the frequency components that we've extracted out of the original signal. So we superimpose the sinusoids and we weigh them by their relative magnitude.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1911s",
+        "start_time": "1911.949"
+    },
+    {
+        "id": "a13d73f3",
+        "text": "to frequency domain but then can we go to frequency domain to time domain? And this would be the equivalent of saying OK. So now we start with these uh different like color bands, we put them into the prism, this fantastic algorithm and we end up with the, with a complex light wave. OK. Can we do that with the fourier transform? And the answer is yes, we can reconstruct a signal by superimposing all the sinusoids, all the frequency components that we've extracted out of the original signal. So we superimpose the sinusoids and we weigh them by their relative magnitude. So the ones that uh have a higher magnitude are gonna have like a higher impact in making the original signal. And then obviously, we want to use the uh the original, the phase that we extracted as well. And the point here is that the original signal and the fourier transform have the same information and we can go back and forth from time to frequency domain as we please. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1928s",
+        "start_time": "1928.26"
+    },
+    {
+        "id": "d333d923",
+        "text": "with a complex light wave. OK. Can we do that with the fourier transform? And the answer is yes, we can reconstruct a signal by superimposing all the sinusoids, all the frequency components that we've extracted out of the original signal. So we superimpose the sinusoids and we weigh them by their relative magnitude. So the ones that uh have a higher magnitude are gonna have like a higher impact in making the original signal. And then obviously, we want to use the uh the original, the phase that we extracted as well. And the point here is that the original signal and the fourier transform have the same information and we can go back and forth from time to frequency domain as we please. So and the process of going back from frequency domain to time domain is called inverse fourier transform. So we start from the frequency domain, we apply an inverse fourier transform and we go all the way back to the original signal and the time domain. OK. So",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1947s",
+        "start_time": "1947.359"
+    },
+    {
+        "id": "e5d179ac",
+        "text": "So the ones that uh have a higher magnitude are gonna have like a higher impact in making the original signal. And then obviously, we want to use the uh the original, the phase that we extracted as well. And the point here is that the original signal and the fourier transform have the same information and we can go back and forth from time to frequency domain as we please. So and the process of going back from frequency domain to time domain is called inverse fourier transform. So we start from the frequency domain, we apply an inverse fourier transform and we go all the way back to the original signal and the time domain. OK. So this is like an idea that's not exactly the same as that of adjective synthesis, but it's kind of like similar. So in adjective synthesis, you have synthesizers which basically use different sinusoids and you can superimpose them. So combined by adding them up um in order to create complex sounds. And if you think about it, this is somewhat similar to what we were saying with the inverse fourier transform.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=1975s",
+        "start_time": "1975.839"
+    },
+    {
+        "id": "83a3efe6",
+        "text": "and the process of going back from frequency domain to time domain is called inverse fourier transform. So we start from the frequency domain, we apply an inverse fourier transform and we go all the way back to the original signal and the time domain. OK. So this is like an idea that's not exactly the same as that of adjective synthesis, but it's kind of like similar. So in adjective synthesis, you have synthesizers which basically use different sinusoids and you can superimpose them. So combined by adding them up um in order to create complex sounds. And if you think about it, this is somewhat similar to what we were saying with the inverse fourier transform. So let me show you these in a an example. So I found uh like this very cool uh website. So where you can try out adjective sensor. So here like you have uh a bunch of different frequencies. So here this is like C four. So tw uh 261 Hertz. Then we have 523 Hertz, which is C five, which is the fundamental frequency of R uh sound. And then",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2004s",
+        "start_time": "2004.689"
+    },
+    {
+        "id": "53660dc3",
+        "text": "this is like an idea that's not exactly the same as that of adjective synthesis, but it's kind of like similar. So in adjective synthesis, you have synthesizers which basically use different sinusoids and you can superimpose them. So combined by adding them up um in order to create complex sounds. And if you think about it, this is somewhat similar to what we were saying with the inverse fourier transform. So let me show you these in a an example. So I found uh like this very cool uh website. So where you can try out adjective sensor. So here like you have uh a bunch of different frequencies. So here this is like C four. So tw uh 261 Hertz. Then we have 523 Hertz, which is C five, which is the fundamental frequency of R uh sound. And then you go up. So basically here you have like all the overturns of these C four fundamental frequency. OK. So let's unmute this. So you should be able to, yeah, let me",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2027s",
+        "start_time": "2027.14"
+    },
+    {
+        "id": "8be3215f",
+        "text": "So let me show you these in a an example. So I found uh like this very cool uh website. So where you can try out adjective sensor. So here like you have uh a bunch of different frequencies. So here this is like C four. So tw uh 261 Hertz. Then we have 523 Hertz, which is C five, which is the fundamental frequency of R uh sound. And then you go up. So basically here you have like all the overturns of these C four fundamental frequency. OK. So let's unmute this. So you should be able to, yeah, let me put this down a little bit. OK. So you should be able to, to hear this C four, right? So now let me add",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2056s",
+        "start_time": "2056.81"
+    },
+    {
+        "id": "c8de66e6",
+        "text": "you go up. So basically here you have like all the overturns of these C four fundamental frequency. OK. So let's unmute this. So you should be able to, yeah, let me put this down a little bit. OK. So you should be able to, to hear this C four, right? So now let me add uh the first overturn and take a look at how the main signal is gonna be modified,",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2085s",
+        "start_time": "2085.28"
+    },
+    {
+        "id": "a6375c14",
+        "text": "put this down a little bit. OK. So you should be able to, to hear this C four, right? So now let me add uh the first overturn and take a look at how the main signal is gonna be modified, right?",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2098s",
+        "start_time": "2098.879"
+    },
+    {
+        "id": "23a4413a",
+        "text": "uh the first overturn and take a look at how the main signal is gonna be modified, right? OK. So let me add some other overtones.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2108s",
+        "start_time": "2108.419"
+    },
+    {
+        "id": "9a3378d7",
+        "text": "right? OK. So let me add some other overtones. Yeah, let's just go down a little bit.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2119s",
+        "start_time": "2119.0"
+    },
+    {
+        "id": "4798ce0e",
+        "text": "OK. So let me add some other overtones. Yeah, let's just go down a little bit. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2120s",
+        "start_time": "2120.969"
+    },
+    {
+        "id": "c1939e03",
+        "text": "Yeah, let's just go down a little bit. OK. That's cool. Isn't it",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2136s",
+        "start_time": "2136.34"
+    },
+    {
+        "id": "c553ce69",
+        "text": "OK. That's cool. Isn't it cool? So this is like a really cool example of how we can superimpose PP turns or syn sides and get a complex waveform like this one. OK.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2141s",
+        "start_time": "2141.149"
+    },
+    {
+        "id": "fa5f0695",
+        "text": "That's cool. Isn't it cool? So this is like a really cool example of how we can superimpose PP turns or syn sides and get a complex waveform like this one. OK. So yeah, I guess like this was it for this introductory session on a fourier transform. So now where do we go from here? Well, we want to start looking into the math, the real math behind the fourier transform. And for doing that, we are gonna need to get familiar with an",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2142s",
+        "start_time": "2142.959"
+    },
+    {
+        "id": "6dd77c41",
+        "text": "cool? So this is like a really cool example of how we can superimpose PP turns or syn sides and get a complex waveform like this one. OK. So yeah, I guess like this was it for this introductory session on a fourier transform. So now where do we go from here? Well, we want to start looking into the math, the real math behind the fourier transform. And for doing that, we are gonna need to get familiar with an another type of numbers that perhaps you've heard or you're familiar with. But if you're not, I suggest you check out my next video which is going to be on complex numbers. And as we'll see you in a few videos, complex numbers are going to be very important for working with fourier transforms because they're very handy for representing what we are doing here.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2150s",
+        "start_time": "2150.8"
+    },
+    {
+        "id": "ac75bc6b",
+        "text": "So yeah, I guess like this was it for this introductory session on a fourier transform. So now where do we go from here? Well, we want to start looking into the math, the real math behind the fourier transform. And for doing that, we are gonna need to get familiar with an another type of numbers that perhaps you've heard or you're familiar with. But if you're not, I suggest you check out my next video which is going to be on complex numbers. And as we'll see you in a few videos, complex numbers are going to be very important for working with fourier transforms because they're very handy for representing what we are doing here. OK? So that's all for today. I hope you enjoyed this video and you found it useful. If that's the case, please remember to leave a like. And if you haven't subscribed to the channel, please consider doing so. If you have any questions or doubts in your mind about what I've covered today, please don't hesitate to leave a comment in the comment section below. I guess I'll see you next time. Cheers.",
+        "video": "Demystifying the Fourier Transform: The Intuition",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "XQ45IgG6rJ4",
+        "youtube_link": "https://www.youtube.com/watch?v=XQ45IgG6rJ4&t=2166s",
+        "start_time": "2166.33"
+    }
+]

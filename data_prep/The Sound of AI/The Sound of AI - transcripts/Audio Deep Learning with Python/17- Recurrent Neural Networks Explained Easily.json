@@ -1,0 +1,536 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time we're gonna talk about recurrent neural networks and understand the theory behind it. So let's get started and understand what R and NS are, what they do, what type of data they process. Now there's a lot of data in which order is extremely important. That's true. For example, like for text and words. So let's analyze for example, the the sentence Anna loves John. Well, here order is very important because Anna loves John is very different from John loves Anna, right? And the point being that like order is so important that many like bad things can happen. Like if you don't understand whether like Anna loves you or John loves Anna, right? OK. So in that sense, like order is very important for data, certain type of data like time series as well where we have like data uh which are like measures like of of different values that are taken like a certain intervals and ordered like over time, right? So this is a type of data that's very important and we want like a network that can understand and process like that data and maintain and understand the order there, right? So another point is that uh usually say, for example, we have like a time series or, or even just like a sentence or a piece of music with a melody. So it turns out that like melodies or like sentences can have like a variable number of words or, or notes, right? And so we want a network that's able to process data, sequential data regardless of the number of like words or notes or data points that we have in there. So RNNS in a sense, try to address all of these issues. They're used for sequential data. And the great thing about them is that they uh process data in such a way that uh each data point is pro processed in context. So we look back at what happened before to understand what to do next, like with our data and how to predict. So obviously, like audio and specifically music are kind of like, so the the type of data that we have like for a music like resonance work very well with R and M because we can think of audio as a time series itself. So a series of points taken at certain intervals in time. So if we think of a waveform, for example, we can think of it as a univariate time series. So what does univariate mean? Well, it means that we have only one value one measure that's taken at each interval. So now let's take a look at the, at the data shape that we have uh with a waveform uh expressed as a time series. So here we have it. So the first dimension is basically given by the number of samples or number of intervals where we are taking measures. And this is given by the sample rates which in this case, here is 22,050 by not, which is the number of seconds, right? So here we have more or less 200,000 data points in the time series. And then here we have as the second dimension one. And that's because we have only one dimension which is the amplitude that we are taking at each data point. Right. Now, let's take a look at another type of data that we've used quite a lot like in over like the, the, the, the, the last few videos. And that's the MF CCS and we can think of MF CCS as a multi create time series. Now, first of all, if you don't remember what MF CCS are just like, take a look at the video below here and you can understand what uh like MF CCS are and why they are super important for like all your analysis uh cool. So now let's go back to like the interpreting MF CCS as a Multivariate time series. Here, we have values at different intervals and then for each um value for each interval, we have 13. In this case values and each of the values represents a coefficient. It's an MFCC right. And in this case, we are talking about a Multivariate time series because we are taking more uh measurements for each interval. And the, the relative dimension here is given by the overall number of uh intervals. And in this case, we have um the sample rate divided by the hot length, which in this case is 512 which is like quite customary. Again, if you don't remember, just go back and watch like my previous video on this. And then we multiply that by nine, which is the number of seconds. So overall, we have around like 403 187 intervals. And then the second dimension is given by the number of MF CCS which is 13. So in other words, here we are, we have 300 87 intervals at each interval, we have 13 values, right? So this is the type of data that we can use with R and N. So this kind of like time series where you have a number of like values for uh like yeah, at different like intervals, right? OK. So let's take a look at how R and NS work like from a very, very high levels perspective. So first of all, the idea here is that we have like this time series type of data and we feed it into the network a point at a time. So we give it like a data point uh at a step like every time. And the idea is that the network is going to be able to predict the next step given the step we are currently giving it and the history there, right. So the prediction depends also on the context on what happened before, right. So this is like a very, very high level intuition what an RNN is. So now let's take a look at let's like dive down down into uh an RNN architecture. So here we have our inputs which is like given by X, then we have a recurrent layer which is obviously like the the focus of a uh an RNN and a recurrent layer is a layer that's able to process sequential data in a sequential way. And we'll see what this means in a second. Then the output of the recurrent layer usually this is fed into a dense layer which does some classification using soft macs for example. And then we have uh the output which is why? Right? OK. So now a thing that I want to uh try like to, to, to to look into here is the dimensionality of the input. So the shape of X. So in this case, we have a three dimensional input. So the first dimension is the batch size. So it's the number of samples of time windows that we are passing into the network at once. Then uh the second dimension is given by the number of steps that we have in the sequence. And the third dimension is the, the number of dimensions, the number of different measures that we have in uh the sequence itself. So for example, in the case of a waveform, which is a univariate time series, the, the this third dimension here would be equal to one. In the case of the MF CCS with 13 coefficients, we would have 13 here. And that's a Multivariate time series. Remember that. OK. So this is more or less the architecture from a very high level point of view. Now let's get into the recurrent layer and understand how it works cool. OK. So for the recurrent recurrent layer, the most important uh component is the cell, uh the cell, it's the one that's uh kind of like processes all the information. And here we can have a lot of like different types of cells. So for example here, like with a simple RNN, that's what we are analyzing. Like in this video, we're gonna look at a very simple like dense layer wi with a hyperbolic tangent as the activation function. But then we can have also other types of cells like a LSDM long, short term memory cell or a gated recurrent unit. We're gonna look into this like in the next video and understand why they are important. But then again, the cell is the one that's responsible for processing this sequential data. Now, at each step, uh we uh kind of given uh a input data that's represented by this XT. Then the cell does some processing and it outputs a couple of things. So it outputs H of T. Uh And HT is basically we can call it a state vector or a hidden state, right? And this represents and keeps memory like of the, of the cell uh well, of the, of the network like at, at a certain point in time. And then we also output YT which is the actual output. And here, the whole point of the, the, the recurrence here is given by the fact that uh the HT or the state vector is gonna be reused at a, at a later point at the next step. And so that we, we can have like information about the context. So basically the whole idea here is that we are giving information sequentially step by step to the cell here. And then we output both and output and a hidden state and the hidden state or state vector is going to be reused for the next step. Now, the whole point is that we have like uh recursive here because we are just like feeding back some information uh into like the uh the cell from a previous uh like um computation. So let's try to unroll uh this process into like a linear way. OK. So Now, let's imagine we have a sequence with and different steps. So we'll start from the previous uh from the first step here. So we'll pass in X zero, X zero gets analyzed and process from the cell. And we get an output which is H zero, which is the sli vector at this uh time step at time step zero. And then we have uh the uh output which is Y zero. Now, the next step is sending in X one as a data point and X one is going to be used in conjunction with H zero to output H one which is the new uh state vector. And at the same time, we, the, the cell will also output Y one, right. OK. So we continue and we uh we pass in X two, we consider H one and we output H two and Y two, we can continue this like for as many steps as we have until we get to the end. So in this case, it's uh uh the N step. And so here we obviously, it's the same thing that we've done so far. So we input XN, we consider the state of the cell at the previous step. So uh at N minus one and we combine this to information and we get a new state vector here HN and we get an output called YN. Now, the thing that's really important to understand here is that each uh like of these uh like timestamps. So at each of these time steps, we always use the very same set. So we just have one cell but we use it recursively. And so from this like the whole point of like calling this network like a recurrent, right? Because we are recursively using the very same cell time and again, time and again to, to output like new, to process new information in a sequential way. Cool. So now what I want to do is take a look at the dimensionality of the data that flows through uh an R and M. So let's take it as an example, an input where we have this dimensionality here. So we have uh a batch size is equal to 29 steps in the sequence. So a sequence with nine items and then we have a univariate uh time series here. So we only have like one value, one measure per step. OK. So here we have our um RNN basically our recurrent layer um unrolled. And so, and as you can notice here, we have nine steps, obviously it's nine because it's the number of like steps that we have uh in the sequence. OK. So for the input at each step, we have a dimensionality that's equal to the batch size and the number of dimensions. So in this case, uh each um each data point is equal ha well, it's not equal but it has a dimensionality of like 21 right. OK. So let's take a look at the output. Here, at each step, we have a dimensionality that's equal to the batch size and the number of units. So we, we are basically output uh many, well as many um outputs as the number as the number of like a bat, well as the batch size, right. OK. So in this case, we have 23, right? And here we are saying basically that we have three units for the recurrent layer. OK. So if we consider the whole output, so Y zero up until Y uh nine, all together the output shape is three dimensional, right? And so here we have the back size as the first dimension, the, the number of steps. And this is the second dimension and the number of units as the third dimension. And in this case, we have 293 cool. So now what remains to do is look at the uh hidden state or the state vector. And it turns out that in simple R and NS the state vector is equal to the outputs, right. So for example, here this H zero is equal to Y zero. And obviously the dimensionality is the same. So we have like 23, that's good. OK. So now uh let's take a look at a couple of very, I would say like uh flavors of R and NS. So we have one that's called sequence to vector R and N and here. The idea is that uh we input a, a sequence but the output that we get is only like a single vector here. So basically here, uh we are just waiting for this uh Y nine value in a nine step sequence and we drop all of the other predictions before. So Y zero, Y one, Y two, we, we drop all of them and we are only focused in the, the, the, the last bit that's that gets predicted. And this is like quite usual. So for example, if you use an R and M for generating a melody, so what you can do basically is you provide uh an input and this is a sequence um a melody, right? So we have like a sequence of notes and there are the, you are interested in the next notes, but you're not necessarily interested into like the previous notes, right. OK. So this is a sequence to vector RNN and it's opposed to a sequence to sequence RNN. Here we consider like uh as an output all the outputs at each time step. And so basically here, the idea is that we uh input a batch of sequences and then we get as an output a bunch of sequences again, right? So this is a little bit of less common uh I would say then as sequences to vector and this is reflected also like in how uh Kous works and indeed the default um behavior for simple RNN uh layers instead of having a sequence to vector um network instead of sequence to sequence. OK. So now we've spoken so far about the architecture of a network of a recurrent neural network, but we haven't really dug into a memory cell that much. So for simple R and MS uh the memory cell is a very simple neural network. The idea here is that we use a dense layer and the input is given by the combination of the state vector and the input data. So the state vector at the previous time time step and the input data obviously at the current time step and the activation function that we use is the hyperbolic tangent or tan H. Now you may be wondering but why are we using tan H haven't we always use like like other types of activation function, right? Uh But it turns out that a training and RNN is quite difficult because of a number of reasons, but mainly we have like vanishing gradients. So the gradients tend to disappear and we'll understand why that's the case in a while. And at the same time, we could have the issue of exploding gradients. So gradients that are growing bigger and bigger. And the problem is that if we use R, which we know like works really, really well with CNN SR is not bound it. And so R can explode whereas 10 H constrains the values between minus one and one. So by using 10 H, we're avoiding the issue of exploding gradients. But now let's understand how we train a network. And so to train a recurrent neural network, we use a variant of back propagation which is called back propagation through time. So basically here, the idea is that the error is back propagated through time. So what we usually do here is that we take the RNN, we draw it uh and we consider each time step as a layer in a feed forward network. Now, I guess like you, you start seeing the problem here, which is basically, so say, for example, we have an input where we have a sequence with 100 time steps, right? And there, that basically means that we, when we draw the R and N, we have 100 layers. Now this is a very deep network. And we know that when we have a very deep network, we have the issue of varnishing gradients. And so basically what we do at that point is we calculate, sorry, we calculate the error, then we propagate back the error through all these virtual layers which are like all the different uh time stamps here. And so while we go all the way back to um like the, the the early layers, we have an issue with vanishing gradients, right? So these gradients can disappear, they can explode. OK. So there's a way a nice way to like avoid some of these issues from happening. And basically what we do here is we use a sequence to sequence approach. So here we, while we train at the network, we output uh predictions at each time step and then we uh compare them against the targets. And obviously we expect for the targets uh to be uh the, the inputs but shifted towards the right by one step. And so with that in mind, so we can say, for example, that uh the target here like at times zero is X one and at time one, when we input X one, we expect X two, right. So at each time step, we calculate the error and we back propagate uh the error. And by doing so we kind of like stabilize the uh the training process because now we are calculating uh like gradients like also like locally. And so if we have like a, a big error at a specific time step, we can just like propagate the error like there and tweak like the weights like on like the layer which has like the, the, the most problems there. And by doing so, basically, we speed up the, the training process and we make it more stable. But now this is only like a trick because in the end, once we've trained the network, what we can do is just magically drop all of the um the different points here. So you drop all of the sequence to sequence uh predictions and just focus on the last prediction, which is the one that we usually want when we use a sequence to vector RNM cool. So this is back propagation through time. Now, let's take a look at a little bit like at the math behind um an R and N and how it works. So for understanding that we should just like focus on one time step. So here we'll focus on XT, right? And so here we have the input at time T we have uh H uh with T minus one, which is basically the, the state vector at T minus one. Then we have HT which is the state vector at time T and YT which is the output. Now, here I also have in red UW and V and these are um weight matrices and we're gonna use them for calculating the state vector and the output. So U is connected with the inputs. W is connected with the um with the state vector and uh V is kind of connected with the dense layer and it enables us to get to the output. OK. So let's calculate first of all HT which is the state vector at the current time stamp right at T. OK. So for doing this, we uh uh have like a function, the activation function which uh in a simple R and N is just like tan H. And uh so we, we have uh this function that depends on a couple of things, it depends on XT uh which is the current input and it depends on the previous state, right. So this is very intuitive because the current state depends on the input data for that state uh for that time step and the uh state vector for the previous time step. So that is like the, the context, right. So now that we have a HT, we can get the output and the output is just a soft max activation function applied to HT, right. And so, and here we have obviously like a multiplication between uh V the weight matrix and HT uh and that gets into basically the, the, the the dense layer, right? So now the question is, but what do we learn when we are training a recurrent neural network? Well, we actually learn these two functions and more specifically what we learn are this weight mattresses. So UW and V nice. OK. So recurrent neural networks are really, really good up to a certain point though. And the problem is that they really don't have that much of a long term memory, which basically means that they uh can't be used like to, to see that much like into the past which uh so the the problem with this is that they can't learn patterns with long dependencies. And we know that a lot of like this time series type of data, audio data, music data has like long term dependencies. So think for example, of a song. So there you have certain musical structures like a chorus and the verse and the verse that's um like, I don't know, like a verse that's used, like at time, I don't know, like after two minutes in a song, well, it kind of depends to the, the very, some verse that was used like at the beginning of the song. But with an R and N, we can't really remember those long term uh patterns, right? And so, and this is a bit of a problem because that basically means that the R and N isn't capable of understanding like these patterns and under and pre making prediction that keep track of the context. So in order to avoid that and tackle this issue, a number of different types of R and NS have been devised and a specific one that's very success, successful. It's called long short term memory network or LSLSTM. And this is going to be the focus of my next video. So I hope you enjoyed this video if that's the case, leave alike. And if you have any questions, cos I know like this was a little bit like of a tough topic. Like to understand, please ask those questions in the comments section below. And uh if you, if you want to like have more videos like this, remember to subscribe and activate the notification bell and I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time we're gonna talk about recurrent neural networks and understand the theory behind it. So let's get started and understand what R and NS are, what they do, what type of data they process. Now",
+                "start_time": "0.0",
+                "end_time": "20.409"
+            },
+            {
+                "id": 1,
+                "transcript": "there's a lot of data in which order is extremely important. That's true. For example, like for text and words. So let's analyze for example, the the sentence Anna loves John. Well, here order is very important because Anna loves John is very different from John loves Anna, right? And the point being that like order is so important that many like",
+                "start_time": "20.59",
+                "end_time": "45.709"
+            },
+            {
+                "id": 2,
+                "transcript": "bad things can happen. Like if you don't understand whether like Anna loves you or John loves Anna, right? OK. So in that sense, like order is very important for data, certain type of data like time series as well where we have like data uh which are like measures like of of different values that are taken like a certain intervals and ordered like over time, right?",
+                "start_time": "45.72",
+                "end_time": "70.849"
+            },
+            {
+                "id": 3,
+                "transcript": "So this is a type of data that's very important and we want like a network that can understand and process like that data and maintain and understand the order there, right? So another point is that uh usually say, for example, we have like a time series or, or even just like a sentence or a piece of music with a melody. So it turns out that like melodies or like sentences can have like a variable number of words or, or notes, right?",
+                "start_time": "71.04",
+                "end_time": "100.11"
+            },
+            {
+                "id": 4,
+                "transcript": "And so we want a network that's able to process data, sequential data regardless of the number of like words or notes or data points that we have in there.",
+                "start_time": "100.36",
+                "end_time": "112.949"
+            },
+            {
+                "id": 5,
+                "transcript": "So RNNS in a sense, try to address all of these issues. They're used for sequential data. And the great thing about them is that they uh process data in such a way that uh each data point is pro processed in context. So we look back at what happened before to understand what to do next, like with our data and how to predict.",
+                "start_time": "113.55",
+                "end_time": "139.479"
+            },
+            {
+                "id": 6,
+                "transcript": "So obviously, like audio and specifically music are",
+                "start_time": "139.96",
+                "end_time": "145.589"
+            },
+            {
+                "id": 7,
+                "transcript": "kind of like, so the the type of data that we have like for a music like resonance work very well with R and M because we can think of audio as a time series itself. So a series of points taken at certain intervals in time.",
+                "start_time": "146.339",
+                "end_time": "163.419"
+            },
+            {
+                "id": 8,
+                "transcript": "So if we think of a waveform, for example, we can think of it as a univariate time series. So what does univariate mean? Well, it means that we have only one value one measure that's taken at each interval. So now let's take a look at the, at the data shape that we have uh with a waveform uh expressed as a time series. So here we have it.",
+                "start_time": "163.899",
+                "end_time": "190.32"
+            },
+            {
+                "id": 9,
+                "transcript": "So the first dimension is basically given by the number of samples or number of intervals where we are taking measures. And this is given by the sample rates which in this case, here is 22,050 by not,",
+                "start_time": "190.55",
+                "end_time": "208.214"
+            },
+            {
+                "id": 10,
+                "transcript": "which is the number of seconds, right? So here we have more or less 200,000 data points in the time series. And then here we have as the second dimension one. And that's because we have only one dimension which is the amplitude that we are taking at each data point. Right.",
+                "start_time": "208.225",
+                "end_time": "225.899"
+            },
+            {
+                "id": 11,
+                "transcript": "Now, let's take a look at another type of data that we've used quite a lot like in over like the, the, the, the, the last few videos. And that's the MF CCS and we can think of MF CCS as a multi",
+                "start_time": "226.11",
+                "end_time": "241.675"
+            },
+            {
+                "id": 12,
+                "transcript": "create time series. Now, first of all, if you don't remember what MF CCS are just like, take a look at the video below here and you can understand what uh like MF CCS are and why they are super important for like all your analysis uh cool. So now let's go back to like the interpreting MF CCS as a Multivariate time series. Here, we have values at different intervals",
+                "start_time": "241.684",
+                "end_time": "269.029"
+            },
+            {
+                "id": 13,
+                "transcript": "and then for each um value for each interval, we have 13. In this case values and each of the values represents a coefficient. It's an MFCC right. And in this case, we are talking about a Multivariate time series because we are taking more uh measurements for each interval. And the,",
+                "start_time": "269.22",
+                "end_time": "293.084"
+            },
+            {
+                "id": 14,
+                "transcript": "the relative dimension here is given by the overall number of uh intervals. And in this case, we have um the sample rate divided by the hot length, which in this case is 512 which is like quite customary. Again, if you don't remember, just go back and watch like my previous video on this. And then we multiply that by nine, which is the number of seconds. So overall, we have",
+                "start_time": "293.095",
+                "end_time": "318.769"
+            },
+            {
+                "id": 15,
+                "transcript": "around like 403 187 intervals. And then the second dimension is given by the number of MF CCS which is 13. So in other words, here we are, we have 300",
+                "start_time": "319.059",
+                "end_time": "333.63"
+            },
+            {
+                "id": 16,
+                "transcript": "87 intervals at each interval, we have 13 values, right? So this is the type of data that we can use with R and N. So this kind of like time series where you have a number of like values for uh like yeah, at different like intervals, right? OK. So let's take a look at how R and NS work like from a very, very high levels perspective. So",
+                "start_time": "334.179",
+                "end_time": "361.649"
+            },
+            {
+                "id": 17,
+                "transcript": "first of all, the idea here is that we have like this time series type of data",
+                "start_time": "361.859",
+                "end_time": "366.64"
+            },
+            {
+                "id": 18,
+                "transcript": "and we feed it into the network a point at a time. So we give it like a data point uh at a step like every time. And the idea is that the network is going to be able to predict the next step given the step we are currently giving it and the history there, right. So the prediction depends also on the context on what happened before,",
+                "start_time": "366.79",
+                "end_time": "395.579"
+            },
+            {
+                "id": 19,
+                "transcript": "right. So this is like a very, very high level intuition what an RNN is. So now let's take a look at let's like dive down down into uh an RNN architecture. So here we have our inputs which is like given by X, then we have a recurrent layer which is obviously like the the focus of a uh an RNN",
+                "start_time": "395.98",
+                "end_time": "421.13"
+            },
+            {
+                "id": 20,
+                "transcript": "and a recurrent layer is a layer that's able to process sequential data in a sequential way. And we'll see what this means in a second. Then the output of the recurrent layer usually this is fed into a dense layer which does some classification using soft macs for example. And then we have uh the output which is why?",
+                "start_time": "421.26",
+                "end_time": "444.839"
+            },
+            {
+                "id": 21,
+                "transcript": "Right? OK. So now a thing that I want to uh try like to, to, to to look into here is the dimensionality of the input. So the shape of X. So in this case, we have a three dimensional input. So the first dimension is the batch size. So it's the number of samples of time windows that we are passing into the network at once.",
+                "start_time": "445.29",
+                "end_time": "473.605"
+            },
+            {
+                "id": 22,
+                "transcript": "Then uh the second dimension is given by the number of steps that we have in the sequence. And the third dimension is the, the number of dimensions, the number of different measures that we have in uh the sequence itself. So for example, in the case of a waveform, which is a univariate time series, the, the this third dimension here would be equal to one. In the case of the MF CCS with 13 coefficients, we would have 13 here.",
+                "start_time": "473.614",
+                "end_time": "501.94"
+            },
+            {
+                "id": 23,
+                "transcript": "And that's a Multivariate time series. Remember that. OK. So this is more or less the architecture from a very high level point of view. Now let's get into the recurrent layer and understand how it works cool. OK. So for the recurrent recurrent layer, the most important uh component is the cell, uh the cell, it's the one that's uh kind of like processes all the information. And here we can have",
+                "start_time": "502.429",
+                "end_time": "531.719"
+            },
+            {
+                "id": 24,
+                "transcript": "a lot of like different types of cells. So for example here, like with a simple RNN, that's what we are analyzing. Like in this video, we're gonna look at a very simple like dense layer wi with a hyperbolic tangent as the activation function. But then we can have also other types",
+                "start_time": "532.059",
+                "end_time": "549.645"
+            },
+            {
+                "id": 25,
+                "transcript": "of cells like a LSDM long, short term memory cell or a gated recurrent unit. We're gonna look into this like in the next video and understand why they are important. But then again, the cell is the one that's responsible for processing this sequential data. Now, at each step, uh we uh kind of given uh a input data that's represented by this XT.",
+                "start_time": "549.655",
+                "end_time": "577.94"
+            },
+            {
+                "id": 26,
+                "transcript": "Then the cell does some processing and it outputs a couple of things. So it outputs H of T. Uh And HT is basically we can call it a state vector or a hidden state, right? And this represents and keeps memory like of the, of the cell uh well, of the, of the network like at, at a certain point in time.",
+                "start_time": "578.09",
+                "end_time": "605.4"
+            },
+            {
+                "id": 27,
+                "transcript": "And then we also output YT which is the actual output. And here, the whole point of the, the, the recurrence here is given by the fact that uh the HT or the state vector is gonna be reused at a, at a later point at the next step. And so that we, we can have like information about the context.",
+                "start_time": "605.559",
+                "end_time": "630.719"
+            },
+            {
+                "id": 28,
+                "transcript": "So basically the whole idea here is that we are giving information sequentially step by step to the cell here. And then we output both and output and a hidden state and the hidden state or state vector is going to be reused for the next step.",
+                "start_time": "630.989",
+                "end_time": "647.849"
+            },
+            {
+                "id": 29,
+                "transcript": "Now, the whole point is that we have like uh recursive here because we are just like feeding back some information uh into like the uh the cell from a previous uh like um computation. So let's try to unroll uh this process into like a linear way.",
+                "start_time": "648.359",
+                "end_time": "670.469"
+            },
+            {
+                "id": 30,
+                "transcript": "OK. So Now, let's imagine we have a sequence with and different steps. So we'll start from the previous uh from the first step here. So we'll pass in X zero, X zero gets analyzed and process from the cell.",
+                "start_time": "670.729",
+                "end_time": "686.825"
+            },
+            {
+                "id": 31,
+                "transcript": "And we get an output which is H zero, which is the sli vector at this uh time step at time step zero. And then we have uh the uh output which is Y zero. Now, the next step is",
+                "start_time": "686.835",
+                "end_time": "702.94"
+            },
+            {
+                "id": 32,
+                "transcript": "sending in X one as a data point and X one is going to be used in conjunction with H zero to output H one which is the new uh state vector. And at the same time, we, the, the cell will also output Y one, right.",
+                "start_time": "703.2",
+                "end_time": "721.609"
+            },
+            {
+                "id": 33,
+                "transcript": "OK. So we continue and we uh we pass in X two, we consider H one and we output H two and Y two, we can continue this like for as many steps as we have until we get to the end.",
+                "start_time": "722.03",
+                "end_time": "738.07"
+            },
+            {
+                "id": 34,
+                "transcript": "So in this case, it's uh uh the N step. And so here we obviously, it's the same thing that we've done so far. So we input XN, we consider the state of the cell at the previous step. So uh at N minus one",
+                "start_time": "738.08",
+                "end_time": "754.13"
+            },
+            {
+                "id": 35,
+                "transcript": "and we combine this to information and we get a new state vector here HN and we get an output called YN. Now, the thing that's really important to understand here is that each uh like of these uh like timestamps. So at each of these time steps, we always use the very same set.",
+                "start_time": "754.469",
+                "end_time": "775.025"
+            },
+            {
+                "id": 36,
+                "transcript": "So we just have one cell but we use it recursively. And so from this like the whole point of like calling this network like a recurrent, right? Because we are recursively using the very same cell time and again, time and again to, to output like new, to process new information in a sequential way.",
+                "start_time": "775.034",
+                "end_time": "795.599"
+            },
+            {
+                "id": 37,
+                "transcript": "Cool. So now what I want to do is take a look at the dimensionality of the data that flows through uh an R and M. So let's take it as an example, an input where we have this dimensionality here. So we have",
+                "start_time": "796.44",
+                "end_time": "813.669"
+            },
+            {
+                "id": 38,
+                "transcript": "uh a batch size is equal to 29 steps in the sequence. So a sequence with nine items and then we have a univariate uh time series here. So we only have like one value, one measure per step. OK. So here we have our",
+                "start_time": "813.859",
+                "end_time": "836.0"
+            },
+            {
+                "id": 39,
+                "transcript": "um RNN basically our recurrent layer um unrolled. And so, and as you can notice here, we have nine steps, obviously it's nine because it's the number of like steps that we have uh in the sequence. OK.",
+                "start_time": "836.159",
+                "end_time": "854.909"
+            },
+            {
+                "id": 40,
+                "transcript": "So for the input at each step, we have a dimensionality that's equal to the batch size and the number of dimensions. So in this case, uh each um each data point is equal ha well, it's not equal but it has a dimensionality of like 21 right.",
+                "start_time": "855.07",
+                "end_time": "876.969"
+            },
+            {
+                "id": 41,
+                "transcript": "OK. So let's take a look at the output. Here, at each step, we have a dimensionality that's equal to the batch size and the number of units. So we, we are basically output uh many, well as many um",
+                "start_time": "877.429",
+                "end_time": "894.559"
+            },
+            {
+                "id": 42,
+                "transcript": "outputs as the number as the number of like a bat, well as the batch size, right. OK. So in this case, we have 23, right? And here we are saying basically that we have three units for the recurrent layer. OK.",
+                "start_time": "894.94",
+                "end_time": "911.179"
+            },
+            {
+                "id": 43,
+                "transcript": "So if we consider the whole output, so Y zero up until Y uh nine, all together the output shape is three dimensional, right? And so here we have the back size as the first dimension, the, the number of steps. And this is the second dimension and the number of units as the third dimension. And in this case, we have 293 cool.",
+                "start_time": "911.59",
+                "end_time": "936.09"
+            },
+            {
+                "id": 44,
+                "transcript": "So now what remains to do is look at the uh hidden state or the state vector. And it turns out that in simple R and NS the state vector is equal to the outputs, right. So for example, here this H zero is equal to Y zero. And obviously the dimensionality is the same. So we have like 23,",
+                "start_time": "936.619",
+                "end_time": "961.289"
+            },
+            {
+                "id": 45,
+                "transcript": "that's good.",
+                "start_time": "962.049",
+                "end_time": "962.869"
+            },
+            {
+                "id": 46,
+                "transcript": "OK. So now uh let's take a look at a couple of very, I would say like uh flavors of R and NS. So we have one that's called sequence to vector R and N and here. The idea is that uh we input a, a sequence but the output that we get is only like a single vector here.",
+                "start_time": "963.489",
+                "end_time": "990.359"
+            },
+            {
+                "id": 47,
+                "transcript": "So basically here, uh we are just waiting for this uh Y nine value in a nine step sequence and we drop all of the other predictions before. So Y zero, Y one, Y two, we, we drop all of them and we are only focused in the, the, the, the last bit that's that gets predicted.",
+                "start_time": "990.559",
+                "end_time": "1013.349"
+            },
+            {
+                "id": 48,
+                "transcript": "And this is like quite usual. So for example, if you use an R and M for generating a melody, so what you can do basically is you provide uh an input and this is a sequence um",
+                "start_time": "1013.489",
+                "end_time": "1026.208"
+            },
+            {
+                "id": 49,
+                "transcript": "a melody, right? So we have like a sequence of notes and there are the, you are interested in the next notes, but you're not necessarily interested into like the previous notes, right. OK. So this is a sequence to vector RNN and it's opposed to a sequence to sequence RNN.",
+                "start_time": "1026.739",
+                "end_time": "1046.588"
+            },
+            {
+                "id": 50,
+                "transcript": "Here we consider like uh as an output all the outputs at each time step. And so basically here, the idea is that we uh input a batch of sequences and then we get as an output a bunch of sequences again, right? So this is a little bit of less common",
+                "start_time": "1046.78",
+                "end_time": "1069.359"
+            },
+            {
+                "id": 51,
+                "transcript": "uh I would say then as sequences to vector and this is reflected also like in how uh Kous works and indeed the default um behavior for simple RNN uh layers instead of having a sequence to vector um network instead of sequence to sequence.",
+                "start_time": "1069.54",
+                "end_time": "1089.439"
+            },
+            {
+                "id": 52,
+                "transcript": "OK.",
+                "start_time": "1090.069",
+                "end_time": "1090.719"
+            },
+            {
+                "id": 53,
+                "transcript": "So now we've spoken so far about the architecture of a network of a recurrent neural network, but we haven't really dug into a memory cell that much. So for simple R and MS uh the memory cell is a very simple neural network. The idea here is that we use a dense",
+                "start_time": "1091.31",
+                "end_time": "1114.854"
+            },
+            {
+                "id": 54,
+                "transcript": "layer and the input is given by the combination of the state vector and the input data. So the state vector at the previous time time step and the input data obviously at the current time step and the activation function that we use is the hyperbolic tangent or tan H. Now you may be wondering but why are we using tan H haven't we always use like",
+                "start_time": "1114.864",
+                "end_time": "1143.27"
+            },
+            {
+                "id": 55,
+                "transcript": "like other types of activation function, right? Uh But it turns out that a training and RNN is quite difficult because of a number of reasons, but mainly we have like vanishing gradients. So the gradients tend to disappear and we'll understand why that's the case in a while.",
+                "start_time": "1143.43",
+                "end_time": "1160.859"
+            },
+            {
+                "id": 56,
+                "transcript": "And at the same time, we could have the issue of exploding gradients. So gradients that are growing bigger and bigger. And the problem is that if we use R, which we know like works really, really well with CNN SR is not bound",
+                "start_time": "1161.099",
+                "end_time": "1176.474"
+            },
+            {
+                "id": 57,
+                "transcript": "it. And so R can explode whereas 10 H constrains the values between minus one and one. So by using 10 H, we're avoiding the issue of exploding gradients.",
+                "start_time": "1176.484",
+                "end_time": "1191.869"
+            },
+            {
+                "id": 58,
+                "transcript": "But now let's understand how we train a network. And so to train a recurrent neural network, we use a variant of back propagation which is called back propagation through time. So basically here, the idea is that the error is back propagated through time. So what we usually do here is that we take the RNN, we draw it",
+                "start_time": "1192.109",
+                "end_time": "1218.729"
+            },
+            {
+                "id": 59,
+                "transcript": "uh and we consider each time step as a layer in a feed forward network. Now, I guess like you, you start seeing the problem here, which is basically, so say, for example, we have an input where we have a sequence with 100 time steps, right?",
+                "start_time": "1219.02",
+                "end_time": "1239.089"
+            },
+            {
+                "id": 60,
+                "transcript": "And there, that basically means that we, when we draw the R and N, we have 100 layers. Now this is a very deep network. And we know that when we have a very deep network, we have the issue of varnishing gradients. And so basically what we do at that point is we calculate, sorry, we calculate the error,",
+                "start_time": "1239.359",
+                "end_time": "1263.56"
+            },
+            {
+                "id": 61,
+                "transcript": "then we propagate back the error through all these",
+                "start_time": "1264.3",
+                "end_time": "1271.599"
+            },
+            {
+                "id": 62,
+                "transcript": "virtual layers which are like all the different uh time stamps here. And so while we go all the way back to um like the, the the early layers,",
+                "start_time": "1272.109",
+                "end_time": "1285.599"
+            },
+            {
+                "id": 63,
+                "transcript": "we have an issue with vanishing gradients, right? So these gradients can disappear, they can explode. OK. So there's a way a nice way to like avoid some of these issues from happening. And basically what we do here",
+                "start_time": "1286.25",
+                "end_time": "1301.75"
+            },
+            {
+                "id": 64,
+                "transcript": "is we use a sequence to sequence approach. So here we, while we train at the network, we output uh predictions at each time step and then we uh compare them against the targets. And obviously we expect for the targets uh to be uh the, the inputs but shifted towards the right by one step.",
+                "start_time": "1302.489",
+                "end_time": "1329.959"
+            },
+            {
+                "id": 65,
+                "transcript": "And so with that in mind, so we can say, for example, that uh the target here like at times zero is X one and at time one, when we input X one, we expect X two, right. So at each time step, we calculate the error and we back propagate uh the error. And by doing so we kind of like stabilize the",
+                "start_time": "1330.209",
+                "end_time": "1355.41"
+            },
+            {
+                "id": 66,
+                "transcript": "uh the training process because now we are calculating uh like gradients like also like locally. And so if we have like a, a big error at a specific time step, we can just like propagate the error like there and tweak like the weights like on like the layer which has like the, the, the most problems there. And by doing so, basically, we speed up the, the training process and we make it more stable.",
+                "start_time": "1355.64",
+                "end_time": "1382.55"
+            },
+            {
+                "id": 67,
+                "transcript": "But now this is only like a trick because in the end, once we've trained the network, what we can do is just magically drop",
+                "start_time": "1382.969",
+                "end_time": "1391.609"
+            },
+            {
+                "id": 68,
+                "transcript": "all of the um the different points here. So you drop all of the sequence to sequence uh predictions and just focus on the last prediction, which is the one that we usually want when we use a sequence to vector RNM",
+                "start_time": "1392.219",
+                "end_time": "1410.469"
+            },
+            {
+                "id": 69,
+                "transcript": "cool. So this is back propagation through time. Now, let's take a look at a little bit like at the math behind um an R and N and how it works. So for understanding that we should just like focus on one time step.",
+                "start_time": "1410.979",
+                "end_time": "1428.839"
+            },
+            {
+                "id": 70,
+                "transcript": "So here we'll focus on XT, right? And so here we have the input at time T we have uh H uh with T minus one, which is basically the, the state vector at T minus one. Then we have HT which is the state vector at time T and YT which is the output. Now, here I also have in red UW and V and these are",
+                "start_time": "1429.199",
+                "end_time": "1455.43"
+            },
+            {
+                "id": 71,
+                "transcript": "um weight matrices and we're gonna use them for calculating the state vector and the output. So U is connected with the inputs. W is connected with the um with the state vector and uh V is kind of connected with the dense layer and it enables us to get to the output. OK. So let's calculate first of all HT which is the state vector at the current time stamp right at T.",
+                "start_time": "1455.709",
+                "end_time": "1485.4"
+            },
+            {
+                "id": 72,
+                "transcript": "OK. So for doing this, we uh uh have like a function, the activation function which uh in a simple R and N is just like tan H. And uh so we, we have uh this function that depends on a couple of things, it depends on XT uh which is the current input and it depends on the previous state, right. So this is very intuitive because the current state depends on the input data for that state",
+                "start_time": "1485.589",
+                "end_time": "1515.15"
+            },
+            {
+                "id": 73,
+                "transcript": "uh for that time step and the uh state vector for the previous time step. So that is like the, the context, right. So now that we have a HT, we can get the output and the output is just a soft max activation function applied to HT,",
+                "start_time": "1515.449",
+                "end_time": "1537.599"
+            },
+            {
+                "id": 74,
+                "transcript": "right. And so, and here we have obviously like a multiplication between uh V the weight matrix and HT uh and that gets into basically the, the, the the dense layer, right?",
+                "start_time": "1538.099",
+                "end_time": "1553.04"
+            },
+            {
+                "id": 75,
+                "transcript": "So now the question is, but what do we learn when we are training a recurrent neural network? Well, we actually learn these two functions and more specifically what we learn are this weight mattresses. So UW and V",
+                "start_time": "1553.369",
+                "end_time": "1571.569"
+            },
+            {
+                "id": 76,
+                "transcript": "nice. OK.",
+                "start_time": "1572.63",
+                "end_time": "1574.79"
+            },
+            {
+                "id": 77,
+                "transcript": "So recurrent neural networks are really, really good",
+                "start_time": "1575.63",
+                "end_time": "1580.709"
+            },
+            {
+                "id": 78,
+                "transcript": "up to a certain point though. And the problem is that they really don't have that much of a long term memory, which basically means that they uh can't be used like to, to see that much like into the past which uh so",
+                "start_time": "1581.42",
+                "end_time": "1598.839"
+            },
+            {
+                "id": 79,
+                "transcript": "the the problem with this is that they can't learn patterns with long dependencies. And we know that a lot of like this time series type of data, audio data, music data has like long term dependencies. So think for example, of a song. So there you have certain musical structures like a chorus and the verse and the verse that's um like, I don't know, like a verse that's used, like at",
+                "start_time": "1599.119",
+                "end_time": "1626.54"
+            },
+            {
+                "id": 80,
+                "transcript": "time, I don't know, like after two minutes in a song,",
+                "start_time": "1626.8",
+                "end_time": "1630.25"
+            },
+            {
+                "id": 81,
+                "transcript": "well, it kind of depends to the, the very, some verse that was used like at the beginning of the song. But with an R and N, we can't really remember those long term uh patterns, right? And so, and this is",
+                "start_time": "1630.78",
+                "end_time": "1647.719"
+            },
+            {
+                "id": 82,
+                "transcript": "a bit of a problem because that basically means that the R and N isn't capable of understanding like these patterns and under and pre making prediction that keep track of the context.",
+                "start_time": "1647.9",
+                "end_time": "1661.15"
+            },
+            {
+                "id": 83,
+                "transcript": "So in order to avoid that and tackle this issue, a number of different",
+                "start_time": "1661.68",
+                "end_time": "1667.89"
+            },
+            {
+                "id": 84,
+                "transcript": "types of R and NS have been devised and a specific one that's very success, successful. It's called long short term memory network or LSLSTM. And this is going to be the focus of my next video. So I hope you enjoyed this video if that's the case, leave alike.",
+                "start_time": "1668.469",
+                "end_time": "1691.209"
+            },
+            {
+                "id": 85,
+                "transcript": "And if you have any questions, cos I know like this was a little bit like of a tough topic. Like to understand, please ask those questions in the comments section below. And",
+                "start_time": "1691.369",
+                "end_time": "1703.26"
+            },
+            {
+                "id": 86,
+                "transcript": "uh if you, if you want to like have more videos like this, remember to subscribe and activate the notification bell and I'll see you next time. Cheers.",
+                "start_time": "1704.14",
+                "end_time": "1714.67"
+            }
+        ]
+    }
+}

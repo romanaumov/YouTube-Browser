@@ -1,0 +1,650 @@
+[
+    {
+        "id": "5250eeb0",
+        "text": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna try to tackle overfitting. So specifically, we're gonna look into techniques that we can use to identify overfitting and then to solve it. Cool. So if you guys remember last time we built a multi layer of perception that's able to do music genre classification, but we had a issue and the issue was overfitting, which basically means that the uh model was doing very well on the training set, but it was having issues with data, it had never seen before, right? So first of all, what we want to do is find a way of identifying all the fitting. And for doing that, we can use a couple of plots that are very informative. So it's basically taking a look at the accuracy and the error of both the train set and uh the test set over time over all the epochs and training cycles. So for doing that, obviously, we need to retain information about the training process. And uh fortunately for us, tensorflow has a super",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=0s",
+        "start_time": "0.36"
+    },
+    {
+        "id": "8b88993f",
+        "text": "issue and the issue was overfitting, which basically means that the uh model was doing very well on the training set, but it was having issues with data, it had never seen before, right? So first of all, what we want to do is find a way of identifying all the fitting. And for doing that, we can use a couple of plots that are very informative. So it's basically taking a look at the accuracy and the error of both the train set and uh the test set over time over all the epochs and training cycles. So for doing that, obviously, we need to retain information about the training process. And uh fortunately for us, tensorflow has a super do like way of doing that. And so if we look at here uh When we train the model, we just like do a model dot Fit, you should know this by now guys. And if you don't just get back and watch my previous videos on this,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=25s",
+        "start_time": "25.163"
+    },
+    {
+        "id": "e2021508",
+        "text": "taking a look at the accuracy and the error of both the train set and uh the test set over time over all the epochs and training cycles. So for doing that, obviously, we need to retain information about the training process. And uh fortunately for us, tensorflow has a super do like way of doing that. And so if we look at here uh When we train the model, we just like do a model dot Fit, you should know this by now guys. And if you don't just get back and watch my previous videos on this, but the the return of this Fit method is a history object. Basically that uh retains information about the accuracy and the error of both the uh train set and the test set over time.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=49s",
+        "start_time": "49.965"
+    },
+    {
+        "id": "92a9d8f1",
+        "text": "do like way of doing that. And so if we look at here uh When we train the model, we just like do a model dot Fit, you should know this by now guys. And if you don't just get back and watch my previous videos on this, but the the return of this Fit method is a history object. Basically that uh retains information about the accuracy and the error of both the uh train set and the test set over time. Cool. So we can just store that information during a history equal to this thing. Now, the next step that we want to do is basically to plot the accuracy and error over the AEX.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=74s",
+        "start_time": "74.959"
+    },
+    {
+        "id": "f8771390",
+        "text": "but the the return of this Fit method is a history object. Basically that uh retains information about the accuracy and the error of both the uh train set and the test set over time. Cool. So we can just store that information during a history equal to this thing. Now, the next step that we want to do is basically to plot the accuracy and error over the AEX. Now, we don't have this function yet, but we'll fake it for the time being. And so we would say plots history and obviously we'll pass in this history argument. Cool. So now we should build this plot history function. So we'll define it over here.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=90s",
+        "start_time": "90.97"
+    },
+    {
+        "id": "3082658d",
+        "text": "Cool. So we can just store that information during a history equal to this thing. Now, the next step that we want to do is basically to plot the accuracy and error over the AEX. Now, we don't have this function yet, but we'll fake it for the time being. And so we would say plots history and obviously we'll pass in this history argument. Cool. So now we should build this plot history function. So we'll define it over here. So we'll do a define plot history. And as we know, plot history accepts an argument, we'll call it history. And uh so here uh we need to build like this plot. Well, we want to build like a plot with a couple of subplots, right? So one is for the error and the other one is for the accuracy. But for building plots, as we know, we need to use Maloy I uh which is like this super interesting and super cool",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=107s",
+        "start_time": "107.269"
+    },
+    {
+        "id": "ed953289",
+        "text": "Now, we don't have this function yet, but we'll fake it for the time being. And so we would say plots history and obviously we'll pass in this history argument. Cool. So now we should build this plot history function. So we'll define it over here. So we'll do a define plot history. And as we know, plot history accepts an argument, we'll call it history. And uh so here uh we need to build like this plot. Well, we want to build like a plot with a couple of subplots, right? So one is for the error and the other one is for the accuracy. But for building plots, as we know, we need to use Maloy I uh which is like this super interesting and super cool um a library for a plotting and we need to import that right. So we'll do an import mat uh plot lab dot plots and we'll import that as PLT,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=124s",
+        "start_time": "124.76"
+    },
+    {
+        "id": "852a4b56",
+        "text": "So we'll do a define plot history. And as we know, plot history accepts an argument, we'll call it history. And uh so here uh we need to build like this plot. Well, we want to build like a plot with a couple of subplots, right? So one is for the error and the other one is for the accuracy. But for building plots, as we know, we need to use Maloy I uh which is like this super interesting and super cool um a library for a plotting and we need to import that right. So we'll do an import mat uh plot lab dot plots and we'll import that as PLT, right? So here, what we wanna do is we'll get a figure and an access and we'll do a plot dot subplots and we'll pass in two. So basically what this does, it returns like a figure object and, and there's axis over here and we'll say that we want two subplots, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=145s",
+        "start_time": "145.149"
+    },
+    {
+        "id": "40058024",
+        "text": "um a library for a plotting and we need to import that right. So we'll do an import mat uh plot lab dot plots and we'll import that as PLT, right? So here, what we wanna do is we'll get a figure and an access and we'll do a plot dot subplots and we'll pass in two. So basically what this does, it returns like a figure object and, and there's axis over here and we'll say that we want two subplots, right? OK. So as the first step let's build, so let's create the accuracy. So plots,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=174s",
+        "start_time": "174.339"
+    },
+    {
+        "id": "2626eddf",
+        "text": "right? So here, what we wanna do is we'll get a figure and an access and we'll do a plot dot subplots and we'll pass in two. So basically what this does, it returns like a figure object and, and there's axis over here and we'll say that we want two subplots, right? OK. So as the first step let's build, so let's create the accuracy. So plots, OK. So",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=189s",
+        "start_time": "189.32"
+    },
+    {
+        "id": "d0544d8f",
+        "text": "OK. So as the first step let's build, so let's create the accuracy. So plots, OK. So let's say so the the accuracy plot is gonna be axis in zero. And here we need to plot the stuff that we want to plot, right? And so here we want to plot uh first of all the um accuracy of the train set over time, right? And then the accuracy of the test set. So here we know that the accuracy of the train set",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=216s",
+        "start_time": "216.289"
+    },
+    {
+        "id": "344f4731",
+        "text": "OK. So let's say so the the accuracy plot is gonna be axis in zero. And here we need to plot the stuff that we want to plot, right? And so here we want to plot uh first of all the um accuracy of the train set over time, right? And then the accuracy of the test set. So here we know that the accuracy of the train set is stored in a dictionary called not surprisingly history. And the the key is",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=225s",
+        "start_time": "225.369"
+    },
+    {
+        "id": "051c6b32",
+        "text": "let's say so the the accuracy plot is gonna be axis in zero. And here we need to plot the stuff that we want to plot, right? And so here we want to plot uh first of all the um accuracy of the train set over time, right? And then the accuracy of the test set. So here we know that the accuracy of the train set is stored in a dictionary called not surprisingly history. And the the key is accuracy, right? So it's not really that surprising, but it's quite straightforward, right? And we want to associate a label uh to this and we'll just call it train accuracy, right? And now we are just going to duplicate that line. And instead of like the accuracy, we want the train accuracy, which is stored as va accuracy, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=228s",
+        "start_time": "228.46"
+    },
+    {
+        "id": "ce525e8a",
+        "text": "is stored in a dictionary called not surprisingly history. And the the key is accuracy, right? So it's not really that surprising, but it's quite straightforward, right? And we want to associate a label uh to this and we'll just call it train accuracy, right? And now we are just going to duplicate that line. And instead of like the accuracy, we want the train accuracy, which is stored as va accuracy, right? And uh so the label in this case is gonna be called uh test accuracy cool. So now we want to uh set the um the name of the, the Y axis, right? And so that is gonna be a set Y label and this is accuracy good. So now we have the uh y label. Next thing",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=256s",
+        "start_time": "256.239"
+    },
+    {
+        "id": "8aca93cd",
+        "text": "accuracy, right? So it's not really that surprising, but it's quite straightforward, right? And we want to associate a label uh to this and we'll just call it train accuracy, right? And now we are just going to duplicate that line. And instead of like the accuracy, we want the train accuracy, which is stored as va accuracy, right? And uh so the label in this case is gonna be called uh test accuracy cool. So now we want to uh set the um the name of the, the Y axis, right? And so that is gonna be a set Y label and this is accuracy good. So now we have the uh y label. Next thing uh we want to s uh just like place the legend so that we can read the legend. And so we'll do a uh axis zero dot uh legend. And here we have an argument that's called lock location And we'll say that we want this in the lower right corner. And finally, we want to uh set a",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=264s",
+        "start_time": "264.549"
+    },
+    {
+        "id": "3da8cd24",
+        "text": "And uh so the label in this case is gonna be called uh test accuracy cool. So now we want to uh set the um the name of the, the Y axis, right? And so that is gonna be a set Y label and this is accuracy good. So now we have the uh y label. Next thing uh we want to s uh just like place the legend so that we can read the legend. And so we'll do a uh axis zero dot uh legend. And here we have an argument that's called lock location And we'll say that we want this in the lower right corner. And finally, we want to uh set a uh title. So we'll do a set title which is gonna give a title to our subplots and the title not surprisingly is gonna be accuracy evil, right? And so this way we have all of our subplot for uh the accuracy. Now we can just like take this copy and, and just uh change a few things around to create the error subplot,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=289s",
+        "start_time": "289.42"
+    },
+    {
+        "id": "98fdc890",
+        "text": "uh we want to s uh just like place the legend so that we can read the legend. And so we'll do a uh axis zero dot uh legend. And here we have an argument that's called lock location And we'll say that we want this in the lower right corner. And finally, we want to uh set a uh title. So we'll do a set title which is gonna give a title to our subplots and the title not surprisingly is gonna be accuracy evil, right? And so this way we have all of our subplot for uh the accuracy. Now we can just like take this copy and, and just uh change a few things around to create the error subplot, right? So here this is not zero anymore. This is gonna be one. And then here we don't want to retrieve the accuracy. We want to retrieve the error which is indicated here, it's stored as loss. Now, if you've been watching my videos, you know, guys that I prefer error to loss. But unfortunately, the guys at tensor flow think it differently. Cool. So the label here is gonna be train error.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=316s",
+        "start_time": "316.48"
+    },
+    {
+        "id": "979ff2dd",
+        "text": "uh title. So we'll do a set title which is gonna give a title to our subplots and the title not surprisingly is gonna be accuracy evil, right? And so this way we have all of our subplot for uh the accuracy. Now we can just like take this copy and, and just uh change a few things around to create the error subplot, right? So here this is not zero anymore. This is gonna be one. And then here we don't want to retrieve the accuracy. We want to retrieve the error which is indicated here, it's stored as loss. Now, if you've been watching my videos, you know, guys that I prefer error to loss. But unfortunately, the guys at tensor flow think it differently. Cool. So the label here is gonna be train error. Then we want to retrieve the uh error for uh the test set. So we'll do a valley a vowel underscore uh loss. And then the label is gonna be test uh error over here. And then we'll set the way uh a label and this time to error. And uh we want to locate the legend in the upper right corner and you'll see why that's the case in a second.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=342s",
+        "start_time": "342.14"
+    },
+    {
+        "id": "4944139f",
+        "text": "right? So here this is not zero anymore. This is gonna be one. And then here we don't want to retrieve the accuracy. We want to retrieve the error which is indicated here, it's stored as loss. Now, if you've been watching my videos, you know, guys that I prefer error to loss. But unfortunately, the guys at tensor flow think it differently. Cool. So the label here is gonna be train error. Then we want to retrieve the uh error for uh the test set. So we'll do a valley a vowel underscore uh loss. And then the label is gonna be test uh error over here. And then we'll set the way uh a label and this time to error. And uh we want to locate the legend in the upper right corner and you'll see why that's the case in a second. And the title is gonna be uh Error, Evil.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=371s",
+        "start_time": "371.649"
+    },
+    {
+        "id": "fc219d78",
+        "text": "Then we want to retrieve the uh error for uh the test set. So we'll do a valley a vowel underscore uh loss. And then the label is gonna be test uh error over here. And then we'll set the way uh a label and this time to error. And uh we want to locate the legend in the upper right corner and you'll see why that's the case in a second. And the title is gonna be uh Error, Evil. And then uh yeah, let's just put a, an X label here. We'll set the X label and obviously the X label is",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=400s",
+        "start_time": "400.35"
+    },
+    {
+        "id": "26af01df",
+        "text": "And the title is gonna be uh Error, Evil. And then uh yeah, let's just put a, an X label here. We'll set the X label and obviously the X label is epoch cool. So now we have the two subplots, but we still need to, to show that. So we'll do a plot dot show.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=429s",
+        "start_time": "429.41"
+    },
+    {
+        "id": "66738350",
+        "text": "And then uh yeah, let's just put a, an X label here. We'll set the X label and obviously the X label is epoch cool. So now we have the two subplots, but we still need to, to show that. So we'll do a plot dot show. That's great. OK. So now we should have everything in place. So I'm gonna run this script that's gonna use the um the music genre classifier that we built uh last time. And so we'll see how to identify all the fitting, looking at these two very important uh plots. Cool. So now I'm running, I'm gonna run the script. It's gonna take some time. So I'll just post the video and take it back",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=434s",
+        "start_time": "434.38"
+    },
+    {
+        "id": "943c6d56",
+        "text": "epoch cool. So now we have the two subplots, but we still need to, to show that. So we'll do a plot dot show. That's great. OK. So now we should have everything in place. So I'm gonna run this script that's gonna use the um the music genre classifier that we built uh last time. And so we'll see how to identify all the fitting, looking at these two very important uh plots. Cool. So now I'm running, I'm gonna run the script. It's gonna take some time. So I'll just post the video and take it back and here we are back with the results of the uh training process. So as you can see here, guys, we have this nice plot of the accuracy over time and the uh overall like accuracy for the train uh set is quite high. And as you can see over time, it basically went all the way up almost like to 100%. And I remember guys like this down here are all like epochs and we have like 100 epochs, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=443s",
+        "start_time": "443.1"
+    },
+    {
+        "id": "db8a782f",
+        "text": "That's great. OK. So now we should have everything in place. So I'm gonna run this script that's gonna use the um the music genre classifier that we built uh last time. And so we'll see how to identify all the fitting, looking at these two very important uh plots. Cool. So now I'm running, I'm gonna run the script. It's gonna take some time. So I'll just post the video and take it back and here we are back with the results of the uh training process. So as you can see here, guys, we have this nice plot of the accuracy over time and the uh overall like accuracy for the train uh set is quite high. And as you can see over time, it basically went all the way up almost like to 100%. And I remember guys like this down here are all like epochs and we have like 100 epochs, right? Uh But for the test accuracy, we just like go up, up and then we just like scale at around like 60%. So as you can see here, there's a huge huge difference over time in the test accuracy compared uh against the the train accuracy. And so that is in itself a huge uh indication of overfitting.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=454s",
+        "start_time": "454.41"
+    },
+    {
+        "id": "812104e1",
+        "text": "and here we are back with the results of the uh training process. So as you can see here, guys, we have this nice plot of the accuracy over time and the uh overall like accuracy for the train uh set is quite high. And as you can see over time, it basically went all the way up almost like to 100%. And I remember guys like this down here are all like epochs and we have like 100 epochs, right? Uh But for the test accuracy, we just like go up, up and then we just like scale at around like 60%. So as you can see here, there's a huge huge difference over time in the test accuracy compared uh against the the train accuracy. And so that is in itself a huge uh indication of overfitting. Now, let's take a look at the error evaluation subplot as well. And here we have like a similar thing, right? So we have the train error that obviously like goes down down down over time, it becomes like very, very like little, whereas like the",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=482s",
+        "start_time": "482.209"
+    },
+    {
+        "id": "501c2f36",
+        "text": "Uh But for the test accuracy, we just like go up, up and then we just like scale at around like 60%. So as you can see here, there's a huge huge difference over time in the test accuracy compared uh against the the train accuracy. And so that is in itself a huge uh indication of overfitting. Now, let's take a look at the error evaluation subplot as well. And here we have like a similar thing, right? So we have the train error that obviously like goes down down down over time, it becomes like very, very like little, whereas like the error goes down for quite a while and then it just like remains unchanged and then it actually starts to increase again, right? So this again is another indication that our model is hugely overfitting. So",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=510s",
+        "start_time": "510.809"
+    },
+    {
+        "id": "9db1c5e5",
+        "text": "Now, let's take a look at the error evaluation subplot as well. And here we have like a similar thing, right? So we have the train error that obviously like goes down down down over time, it becomes like very, very like little, whereas like the error goes down for quite a while and then it just like remains unchanged and then it actually starts to increase again, right? So this again is another indication that our model is hugely overfitting. So now the question is how do we solve this issue? Because obviously we want for our model to be able to generalize to data it has never seen before. Well, it turns out that there are a bunch of different techniques that we can use. So let's take a look at a few of those.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=533s",
+        "start_time": "533.409"
+    },
+    {
+        "id": "9bee6317",
+        "text": "error goes down for quite a while and then it just like remains unchanged and then it actually starts to increase again, right? So this again is another indication that our model is hugely overfitting. So now the question is how do we solve this issue? Because obviously we want for our model to be able to generalize to data it has never seen before. Well, it turns out that there are a bunch of different techniques that we can use. So let's take a look at a few of those. So here we have five that I listed. So we have simpler architecture data augmentation, early stop in dropout and regularization.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=550s",
+        "start_time": "550.0"
+    },
+    {
+        "id": "6cc7e343",
+        "text": "now the question is how do we solve this issue? Because obviously we want for our model to be able to generalize to data it has never seen before. Well, it turns out that there are a bunch of different techniques that we can use. So let's take a look at a few of those. So here we have five that I listed. So we have simpler architecture data augmentation, early stop in dropout and regularization. Now, uh I'm gonna implement in terms of flow only drop out and a regularization. Uh But I'm gonna talk about like all of them, right? So let's start from the, the first one which is also like the, the simplest, probably also like to understand",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=567s",
+        "start_time": "567.559"
+    },
+    {
+        "id": "750a5688",
+        "text": "So here we have five that I listed. So we have simpler architecture data augmentation, early stop in dropout and regularization. Now, uh I'm gonna implement in terms of flow only drop out and a regularization. Uh But I'm gonna talk about like all of them, right? So let's start from the, the first one which is also like the, the simplest, probably also like to understand uh here. Uh The whole point is that uh if we have a model that's like overfitting quite a lot, perhaps what we want to do is to try having a simpler architecture. So, and how do we achieve that? Well, uh we can achieve that by doing a couple of things first, we can remove uh layers. So if we have, for example, like four or five hidden layers, we can go down to three or two",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=585s",
+        "start_time": "585.59"
+    },
+    {
+        "id": "146203e9",
+        "text": "Now, uh I'm gonna implement in terms of flow only drop out and a regularization. Uh But I'm gonna talk about like all of them, right? So let's start from the, the first one which is also like the, the simplest, probably also like to understand uh here. Uh The whole point is that uh if we have a model that's like overfitting quite a lot, perhaps what we want to do is to try having a simpler architecture. So, and how do we achieve that? Well, uh we can achieve that by doing a couple of things first, we can remove uh layers. So if we have, for example, like four or five hidden layers, we can go down to three or two and then we can decrease the number of neurons that we have in each layer. And the reason behind this is that uh like the more complex the architecture and the more the architecture, uh the more the more the model is gonna be able like to actually interpret like all the patterns and getting like and learning everything also like beyond what's like Generali and all like the the I would say like also like the artifacts and",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=596s",
+        "start_time": "596.359"
+    },
+    {
+        "id": "c0c540a1",
+        "text": "uh here. Uh The whole point is that uh if we have a model that's like overfitting quite a lot, perhaps what we want to do is to try having a simpler architecture. So, and how do we achieve that? Well, uh we can achieve that by doing a couple of things first, we can remove uh layers. So if we have, for example, like four or five hidden layers, we can go down to three or two and then we can decrease the number of neurons that we have in each layer. And the reason behind this is that uh like the more complex the architecture and the more the architecture, uh the more the more the model is gonna be able like to actually interpret like all the patterns and getting like and learning everything also like beyond what's like Generali and all like the the I would say like also like the artifacts and uh nuances of the trains set like itself. So by going with a simpler architecture, we kind of like remove all of that. And that basically means that the the model is gonna be uh probably like more likely to perform better like on more general data.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=613s",
+        "start_time": "613.239"
+    },
+    {
+        "id": "840a633a",
+        "text": "and then we can decrease the number of neurons that we have in each layer. And the reason behind this is that uh like the more complex the architecture and the more the architecture, uh the more the more the model is gonna be able like to actually interpret like all the patterns and getting like and learning everything also like beyond what's like Generali and all like the the I would say like also like the artifacts and uh nuances of the trains set like itself. So by going with a simpler architecture, we kind of like remove all of that. And that basically means that the the model is gonna be uh probably like more likely to perform better like on more general data. So this is like the the the first uh option that we have to uh fight against overfitting now. Uh You might, you may be asking but uh how do I do that? So what, what, what, what is, what, what is a simple architecture? Well, there's really no",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=639s",
+        "start_time": "639.179"
+    },
+    {
+        "id": "9a55f348",
+        "text": "uh nuances of the trains set like itself. So by going with a simpler architecture, we kind of like remove all of that. And that basically means that the the model is gonna be uh probably like more likely to perform better like on more general data. So this is like the the the first uh option that we have to uh fight against overfitting now. Uh You might, you may be asking but uh how do I do that? So what, what, what, what is, what, what is a simple architecture? Well, there's really no universal rule here. So you have just like to play around with stuff and, and see like what works for you. What I usually do is I start with relatively simple networks with few like layers and few neurons and uh then I just like add them up in order to have like a a model that's like more uh more powerful like and it's able like to express like and to learn the complexity of the data.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=668s",
+        "start_time": "668.059"
+    },
+    {
+        "id": "16725878",
+        "text": "So this is like the the the first uh option that we have to uh fight against overfitting now. Uh You might, you may be asking but uh how do I do that? So what, what, what, what is, what, what is a simple architecture? Well, there's really no universal rule here. So you have just like to play around with stuff and, and see like what works for you. What I usually do is I start with relatively simple networks with few like layers and few neurons and uh then I just like add them up in order to have like a a model that's like more uh more powerful like and it's able like to express like and to learn the complexity of the data. Cool. So this is about using a simple architecture. Now we have another option which is called data augmentation. In our case, we're gonna do audio data augmentation. And here the whole idea is basically, it's quite simple, right? And it's basically like the more data you have and the better your uh model is gonna perform uh both on uh your screens set, but hopefully also like on your team,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=685s",
+        "start_time": "685.57"
+    },
+    {
+        "id": "e2c3ad61",
+        "text": "universal rule here. So you have just like to play around with stuff and, and see like what works for you. What I usually do is I start with relatively simple networks with few like layers and few neurons and uh then I just like add them up in order to have like a a model that's like more uh more powerful like and it's able like to express like and to learn the complexity of the data. Cool. So this is about using a simple architecture. Now we have another option which is called data augmentation. In our case, we're gonna do audio data augmentation. And here the whole idea is basically, it's quite simple, right? And it's basically like the more data you have and the better your uh model is gonna perform uh both on uh your screens set, but hopefully also like on your team, which is basically all the data that the model has never seen, right? But sometimes it's very difficult to get like uh extra data. So what we want to do is we want to artificially uh build new uh training uh samples, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=702s",
+        "start_time": "702.924"
+    },
+    {
+        "id": "7072b318",
+        "text": "Cool. So this is about using a simple architecture. Now we have another option which is called data augmentation. In our case, we're gonna do audio data augmentation. And here the whole idea is basically, it's quite simple, right? And it's basically like the more data you have and the better your uh model is gonna perform uh both on uh your screens set, but hopefully also like on your team, which is basically all the data that the model has never seen, right? But sometimes it's very difficult to get like uh extra data. So what we want to do is we want to artificially uh build new uh training uh samples, right? And for doing that, what we can do is we can apply transformations to uh our trains set to all of our training samples in the case of audio, what this basically means is to for example, uh apply certain transformations like pitch shifting. So where we just like move the pitch either up or down, we can also like time stretch. So we basically change",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=729s",
+        "start_time": "729.799"
+    },
+    {
+        "id": "a2f2a68a",
+        "text": "which is basically all the data that the model has never seen, right? But sometimes it's very difficult to get like uh extra data. So what we want to do is we want to artificially uh build new uh training uh samples, right? And for doing that, what we can do is we can apply transformations to uh our trains set to all of our training samples in the case of audio, what this basically means is to for example, uh apply certain transformations like pitch shifting. So where we just like move the pitch either up or down, we can also like time stretch. So we basically change the speed like of the audio file or we can add background noise. And so in that way, we are able like to, to, to just like recreate artificial versions like of the original like training samples. And so that we're gonna have like more data, which hopefully is gonna kind of like prevent us from overfitting. Now,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=758s",
+        "start_time": "758.094"
+    },
+    {
+        "id": "630eccbb",
+        "text": "And for doing that, what we can do is we can apply transformations to uh our trains set to all of our training samples in the case of audio, what this basically means is to for example, uh apply certain transformations like pitch shifting. So where we just like move the pitch either up or down, we can also like time stretch. So we basically change the speed like of the audio file or we can add background noise. And so in that way, we are able like to, to, to just like recreate artificial versions like of the original like training samples. And so that we're gonna have like more data, which hopefully is gonna kind of like prevent us from overfitting. Now, there's a whole art and science about a audio data augmentation and we're not gonna get into the details, but the whole point is you apply a bunch of light transformations and obviously you can combine also those. So for example, you can combine pitch shifting with time stretching or you can add noise and then time stretch an audio file, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=775s",
+        "start_time": "775.929"
+    },
+    {
+        "id": "c2585db4",
+        "text": "the speed like of the audio file or we can add background noise. And so in that way, we are able like to, to, to just like recreate artificial versions like of the original like training samples. And so that we're gonna have like more data, which hopefully is gonna kind of like prevent us from overfitting. Now, there's a whole art and science about a audio data augmentation and we're not gonna get into the details, but the whole point is you apply a bunch of light transformations and obviously you can combine also those. So for example, you can combine pitch shifting with time stretching or you can add noise and then time stretch an audio file, right? But the whole point is to create a lot of like new data uh that is somehow related to the to the original one, but then it has uh like, I mean way more training samples. Now, the important thing to remember here is that when we do audio data augmentation, uh we want to use like the uh we want to do it like directly on the train set.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=801s",
+        "start_time": "801.099"
+    },
+    {
+        "id": "1874a053",
+        "text": "there's a whole art and science about a audio data augmentation and we're not gonna get into the details, but the whole point is you apply a bunch of light transformations and obviously you can combine also those. So for example, you can combine pitch shifting with time stretching or you can add noise and then time stretch an audio file, right? But the whole point is to create a lot of like new data uh that is somehow related to the to the original one, but then it has uh like, I mean way more training samples. Now, the important thing to remember here is that when we do audio data augmentation, uh we want to use like the uh we want to do it like directly on the train set. So we don't want to do audio data augmentation, the whole data sets and then use the augmented data also for testing purposes because otherwise there you are cheating a little bit because I mean, at the end of the day, the transform data is somehow",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=826s",
+        "start_time": "826.419"
+    },
+    {
+        "id": "99394dd8",
+        "text": "But the whole point is to create a lot of like new data uh that is somehow related to the to the original one, but then it has uh like, I mean way more training samples. Now, the important thing to remember here is that when we do audio data augmentation, uh we want to use like the uh we want to do it like directly on the train set. So we don't want to do audio data augmentation, the whole data sets and then use the augmented data also for testing purposes because otherwise there you are cheating a little bit because I mean, at the end of the day, the transform data is somehow related to the uh like original data, right? And so you want to keep the um augmented data only for training purposes. So that when you uh work on the test set, that is like a completely unseen batch of data for the model,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=844s",
+        "start_time": "844.63"
+    },
+    {
+        "id": "aa022231",
+        "text": "So we don't want to do audio data augmentation, the whole data sets and then use the augmented data also for testing purposes because otherwise there you are cheating a little bit because I mean, at the end of the day, the transform data is somehow related to the uh like original data, right? And so you want to keep the um augmented data only for training purposes. So that when you uh work on the test set, that is like a completely unseen batch of data for the model, right? So this is like the second technique we have, then we have a third one which is like quite heuristic based and quite simple to understand it's called early stopping. And so here the whole point is that we want to choose certain rules to stop the training. And so for doing that, let let's look at the error uh like plot down here, right? So in blue, we have the train error and then in orange and we have the test error, right.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=868s",
+        "start_time": "868.08"
+    },
+    {
+        "id": "eeb2f250",
+        "text": "related to the uh like original data, right? And so you want to keep the um augmented data only for training purposes. So that when you uh work on the test set, that is like a completely unseen batch of data for the model, right? So this is like the second technique we have, then we have a third one which is like quite heuristic based and quite simple to understand it's called early stopping. And so here the whole point is that we want to choose certain rules to stop the training. And so for doing that, let let's look at the error uh like plot down here, right? So in blue, we have the train error and then in orange and we have the test error, right. So basically, uh with early stopping, for example, in this case, we could say, hey, if the uh test uh error doesn't improve after, I don't know, let's say uh seven",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=884s",
+        "start_time": "884.039"
+    },
+    {
+        "id": "30e2456c",
+        "text": "right? So this is like the second technique we have, then we have a third one which is like quite heuristic based and quite simple to understand it's called early stopping. And so here the whole point is that we want to choose certain rules to stop the training. And so for doing that, let let's look at the error uh like plot down here, right? So in blue, we have the train error and then in orange and we have the test error, right. So basically, uh with early stopping, for example, in this case, we could say, hey, if the uh test uh error doesn't improve after, I don't know, let's say uh seven um iterations then just uh stop uh the training, right? And so here you can decide how many epics you want to wait uh before uh you stop. And obviously, you can also like decide how much like is the improvement that you want to like expect",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=901s",
+        "start_time": "901.39"
+    },
+    {
+        "id": "36b2e3e1",
+        "text": "So basically, uh with early stopping, for example, in this case, we could say, hey, if the uh test uh error doesn't improve after, I don't know, let's say uh seven um iterations then just uh stop uh the training, right? And so here you can decide how many epics you want to wait uh before uh you stop. And obviously, you can also like decide how much like is the improvement that you want to like expect uh right. And so like in this case, as you can see, this is like very, very handy because we are stopping training before we start uh overfitting. Because as you see after that, the uh test error remains like more or less stable whereas the train error goes down, which is like a typical signal indication of overfitting, right.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=931s",
+        "start_time": "931.059"
+    },
+    {
+        "id": "1a73fa28",
+        "text": "um iterations then just uh stop uh the training, right? And so here you can decide how many epics you want to wait uh before uh you stop. And obviously, you can also like decide how much like is the improvement that you want to like expect uh right. And so like in this case, as you can see, this is like very, very handy because we are stopping training before we start uh overfitting. Because as you see after that, the uh test error remains like more or less stable whereas the train error goes down, which is like a typical signal indication of overfitting, right. So this is for early stopping. Now we have another couple of very useful uh techniques to fight against overfitting. The first one is called drop out. So drop out is a technique that enables us",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=944s",
+        "start_time": "944.359"
+    },
+    {
+        "id": "d8d2f901",
+        "text": "uh right. And so like in this case, as you can see, this is like very, very handy because we are stopping training before we start uh overfitting. Because as you see after that, the uh test error remains like more or less stable whereas the train error goes down, which is like a typical signal indication of overfitting, right. So this is for early stopping. Now we have another couple of very useful uh techniques to fight against overfitting. The first one is called drop out. So drop out is a technique that enables us to randomly drop neurons while training. And by doing that, we increase the network robustness. So how does that work? So here we have uh down here we have like uh our network, right? So now when we train say for example, we have like the the the the first like batch of data in. So we may decide to randomly drop certain neurons. And so here, for example, we have like these two neurons like in gray",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=961s",
+        "start_time": "961.969"
+    },
+    {
+        "id": "85272f18",
+        "text": "So this is for early stopping. Now we have another couple of very useful uh techniques to fight against overfitting. The first one is called drop out. So drop out is a technique that enables us to randomly drop neurons while training. And by doing that, we increase the network robustness. So how does that work? So here we have uh down here we have like uh our network, right? So now when we train say for example, we have like the the the the first like batch of data in. So we may decide to randomly drop certain neurons. And so here, for example, we have like these two neurons like in gray which have been dropped. So all the connections like don't work for these neurons. And so the training just happens uh like through like the the the remaining part of the network, right? And so now like with the with the second batch of data, for example, we could just like change the neurons and this is gonna be done uh like randomly stochastically, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=984s",
+        "start_time": "984.88"
+    },
+    {
+        "id": "8f37f141",
+        "text": "to randomly drop neurons while training. And by doing that, we increase the network robustness. So how does that work? So here we have uh down here we have like uh our network, right? So now when we train say for example, we have like the the the the first like batch of data in. So we may decide to randomly drop certain neurons. And so here, for example, we have like these two neurons like in gray which have been dropped. So all the connections like don't work for these neurons. And so the training just happens uh like through like the the the remaining part of the network, right? And so now like with the with the second batch of data, for example, we could just like change the neurons and this is gonna be done uh like randomly stochastically, right? We have a certain uh probability of dropping neurons in a in a layer. So here for example, we drop this neuron in the second hidden layer and we restore like the previous neurons, for example, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1002s",
+        "start_time": "1002.71"
+    },
+    {
+        "id": "1b4b610a",
+        "text": "which have been dropped. So all the connections like don't work for these neurons. And so the training just happens uh like through like the the the remaining part of the network, right? And so now like with the with the second batch of data, for example, we could just like change the neurons and this is gonna be done uh like randomly stochastically, right? We have a certain uh probability of dropping neurons in a in a layer. So here for example, we drop this neuron in the second hidden layer and we restore like the previous neurons, for example, right? And the question here is why, why does this work? So what's the point of all of this? Well, it turns out that if we do this, we are increasing the network robustness because the network can't rely on uh specific neurons like too much. So all the neurons have to take somewhat responsibility of the uh prediction um process, right?",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1031s",
+        "start_time": "1031.568"
+    },
+    {
+        "id": "69807794",
+        "text": "We have a certain uh probability of dropping neurons in a in a layer. So here for example, we drop this neuron in the second hidden layer and we restore like the previous neurons, for example, right? And the question here is why, why does this work? So what's the point of all of this? Well, it turns out that if we do this, we are increasing the network robustness because the network can't rely on uh specific neurons like too much. So all the neurons have to take somewhat responsibility of the uh prediction um process, right? Because sometimes like some of these neurons don't exist. And so like the neuron, uh the network has to kind of like reshape and reive responsibilities to all of the neurons so that none of them is uh like indispensable. Right? Cool. So now uh there's a hyper parameter here that's called the dropout like probability.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1054s",
+        "start_time": "1054.04"
+    },
+    {
+        "id": "850600d6",
+        "text": "And the question here is why, why does this work? So what's the point of all of this? Well, it turns out that if we do this, we are increasing the network robustness because the network can't rely on uh specific neurons like too much. So all the neurons have to take somewhat responsibility of the uh prediction um process, right? Because sometimes like some of these neurons don't exist. And so like the neuron, uh the network has to kind of like reshape and reive responsibilities to all of the neurons so that none of them is uh like indispensable. Right? Cool. So now uh there's a hyper parameter here that's called the dropout like probability. And now again, here there's really no universal rule. And this uh so usually like what you would use like is anything between like 10 to 50% of drop in neurons like in, in different layers. Uh right. But again, it's somewhat uh",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1066s",
+        "start_time": "1066.959"
+    },
+    {
+        "id": "72871ce9",
+        "text": "Because sometimes like some of these neurons don't exist. And so like the neuron, uh the network has to kind of like reshape and reive responsibilities to all of the neurons so that none of them is uh like indispensable. Right? Cool. So now uh there's a hyper parameter here that's called the dropout like probability. And now again, here there's really no universal rule. And this uh so usually like what you would use like is anything between like 10 to 50% of drop in neurons like in, in different layers. Uh right. But again, it's somewhat uh connected to like your problem. So you have to figure out like what works for your problem specifically, right. So this was a drop out. And now we have a final technique that's called uh regularization, right? And so this technique is um very interesting and very effective and it basically adds a penalty to the error function.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1094s",
+        "start_time": "1094.14"
+    },
+    {
+        "id": "74d69deb",
+        "text": "And now again, here there's really no universal rule. And this uh so usually like what you would use like is anything between like 10 to 50% of drop in neurons like in, in different layers. Uh right. But again, it's somewhat uh connected to like your problem. So you have to figure out like what works for your problem specifically, right. So this was a drop out. And now we have a final technique that's called uh regularization, right? And so this technique is um very interesting and very effective and it basically adds a penalty to the error function. And basically, it's the whole point is that we want to punish large weights. And uh so the larger the weights and the, the higher like the, the penalties like that, we're gonna, that we're gonna give like to the error function.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1119s",
+        "start_time": "1119.52"
+    },
+    {
+        "id": "9a113140",
+        "text": "connected to like your problem. So you have to figure out like what works for your problem specifically, right. So this was a drop out. And now we have a final technique that's called uh regularization, right? And so this technique is um very interesting and very effective and it basically adds a penalty to the error function. And basically, it's the whole point is that we want to punish large weights. And uh so the larger the weights and the, the higher like the, the penalties like that, we're gonna, that we're gonna give like to the error function. So here we have a couple of uh types of uh regularization that are usually used in deep learning L one and L two regularization. So let's take a look at them like in uh specifically one by one. OK. So here we have L one regularization.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1138s",
+        "start_time": "1138.5"
+    },
+    {
+        "id": "75fa1f38",
+        "text": "And basically, it's the whole point is that we want to punish large weights. And uh so the larger the weights and the, the higher like the, the penalties like that, we're gonna, that we're gonna give like to the error function. So here we have a couple of uh types of uh regularization that are usually used in deep learning L one and L two regularization. So let's take a look at them like in uh specifically one by one. OK. So here we have L one regularization. So here, the whole point is that we want to minimize the absolute value of the weight. Now down here, you can recognize the error function quadratic function that we've used like so far, like in our theoretical um discussion of neural nets. Now these like",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1167s",
+        "start_time": "1167.39"
+    },
+    {
+        "id": "4887f1a4",
+        "text": "So here we have a couple of uh types of uh regularization that are usually used in deep learning L one and L two regularization. So let's take a look at them like in uh specifically one by one. OK. So here we have L one regularization. So here, the whole point is that we want to minimize the absolute value of the weight. Now down here, you can recognize the error function quadratic function that we've used like so far, like in our theoretical um discussion of neural nets. Now these like uh we have like the quadratic error here and then we add this regular regularization uh thing. And now, as you can see here, we have like the, the sum of all like the uh the weights of the absolute value of the weights. And then we have LAMBDA which is like the term, the regularization like term. So the larger lambda and then the higher like the, the penalty that we give to the network, obviously lambda",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1183s",
+        "start_time": "1183.119"
+    },
+    {
+        "id": "a27b902b",
+        "text": "So here, the whole point is that we want to minimize the absolute value of the weight. Now down here, you can recognize the error function quadratic function that we've used like so far, like in our theoretical um discussion of neural nets. Now these like uh we have like the quadratic error here and then we add this regular regularization uh thing. And now, as you can see here, we have like the, the sum of all like the uh the weights of the absolute value of the weights. And then we have LAMBDA which is like the term, the regularization like term. So the larger lambda and then the higher like the, the penalty that we give to the network, obviously lambda is another uh like hyper parameter that we need to tweak in order to like optimize our network, right. So L one regular regularization is really good because it's uh robust to uh our layers. And it kind of like generates a simple, simpler models like overall. Now we can also use L two regularization and the difference with L one regularization is that we minimize the squared",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1199s",
+        "start_time": "1199.31"
+    },
+    {
+        "id": "cadd25f4",
+        "text": "uh we have like the quadratic error here and then we add this regular regularization uh thing. And now, as you can see here, we have like the, the sum of all like the uh the weights of the absolute value of the weights. And then we have LAMBDA which is like the term, the regularization like term. So the larger lambda and then the higher like the, the penalty that we give to the network, obviously lambda is another uh like hyper parameter that we need to tweak in order to like optimize our network, right. So L one regular regularization is really good because it's uh robust to uh our layers. And it kind of like generates a simple, simpler models like overall. Now we can also use L two regularization and the difference with L one regularization is that we minimize the squared uh value of the, of the weights. And you can see it here. And because we do that uh L two regularization is way less robust to outliers. But the great thing about L two regularization is that it can uh learn uh quite complex patterns. So I already know that what you want to ask. So should I use L one or L two regularization? Now, again, this is",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1217s",
+        "start_time": "1217.68"
+    },
+    {
+        "id": "9dbfb2a0",
+        "text": "is another uh like hyper parameter that we need to tweak in order to like optimize our network, right. So L one regular regularization is really good because it's uh robust to uh our layers. And it kind of like generates a simple, simpler models like overall. Now we can also use L two regularization and the difference with L one regularization is that we minimize the squared uh value of the, of the weights. And you can see it here. And because we do that uh L two regularization is way less robust to outliers. But the great thing about L two regularization is that it can uh learn uh quite complex patterns. So I already know that what you want to ask. So should I use L one or L two regularization? Now, again, this is kind of like more an art than a science. But the overall like rule uh a thumb that I can give you here is that if you have like uh data kind of like relatively like simple to train, simple to learn data, probably you should go with L one. But if you have like data, it's kind of like, I don't know uh that's a little bit like more complex to learn. The patterns are more complex than go with L two.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1246s",
+        "start_time": "1246.949"
+    },
+    {
+        "id": "0de75102",
+        "text": "uh value of the, of the weights. And you can see it here. And because we do that uh L two regularization is way less robust to outliers. But the great thing about L two regularization is that it can uh learn uh quite complex patterns. So I already know that what you want to ask. So should I use L one or L two regularization? Now, again, this is kind of like more an art than a science. But the overall like rule uh a thumb that I can give you here is that if you have like uh data kind of like relatively like simple to train, simple to learn data, probably you should go with L one. But if you have like data, it's kind of like, I don't know uh that's a little bit like more complex to learn. The patterns are more complex than go with L two. I would say like that in most audio and music based uh deep learning tasks you usually want to use L two regularization. Cool. So now we have an overview of all the different techniques that we can use for uh fighting over fitting. Now let's just go back to, to the code.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1275s",
+        "start_time": "1275.65"
+    },
+    {
+        "id": "ba284098",
+        "text": "kind of like more an art than a science. But the overall like rule uh a thumb that I can give you here is that if you have like uh data kind of like relatively like simple to train, simple to learn data, probably you should go with L one. But if you have like data, it's kind of like, I don't know uh that's a little bit like more complex to learn. The patterns are more complex than go with L two. I would say like that in most audio and music based uh deep learning tasks you usually want to use L two regularization. Cool. So now we have an overview of all the different techniques that we can use for uh fighting over fitting. Now let's just go back to, to the code. So we can easily implement drop outs and regularization using tensorflow. Well, it's as as easily as it can be really.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1303s",
+        "start_time": "1303.189"
+    },
+    {
+        "id": "c3ffd117",
+        "text": "I would say like that in most audio and music based uh deep learning tasks you usually want to use L two regularization. Cool. So now we have an overview of all the different techniques that we can use for uh fighting over fitting. Now let's just go back to, to the code. So we can easily implement drop outs and regularization using tensorflow. Well, it's as as easily as it can be really. So for drop outs, we are gonna implement it for all the hidden layers. So for doing that, we'll just do a Kas dot layers dot drop out and then we'll pass in the dropout probability which we set to 30%. So 0.3 good. So now",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1330s",
+        "start_time": "1330.229"
+    },
+    {
+        "id": "b6789f7e",
+        "text": "So we can easily implement drop outs and regularization using tensorflow. Well, it's as as easily as it can be really. So for drop outs, we are gonna implement it for all the hidden layers. So for doing that, we'll just do a Kas dot layers dot drop out and then we'll pass in the dropout probability which we set to 30%. So 0.3 good. So now uh I'm gonna copy this and just paste it below the 2nd and 3rd hidden layer and drop out is done. Cool. What about regularization? Well, for regularization, we need to pass in an extra argument to this uh dense layers. So we'll do it for um hidden layer 12 and three cool. So the extra argument is called a kernel regularizer.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1351s",
+        "start_time": "1351.609"
+    },
+    {
+        "id": "bc63203e",
+        "text": "So for drop outs, we are gonna implement it for all the hidden layers. So for doing that, we'll just do a Kas dot layers dot drop out and then we'll pass in the dropout probability which we set to 30%. So 0.3 good. So now uh I'm gonna copy this and just paste it below the 2nd and 3rd hidden layer and drop out is done. Cool. What about regularization? Well, for regularization, we need to pass in an extra argument to this uh dense layers. So we'll do it for um hidden layer 12 and three cool. So the extra argument is called a kernel regularizer. And we just need to call Kas dot regularizer dot uh We'll do an L two here. And if you guys remember L two has a hyper parameter called a Lambda, which is kind of like the, the penalty multiplier and we'll put it to no 0.001 cool. So now I'll just like take this and paste it for layer hidden layer two and three. Great.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1361s",
+        "start_time": "1361.069"
+    },
+    {
+        "id": "8e9dbdfa",
+        "text": "uh I'm gonna copy this and just paste it below the 2nd and 3rd hidden layer and drop out is done. Cool. What about regularization? Well, for regularization, we need to pass in an extra argument to this uh dense layers. So we'll do it for um hidden layer 12 and three cool. So the extra argument is called a kernel regularizer. And we just need to call Kas dot regularizer dot uh We'll do an L two here. And if you guys remember L two has a hyper parameter called a Lambda, which is kind of like the, the penalty multiplier and we'll put it to no 0.001 cool. So now I'll just like take this and paste it for layer hidden layer two and three. Great. We've done our, yeah, basically, we, we've implemented our way of like solving overfitting for this music genre classifier. So we should just like see if this works. And in order for doing that, we need to re run the model and take a look at the plots of the accuracy and the error. So I'll see you in a second here. We",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1385s",
+        "start_time": "1385.03"
+    },
+    {
+        "id": "5f013309",
+        "text": "And we just need to call Kas dot regularizer dot uh We'll do an L two here. And if you guys remember L two has a hyper parameter called a Lambda, which is kind of like the, the penalty multiplier and we'll put it to no 0.001 cool. So now I'll just like take this and paste it for layer hidden layer two and three. Great. We've done our, yeah, basically, we, we've implemented our way of like solving overfitting for this music genre classifier. So we should just like see if this works. And in order for doing that, we need to re run the model and take a look at the plots of the accuracy and the error. So I'll see you in a second here. We are with the results of our training process. And as you can see from the accuracy and error plots, things are going quite well. We've basically almost completely solved, prevented overfitting from happening. And so let's take a look at the uh error uh plot down here. So I'm just gonna zoom in uh to take a look at this. And uh as you can see here, uh the error of uh the test",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1415s",
+        "start_time": "1415.0"
+    },
+    {
+        "id": "6a69c860",
+        "text": "We've done our, yeah, basically, we, we've implemented our way of like solving overfitting for this music genre classifier. So we should just like see if this works. And in order for doing that, we need to re run the model and take a look at the plots of the accuracy and the error. So I'll see you in a second here. We are with the results of our training process. And as you can see from the accuracy and error plots, things are going quite well. We've basically almost completely solved, prevented overfitting from happening. And so let's take a look at the uh error uh plot down here. So I'm just gonna zoom in uh to take a look at this. And uh as you can see here, uh the error of uh the test is quite comparable to uh the train error up until like I would say like, yeah, uh epoch uh number 70 then like the train error is going down, whereas like the test error is remaining more or less the same. And we can see that issue also in the accuracy. Uh So plot over here like around like,",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1445s",
+        "start_time": "1445.119"
+    },
+    {
+        "id": "457a692e",
+        "text": "are with the results of our training process. And as you can see from the accuracy and error plots, things are going quite well. We've basically almost completely solved, prevented overfitting from happening. And so let's take a look at the uh error uh plot down here. So I'm just gonna zoom in uh to take a look at this. And uh as you can see here, uh the error of uh the test is quite comparable to uh the train error up until like I would say like, yeah, uh epoch uh number 70 then like the train error is going down, whereas like the test error is remaining more or less the same. And we can see that issue also in the accuracy. Uh So plot over here like around like, yeah, I would say like epoch 70 we start having the train accuracy going up and the test accuracy stabilizing, which basically means we are overfitting a little bit. But overall, we basically like so overfitting here, if we wanted to do like even a better job, we could use like some early stopping that probably would stop. Um uh like the training process around like epoch 17",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1470s",
+        "start_time": "1470.145"
+    },
+    {
+        "id": "8f4d007f",
+        "text": "is quite comparable to uh the train error up until like I would say like, yeah, uh epoch uh number 70 then like the train error is going down, whereas like the test error is remaining more or less the same. And we can see that issue also in the accuracy. Uh So plot over here like around like, yeah, I would say like epoch 70 we start having the train accuracy going up and the test accuracy stabilizing, which basically means we are overfitting a little bit. But overall, we basically like so overfitting here, if we wanted to do like even a better job, we could use like some early stopping that probably would stop. Um uh like the training process around like epoch 17 cool. But this is great news cos now we know how to fight against all the fitting and as we've seen drop out and regularization work really, really well cool. So the next time we're gonna look into a more complex type of neural network",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1498s",
+        "start_time": "1498.53"
+    },
+    {
+        "id": "82171f05",
+        "text": "yeah, I would say like epoch 70 we start having the train accuracy going up and the test accuracy stabilizing, which basically means we are overfitting a little bit. But overall, we basically like so overfitting here, if we wanted to do like even a better job, we could use like some early stopping that probably would stop. Um uh like the training process around like epoch 17 cool. But this is great news cos now we know how to fight against all the fitting and as we've seen drop out and regularization work really, really well cool. So the next time we're gonna look into a more complex type of neural network called a convolutional neural network that's been used like for uh like image data quite a lot. But it's also very, very useful on audio data. So stay tuned for that. I hope you've enjoyed this video. If that's the case, please like it and uh consider subscribing. So if you have any questions, please leave them in the comment section below and I hope I'll see you next time. Cheers.",
+        "video": "14-  SOLVING OVERFITTING in neural networks",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "Gf5DO6br0ts",
+        "youtube_link": "https://www.youtube.com/watch?v=Gf5DO6br0ts&t=1519s",
+        "start_time": "1519.93"
+    }
+]

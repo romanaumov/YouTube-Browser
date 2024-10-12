@@ -1,0 +1,458 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Do you really need to know math in order to work with deep learning? An argument goes that no, you just need to know high level libraries like py torch or tensorflow. But in reality, if you really want to understand how neurons work, then yes, you need to know a bit of linear algebra. So that's why in this video we're going to talk about vector and matrix operations. So let's get started with vectors. What are vectors? Well, vectors are just a ray of numbers. We notate vectors with small caps bolts, a letter like this a vector here. And then we can arrange a vector that's a collection of different items both horizontally. And then we have a row vector or vertically and we have a column vector. So on vectors, we can perform a number of different operations some that come to mind and are the simplest ones are scaler operations. These operations involve a vector and the scaler which is basically a number like two or 3.5 for example. And we have scr additions, subtraction, multiplication and division. So let's take a look at scalar edition for example. And the argument goes with all of the other scalar operations as well. So here we have the vector A and we add the scalar N. And so, as you can see here, uh the result is this vector here and the vector is given by the A one which is the first element of the vector plus N which is the scalar and then a two plus N A three plus N. So basically we add the scaler to all the items of the vector. So uh let's take an example here. So we have a vector uh this column vector which is 1 to 2 and we want to add one and the resulting vector is 233, we just added 1 to 1 here, 1 to 2 here and 1 to 2 here. It's very simple, isn't it? Then we have other types of um operations like vector addition and subtraction. So here the operations are performed between two vectors and that's a constraint here. So the two vectors must have the same dimension. So, and what's a vector dimension? Well, it's very simple. It's the number of items that we have in a vector. So uh in this way, for example, here, uh we are adding up a, the vector A plus the vector B. And as you can see both vectors have the same number of items. So three items for the A vector and three items for the B vector. So A vector addition and subtraction are element wise operations as you can see here. So what this basically means is that we add the first elements of the first vector to the first element of the second vector. And this is gonna be the first element of the, some vector in this case, then we do the same thing with the second items. So A two plus B two gives us the uh second element of the uh of the sum vector. And finally, here a three plus B three is the third element of the uh sum uh vector over here. So again, let's take a look at, at an example, just like to see this more clearly. So here we have two vectors. So 123 and 356. So we want to add them up together. And so the sum vector over here is 479. So one plus 32 plus five that gives us seven and three plus six that gives us nine. So this is very simple, isn't it? Now, we have another operation which is super important as we'll see in a second for neural networks as well. And it's called the dot product. Again, the dot product is performed between two vectors and the result this time is a skier. So it's a number. So it's not another vector. So how do we notate a dot product? Well, and not surprisingly, we noted dot product with the dots and as you can see here, so we have the dot product that's given by um so that we can perform between two vectors over here. And the result of the dot vector over here is a one uh multiplied by B one plus A two multiplied by B two plus A three, multiplied by uh B three. So how do we get to this formula over here? Well, it's quite simple. So we take the first um item of the first vector and we multiply that with the first item of the second vector. And then we add to this, the second item of the first uh vector multiplied by the second item of the second vector and so on and so forth. So now let's take a look at an example here. So we want to perform the dot product between two vectors. So 123 and four minus 21. So the result here is one by four. And we've reached this by multiplying the first element of the first vector with the first element of the second vector. So one by four plus two by minus two. So multiplying the T the, the second items from the first and the second vector plus three by one. And we achieve this by multiplying the third item from the first vector by the third item uh from the second vector. So now if we run the math here we come up with a number that's three. So the dot product in this case, uh is three. Nice. So I just said before that the dot product is super important for neural nets. So let's really research something that we've seen in the previous video. So if you remember, so this is an artificial neuron, this X one X two X three are the inputs W 1 W-2 W three and the weights. And here we have the neuron that does two things. So one is the weighted sum or the net input. And then we have the activation. So let's just focus on the net input. Now. So if you remember the net input age is the weighted sum over all the inputs. In other words, is X one input, one by weight one plus input, two by weight two plus input three by weight three. Now if you look at these, you may uh just think that we can rewrite that using the dot product because it's basically the, the very same result. And indeed, we can rewrite H as the dot product of X and W where X is the X one XGX three vector, which is basically the, it's called the input vector. And it puts together this X one input XG input and X three inp input. And then we have this W 1 W-2 W-2 W three vector, that's the weights vector. So in other words, we can rewrite the net input as the dot product between uh the inputs and the weights. And as you can see, obviously the result here X one W one plus X 2 W-2 plus X three, W three is equal to the net input as we calculated it last time. So how's this interesting? So why can't we just use this notation? Well, it turns out that this is like way more elegant. So working with vector and as we'll see with mattresses, like it's way more elegant and way faster in terms of notation than just using like all of these like uh symbols like in an extended form. So this is why uh we basically use a lot of like doll products and linear algebra uh for uh notating uh neural nets. And that's very, very convenient. So this was it like for uh the basic operations for vectors. Now let's move on to matrices. So what's a matrix? So a matrix is a rectangular grid of numbers. It's like a spreadsheet really? So you have a spreadsheet with a lot of like variables or numbers and you can store all of that information in this kind of like squared rectangular uh grid. So we notate a matrix using an uppercase letter. So just like here a uppercase A and then we have these two weird indexes here. Indexes. So I and J so, so what do they represent? Well, I represents the rows, indexes and J represents the colon indexes. So let's take a look at these like in actions. So a 11 is the the first item we have here. And as you can see this one in uh this like a red square represents, indicates the fact that we are on row number one. Whereas the second one over here represents the fact that we are on column number one. So this element here is the element that stays in a row one, column one. So now let's move on to a 12. The one again here represents the fact that we are on row number one, but the two represents the fact that we are on column number two. Now 81 uh here we have uh row number two and then one indicates that we are on column number one. So this way we can identify the position of all the elements of a matrix just by using two indexes I which stands for um rows and J which stands for uh columns. It's as simple as that. So a very important element of a matrix is its dimension. So, and the dimension is indicated by the number of rows and columns. So here we have two matrixes here. So like on the left, uh the dimension of this matrix is three by two and it's three because it has three rows and it's two because it has two columns. Whereas the uh matrix on the right is two by three and two is the number of rows we have and three is the number of columns we have. So remember dimension of matrix is indicated by number of rows first and then number of columns. So there's a specific case of, of matrix uh which can be used to indicate vectors and we can indicate vectors as a row. Uh So we can, uh as we mentioned, we have both like a row vectors and column vectors and a row vector is indicated by a one by N matrix. And the column vector is indicated by an N by one Metrix. Let's just take a look at an example, cos it's gonna make things like way clearer. So here on the left, we have this uh row vector. So it's 143. And as we can see here, it's a one by three metrics. It's one because it has only one row and it's three in terms of columns because obviously it has three columns. And then here on the right, we have a column vector and this column vector can be uh fought as a matrix. And it's a four by one matrix. It's four rows here and it's only one column. So this is a nice way of thinking uh vectors as uh matrices, an important operation that we have with a mattress, it's called transposition. So with trans transposition, what we do, it's quite simple. So basically we switch rows and columns. So let's take a look at this metrics for example. So here we have this matrix which is 123 minus 40.51 and then it says three by two matrix. Now, the transpose matrix which is indicated with a superscript capital T which stands for uh transpose, it's basically the same metrics. But as you can see here, the columns have become rows. So here we have the in the first column, 130.5. And here uh the, the 130.5 has become the first row. So we've basically switched rows and columns. So it's all you have it here. And a simple way of notating this in a very condensed manner is this down here. So the transposed Metrix A uh of IJ is basically a of J I. So we've inverted the uh two indexes for the columns and the rows down here. OK. So now let's take a look at scalar operations because we also have scalar operations for matrices. And so here we have addition, subtraction, multiplication and division of matrices with a number. And they work in a similar manner to a scalar operations with vectors. So here, for example, you can see a scalar multiplication. So we have a scalar which is this N it could be like any number. So say for example, three and we want to multiply it by this matrix A and the result over here, it's quite simple. So we multiply every index, every element in the matrix by N. So the new matrix is, for example, here in the first uh in the index like in column of row one, column one is N by a 11, then we have N by a 12 and so on and so forth. So it's super simple. Same thing with subtraction, multi um addition and division. We do the very same thing here. So another type uh of operation is addition and subtraction. So here we have two mattresses and here we also have a constraint. So the two mattresses must have the same dimension. So they must have the very same number of rows and columns. And this is an element wise operation because we, in the case of addition, for example, adds up the elements with the same indexes together from the first and the second matrix. So let's clarify this by taking uh a look at this example down here. So we have this matrix ABC D and we want to add a second matrix which is 1234. And as you can see here, the sum matrix here is given by the addition of the elements of the first matrix with the respective elements of the second matrix. So for element 11, so row one, column one, we are adding a and one together. So a being the first uh being element um in row one column one from the first matrix and one being element uh 11 uh from the second matrix. And then we, we do the same thing for element um 21. So row two, column one and here we add B plus two and as you can see here, so here we have B and here we have two, then we do C plus three and D plus four. So it's very simple. And in this way, we can calculate super easily, both addition and subtraction. So now the problems I would say like start to come in when we talk about matrix multiplication, this is a little bit more complicated than mm um all the other operations that we've seen so far. So first of all, there are certain weird constraints on when we can perform matrix multiplication. So we have again two different matrices and we want to multiply them. But then in order to multiply them, we need to have that the number of columns of the first matrix should be equal to the number of rows of the second matrix. Now let's take a look at this example here. So we have this three by two matrix and this two by two matrix here. Now we can multiply these two matrices together because as we said, the number of columns of the first matrix which in this case is two and you can see it here is equal to the number of rows of the second matrix here, which is two. Now the result of this multiplication is a new matrix itself where uh the dimension of this new matrix is given by the rows of the first matrix that we want to multiply and the number of columns of the second matrix that we multiply. So in this case, given uh in this multiplication, uh in this example, we have here, given we have the first matrix which is three by two and the second ma matrix which is two by two. Now the product matrix here is gonna be three by two, right. So you may be wondering how do we get to these results? So let's just like perform this mat multiplication here step by step. OK. So as you can see here, the first element here, so the element 11, so row one, column one is given by the dot product of the first row of the first matrix with the first column of the second matrix that we are multiplying. So another way of um visualizing this is just by writing it like this. So we have the uh this vector 12 and we do the dot product with AC and the result now we should know it because we know the dot product is one A plus two C. So, and this is like what we are performing here and this result gets logged in position +11 because it comes from row one and column one. So now let's move on with this very simple algorithm to understand how to perform all of the um uh perform multiplication and create the new matrix and all of its elements. So now we can shift uh the column vector here. And so we have here the dot product between the first row of the first matrix and the second column of the second matrix. And we log these uh dot products here in the element 12. So row one column two. Now, not surprisingly, you'll see that we'll switch down to the second row here and we'll do the dot product of this second row with the um first column of the second matrix. And this is a three A plus four C and we lock that in element +21, we'll switch and we'll have element 22 and then we'll switch again and then we'll move to uh the third row. And here we have the third row by the first column uh with the dot product. And here we log this in element 31 and then the final element will be the third row here dot products. Second column. And here the result is logged in element 32. Cool. Sorry. So we can um rewrite um a matrix multiplication in a way like that. That's easier like to, to remember. So again, if you think of like for example, like this 12 as a, a row vector and it's row vector A one because like this is matrix A and this is matrix B. So this is a one. And then we take a look at this second row vector here and we indicate it as A two. And we look at this B matrix here and we call this column, the column vector B one and the second column, the column vector B two. Then the matrix multiplication of it here is given by A one dot Predators B one for element 11, then A one B two for element 12. And then uh the dot product between the A two row vector and the B one column vector for element to one and A two uh dot products B two for element 22. So this is like a very simple way of remembering how a matrix multiplication works. So this was a little bit like weirder than all the other um operations that we've seen so far. But as you'll see, this is very, very important because we can use all of this notation to easily capture how a neuron network performs its computations. And that's what we're gonna see in the next video. So we're gonna look at neuron networks and specifically at multi layer perceptions and see how they compute the information when the signal moves from left to right. So this was it for this very quick, I would say like very quick introduction to linear algebra. I hope you enjoyed this. And if you like the video, please subscribe. If you have any questions, just leave a comment in the comment section below. And if you like the video again, just like like it. So I hope I'll see you next time. So, bye for now."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Do you really need to know math in order to work with deep learning? An argument goes that no, you just need to know high level libraries like py torch or tensorflow. But in reality, if you really want to understand how neurons work, then yes, you need to know a bit of linear algebra. So that's why",
+                "start_time": "0.129",
+                "end_time": "19.7"
+            },
+            {
+                "id": 1,
+                "transcript": "in this video we're going to talk about vector and matrix operations. So let's get started with vectors. What are vectors? Well, vectors are just a ray of numbers. We notate vectors with small caps bolts,",
+                "start_time": "19.879",
+                "end_time": "36.044"
+            },
+            {
+                "id": 2,
+                "transcript": "a letter like this a vector here. And then we can arrange a vector that's a collection of different items both horizontally. And then we have a row vector or vertically and we have a column vector. So on vectors, we can perform a number of different operations",
+                "start_time": "36.055",
+                "end_time": "56.729"
+            },
+            {
+                "id": 3,
+                "transcript": "some that come to mind and are the simplest ones are scaler operations. These operations involve a vector and the scaler which is basically a number like two or 3.5 for example. And we have scr additions, subtraction, multiplication",
+                "start_time": "57.02",
+                "end_time": "75.36"
+            },
+            {
+                "id": 4,
+                "transcript": "and division. So let's take a look at scalar edition for example. And the argument goes with all of the other scalar operations as well. So here we have the vector A and we add the scalar N.",
+                "start_time": "75.489",
+                "end_time": "90.529"
+            },
+            {
+                "id": 5,
+                "transcript": "And so, as you can see here, uh the result is this vector here and the vector is given by the A one which is the first element of the vector plus N which is the scalar and then a two plus N A three plus N. So basically we add the scaler to all the items of the vector. So uh let's take an example here. So we have a vector",
+                "start_time": "90.699",
+                "end_time": "116.22"
+            },
+            {
+                "id": 6,
+                "transcript": "uh this column vector which is 1 to 2 and we want to add one and the resulting vector is 233, we just added 1 to 1 here, 1 to 2 here and 1 to 2 here. It's very simple, isn't it?",
+                "start_time": "116.36",
+                "end_time": "133.399"
+            },
+            {
+                "id": 7,
+                "transcript": "Then we have other types of um operations like vector addition and subtraction. So here the operations are performed between two vectors and that's a constraint here. So the two vectors must have the same dimension. So, and what's a vector dimension? Well, it's very simple. It's the number of items that we have in a vector. So",
+                "start_time": "133.919",
+                "end_time": "161.399"
+            },
+            {
+                "id": 8,
+                "transcript": "uh in this way, for example, here, uh we are adding up a, the vector A plus the vector B. And as you can see both vectors have the same number of items. So three items for the A vector and three items for the B vector.",
+                "start_time": "161.63",
+                "end_time": "177.61"
+            },
+            {
+                "id": 9,
+                "transcript": "So A vector addition and subtraction are element wise operations as you can see here. So what this basically means is that we add the first elements of the first vector to the first element of the second vector. And this is gonna be the first element of the, some vector in this case,",
+                "start_time": "177.91",
+                "end_time": "198.83"
+            },
+            {
+                "id": 10,
+                "transcript": "then we do the same thing with the second items. So A two plus B two gives us the uh second element of the uh of the sum vector. And finally, here a three plus B three is the third element of the uh sum uh vector over here. So",
+                "start_time": "199.029",
+                "end_time": "219.69"
+            },
+            {
+                "id": 11,
+                "transcript": "again, let's take a look at, at an example, just like to see this more clearly. So here we have two vectors. So 123 and 356. So we want to add them up together. And so the sum vector over here is 479. So one plus 32 plus five that gives us seven and three plus six that gives us nine.",
+                "start_time": "220.059",
+                "end_time": "245.929"
+            },
+            {
+                "id": 12,
+                "transcript": "So this is very simple, isn't it? Now, we have another operation which is super important as we'll see in a second for neural networks as well. And it's called the dot product. Again, the dot product is performed between two vectors and the result this time is a skier. So it's a number. So it's not another vector.",
+                "start_time": "246.539",
+                "end_time": "271.049"
+            },
+            {
+                "id": 13,
+                "transcript": "So how do we notate a dot product? Well, and not surprisingly, we noted dot product with the dots and as you can see here, so we have the dot product that's given by um so that we can perform between two vectors over here. And the result of the dot vector over here is a one",
+                "start_time": "271.359",
+                "end_time": "295.48"
+            },
+            {
+                "id": 14,
+                "transcript": "uh multiplied by B one plus A two multiplied by B two plus A three, multiplied by uh B three. So how do we get to this formula over here? Well, it's quite simple. So we take the first um item of the first vector and we multiply that with the first item of the second vector. And then we add to this, the second",
+                "start_time": "295.73",
+                "end_time": "325.26"
+            },
+            {
+                "id": 15,
+                "transcript": "item of the first uh vector multiplied by the second item of the second vector and so on and so forth. So now let's take a look at an example here. So we want to perform the dot product between two vectors. So 123 and four minus 21.",
+                "start_time": "325.72",
+                "end_time": "345.829"
+            },
+            {
+                "id": 16,
+                "transcript": "So the result here is one by four. And we've reached this by multiplying the first element of the first vector with the first element of the second vector. So one by four plus two by minus two. So multiplying the T the, the second items from the first and the second vector plus three by one.",
+                "start_time": "346.049",
+                "end_time": "371.959"
+            },
+            {
+                "id": 17,
+                "transcript": "And we achieve this by multiplying the third item from the first vector by the third item uh from the second vector. So now if we run the math here we come up with a number that's three. So the dot product in this case, uh is three.",
+                "start_time": "372.1",
+                "end_time": "394.029"
+            },
+            {
+                "id": 18,
+                "transcript": "Nice. So I just said before that the dot product is super important for neural nets. So let's really research something that we've seen in the previous video. So if you remember, so this is an artificial neuron, this X one X two X three are the inputs W 1 W-2 W three and the weights. And here we have the neuron that does two things. So one is the weighted sum or the net input.",
+                "start_time": "394.63",
+                "end_time": "424.109"
+            },
+            {
+                "id": 19,
+                "transcript": "And then we have the activation. So let's just focus on the net input. Now. So if you remember the net input age is the weighted sum over all the inputs. In other words, is X one input, one by weight one plus input, two by weight two plus input three by weight three. Now if you look at these,",
+                "start_time": "424.299",
+                "end_time": "451.299"
+            },
+            {
+                "id": 20,
+                "transcript": "you may uh just think that we can rewrite that using the dot product because it's basically the, the very same result. And indeed, we can rewrite H as the dot product of X and",
+                "start_time": "451.869",
+                "end_time": "470.14"
+            },
+            {
+                "id": 21,
+                "transcript": "W where X is the X one XGX three vector, which is basically the, it's called the input vector. And it puts together this X one input XG input and X three inp input. And then we have this W 1 W-2 W-2 W three vector, that's the weights vector.",
+                "start_time": "470.149",
+                "end_time": "496.94"
+            },
+            {
+                "id": 22,
+                "transcript": "So in other words, we can rewrite the net input as the dot product between",
+                "start_time": "497.179",
+                "end_time": "504.519"
+            },
+            {
+                "id": 23,
+                "transcript": "uh the inputs and the weights. And as you can see, obviously the result here X one W one plus X 2 W-2 plus X three, W three is equal to the net input as we calculated it last time.",
+                "start_time": "505.07",
+                "end_time": "522.07"
+            },
+            {
+                "id": 24,
+                "transcript": "So how's this interesting? So why can't we just use this notation? Well, it turns out that this is like way more elegant. So working with vector and as we'll see with mattresses, like it's way more elegant and way faster in terms of notation than just using like all of these like uh symbols like in an extended form. So this is why uh we basically use a lot of like doll products and linear algebra",
+                "start_time": "522.34",
+                "end_time": "550.549"
+            },
+            {
+                "id": 25,
+                "transcript": "uh for uh notating uh neural nets. And that's very, very convenient. So this was it like for uh the basic operations for vectors. Now let's move on to matrices. So what's a matrix? So a matrix",
+                "start_time": "550.7",
+                "end_time": "568.414"
+            },
+            {
+                "id": 26,
+                "transcript": "is a rectangular grid of numbers. It's like a spreadsheet really? So you have a spreadsheet with a lot of like variables or numbers and you can store all of that information in this kind of like squared rectangular uh grid. So",
+                "start_time": "568.424",
+                "end_time": "587.039"
+            },
+            {
+                "id": 27,
+                "transcript": "we notate a matrix using an uppercase letter. So just like here a uppercase A and then we have these two weird indexes here. Indexes. So I and J so, so what do they represent? Well, I represents the rows, indexes and J represents the colon indexes. So let's take a look at these like in actions.",
+                "start_time": "587.4",
+                "end_time": "617.349"
+            },
+            {
+                "id": 28,
+                "transcript": "So a 11 is the the first item we have here. And as you can see this one in uh this like a red square represents, indicates the fact that we are on row number one. Whereas the second one over here represents the fact that we are on column number one. So this element here is the element that stays in a row one, column one.",
+                "start_time": "617.53",
+                "end_time": "646.9"
+            },
+            {
+                "id": 29,
+                "transcript": "So now let's move on to a 12.",
+                "start_time": "647.159",
+                "end_time": "649.549"
+            },
+            {
+                "id": 30,
+                "transcript": "The one again here represents the fact that we are on row number one, but the two represents the fact that we are on column number two.",
+                "start_time": "650.349",
+                "end_time": "658.539"
+            },
+            {
+                "id": 31,
+                "transcript": "Now 81",
+                "start_time": "659.119",
+                "end_time": "660.94"
+            },
+            {
+                "id": 32,
+                "transcript": "uh here we have uh row number two and then one indicates that we are on column number one. So this way we can identify the position of all the elements of a matrix just by using two indexes I which stands for",
+                "start_time": "661.94",
+                "end_time": "683.299"
+            },
+            {
+                "id": 33,
+                "transcript": "um rows and J which stands for uh columns. It's as simple as that. So a very important element of a matrix is its dimension. So, and the dimension is indicated by the number of rows and columns. So here we have two matrixes here. So like on the left,",
+                "start_time": "683.69",
+                "end_time": "709.71"
+            },
+            {
+                "id": 34,
+                "transcript": "uh the dimension of this matrix is three by two and it's three because it has three rows and it's two because it has two columns. Whereas the uh matrix on the right is two by three and two is the number of rows we have and three is the number of columns we have.",
+                "start_time": "710.049",
+                "end_time": "733.32"
+            },
+            {
+                "id": 35,
+                "transcript": "So remember dimension of matrix is indicated by number of rows first and then number of columns.",
+                "start_time": "733.65",
+                "end_time": "742.049"
+            },
+            {
+                "id": 36,
+                "transcript": "So there's a specific case of, of matrix uh which can be used to indicate vectors and we can indicate vectors as a row. Uh So we can,",
+                "start_time": "742.89",
+                "end_time": "757.299"
+            },
+            {
+                "id": 37,
+                "transcript": "uh as we mentioned, we have both like a row vectors and column vectors and a row vector is indicated by a one by N matrix. And the column vector is indicated by an N by one Metrix. Let's just take a look at an example, cos it's gonna make things like way clearer. So here on the left, we have this uh row vector. So it's 143.",
+                "start_time": "757.45",
+                "end_time": "783.559"
+            },
+            {
+                "id": 38,
+                "transcript": "And as we can see here, it's a one by three metrics. It's one because it has only one row and it's three in terms of columns because obviously it has three columns.",
+                "start_time": "783.71",
+                "end_time": "797.03"
+            },
+            {
+                "id": 39,
+                "transcript": "And then here on the right, we have a column vector and this column vector can be uh fought as a matrix. And it's a four by one matrix. It's four rows here and it's only one column. So this is a nice way of thinking uh vectors as uh matrices,",
+                "start_time": "797.96",
+                "end_time": "821.94"
+            },
+            {
+                "id": 40,
+                "transcript": "an important operation that we have with a mattress, it's called transposition. So with trans transposition, what we do, it's quite simple. So basically we switch rows and columns. So let's take a look at this",
+                "start_time": "823.159",
+                "end_time": "839.32"
+            },
+            {
+                "id": 41,
+                "transcript": "metrics for example. So here we have this matrix which is 123 minus 40.51 and then it says three by two matrix. Now, the transpose matrix which is indicated with",
+                "start_time": "839.9",
+                "end_time": "857.21"
+            },
+            {
+                "id": 42,
+                "transcript": "a superscript capital T which stands for uh transpose, it's basically the same metrics. But as you can see here, the columns have become rows. So here we have the in the first column, 130.5. And here",
+                "start_time": "857.95",
+                "end_time": "880.929"
+            },
+            {
+                "id": 43,
+                "transcript": "uh the, the 130.5 has become the first row. So we've basically switched rows and columns. So it's all you have it here. And a simple way of notating this in a very condensed manner is this down here. So the transposed Metrix A",
+                "start_time": "881.2",
+                "end_time": "902.429"
+            },
+            {
+                "id": 44,
+                "transcript": "uh of IJ is basically a of J I. So we've inverted the uh two indexes for the columns and the rows down here.",
+                "start_time": "902.809",
+                "end_time": "916.95"
+            },
+            {
+                "id": 45,
+                "transcript": "OK. So now let's take a look at scalar operations because we also have scalar operations for matrices. And so here we have addition, subtraction, multiplication and division of matrices with a number. And they work in a similar manner to",
+                "start_time": "918.179",
+                "end_time": "937.2"
+            },
+            {
+                "id": 46,
+                "transcript": "a scalar operations with vectors. So here, for example, you can see a scalar multiplication. So we have a scalar which is this N it could be like any number. So say for example, three and we want to multiply it by this matrix A and the result over here, it's quite simple. So we multiply every index,",
+                "start_time": "937.21",
+                "end_time": "962.78"
+            },
+            {
+                "id": 47,
+                "transcript": "every element in the matrix by N. So the new matrix is, for example, here in the first uh in the index like in column of row one, column one is N by a 11, then we have N by a 12 and so on and so forth. So it's super simple. Same thing with subtraction, multi um addition and division. We do the very same thing here. So",
+                "start_time": "963.21",
+                "end_time": "992.15"
+            },
+            {
+                "id": 48,
+                "transcript": "another type uh of operation is addition and subtraction. So here we have two mattresses and here we also have a constraint. So the two mattresses must have the same dimension. So they must have the very same number of rows and columns. And this is an element wise operation because we,",
+                "start_time": "992.669",
+                "end_time": "1018.34"
+            },
+            {
+                "id": 49,
+                "transcript": "in the case of addition, for example, adds up the",
+                "start_time": "1019.0",
+                "end_time": "1022.989"
+            },
+            {
+                "id": 50,
+                "transcript": "elements with the same indexes together from the first and the second matrix. So let's clarify this by taking uh a look at this example down here. So we have this matrix ABC D and we want to add a second matrix which is 1234. And as you can see here, the sum matrix here is given by the addition",
+                "start_time": "1023.549",
+                "end_time": "1051.469"
+            },
+            {
+                "id": 51,
+                "transcript": "of the elements of the first matrix with the respective elements of the second matrix. So for element 11, so row one, column one, we are adding a and one together. So a being the first uh being element um in row one column one from the first matrix and one being element uh 11",
+                "start_time": "1052.02",
+                "end_time": "1077.65"
+            },
+            {
+                "id": 52,
+                "transcript": "uh from the second matrix. And then we, we do the same thing for element um 21. So row two, column one and here we add B plus two and as you can see here, so here we have B and here we have two, then we do C plus three and D plus four. So it's very simple. And in this way, we can calculate super easily, both addition and subtraction. So now",
+                "start_time": "1077.839",
+                "end_time": "1105.989"
+            },
+            {
+                "id": 53,
+                "transcript": "the problems I would say like start to come in when we talk about matrix multiplication, this is a little bit more complicated than mm um all the other operations that we've seen so far. So first of all, there are certain weird constraints on when we can perform matrix multiplication.",
+                "start_time": "1106.14",
+                "end_time": "1128.76"
+            },
+            {
+                "id": 54,
+                "transcript": "So we have again two different matrices and we want to multiply them. But then in order to multiply them, we need to have that the number of columns of the first matrix should be equal to the number of rows of the second matrix. Now let's take a look at this example here. So we have this three by two",
+                "start_time": "1129.13",
+                "end_time": "1157.31"
+            },
+            {
+                "id": 55,
+                "transcript": "matrix and this two by two matrix here. Now we can multiply these two matrices together because as we said, the number of columns of the first matrix which in this case is two and you can see it here is equal to the number of rows of the second matrix here, which is two. Now the result of this multiplication is a new matrix itself where",
+                "start_time": "1157.54",
+                "end_time": "1187.189"
+            },
+            {
+                "id": 56,
+                "transcript": "uh the dimension of this new matrix is given by the rows of the first matrix that we want to multiply and the number of columns of the second matrix that we multiply. So in this case, given",
+                "start_time": "1187.449",
+                "end_time": "1208.79"
+            },
+            {
+                "id": 57,
+                "transcript": "uh in this multiplication, uh in this example, we have here, given we have the first matrix which is three by two and the second ma matrix which is two by two. Now the product matrix here is gonna be three by two,",
+                "start_time": "1208.959",
+                "end_time": "1224.38"
+            },
+            {
+                "id": 58,
+                "transcript": "right. So you may be wondering how do we get to these results? So let's just like perform this mat multiplication here step by step.",
+                "start_time": "1225.229",
+                "end_time": "1237.339"
+            },
+            {
+                "id": 59,
+                "transcript": "OK. So as you can see here,",
+                "start_time": "1238.06",
+                "end_time": "1241.329"
+            },
+            {
+                "id": 60,
+                "transcript": "the first element here, so the element 11, so row one, column one is given by the dot product of the first row of the first matrix with the first column of the second matrix that we are multiplying. So another way of um visualizing this is just by writing it like this. So we have the",
+                "start_time": "1241.479",
+                "end_time": "1269.78"
+            },
+            {
+                "id": 61,
+                "transcript": "uh this vector 12 and we do the dot product with AC and the result now we should know it because we know the dot product is one A plus two C. So, and this is like what we are performing here and this result gets logged in position +11 because it comes from row one and column one.",
+                "start_time": "1270.13",
+                "end_time": "1297.77"
+            },
+            {
+                "id": 62,
+                "transcript": "So now let's move on with this very simple algorithm to understand how to perform all of the um uh perform multiplication and create the new matrix and all of its elements. So now we can shift",
+                "start_time": "1297.979",
+                "end_time": "1314.439"
+            },
+            {
+                "id": 63,
+                "transcript": "uh the column vector here. And so we have here the dot product between the first row of the first matrix and the second column of the second matrix. And",
+                "start_time": "1315.119",
+                "end_time": "1331.479"
+            },
+            {
+                "id": 64,
+                "transcript": "we log these uh dot products here in the element 12. So row one column two. Now, not surprisingly, you'll see that we'll switch down to the second row here and we'll do the dot product of this second row with the um first column of the second matrix. And this is a three A plus four C and we lock that in element +21,",
+                "start_time": "1331.969",
+                "end_time": "1361.63"
+            },
+            {
+                "id": 65,
+                "transcript": "we'll switch and we'll have element 22 and then we'll switch again and then we'll move to uh the third row. And here we have the third row by the first column uh with the dot product. And here we log this in element 31 and then the final element will be the third row here dot products. Second column. And here the result is logged in element 32.",
+                "start_time": "1361.819",
+                "end_time": "1391.599"
+            },
+            {
+                "id": 66,
+                "transcript": "Cool.",
+                "start_time": "1392.52",
+                "end_time": "1393.369"
+            },
+            {
+                "id": 67,
+                "transcript": "Sorry. So we can",
+                "start_time": "1394.26",
+                "end_time": "1396.88"
+            },
+            {
+                "id": 68,
+                "transcript": "um rewrite um a matrix multiplication in a way like that. That's easier like to, to remember. So again, if you think of like for example, like this 12 as a, a row vector and it's row vector A one because like this is matrix A and this is matrix B. So this is a one. And then we take a look at this second row vector here and we indicate it as A two.",
+                "start_time": "1397.56",
+                "end_time": "1427.26"
+            },
+            {
+                "id": 69,
+                "transcript": "And we look at this B matrix here and we call this column, the column vector B one and the second column, the column vector B two. Then the matrix multiplication of it here is given by A one dot Predators B one for element 11, then A one B two for element 12.",
+                "start_time": "1427.689",
+                "end_time": "1455.209"
+            },
+            {
+                "id": 70,
+                "transcript": "And then uh the dot product between the A two row vector and the B one column vector for element to one and A two",
+                "start_time": "1455.349",
+                "end_time": "1465.849"
+            },
+            {
+                "id": 71,
+                "transcript": "uh dot products B two for element 22. So this is like a very simple way of remembering how a matrix multiplication works. So this was a little bit like weirder than all the other um operations that we've seen so far. But as you'll see, this is very, very important because we can use all of this notation to",
+                "start_time": "1466.189",
+                "end_time": "1494.4"
+            },
+            {
+                "id": 72,
+                "transcript": "easily capture how a neuron network performs its computations. And that's what we're gonna see in the next video. So we're gonna look at neuron networks and specifically at multi layer perceptions and see how they compute the information when the signal moves from left to right.",
+                "start_time": "1494.68",
+                "end_time": "1521.4"
+            },
+            {
+                "id": 73,
+                "transcript": "So this was it for this very quick, I would say like very quick introduction to linear algebra. I hope you enjoyed this. And if you like the video, please subscribe. If you have any questions, just leave a comment in the comment section below. And if you like the video again, just like like it. So I hope I'll see you next time. So, bye for now.",
+                "start_time": "1521.599",
+                "end_time": "1550.14"
+            }
+        ]
+    }
+}

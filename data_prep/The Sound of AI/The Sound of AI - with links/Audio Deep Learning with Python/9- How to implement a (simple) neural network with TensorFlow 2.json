@@ -1,0 +1,776 @@
+[
+    {
+        "id": "c8cb131c",
+        "text": "Hi, everybody and welcome to a new video in the Deep learning for Rodeo with Python Series. This time, we're gonna build a neural network using tensorflow um tensorflow. Is this amazing deep learning library that's like used very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "d6f6ef2a",
+        "text": "very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right?",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=14s",
+        "start_time": "14.939"
+    },
+    {
+        "id": "68d57354",
+        "text": "a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right? And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=30s",
+        "start_time": "30.395"
+    },
+    {
+        "id": "2630d919",
+        "text": "and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right? And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=53s",
+        "start_time": "53.369"
+    },
+    {
+        "id": "9b9d952b",
+        "text": "And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=69s",
+        "start_time": "69.879"
+    },
+    {
+        "id": "1720af79",
+        "text": "uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So basically, like our array is going to look something like this",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=98s",
+        "start_time": "98.69"
+    },
+    {
+        "id": "6c090425",
+        "text": "values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So basically, like our array is going to look something like this and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right?",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=121s",
+        "start_time": "121.55"
+    },
+    {
+        "id": "d576a24d",
+        "text": "basically, like our array is going to look something like this and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right? So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=133s",
+        "start_time": "133.759"
+    },
+    {
+        "id": "c2c32472",
+        "text": "and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right? So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP. And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=139s",
+        "start_time": "139.27"
+    },
+    {
+        "id": "58b8bfaa",
+        "text": "So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP. And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool. OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=157s",
+        "start_time": "157.41"
+    },
+    {
+        "id": "ba88af05",
+        "text": "And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool. OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning, uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=181s",
+        "start_time": "181.77"
+    },
+    {
+        "id": "a12e781f",
+        "text": "OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning, uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=200s",
+        "start_time": "200.649"
+    },
+    {
+        "id": "e620b7cc",
+        "text": "uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=219s",
+        "start_time": "219.089"
+    },
+    {
+        "id": "539bf660",
+        "text": "uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning. So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=243s",
+        "start_time": "243.19"
+    },
+    {
+        "id": "9c1ec136",
+        "text": "data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning. So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less. Good. So here what we want to do is to have an X train,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=267s",
+        "start_time": "267.29"
+    },
+    {
+        "id": "bdbccafc",
+        "text": "So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less. Good. So here what we want to do is to have an X train, an X tests, a wide train",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=291s",
+        "start_time": "291.589"
+    },
+    {
+        "id": "196b206e",
+        "text": "Good. So here what we want to do is to have an X train, an X tests, a wide train and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=315s",
+        "start_time": "315.049"
+    },
+    {
+        "id": "62429f12",
+        "text": "an X tests, a wide train and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=324s",
+        "start_time": "324.809"
+    },
+    {
+        "id": "dad72c73",
+        "text": "and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=330s",
+        "start_time": "330.179"
+    },
+    {
+        "id": "be5a460b",
+        "text": "and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um data set",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=346s",
+        "start_time": "346.109"
+    },
+    {
+        "id": "7d2dce93",
+        "text": "XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um data set and I'll pass in a couple of arguments. So one being number of samples and the other one being test size.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=375s",
+        "start_time": "375.54"
+    },
+    {
+        "id": "63d755c7",
+        "text": "data set and I'll pass in a couple of arguments. So one being number of samples and the other one being test size. So",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=393s",
+        "start_time": "393.26"
+    },
+    {
+        "id": "c971c44b",
+        "text": "and I'll pass in a couple of arguments. So one being number of samples and the other one being test size. So here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=395s",
+        "start_time": "395.459"
+    },
+    {
+        "id": "ca60dc0f",
+        "text": "So here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working. And so we'll just do a if name is equal to main",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=408s",
+        "start_time": "408.279"
+    },
+    {
+        "id": "6a846bc8",
+        "text": "here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working. And so we'll just do a if name is equal to main and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=410s",
+        "start_time": "410.7"
+    },
+    {
+        "id": "59a2ea10",
+        "text": "And so we'll just do a if name is equal to main and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=439s",
+        "start_time": "439.989"
+    },
+    {
+        "id": "6175e879",
+        "text": "and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set, this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=449s",
+        "start_time": "449.69"
+    },
+    {
+        "id": "fea29695",
+        "text": "uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set, this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool. Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=476s",
+        "start_time": "476.559"
+    },
+    {
+        "id": "bfffdcc7",
+        "text": "this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool. Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the arithmetic sum of these two guys here. So yeah, this is working great.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=488s",
+        "start_time": "488.89"
+    },
+    {
+        "id": "b1ae9e25",
+        "text": "Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the arithmetic sum of these two guys here. So yeah, this is working great. OK. So yeah, and we want to comment out like this guys here. And now we are",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=512s",
+        "start_time": "512.59"
+    },
+    {
+        "id": "b8836d80",
+        "text": "arithmetic sum of these two guys here. So yeah, this is working great. OK. So yeah, and we want to comment out like this guys here. And now we are at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=540s",
+        "start_time": "540.76"
+    },
+    {
+        "id": "305a6758",
+        "text": "OK. So yeah, and we want to comment out like this guys here. And now we are at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=547s",
+        "start_time": "547.03"
+    },
+    {
+        "id": "bdd0e413",
+        "text": "at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=556s",
+        "start_time": "556.59"
+    },
+    {
+        "id": "4b911139",
+        "text": "uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good. OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=573s",
+        "start_time": "573.34"
+    },
+    {
+        "id": "6ae43e41",
+        "text": "uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good. OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential, right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=603s",
+        "start_time": "603.58"
+    },
+    {
+        "id": "f0c3e64e",
+        "text": "OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential, right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code. And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=619s",
+        "start_time": "619.359"
+    },
+    {
+        "id": "f3cc61b0",
+        "text": "right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code. And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video, um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=636s",
+        "start_time": "636.419"
+    },
+    {
+        "id": "b8efedea",
+        "text": "And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video, um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers. And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=656s",
+        "start_time": "656.679"
+    },
+    {
+        "id": "e3f54dfc",
+        "text": "um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers. And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=685s",
+        "start_time": "685.38"
+    },
+    {
+        "id": "daf79251",
+        "text": "And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case. And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=714s",
+        "start_time": "714.44"
+    },
+    {
+        "id": "ea36ba2b",
+        "text": "uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case. And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one, a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=730s",
+        "start_time": "730.45"
+    },
+    {
+        "id": "84c7214e",
+        "text": "And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one, a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=754s",
+        "start_time": "754.309"
+    },
+    {
+        "id": "9d206003",
+        "text": "a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=776s",
+        "start_time": "776.2"
+    },
+    {
+        "id": "c6fff303",
+        "text": "cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=791s",
+        "start_time": "791.919"
+    },
+    {
+        "id": "c2751bad",
+        "text": "for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=817s",
+        "start_time": "817.349"
+    },
+    {
+        "id": "350569e1",
+        "text": "uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good. So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=846s",
+        "start_time": "846.89"
+    },
+    {
+        "id": "c937e932",
+        "text": "cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good. So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot fit",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=857s",
+        "start_time": "857.7"
+    },
+    {
+        "id": "97562807",
+        "text": "So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot fit and here obviously, we want to pass in the, the training set and so we'll pass in",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=882s",
+        "start_time": "882.0"
+    },
+    {
+        "id": "3e4ba6fe",
+        "text": "fit and here obviously, we want to pass in the, the training set and so we'll pass in so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=899s",
+        "start_time": "899.5"
+    },
+    {
+        "id": "46f660fc",
+        "text": "and here obviously, we want to pass in the, the training set and so we'll pass in so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split. Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=901s",
+        "start_time": "901.2"
+    },
+    {
+        "id": "d4c82117",
+        "text": "so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split. Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=908s",
+        "start_time": "908.32"
+    },
+    {
+        "id": "4a5f58fa",
+        "text": "Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=921s",
+        "start_time": "921.75"
+    },
+    {
+        "id": "d46b9212",
+        "text": "for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes. Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=951s",
+        "start_time": "951.369"
+    },
+    {
+        "id": "7c5eb0b5",
+        "text": "like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes. Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now. Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=960s",
+        "start_time": "960.21"
+    },
+    {
+        "id": "0aed0c68",
+        "text": "Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now. Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah, cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=973s",
+        "start_time": "973.369"
+    },
+    {
+        "id": "6b2d7fd3",
+        "text": "Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah, cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function. Uh um well, the loss, the error. And as you can see starting from here, it's",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=984s",
+        "start_time": "984.71"
+    },
+    {
+        "id": "adb2c14b",
+        "text": "cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function. Uh um well, the loss, the error. And as you can see starting from here, it's going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=993s",
+        "start_time": "993.809"
+    },
+    {
+        "id": "01de7b1e",
+        "text": "Uh um well, the loss, the error. And as you can see starting from here, it's going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation. And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1023s",
+        "start_time": "1023.909"
+    },
+    {
+        "id": "7a8524c5",
+        "text": "going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation. And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well, this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1032s",
+        "start_time": "1032.3"
+    },
+    {
+        "id": "e6044a1b",
+        "text": "And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well, this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one. Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1058s",
+        "start_time": "1058.15"
+    },
+    {
+        "id": "b24b6762",
+        "text": "this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one. Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here. Good,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1082s",
+        "start_time": "1082.829"
+    },
+    {
+        "id": "8bd4e0a0",
+        "text": "Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here. Good, cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1113s",
+        "start_time": "1113.069"
+    },
+    {
+        "id": "88d882f9",
+        "text": "Good, cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK. Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1134s",
+        "start_time": "1134.26"
+    },
+    {
+        "id": "ecb392bb",
+        "text": "cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK. Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1136s",
+        "start_time": "1136.5"
+    },
+    {
+        "id": "7d82f3cf",
+        "text": "Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example, and we'll do an NP dot array and we'll pass in like this to",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1164s",
+        "start_time": "1164.5"
+    },
+    {
+        "id": "701d748e",
+        "text": "uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example, and we'll do an NP dot array and we'll pass in like this to uh like samples here. And we would expect obviously no 0.3 and no 0.4.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1187s",
+        "start_time": "1187.079"
+    },
+    {
+        "id": "523377dc",
+        "text": "and we'll do an NP dot array and we'll pass in like this to uh like samples here. And we would expect obviously no 0.3 and no 0.4. And so, uh let's uh",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1217s",
+        "start_time": "1217.069"
+    },
+    {
+        "id": "22c738c0",
+        "text": "uh like samples here. And we would expect obviously no 0.3 and no 0.4. And so, uh let's uh make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting?",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1224s",
+        "start_time": "1224.92"
+    },
+    {
+        "id": "247ca133",
+        "text": "And so, uh let's uh make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting? Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts,",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1232s",
+        "start_time": "1232.089"
+    },
+    {
+        "id": "0e2756cd",
+        "text": "make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting? Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts, which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1236s",
+        "start_time": "1236.01"
+    },
+    {
+        "id": "55a3459b",
+        "text": "Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts, which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1246s",
+        "start_time": "1246.89"
+    },
+    {
+        "id": "c4ef9b48",
+        "text": "which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP and we'll pass in uh data and we'll pass in predictions. And here",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1255s",
+        "start_time": "1255.65"
+    },
+    {
+        "id": "a01b8d9e",
+        "text": "we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP and we'll pass in uh data and we'll pass in predictions. And here um for each of this, what we wanna do is to print.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1278s",
+        "start_time": "1278.29"
+    },
+    {
+        "id": "5d9379f2",
+        "text": "and we'll pass in uh data and we'll pass in predictions. And here um for each of this, what we wanna do is to print. So we want to print",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1291s",
+        "start_time": "1291.089"
+    },
+    {
+        "id": "d8a4002f",
+        "text": "um for each of this, what we wanna do is to print. So we want to print that this plus this is equal for our network to like this element here. And so now we want to",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1298s",
+        "start_time": "1298.099"
+    },
+    {
+        "id": "3d9c7e1a",
+        "text": "So we want to print that this plus this is equal for our network to like this element here. And so now we want to just pass this uh values in. So we'll do",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1306s",
+        "start_time": "1306.089"
+    },
+    {
+        "id": "fd19a172",
+        "text": "that this plus this is equal for our network to like this element here. And so now we want to just pass this uh values in. So we'll do D zero, so D",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1308s",
+        "start_time": "1308.92"
+    },
+    {
+        "id": "b6ee0ada",
+        "text": "just pass this uh values in. So we'll do D zero, so D zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1318s",
+        "start_time": "1318.28"
+    },
+    {
+        "id": "dddfeb03",
+        "text": "D zero, so D zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results cool.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1323s",
+        "start_time": "1323.02"
+    },
+    {
+        "id": "f797c11b",
+        "text": "zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results cool. So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1326s",
+        "start_time": "1326.099"
+    },
+    {
+        "id": "a878aae5",
+        "text": "cool. So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool. So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1343s",
+        "start_time": "1343.699"
+    },
+    {
+        "id": "4b201fdc",
+        "text": "So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool. So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2. It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1345s",
+        "start_time": "1345.65"
+    },
+    {
+        "id": "ef952d22",
+        "text": "So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2. It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there. But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1360s",
+        "start_time": "1360.13"
+    },
+    {
+        "id": "b2f7237b",
+        "text": "It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there. But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1377s",
+        "start_time": "1377.694"
+    },
+    {
+        "id": "19747994",
+        "text": "But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1395s",
+        "start_time": "1395.489"
+    },
+    {
+        "id": "7862c884",
+        "text": "like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos. And uh you it would be fantastic if you could leave a like to this video and I guess if you have any questions, you can just uh leave them in the comments section below and I'll see you next time. Cheers.",
+        "video": "9- How to implement a (simple) neural network with TensorFlow 2",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "JdXxaZcQer8",
+        "youtube_link": "https://www.youtube.com/watch?v=JdXxaZcQer8&t=1411s",
+        "start_time": "1411.989"
+    }
+]

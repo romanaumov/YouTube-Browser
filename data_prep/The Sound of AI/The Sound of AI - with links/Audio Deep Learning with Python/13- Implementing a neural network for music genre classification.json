@@ -1,0 +1,857 @@
+[
+    {
+        "id": "7c5815ac",
+        "text": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time we're gonna build a music genre classifier using a multi-layered perception network. Cool. So music genre classification is a type of problem that's called a classification problem, right? So what's a classification problem? Well, classification problem is I have uh a bunch of data and I want to classify that. So I have for example, like a bunch of uh tracks and I want to classify them into like rock music, uh blues music or like classical music, specifically what we're doing today is called multi class classification. So we have a bunch of tracks and those vinyls would uh want to like represent those tracks and then we want to classify them into a bunch of different genres, right? So it could be classical, it could be death metal could be EDM and whatever, right? But it's more than two and multi class classification is opposed to binary classification where we just have two categories out there. So for example, it could be uh tell me",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=0s",
+        "start_time": "0.319"
+    },
+    {
+        "id": "60fc4c98",
+        "text": "So what's a classification problem? Well, classification problem is I have uh a bunch of data and I want to classify that. So I have for example, like a bunch of uh tracks and I want to classify them into like rock music, uh blues music or like classical music, specifically what we're doing today is called multi class classification. So we have a bunch of tracks and those vinyls would uh want to like represent those tracks and then we want to classify them into a bunch of different genres, right? So it could be classical, it could be death metal could be EDM and whatever, right? But it's more than two and multi class classification is opposed to binary classification where we just have two categories out there. So for example, it could be uh tell me uh whether like this track is classical or is not classical, right? Cool. OK. So with this in mind. Uh Let's get started like building like the classifier.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=20s",
+        "start_time": "20.059"
+    },
+    {
+        "id": "49ba729e",
+        "text": "So we have a bunch of tracks and those vinyls would uh want to like represent those tracks and then we want to classify them into a bunch of different genres, right? So it could be classical, it could be death metal could be EDM and whatever, right? But it's more than two and multi class classification is opposed to binary classification where we just have two categories out there. So for example, it could be uh tell me uh whether like this track is classical or is not classical, right? Cool. OK. So with this in mind. Uh Let's get started like building like the classifier. And uh obviously, we are going to build uh like on top of the work that we've done in the previous video where we actually created a data set out of like the marsh. Uh So data set which is divided into a bunch of different genres, 10 genres to be specific. And there, what we did was building a JSON file So we can see it here",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=42s",
+        "start_time": "42.049"
+    },
+    {
+        "id": "89baab72",
+        "text": "uh whether like this track is classical or is not classical, right? Cool. OK. So with this in mind. Uh Let's get started like building like the classifier. And uh obviously, we are going to build uh like on top of the work that we've done in the previous video where we actually created a data set out of like the marsh. Uh So data set which is divided into a bunch of different genres, 10 genres to be specific. And there, what we did was building a JSON file So we can see it here uh where uh we just extracted uh like all the different uh genres and map them. Uh We extracted the labels and then we also extracted the MFCC. So we have like both the inputs and outputs. So the inputs and the labels are targets for our network. So what we want to do as a first step here in our um uh genre classifier is load",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=70s",
+        "start_time": "70.029"
+    },
+    {
+        "id": "f1f56439",
+        "text": "And uh obviously, we are going to build uh like on top of the work that we've done in the previous video where we actually created a data set out of like the marsh. Uh So data set which is divided into a bunch of different genres, 10 genres to be specific. And there, what we did was building a JSON file So we can see it here uh where uh we just extracted uh like all the different uh genres and map them. Uh We extracted the labels and then we also extracted the MFCC. So we have like both the inputs and outputs. So the inputs and the labels are targets for our network. So what we want to do as a first step here in our um uh genre classifier is load the data set, load data. Then once we've done that, we want to uh split the data into uh training train and uh test sets,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=81s",
+        "start_time": "81.72"
+    },
+    {
+        "id": "488bc426",
+        "text": "uh where uh we just extracted uh like all the different uh genres and map them. Uh We extracted the labels and then we also extracted the MFCC. So we have like both the inputs and outputs. So the inputs and the labels are targets for our network. So what we want to do as a first step here in our um uh genre classifier is load the data set, load data. Then once we've done that, we want to uh split the data into uh training train and uh test sets, then using tensorflow and carrots specifically, we're gonna build the network",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=105s",
+        "start_time": "105.699"
+    },
+    {
+        "id": "0d05a93d",
+        "text": "the data set, load data. Then once we've done that, we want to uh split the data into uh training train and uh test sets, then using tensorflow and carrots specifically, we're gonna build the network architecture,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=134s",
+        "start_time": "134.44"
+    },
+    {
+        "id": "e3c1e648",
+        "text": "then using tensorflow and carrots specifically, we're gonna build the network architecture, then we want to compile a network and finally, we want to train the network, right. OK. So let's get started from the first phase which is loading data. And so we're doing that, we'll",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=150s",
+        "start_time": "150.559"
+    },
+    {
+        "id": "dd9e7b9c",
+        "text": "architecture, then we want to compile a network and finally, we want to train the network, right. OK. So let's get started from the first phase which is loading data. And so we're doing that, we'll uh create a function which we call not surprisingly load data. And this function uh accepts one argument and the argument is the uh data set uh path,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=158s",
+        "start_time": "158.99"
+    },
+    {
+        "id": "08fa30b6",
+        "text": "then we want to compile a network and finally, we want to train the network, right. OK. So let's get started from the first phase which is loading data. And so we're doing that, we'll uh create a function which we call not surprisingly load data. And this function uh accepts one argument and the argument is the uh data set uh path, right. OK. So we have the data set path here. Uh And uh now what we want to do is like load uh like this data. And we know that uh like this data is stored in adjacent file. And so as the first thing we want to uh open",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=161s",
+        "start_time": "161.96"
+    },
+    {
+        "id": "7c9bad2f",
+        "text": "uh create a function which we call not surprisingly load data. And this function uh accepts one argument and the argument is the uh data set uh path, right. OK. So we have the data set path here. Uh And uh now what we want to do is like load uh like this data. And we know that uh like this data is stored in adjacent file. And so as the first thing we want to uh open uh and read from this JSON file. And so we'll do a with open and uh we'll pass in the uh data set path and we'll open it uh as um oops here, I, I should say like the, the mode that we want to read this, uh We want to like open uh this file for and we'll put an R here which stands for read. So we're opening for reading and we'll do as a FP.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=177s",
+        "start_time": "177.729"
+    },
+    {
+        "id": "347bc8d7",
+        "text": "right. OK. So we have the data set path here. Uh And uh now what we want to do is like load uh like this data. And we know that uh like this data is stored in adjacent file. And so as the first thing we want to uh open uh and read from this JSON file. And so we'll do a with open and uh we'll pass in the uh data set path and we'll open it uh as um oops here, I, I should say like the, the mode that we want to read this, uh We want to like open uh this file for and we'll put an R here which stands for read. So we're opening for reading and we'll do as a FP. And then down here, we'll do a data, it's equal to Jason dot A load and uh we'll pass in FP. Now, Jason uh obviously like is a uh Python uh module. So we have to import it. And so we'll do an import Jason.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=194s",
+        "start_time": "194.58"
+    },
+    {
+        "id": "83a02033",
+        "text": "uh and read from this JSON file. And so we'll do a with open and uh we'll pass in the uh data set path and we'll open it uh as um oops here, I, I should say like the, the mode that we want to read this, uh We want to like open uh this file for and we'll put an R here which stands for read. So we're opening for reading and we'll do as a FP. And then down here, we'll do a data, it's equal to Jason dot A load and uh we'll pass in FP. Now, Jason uh obviously like is a uh Python uh module. So we have to import it. And so we'll do an import Jason. And here in this data, we're, we're basically loading all of this huge uh dictionary here with mapping labels and MFCC Cool. OK. So once we have that, we want to do uh another thing. So we want to convert a nun pi arrays into, oh sorry,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=213s",
+        "start_time": "213.649"
+    },
+    {
+        "id": "21427350",
+        "text": "And then down here, we'll do a data, it's equal to Jason dot A load and uh we'll pass in FP. Now, Jason uh obviously like is a uh Python uh module. So we have to import it. And so we'll do an import Jason. And here in this data, we're, we're basically loading all of this huge uh dictionary here with mapping labels and MFCC Cool. OK. So once we have that, we want to do uh another thing. So we want to convert a nun pi arrays into, oh sorry, it's actually the opposite. So convert lists into",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=242s",
+        "start_time": "242.809"
+    },
+    {
+        "id": "acd552e2",
+        "text": "And here in this data, we're, we're basically loading all of this huge uh dictionary here with mapping labels and MFCC Cool. OK. So once we have that, we want to do uh another thing. So we want to convert a nun pi arrays into, oh sorry, it's actually the opposite. So convert lists into uh NP arrays. So, and that's because both the uh the labels like, for example, here and the MF CCS uh these guys here are stored and will be retrieved as lists. And so we want to convert them into NPI arrays. And so, first of all, let's import uh NP as NP.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=263s",
+        "start_time": "263.799"
+    },
+    {
+        "id": "1518c0e6",
+        "text": "it's actually the opposite. So convert lists into uh NP arrays. So, and that's because both the uh the labels like, for example, here and the MF CCS uh these guys here are stored and will be retrieved as lists. And so we want to convert them into NPI arrays. And so, first of all, let's import uh NP as NP. And then what we want to do here is say, OK, so here I want the inputs, right? And so, and the inputs are equal to NP dot uh array. And we want to pass in the, um here we want to pass in the, the MFCC. And so we'll do data",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=290s",
+        "start_time": "290.049"
+    },
+    {
+        "id": "ea8c6f04",
+        "text": "uh NP arrays. So, and that's because both the uh the labels like, for example, here and the MF CCS uh these guys here are stored and will be retrieved as lists. And so we want to convert them into NPI arrays. And so, first of all, let's import uh NP as NP. And then what we want to do here is say, OK, so here I want the inputs, right? And so, and the inputs are equal to NP dot uh array. And we want to pass in the, um here we want to pass in the, the MFCC. And so we'll do data and here we have this MFCC",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=294s",
+        "start_time": "294.779"
+    },
+    {
+        "id": "7b78fd74",
+        "text": "And then what we want to do here is say, OK, so here I want the inputs, right? And so, and the inputs are equal to NP dot uh array. And we want to pass in the, um here we want to pass in the, the MFCC. And so we'll do data and here we have this MFCC and uh then we can do a similar thing for the targets or like the expected outcomes. But instead of the MFCC here, we'll have the uh labels, right? OK. And so what we want to do in the end is just passing the inputs and the targets out. And so this is all we need to load data.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=318s",
+        "start_time": "318.529"
+    },
+    {
+        "id": "c123f247",
+        "text": "and here we have this MFCC and uh then we can do a similar thing for the targets or like the expected outcomes. But instead of the MFCC here, we'll have the uh labels, right? OK. And so what we want to do in the end is just passing the inputs and the targets out. And so this is all we need to load data. Well, so let's try this. So let's uh create if a name is equal to main.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=340s",
+        "start_time": "340.32"
+    },
+    {
+        "id": "b358057d",
+        "text": "and uh then we can do a similar thing for the targets or like the expected outcomes. But instead of the MFCC here, we'll have the uh labels, right? OK. And so what we want to do in the end is just passing the inputs and the targets out. And so this is all we need to load data. Well, so let's try this. So let's uh create if a name is equal to main. And then what we want to do here is just like get the inputs and the targets and we'll get them by loading data. Now, we actually need the data set path. And so I'm gonna uh oops, not that I'm gonna create a uh constant over here. And I'll call",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=344s",
+        "start_time": "344.07"
+    },
+    {
+        "id": "bfc7588d",
+        "text": "Well, so let's try this. So let's uh create if a name is equal to main. And then what we want to do here is just like get the inputs and the targets and we'll get them by loading data. Now, we actually need the data set path. And so I'm gonna uh oops, not that I'm gonna create a uh constant over here. And I'll call uh the, this guy here, right? So this is the path to the data set, right? So now as you notice, uh you can notice here. So I saved this um data set, this Jason file as data underscore 10 dot Jason. So uh if you remember, so the Marci data set has 1000 32nd exerts of like songs divided into",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=367s",
+        "start_time": "367.97"
+    },
+    {
+        "id": "7b78fd74",
+        "text": "And then what we want to do here is just like get the inputs and the targets and we'll get them by loading data. Now, we actually need the data set path. And so I'm gonna uh oops, not that I'm gonna create a uh constant over here. And I'll call uh the, this guy here, right? So this is the path to the data set, right? So now as you notice, uh you can notice here. So I saved this um data set, this Jason file as data underscore 10 dot Jason. So uh if you remember, so the Marci data set has 1000 32nd exerts of like songs divided into 10 genres. Now, uh We said that that last time we mentioned that that is not really like that much like for training a deep learning system. So what it did was like segmenting those into uh like 10 different segments. And so this is why I have this data 10. So all of a sudden now we have 10,000 like the data that has 10,000 like tracks and each track uh should be like three second long, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=378s",
+        "start_time": "378.089"
+    },
+    {
+        "id": "482690d2",
+        "text": "uh the, this guy here, right? So this is the path to the data set, right? So now as you notice, uh you can notice here. So I saved this um data set, this Jason file as data underscore 10 dot Jason. So uh if you remember, so the Marci data set has 1000 32nd exerts of like songs divided into 10 genres. Now, uh We said that that last time we mentioned that that is not really like that much like for training a deep learning system. So what it did was like segmenting those into uh like 10 different segments. And so this is why I have this data 10. So all of a sudden now we have 10,000 like the data that has 10,000 like tracks and each track uh should be like three second long, right? OK. So now we have our data set path and we need to pass it in here.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=401s",
+        "start_time": "401.16"
+    },
+    {
+        "id": "d3f9a755",
+        "text": "10 genres. Now, uh We said that that last time we mentioned that that is not really like that much like for training a deep learning system. So what it did was like segmenting those into uh like 10 different segments. And so this is why I have this data 10. So all of a sudden now we have 10,000 like the data that has 10,000 like tracks and each track uh should be like three second long, right? OK. So now we have our data set path and we need to pass it in here. Cool. OK. So yeah, let me just do this. So that makes more sense. OK. So uh this way we should be able to uh get the inputs and the targets. And these are like NP uh arrays right. Now, the next step that we want to perform instead of like splitting our data into train set and uh test set. And that's because we don't want to",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=429s",
+        "start_time": "429.625"
+    },
+    {
+        "id": "fb3cdcc8",
+        "text": "OK. So now we have our data set path and we need to pass it in here. Cool. OK. So yeah, let me just do this. So that makes more sense. OK. So uh this way we should be able to uh get the inputs and the targets. And these are like NP uh arrays right. Now, the next step that we want to perform instead of like splitting our data into train set and uh test set. And that's because we don't want to um evaluate our classifier on the training data because uh otherwise it would be basically like cheating. So we want to evaluate on some data that the classifier has never seen before. So for doing that, uh we should uh import um a function from psychic learn. And this function is in the model selection uh module.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=458s",
+        "start_time": "458.85"
+    },
+    {
+        "id": "e094f818",
+        "text": "Cool. OK. So yeah, let me just do this. So that makes more sense. OK. So uh this way we should be able to uh get the inputs and the targets. And these are like NP uh arrays right. Now, the next step that we want to perform instead of like splitting our data into train set and uh test set. And that's because we don't want to um evaluate our classifier on the training data because uh otherwise it would be basically like cheating. So we want to evaluate on some data that the classifier has never seen before. So for doing that, uh we should uh import um a function from psychic learn. And this function is in the model selection uh module. And uh we should say",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=465s",
+        "start_time": "465.01"
+    },
+    {
+        "id": "48a5fca1",
+        "text": "um evaluate our classifier on the training data because uh otherwise it would be basically like cheating. So we want to evaluate on some data that the classifier has never seen before. So for doing that, uh we should uh import um a function from psychic learn. And this function is in the model selection uh module. And uh we should say uh whoop. Yeah, this should be from uh psych learn dot model selection imports. And uh this is train task split. This is like a very nice uh function we can use for this purpose. So here what we should do is say, inputs and we'll do a inputs, train,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=491s",
+        "start_time": "491.959"
+    },
+    {
+        "id": "356f3ceb",
+        "text": "And uh we should say uh whoop. Yeah, this should be from uh psych learn dot model selection imports. And uh this is train task split. This is like a very nice uh function we can use for this purpose. So here what we should do is say, inputs and we'll do a inputs, train, we'll do inputs uh test, then we'll do a targets, train and a targets uh test and then we'll use the train test split. And here we need to pass three arguments. So obviously, we need to pass in the uh inputs",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=519s",
+        "start_time": "519.65"
+    },
+    {
+        "id": "e83e45af",
+        "text": "uh whoop. Yeah, this should be from uh psych learn dot model selection imports. And uh this is train task split. This is like a very nice uh function we can use for this purpose. So here what we should do is say, inputs and we'll do a inputs, train, we'll do inputs uh test, then we'll do a targets, train and a targets uh test and then we'll use the train test split. And here we need to pass three arguments. So obviously, we need to pass in the uh inputs that we've arrived from the JSON file the targets. And finally, we want to specify the uh test site. Uh Well, this is probably a little bit less difficult to read. So I'll do it like this. So here uh in the test size, uh we could put uh no 0.3. So basically what I'm saying here is that 30% of uh this data is gonna be used for uh test set, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=523s",
+        "start_time": "523.549"
+    },
+    {
+        "id": "83e5965f",
+        "text": "we'll do inputs uh test, then we'll do a targets, train and a targets uh test and then we'll use the train test split. And here we need to pass three arguments. So obviously, we need to pass in the uh inputs that we've arrived from the JSON file the targets. And finally, we want to specify the uh test site. Uh Well, this is probably a little bit less difficult to read. So I'll do it like this. So here uh in the test size, uh we could put uh no 0.3. So basically what I'm saying here is that 30% of uh this data is gonna be used for uh test set, right? And the remaining 70% for the train set cool. OK. So now we have our own um",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=546s",
+        "start_time": "546.27"
+    },
+    {
+        "id": "a3f4523e",
+        "text": "that we've arrived from the JSON file the targets. And finally, we want to specify the uh test site. Uh Well, this is probably a little bit less difficult to read. So I'll do it like this. So here uh in the test size, uh we could put uh no 0.3. So basically what I'm saying here is that 30% of uh this data is gonna be used for uh test set, right? And the remaining 70% for the train set cool. OK. So now we have our own um uh our, our own train set and uh test set, right? And so the next step is that of building the network architecture for doing that. Obviously, we are gonna need a tensorflow and then specifically uh we want uh Kas. So we'll do an import tensorflow dot uh Kas is Kas.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=568s",
+        "start_time": "568.429"
+    },
+    {
+        "id": "9775d5f9",
+        "text": "And the remaining 70% for the train set cool. OK. So now we have our own um uh our, our own train set and uh test set, right? And so the next step is that of building the network architecture for doing that. Obviously, we are gonna need a tensorflow and then specifically uh we want uh Kas. So we'll do an import tensorflow dot uh Kas is Kas. So by now guys, you should be like familiar with this. Now, uh we should build the model and the model is going to be a sequential model. So we'll do a carers dot uh sequential. And here uh we should specify all the different layers that we want in the network, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=597s",
+        "start_time": "597.229"
+    },
+    {
+        "id": "79f3454e",
+        "text": "uh our, our own train set and uh test set, right? And so the next step is that of building the network architecture for doing that. Obviously, we are gonna need a tensorflow and then specifically uh we want uh Kas. So we'll do an import tensorflow dot uh Kas is Kas. So by now guys, you should be like familiar with this. Now, uh we should build the model and the model is going to be a sequential model. So we'll do a carers dot uh sequential. And here uh we should specify all the different layers that we want in the network, right? And I'm thinking of using a uh let's say like an input layer three hidden layers and an output layer. And given we are working with a simple multi-layered perception, I'm gonna be using all uh fully connected or dense layers. Now, if you do",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=605s",
+        "start_time": "605.95"
+    },
+    {
+        "id": "b8b542d8",
+        "text": "So by now guys, you should be like familiar with this. Now, uh we should build the model and the model is going to be a sequential model. So we'll do a carers dot uh sequential. And here uh we should specify all the different layers that we want in the network, right? And I'm thinking of using a uh let's say like an input layer three hidden layers and an output layer. And given we are working with a simple multi-layered perception, I'm gonna be using all uh fully connected or dense layers. Now, if you do remember what a multi layer perception is, don't worry, just go back here. You have like the description like of one of my videos, it should be like in uh the top side over here. So click there if you want to learn more about the theory about M LP S otherwise let's move on. So the first thing that we want to do is the input uh layer. So",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=633s",
+        "start_time": "633.78"
+    },
+    {
+        "id": "c7c1e9b1",
+        "text": "And I'm thinking of using a uh let's say like an input layer three hidden layers and an output layer. And given we are working with a simple multi-layered perception, I'm gonna be using all uh fully connected or dense layers. Now, if you do remember what a multi layer perception is, don't worry, just go back here. You have like the description like of one of my videos, it should be like in uh the top side over here. So click there if you want to learn more about the theory about M LP S otherwise let's move on. So the first thing that we want to do is the input uh layer. So now for the input layer, we want to uh u uh use a layer that's called uh like flatten. So what flatten uh does is basically takes a a multidimensional array and it flattens it out, right? So in this case, so we expect for uh the input shape uh to be of type uh inputs",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=657s",
+        "start_time": "657.75"
+    },
+    {
+        "id": "0efc707f",
+        "text": "remember what a multi layer perception is, don't worry, just go back here. You have like the description like of one of my videos, it should be like in uh the top side over here. So click there if you want to learn more about the theory about M LP S otherwise let's move on. So the first thing that we want to do is the input uh layer. So now for the input layer, we want to uh u uh use a layer that's called uh like flatten. So what flatten uh does is basically takes a a multidimensional array and it flattens it out, right? So in this case, so we expect for uh the input shape uh to be of type uh inputs dot uh shape. And here we'll pass in a one and then we'll do, yeah, same thing here, but then we'll pass in two,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=675s",
+        "start_time": "675.63"
+    },
+    {
+        "id": "6e1f9058",
+        "text": "now for the input layer, we want to uh u uh use a layer that's called uh like flatten. So what flatten uh does is basically takes a a multidimensional array and it flattens it out, right? So in this case, so we expect for uh the input shape uh to be of type uh inputs dot uh shape. And here we'll pass in a one and then we'll do, yeah, same thing here, but then we'll pass in two, right? So basically what I, what I'm saying here is that I want to flatten this two dimensional array which is uh like the uh the input that we have here. And why is it two dimensional? Well, because if you remember we have NF CCS here for each uh segment, for each track and for each track, we have many",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=701s",
+        "start_time": "701.059"
+    },
+    {
+        "id": "d1542ece",
+        "text": "dot uh shape. And here we'll pass in a one and then we'll do, yeah, same thing here, but then we'll pass in two, right? So basically what I, what I'm saying here is that I want to flatten this two dimensional array which is uh like the uh the input that we have here. And why is it two dimensional? Well, because if you remember we have NF CCS here for each uh segment, for each track and for each track, we have many MFCC vectors and each MFCC vector is taken at a specific interval. So and that is like the hop length again, if you don't remember like what MF CCS are or uh how we calculate them, I have a video about that. Go watch that out. Cool. But here like in this two dimensional um array. So we have like the, the, the,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=731s",
+        "start_time": "731.679"
+    },
+    {
+        "id": "c0df7dc8",
+        "text": "right? So basically what I, what I'm saying here is that I want to flatten this two dimensional array which is uh like the uh the input that we have here. And why is it two dimensional? Well, because if you remember we have NF CCS here for each uh segment, for each track and for each track, we have many MFCC vectors and each MFCC vector is taken at a specific interval. So and that is like the hop length again, if you don't remember like what MF CCS are or uh how we calculate them, I have a video about that. Go watch that out. Cool. But here like in this two dimensional um array. So we have like the, the, the, the, the, the first uh like dimension which is basically uh given by the uh intervals, right? And the second dimension is the values of the MF CCS uh like for that interval. And in this case, we have 13 MF CCS. That's like the number that I've decided to extract, but I could have done more 4030 whatever really doesn't matter",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=742s",
+        "start_time": "742.82"
+    },
+    {
+        "id": "b4bf04af",
+        "text": "MFCC vectors and each MFCC vector is taken at a specific interval. So and that is like the hop length again, if you don't remember like what MF CCS are or uh how we calculate them, I have a video about that. Go watch that out. Cool. But here like in this two dimensional um array. So we have like the, the, the, the, the, the first uh like dimension which is basically uh given by the uh intervals, right? And the second dimension is the values of the MF CCS uh like for that interval. And in this case, we have 13 MF CCS. That's like the number that I've decided to extract, but I could have done more 4030 whatever really doesn't matter right now. You may be wondering, but why are you uh passing in input dot shape one? Why aren't you starting from index zero? Well, because inputs, actually this guy here is a three dimensional array and index zero represents like the different segments. So this is the uh input layer. So now we should move on and uh work with the first work out the first hidden layer. And so",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=767s",
+        "start_time": "767.51"
+    },
+    {
+        "id": "372947e5",
+        "text": "the, the, the first uh like dimension which is basically uh given by the uh intervals, right? And the second dimension is the values of the MF CCS uh like for that interval. And in this case, we have 13 MF CCS. That's like the number that I've decided to extract, but I could have done more 4030 whatever really doesn't matter right now. You may be wondering, but why are you uh passing in input dot shape one? Why aren't you starting from index zero? Well, because inputs, actually this guy here is a three dimensional array and index zero represents like the different segments. So this is the uh input layer. So now we should move on and uh work with the first work out the first hidden layer. And so uh this is gonna be a simple uh dense uh layer. And here uh what we're gonna do is say uh how many neurons we want and we'll start with 512 neurons. And then we should",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=794s",
+        "start_time": "794.03"
+    },
+    {
+        "id": "7c6ddf9e",
+        "text": "right now. You may be wondering, but why are you uh passing in input dot shape one? Why aren't you starting from index zero? Well, because inputs, actually this guy here is a three dimensional array and index zero represents like the different segments. So this is the uh input layer. So now we should move on and uh work with the first work out the first hidden layer. And so uh this is gonna be a simple uh dense uh layer. And here uh what we're gonna do is say uh how many neurons we want and we'll start with 512 neurons. And then we should specify which type of activation we want. And now up until now, we've always used the Sigma function. But this time I want to introduce you a new type of activation function that's called relu. Now relu is very, very important and, and very, very effective in deep learning. So it warrants some theoretical background. So let's move on to the PDF over here to the slide presentation",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=818s",
+        "start_time": "818.21"
+    },
+    {
+        "id": "07d64ec3",
+        "text": "uh this is gonna be a simple uh dense uh layer. And here uh what we're gonna do is say uh how many neurons we want and we'll start with 512 neurons. And then we should specify which type of activation we want. And now up until now, we've always used the Sigma function. But this time I want to introduce you a new type of activation function that's called relu. Now relu is very, very important and, and very, very effective in deep learning. So it warrants some theoretical background. So let's move on to the PDF over here to the slide presentation uh right. So we have the binary classification. So here we have the rectified linear unit or R. So this is like this function. So, and as you can see it here, so R is a function of H and if you recall from our theoretical uh videos on um computation in neural network, H is the net input, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=847s",
+        "start_time": "847.059"
+    },
+    {
+        "id": "5a89a135",
+        "text": "specify which type of activation we want. And now up until now, we've always used the Sigma function. But this time I want to introduce you a new type of activation function that's called relu. Now relu is very, very important and, and very, very effective in deep learning. So it warrants some theoretical background. So let's move on to the PDF over here to the slide presentation uh right. So we have the binary classification. So here we have the rectified linear unit or R. So this is like this function. So, and as you can see it here, so R is a function of H and if you recall from our theoretical uh videos on um computation in neural network, H is the net input, right? And so if H uh is M uh is less than zero, then relu outputs zero. If H is a greater or equal, equal or greater than zero, then H uh basically uh is used as an output for REU. So relu it's E equal to H and so this is like the uh the plots that we have for R.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=864s",
+        "start_time": "864.94"
+    },
+    {
+        "id": "232b8ef0",
+        "text": "uh right. So we have the binary classification. So here we have the rectified linear unit or R. So this is like this function. So, and as you can see it here, so R is a function of H and if you recall from our theoretical uh videos on um computation in neural network, H is the net input, right? And so if H uh is M uh is less than zero, then relu outputs zero. If H is a greater or equal, equal or greater than zero, then H uh basically uh is used as an output for REU. So relu it's E equal to H and so this is like the uh the plots that we have for R. Now, you may be wondering, but why should we care about a rectified linear unit? Can't we just use the sigmoid function it's very nice like we, we are familiar with that. Why using relu, well, it turns out that relu is very, very effective for uh training.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=894s",
+        "start_time": "894.08"
+    },
+    {
+        "id": "6a580ddf",
+        "text": "And so if H uh is M uh is less than zero, then relu outputs zero. If H is a greater or equal, equal or greater than zero, then H uh basically uh is used as an output for REU. So relu it's E equal to H and so this is like the uh the plots that we have for R. Now, you may be wondering, but why should we care about a rectified linear unit? Can't we just use the sigmoid function it's very nice like we, we are familiar with that. Why using relu, well, it turns out that relu is very, very effective for uh training. So it uh when compared with uh the Sigma function, it enables us to train a network way faster. So it enables to have like better convergence of the network. And one of the reasons why this is the case, it's because R",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=919s",
+        "start_time": "919.26"
+    },
+    {
+        "id": "f3f9a083",
+        "text": "Now, you may be wondering, but why should we care about a rectified linear unit? Can't we just use the sigmoid function it's very nice like we, we are familiar with that. Why using relu, well, it turns out that relu is very, very effective for uh training. So it uh when compared with uh the Sigma function, it enables us to train a network way faster. So it enables to have like better convergence of the network. And one of the reasons why this is the case, it's because R uses the uh probability of having the so called vanishing gradient. Now, the vanishing gradient sounds like a scary thing. And indeed uh like it is for training purposes. But what is that? Well, so if you remember from our video on back propagation,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=944s",
+        "start_time": "944.369"
+    },
+    {
+        "id": "042dc5db",
+        "text": "So it uh when compared with uh the Sigma function, it enables us to train a network way faster. So it enables to have like better convergence of the network. And one of the reasons why this is the case, it's because R uses the uh probability of having the so called vanishing gradient. Now, the vanishing gradient sounds like a scary thing. And indeed uh like it is for training purposes. But what is that? Well, so if you remember from our video on back propagation, so what happens like uh when we train a network is that we uh basically back propagates the error from the upper layer towards like the input layer, right. And so, and that happens at each hidden layer going back from output to input.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=962s",
+        "start_time": "962.039"
+    },
+    {
+        "id": "de5ba716",
+        "text": "uses the uh probability of having the so called vanishing gradient. Now, the vanishing gradient sounds like a scary thing. And indeed uh like it is for training purposes. But what is that? Well, so if you remember from our video on back propagation, so what happens like uh when we train a network is that we uh basically back propagates the error from the upper layer towards like the input layer, right. And so, and that happens at each hidden layer going back from output to input. Now, every time we we have a new uh layer and we want to propagate the error to uh AAA layer towards like the left towards the beginning towards the inputs. Uh what happens is that we multiply uh uh like this value like by the",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=978s",
+        "start_time": "978.914"
+    },
+    {
+        "id": "b55b5e5a",
+        "text": "so what happens like uh when we train a network is that we uh basically back propagates the error from the upper layer towards like the input layer, right. And so, and that happens at each hidden layer going back from output to input. Now, every time we we have a new uh layer and we want to propagate the error to uh AAA layer towards like the left towards the beginning towards the inputs. Uh what happens is that we multiply uh uh like this value like by the uh derivative of the activation function. And what happens with the Sigma function is that the derivative of the sigmoid function at most can be no 0.25. Which basically means if you keep multiplying there like the values that you are getting like the errors that you are propagating are getting like",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1000s",
+        "start_time": "1000.289"
+    },
+    {
+        "id": "cb842408",
+        "text": "Now, every time we we have a new uh layer and we want to propagate the error to uh AAA layer towards like the left towards the beginning towards the inputs. Uh what happens is that we multiply uh uh like this value like by the uh derivative of the activation function. And what happens with the Sigma function is that the derivative of the sigmoid function at most can be no 0.25. Which basically means if you keep multiplying there like the values that you are getting like the errors that you are propagating are getting like smaller and smaller and smaller until they vanish. And so basically the gradient is vanishing. And if the gradient is like very, very small, then it's very difficult to train a network. Now with R we avoid all of these issues, which basically means we can have uh um architectures like network architectures that are super complex with many, many",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1017s",
+        "start_time": "1017.51"
+    },
+    {
+        "id": "c4d38c25",
+        "text": "uh derivative of the activation function. And what happens with the Sigma function is that the derivative of the sigmoid function at most can be no 0.25. Which basically means if you keep multiplying there like the values that you are getting like the errors that you are propagating are getting like smaller and smaller and smaller until they vanish. And so basically the gradient is vanishing. And if the gradient is like very, very small, then it's very difficult to train a network. Now with R we avoid all of these issues, which basically means we can have uh um architectures like network architectures that are super complex with many, many uh layers. But in the end, we're not going to have an issue of vanishing gradient. Whereas if we used a sigmoid function, we would have that issue, right? And so this is the beauty of rectified linear unit or R. So let's go back to the code now. Cool. OK. So this was just like the first hidden layer. So we said that we want other two hidden layers. And so what we'll do",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1036s",
+        "start_time": "1036.77"
+    },
+    {
+        "id": "f2ca13ae",
+        "text": "smaller and smaller and smaller until they vanish. And so basically the gradient is vanishing. And if the gradient is like very, very small, then it's very difficult to train a network. Now with R we avoid all of these issues, which basically means we can have uh um architectures like network architectures that are super complex with many, many uh layers. But in the end, we're not going to have an issue of vanishing gradient. Whereas if we used a sigmoid function, we would have that issue, right? And so this is the beauty of rectified linear unit or R. So let's go back to the code now. Cool. OK. So this was just like the first hidden layer. So we said that we want other two hidden layers. And so what we'll do uh is just like copy these guys a couple of times. But now you can see that I made a mistake that I make like all the times no matter how much time I spend with this stuff. So I sometimes forget like to add comments, right? OK. So here we have the second hidden layer and here we have the third hidden layer. Now",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1057s",
+        "start_time": "1057.319"
+    },
+    {
+        "id": "5778f195",
+        "text": "uh layers. But in the end, we're not going to have an issue of vanishing gradient. Whereas if we used a sigmoid function, we would have that issue, right? And so this is the beauty of rectified linear unit or R. So let's go back to the code now. Cool. OK. So this was just like the first hidden layer. So we said that we want other two hidden layers. And so what we'll do uh is just like copy these guys a couple of times. But now you can see that I made a mistake that I make like all the times no matter how much time I spend with this stuff. So I sometimes forget like to add comments, right? OK. So here we have the second hidden layer and here we have the third hidden layer. Now uh here, let's say that we want 256 neurons. And here let's say we want 64 neurons, right? So now the last thing that remains to do to build this network is to create the output layer",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1084s",
+        "start_time": "1084.119"
+    },
+    {
+        "id": "e2eb8ca2",
+        "text": "uh is just like copy these guys a couple of times. But now you can see that I made a mistake that I make like all the times no matter how much time I spend with this stuff. So I sometimes forget like to add comments, right? OK. So here we have the second hidden layer and here we have the third hidden layer. Now uh here, let's say that we want 256 neurons. And here let's say we want 64 neurons, right? So now the last thing that remains to do to build this network is to create the output layer and So again, uh this is uh another uh dense layer but here uh we are gonna use 10 neurons. And why are we using 10 neurons? Well, because we have 10 categories which are like the 10 genres that we want to uh split, like our uh predict our data set into. And it's these guys here. So if we go to the uh data uh JSON file,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1111s",
+        "start_time": "1111.65"
+    },
+    {
+        "id": "9471899a",
+        "text": "uh here, let's say that we want 256 neurons. And here let's say we want 64 neurons, right? So now the last thing that remains to do to build this network is to create the output layer and So again, uh this is uh another uh dense layer but here uh we are gonna use 10 neurons. And why are we using 10 neurons? Well, because we have 10 categories which are like the 10 genres that we want to uh split, like our uh predict our data set into. And it's these guys here. So if we go to the uh data uh JSON file, so it's these guys here. So, disco, reggae, rock, pop, blues country and so on and so forth. Cool. So we have like this 10 neurons and then we use uh as the activation, we use a soft max",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1136s",
+        "start_time": "1136.099"
+    },
+    {
+        "id": "07517c75",
+        "text": "and So again, uh this is uh another uh dense layer but here uh we are gonna use 10 neurons. And why are we using 10 neurons? Well, because we have 10 categories which are like the 10 genres that we want to uh split, like our uh predict our data set into. And it's these guys here. So if we go to the uh data uh JSON file, so it's these guys here. So, disco, reggae, rock, pop, blues country and so on and so forth. Cool. So we have like this 10 neurons and then we use uh as the activation, we use a soft max again, I forgot to put in the come over there, right? OK. So, so what's soft max? Well, soft max, it's a um an activation function that basically",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1152s",
+        "start_time": "1152.219"
+    },
+    {
+        "id": "470b7a2e",
+        "text": "so it's these guys here. So, disco, reggae, rock, pop, blues country and so on and so forth. Cool. So we have like this 10 neurons and then we use uh as the activation, we use a soft max again, I forgot to put in the come over there, right? OK. So, so what's soft max? Well, soft max, it's a um an activation function that basically enables us to have. So if you sum the values associated to all the 10 neurons here, all the the output neurons you're gonna get one, it basically normalizes like the output for us. And then when we do predictions, so we predict. So we, we pick the neuron that has the highest value and that represents the category like we are predicting.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1180s",
+        "start_time": "1180.699"
+    },
+    {
+        "id": "14926332",
+        "text": "again, I forgot to put in the come over there, right? OK. So, so what's soft max? Well, soft max, it's a um an activation function that basically enables us to have. So if you sum the values associated to all the 10 neurons here, all the the output neurons you're gonna get one, it basically normalizes like the output for us. And then when we do predictions, so we predict. So we, we pick the neuron that has the highest value and that represents the category like we are predicting. Cool. So uh with this, we built our network architecture. So now we need to move on to the next phase which is uh compiling uh the network. So if you guys remember the first thing that we want to do here is to uh decide which optimizer we want to use, right? And here uh we are gonna use Adam.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1197s",
+        "start_time": "1197.709"
+    },
+    {
+        "id": "0529d192",
+        "text": "enables us to have. So if you sum the values associated to all the 10 neurons here, all the the output neurons you're gonna get one, it basically normalizes like the output for us. And then when we do predictions, so we predict. So we, we pick the neuron that has the highest value and that represents the category like we are predicting. Cool. So uh with this, we built our network architecture. So now we need to move on to the next phase which is uh compiling uh the network. So if you guys remember the first thing that we want to do here is to uh decide which optimizer we want to use, right? And here uh we are gonna use Adam. So, and let's specify the learning rate here and we could say 0.0001. OK. Cool. So uh Adam is a, an optimizer that it's basically like a an extension like a variation of like a stochastic gradient descent and it's very, very effective uh with deep learning. So we're gonna use this, then the next step that we want to do is a model dot uh compile.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1211s",
+        "start_time": "1211.65"
+    },
+    {
+        "id": "0e863efd",
+        "text": "Cool. So uh with this, we built our network architecture. So now we need to move on to the next phase which is uh compiling uh the network. So if you guys remember the first thing that we want to do here is to uh decide which optimizer we want to use, right? And here uh we are gonna use Adam. So, and let's specify the learning rate here and we could say 0.0001. OK. Cool. So uh Adam is a, an optimizer that it's basically like a an extension like a variation of like a stochastic gradient descent and it's very, very effective uh with deep learning. So we're gonna use this, then the next step that we want to do is a model dot uh compile. And here uh we should pass in a few uh things, right? So yeah, let's start with the optimizer. So the optimizer we pass in our optimizer which is atom. So then uh we need to decide uh which uh loss function",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1237s",
+        "start_time": "1237.53"
+    },
+    {
+        "id": "b114c96f",
+        "text": "So, and let's specify the learning rate here and we could say 0.0001. OK. Cool. So uh Adam is a, an optimizer that it's basically like a an extension like a variation of like a stochastic gradient descent and it's very, very effective uh with deep learning. So we're gonna use this, then the next step that we want to do is a model dot uh compile. And here uh we should pass in a few uh things, right? So yeah, let's start with the optimizer. So the optimizer we pass in our optimizer which is atom. So then uh we need to decide uh which uh loss function uh we want to use or error function we want to use. And uh for this problem which is a uh multi class classification problem, we are gonna use spots cate uh cross entropy,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1265s",
+        "start_time": "1265.439"
+    },
+    {
+        "id": "90a04712",
+        "text": "And here uh we should pass in a few uh things, right? So yeah, let's start with the optimizer. So the optimizer we pass in our optimizer which is atom. So then uh we need to decide uh which uh loss function uh we want to use or error function we want to use. And uh for this problem which is a uh multi class classification problem, we are gonna use spots cate uh cross entropy, right. And uh finally, we can't specify like the, the metrics that we want to track. And here we could say uh accuracy, right? OK.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1295s",
+        "start_time": "1295.729"
+    },
+    {
+        "id": "5aff1fb9",
+        "text": "uh we want to use or error function we want to use. And uh for this problem which is a uh multi class classification problem, we are gonna use spots cate uh cross entropy, right. And uh finally, we can't specify like the, the metrics that we want to track. And here we could say uh accuracy, right? OK. So this way we've basically compiled uh our network. So a nice thing we could do here is a model dot summary uh which basically will give us like a print of uh a kind of like a summary of the architecture of the network specify the number of parameters we have the layers. It's, it's a nice thing that you have when you, when you train uh like this stuff. Ok. So let me just like move this thing up.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1316s",
+        "start_time": "1316.099"
+    },
+    {
+        "id": "ece187c4",
+        "text": "right. And uh finally, we can't specify like the, the metrics that we want to track. And here we could say uh accuracy, right? OK. So this way we've basically compiled uh our network. So a nice thing we could do here is a model dot summary uh which basically will give us like a print of uh a kind of like a summary of the architecture of the network specify the number of parameters we have the layers. It's, it's a nice thing that you have when you, when you train uh like this stuff. Ok. So let me just like move this thing up. Ok. So the final thing that remains to do here is uh training the network. So how do we do that? Well, we've done this like before and it can't be much easier than this. So, and it's basically doing a model uh dot Fit. And now we need to pass in the inputs train, the um",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1332s",
+        "start_time": "1332.979"
+    },
+    {
+        "id": "55d5719b",
+        "text": "So this way we've basically compiled uh our network. So a nice thing we could do here is a model dot summary uh which basically will give us like a print of uh a kind of like a summary of the architecture of the network specify the number of parameters we have the layers. It's, it's a nice thing that you have when you, when you train uh like this stuff. Ok. So let me just like move this thing up. Ok. So the final thing that remains to do here is uh training the network. So how do we do that? Well, we've done this like before and it can't be much easier than this. So, and it's basically doing a model uh dot Fit. And now we need to pass in the inputs train, the um uh here we need the targets train. So we are basically passing the, the uh inputs and targets for the, the training split and then we'll do a validation data. So this is basically like our uh testing uh uh uh data set that we want to pass in.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1345s",
+        "start_time": "1345.15"
+    },
+    {
+        "id": "a1935749",
+        "text": "Ok. So the final thing that remains to do here is uh training the network. So how do we do that? Well, we've done this like before and it can't be much easier than this. So, and it's basically doing a model uh dot Fit. And now we need to pass in the inputs train, the um uh here we need the targets train. So we are basically passing the, the uh inputs and targets for the, the training split and then we'll do a validation data. So this is basically like our uh testing uh uh uh data set that we want to pass in. And uh here we'll, we'll pass in the inputs test and",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1372s",
+        "start_time": "1372.839"
+    },
+    {
+        "id": "6052d32e",
+        "text": "uh here we need the targets train. So we are basically passing the, the uh inputs and targets for the, the training split and then we'll do a validation data. So this is basically like our uh testing uh uh uh data set that we want to pass in. And uh here we'll, we'll pass in the inputs test and uh where is it?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1397s",
+        "start_time": "1397.849"
+    },
+    {
+        "id": "0bad4dee",
+        "text": "And uh here we'll, we'll pass in the inputs test and uh where is it? It's the targets test now. Yeah, this is becoming a little bit inconvenient to follow. So I'll just like do new lines here. Uh Right.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1417s",
+        "start_time": "1417.489"
+    },
+    {
+        "id": "fb796931",
+        "text": "uh where is it? It's the targets test now. Yeah, this is becoming a little bit inconvenient to follow. So I'll just like do new lines here. Uh Right. Uh So the other stuff that we want to specify is the number of APO. And yeah, we could say, yeah, we'll have like 50 aex here. And finally, we'll specify the batch size and we'll put this like to 32. Now, you may be wondering, but what's the batch size? Well, this is like something very, very important.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1425s",
+        "start_time": "1425.489"
+    },
+    {
+        "id": "bd4ace9d",
+        "text": "It's the targets test now. Yeah, this is becoming a little bit inconvenient to follow. So I'll just like do new lines here. Uh Right. Uh So the other stuff that we want to specify is the number of APO. And yeah, we could say, yeah, we'll have like 50 aex here. And finally, we'll specify the batch size and we'll put this like to 32. Now, you may be wondering, but what's the batch size? Well, this is like something very, very important. And for that reason, we're gonna take a look at this like in our slide presentation over here, right? There are a bunch of different types of batching which is basically like the way like we, we train like our network. So in a pro",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1428s",
+        "start_time": "1428.4"
+    },
+    {
+        "id": "51399b45",
+        "text": "Uh So the other stuff that we want to specify is the number of APO. And yeah, we could say, yeah, we'll have like 50 aex here. And finally, we'll specify the batch size and we'll put this like to 32. Now, you may be wondering, but what's the batch size? Well, this is like something very, very important. And for that reason, we're gonna take a look at this like in our slide presentation over here, right? There are a bunch of different types of batching which is basically like the way like we, we train like our network. So in a pro this video uh on back propagation we and uh and stochastic gradient descent, we we we looked at a type of batching which is called like stochastic. So in this case, with stochastic, for example, stochastic gradient descent, what you do is you uh calculate the gradient after you've considered just like one sample. So just one segment of our uh like tracks, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1439s",
+        "start_time": "1439.65"
+    },
+    {
+        "id": "dd3a2ef4",
+        "text": "And for that reason, we're gonna take a look at this like in our slide presentation over here, right? There are a bunch of different types of batching which is basically like the way like we, we train like our network. So in a pro this video uh on back propagation we and uh and stochastic gradient descent, we we we looked at a type of batching which is called like stochastic. So in this case, with stochastic, for example, stochastic gradient descent, what you do is you uh calculate the gradient after you've considered just like one sample. So just one segment of our uh like tracks, right? So you, you do a fit forward and then you do a back propagation there. Uh you calculate the gradient and you update uh the weights directly. This is like very quick to perform, but it's kind of like very, very inaccurate because like there's a lot of noise and this would basically be equal to having like the batch size over here equal to one, right.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1465s",
+        "start_time": "1465.77"
+    },
+    {
+        "id": "2f7fac2d",
+        "text": "this video uh on back propagation we and uh and stochastic gradient descent, we we we looked at a type of batching which is called like stochastic. So in this case, with stochastic, for example, stochastic gradient descent, what you do is you uh calculate the gradient after you've considered just like one sample. So just one segment of our uh like tracks, right? So you, you do a fit forward and then you do a back propagation there. Uh you calculate the gradient and you update uh the weights directly. This is like very quick to perform, but it's kind of like very, very inaccurate because like there's a lot of noise and this would basically be equal to having like the batch size over here equal to one, right. Uh Now uh we have like the the opposite, which is basically you consider the the full batch. So you compute the gradient. So you, you update the weights on the whole training set. So you pass in the whole training set and only at that point uh you, you, you calculate the gradient.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1482s",
+        "start_time": "1482.655"
+    },
+    {
+        "id": "4fab1834",
+        "text": "So you, you do a fit forward and then you do a back propagation there. Uh you calculate the gradient and you update uh the weights directly. This is like very quick to perform, but it's kind of like very, very inaccurate because like there's a lot of noise and this would basically be equal to having like the batch size over here equal to one, right. Uh Now uh we have like the the opposite, which is basically you consider the the full batch. So you compute the gradient. So you, you update the weights on the whole training set. So you pass in the whole training set and only at that point uh you, you, you calculate the gradient. Um this is problematic for deep learning because like we have usually huge, huge data sets. So this results in something that's super slow, it's super memory intensive and for all purposes and needs like it's actually impractical. But the great thing about this is that it's actually very accurate, right? Because we are calculating the grade on many, many uh samples on the whole samples, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1509s",
+        "start_time": "1509.43"
+    },
+    {
+        "id": "050f9402",
+        "text": "Uh Now uh we have like the the opposite, which is basically you consider the the full batch. So you compute the gradient. So you, you update the weights on the whole training set. So you pass in the whole training set and only at that point uh you, you, you calculate the gradient. Um this is problematic for deep learning because like we have usually huge, huge data sets. So this results in something that's super slow, it's super memory intensive and for all purposes and needs like it's actually impractical. But the great thing about this is that it's actually very accurate, right? Because we are calculating the grade on many, many uh samples on the whole samples, right? And for food batch, you basically have uh one pass, which is uh just like one epoch because we're passing the whole uh training set through uh the network for training purposes. Now, there's a middle ground there and it's called a mini batch. And here the idea is to basically compute the gradient on a subset of the data set, right?",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1533s",
+        "start_time": "1533.459"
+    },
+    {
+        "id": "18b7f696",
+        "text": "Um this is problematic for deep learning because like we have usually huge, huge data sets. So this results in something that's super slow, it's super memory intensive and for all purposes and needs like it's actually impractical. But the great thing about this is that it's actually very accurate, right? Because we are calculating the grade on many, many uh samples on the whole samples, right? And for food batch, you basically have uh one pass, which is uh just like one epoch because we're passing the whole uh training set through uh the network for training purposes. Now, there's a middle ground there and it's called a mini batch. And here the idea is to basically compute the gradient on a subset of the data set, right? And we can consider like 1632 64 like samples. And then once we've considered those, we can actually calculate the gradient uh at that point. And then yeah, that propagates the error and uh and updates the weights. And so we are doing training on, on like some uh like mini batches, right. OK. So",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1556s",
+        "start_time": "1556.3"
+    },
+    {
+        "id": "b58b531e",
+        "text": "And for food batch, you basically have uh one pass, which is uh just like one epoch because we're passing the whole uh training set through uh the network for training purposes. Now, there's a middle ground there and it's called a mini batch. And here the idea is to basically compute the gradient on a subset of the data set, right? And we can consider like 1632 64 like samples. And then once we've considered those, we can actually calculate the gradient uh at that point. And then yeah, that propagates the error and uh and updates the weights. And so we are doing training on, on like some uh like mini batches, right. OK. So in this uh with mini batch, usually you would use like from 16 to 100 and 28 samples. But then this is by no means like a universal rule rather uh it just like depends on the type of problem that you are tackling,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1583s",
+        "start_time": "1583.839"
+    },
+    {
+        "id": "0f8f6cbd",
+        "text": "And we can consider like 1632 64 like samples. And then once we've considered those, we can actually calculate the gradient uh at that point. And then yeah, that propagates the error and uh and updates the weights. And so we are doing training on, on like some uh like mini batches, right. OK. So in this uh with mini batch, usually you would use like from 16 to 100 and 28 samples. But then this is by no means like a universal rule rather uh it just like depends on the type of problem that you are tackling, right? And the great thing about mini batch is that it's really like the best of the two worlds like it's kind of like relatively uh yeah, it's quick, it's not that memory intensive and it's quite accurate. So this is like the solution that we use like in deep in deep learning like the most. So now let's go back to the code,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1611s",
+        "start_time": "1611.449"
+    },
+    {
+        "id": "6cb5261b",
+        "text": "in this uh with mini batch, usually you would use like from 16 to 100 and 28 samples. But then this is by no means like a universal rule rather uh it just like depends on the type of problem that you are tackling, right? And the great thing about mini batch is that it's really like the best of the two worlds like it's kind of like relatively uh yeah, it's quick, it's not that memory intensive and it's quite accurate. So this is like the solution that we use like in deep in deep learning like the most. So now let's go back to the code, right. So this batch size, it's basically um specifying the number of like samples that we want in our batch for uh before like we we we calculate the gradient, right? And we refer to this is like a quite customary uh like value as I was mentioning. Cool. Well, I think like we we are basically done here, right? So we so just like to",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1636s",
+        "start_time": "1636.53"
+    },
+    {
+        "id": "caa670de",
+        "text": "right? And the great thing about mini batch is that it's really like the best of the two worlds like it's kind of like relatively uh yeah, it's quick, it's not that memory intensive and it's quite accurate. So this is like the solution that we use like in deep in deep learning like the most. So now let's go back to the code, right. So this batch size, it's basically um specifying the number of like samples that we want in our batch for uh before like we we we calculate the gradient, right? And we refer to this is like a quite customary uh like value as I was mentioning. Cool. Well, I think like we we are basically done here, right? So we so just like to uh review all of this. So we load the data, we split the data into training and uh test sets, we build, we build like our network architecture. We've compiled the network, we we have a nice model summary here and now we are ready to train the network. So now if there are no mistakes in my code, which I hope it's the case we should be able to train the network. So let's run the script and see what happens.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1652s",
+        "start_time": "1652.4"
+    },
+    {
+        "id": "de991ee5",
+        "text": "right. So this batch size, it's basically um specifying the number of like samples that we want in our batch for uh before like we we we calculate the gradient, right? And we refer to this is like a quite customary uh like value as I was mentioning. Cool. Well, I think like we we are basically done here, right? So we so just like to uh review all of this. So we load the data, we split the data into training and uh test sets, we build, we build like our network architecture. We've compiled the network, we we have a nice model summary here and now we are ready to train the network. So now if there are no mistakes in my code, which I hope it's the case we should be able to train the network. So let's run the script and see what happens. OK? So it's taking a little bit of time because obviously like it's uh loading uh the data there.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1672s",
+        "start_time": "1672.969"
+    },
+    {
+        "id": "71b33256",
+        "text": "uh review all of this. So we load the data, we split the data into training and uh test sets, we build, we build like our network architecture. We've compiled the network, we we have a nice model summary here and now we are ready to train the network. So now if there are no mistakes in my code, which I hope it's the case we should be able to train the network. So let's run the script and see what happens. OK? So it's taking a little bit of time because obviously like it's uh loading uh the data there. So",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1696s",
+        "start_time": "1696.91"
+    },
+    {
+        "id": "8453a7a1",
+        "text": "OK? So it's taking a little bit of time because obviously like it's uh loading uh the data there. So let's see.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1727s",
+        "start_time": "1727.479"
+    },
+    {
+        "id": "718a6432",
+        "text": "So let's see. Yeah, here we go. OK. It's working. So here, as you see, we have the, the model summary and we have like this flatten over here, then we have the dense layer and here we have the associated number of parameters on here. Yeah, it's a nice thing like you have like overall. So now uh here, as you see, we are tracking",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1735s",
+        "start_time": "1735.369"
+    },
+    {
+        "id": "a64ba9e9",
+        "text": "let's see. Yeah, here we go. OK. It's working. So here, as you see, we have the, the model summary and we have like this flatten over here, then we have the dense layer and here we have the associated number of parameters on here. Yeah, it's a nice thing like you have like overall. So now uh here, as you see, we are tracking uh the the different epochs over here and here like we get like an output which, which gives us for each epoch the accuracy on the training set and the accuracy on, on the test set. You, you, you might start uh like and also like the the loss like for the uh training set and for like this uh test set.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1737s",
+        "start_time": "1737.329"
+    },
+    {
+        "id": "934f27f7",
+        "text": "Yeah, here we go. OK. It's working. So here, as you see, we have the, the model summary and we have like this flatten over here, then we have the dense layer and here we have the associated number of parameters on here. Yeah, it's a nice thing like you have like overall. So now uh here, as you see, we are tracking uh the the different epochs over here and here like we get like an output which, which gives us for each epoch the accuracy on the training set and the accuracy on, on the test set. You, you, you might start uh like and also like the the loss like for the uh training set and for like this uh test set. So you may start seeing uh an issue uh like arising here. So take a look at the accuracy. Yeah, I'm just like, yeah, so let's wait like for this like to uh to end to finish uh before like we comment on that because every time I can move this, yeah, there's a new book and it gets just like, ah yeah, move back like to to yeah, to the start point. Well, right. But we are done.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1739s",
+        "start_time": "1739.469"
+    },
+    {
+        "id": "4e15da84",
+        "text": "uh the the different epochs over here and here like we get like an output which, which gives us for each epoch the accuracy on the training set and the accuracy on, on the test set. You, you, you might start uh like and also like the the loss like for the uh training set and for like this uh test set. So you may start seeing uh an issue uh like arising here. So take a look at the accuracy. Yeah, I'm just like, yeah, so let's wait like for this like to uh to end to finish uh before like we comment on that because every time I can move this, yeah, there's a new book and it gets just like, ah yeah, move back like to to yeah, to the start point. Well, right. But we are done. So let's take a look at the accuracy. So here it's after 50 epochs. So uh here we have the loss for uh like the uh calculated on the training set, which is quite low. And here we have the accuracy which is fantastic. Well, we have almost like 97% accuracy, which is incredibly good. But is it really that good? Let's take a look at the",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1761s",
+        "start_time": "1761.969"
+    },
+    {
+        "id": "73fd16e3",
+        "text": "So you may start seeing uh an issue uh like arising here. So take a look at the accuracy. Yeah, I'm just like, yeah, so let's wait like for this like to uh to end to finish uh before like we comment on that because every time I can move this, yeah, there's a new book and it gets just like, ah yeah, move back like to to yeah, to the start point. Well, right. But we are done. So let's take a look at the accuracy. So here it's after 50 epochs. So uh here we have the loss for uh like the uh calculated on the training set, which is quite low. And here we have the accuracy which is fantastic. Well, we have almost like 97% accuracy, which is incredibly good. But is it really that good? Let's take a look at the at the accuracy and the loss calculated on the um test set. Well, it turns out that there's a huge difference between this accuracy on the test set and the accuracy on the training set. Well, it's basically almost like 30% different. Uh well, uh",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1790s",
+        "start_time": "1790.119"
+    },
+    {
+        "id": "931f56f4",
+        "text": "So let's take a look at the accuracy. So here it's after 50 epochs. So uh here we have the loss for uh like the uh calculated on the training set, which is quite low. And here we have the accuracy which is fantastic. Well, we have almost like 97% accuracy, which is incredibly good. But is it really that good? Let's take a look at the at the accuracy and the loss calculated on the um test set. Well, it turns out that there's a huge difference between this accuracy on the test set and the accuracy on the training set. Well, it's basically almost like 30% different. Uh well, uh uh 89. Well, it's, it's more, it's more, it's almost like 40% like difference there, which is incredible, right? So what's happening here? So we have like the, the training and like the the model performing extremely well, like on the training data but performing not that great, like on the um on the test set.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1817s",
+        "start_time": "1817.65"
+    },
+    {
+        "id": "61328eef",
+        "text": "at the accuracy and the loss calculated on the um test set. Well, it turns out that there's a huge difference between this accuracy on the test set and the accuracy on the training set. Well, it's basically almost like 30% different. Uh well, uh uh 89. Well, it's, it's more, it's more, it's almost like 40% like difference there, which is incredible, right? So what's happening here? So we have like the, the training and like the the model performing extremely well, like on the training data but performing not that great, like on the um on the test set. Uh why, why, why is that the case? Well, it turns out we are over fitting. So basically, what's happening is that we are so like the model is tailoring, uh its weight in order to predict uh uh in a very like compelling way",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1846s",
+        "start_time": "1846.55"
+    },
+    {
+        "id": "ed03d1a0",
+        "text": "uh 89. Well, it's, it's more, it's more, it's almost like 40% like difference there, which is incredible, right? So what's happening here? So we have like the, the training and like the the model performing extremely well, like on the training data but performing not that great, like on the um on the test set. Uh why, why, why is that the case? Well, it turns out we are over fitting. So basically, what's happening is that we are so like the model is tailoring, uh its weight in order to predict uh uh in a very like compelling way uh the the test set, but it's not really that able to generalize to data it has never seen before. So this is a huge, huge problem. And every time you do any type of machine learning, not just deep learning, this is something you have to fight against overfitting now. So",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1870s",
+        "start_time": "1870.56"
+    },
+    {
+        "id": "7cd61f0e",
+        "text": "Uh why, why, why is that the case? Well, it turns out we are over fitting. So basically, what's happening is that we are so like the model is tailoring, uh its weight in order to predict uh uh in a very like compelling way uh the the test set, but it's not really that able to generalize to data it has never seen before. So this is a huge, huge problem. And every time you do any type of machine learning, not just deep learning, this is something you have to fight against overfitting now. So in the next video, we are gonna look at how to uh identify uh like overfitting, like in our um models and how to fight against overfitting. So we're gonna see a bunch of different uh techniques that we can use like drop out or um regularization uh just like to, to avoid uh overfitting,",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1893s",
+        "start_time": "1893.5"
+    },
+    {
+        "id": "a08f4727",
+        "text": "uh the the test set, but it's not really that able to generalize to data it has never seen before. So this is a huge, huge problem. And every time you do any type of machine learning, not just deep learning, this is something you have to fight against overfitting now. So in the next video, we are gonna look at how to uh identify uh like overfitting, like in our um models and how to fight against overfitting. So we're gonna see a bunch of different uh techniques that we can use like drop out or um regularization uh just like to, to avoid uh overfitting, right? But for now, for this video, we are basically done and you should be like super happy because now we have a music genre classifier and it's not like the best classifier ever. And we still have to so overfitting. But here we have really all the fundamentals of our music genre classifier. Great. So I hope you've enjoyed this video.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1914s",
+        "start_time": "1914.189"
+    },
+    {
+        "id": "3baab254",
+        "text": "in the next video, we are gonna look at how to uh identify uh like overfitting, like in our um models and how to fight against overfitting. So we're gonna see a bunch of different uh techniques that we can use like drop out or um regularization uh just like to, to avoid uh overfitting, right? But for now, for this video, we are basically done and you should be like super happy because now we have a music genre classifier and it's not like the best classifier ever. And we still have to so overfitting. But here we have really all the fundamentals of our music genre classifier. Great. So I hope you've enjoyed this video. If that's it, remember to subscribe and uh hit the notification bell. You'll never miss a new video when I upload them. And if you have any questions, please like leave a comment uh below and as always, I hope to see you next time. Cheers.",
+        "video": "13- Implementing a neural network for music genre classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "_xcFAiufwd0",
+        "youtube_link": "https://www.youtube.com/watch?v=_xcFAiufwd0&t=1934s",
+        "start_time": "1934.959"
+    }
+]

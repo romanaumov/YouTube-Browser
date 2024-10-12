@@ -1,0 +1,812 @@
+[
+    {
+        "id": "c5b62fa2",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we extracted the discrete fourier transform with Python and li browser from a bunch of audio files. This time we are back to theory specifically, we'll be addressing a key topic in A I audio, the short time fourier transform. So why is the short time four so important? Well, that's because it enables us to extract spectrograms and spectrograms are really the probably the most important feature that you can feed to deep learning audio models. But before we get into the in and out of the of the short time period transform, I want to remind you once again about the sound of the Eye Slack community on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=0s",
+        "start_time": "0.23"
+    },
+    {
+        "id": "2d3b5897",
+        "text": "so important? Well, that's because it enables us to extract spectrograms and spectrograms are really the probably the most important feature that you can feed to deep learning audio models. But before we get into the in and out of the of the short time period transform, I want to remind you once again about the sound of the Eye Slack community on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=26s",
+        "start_time": "26.2"
+    },
+    {
+        "id": "d47375b8",
+        "text": "on this community, you'll find people with interests in A I music A I audio, audio digital signal processing. And so if you're there, you can ask for feedback, you can share your projects and network with a bunch of very cool people. So if you're interested in joining, I'll leave you the sign up link in the description section below. OK. Now on to the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=52s",
+        "start_time": "52.36"
+    },
+    {
+        "id": "f166cbb2",
+        "text": "the real cool stuff. So before we get to the SDFT, I want to remind you about the discrete fourier transport. And here we have its mathematical formulation. Now, I'm not going to get too much into the details here. That's just because I have a whole video on the discrete fourier transform. So if you're interested, you can go and check that out. But what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal. And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=76s",
+        "start_time": "76.595"
+    },
+    {
+        "id": "40413492",
+        "text": "what we need here is the high level intuition. So we start with our signal in the time domain. So waveform like this, then we apply the discrete transform. And what we get back is basically a picture of the presence of the different frequency components in the original signal. And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal. And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=101s",
+        "start_time": "101.029"
+    },
+    {
+        "id": "4d16fdbd",
+        "text": "And usually we get like a magnitude spectrum like this. But this is a still image. What do I mean by that? Well, it's a still image in the sense that it only provides us like one picture that averages the presence of the frequency components across the whole duration of the signal. And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=123s",
+        "start_time": "123.87"
+    },
+    {
+        "id": "5a41855e",
+        "text": "And here we actually have a problem because we know what um frequency components are present in the signal. But we don't know when they are more or less present because all of them are averaged across the whole duration of the entire signal. And this is a little bit of a problem because we know which audio data, it's all about the evolution of frequency components like over time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=146s",
+        "start_time": "146.889"
+    },
+    {
+        "id": "fcafc639",
+        "text": "time. And so audio data is very, very dynamic and we want to know how like this different frequency components evolve over time. And this is the whole point of the short time four transfer. So moving from a still image to a video that provides us information about the um different frequency components across time. So how can we do that? Well, that's the whole point of the short time career transform. And the high level idea here is that we don't perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this. Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=176s",
+        "start_time": "176.425"
+    },
+    {
+        "id": "60808dc8",
+        "text": "perform the fourier transform across the whole duration of the signal. But rather we consider a small segments or chunks of the signal, which technically we call frames. And then we apply a discrete fourier transform for each frame. Now I know this could sound a little bit like abstract. So let's visualize this. So we start with a signal audio signal like this. Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=206s",
+        "start_time": "206.649"
+    },
+    {
+        "id": "31a571ae",
+        "text": "Then we consider only like the first chunk, the first frame. And at this point on only on this the samples belonging to this frame, we apply the discrete free transform and we get back like our nice magnitude spectrum. Then we slide on to the next frame. And once again, we apply to that frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=231s",
+        "start_time": "231.979"
+    },
+    {
+        "id": "e15a8554",
+        "text": "frame, the discrete fourier transform third frame, same thing until we burst through all the duration of the signal. One way we can use to derive the segments is through windowing. In other words, we apply a window function to a signal. What does that mean? Well, it means that we take the original signal and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=252s",
+        "start_time": "252.529"
+    },
+    {
+        "id": "b6d8b6ca",
+        "text": "and then we multiply that by a window function sample by sample and we obtain a windowed signal. Now this feels a little bit abstract, doesn't it? So let me give you an example. So we start from a an audio signal and then here we're gonna be applying a rectangle uh winnowing function and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now, uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=273s",
+        "start_time": "273.079"
+    },
+    {
+        "id": "fbd1ee38",
+        "text": "and this is the result. So the rectangle window function is this red curve here. And yeah, it has like a rectangle shape, right? And this function is zero everywhere apart from a segment where it is equal to one. So if we multiply the signal with the um rectangle window, we obtain this windowed signal down here. Now, uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=293s",
+        "start_time": "293.97"
+    },
+    {
+        "id": "ed6bec6d",
+        "text": "uh I want to introduce a couple of parameters that are very important for what we are discussing today. And now uh so one is the window size, the other one is the frame size, they're both measured in number of samples, but they refer to two slightly different things. So let's take a look at the window size first. So the window uh size is basically the amount of samples we apply windowing to the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK. Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=320s",
+        "start_time": "320.399"
+    },
+    {
+        "id": "78a45e00",
+        "text": "the frame size. On the other hand is the kind of like the the number of samples that we consider in each chunk of the signal when we segment the the signal and then we pass it to the the short time fourier transform for just like calculating the fourier transform for each frame for each segment. OK. Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications, the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right?",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=346s",
+        "start_time": "346.679"
+    },
+    {
+        "id": "a7872297",
+        "text": "Usually the window size and the frame size coin site, they are, they have the same value the same number of samples. But sometimes it happens that the frame size is a larger than the window size. Now, this is like quite unusual, I would say. And most of the time in most of your applications, the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right? OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right?",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=369s",
+        "start_time": "369.75"
+    },
+    {
+        "id": "1f279e76",
+        "text": "the window size and the frame size will inside. And this is like so uh so true that for example, in Libres and when we extract the shorts and transform, we we are not forced to pass the window size. And the default value for the window size is the uh frame size, right? OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right? And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=391s",
+        "start_time": "391.255"
+    },
+    {
+        "id": "1dcca889",
+        "text": "OK. But what happens if the window size is smaller than the frame size? Well, still we the chunk. So we, we apply the fourier transform to is the whole frame. But then the windowing happens only on the window size number of samples, right? And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens, what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=413s",
+        "start_time": "413.14"
+    },
+    {
+        "id": "4f1e2da6",
+        "text": "And we apply the window function on those samples and then the remaining samples which are the difference between the frame size and the window size are gonna be zero padded. OK? But for the sake of this video, we'll assume that we have uh the window size which is equal to the frame size. So if that happens, what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame, then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=433s",
+        "start_time": "433.63"
+    },
+    {
+        "id": "2efda026",
+        "text": "what this is at this point is already the um windowed. Uh So we, we have like one frame here and we've also applied the window function here. And at this point is when we apply the uh fourier uh discrete fourier transform so that we can get the frequency components out of this frame, then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=457s",
+        "start_time": "457.67"
+    },
+    {
+        "id": "0c432338",
+        "text": "then we move on, we slide to the right and we get like a second frame like this sliding also like the window function. And here once again, we apply the discrete fourier transform, we move to the third frame same thing until we get to the end of the signal. But this is a simplified version of what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=482s",
+        "start_time": "482.35"
+    },
+    {
+        "id": "c1878213",
+        "text": "what usually happens in a short time period transform because the frames are overlapping like this. So the second frame is overlapping with the first one as you can see from here. Now I need to introduce another parameter here that's called H size or capital H. And it's given by this visually and this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=505s",
+        "start_time": "505.225"
+    },
+    {
+        "id": "4dbfdfa8",
+        "text": "this basically provides us uh it tells us uh how many samples we slide to the right when we take a new uh frame. OK. If you want to know why um the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK. Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=528s",
+        "start_time": "528.979"
+    },
+    {
+        "id": "7ca1288a",
+        "text": "the hub sound is like it's so important and we need overlapping frames. I really suggest you to go check out my video on audio feature extraction pipelines. It's up here and there you'll learn about a lot of topics about, for example, like spectral leakage and a bunch of other things that are related to like the points that I'm making here. And I'm not going to get into the details here because I've already done that. OK. Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here. OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=544s",
+        "start_time": "544.409"
+    },
+    {
+        "id": "ce70c1e6",
+        "text": "Moving on, it's time to move from this kind of like visual intuition of the short term fourier transform to its mathematical formulation. So what I want to do here and don't be scanned is to compare the digital fourier transform or its mathematical form, which is this formula in the top with the formulation for mathematical formulation for the short time fourier transform uh which is this one down here. OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency. And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=571s",
+        "start_time": "571.294"
+    },
+    {
+        "id": "ee5255d3",
+        "text": "OK. So let's go uh item by item and see how they map to each other. OK. The first one is just like the definition right, the output that we get. So in the case of the discrete fourier transform and we get like this X hat as a function of K where K is a proxy for a frequency. And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=598s",
+        "start_time": "598.39"
+    },
+    {
+        "id": "57edb794",
+        "text": "And um so in other words, like uh the disco fourier transform depends on the frequency. And this means that uh each of these like formulas is gonna give us a complex uh fourier coefficient for the KF frequency and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that. OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=620s",
+        "start_time": "620.25"
+    },
+    {
+        "id": "b508d57e",
+        "text": "and the complex fourier coefficient provides this information to uh about two parameters the face and the magnitude. Now, if you want to really know what phase and magnitude mean in terms of the fourier transform, I suggest you to go check out this video on uh the fourier transform and there like you'll get like a better picture but I hope like you've already watched that. OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time. So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=638s",
+        "start_time": "638.039"
+    },
+    {
+        "id": "74b060fa",
+        "text": "OK. So this is for the discrete period transform. What about the short time period transform? As we can see here, a capital S depends not only on K on frequency but also on M. So what's this M well M is a proxy for time. So that the short time period transform depends both on frequency and time. So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=663s",
+        "start_time": "663.679"
+    },
+    {
+        "id": "7c984c7a",
+        "text": "So now let's understand a little bit better like what this is and uh like nominally uh it's just like the, the frame, the, the, the frame number we are currently in. But let's visualize this. OK. So here we have like we are back again with our um original signal and like the different frames here. And so for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=689s",
+        "start_time": "689.469"
+    },
+    {
+        "id": "61bca22a",
+        "text": "for the first frame we have M which is equal to one. Here we have for the second frame M equal to two and M equal to three, you get the idea, right? So M is just like the frame number. So in other words, uh the result that we get from the short time period transform is the uh fourier coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on. So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=714s",
+        "start_time": "714.14"
+    },
+    {
+        "id": "b978cd79",
+        "text": "coefficient for the KF frequency at the N temporal bin or M frame. OK. But still like the fourier coefficient that we get, it's still like a complex number that has information about phase and magnitude. OK moving on. So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal. And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=736s",
+        "start_time": "736.692"
+    },
+    {
+        "id": "4a06d145",
+        "text": "So the next step is to compare these two sums if you guys remember from the DFT. Um So what what was happening here is we were summing all across like all the uh samples. So basically we were summing across like all the time, all the duration of the signal. And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=759s",
+        "start_time": "759.245"
+    },
+    {
+        "id": "ae4e65ea",
+        "text": "And we do like something similar also in the STFT kind of like intuitively, we are doing the same thing we are summing like across time or given like we are in a discrete uh domain across like all the different samples. But what's different between these two sums is capital N. In the case of the discrete fourier transform, we are summing across all of the samples in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition, right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=782s",
+        "start_time": "782.059"
+    },
+    {
+        "id": "261d9e52",
+        "text": "in the signal. So N is equal to all the samples in the signal. In the case of the short time period transform capital N over here is equal to the frame size. And that's because we're not considering all of the signal but just one frame. And in one frame, we have a number of samples that's equal to the frame size by definition, right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=806s",
+        "start_time": "806.169"
+    },
+    {
+        "id": "ba5d27bc",
+        "text": "right? So now you start to get the idea of how like this STFT works. But to see this like even more, um specifically, we need to move to the next element of this uh formulas which is the signal itself. So let's analyze the one in the top formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=830s",
+        "start_time": "830.479"
+    },
+    {
+        "id": "e074fab6",
+        "text": "formula. So for the disc fourier transform X of N is just like the signal considered, I mean the whole signal. So all of these samples in the short time fourier transform, by contrast, we are only considering the signal uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=849s",
+        "start_time": "849.674"
+    },
+    {
+        "id": "7864f1bc",
+        "text": "uh that's uh present like in the current frame. So in other words, we're considering all the samples that are present in the current M frame. And so why is that the case? Well, that's the case because first of all this M multiplied by capital H is the starting sample of the current frame M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK. Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=869s",
+        "start_time": "869.179"
+    },
+    {
+        "id": "6e94febd",
+        "text": "M is the current frame and H capital H is the H size. So if you multiply two, you realize that this is like the starting sample of the current frame and then we add N but this N moves like from zero to the frame size minus one, which basically means like that we are kind of like covering all the samples in that frame. OK. Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK. So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=893s",
+        "start_time": "893.815"
+    },
+    {
+        "id": "4e5152fd",
+        "text": "Now, if we want to visualize this, we can just get back to the signal. And here, like we have like this rectangle and here we have like all of the uh the signal like for one frame. Uh And here like on the left of this rectangle, this vertical line here is the starting sample of the frame which is equal to N multiplied by capital H OK. So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=918s",
+        "start_time": "918.82"
+    },
+    {
+        "id": "f927ae36",
+        "text": "So now um we like the next step though in the case of the short time fourier transform is that we should multiply this signal by the uh windowing function. And we do that with this uh like representation here. So we have like the signal where the, the signal for one frame and we multiply that by the windowing function. And uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame, OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=947s",
+        "start_time": "947.71"
+    },
+    {
+        "id": "6e4500ba",
+        "text": "uh again, so we already saw this right. And so we are multiplying the uh original uh signal like for a specific frame by uh the windowing function and we obtain the windowed um signal, OK? For that one frame, OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N. So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=973s",
+        "start_time": "973.239"
+    },
+    {
+        "id": "a62c7226",
+        "text": "OK. So moving on, we have the last step. And the last step is the same for both the discrete fourier transform and the short term fourier transform. In other words, we are multiplying by a pure turn that has frequency given by K divided by capital N. So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N. OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=992s",
+        "start_time": "992.849"
+    },
+    {
+        "id": "ddb7b6ae",
+        "text": "So by doing so what we are doing is we are taking the uh the signal uh And then we are decomposing it and projecting it onto uh the pure turn with frequency um K divided by capital N. OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that. OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1011s",
+        "start_time": "1011.03"
+    },
+    {
+        "id": "28e18f3c",
+        "text": "OK. So here you have the comparison between the math behind the discrete fourier transform and the math for the short time fourier transform. But now you may be wondering, OK, now, more or less like I get like the math here but what are like the outputs? So what what do we get out of AD FT and A NSTFT? Let's take a look at that. OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1029s",
+        "start_time": "1029.588"
+    },
+    {
+        "id": "3db2ac5f",
+        "text": "OK. So for DFT we extract uh a spectral vector and which uh for a number of like frequency beams. In other words, like we, we get a fourier coefficient for each of the frequency components we've um decomposed our original signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1051s",
+        "start_time": "1051.729"
+    },
+    {
+        "id": "eead1f53",
+        "text": "signal into and this is a one dimensional array. It's just like a vector, right? And there's no mention of time in here because everything is averaged across the whole duration of a of a signal. But with the STFT, we have like something that's quite different. In this case, we don't have a one dimension value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame. OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1076s",
+        "start_time": "1076.196"
+    },
+    {
+        "id": "dd875d4d",
+        "text": "value one dimensional array, but rather a two dimensional array or in other words, a spectral matrix that has a number of frequency bins and a number of frames. And in other words, we get a complex fourier coefficient for each frequency bin that we are considering for each frame. OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that. OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1100s",
+        "start_time": "1100.661"
+    },
+    {
+        "id": "456746ab",
+        "text": "OK. And so in other words, we have both a reference, a reference to frequency as we had with this quid for transform. But now we've gained all the information about time through the different frames which are proxies for time. OK. But um you may be wondering, but can we calculate the actual number of frequency bins and number of frames that we get out of us? And Stft? Well, yes, of course, we can and we'll do that. OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform, you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1125s",
+        "start_time": "1125.459"
+    },
+    {
+        "id": "02466254",
+        "text": "OK. So how do we get the number of frequency bins? Well, this is quite easy to get. And uh you have the formula here, so you get the frame size, you divide the frame size by two and then you add up one and this gives us the number of frequency bins. Now let's try to understand why this is the case. If you guys remember from my uh earlier video on the descript fourier transform, you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1154s",
+        "start_time": "1154.43"
+    },
+    {
+        "id": "293c458c",
+        "text": "you should know that the number of frequency bins that we get out of a discrete fourier transform is equal to the number of samples that we have in the, in the on the whole signal. Now, in the case of an STFT, we don't uh average uh don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1183s",
+        "start_time": "1183.13"
+    },
+    {
+        "id": "d5780bb8",
+        "text": "don't consider the whole uh samples at once but rather like a frame size number of samples. So we would expect that the number of frequency bins uh for each four year transform that we get is equal to the frame size. But we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency. And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1201s",
+        "start_time": "1201.67"
+    },
+    {
+        "id": "274f8b8e",
+        "text": "we don't get that we get the frame size divided by two plus one. Was that the case? Well, if you remember once again from the discrete fourier transform video, we saw that the discrete fourier transform is symmetrical has a mirror symmetry around the center frequency which is the niquet frequency. And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1220s",
+        "start_time": "1220.489"
+    },
+    {
+        "id": "10dc58ca",
+        "text": "And uh what happens there is that's basically like the, the first half uh has some information and then that gets like mirrored in the second half. And so in a short time for trans, we, we consider that and so we don't need to take information about all of those bins because it's just like a redundant. We only take informa the information about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice, a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1240s",
+        "start_time": "1240.849"
+    },
+    {
+        "id": "45b1e8ab",
+        "text": "about like the first half. So frame size divided by two plus one. So that's the reason why now if you haven't fallen that uh completely, I highly suggest you to go check out my video on the descript fourier transform to understand what it meant more specifically there. OK. Now let's move on to the number of frames. And so here we have another very nice, a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames. OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1262s",
+        "start_time": "1262.225"
+    },
+    {
+        "id": "e0b3e449",
+        "text": "a little formula and the number of frames is given by the total number of samples that we have in a signal minus the frame size divided by the H size plus one. Now, I'm not gonna get into the details of explaining this visually and I highly suggest you as an exercise to play around with this and understand why this formula gives us the number of frames. OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1283s",
+        "start_time": "1283.602"
+    },
+    {
+        "id": "f20c87c4",
+        "text": "OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s",
+        "start_time": "1305.339"
+    },
+    {
+        "id": "3dd78d93",
+        "text": "uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again. Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1329s",
+        "start_time": "1329.15"
+    },
+    {
+        "id": "2d38f75c",
+        "text": "Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again. Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1354s",
+        "start_time": "1354.285"
+    },
+    {
+        "id": "3a8e3760",
+        "text": "Uh So if you want to know why that's the case, once again, just go back to my video on this grid fourier transform. OK. So moving on the number of frames. So here uh we have like a little formula and so we have to take the number of samples in the signal. So it's 10,000 minus the uh the frame size. And this is gonna be divided by the hub size. And all of this, we have to, all of this, we have to add one and the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames. OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1370s",
+        "start_time": "1370.29"
+    },
+    {
+        "id": "d656d507",
+        "text": "the result is 19. So we have 19 frames, this signal is going to be divided into. So the overall uh output shape of the stft in this particular case is gonna be 501 and 19. So it's a two dimensional ray. The first dimension uh provides us information about frequency. The second uh provides us information about the temporal um bins or the number of frames. OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1400s",
+        "start_time": "1400.06"
+    },
+    {
+        "id": "9260acb1",
+        "text": "OK. So now uh I think like we should uh take a look at the short time um fourier transform and try to understand the different parameters. So the important thing that you should understand here is that really the short time fourier transform depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1430s",
+        "start_time": "1430.329"
+    },
+    {
+        "id": "2de40d43",
+        "text": "depends on a bunch of parameters that we pass. So depending on the parameters that we pass, we're gonna get an output that's gonna be different. So one of these parameters and we've already encountered it is the frame size or in other words, how big are the chunks we divide our original signal into? And this is measured in frames. And the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1449s",
+        "start_time": "1449.099"
+    },
+    {
+        "id": "725aeffb",
+        "text": "the usual values that we have here are like like this like 512 1024 8, 1000 100 and 92. As you can see, these are power of two numbers. And as we already discussed in a previous video, it's important that the frame size is a power of two number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform. Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1472s",
+        "start_time": "1472.599"
+    },
+    {
+        "id": "4800aacd",
+        "text": "number. And that's because um with that specific number, we can use the fast fourier transform to calculate the discrete fourier transform, which is a very quick and computationally efficient way of extracting the discrete fourier transform. Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1491s",
+        "start_time": "1491.15"
+    },
+    {
+        "id": "47ac3fe8",
+        "text": "Now, there's a an interesting aspect uh in when we choose the frame size and it's called the time frequency trade off. So if we get like a larger a large frame size, what usually what happens is that the frequency resolution is gonna increase and the time resolution uh is gonna be degraded. So where is that the case? Well, so we know that if we uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1510s",
+        "start_time": "1510.18"
+    },
+    {
+        "id": "a986cdba",
+        "text": "uh uh enlarge the frame size, so we take more samples, we are gonna be having like more frequency bins. And so if you have more frequency bins, it means that your frequency resolution overall improves. But if you take more, more samples in one frame size, it means that you are taking like a larger, you're considering a larger chunk of time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1540s",
+        "start_time": "1540.239"
+    },
+    {
+        "id": "2af76738",
+        "text": "time because samples like are pro for for time. OK. And in other words, if you're taking like like a larger chunk of time, it means that the time resolution goes down, right? And uh the opposite is also true. In other words, if you take a smaller frame size, then the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time. And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1566s",
+        "start_time": "1566.699"
+    },
+    {
+        "id": "63830c06",
+        "text": "the frequency resolution is gonna go down. And that's because you're gonna have like a, a smaller number of frequency bins as output. But you're gonna have a higher, better time resolution just because you're considering less samples which equates like to uh like a, a less amount of time. And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa. Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1587s",
+        "start_time": "1587.329"
+    },
+    {
+        "id": "de4f72dd",
+        "text": "And so you're gonna be calculating like the, the, the fourier transform like on smaller chunks of time. So your time resolution is gonna be better. Now, this is like a time frequency trade off as you can see here. So when, when you try to improve the frequency resolution, then the time resolution is gonna go down and vice versa. Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1608s",
+        "start_time": "1608.079"
+    },
+    {
+        "id": "e092ed13",
+        "text": "Now how do we solve that? Well, we don't really solve that. We just have like some heuristics most of the time you want to find a value of the frame size, that's a K and it's a good trade off between frequency and time resolution. Um But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a, a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1629s",
+        "start_time": "1629.88"
+    },
+    {
+        "id": "7804590d",
+        "text": "But this really depends on the type of application that you're um a problem that you are interested in. So certain problems for certain problems, it's more important that you have a higher frequency resolution. And in that case, you should take like a, a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time. OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1645s",
+        "start_time": "1645.06"
+    },
+    {
+        "id": "e3e8d5e8",
+        "text": "a bigger uh frame size uh for other applications like for example, onset detection, you're not really super interested in the frequency frequency resolution, perhaps you're more interested in just like having like a um very precise or like high, highly ol like time. Um so that you a very good like time resolution so that you can really know what happens like at each point in time. OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1660s",
+        "start_time": "1660.114"
+    },
+    {
+        "id": "f70b3524",
+        "text": "OK. So I think like this is like very uh important to keep in mind when you decide like which frame size like to, to take. Because I mean, the two things frequent and temporal resolution are uh related uh together and inversely um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time. And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1690s",
+        "start_time": "1690.209"
+    },
+    {
+        "id": "df639901",
+        "text": "um related in a sense, right. OK. So now um let's move on to the next uh short term fourier transform parameter. And that's the hop size. We already saw that multiple times in this video and in earlier videos, and we know that's the number of samples that we slide to the right when we want to take a new frame. So usual values here, once again, 256 512 I mean all power of two most of the time. And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK. Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1706s",
+        "start_time": "1706.26"
+    },
+    {
+        "id": "6ab101ed",
+        "text": "And we can also define this as a fraction of the frame size. So a half of the frame size or 1/4 or 1/8 of the uh frame size. So you have like both definitions, absolute and relative. OK. Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1734s",
+        "start_time": "1734.65"
+    },
+    {
+        "id": "b2c69584",
+        "text": "Now moving on uh a third, very important parameter is the windowing function. Obviously, the short time fourier transform is not only like a function of the signal itself, but it's a function also of the windowing function that we choose. Because different windowing functions are gonna uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1750s",
+        "start_time": "1750.979"
+    },
+    {
+        "id": "d7d731f1",
+        "text": "uh kind of like modulate the original signal in different manners and and this is going to have an effect on the um short time period transform results. OK. So we introduced the rectangle window function, but that's not really used at all in um in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1769s",
+        "start_time": "1769.589"
+    },
+    {
+        "id": "181c5f35",
+        "text": "in digital signal processing. And that's because like it creates discontinuities like on the edges, like all of the windows rather to avoid those you want to use like a bell shaped curve. One of which the most important probably is the hand window. So 90% of the time probably you are going to be used the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1791s",
+        "start_time": "1791.06"
+    },
+    {
+        "id": "253f6d5a",
+        "text": "the hand window when you perform a short time for transform perhaps without even knowing that. And so this uh function is is given by this formula here, which is obviously like a periodic uh formula, a periodic like function over here and here like you have visualization of this. So um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1810s",
+        "start_time": "1810.449"
+    },
+    {
+        "id": "cc3e0c1e",
+        "text": "um so let's say this like in action. So here we have like a signal here, we have like our bell shaped hand window. So when we apply the hand window to the signal, you see that the signal gets modulated and towards the end, the um the values of the of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1831s",
+        "start_time": "1831.089"
+    },
+    {
+        "id": "06a68ce9",
+        "text": "of the samples tend to get squashed right towards zero, so that we avoid these continuities on the edges. Once again, if you want to know why that is so important, you should go check out my video on audio feature extraction pipelines where I talk about spectral leakage. OK. So now let's move on to the final topic of this video and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1851s",
+        "start_time": "1851.094"
+    },
+    {
+        "id": "bbec9fbb",
+        "text": "and this is like what you probably came here for and that's the spectrogram. So through the spectrogram, we can visualize sound. So, but how do we get to the spectrograms? Because up until now we know that we have the short time period transform and that's a matrix that has like complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1877s",
+        "start_time": "1877.709"
+    },
+    {
+        "id": "2e17f7c8",
+        "text": "complex numbers or fourier coefficients for each item in the matrix. So what we do is we take the squared magnitude of the short time fourier transform. And what we get is a uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1901s",
+        "start_time": "1901.849"
+    },
+    {
+        "id": "a0ce5b24",
+        "text": "uh matrix which has the same shape as the original short time period transform. But the difference is that now we have uh all, all of the items are not complex numbers anymore, but they are real numbers. And now we can visualize them using a hip map and the visualization is called a spectrogram. And this is I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1918s",
+        "start_time": "1918.069"
+    },
+    {
+        "id": "af3ce443",
+        "text": "I mean this is like so important for all applications in A I audio because like so many times we are gonna be using spectrograms as features that we feed into the algorithms. So now let's take a look at the spectrogram here. So on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1941s",
+        "start_time": "1941.92"
+    },
+    {
+        "id": "b8fc54cf",
+        "text": "on the X axis, we have time and these are like discrete times and you can see it here that you have like this tiny like discontinuities. And these are like all the frames, all the temporal bins. And on the Y axis, we have uh frequency with all of the different frequency bins. And so what we we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true. So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time,",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1957s",
+        "start_time": "1957.55"
+    },
+    {
+        "id": "693e3d05",
+        "text": "we are seeing here is how the different frequency beams, how the different frequency components evolve over time across the different um frames that we have in the original signal. And so, and now this is actually the dream that we wanted to come true. So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time, which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1978s",
+        "start_time": "1978.005"
+    },
+    {
+        "id": "6d67cd06",
+        "text": "So now, not only we have information about the frequency components, which was something that we already had with the spectrum, the magnitude spectrum, but we also have information about the components evolving over time, which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the um topic of the next video. So in the next video, we're gonna be using Python and Libros specifically for extracting spectrograms. We're gonna be looking into different flavors of spectrograms and understand which ones to use. And then we're gonna be examining like different audio samples and comparing them perhaps like different musical genres and how like they their spectrograms differ. OK.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1998s",
+        "start_time": "1998.64"
+    },
+    {
+        "id": "1247399a",
+        "text": "which is the information that we usually get from the time domain. And this is why a spectrogram is called a time frequency representation. And this is why spectrograms are so important in A I audio. Now, I'm not gonna get into the details of the implementation and all of these things like uh for spectrograms because that's the um topic of the next video. So in the next video, we're gonna be using Python and Libros specifically for extracting spectrograms. We're gonna be looking into different flavors of spectrograms and understand which ones to use. And then we're gonna be examining like different audio samples and comparing them perhaps like different musical genres and how like they their spectrograms differ. OK. So I hope like you found uh this video instructive and useful. If that's the case, please consider leaving a like and if you haven't subscribed yet to the channel and you want to see more videos like this, please consider subscribing. So if you have any questions, please leave them in the comments section below. I think that's all for today. I'll see you next time. Cheers.",
+        "video": "Short-Time Fourier Transform Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "-Yxj3yfvY-4",
+        "youtube_link": "https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=2014s",
+        "start_time": "2014.969"
+    }
+]

@@ -7,5 +7,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./app/data_ingestion.py .
+COPY ./app/db.py .
+COPY ./app/config.py .
 
-CMD ["python", "data_ingestion.py"]
+CMD ["sh", "-c", "python data_ingestion.py"]
+

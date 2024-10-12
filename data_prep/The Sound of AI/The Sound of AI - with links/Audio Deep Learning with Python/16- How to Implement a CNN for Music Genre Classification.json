@@ -1,0 +1,1532 @@
+[
+    {
+        "id": "84c9802b",
+        "text": "Hi, everybody and welcome to another video in the Deep Learning for audio with Python series. This time, we're gonna build a convolutional neural network for performing music genre classification. So basically, we're building on top of the previous video where we reviewed. Uh Well, we analyze what a CNN is and how it works as well as like the work that we've done on previous videos on uh music genre classification using a multi layer perception. Now, this is gonna be like a quite intense video. So just like take it and uh relax uh but this is gonna be fun for real. OK. So what I want to do first is just like provide all the different steps, high level steps that we need to go through to build uh like this um CNM. And so uh let me just like start by doing if name is equal to main, right? OK. And so here I'll just like jot down all the different steps. So let's start from the first one. So we want to create a train validation and test sets. Now we've already seen the train and test set. Uh We don't really know that much about validation set or cross validation. So, and we'll see that like in a second. But before let's go through like all the different steps here.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "d167313f",
+        "text": "Now, this is gonna be like a quite intense video. So just like take it and uh relax uh but this is gonna be fun for real. OK. So what I want to do first is just like provide all the different steps, high level steps that we need to go through to build uh like this um CNM. And so uh let me just like start by doing if name is equal to main, right? OK. And so here I'll just like jot down all the different steps. So let's start from the first one. So we want to create a train validation and test sets. Now we've already seen the train and test set. Uh We don't really know that much about validation set or cross validation. So, and we'll see that like in a second. But before let's go through like all the different steps here. OK? So before anything else, we build like this different like train validation and test sets, then we want to actually uh build uh the, build the CNN net,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=27s",
+        "start_time": "27.52"
+    },
+    {
+        "id": "e983d809",
+        "text": "OK. And so here I'll just like jot down all the different steps. So let's start from the first one. So we want to create a train validation and test sets. Now we've already seen the train and test set. Uh We don't really know that much about validation set or cross validation. So, and we'll see that like in a second. But before let's go through like all the different steps here. OK? So before anything else, we build like this different like train validation and test sets, then we want to actually uh build uh the, build the CNN net, right? So once we've built the CNN network, we need to compile, compile the network",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=57s",
+        "start_time": "57.38"
+    },
+    {
+        "id": "a584ecd6",
+        "text": "OK? So before anything else, we build like this different like train validation and test sets, then we want to actually uh build uh the, build the CNN net, right? So once we've built the CNN network, we need to compile, compile the network and then train the CNN.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=85s",
+        "start_time": "85.309"
+    },
+    {
+        "id": "bda6346e",
+        "text": "right? So once we've built the CNN network, we need to compile, compile the network and then train the CNN. And once we've trained it, we are gonna evaluate the uh CNN on the test set.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=101s",
+        "start_time": "101.66"
+    },
+    {
+        "id": "ac384230",
+        "text": "and then train the CNN. And once we've trained it, we are gonna evaluate the uh CNN on the test set. And finally, this is something like that. Many of you guys have asked me uh in the previous video. So you'd like to show you how to do inference with the model uh that we've trained. So we're gonna uh make a prediction, right? So we're gonna learn how to make predictions, make prediction. Um I'd say like on a sample, right? OK. So we have a lot on our hands here. So let's get started from this uh first thing.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=110s",
+        "start_time": "110.19"
+    },
+    {
+        "id": "2690a2a3",
+        "text": "And once we've trained it, we are gonna evaluate the uh CNN on the test set. And finally, this is something like that. Many of you guys have asked me uh in the previous video. So you'd like to show you how to do inference with the model uh that we've trained. So we're gonna uh make a prediction, right? So we're gonna learn how to make predictions, make prediction. Um I'd say like on a sample, right? OK. So we have a lot on our hands here. So let's get started from this uh first thing. So um what I want to um let you guys understand here is that so far we focused on only like a couple of like uh sets when we were doing like training on RDL and deep learning like models. So then we had like the train set that we use for training purposes and the test set that we use for evaluation.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=115s",
+        "start_time": "115.22"
+    },
+    {
+        "id": "624b6392",
+        "text": "And finally, this is something like that. Many of you guys have asked me uh in the previous video. So you'd like to show you how to do inference with the model uh that we've trained. So we're gonna uh make a prediction, right? So we're gonna learn how to make predictions, make prediction. Um I'd say like on a sample, right? OK. So we have a lot on our hands here. So let's get started from this uh first thing. So um what I want to um let you guys understand here is that so far we focused on only like a couple of like uh sets when we were doing like training on RDL and deep learning like models. So then we had like the train set that we use for training purposes and the test set that we use for evaluation. But the evaluation that we were doing uh was basically, so we just had like the test set. And so that's all good. Like if you're not gonna do like, I mean a lot of stuff, a lot of like hyper parameter tricking. So if you are changing like the number of epochs that we use, the number uh of like yeah, the batch size, the number of layers in the architecture or the number of neurons per layers. But if you are changing all of these things to get better results,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=127s",
+        "start_time": "127.449"
+    },
+    {
+        "id": "8e006e03",
+        "text": "So um what I want to um let you guys understand here is that so far we focused on only like a couple of like uh sets when we were doing like training on RDL and deep learning like models. So then we had like the train set that we use for training purposes and the test set that we use for evaluation. But the evaluation that we were doing uh was basically, so we just had like the test set. And so that's all good. Like if you're not gonna do like, I mean a lot of stuff, a lot of like hyper parameter tricking. So if you are changing like the number of epochs that we use, the number uh of like yeah, the batch size, the number of layers in the architecture or the number of neurons per layers. But if you are changing all of these things to get better results, you can just use like the test set because in a sense by doing that, you are um kind of like optimizing uh the the the results like of the model to uh the test data to this test set as well.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=157s",
+        "start_time": "157.07"
+    },
+    {
+        "id": "e57b6360",
+        "text": "But the evaluation that we were doing uh was basically, so we just had like the test set. And so that's all good. Like if you're not gonna do like, I mean a lot of stuff, a lot of like hyper parameter tricking. So if you are changing like the number of epochs that we use, the number uh of like yeah, the batch size, the number of layers in the architecture or the number of neurons per layers. But if you are changing all of these things to get better results, you can just use like the test set because in a sense by doing that, you are um kind of like optimizing uh the the the results like of the model to uh the test data to this test set as well. So what you want to do with the test set is just like create like split like from the main data set and keep it there until you're done with training and hyper parameter tweaking and then just use it in the end so that uh the model you, we are sure that has never seen that data before, right? And so, and this is where the validation set comes in.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=179s",
+        "start_time": "179.039"
+    },
+    {
+        "id": "f6748f6d",
+        "text": "you can just use like the test set because in a sense by doing that, you are um kind of like optimizing uh the the the results like of the model to uh the test data to this test set as well. So what you want to do with the test set is just like create like split like from the main data set and keep it there until you're done with training and hyper parameter tweaking and then just use it in the end so that uh the model you, we are sure that has never seen that data before, right? And so, and this is where the validation set comes in. So we can split like our data set into the training set, the validation and the test set. So we're gonna use the validation set for evaluating um like our model while we track all the hyper parameters and see how well like it does there. And so we optimize it also like on the validation set, but then we'll leave",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=207s",
+        "start_time": "207.429"
+    },
+    {
+        "id": "101ead3b",
+        "text": "So what you want to do with the test set is just like create like split like from the main data set and keep it there until you're done with training and hyper parameter tweaking and then just use it in the end so that uh the model you, we are sure that has never seen that data before, right? And so, and this is where the validation set comes in. So we can split like our data set into the training set, the validation and the test set. So we're gonna use the validation set for evaluating um like our model while we track all the hyper parameters and see how well like it does there. And so we optimize it also like on the validation set, but then we'll leave test that in the end so that we've never seen, the model has never seen the data before, right? OK. So how do we get that? Yeah, the splits. Well, we are gonna build a custom function for D do. So what we expect here is uh first of all A X train and now with, with XS, I'm referring like to the inputs, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=223s",
+        "start_time": "223.85"
+    },
+    {
+        "id": "d499f123",
+        "text": "So we can split like our data set into the training set, the validation and the test set. So we're gonna use the validation set for evaluating um like our model while we track all the hyper parameters and see how well like it does there. And so we optimize it also like on the validation set, but then we'll leave test that in the end so that we've never seen, the model has never seen the data before, right? OK. So how do we get that? Yeah, the splits. Well, we are gonna build a custom function for D do. So what we expect here is uh first of all A X train and now with, with XS, I'm referring like to the inputs, right? So input train and then we're gonna do an X uh validation and X uh test. And then we also wanna get the Y uh train,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=249s",
+        "start_time": "249.059"
+    },
+    {
+        "id": "1a05cbc0",
+        "text": "test that in the end so that we've never seen, the model has never seen the data before, right? OK. So how do we get that? Yeah, the splits. Well, we are gonna build a custom function for D do. So what we expect here is uh first of all A X train and now with, with XS, I'm referring like to the inputs, right? So input train and then we're gonna do an X uh validation and X uh test. And then we also wanna get the Y uh train, the Y validation and the Y test.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=271s",
+        "start_time": "271.065"
+    },
+    {
+        "id": "4c68f640",
+        "text": "So input train and then we're gonna do an X uh validation and X uh test. And then we also wanna get the Y uh train, the Y validation and the Y test. Cool. So, and for why here I'm referring to the outputs or the targets. Cool. OK? So let's uh create like this uh this thing, right? So the, the, the, the function or let's just like use it. OK? So we are gonna use a function that's called prepare data sets.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=298s",
+        "start_time": "298.45"
+    },
+    {
+        "id": "8afd49f2",
+        "text": "the Y validation and the Y test. Cool. So, and for why here I'm referring to the outputs or the targets. Cool. OK? So let's uh create like this uh this thing, right? So the, the, the, the function or let's just like use it. OK? So we are gonna use a function that's called prepare data sets. Now, this is a custom function. So we need to uh define it and here we're gonna pass in a couple, a couple of arguments. So one is uh is gonna be called the test size and uh we'll put this like to 0.25 and the other one is gonna be called the uh validation size",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=313s",
+        "start_time": "313.529"
+    },
+    {
+        "id": "f564a071",
+        "text": "Cool. So, and for why here I'm referring to the outputs or the targets. Cool. OK? So let's uh create like this uh this thing, right? So the, the, the, the function or let's just like use it. OK? So we are gonna use a function that's called prepare data sets. Now, this is a custom function. So we need to uh define it and here we're gonna pass in a couple, a couple of arguments. So one is uh is gonna be called the test size and uh we'll put this like to 0.25 and the other one is gonna be called the uh validation size and we'll put this uh to 0.2. Uh So what the test size uh like it tells us is basically how much of the training set we wanna use for um the, the test set, right? And for the validation size over here. We, we're basically saying like with that value that",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=318s",
+        "start_time": "318.799"
+    },
+    {
+        "id": "a132c9e6",
+        "text": "Now, this is a custom function. So we need to uh define it and here we're gonna pass in a couple, a couple of arguments. So one is uh is gonna be called the test size and uh we'll put this like to 0.25 and the other one is gonna be called the uh validation size and we'll put this uh to 0.2. Uh So what the test size uh like it tells us is basically how much of the training set we wanna use for um the, the test set, right? And for the validation size over here. We, we're basically saying like with that value that 20% of the training set that we've already separated from the test set is gonna be used for uh the validation set, right? OK. So now let's go build uh this function. So we'll define it over here.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=342s",
+        "start_time": "342.44"
+    },
+    {
+        "id": "19fb8498",
+        "text": "and we'll put this uh to 0.2. Uh So what the test size uh like it tells us is basically how much of the training set we wanna use for um the, the test set, right? And for the validation size over here. We, we're basically saying like with that value that 20% of the training set that we've already separated from the test set is gonna be used for uh the validation set, right? OK. So now let's go build uh this function. So we'll define it over here. So we'll say, hey, give me uh a prepare uh data sets and we already say thats uh we want a test size and a validation size arguments.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=362s",
+        "start_time": "362.91"
+    },
+    {
+        "id": "84d3ce05",
+        "text": "20% of the training set that we've already separated from the test set is gonna be used for uh the validation set, right? OK. So now let's go build uh this function. So we'll define it over here. So we'll say, hey, give me uh a prepare uh data sets and we already say thats uh we want a test size and a validation size arguments. Cool. OK. So now what should we do here? So what we want to do here is first of all load in the data. So we'll do a, we want to uh load",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=384s",
+        "start_time": "384.25"
+    },
+    {
+        "id": "462123af",
+        "text": "So we'll say, hey, give me uh a prepare uh data sets and we already say thats uh we want a test size and a validation size arguments. Cool. OK. So now what should we do here? So what we want to do here is first of all load in the data. So we'll do a, we want to uh load uh data as the first step. Then as a second step, what we wanna do is basically create the sh trainin",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=399s",
+        "start_time": "399.44"
+    },
+    {
+        "id": "db1200d2",
+        "text": "Cool. OK. So now what should we do here? So what we want to do here is first of all load in the data. So we'll do a, we want to uh load uh data as the first step. Then as a second step, what we wanna do is basically create the sh trainin test split. The first step here is create the train validation split and uh let's stop uh to this uh next steps for now, right. OK. So how do we load the data here? Uh This is straightforward and we already have a function here that we can use. And so I'm gonna use this one that, as we see here, returns X and Y for like all of our data",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=415s",
+        "start_time": "415.35"
+    },
+    {
+        "id": "539d8ec1",
+        "text": "uh data as the first step. Then as a second step, what we wanna do is basically create the sh trainin test split. The first step here is create the train validation split and uh let's stop uh to this uh next steps for now, right. OK. So how do we load the data here? Uh This is straightforward and we already have a function here that we can use. And so I'm gonna use this one that, as we see here, returns X and Y for like all of our data uh fetching it from uh the JSON file that we used. And it's this guy over here uh where we extracted all the MF CCS, all the labels and we have a mapping with the indexes and the relative um labels here. And so we're gonna uh like read that file and extract the X and the Y.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=431s",
+        "start_time": "431.5"
+    },
+    {
+        "id": "fdcd7b21",
+        "text": "test split. The first step here is create the train validation split and uh let's stop uh to this uh next steps for now, right. OK. So how do we load the data here? Uh This is straightforward and we already have a function here that we can use. And so I'm gonna use this one that, as we see here, returns X and Y for like all of our data uh fetching it from uh the JSON file that we used. And it's this guy over here uh where we extracted all the MF CCS, all the labels and we have a mapping with the indexes and the relative um labels here. And so we're gonna uh like read that file and extract the X and the Y. So the inputs and the outputs. So we'll do XY and we'll do a load data and I'm gonna pass this data path, that's a constant that I have over here. And this is my uh path. You may have something else to remember to uh just like input the right path there, right? OK. So now we have uh the data. So now what we wanna do is split these days into train and test uh sets.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=443s",
+        "start_time": "443.049"
+    },
+    {
+        "id": "35caf76a",
+        "text": "uh fetching it from uh the JSON file that we used. And it's this guy over here uh where we extracted all the MF CCS, all the labels and we have a mapping with the indexes and the relative um labels here. And so we're gonna uh like read that file and extract the X and the Y. So the inputs and the outputs. So we'll do XY and we'll do a load data and I'm gonna pass this data path, that's a constant that I have over here. And this is my uh path. You may have something else to remember to uh just like input the right path there, right? OK. So now we have uh the data. So now what we wanna do is split these days into train and test uh sets. Uh OK. So in order to do that, we need a function that we've come to know uh quite a lot by now. And that comes from uh psychic learn. And so from psych learn model selection, uh we want to import",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=472s",
+        "start_time": "472.769"
+    },
+    {
+        "id": "3bc400c0",
+        "text": "So the inputs and the outputs. So we'll do XY and we'll do a load data and I'm gonna pass this data path, that's a constant that I have over here. And this is my uh path. You may have something else to remember to uh just like input the right path there, right? OK. So now we have uh the data. So now what we wanna do is split these days into train and test uh sets. Uh OK. So in order to do that, we need a function that we've come to know uh quite a lot by now. And that comes from uh psychic learn. And so from psych learn model selection, uh we want to import train test split. This is a nice function that we can use to split a data into like a train and, and, and test split. OK. So here we expect X train,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=495s",
+        "start_time": "495.32"
+    },
+    {
+        "id": "ffa6d337",
+        "text": "Uh OK. So in order to do that, we need a function that we've come to know uh quite a lot by now. And that comes from uh psychic learn. And so from psych learn model selection, uh we want to import train test split. This is a nice function that we can use to split a data into like a train and, and, and test split. OK. So here we expect X train, then we expect uh X test and then Y uh",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=525s",
+        "start_time": "525.52"
+    },
+    {
+        "id": "02644aa1",
+        "text": "train test split. This is a nice function that we can use to split a data into like a train and, and, and test split. OK. So here we expect X train, then we expect uh X test and then Y uh Y train and a Y test and we'll do a train test split and we'll pass in X and, and Y. And so this is gonna shuffle around the X and Y and then it's gonna split them and we, we should specify the proportion that we want to split this into. And so we have a test size argument here. Well, not surprisingly, we're gonna pass in our test size",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=544s",
+        "start_time": "544.299"
+    },
+    {
+        "id": "6d12f4b2",
+        "text": "then we expect uh X test and then Y uh Y train and a Y test and we'll do a train test split and we'll pass in X and, and Y. And so this is gonna shuffle around the X and Y and then it's gonna split them and we, we should specify the proportion that we want to split this into. And so we have a test size argument here. Well, not surprisingly, we're gonna pass in our test size uh argument that, that the prepared data sets uh function accepts, right? And so this way we should have our X train, X test way train way test. Nice. Now, we should build the train validation split. Ok. So what we'll do is again, we'll do X train here, we'll do uh uh X validation here.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=558s",
+        "start_time": "558.27"
+    },
+    {
+        "id": "ec5e02c1",
+        "text": "Y train and a Y test and we'll do a train test split and we'll pass in X and, and Y. And so this is gonna shuffle around the X and Y and then it's gonna split them and we, we should specify the proportion that we want to split this into. And so we have a test size argument here. Well, not surprisingly, we're gonna pass in our test size uh argument that, that the prepared data sets uh function accepts, right? And so this way we should have our X train, X test way train way test. Nice. Now, we should build the train validation split. Ok. So what we'll do is again, we'll do X train here, we'll do uh uh X validation here. And then here we again expect why train? And this time we'll have Y uh validation.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=566s",
+        "start_time": "566.07"
+    },
+    {
+        "id": "dabb48e1",
+        "text": "uh argument that, that the prepared data sets uh function accepts, right? And so this way we should have our X train, X test way train way test. Nice. Now, we should build the train validation split. Ok. So what we'll do is again, we'll do X train here, we'll do uh uh X validation here. And then here we again expect why train? And this time we'll have Y uh validation. Again, we want to reuse the train to splits function. But this time we're going to pass in uh X train",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=594s",
+        "start_time": "594.32"
+    },
+    {
+        "id": "f8a8e9e0",
+        "text": "And then here we again expect why train? And this time we'll have Y uh validation. Again, we want to reuse the train to splits function. But this time we're going to pass in uh X train and Y train, right? So we want to split the train set and split it into train and validation right, into two subsets. And again, like the, the test size, this time is gonna be our validation size. And so this is gonna be the percentage that's gonna be used for uh validation, right? And in this case, given we've given a 0.2 it's gonna be a 20% right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=620s",
+        "start_time": "620.369"
+    },
+    {
+        "id": "7093df40",
+        "text": "Again, we want to reuse the train to splits function. But this time we're going to pass in uh X train and Y train, right? So we want to split the train set and split it into train and validation right, into two subsets. And again, like the, the test size, this time is gonna be our validation size. And so this is gonna be the percentage that's gonna be used for uh validation, right? And in this case, given we've given a 0.2 it's gonna be a 20% right? OK. So now we are, we could say like that we are basically done, right? So because we have uh X train X uh test X validation, we train, we test, we validation so we could return all of these guys and we would be done. But unfortunately,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=628s",
+        "start_time": "628.049"
+    },
+    {
+        "id": "b1141fb1",
+        "text": "and Y train, right? So we want to split the train set and split it into train and validation right, into two subsets. And again, like the, the test size, this time is gonna be our validation size. And so this is gonna be the percentage that's gonna be used for uh validation, right? And in this case, given we've given a 0.2 it's gonna be a 20% right? OK. So now we are, we could say like that we are basically done, right? So because we have uh X train X uh test X validation, we train, we test, we validation so we could return all of these guys and we would be done. But unfortunately, this is uh not the case. And the reason why this is not the case is but because uh tensorflow in this case is gonna uh for an X and N, sorry for a CNN, I don't know what an X and N is, but I mean, it could be like a new type of network, who knows? Right. OK. So for a CNN um tensorflow expects a 3d array uh for each",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=637s",
+        "start_time": "637.13"
+    },
+    {
+        "id": "355ee475",
+        "text": "OK. So now we are, we could say like that we are basically done, right? So because we have uh X train X uh test X validation, we train, we test, we validation so we could return all of these guys and we would be done. But unfortunately, this is uh not the case. And the reason why this is not the case is but because uh tensorflow in this case is gonna uh for an X and N, sorry for a CNN, I don't know what an X and N is, but I mean, it could be like a new type of network, who knows? Right. OK. So for a CNN um tensorflow expects a 3d array uh for each right. And so far, uh this X strain here basically has samples where each sample is a two D array which should have this shape if I'm not wrong. So where 100 30 is the number of like time bins that we have and at each of these time bins, we're taking the 13 MFCC uh values right now, if you guys remember from my previous view,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=666s",
+        "start_time": "666.08"
+    },
+    {
+        "id": "88108e8f",
+        "text": "this is uh not the case. And the reason why this is not the case is but because uh tensorflow in this case is gonna uh for an X and N, sorry for a CNN, I don't know what an X and N is, but I mean, it could be like a new type of network, who knows? Right. OK. So for a CNN um tensorflow expects a 3d array uh for each right. And so far, uh this X strain here basically has samples where each sample is a two D array which should have this shape if I'm not wrong. So where 100 30 is the number of like time bins that we have and at each of these time bins, we're taking the 13 MFCC uh values right now, if you guys remember from my previous view, uh CNN and like image data where that we usually use with CNN S expect three dimensional um arrays. And that's because we have a third dimension which is the channel. And in this case, uh the channel is gonna be just a dimension uh just the mono dimensional, right? It's as if",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=683s",
+        "start_time": "683.4"
+    },
+    {
+        "id": "a8c9038b",
+        "text": "right. And so far, uh this X strain here basically has samples where each sample is a two D array which should have this shape if I'm not wrong. So where 100 30 is the number of like time bins that we have and at each of these time bins, we're taking the 13 MFCC uh values right now, if you guys remember from my previous view, uh CNN and like image data where that we usually use with CNN S expect three dimensional um arrays. And that's because we have a third dimension which is the channel. And in this case, uh the channel is gonna be just a dimension uh just the mono dimensional, right? It's as if like all your data was uh gray scale images. So where you have like one value uh for each pixel that's determined by X and Y, right? OK. If it was like an R GB, we would have like three here, right? But uh we, we need to like add these extra dimension over here. So how do we do that? Well, this is like quite simple to do",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=713s",
+        "start_time": "713.539"
+    },
+    {
+        "id": "80de9efe",
+        "text": "uh CNN and like image data where that we usually use with CNN S expect three dimensional um arrays. And that's because we have a third dimension which is the channel. And in this case, uh the channel is gonna be just a dimension uh just the mono dimensional, right? It's as if like all your data was uh gray scale images. So where you have like one value uh for each pixel that's determined by X and Y, right? OK. If it was like an R GB, we would have like three here, right? But uh we, we need to like add these extra dimension over here. So how do we do that? Well, this is like quite simple to do and uh so we'll do it on X train first. And so all we need to do here is take X train and given this is a nun pi array. So we're going to say that we,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=742s",
+        "start_time": "742.159"
+    },
+    {
+        "id": "7160017c",
+        "text": "like all your data was uh gray scale images. So where you have like one value uh for each pixel that's determined by X and Y, right? OK. If it was like an R GB, we would have like three here, right? But uh we, we need to like add these extra dimension over here. So how do we do that? Well, this is like quite simple to do and uh so we'll do it on X train first. And so all we need to do here is take X train and given this is a nun pi array. So we're going to say that we, we're gonna put like three dots there and we're gonna put in a NP dot near axis, right? So with this three dots, we're basically saying, hey, give me what I have so far in terms of like the, the, the X train array and then give me an extra axis after that, right? And now X train is gonna be a four D array. So why is that?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=766s",
+        "start_time": "766.03"
+    },
+    {
+        "id": "395f0223",
+        "text": "and uh so we'll do it on X train first. And so all we need to do here is take X train and given this is a nun pi array. So we're going to say that we, we're gonna put like three dots there and we're gonna put in a NP dot near axis, right? So with this three dots, we're basically saying, hey, give me what I have so far in terms of like the, the, the X train array and then give me an extra axis after that, right? And now X train is gonna be a four D array. So why is that? Well, because we have the number, it's not the boon, but it's the number of samples. And then we're gonna have 100 3013 and one, right? So here like the, the, the, the first dimension is just like the number of samples. So if we have 5000 samples, this is gonna be equal to 5000, right? OK. So X trainin is not the only",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=794s",
+        "start_time": "794.38"
+    },
+    {
+        "id": "a0fa5a66",
+        "text": "we're gonna put like three dots there and we're gonna put in a NP dot near axis, right? So with this three dots, we're basically saying, hey, give me what I have so far in terms of like the, the, the X train array and then give me an extra axis after that, right? And now X train is gonna be a four D array. So why is that? Well, because we have the number, it's not the boon, but it's the number of samples. And then we're gonna have 100 3013 and one, right? So here like the, the, the, the first dimension is just like the number of samples. So if we have 5000 samples, this is gonna be equal to 5000, right? OK. So X trainin is not the only um",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=808s",
+        "start_time": "808.28"
+    },
+    {
+        "id": "f4cf411e",
+        "text": "Well, because we have the number, it's not the boon, but it's the number of samples. And then we're gonna have 100 3013 and one, right? So here like the, the, the, the first dimension is just like the number of samples. So if we have 5000 samples, this is gonna be equal to 5000, right? OK. So X trainin is not the only um yeah, a ray that we need to uh add a a dimension on. So we also want to uh change uh X validation. And so we'll basically do the same here",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=836s",
+        "start_time": "836.64"
+    },
+    {
+        "id": "3ba754d9",
+        "text": "um yeah, a ray that we need to uh add a a dimension on. So we also want to uh change uh X validation. And so we'll basically do the same here and same thing for X test.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=865s",
+        "start_time": "865.83"
+    },
+    {
+        "id": "ecb89fdd",
+        "text": "yeah, a ray that we need to uh add a a dimension on. So we also want to uh change uh X validation. And so we'll basically do the same here and same thing for X test. Cool.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=867s",
+        "start_time": "867.609"
+    },
+    {
+        "id": "7c23b8a5",
+        "text": "and same thing for X test. Cool. OK. So here we have XTA",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=880s",
+        "start_time": "880.969"
+    },
+    {
+        "id": "6fd56f6b",
+        "text": "Cool. OK. So here we have XTA good. So now we should have all we need for like our training process and validation and testing, right? OK. So now we can return all of this test, split, all of this data set splits. So we'll take these guys here. So we have already written them. So I'm not gonna rewrite them",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=884s",
+        "start_time": "884.82"
+    },
+    {
+        "id": "2e9e029a",
+        "text": "OK. So here we have XTA good. So now we should have all we need for like our training process and validation and testing, right? OK. So now we can return all of this test, split, all of this data set splits. So we'll take these guys here. So we have already written them. So I'm not gonna rewrite them uh cool. So this should be done. So if this works correctly, this function works correctly. Now, we should be able to have all of our train validation and test sets down here, which is great. Now on to the next step building the CNN. So here we need to build the, the architecture itself, the network.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=886s",
+        "start_time": "886.28"
+    },
+    {
+        "id": "77c2bd33",
+        "text": "good. So now we should have all we need for like our training process and validation and testing, right? OK. So now we can return all of this test, split, all of this data set splits. So we'll take these guys here. So we have already written them. So I'm not gonna rewrite them uh cool. So this should be done. So if this works correctly, this function works correctly. Now, we should be able to have all of our train validation and test sets down here, which is great. Now on to the next step building the CNN. So here we need to build the, the architecture itself, the network. So what we, we're gonna use again, another like custom function for doing that. I'm not gonna write like all the instructions here like in the uh yeah here like in the main. And the main reason for that is because like, it's a lot of like uh stuff that we're gonna write. And so I don't want to like have a lot of mass. So I prefer just like to modular everything. By the way, this is a good, a very good advice if you have like a lot of instructions that go well, like together, even if you're doing just like simple scripting,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=889s",
+        "start_time": "889.88"
+    },
+    {
+        "id": "258514ea",
+        "text": "uh cool. So this should be done. So if this works correctly, this function works correctly. Now, we should be able to have all of our train validation and test sets down here, which is great. Now on to the next step building the CNN. So here we need to build the, the architecture itself, the network. So what we, we're gonna use again, another like custom function for doing that. I'm not gonna write like all the instructions here like in the uh yeah here like in the main. And the main reason for that is because like, it's a lot of like uh stuff that we're gonna write. And so I don't want to like have a lot of mass. So I prefer just like to modular everything. By the way, this is a good, a very good advice if you have like a lot of instructions that go well, like together, even if you're doing just like simple scripting, just try like to, to use like either functional programming or like object oriented programming. So that, I mean, you don't end up like with a lot of like instructions that are difficult to understand.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=913s",
+        "start_time": "913.01"
+    },
+    {
+        "id": "e224f3fa",
+        "text": "So what we, we're gonna use again, another like custom function for doing that. I'm not gonna write like all the instructions here like in the uh yeah here like in the main. And the main reason for that is because like, it's a lot of like uh stuff that we're gonna write. And so I don't want to like have a lot of mass. So I prefer just like to modular everything. By the way, this is a good, a very good advice if you have like a lot of instructions that go well, like together, even if you're doing just like simple scripting, just try like to, to use like either functional programming or like object oriented programming. So that, I mean, you don't end up like with a lot of like instructions that are difficult to understand. OK. So we'll do so we expect like the model itself. And so we'll create a uh function here that we'll call it uh built model. And now this function is gonna accept an argument uh that's called uh the input shape, right? So now we, we'll see what this is like in a second. But before that let's start building this function.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=935s",
+        "start_time": "935.309"
+    },
+    {
+        "id": "27d5bc73",
+        "text": "just try like to, to use like either functional programming or like object oriented programming. So that, I mean, you don't end up like with a lot of like instructions that are difficult to understand. OK. So we'll do so we expect like the model itself. And so we'll create a uh function here that we'll call it uh built model. And now this function is gonna accept an argument uh that's called uh the input shape, right? So now we, we'll see what this is like in a second. But before that let's start building this function. So yeah, let me slide this down. OK. So yeah, we don't want all of that for sure. But we want uh to define BUILD model, we have the argument that's uh input shape, right? OK. So now we need to do like a bunch of things. So we want to, first of all uh create a model then this model",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=965s",
+        "start_time": "965.479"
+    },
+    {
+        "id": "2de45e05",
+        "text": "OK. So we'll do so we expect like the model itself. And so we'll create a uh function here that we'll call it uh built model. And now this function is gonna accept an argument uh that's called uh the input shape, right? So now we, we'll see what this is like in a second. But before that let's start building this function. So yeah, let me slide this down. OK. So yeah, we don't want all of that for sure. But we want uh to define BUILD model, we have the argument that's uh input shape, right? OK. So now we need to do like a bunch of things. So we want to, first of all uh create a model then this model uh is gonna be a CNN with three convolutional layers followed by max pooling uh layers. So we are gonna write first con uh layer, then we are gonna have a second con uh layer",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=978s",
+        "start_time": "978.4"
+    },
+    {
+        "id": "f85de03c",
+        "text": "So yeah, let me slide this down. OK. So yeah, we don't want all of that for sure. But we want uh to define BUILD model, we have the argument that's uh input shape, right? OK. So now we need to do like a bunch of things. So we want to, first of all uh create a model then this model uh is gonna be a CNN with three convolutional layers followed by max pooling uh layers. So we are gonna write first con uh layer, then we are gonna have a second con uh layer and a third com layer.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1007s",
+        "start_time": "1007.179"
+    },
+    {
+        "id": "8e3238f1",
+        "text": "uh is gonna be a CNN with three convolutional layers followed by max pooling uh layers. So we are gonna write first con uh layer, then we are gonna have a second con uh layer and a third com layer. Then we're gonna flatten",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1032s",
+        "start_time": "1032.448"
+    },
+    {
+        "id": "27e686cc",
+        "text": "and a third com layer. Then we're gonna flatten uh the output of the convolutional layers",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1053s",
+        "start_time": "1053.52"
+    },
+    {
+        "id": "ba3c34c1",
+        "text": "Then we're gonna flatten uh the output of the convolutional layers and fit",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1057s",
+        "start_time": "1057.75"
+    },
+    {
+        "id": "58a4fb65",
+        "text": "uh the output of the convolutional layers and fit uh into dense layer. So we'll feed that into dense layer. And uh finally, we'll have an output layer that uses soft max cool. OK. So let's let's uh build all of this. But before we can do that, we need to import keras, right. OK. So we'll do a import",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1061s",
+        "start_time": "1061.689"
+    },
+    {
+        "id": "317f1e81",
+        "text": "and fit uh into dense layer. So we'll feed that into dense layer. And uh finally, we'll have an output layer that uses soft max cool. OK. So let's let's uh build all of this. But before we can do that, we need to import keras, right. OK. So we'll do a import and we should say tensorflow dot uh carers and we'll import this as carers, right? So, yeah, I'm really busy. I don't want to write too many things. OK. So we need to build the model uh initially. So we'll do a model uh that's equal to uh we should say uh KIS and uh sequential. So this is a sequential model,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1066s",
+        "start_time": "1066.38"
+    },
+    {
+        "id": "cf3e7c24",
+        "text": "uh into dense layer. So we'll feed that into dense layer. And uh finally, we'll have an output layer that uses soft max cool. OK. So let's let's uh build all of this. But before we can do that, we need to import keras, right. OK. So we'll do a import and we should say tensorflow dot uh carers and we'll import this as carers, right? So, yeah, I'm really busy. I don't want to write too many things. OK. So we need to build the model uh initially. So we'll do a model uh that's equal to uh we should say uh KIS and uh sequential. So this is a sequential model, right? And now we want to build uh the first uh convolutional layer. So how do we do that. Well, we're gonna take the model and there's a great method that we can use on the, on the model. And it's called a here. And so here we can add a layer to a model that's basically like the, the, the idea like the semantics of model dot A.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1068s",
+        "start_time": "1068.569"
+    },
+    {
+        "id": "6e85f648",
+        "text": "and we should say tensorflow dot uh carers and we'll import this as carers, right? So, yeah, I'm really busy. I don't want to write too many things. OK. So we need to build the model uh initially. So we'll do a model uh that's equal to uh we should say uh KIS and uh sequential. So this is a sequential model, right? And now we want to build uh the first uh convolutional layer. So how do we do that. Well, we're gonna take the model and there's a great method that we can use on the, on the model. And it's called a here. And so here we can add a layer to a model that's basically like the, the, the idea like the semantics of model dot A. OK. So what do we wanna uh add here? So we want to add a layer and specifically uh we want to add a con to D layer. So it's convolutional uh layer. Now, we need to pass quite uh a lot of values like to, to this uh layer.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1094s",
+        "start_time": "1094.54"
+    },
+    {
+        "id": "29c0edc3",
+        "text": "right? And now we want to build uh the first uh convolutional layer. So how do we do that. Well, we're gonna take the model and there's a great method that we can use on the, on the model. And it's called a here. And so here we can add a layer to a model that's basically like the, the, the idea like the semantics of model dot A. OK. So what do we wanna uh add here? So we want to add a layer and specifically uh we want to add a con to D layer. So it's convolutional uh layer. Now, we need to pass quite uh a lot of values like to, to this uh layer. So first of all, we should decide which uh not which, but how many kernels, how many filters we want in these convolutional layers. And so we'll say we want 32 filters, then we should decide uh the grid size of the kernel. And this is gonna be a quite customary three by three.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1121s",
+        "start_time": "1121.55"
+    },
+    {
+        "id": "872ed753",
+        "text": "OK. So what do we wanna uh add here? So we want to add a layer and specifically uh we want to add a con to D layer. So it's convolutional uh layer. Now, we need to pass quite uh a lot of values like to, to this uh layer. So first of all, we should decide which uh not which, but how many kernels, how many filters we want in these convolutional layers. And so we'll say we want 32 filters, then we should decide uh the grid size of the kernel. And this is gonna be a quite customary three by three. And then what we wanna uh specify here is the uh type of activation that we wanna use. So the activation function and we're gonna be using R",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1145s",
+        "start_time": "1145.189"
+    },
+    {
+        "id": "fa0e90b0",
+        "text": "So first of all, we should decide which uh not which, but how many kernels, how many filters we want in these convolutional layers. And so we'll say we want 32 filters, then we should decide uh the grid size of the kernel. And this is gonna be a quite customary three by three. And then what we wanna uh specify here is the uh type of activation that we wanna use. So the activation function and we're gonna be using R so rectified linear unit. Now, if you're not really familiar with all of these like weird terms that I'm using so uh like kernel uh great size convolution. So you can check out uh my previous video that introduced like the theory behind uh CNN si think it's gonna show up any time like over here. And so you can click that and check that out and then come back here because this is the fun stuff. OK.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1166s",
+        "start_time": "1166.229"
+    },
+    {
+        "id": "cc425454",
+        "text": "And then what we wanna uh specify here is the uh type of activation that we wanna use. So the activation function and we're gonna be using R so rectified linear unit. Now, if you're not really familiar with all of these like weird terms that I'm using so uh like kernel uh great size convolution. So you can check out uh my previous video that introduced like the theory behind uh CNN si think it's gonna show up any time like over here. And so you can click that and check that out and then come back here because this is the fun stuff. OK. So now we've specified the number of kernels, the uh the size of the grid, uh the size of the kernel and the activation function that we want to use. And since we are like the first hidden layer here, we should specify the input shape, right? So what's the input shape? Well, the input shape, it's as simple as the argument input shape, right? And then we passed in the build model function,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1189s",
+        "start_time": "1189.359"
+    },
+    {
+        "id": "60add010",
+        "text": "so rectified linear unit. Now, if you're not really familiar with all of these like weird terms that I'm using so uh like kernel uh great size convolution. So you can check out uh my previous video that introduced like the theory behind uh CNN si think it's gonna show up any time like over here. And so you can click that and check that out and then come back here because this is the fun stuff. OK. So now we've specified the number of kernels, the uh the size of the grid, uh the size of the kernel and the activation function that we want to use. And since we are like the first hidden layer here, we should specify the input shape, right? So what's the input shape? Well, the input shape, it's as simple as the argument input shape, right? And then we passed in the build model function, all right. But obviously, this doesn't tell us much about the input shape itself. So let's go back, let's go back here to, to the main.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1201s",
+        "start_time": "1201.06"
+    },
+    {
+        "id": "3c484d27",
+        "text": "So now we've specified the number of kernels, the uh the size of the grid, uh the size of the kernel and the activation function that we want to use. And since we are like the first hidden layer here, we should specify the input shape, right? So what's the input shape? Well, the input shape, it's as simple as the argument input shape, right? And then we passed in the build model function, all right. But obviously, this doesn't tell us much about the input shape itself. So let's go back, let's go back here to, to the main. OK. So now let's extract the input shape. So we'll create the input shape, which is gonna be a uh topple here, right? OK. And so the input shape is gonna be given by",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1230s",
+        "start_time": "1230.839"
+    },
+    {
+        "id": "d8b2300f",
+        "text": "all right. But obviously, this doesn't tell us much about the input shape itself. So let's go back, let's go back here to, to the main. OK. So now let's extract the input shape. So we'll create the input shape, which is gonna be a uh topple here, right? OK. And so the input shape is gonna be given by um X train",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1257s",
+        "start_time": "1257.359"
+    },
+    {
+        "id": "2d90c00e",
+        "text": "OK. So now let's extract the input shape. So we'll create the input shape, which is gonna be a uh topple here, right? OK. And so the input shape is gonna be given by um X train and here this is gonna be equal to uh X trainin oops, sorry, not that. So X train dot shape. OK. And then uh one. So basically, like we are taking the uh this like shape here uh of the of the X strain. We could have like taken X validation or like X test for that matter.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1267s",
+        "start_time": "1267.17"
+    },
+    {
+        "id": "d2710ec5",
+        "text": "um X train and here this is gonna be equal to uh X trainin oops, sorry, not that. So X train dot shape. OK. And then uh one. So basically, like we are taking the uh this like shape here uh of the of the X strain. We could have like taken X validation or like X test for that matter. Uh But then we are taking like the shape of at index one",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1287s",
+        "start_time": "1287.04"
+    },
+    {
+        "id": "ed0b9779",
+        "text": "and here this is gonna be equal to uh X trainin oops, sorry, not that. So X train dot shape. OK. And then uh one. So basically, like we are taking the uh this like shape here uh of the of the X strain. We could have like taken X validation or like X test for that matter. Uh But then we are taking like the shape of at index one and then we are going to take",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1291s",
+        "start_time": "1291.89"
+    },
+    {
+        "id": "a5df6975",
+        "text": "Uh But then we are taking like the shape of at index one and then we are going to take the extreme shape and index two.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1319s",
+        "start_time": "1319.17"
+    },
+    {
+        "id": "61d471ee",
+        "text": "and then we are going to take the extreme shape and index two. And uh finally, we're gonna take the shape as index three, right? So if you guys remember I told you that X strain over here, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1325s",
+        "start_time": "1325.55"
+    },
+    {
+        "id": "48136cca",
+        "text": "the extreme shape and index two. And uh finally, we're gonna take the shape as index three, right? So if you guys remember I told you that X strain over here, right? X train. Yeah,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1330s",
+        "start_time": "1330.069"
+    },
+    {
+        "id": "56b473c7",
+        "text": "And uh finally, we're gonna take the shape as index three, right? So if you guys remember I told you that X strain over here, right? X train. Yeah, over here it's a four D uh array where we have like the number of samples and then uh we have like 100 30 like time bins. And then we have 13 MF CCS and one which is like the channel like the depth, right? So we know that each sample has this shape 100 30 by 13 by one, right? And so this is the shape that we want to use like as an input for our CNN.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1334s",
+        "start_time": "1334.699"
+    },
+    {
+        "id": "2dfa8dd6",
+        "text": "X train. Yeah, over here it's a four D uh array where we have like the number of samples and then uh we have like 100 30 like time bins. And then we have 13 MF CCS and one which is like the channel like the depth, right? So we know that each sample has this shape 100 30 by 13 by one, right? And so this is the shape that we want to use like as an input for our CNN. And so here we build like this input shape uh topple, we pass it in here in the BUILD model and then we pass it down here when we are uh creating like the first convolutional layer, right? And so this is the input shape, hope this is clear, right? OK. So now we have our first convolutional",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1351s",
+        "start_time": "1351.459"
+    },
+    {
+        "id": "9d3f8e73",
+        "text": "over here it's a four D uh array where we have like the number of samples and then uh we have like 100 30 like time bins. And then we have 13 MF CCS and one which is like the channel like the depth, right? So we know that each sample has this shape 100 30 by 13 by one, right? And so this is the shape that we want to use like as an input for our CNN. And so here we build like this input shape uh topple, we pass it in here in the BUILD model and then we pass it down here when we are uh creating like the first convolutional layer, right? And so this is the input shape, hope this is clear, right? OK. So now we have our first convolutional uh layer. So what we want to do next is add another layer here, but this is not gonna be a convolutional layer but a max pooling uh layer which is gonna down sample our uh input.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1354s",
+        "start_time": "1354.209"
+    },
+    {
+        "id": "7aefe578",
+        "text": "And so here we build like this input shape uh topple, we pass it in here in the BUILD model and then we pass it down here when we are uh creating like the first convolutional layer, right? And so this is the input shape, hope this is clear, right? OK. So now we have our first convolutional uh layer. So what we want to do next is add another layer here, but this is not gonna be a convolutional layer but a max pooling uh layer which is gonna down sample our uh input. OK. So this is gonna be a max pool two D, right. OK. And so we know from our previous video that max pooling has a bunch of settings that we should set there. So uh the first thing that we want to set is the uh so called like pool size or like the grid size. And here we're gonna use like grid a pooling uh a pool size of uh three by three.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1382s",
+        "start_time": "1382.78"
+    },
+    {
+        "id": "2bab306f",
+        "text": "uh layer. So what we want to do next is add another layer here, but this is not gonna be a convolutional layer but a max pooling uh layer which is gonna down sample our uh input. OK. So this is gonna be a max pool two D, right. OK. And so we know from our previous video that max pooling has a bunch of settings that we should set there. So uh the first thing that we want to set is the uh so called like pool size or like the grid size. And here we're gonna use like grid a pooling uh a pool size of uh three by three. Then we want to specify the strides. So, and uh the strides vertical and the horizontal are gonna be uh two by two. And here we also want to add a padding and the type of padding, the zero padding uh that we'll use uh it's the same. So we're gonna just like use like padding uh throughout like all the edges like around all of the. Um",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1405s",
+        "start_time": "1405.52"
+    },
+    {
+        "id": "60a9fd6b",
+        "text": "OK. So this is gonna be a max pool two D, right. OK. And so we know from our previous video that max pooling has a bunch of settings that we should set there. So uh the first thing that we want to set is the uh so called like pool size or like the grid size. And here we're gonna use like grid a pooling uh a pool size of uh three by three. Then we want to specify the strides. So, and uh the strides vertical and the horizontal are gonna be uh two by two. And here we also want to add a padding and the type of padding, the zero padding uh that we'll use uh it's the same. So we're gonna just like use like padding uh throughout like all the edges like around all of the. Um hm Yeah, all of like the, the the convolutional like output that we get out of like this first convolutional layer",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1423s",
+        "start_time": "1423.869"
+    },
+    {
+        "id": "4f303c32",
+        "text": "Then we want to specify the strides. So, and uh the strides vertical and the horizontal are gonna be uh two by two. And here we also want to add a padding and the type of padding, the zero padding uh that we'll use uh it's the same. So we're gonna just like use like padding uh throughout like all the edges like around all of the. Um hm Yeah, all of like the, the the convolutional like output that we get out of like this first convolutional layer uh cool. So now we have max pooling as well as like a convolutional uh convolutional layer. Uh And what we want to add here is a final thing is a final layer here and this layer it's basically",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1451s",
+        "start_time": "1451.93"
+    },
+    {
+        "id": "a3ae3d90",
+        "text": "hm Yeah, all of like the, the the convolutional like output that we get out of like this first convolutional layer uh cool. So now we have max pooling as well as like a convolutional uh convolutional layer. Uh And what we want to add here is a final thing is a final layer here and this layer it's basically batch normalization. So now batch normalization is a quite complicated like mathematical, I mean like the, the mathematical process beyond uh behind ba batch normalization, it's quite uh complicated. So",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1481s",
+        "start_time": "1481.55"
+    },
+    {
+        "id": "f7376b04",
+        "text": "uh cool. So now we have max pooling as well as like a convolutional uh convolutional layer. Uh And what we want to add here is a final thing is a final layer here and this layer it's basically batch normalization. So now batch normalization is a quite complicated like mathematical, I mean like the, the mathematical process beyond uh behind ba batch normalization, it's quite uh complicated. So and as they usually like say in these cases, and it's well beyond the scope of this uh introductory course, but all you should more or less like the intuition that you can have about botch normalization is that it's a process",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1491s",
+        "start_time": "1491.02"
+    },
+    {
+        "id": "f2310c41",
+        "text": "batch normalization. So now batch normalization is a quite complicated like mathematical, I mean like the, the mathematical process beyond uh behind ba batch normalization, it's quite uh complicated. So and as they usually like say in these cases, and it's well beyond the scope of this uh introductory course, but all you should more or less like the intuition that you can have about botch normalization is that it's a process that standardizes, that normalizes the activations in a current layer and the activations that get presented to like the subsequent layer by doing so, the great thing, the great advantage is that we uh kind of like speed up training by a lot really. So the the models are gonna convert way faster.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1511s",
+        "start_time": "1511.229"
+    },
+    {
+        "id": "676661cd",
+        "text": "and as they usually like say in these cases, and it's well beyond the scope of this uh introductory course, but all you should more or less like the intuition that you can have about botch normalization is that it's a process that standardizes, that normalizes the activations in a current layer and the activations that get presented to like the subsequent layer by doing so, the great thing, the great advantage is that we uh kind of like speed up training by a lot really. So the the models are gonna convert way faster. And then the other great thing is also like that the models are going to be way more reliable.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1528s",
+        "start_time": "1528.42"
+    },
+    {
+        "id": "3d9cc621",
+        "text": "that standardizes, that normalizes the activations in a current layer and the activations that get presented to like the subsequent layer by doing so, the great thing, the great advantage is that we uh kind of like speed up training by a lot really. So the the models are gonna convert way faster. And then the other great thing is also like that the models are going to be way more reliable. Cool.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1543s",
+        "start_time": "1543.81"
+    },
+    {
+        "id": "667d028f",
+        "text": "And then the other great thing is also like that the models are going to be way more reliable. Cool. Yeah, by the way, let me know like if you want to know more about batch normalization, but as I said, like this is like quite like complicated like mathematical topic. So I don't want to cover it in this series. But if I see like that, you guys like leave a lot of comments to know what this is, I may just like create a video about just batch normalization. So let me know",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1570s",
+        "start_time": "1570.209"
+    },
+    {
+        "id": "5dcebd47",
+        "text": "Cool. Yeah, by the way, let me know like if you want to know more about batch normalization, but as I said, like this is like quite like complicated like mathematical topic. So I don't want to cover it in this series. But if I see like that, you guys like leave a lot of comments to know what this is, I may just like create a video about just batch normalization. So let me know uh cool. So this is basically like the, the overall first convolutional layer I would say. So now we want to build another couple of this. So the second one",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1576s",
+        "start_time": "1576.9"
+    },
+    {
+        "id": "6528b4ec",
+        "text": "Yeah, by the way, let me know like if you want to know more about batch normalization, but as I said, like this is like quite like complicated like mathematical topic. So I don't want to cover it in this series. But if I see like that, you guys like leave a lot of comments to know what this is, I may just like create a video about just batch normalization. So let me know uh cool. So this is basically like the, the overall first convolutional layer I would say. So now we want to build another couple of this. So the second one um is gonna be basically like the uh the, the same as this. Uh But uh in uh the third layer, we're gonna change a couple of like parameters here. So here we're gonna change the uh the size of the kernel and we're gonna move it to two by two and same thing here for uh the, the max pooling",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1579s",
+        "start_time": "1579.229"
+    },
+    {
+        "id": "3143acf0",
+        "text": "uh cool. So this is basically like the, the overall first convolutional layer I would say. So now we want to build another couple of this. So the second one um is gonna be basically like the uh the, the same as this. Uh But uh in uh the third layer, we're gonna change a couple of like parameters here. So here we're gonna change the uh the size of the kernel and we're gonna move it to two by two and same thing here for uh the, the max pooling the pool size here, we're gonna move it like to uh two by two as well. Cool. So now we are done with the uh convolutional layers and now the next step is to flatten the output. And so, and we know that out of like this three convolutional layers, we're just uh expecting a two dimensional array. And so we want to flatten that into a one D array.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1599s",
+        "start_time": "1599.329"
+    },
+    {
+        "id": "8bac6590",
+        "text": "um is gonna be basically like the uh the, the same as this. Uh But uh in uh the third layer, we're gonna change a couple of like parameters here. So here we're gonna change the uh the size of the kernel and we're gonna move it to two by two and same thing here for uh the, the max pooling the pool size here, we're gonna move it like to uh two by two as well. Cool. So now we are done with the uh convolutional layers and now the next step is to flatten the output. And so, and we know that out of like this three convolutional layers, we're just uh expecting a two dimensional array. And so we want to flatten that into a one D array. So how do we do that again? This is like very, very simple with keras and tensor flow because it's as simple as calling Kas dot uh Layers dot flatter. And we, I think like we, I don't know like if we've seen this already like in a previous video, but if we haven't, it's as simple as this, right.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1611s",
+        "start_time": "1611.369"
+    },
+    {
+        "id": "06e3ff16",
+        "text": "the pool size here, we're gonna move it like to uh two by two as well. Cool. So now we are done with the uh convolutional layers and now the next step is to flatten the output. And so, and we know that out of like this three convolutional layers, we're just uh expecting a two dimensional array. And so we want to flatten that into a one D array. So how do we do that again? This is like very, very simple with keras and tensor flow because it's as simple as calling Kas dot uh Layers dot flatter. And we, I think like we, I don't know like if we've seen this already like in a previous video, but if we haven't, it's as simple as this, right. OK. So now we flattened uh uh the, the output uh of the convolutions. And so the next thing that we want to do is add a dense layer, a fully connected layer for classification.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1637s",
+        "start_time": "1637.109"
+    },
+    {
+        "id": "cbc2dd44",
+        "text": "So how do we do that again? This is like very, very simple with keras and tensor flow because it's as simple as calling Kas dot uh Layers dot flatter. And we, I think like we, I don't know like if we've seen this already like in a previous video, but if we haven't, it's as simple as this, right. OK. So now we flattened uh uh the, the output uh of the convolutions. And so the next thing that we want to do is add a dense layer, a fully connected layer for classification. And so, and here we'll do again a model uh dot art but this time we're gonna use a dense layer. So we'll do Kous dot Layers dot uh dense. And I'm sure like we've seen a lot of like dense dance layers like in the, in the previous videos. So now",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1664s",
+        "start_time": "1664.54"
+    },
+    {
+        "id": "d45facce",
+        "text": "OK. So now we flattened uh uh the, the output uh of the convolutions. And so the next thing that we want to do is add a dense layer, a fully connected layer for classification. And so, and here we'll do again a model uh dot art but this time we're gonna use a dense layer. So we'll do Kous dot Layers dot uh dense. And I'm sure like we've seen a lot of like dense dance layers like in the, in the previous videos. So now um here like in the dense layer, if you guys remember, we should specify how many neurons we want. And uh for this uh network, we're gonna use 64 neurons. And then we should specify the type of activation and the activation here again is gonna be R so rectified linear unit. Now, if you guys don't remember what A R is, what an activation function is, again, I have a video on that which hopefully should be",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1684s",
+        "start_time": "1684.81"
+    },
+    {
+        "id": "5408defb",
+        "text": "And so, and here we'll do again a model uh dot art but this time we're gonna use a dense layer. So we'll do Kous dot Layers dot uh dense. And I'm sure like we've seen a lot of like dense dance layers like in the, in the previous videos. So now um here like in the dense layer, if you guys remember, we should specify how many neurons we want. And uh for this uh network, we're gonna use 64 neurons. And then we should specify the type of activation and the activation here again is gonna be R so rectified linear unit. Now, if you guys don't remember what A R is, what an activation function is, again, I have a video on that which hopefully should be over there. So just like click there and, and just like go learn that. So these are all like very important things that we need to learn to like master uh like deep learning. So if you don't know about that, go check that out. OK. So now let's move on. So we've a, we've flattened the convolution output.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1698s",
+        "start_time": "1698.469"
+    },
+    {
+        "id": "538d9409",
+        "text": "um here like in the dense layer, if you guys remember, we should specify how many neurons we want. And uh for this uh network, we're gonna use 64 neurons. And then we should specify the type of activation and the activation here again is gonna be R so rectified linear unit. Now, if you guys don't remember what A R is, what an activation function is, again, I have a video on that which hopefully should be over there. So just like click there and, and just like go learn that. So these are all like very important things that we need to learn to like master uh like deep learning. So if you don't know about that, go check that out. OK. So now let's move on. So we've a, we've flattened the convolution output. Uh we've fed that into a dense layer. But now I in order to avoid, avoid over fitting, sorry, I'm going to add an extra thing here. And again, this is another thing that we've seen",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1721s",
+        "start_time": "1721.199"
+    },
+    {
+        "id": "c96c8b5e",
+        "text": "over there. So just like click there and, and just like go learn that. So these are all like very important things that we need to learn to like master uh like deep learning. So if you don't know about that, go check that out. OK. So now let's move on. So we've a, we've flattened the convolution output. Uh we've fed that into a dense layer. But now I in order to avoid, avoid over fitting, sorry, I'm going to add an extra thing here. And again, this is another thing that we've seen and this is uh a drop out, right? And, and I'll set a drop out to 30 dropout probability to uh 30%. Again, if you don't remember what dropout is or how to uh combat how to solve um overfitting, I have a vat on that. Just go check that out should be over here, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1751s",
+        "start_time": "1751.04"
+    },
+    {
+        "id": "2d23f9e4",
+        "text": "Uh we've fed that into a dense layer. But now I in order to avoid, avoid over fitting, sorry, I'm going to add an extra thing here. And again, this is another thing that we've seen and this is uh a drop out, right? And, and I'll set a drop out to 30 dropout probability to uh 30%. Again, if you don't remember what dropout is or how to uh combat how to solve um overfitting, I have a vat on that. Just go check that out should be over here, right? OK. Cool. So now we are at the output layer, right? And the output layer here is again a um dance layer. So we'll do Kous dot Layers dot dance. But now",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1773s",
+        "start_time": "1773.719"
+    },
+    {
+        "id": "633c0e3b",
+        "text": "and this is uh a drop out, right? And, and I'll set a drop out to 30 dropout probability to uh 30%. Again, if you don't remember what dropout is or how to uh combat how to solve um overfitting, I have a vat on that. Just go check that out should be over here, right? OK. Cool. So now we are at the output layer, right? And the output layer here is again a um dance layer. So we'll do Kous dot Layers dot dance. But now we want as many neurons as the number of genres that we want to predict. So here guys, let's go to the to this data thing. So here we have 10 different genres and so we want 10 different neurons and each neuron obviously is going to represent a different genre. And as the activation",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1791s",
+        "start_time": "1791.319"
+    },
+    {
+        "id": "c9a8ce77",
+        "text": "OK. Cool. So now we are at the output layer, right? And the output layer here is again a um dance layer. So we'll do Kous dot Layers dot dance. But now we want as many neurons as the number of genres that we want to predict. So here guys, let's go to the to this data thing. So here we have 10 different genres and so we want 10 different neurons and each neuron obviously is going to represent a different genre. And as the activation uh this time, we want to use soft maths and if you guys remember soft, what soft maths does is it creates a probability distribution kind of like scores like for each of these like 10 neurons, 10 possible like categories. And if we add up like all of these like values for the 10 different genres, then we're gonna get one.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1817s",
+        "start_time": "1817.25"
+    },
+    {
+        "id": "d959a87c",
+        "text": "we want as many neurons as the number of genres that we want to predict. So here guys, let's go to the to this data thing. So here we have 10 different genres and so we want 10 different neurons and each neuron obviously is going to represent a different genre. And as the activation uh this time, we want to use soft maths and if you guys remember soft, what soft maths does is it creates a probability distribution kind of like scores like for each of these like 10 neurons, 10 possible like categories. And if we add up like all of these like values for the 10 different genres, then we're gonna get one. So how do we do predictions there? Well, we just like take the the index with the highest value and we're gonna map that onto like a relative genre.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1836s",
+        "start_time": "1836.849"
+    },
+    {
+        "id": "c705044b",
+        "text": "uh this time, we want to use soft maths and if you guys remember soft, what soft maths does is it creates a probability distribution kind of like scores like for each of these like 10 neurons, 10 possible like categories. And if we add up like all of these like values for the 10 different genres, then we're gonna get one. So how do we do predictions there? Well, we just like take the the index with the highest value and we're gonna map that onto like a relative genre. Cool. So this is the apple layer. So we are done. So as I said, as a promise, this was like a quite long process to build this network. But now we are done. So we have our nice CNN uh with three combinational layers. And after each com layer, we have max bulling and we've added also batch normalization.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1855s",
+        "start_time": "1855.939"
+    },
+    {
+        "id": "07ad3d87",
+        "text": "So how do we do predictions there? Well, we just like take the the index with the highest value and we're gonna map that onto like a relative genre. Cool. So this is the apple layer. So we are done. So as I said, as a promise, this was like a quite long process to build this network. But now we are done. So we have our nice CNN uh with three combinational layers. And after each com layer, we have max bulling and we've added also batch normalization. And uh out of after that, we, we flatten the results and then we feed like the uh the one dimensional array into a dense layer. And finally, we feed all of that into soft mark classifier",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1880s",
+        "start_time": "1880.06"
+    },
+    {
+        "id": "037c586c",
+        "text": "Cool. So this is the apple layer. So we are done. So as I said, as a promise, this was like a quite long process to build this network. But now we are done. So we have our nice CNN uh with three combinational layers. And after each com layer, we have max bulling and we've added also batch normalization. And uh out of after that, we, we flatten the results and then we feed like the uh the one dimensional array into a dense layer. And finally, we feed all of that into soft mark classifier good. Now we are done so we can return the model. That's like the thing that we want. Uh Yeah, right. We, we, we want the most",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1889s",
+        "start_time": "1889.719"
+    },
+    {
+        "id": "60e22110",
+        "text": "And uh out of after that, we, we flatten the results and then we feed like the uh the one dimensional array into a dense layer. And finally, we feed all of that into soft mark classifier good. Now we are done so we can return the model. That's like the thing that we want. Uh Yeah, right. We, we, we want the most OK. So this is the model over here. Now we need to compile the network. So we've done this like multiple times already guys. So I'm gonna try to power through this. So we want to specify the optimizer here. And so we're gonna uh just like do Kas dot optimizer and I'm gonna choose atom",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1911s",
+        "start_time": "1911.449"
+    },
+    {
+        "id": "9a40231b",
+        "text": "good. Now we are done so we can return the model. That's like the thing that we want. Uh Yeah, right. We, we, we want the most OK. So this is the model over here. Now we need to compile the network. So we've done this like multiple times already guys. So I'm gonna try to power through this. So we want to specify the optimizer here. And so we're gonna uh just like do Kas dot optimizer and I'm gonna choose atom and I'm gonna specify the learning rate, which is gonna be equal to 0.0001",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1928s",
+        "start_time": "1928.939"
+    },
+    {
+        "id": "d3991a9a",
+        "text": "OK. So this is the model over here. Now we need to compile the network. So we've done this like multiple times already guys. So I'm gonna try to power through this. So we want to specify the optimizer here. And so we're gonna uh just like do Kas dot optimizer and I'm gonna choose atom and I'm gonna specify the learning rate, which is gonna be equal to 0.0001 right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1938s",
+        "start_time": "1938.9"
+    },
+    {
+        "id": "121976c2",
+        "text": "and I'm gonna specify the learning rate, which is gonna be equal to 0.0001 right? OK. But this is not the opti what, what have I written here? The opti miser,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1962s",
+        "start_time": "1962.959"
+    },
+    {
+        "id": "44e5251c",
+        "text": "right? OK. But this is not the opti what, what have I written here? The opti miser, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1970s",
+        "start_time": "1970.989"
+    },
+    {
+        "id": "bb309fb5",
+        "text": "OK. But this is not the opti what, what have I written here? The opti miser, right? OK. And then we'll do a model dot uh compile",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1972s",
+        "start_time": "1972.92"
+    },
+    {
+        "id": "e536853a",
+        "text": "right? OK. And then we'll do a model dot uh compile and in the model dot compile, we, we, we need to pass a bunch of things. So the first thing that we need to pass again is the optimize it, right? And that's the one that we've just built. Then uh we want to pass the loss function, we need to specify that. And in this case, we'll use the pa category",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1981s",
+        "start_time": "1981.89"
+    },
+    {
+        "id": "b862c534",
+        "text": "OK. And then we'll do a model dot uh compile and in the model dot compile, we, we, we need to pass a bunch of things. So the first thing that we need to pass again is the optimize it, right? And that's the one that we've just built. Then uh we want to pass the loss function, we need to specify that. And in this case, we'll use the pa category cross entropy function. So let me see if I've spelled this well, if I typed this, well, the spars categorical cross entropy. Yeah, it seems fine.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1983s",
+        "start_time": "1983.209"
+    },
+    {
+        "id": "7cbb280c",
+        "text": "and in the model dot compile, we, we, we need to pass a bunch of things. So the first thing that we need to pass again is the optimize it, right? And that's the one that we've just built. Then uh we want to pass the loss function, we need to specify that. And in this case, we'll use the pa category cross entropy function. So let me see if I've spelled this well, if I typed this, well, the spars categorical cross entropy. Yeah, it seems fine. And then we need to pass the accurate. Uh um I think it's called metrics. Sorry, it's the metrics and the metrics that we wanna um track here is accuracy.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=1988s",
+        "start_time": "1988.829"
+    },
+    {
+        "id": "ae3edc84",
+        "text": "cross entropy function. So let me see if I've spelled this well, if I typed this, well, the spars categorical cross entropy. Yeah, it seems fine. And then we need to pass the accurate. Uh um I think it's called metrics. Sorry, it's the metrics and the metrics that we wanna um track here is accuracy. Cool. OK. So now we need to train the model and",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2015s",
+        "start_time": "2015.43"
+    },
+    {
+        "id": "2e12db4f",
+        "text": "And then we need to pass the accurate. Uh um I think it's called metrics. Sorry, it's the metrics and the metrics that we wanna um track here is accuracy. Cool. OK. So now we need to train the model and again, we've done this already multiple times. So I'm going to power through this. So we do a model uh dot fit and now we want to pass X train. So these are the inputs uh for like the train set, then we are going to pass the labels for the training set, then we want to pass the validation data. So this is the cross validation split that we've created. Uh And uh here",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2026s",
+        "start_time": "2026.869"
+    },
+    {
+        "id": "ac536bf7",
+        "text": "Cool. OK. So now we need to train the model and again, we've done this already multiple times. So I'm going to power through this. So we do a model uh dot fit and now we want to pass X train. So these are the inputs uh for like the train set, then we are going to pass the labels for the training set, then we want to pass the validation data. So this is the cross validation split that we've created. Uh And uh here uh we're gonna pass in the X of",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2042s",
+        "start_time": "2042.67"
+    },
+    {
+        "id": "339cd70f",
+        "text": "again, we've done this already multiple times. So I'm going to power through this. So we do a model uh dot fit and now we want to pass X train. So these are the inputs uh for like the train set, then we are going to pass the labels for the training set, then we want to pass the validation data. So this is the cross validation split that we've created. Uh And uh here uh we're gonna pass in the X of validation, right? And the Y validation,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2049s",
+        "start_time": "2049.33"
+    },
+    {
+        "id": "23fc0015",
+        "text": "uh we're gonna pass in the X of validation, right? And the Y validation, right? So now we have another couple of hyper parameters that we should uh specify. So the batch size 32 and then we need to specify the number of epochs that we want to like run this uh training for and we'll speci we'll, yeah, just put in 30. Now,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2077s",
+        "start_time": "2077.658"
+    },
+    {
+        "id": "5d954a0a",
+        "text": "validation, right? And the Y validation, right? So now we have another couple of hyper parameters that we should uh specify. So the batch size 32 and then we need to specify the number of epochs that we want to like run this uh training for and we'll speci we'll, yeah, just put in 30. Now, these are like other like high level hyper parameters that we can trick. We're not gonna do this here. Uh But uh remember guys like that, you can trick like the batch size, the number of E books as well as like other hyper parameters to, to find what works best for your uh problem,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2082s",
+        "start_time": "2082.06"
+    },
+    {
+        "id": "9b0dd2f2",
+        "text": "right? So now we have another couple of hyper parameters that we should uh specify. So the batch size 32 and then we need to specify the number of epochs that we want to like run this uh training for and we'll speci we'll, yeah, just put in 30. Now, these are like other like high level hyper parameters that we can trick. We're not gonna do this here. Uh But uh remember guys like that, you can trick like the batch size, the number of E books as well as like other hyper parameters to, to find what works best for your uh problem, right? OK. So I think we should be done like with, with training here. So now like the, the last thing that remains to do is to evaluate the CNN on the test set. Now, let's do that. And uh in order to do that, we, we can use",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2087s",
+        "start_time": "2087.928"
+    },
+    {
+        "id": "0d359322",
+        "text": "these are like other like high level hyper parameters that we can trick. We're not gonna do this here. Uh But uh remember guys like that, you can trick like the batch size, the number of E books as well as like other hyper parameters to, to find what works best for your uh problem, right? OK. So I think we should be done like with, with training here. So now like the, the last thing that remains to do is to evaluate the CNN on the test set. Now, let's do that. And uh in order to do that, we, we can use a uh really handy function from a KIS. So that's gonna return us the test uh error",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2110s",
+        "start_time": "2110.709"
+    },
+    {
+        "id": "23e34fa4",
+        "text": "right? OK. So I think we should be done like with, with training here. So now like the, the last thing that remains to do is to evaluate the CNN on the test set. Now, let's do that. And uh in order to do that, we, we can use a uh really handy function from a KIS. So that's gonna return us the test uh error as well as the test accuracy.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2129s",
+        "start_time": "2129.82"
+    },
+    {
+        "id": "64ae47a0",
+        "text": "a uh really handy function from a KIS. So that's gonna return us the test uh error as well as the test accuracy. And so we'll do a model dot uh evaluate over here and uh we're gonna pass in the X test. So the inputs for the, for the test split as well as the targets for the test split, which is not we train but Y test. Uh Right. And we're gonna save both uh equal one.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2151s",
+        "start_time": "2151.82"
+    },
+    {
+        "id": "68255a26",
+        "text": "as well as the test accuracy. And so we'll do a model dot uh evaluate over here and uh we're gonna pass in the X test. So the inputs for the, for the test split as well as the targets for the test split, which is not we train but Y test. Uh Right. And we're gonna save both uh equal one. Uh Right. OK. So now let's print uh the results here. And so we'll say um accuracy",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2162s",
+        "start_time": "2162.209"
+    },
+    {
+        "id": "0c56f490",
+        "text": "And so we'll do a model dot uh evaluate over here and uh we're gonna pass in the X test. So the inputs for the, for the test split as well as the targets for the test split, which is not we train but Y test. Uh Right. And we're gonna save both uh equal one. Uh Right. OK. So now let's print uh the results here. And so we'll say um accuracy on test set ease and will",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2166s",
+        "start_time": "2166.439"
+    },
+    {
+        "id": "5d8868d5",
+        "text": "Uh Right. OK. So now let's print uh the results here. And so we'll say um accuracy on test set ease and will just pass in to format uh test uh accuracy over here.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2191s",
+        "start_time": "2191.199"
+    },
+    {
+        "id": "dfe9922e",
+        "text": "on test set ease and will just pass in to format uh test uh accuracy over here. Good.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2202s",
+        "start_time": "2202.669"
+    },
+    {
+        "id": "37b19800",
+        "text": "just pass in to format uh test uh accuracy over here. Good. I think uh we, we've, we've done like a lot of work so far. So before we, we make like any predictions, uh I feel like we should just like run the script and hopefully if I haven't made like any mistakes and probably I have made a few here, uh We should be able like to, to see like uh this and see like if, if our CNN works. So this is exciting. So let's try this. So",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2209s",
+        "start_time": "2209.79"
+    },
+    {
+        "id": "497473eb",
+        "text": "Good. I think uh we, we've, we've done like a lot of work so far. So before we, we make like any predictions, uh I feel like we should just like run the script and hopefully if I haven't made like any mistakes and probably I have made a few here, uh We should be able like to, to see like uh this and see like if, if our CNN works. So this is exciting. So let's try this. So OK, so I'm running here. So it's gonna take some time if you guys remember also from previous video to load uh like the data. So hopefully this is gonna work. So",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2216s",
+        "start_time": "2216.07"
+    },
+    {
+        "id": "52aada8c",
+        "text": "I think uh we, we've, we've done like a lot of work so far. So before we, we make like any predictions, uh I feel like we should just like run the script and hopefully if I haven't made like any mistakes and probably I have made a few here, uh We should be able like to, to see like uh this and see like if, if our CNN works. So this is exciting. So let's try this. So OK, so I'm running here. So it's gonna take some time if you guys remember also from previous video to load uh like the data. So hopefully this is gonna work. So that's great. Yes, it's working now. It's gonna take some time to, to do the whole training. So I'm gonna post the video and reprise like once like the whole thing is done",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2219s",
+        "start_time": "2219.05"
+    },
+    {
+        "id": "4e9224d5",
+        "text": "OK, so I'm running here. So it's gonna take some time if you guys remember also from previous video to load uh like the data. So hopefully this is gonna work. So that's great. Yes, it's working now. It's gonna take some time to, to do the whole training. So I'm gonna post the video and reprise like once like the whole thing is done and here we go with the results. So it's quite exciting because uh the accuracy that we're, we're able to get on the test set is 70% which is like a good, good improvement on the previous accuracy that we were able to get on the uh with the multi-layered perception architecture, which is nice. And, and again, like it shows like how like CNN S are very effective liquid audio data",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2247s",
+        "start_time": "2247.419"
+    },
+    {
+        "id": "67de487d",
+        "text": "that's great. Yes, it's working now. It's gonna take some time to, to do the whole training. So I'm gonna post the video and reprise like once like the whole thing is done and here we go with the results. So it's quite exciting because uh the accuracy that we're, we're able to get on the test set is 70% which is like a good, good improvement on the previous accuracy that we were able to get on the uh with the multi-layered perception architecture, which is nice. And, and again, like it shows like how like CNN S are very effective liquid audio data and we haven't done like very like crazy things like on anything like this is a very simple architecture but still like it's a nice result like 70% on a genre classification task with like 10 genres. I mean, it's starting to, to get like nice.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2259s",
+        "start_time": "2259.62"
+    },
+    {
+        "id": "739f9bd0",
+        "text": "and here we go with the results. So it's quite exciting because uh the accuracy that we're, we're able to get on the test set is 70% which is like a good, good improvement on the previous accuracy that we were able to get on the uh with the multi-layered perception architecture, which is nice. And, and again, like it shows like how like CNN S are very effective liquid audio data and we haven't done like very like crazy things like on anything like this is a very simple architecture but still like it's a nice result like 70% on a genre classification task with like 10 genres. I mean, it's starting to, to get like nice. OK. So now let's take a look at the accuracy that we have on the train set over here like in the last ebook and it's 74 then we have the accuracy like here on the, on the validation which is like 71. Well, I mean,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2271s",
+        "start_time": "2271.469"
+    },
+    {
+        "id": "58bb4ea9",
+        "text": "and we haven't done like very like crazy things like on anything like this is a very simple architecture but still like it's a nice result like 70% on a genre classification task with like 10 genres. I mean, it's starting to, to get like nice. OK. So now let's take a look at the accuracy that we have on the train set over here like in the last ebook and it's 74 then we have the accuracy like here on the, on the validation which is like 71. Well, I mean, it's good. It's like 70%. So we should be uh OK with this nice. OK. So now uh we need to do like the, the last bit, right? So just let me close this. OK. So we need to like make a prediction on a single sample. So, so we want to do like the so called inference, right? OK. So let's write a function for doing that. And so we'll,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2299s",
+        "start_time": "2299.51"
+    },
+    {
+        "id": "cf059683",
+        "text": "OK. So now let's take a look at the accuracy that we have on the train set over here like in the last ebook and it's 74 then we have the accuracy like here on the, on the validation which is like 71. Well, I mean, it's good. It's like 70%. So we should be uh OK with this nice. OK. So now uh we need to do like the, the last bit, right? So just let me close this. OK. So we need to like make a prediction on a single sample. So, so we want to do like the so called inference, right? OK. So let's write a function for doing that. And so we'll, we'll just like call it predicts. Yeah, it's very uh straightforward and we'll pass in uh an X and A Y. So this is like the uh yeah, the input data for that uh sample and this is like the, the label. So because we're gonna compare the actual label to the actual genre against the uh predicted genre.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2314s",
+        "start_time": "2314.989"
+    },
+    {
+        "id": "c00b2f0e",
+        "text": "it's good. It's like 70%. So we should be uh OK with this nice. OK. So now uh we need to do like the, the last bit, right? So just let me close this. OK. So we need to like make a prediction on a single sample. So, so we want to do like the so called inference, right? OK. So let's write a function for doing that. And so we'll, we'll just like call it predicts. Yeah, it's very uh straightforward and we'll pass in uh an X and A Y. So this is like the uh yeah, the input data for that uh sample and this is like the, the label. So because we're gonna compare the actual label to the actual genre against the uh predicted genre. OK. So we need to, to like get X and get uh Y so how do we do that? Well, we can just like take uh any sample from the test set. Really? So let's say like we, we're gonna take like the, the sample at index 100 from uh the, the test set. And so, and for y uh we're gonna seek Y test and so",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2330s",
+        "start_time": "2330.83"
+    },
+    {
+        "id": "f3444b05",
+        "text": "we'll just like call it predicts. Yeah, it's very uh straightforward and we'll pass in uh an X and A Y. So this is like the uh yeah, the input data for that uh sample and this is like the, the label. So because we're gonna compare the actual label to the actual genre against the uh predicted genre. OK. So we need to, to like get X and get uh Y so how do we do that? Well, we can just like take uh any sample from the test set. Really? So let's say like we, we're gonna take like the, the sample at index 100 from uh the, the test set. And so, and for y uh we're gonna seek Y test and so this is 100 now.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2359s",
+        "start_time": "2359.949"
+    },
+    {
+        "id": "0696c106",
+        "text": "OK. So we need to, to like get X and get uh Y so how do we do that? Well, we can just like take uh any sample from the test set. Really? So let's say like we, we're gonna take like the, the sample at index 100 from uh the, the test set. And so, and for y uh we're gonna seek Y test and so this is 100 now. So we are passing X and Y into uh predict here, but obviously, like we're getting an error here because predict isn't defined yet. So we need to define predict. OK. So let's do define predicts. And so we have X and Y over here.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2385s",
+        "start_time": "2385.33"
+    },
+    {
+        "id": "05dcdbd5",
+        "text": "this is 100 now. So we are passing X and Y into uh predict here, but obviously, like we're getting an error here because predict isn't defined yet. So we need to define predict. OK. So let's do define predicts. And so we have X and Y over here. Nice. So um in order to do a prediction, so it's, it's very simple, right? So we, we just like uh take the model,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2414s",
+        "start_time": "2414.85"
+    },
+    {
+        "id": "a151a8ac",
+        "text": "So we are passing X and Y into uh predict here, but obviously, like we're getting an error here because predict isn't defined yet. So we need to define predict. OK. So let's do define predicts. And so we have X and Y over here. Nice. So um in order to do a prediction, so it's, it's very simple, right? So we, we just like uh take the model, I'm not passing in the model. Yes. So we need to pass the model here, right? So the train model, so we've trained the model, we need to pass it because otherwise, how are we gonna perform like the prediction? So we need the model. So we get, so here we need model as an argument. And so we'll, we'll do a model dot uh pre six, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2418s",
+        "start_time": "2418.03"
+    },
+    {
+        "id": "bfcf3871",
+        "text": "Nice. So um in order to do a prediction, so it's, it's very simple, right? So we, we just like uh take the model, I'm not passing in the model. Yes. So we need to pass the model here, right? So the train model, so we've trained the model, we need to pass it because otherwise, how are we gonna perform like the prediction? So we need the model. So we get, so here we need model as an argument. And so we'll, we'll do a model dot uh pre six, right? And then we'll pass in X. So we'll, we'll pass in uh the input data uh for that sample and then we're gonna get a prediction",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2439s",
+        "start_time": "2439.389"
+    },
+    {
+        "id": "aa978a30",
+        "text": "I'm not passing in the model. Yes. So we need to pass the model here, right? So the train model, so we've trained the model, we need to pass it because otherwise, how are we gonna perform like the prediction? So we need the model. So we get, so here we need model as an argument. And so we'll, we'll do a model dot uh pre six, right? And then we'll pass in X. So we'll, we'll pass in uh the input data uh for that sample and then we're gonna get a prediction predictions or prediction, right.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2452s",
+        "start_time": "2452.229"
+    },
+    {
+        "id": "16771e9c",
+        "text": "And then we'll pass in X. So we'll, we'll pass in uh the input data uh for that sample and then we're gonna get a prediction predictions or prediction, right. OK. So",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2481s",
+        "start_time": "2481.31"
+    },
+    {
+        "id": "92c33cf0",
+        "text": "predictions or prediction, right. OK. So really here I'm lying to you because like X in itself is not gonna, it's not gonna be enough So we need to change this, right. So because uh X so if we analyze X so X uh is gonna be a two dimensional parade two dimensional array.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2496s",
+        "start_time": "2496.459"
+    },
+    {
+        "id": "0021ddb4",
+        "text": "OK. So really here I'm lying to you because like X in itself is not gonna, it's not gonna be enough So we need to change this, right. So because uh X so if we analyze X so X uh is gonna be a two dimensional parade two dimensional array. Well, sorry, in this case, uh is gonna be a three dimensional array, right? So 100 30 by 13 by one, right? Uh But what uh model that predicts expects is a four dimensional array, right? And the fourth dimension should be like here at the beginning,",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2500s",
+        "start_time": "2500.81"
+    },
+    {
+        "id": "0fa04f3a",
+        "text": "really here I'm lying to you because like X in itself is not gonna, it's not gonna be enough So we need to change this, right. So because uh X so if we analyze X so X uh is gonna be a two dimensional parade two dimensional array. Well, sorry, in this case, uh is gonna be a three dimensional array, right? So 100 30 by 13 by one, right? Uh But what uh model that predicts expects is a four dimensional array, right? And the fourth dimension should be like here at the beginning, this guy here. And it basically like uh is used like to specify like the, the number of samples that we are we want to predict. And that's done because we, when we use model do predict, usually we pass in a batch of samples that we want to predict. And so, and these are gonna be like, I mean, we, we need to specify all of these different samples and this means that we need an extra dimension for doing that. In our case, we're just gonna be like a one",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2503s",
+        "start_time": "2503.07"
+    },
+    {
+        "id": "9bf59fae",
+        "text": "Well, sorry, in this case, uh is gonna be a three dimensional array, right? So 100 30 by 13 by one, right? Uh But what uh model that predicts expects is a four dimensional array, right? And the fourth dimension should be like here at the beginning, this guy here. And it basically like uh is used like to specify like the, the number of samples that we are we want to predict. And that's done because we, when we use model do predict, usually we pass in a batch of samples that we want to predict. And so, and these are gonna be like, I mean, we, we need to specify all of these different samples and this means that we need an extra dimension for doing that. In our case, we're just gonna be like a one here, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2528s",
+        "start_time": "2528.429"
+    },
+    {
+        "id": "b68a8e5d",
+        "text": "this guy here. And it basically like uh is used like to specify like the, the number of samples that we are we want to predict. And that's done because we, when we use model do predict, usually we pass in a batch of samples that we want to predict. And so, and these are gonna be like, I mean, we, we need to specify all of these different samples and this means that we need an extra dimension for doing that. In our case, we're just gonna be like a one here, right? Uh OK. So how do we do that? Well, we've already seen how to like augment an array with an extra dimension. So we'll, we'll do that once again. So we'll take X and we'll see that we'll do a MP dot uh new axis and then uh we're just gonna pass in the dots. And so basically, we are inserting a new",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2556s",
+        "start_time": "2556.489"
+    },
+    {
+        "id": "a20ca807",
+        "text": "here, right? Uh OK. So how do we do that? Well, we've already seen how to like augment an array with an extra dimension. So we'll, we'll do that once again. So we'll take X and we'll see that we'll do a MP dot uh new axis and then uh we're just gonna pass in the dots. And so basically, we are inserting a new access like at the beginning of the array and then we are copying like all the rest. OK. And so now this should work. OK. So uh we make the prediction but what we should understand is that the prediction that we get is a uh two dimensional array. So like this prediction here, prediction is a two dimensional array.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2586s",
+        "start_time": "2586.949"
+    },
+    {
+        "id": "dd878142",
+        "text": "Uh OK. So how do we do that? Well, we've already seen how to like augment an array with an extra dimension. So we'll, we'll do that once again. So we'll take X and we'll see that we'll do a MP dot uh new axis and then uh we're just gonna pass in the dots. And so basically, we are inserting a new access like at the beginning of the array and then we are copying like all the rest. OK. And so now this should work. OK. So uh we make the prediction but what we should understand is that the prediction that we get is a uh two dimensional array. So like this prediction here, prediction is a two dimensional array. And we have values",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2589s",
+        "start_time": "2589.05"
+    },
+    {
+        "id": "efd11324",
+        "text": "access like at the beginning of the array and then we are copying like all the rest. OK. And so now this should work. OK. So uh we make the prediction but what we should understand is that the prediction that we get is a uh two dimensional array. So like this prediction here, prediction is a two dimensional array. And we have values over here",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2615s",
+        "start_time": "2615.199"
+    },
+    {
+        "id": "769eb8d7",
+        "text": "And we have values over here uh where like we have basically 10 values and the 10 values represent the different scores for the 10 different genres, right? And so this is like the the results like of the of the soft mats",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2644s",
+        "start_time": "2644.659"
+    },
+    {
+        "id": "7677138f",
+        "text": "over here uh where like we have basically 10 values and the 10 values represent the different scores for the 10 different genres, right? And so this is like the the results like of the of the soft mats activation function. So we are not really like at the, at the point where we already have like a prediction. So we have like the predicted index. We need to extract that from these two dimensional array. So what we want to do here is to uh get the max the index where we have the max value. So extracts",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2647s",
+        "start_time": "2647.949"
+    },
+    {
+        "id": "53c67fed",
+        "text": "uh where like we have basically 10 values and the 10 values represent the different scores for the 10 different genres, right? And so this is like the the results like of the of the soft mats activation function. So we are not really like at the, at the point where we already have like a prediction. So we have like the predicted index. We need to extract that from these two dimensional array. So what we want to do here is to uh get the max the index where we have the max value. So extracts um index with max volume. So",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2649s",
+        "start_time": "2649.409"
+    },
+    {
+        "id": "bab86fd2",
+        "text": "activation function. So we are not really like at the, at the point where we already have like a prediction. So we have like the predicted index. We need to extract that from these two dimensional array. So what we want to do here is to uh get the max the index where we have the max value. So extracts um index with max volume. So oops. So we'll do a pre",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2667s",
+        "start_time": "2667.35"
+    },
+    {
+        "id": "e3bc9457",
+        "text": "um index with max volume. So oops. So we'll do a pre see it",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2691s",
+        "start_time": "2691.739"
+    },
+    {
+        "id": "f126e4b1",
+        "text": "oops. So we'll do a pre see it index",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2698s",
+        "start_time": "2698.37"
+    },
+    {
+        "id": "b0897884",
+        "text": "see it index and uh we're gonna use a nice utility uh function from Nimai that's called marks. And uh we pass in uh prediction",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2703s",
+        "start_time": "2703.489"
+    },
+    {
+        "id": "13561000",
+        "text": "index and uh we're gonna use a nice utility uh function from Nimai that's called marks. And uh we pass in uh prediction and we'll specify that we want to uh calculate the um the, the, the max on the axis number one, which is basically like on this guy here, right? And what we're gonna get out of this is a uh one dimensional array where we have a value like this like between zero and nine in this case. And that's gonna be like the index that's",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2705s",
+        "start_time": "2705.209"
+    },
+    {
+        "id": "62683e9e",
+        "text": "and uh we're gonna use a nice utility uh function from Nimai that's called marks. And uh we pass in uh prediction and we'll specify that we want to uh calculate the um the, the, the max on the axis number one, which is basically like on this guy here, right? And what we're gonna get out of this is a uh one dimensional array where we have a value like this like between zero and nine in this case. And that's gonna be like the index that's been predicted. And now we could potentially uh take this index and map it onto like a genre label and we could use like this mapping here. So like, for example, here we know that disco like is zero reggae one, but I'm not gonna do that because I mean, I don't want to, right? You guys can do that. Well, actually it's a nice like exercise for you. OK? But now we have the uh predicted index. So now let's do a uh print",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2707s",
+        "start_time": "2707.239"
+    },
+    {
+        "id": "b09670c6",
+        "text": "and we'll specify that we want to uh calculate the um the, the, the max on the axis number one, which is basically like on this guy here, right? And what we're gonna get out of this is a uh one dimensional array where we have a value like this like between zero and nine in this case. And that's gonna be like the index that's been predicted. And now we could potentially uh take this index and map it onto like a genre label and we could use like this mapping here. So like, for example, here we know that disco like is zero reggae one, but I'm not gonna do that because I mean, I don't want to, right? You guys can do that. Well, actually it's a nice like exercise for you. OK? But now we have the uh predicted index. So now let's do a uh print where uh we say uh what do we want to say here? So we wanna say the, so the expected",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2720s",
+        "start_time": "2720.939"
+    },
+    {
+        "id": "3750cf2f",
+        "text": "been predicted. And now we could potentially uh take this index and map it onto like a genre label and we could use like this mapping here. So like, for example, here we know that disco like is zero reggae one, but I'm not gonna do that because I mean, I don't want to, right? You guys can do that. Well, actually it's a nice like exercise for you. OK? But now we have the uh predicted index. So now let's do a uh print where uh we say uh what do we want to say here? So we wanna say the, so the expected um output or expected index",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2749s",
+        "start_time": "2749.844"
+    },
+    {
+        "id": "0c3a670a",
+        "text": "where uh we say uh what do we want to say here? So we wanna say the, so the expected um output or expected index is equal",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2778s",
+        "start_time": "2778.09"
+    },
+    {
+        "id": "3194f26c",
+        "text": "um output or expected index is equal to are available and the predicted",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2789s",
+        "start_time": "2789.75"
+    },
+    {
+        "id": "5781b5c8",
+        "text": "is equal to are available and the predicted uh index is equal to another variable. And so let's fill in the variables here and the expected index is this Y variable over there Y argument and the predicted in index is just predicted index here. Cool. OK. So this should be working now. So what I'm gonna do is I'm gonna",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2794s",
+        "start_time": "2794.04"
+    },
+    {
+        "id": "c7cf3fae",
+        "text": "to are available and the predicted uh index is equal to another variable. And so let's fill in the variables here and the expected index is this Y variable over there Y argument and the predicted in index is just predicted index here. Cool. OK. So this should be working now. So what I'm gonna do is I'm gonna rerun the script and obviously it's gonna take some time because it's gonna like retrain everything. But then by the end of this, we're gonna try to predict the sample, the sample at index 100 like in the test set, right? And see if the, the model is predicting it correctly. So now let me",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2796s",
+        "start_time": "2796.219"
+    },
+    {
+        "id": "e01475c7",
+        "text": "uh index is equal to another variable. And so let's fill in the variables here and the expected index is this Y variable over there Y argument and the predicted in index is just predicted index here. Cool. OK. So this should be working now. So what I'm gonna do is I'm gonna rerun the script and obviously it's gonna take some time because it's gonna like retrain everything. But then by the end of this, we're gonna try to predict the sample, the sample at index 100 like in the test set, right? And see if the, the model is predicting it correctly. So now let me run the scripts, I'll post the video and just go back, come back when uh we have a results and here we are back guys. So here we have our results. So the expected index for uh our sample was nine, which we know is uh yeah, let's take it here. It's metal, right? So this was a",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2802s",
+        "start_time": "2802.389"
+    },
+    {
+        "id": "e6f775cc",
+        "text": "rerun the script and obviously it's gonna take some time because it's gonna like retrain everything. But then by the end of this, we're gonna try to predict the sample, the sample at index 100 like in the test set, right? And see if the, the model is predicting it correctly. So now let me run the scripts, I'll post the video and just go back, come back when uh we have a results and here we are back guys. So here we have our results. So the expected index for uh our sample was nine, which we know is uh yeah, let's take it here. It's metal, right? So this was a uh as a metal sample and the predicted index was nine good. OK. So the uh the model I performed correctly in this instance. Nice. So guys, we are done, this was like a quite intense video and I hope you like you really enjoyed that because now you know how to build like a CNN",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2829s",
+        "start_time": "2829.61"
+    },
+    {
+        "id": "93ecb5d9",
+        "text": "run the scripts, I'll post the video and just go back, come back when uh we have a results and here we are back guys. So here we have our results. So the expected index for uh our sample was nine, which we know is uh yeah, let's take it here. It's metal, right? So this was a uh as a metal sample and the predicted index was nine good. OK. So the uh the model I performed correctly in this instance. Nice. So guys, we are done, this was like a quite intense video and I hope you like you really enjoyed that because now you know how to build like a CNN uh classifier. And this like music genre classifier is doing like pretty well overall. Uh So like for next video, we're gonna start looking into recurrent neural networks. So which are like another architecture, another type of architecture that's very important like with audio data, like music data more specifically because like we can interpret that as like time series, right?",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2850s",
+        "start_time": "2850.594"
+    },
+    {
+        "id": "c6ea5f54",
+        "text": "uh as a metal sample and the predicted index was nine good. OK. So the uh the model I performed correctly in this instance. Nice. So guys, we are done, this was like a quite intense video and I hope you like you really enjoyed that because now you know how to build like a CNN uh classifier. And this like music genre classifier is doing like pretty well overall. Uh So like for next video, we're gonna start looking into recurrent neural networks. So which are like another architecture, another type of architecture that's very important like with audio data, like music data more specifically because like we can interpret that as like time series, right? And so like next time it's gonna be all about like the theory behind R and M si really hope, you know, like you enjoyed this video. If that's the case, please remember to subscribe if you have any questions and you may have some now because like this was quite intense, just like",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2875s",
+        "start_time": "2875.81"
+    },
+    {
+        "id": "2885b3a0",
+        "text": "uh classifier. And this like music genre classifier is doing like pretty well overall. Uh So like for next video, we're gonna start looking into recurrent neural networks. So which are like another architecture, another type of architecture that's very important like with audio data, like music data more specifically because like we can interpret that as like time series, right? And so like next time it's gonna be all about like the theory behind R and M si really hope, you know, like you enjoyed this video. If that's the case, please remember to subscribe if you have any questions and you may have some now because like this was quite intense, just like write them like in the comments section below and I'll see you next time. Cheers.",
+        "video": "16- How to Implement a CNN for Music Genre Classification",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "dOG-HxpbMSw",
+        "youtube_link": "https://www.youtube.com/watch?v=dOG-HxpbMSw&t=2899s",
+        "start_time": "2899.949"
+    }
+]

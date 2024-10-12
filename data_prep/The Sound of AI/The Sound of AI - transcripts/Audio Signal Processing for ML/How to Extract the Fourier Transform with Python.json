@@ -1,0 +1,560 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to new exciting video and the audio signal processing for machine learning series. Last time we looked uh at the theory behind the discrete fourier transform and the fast fourier transform, which is a flavor of discrete fourier transform. This time, I want to actually extract the fourier transform coefficients using Python and specifically Noon P. Beyond that, I'm going to show you also a bunch of uh different um magnitude spectra for instruments which play the same note so that we can at least have a glance into why we perceive their timer uh differently. OK. So let's get started with our Gipson notebook. And here, first thing I want to import a few libraries that are gonna be useful for our purpose today. So I'll import nin pi as NP. And as I said, we'll use nin pi to extract the fast fourier transform. Then I'll import mat plot leap dot pi plot SPLT. We'll use this library to plot the magnitude spectrums and then I'll uh import or S I'll import libros to load the uh audio files. And finally, I want to import IPYTHON dot uh display as IP D and we'll use, uh, this to, uh, listen to the audio files directly in our Jupiter notebook. Ok. So, uh, now what I want to do is just like unload the audio files and show them and listen to them directly here in the, um, Jupiter notebook. And so first thing that I want to do is create a base deer and that is gonna point to the directory that, uh, contains, uh, all the different audio files that I want to show you guys. And so I'll start with home and then Valerio, then Pie Charm projects, audio signal processing for ML. And we are at the 14th. Uh, and finally, I'm gonna have this audio directory here. OK. So this is the paster and then I'm gonna have this, uh, yeah, let's call it violin uh file. And so you'll search here. Where is, it should be over here, right? Ok. So here, uh, I'm in the base here and as you can see, we have a bunch of different uh files. So let me just go back to the GPI notebook. So the violin file is called uh violin C violin C dot A W. Then we have the sax file and this is called if I remember correctly Sax dot WAV. And then we have this piano file which is equal to piano dot wav. And finally, we have the nice file. So we're also going to see the magnitude spectrum for some nice and this is called nice dot W. Ok. But the piano one is called piano C dot W. Ok. Good. So now let's try to load this audio directly into Jupiter networks so that we can, uh listen to that. And so for doing this, we'll do an IP D dot uh audio and we need uh to pass the file path to like all of these different files. And so we'll do I OS dot path dot join and we'll pass the base here as well as for the violin, the violin file over here. And yes, as you can see, we loaded that I'm gonna load all of these guys uh first and then we're gonna quickly listen to them, but they're very, very short. OK? So yeah, let me do this set file. So I'm gonna pass in the, what is it? The piano file and finally I want to pass in the noise file over here. OK. So yeah, let's listen to this first thing. So here is I see four notes for the violin. OK. So the C four notes uh So think of like the piano keyboard, the C four is the middle C. So it's the C at the center of the keyboard. Then we have ac for not for the saxophone. OK? And then I see five notes for uh piano. So this is still a sea, but it's an octave above them like the, the middle sea. And finally, we have some noise. We are all used to this kind of noise. Next, we want to load this uh, files as an umpire race and for doing that, we are going to be using Libros, ok? So I'll load the violin C for sound and I'm gonna get back also the sample rate and I'm gonna use a Li Brosa dot load. And what I want to pass in is the, this guy. So basically the five pa to the violin file. OK. So this is for violin, but we should do the very same thing for uh Sax and Sax is gonna be Sax C four. Now, the sample rate is gonna be defaulted to 22,050 Hertz and we just mm need like the first one then I mean like here the sample rate is going to be the same. So I'm just gonna be using a underscore because I say, well, I really don't care about that. There we go. OK? So this is the same but here it's not the violin file. It's actually the sax file. Then we have the piano but it's not C four. It's gonna be C five. Once again, I'll put an underscore here and this is going to be a piano file. And finally, here we have our noise and let's pass in the no file. So yeah, so now we should have all of these guys uh with us. So let me show you that the sample rate is 22 2050 Hertz and uh you can see it here and that's the default value for libros. So that's fine. Now, let's take a look at the violin C four. So this is a and then pi array now. So, and this is basically like the, the waveform associated with this audio file. And if we take a look at the shape, we're going to see that this is like a uh an array and which has like only like one dimension. And the um like, I mean like in, in, in that one axis, we have around 60,000 samples and this is the number of samples that we have like in the audio file which is cool. OK. So now let's try to extract the full transform coefficients and I'll hold it for, let's say the violent sound. So we'll do a uh FT or let's do violin FT where FT stands for fourier transform. And so if we're doing that, we'll use a NP dot FFT dot FFT. Now, if you feel that this FFT dot FFT is redundant, I'll tell you that this first FFT is a module that contains a bunch of different implementations of the fast forward a transform one of which is the classical FFT. So that's why you have like this double FFT thing here. OK. So here we need to pass the actual uh signal, right. So this VC four and now basically by doing so we move from the uh time domain here to the frequency domain over there. OK. So now let's take a look at this uh fourier coefficients. So, uh let's take a look at the shape of this array and we'll take it over here and we'll do a violin ft dot uh shape. And uh as you can see here, so this is uh this has the same shape that we had for the signal uh itself. Now, uh if you don't remember why, that's the case, I really suggest you to go check out my previous video, which should be here on the discrete, the theory behind the discrete fourier transform. But basically, the idea in a nutshell is that we are gonna have like as many frequency beams uh uh as the number of samples that we have in the original time domain uh representation. So this checks out. OK. So now let's take a look at what we have uh for one frequency bin. So we're going to take like the, the first fourier transform coefficient fourier coefficient for violin FT. And as you can see here, this is a complex number and you have the uh real parts here and here you have the imaginary part of the, of this complex number. Now, once again, if you don't know what I'm talking about uh about like complex numbers, I suggest you like to go check out my video on complex numbers and it should be over here. And then if you can't remember why the four A transform uh like produces uh complex numbers. I suggest you to go check out this video that provides you with a lot of um information about the fourier transform itself. OK. So uh here we have like this complex number and we know that this complex number provides information both about a phase as well as uh the magnitude. And now the thing is that for most applications in A IO A, we usually don't care that much about face. So when we analyze signals, what we really care is to understand how much is each frequency is present in a, in an audio signal. And for that, we just need the magnitude. So what we do usually we it's discard the information about phase and we only retain information about the magnitude. And so we move from the fourier coefficients uh to the magnitude spectrum. So how do we do that? Well, that is very simple because we just like take the absolute value of the fourier coefficients. In other words, we can take the magnitude spectrum of the violin uh sound here by taking NIN P dot apps which stands for absolute value of the violin FT. So we pass the uh free transform coefficients to the absolute value uh function and we get back to the magnitude spectrum. Now this is not the violin, it's just violin like this. Oh No, sorry. I just messed up everything. So it's not the violin, but it's the violin. OK. So now uh let's take a look at what happens here if we visualize like the first um coefficient for the magnitude spectrum. Now, as you can see here, we don't have the uh a complex number anymore. We actually have one single like real number. And that is indeed the magnitude associated with this initial frequency bin over here. OK. So now you should have an idea of how to extract uh the uh fourier transform and how to calculate the magnitude spectrum. But what we want to do here next is to actually visualize the magnitude uh spectra for all of these different sounds that we have here so that we can compare them. OK. So for that, I'm gonna create a little function called a plot magnitude spectrum. So this function is gonna accept a few parameters. So first of all the signal itself in the time domain, then it's gonna take a title so that we can give a title to our uh plots and then it's gonna accept a uh sample rate. OK. Yeah. Why do they do that well? OK. So now the first thing that we want to do is to calculate the fourier transform and we already say how to do that. And we'll do a NIN pi dot FFT dot FFT and we'll pass the uh signal, then we'll calculate the magnitude uh spectrum. And for that, we need to pass, we need to create like this NP dot apps and we'll pass the fourier transformer and then we want to plot the magnitude uh spectrum. And so how do we do that? Well, first of all, we need to initialize a figure. And so we'll do a plot dot uh figure and we'll pass in a, a fixed size and this is a keyword argument. And here I'm going to pass in 18 for the width and five for the height. And then the next thing that we want to do is to um kind of like create the X axis and these are gonna be like our frequency beams. And so we can call this uh like frequency. And so how are we gonna do this? So I'll, we're gonna be using this uh L space um A function from NPI. So let me just like write this and then I'll explain what it does. So we'll take this between uh zero and the simple rate. And then here I'm gonna pass in the length of magnitude spectrum. So what's uh uh I've done here is basically taking a, a range. So we're gonna have like the frequency which is uh between zero and the uh sample rate. And then uh what I'm gonna do is I'm gonna like create as many divisions, as many frequency beams as the num as the length of the magnitude uh spectrum. So this is for frequency, then what we'll do next is just like plotting So we'll do a plot dot uh plot, we need to pass the X axis and this is gonna be frequency. Our Y axis is obviously the uh magnitude uh spectrum over here. And then uh what we want to do next is to pass the X label. And here as a, as the label for our X axis, we'll put in frequency which is measured in Hertz and then we'll do a plot dot uh title and the title is gonna be equal to title. And finally, we'll do a plot dot show so that we can show our plots. OK. So now if I haven't made any mistakes, we should be able to visualize the magnitude spectrum here. So now let me pass the uh yeah, let's take the VNC four. Are you here uh pass that signal then as the title I'll just pass in violin and then the sample H it is going to be equal to sample. H Let's see. Oh Here we go. Nice that we have our magnitude spectrum. And as expected on the X axis, we have the frequency uh all the different frequency bins uh expressed in Hertz on the Y axis, we have the magnitude. Now, if you remember from my previous video, uh you probably know that uh like what we're going to get out of like this spectrum is some kind of like central cym met. And indeed, you see that we have like central symmetry. So basically we can kind of like consider only the uh frequencies up to like the, the center point which is the NRS uh frequency. OK. So uh let's do that. And so I want to like make this like a little bit more uh flexible. So what I'll do is I'll change this function and I'll uh introduce like another uh argument called a frequency ratio. And I'll put like this as default equal to one. OK? But basically here uh I want to calculate the number of frequency beans right? Using the frequency uh ratio. Now this is going to be equal to the frequency that we have. Well, the length of the frequency that we have here. And then we'll multiply that by the frequency ratio uh obviously like this number is gonna be a float. So we need to cast it to uh an integer. So I'll do this like that. OK? And so now uh like by doing so we can only, we can take like only a, a part of the original number of like frequency bins. And so now what we can do is just like go in here and slice the frequency and magnitude spectrum um variables here, arrays and only like consider uh from zero up to the number of frequency bins that we want to consider. And I'll do the very same thing for the um magnitude spectrum here. OK? So now if I put the frequency ratio equal to one, well we still have the same thing. And as you can see the frequency in Hertz goes up to 22,000 uh 50 Hertz. Yeah. Let me just like uh remove this. Oh By the way, given. Yeah, I said this. So this is the sound of A I uh slack uh community. And so if you want to join here, you can get like information about like all things like A I audio and A I music and you can also like network with very, very cool people know things about like the uh like community, like updates and new things you can ask for advice or you can just uh yeah, talk about papers and other cool stuff all around like a IO you that if you are interested in joining the sound of A I community, I'll leave you the sign up link in the uh comment in the description below after this little teacher with the sound of A I is like community. Let's go back to like the plot here. And as we said, so when we have the frequency ratio which is equal to one still we get all of our um f the frequency like has all the original frequency bins. And so it's up to the uh sample rate frequency which is 22,050 Hertz. But if we change date, say to 0.5 we'll just have uh we'll just consider the frequencies up up to the Nicholas frequency which is half the sample rate, which in this case is 11,000 Hertz. And uh but still here we see that most of the energy is contained in like lower frequencies. So I to zoom in, I'll just like put a 0.1 here. And as you can see here, like this is like nice because here we can actually see the different frequencies that are like involved in shaping this violin C four sound. And so here at around 2060 Hertz, we have AAA first pick and this is the fundamental frequency of C four and engaged like this is the frequency of AC four note. Then we have like the first harmonic, which it should be around 520 Hertz uh which is very present. And then we have the third, the 4th 5th harmonic and so forth. The interesting thing here is that the uh first harmonic of this violin T four sound has more energy than the fundamental. So which is kind of like interested in itself. OK. So now let's compare this with the sax saxophone sound. So Sax C four and here, Papa sa and as you can see, we have a quite similar um spectrum uh magnitude spectrum here. And this is to be expected because like both instruments are playing the very same note, which is this C four. And so you see I pick here on uh around like the fundamental frequency and on the first harmonic. But on a closer look, you'll see that the, the relative presence of these harmonics and the fundamental is different for the violin and the saxophone. And so this is one of the reasons why we perceive this sounds as different in timer that they still have like the same frequency uh because they're both playing the same C for note, but they sound different. And one of the reasons why that's the case, it's because they, their energy content, which we can see through this power spectrum is different. OK. So now let's take a look at the C five notes on uh the piano. So I'll do a piano C five and let's call this piano, right? And now, obviously like the fundamental here is not 260 but it's rather 520 Hertz because we are a NCTA above C four because we are in C five and that basically doubles the um frequency of the fundamental. And, but the, the cool thing here is that you can see that uh the pick is on the fundamental, then the first harmonic partial uh is kind of like less present than the fundamental and then like the other like harmonics just like fade away in their presence. This is different from what happens with the violin and the saxophone where the first harmonic partial is more present than the fundamental. OK. So now, uh as a final thing, let's take a look at the noise signal. So we'll have like noise here and I'll put in here a noise. All right. And as you can see here, what happens is that you have uh a lot of activity, a lot of energy in all the different frequency bins. For sure. We have some kind of like pick here towards like the lower frequencies. But then as you can see, like all the frequency bins have a little bit of like of energy in them. And that's what I um noisy signal looks like. OK. Cool. So I think like we, we did like some cool stuff like in this video because now you should be able like to extract the um four transform with Python using NP. And then you should also be able to visualize the magnitude spectrum using lip. And finally, we also now know the difference between like different instruments and what uh that uh like means in terms of like uh perceptual um characteristics lack of sound. OK. So now one thing that I want to draw your attention to before I dash off and I finish off like this video is that uh each uh yeah of this magnitude spectra is a kind of like a snapshot that we take and it's a snapshot that provides us information across all the duration of a sound. It doesn't give us, give us any information about what happens uh with relation to the frequency like second by second or like moment by moment, we just lose that information because we average everything across all the duration of a sound. Wouldn't it be fantastic if we could have information about the frequency and uh it as a function of time as well? Well, that would be fantastic indeed. And it's going to be the topic of my next video, which is going to introduce the theory behind the short time fourier transform. And the short time fourier transform is going to enable us to extract spectra spectrum, the spectrum from an audio signal. And this is the main currency that we use in A I, audio and music information retrieval to make sense of uh digital audio signals. So stay tuned for that. That's all for today. I hope you've enjoyed the video. If that's the case, please leave a like and if you haven't subscribed to the channel, please consider doing so. If you have any questions as usual, feel free to leave them in the comments section below. See you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to new exciting video and the audio signal processing for machine learning series. Last time we looked uh at the theory behind the discrete fourier transform and the fast fourier transform, which is a flavor of discrete fourier transform.",
+                "start_time": "0.409",
+                "end_time": "16.67"
+            },
+            {
+                "id": 1,
+                "transcript": "This time, I want to actually extract the fourier transform coefficients using Python and specifically Noon P. Beyond that, I'm going to show you also a bunch of uh different um magnitude spectra for instruments which play the",
+                "start_time": "16.86",
+                "end_time": "34.354"
+            },
+            {
+                "id": 2,
+                "transcript": "same note so that we can at least have a glance into why we perceive their timer uh differently. OK. So let's get started with our Gipson notebook. And here, first thing I want to import a few libraries that are gonna be useful for our purpose today.",
+                "start_time": "34.365",
+                "end_time": "51.869"
+            },
+            {
+                "id": 3,
+                "transcript": "So I'll import nin pi as NP. And as I said, we'll use nin pi to extract the fast fourier transform. Then I'll import mat plot leap dot pi plot SPLT. We'll use this library to plot the magnitude spectrums and then I'll uh import or S",
+                "start_time": "53.069",
+                "end_time": "77.73"
+            },
+            {
+                "id": 4,
+                "transcript": "I'll import libros to load the uh audio files. And finally, I want to import IPYTHON dot uh display as IP D and we'll use, uh, this to, uh, listen to the audio files directly in our Jupiter notebook. Ok. So,",
+                "start_time": "78.099",
+                "end_time": "103.15"
+            },
+            {
+                "id": 5,
+                "transcript": "uh, now what I want to do is just like unload the audio files and show them and listen to them directly here in the,",
+                "start_time": "103.62",
+                "end_time": "112.04"
+            },
+            {
+                "id": 6,
+                "transcript": "um, Jupiter notebook. And so first thing that I want to do is create a base deer and that is gonna point to the directory that, uh, contains, uh, all the different audio files that I want to show you guys. And so I'll start with home and then Valerio, then Pie Charm projects,",
+                "start_time": "112.18",
+                "end_time": "136.759"
+            },
+            {
+                "id": 7,
+                "transcript": "audio signal processing for ML. And we are at the 14th.",
+                "start_time": "137.32",
+                "end_time": "142.179"
+            },
+            {
+                "id": 8,
+                "transcript": "Uh, and finally, I'm gonna have this audio directory here. OK. So this is the paster and then I'm gonna have this, uh, yeah, let's call it violin uh file. And",
+                "start_time": "143.729",
+                "end_time": "159.72"
+            },
+            {
+                "id": 9,
+                "transcript": "so you'll search here. Where is, it should be over here, right? Ok. So here, uh, I'm in the base here and as you can see, we have a bunch of different uh files. So let me just go back to the GPI notebook. So the violin file is called uh violin C",
+                "start_time": "160.139",
+                "end_time": "183.119"
+            },
+            {
+                "id": 10,
+                "transcript": "violin C dot A W.",
+                "start_time": "184.1",
+                "end_time": "187.889"
+            },
+            {
+                "id": 11,
+                "transcript": "Then we have the sax file and this is called if I remember correctly Sax dot WAV. And then we have this piano file",
+                "start_time": "188.41",
+                "end_time": "203.19"
+            },
+            {
+                "id": 12,
+                "transcript": "which is equal to",
+                "start_time": "203.779",
+                "end_time": "206.11"
+            },
+            {
+                "id": 13,
+                "transcript": "piano dot wav. And finally, we have the nice file. So we're also going to see the magnitude spectrum for some nice and this is called nice dot W. Ok. But the piano one is called piano C dot W. Ok.",
+                "start_time": "207.16",
+                "end_time": "227.07"
+            },
+            {
+                "id": 14,
+                "transcript": "Good. So now let's try to load this audio directly into Jupiter networks so that we can, uh listen to that. And so for doing this, we'll do an IP D dot uh audio",
+                "start_time": "227.32",
+                "end_time": "239.429"
+            },
+            {
+                "id": 15,
+                "transcript": "and we need uh to pass the file path to like all of these different files. And so we'll do I OS dot path dot join and we'll pass the base here as well as for the violin, the violin file over here.",
+                "start_time": "239.57",
+                "end_time": "259.329"
+            },
+            {
+                "id": 16,
+                "transcript": "And yes, as you can see, we loaded that I'm gonna load all of these guys uh first and then we're gonna quickly listen to them, but they're very, very short. OK? So yeah, let me",
+                "start_time": "260.059",
+                "end_time": "272.32"
+            },
+            {
+                "id": 17,
+                "transcript": "do this set file. So I'm gonna pass in the, what is it? The piano file and finally I want to pass in the noise file over here.",
+                "start_time": "273.39",
+                "end_time": "289.369"
+            },
+            {
+                "id": 18,
+                "transcript": "OK.",
+                "start_time": "290.75",
+                "end_time": "291.399"
+            },
+            {
+                "id": 19,
+                "transcript": "So yeah, let's listen to this first thing. So here is I see four notes for the violin.",
+                "start_time": "292.019",
+                "end_time": "301.049"
+            },
+            {
+                "id": 20,
+                "transcript": "OK. So the C four notes uh So think of like the piano keyboard, the C four is the middle C. So it's the C at the center of the keyboard. Then we have ac for not for the saxophone.",
+                "start_time": "303.7",
+                "end_time": "317.6"
+            },
+            {
+                "id": 21,
+                "transcript": "OK? And then I see five notes for uh piano.",
+                "start_time": "319.209",
+                "end_time": "325.109"
+            },
+            {
+                "id": 22,
+                "transcript": "So this is still a sea, but it's an octave above them like the, the middle sea. And finally, we have some noise.",
+                "start_time": "327.48",
+                "end_time": "334.19"
+            },
+            {
+                "id": 23,
+                "transcript": "We are all used to this kind of noise. Next, we want to load this uh, files as an umpire race and for doing that, we are going to be using Libros, ok? So I'll load the violin C for sound and I'm gonna get back also the sample rate",
+                "start_time": "335.059",
+                "end_time": "358.519"
+            },
+            {
+                "id": 24,
+                "transcript": "and I'm gonna use a Li Brosa dot load. And what I want to pass in is the, this guy. So basically the five pa to the violin file.",
+                "start_time": "358.72",
+                "end_time": "372.109"
+            },
+            {
+                "id": 25,
+                "transcript": "OK. So this is for violin, but we should do the very same thing for uh Sax and Sax is gonna be Sax C four. Now, the sample rate is gonna be defaulted to 22,050 Hertz and we just mm",
+                "start_time": "372.399",
+                "end_time": "389.29"
+            },
+            {
+                "id": 26,
+                "transcript": "need like the first one then I mean like here the sample rate is going to be the same. So I'm just gonna be using a underscore because I say, well, I really don't care about that. There we go. OK? So this is the same but here it's not the violin file. It's actually the sax file. Then we have the piano but it's not C four. It's gonna be C five. Once again, I'll put an underscore here",
+                "start_time": "389.299",
+                "end_time": "415.29"
+            },
+            {
+                "id": 27,
+                "transcript": "and this is going to be a piano file. And finally, here we have our noise",
+                "start_time": "415.47",
+                "end_time": "424.89"
+            },
+            {
+                "id": 28,
+                "transcript": "and",
+                "start_time": "425.51",
+                "end_time": "426.82"
+            },
+            {
+                "id": 29,
+                "transcript": "let's pass in the no file. So yeah, so now we should have all of these guys uh with us. So let me show you that the sample rate is 22 2050 Hertz and uh you can see it here and that's the default value for libros. So that's fine. Now, let's take a look at the violin C four. So this is a",
+                "start_time": "427.589",
+                "end_time": "450.26"
+            },
+            {
+                "id": 30,
+                "transcript": "and then pi array now. So, and this is basically like the, the waveform associated with this audio file. And if we take a look at the shape, we're going to see that this is like a uh an array and which has like only like one dimension. And the",
+                "start_time": "450.269",
+                "end_time": "468.22"
+            },
+            {
+                "id": 31,
+                "transcript": "um like, I mean like in, in, in that one axis, we have around 60,000 samples and this is the number of samples that we have like in the audio file which is cool. OK. So now let's try to extract the full transform coefficients and I'll hold it for, let's say the violent sound. So we'll do a",
+                "start_time": "468.35",
+                "end_time": "493.399"
+            },
+            {
+                "id": 32,
+                "transcript": "uh FT or let's do violin FT where FT stands for fourier transform. And so if we're doing that, we'll use a NP dot FFT dot FFT. Now, if you feel that this FFT dot FFT is redundant, I'll tell you that this first FFT is a module that contains a bunch of different implementations of the fast forward a transform one of which is the classical",
+                "start_time": "493.6",
+                "end_time": "520.2"
+            },
+            {
+                "id": 33,
+                "transcript": "FFT. So that's why you have like this double FFT thing here. OK. So here we need to pass the actual uh signal, right. So this VC four and now basically by doing so we move from the uh time domain here to the frequency domain over there. OK. So now let's take a look at this uh fourier coefficients. So,",
+                "start_time": "520.21",
+                "end_time": "546.82"
+            },
+            {
+                "id": 34,
+                "transcript": "uh let's take a look at the shape of this array and we'll take it over here and we'll do a violin ft dot uh shape.",
+                "start_time": "547.719",
+                "end_time": "558.219"
+            },
+            {
+                "id": 35,
+                "transcript": "And uh as you can see here, so this is uh this has the same shape that we had for the signal uh itself. Now, uh if you don't remember why, that's the case, I really suggest you to go check out my previous video, which should be here on the discrete, the theory behind the discrete fourier transform. But basically, the idea in a nutshell is that we are gonna have like as many",
+                "start_time": "558.489",
+                "end_time": "587.03"
+            },
+            {
+                "id": 36,
+                "transcript": "frequency beams",
+                "start_time": "587.19",
+                "end_time": "589.219"
+            },
+            {
+                "id": 37,
+                "transcript": "uh uh as the number of samples that we have in the original time domain uh representation. So this checks out. OK. So now let's take a look at what we have uh for one frequency bin. So we're going to take like the, the first fourier transform coefficient fourier coefficient for violin FT.",
+                "start_time": "589.909",
+                "end_time": "615.7"
+            },
+            {
+                "id": 38,
+                "transcript": "And as you can see here, this is a complex number and you have the uh real parts here and here you have the imaginary part of the, of this complex number. Now, once again, if you don't know what I'm talking about uh about like complex numbers, I suggest you like to go check out my video on complex numbers and it should be over here.",
+                "start_time": "615.929",
+                "end_time": "644.53"
+            },
+            {
+                "id": 39,
+                "transcript": "And then if you can't remember why the four A transform uh like produces uh complex numbers. I suggest you to go check out this video that provides you with a lot of um information about the fourier transform itself. OK. So uh here we have like this complex number and we know that this complex number provides information both about a phase as well as uh the magnitude.",
+                "start_time": "644.7",
+                "end_time": "673.9"
+            },
+            {
+                "id": 40,
+                "transcript": "And now the thing is that for most applications in A IO A, we usually don't care that much about face. So when we analyze signals, what we really care is to understand how much is each frequency is present in a, in an audio signal. And for that, we just need the magnitude. So what we do usually we it's",
+                "start_time": "674.15",
+                "end_time": "701.859"
+            },
+            {
+                "id": 41,
+                "transcript": "discard the information about phase and we only retain information about the magnitude. And so we move from the fourier coefficients uh to the magnitude spectrum. So how do we do that? Well, that is very simple because we just like take the absolute value of the fourier coefficients. In other words, we can take the magnitude spectrum of the violin",
+                "start_time": "701.869",
+                "end_time": "729.59"
+            },
+            {
+                "id": 42,
+                "transcript": "uh sound here by taking NIN P dot apps which stands for absolute value of the violin FT. So we pass the uh free transform coefficients to the absolute value uh function and we get back to the magnitude spectrum. Now this is not the violin, it's just violin like this.",
+                "start_time": "730.03",
+                "end_time": "755.02"
+            },
+            {
+                "id": 43,
+                "transcript": "Oh No, sorry. I just messed up everything. So it's not the violin, but it's the violin. OK. So now uh let's take a look at what happens here if we visualize like the first um coefficient for the magnitude spectrum. Now, as you can see here, we don't have the uh a complex number",
+                "start_time": "755.219",
+                "end_time": "780.65"
+            },
+            {
+                "id": 44,
+                "transcript": "anymore. We actually have one single like real number. And that is indeed the magnitude associated with this initial frequency bin over here. OK. So",
+                "start_time": "780.83",
+                "end_time": "794.419"
+            },
+            {
+                "id": 45,
+                "transcript": "now you should have an idea of how to extract uh the uh fourier transform and how to calculate the magnitude spectrum. But what we want to do here next is to actually visualize the magnitude uh spectra for all of these different sounds that we have here so that we can compare them.",
+                "start_time": "794.71",
+                "end_time": "816.89"
+            },
+            {
+                "id": 46,
+                "transcript": "OK. So for that, I'm gonna create a little function called a plot magnitude spectrum.",
+                "start_time": "817.109",
+                "end_time": "827.559"
+            },
+            {
+                "id": 47,
+                "transcript": "So this function is gonna accept a few parameters. So first of all the signal itself in the time domain, then it's gonna take a title so that we can give a title to our uh plots and then it's gonna accept a uh sample rate. OK. Yeah. Why do they do that well?",
+                "start_time": "827.979",
+                "end_time": "849.33"
+            },
+            {
+                "id": 48,
+                "transcript": "OK.",
+                "start_time": "850.13",
+                "end_time": "851.049"
+            },
+            {
+                "id": 49,
+                "transcript": "So now the first thing that we want to do is to calculate the fourier transform and we already say how to do that. And we'll do a NIN pi dot FFT dot FFT and we'll pass the uh signal, then we'll calculate the magnitude uh spectrum. And for that, we need to pass, we need to create like this NP dot apps and we'll pass the fourier transformer",
+                "start_time": "851.59",
+                "end_time": "880.76"
+            },
+            {
+                "id": 50,
+                "transcript": "and then we want to plot the magnitude uh spectrum. And so how do we do that? Well, first of all, we need to initialize a figure. And so we'll do a plot dot uh figure and we'll pass in a, a fixed size",
+                "start_time": "880.979",
+                "end_time": "901.729"
+            },
+            {
+                "id": 51,
+                "transcript": "and this is a keyword argument. And here I'm going to pass in 18 for the width and five for the height.",
+                "start_time": "902.59",
+                "end_time": "910.38"
+            },
+            {
+                "id": 52,
+                "transcript": "And then the next thing that we want to do is to um kind of like create the X axis and these are gonna be like our frequency beams. And so we can call this uh like frequency. And so how are we gonna do this? So I'll, we're gonna be using this uh L space um A function from NPI.",
+                "start_time": "911.599",
+                "end_time": "939.08"
+            },
+            {
+                "id": 53,
+                "transcript": "So let me just like write this and then I'll explain what it does. So we'll take this between uh zero and the simple rate. And then here I'm gonna pass in the length of magnitude spectrum. So what's uh uh I've done here is basically taking a, a range. So we're gonna have like the frequency which is uh between zero and the uh sample rate.",
+                "start_time": "939.919",
+                "end_time": "969.119"
+            },
+            {
+                "id": 54,
+                "transcript": "And then uh what I'm gonna do is I'm gonna like create as many divisions, as many frequency beams as the num as the length of the magnitude uh spectrum. So this is for frequency, then what we'll do next is just like plotting",
+                "start_time": "969.359",
+                "end_time": "988.84"
+            },
+            {
+                "id": 55,
+                "transcript": "So we'll do a plot dot uh plot, we need to pass the X axis and this is gonna be frequency. Our Y axis is obviously the uh magnitude uh spectrum over here. And then uh what we want to do next is to pass the X label.",
+                "start_time": "989.07",
+                "end_time": "1010.95"
+            },
+            {
+                "id": 56,
+                "transcript": "And here as a, as the label for our X axis, we'll put in frequency which is measured in Hertz and then we'll do a plot dot uh title and the title is gonna be equal to title.",
+                "start_time": "1011.82",
+                "end_time": "1032.79"
+            },
+            {
+                "id": 57,
+                "transcript": "And finally, we'll do a plot dot show so that we can show our plots. OK. So now if I haven't made any mistakes, we should be able to visualize the magnitude spectrum here. So now let me pass the uh yeah, let's take the",
+                "start_time": "1033.63",
+                "end_time": "1055.75"
+            },
+            {
+                "id": 58,
+                "transcript": "VNC four. Are you here",
+                "start_time": "1056.81",
+                "end_time": "1059.89"
+            },
+            {
+                "id": 59,
+                "transcript": "uh pass that signal then as the title I'll just pass in violin and then the sample H it is going to be equal to sample. H Let's see. Oh Here we go. Nice that we have our magnitude spectrum. And as expected on the X axis, we have the frequency",
+                "start_time": "1063.449",
+                "end_time": "1080.78"
+            },
+            {
+                "id": 60,
+                "transcript": "uh all the different frequency bins uh expressed in Hertz on the Y axis, we have the magnitude. Now, if you remember from my previous video, uh you probably know that uh like what we're going to get out of like this spectrum is some kind of like central cym met. And indeed, you see that",
+                "start_time": "1080.969",
+                "end_time": "1102.739"
+            },
+            {
+                "id": 61,
+                "transcript": "we have like central symmetry. So basically we can kind of like consider only the uh frequencies up to like the, the center point which is the NRS uh frequency.",
+                "start_time": "1103.739",
+                "end_time": "1116.449"
+            },
+            {
+                "id": 62,
+                "transcript": "OK. So uh let's do that. And so I want to like make this like a little bit more uh flexible. So what I'll do is I'll change this function and I'll uh introduce like another uh argument called a frequency ratio. And I'll put like this as default equal to one.",
+                "start_time": "1116.65",
+                "end_time": "1138.53"
+            },
+            {
+                "id": 63,
+                "transcript": "OK? But basically here uh I want to calculate the number of frequency beans right? Using the frequency uh ratio. Now this is going to be equal to",
+                "start_time": "1139.14",
+                "end_time": "1155.3"
+            },
+            {
+                "id": 64,
+                "transcript": "the frequency that we have. Well, the length of the frequency that we have here. And then we'll multiply that by the frequency ratio uh obviously like this number is gonna be a float. So we need to cast it to uh an integer. So I'll do this like that. OK?",
+                "start_time": "1155.939",
+                "end_time": "1180.3"
+            },
+            {
+                "id": 65,
+                "transcript": "And so now uh like by doing so we can only, we can take like only a,",
+                "start_time": "1180.489",
+                "end_time": "1186.579"
+            },
+            {
+                "id": 66,
+                "transcript": "a part of the original number of like frequency bins. And so now what we can do is just like go in here and slice the frequency and magnitude spectrum um variables here, arrays and only like consider uh from zero up to the number of frequency bins that we want to consider. And I'll do the very same thing for the um magnitude spectrum",
+                "start_time": "1187.26",
+                "end_time": "1216.77"
+            },
+            {
+                "id": 67,
+                "transcript": "here. OK? So now if I put the frequency ratio equal to one, well we still have the same thing. And as you can see the frequency in Hertz goes up to 22,000 uh 50 Hertz. Yeah. Let me just like uh remove this. Oh By the way, given. Yeah, I said this.",
+                "start_time": "1216.979",
+                "end_time": "1239.41"
+            },
+            {
+                "id": 68,
+                "transcript": "So this is the sound of A I uh slack uh community. And so if you want to join here, you can get like information about like all things like A I audio and A I music and you can also like network with very, very cool people know things",
+                "start_time": "1239.42",
+                "end_time": "1260.959"
+            },
+            {
+                "id": 69,
+                "transcript": "about like the uh like community, like updates and new things you can ask for advice or you can just uh yeah, talk about papers and other cool stuff all around like a IO you that if you are interested in joining the sound of A I community, I'll leave you the sign up link in the uh comment in the description below",
+                "start_time": "1260.969",
+                "end_time": "1282.52"
+            },
+            {
+                "id": 70,
+                "transcript": "after this little teacher with the sound of A I is like community. Let's go back to like the plot here. And as we said, so when we have the frequency ratio which is equal to one still we get all of our um f the frequency like has all the original frequency bins. And so it's",
+                "start_time": "1282.979",
+                "end_time": "1302.569"
+            },
+            {
+                "id": 71,
+                "transcript": "up to the uh sample rate frequency which is 22,050 Hertz. But if we change date, say to 0.5 we'll just have uh we'll just consider the frequencies up up to the Nicholas frequency which is half the sample rate, which in this case is 11,000 Hertz.",
+                "start_time": "1302.579",
+                "end_time": "1323.63"
+            },
+            {
+                "id": 72,
+                "transcript": "And uh but still here we see that most of the energy is contained in like lower frequencies. So I to zoom in, I'll just like put a 0.1 here. And as you can see here, like this is like nice because here we can actually see the different frequencies that are like involved in shaping",
+                "start_time": "1323.79",
+                "end_time": "1343.05"
+            },
+            {
+                "id": 73,
+                "transcript": "this violin C four sound. And so here at around 2060 Hertz, we have AAA first pick and this is the fundamental frequency of C four and engaged like this is the frequency of AC four note.",
+                "start_time": "1343.06",
+                "end_time": "1362.329"
+            },
+            {
+                "id": 74,
+                "transcript": "Then we have like the first harmonic, which it should be around 520 Hertz uh which is very present. And then we have the third, the 4th 5th harmonic and so forth. The interesting thing here is that the uh first harmonic of this violin T four sound has more energy than the fundamental. So which is kind of like interested in itself.",
+                "start_time": "1363.06",
+                "end_time": "1390.63"
+            },
+            {
+                "id": 75,
+                "transcript": "OK. So now let's compare this with the sax saxophone sound. So Sax C four and here, Papa sa",
+                "start_time": "1390.869",
+                "end_time": "1401.92"
+            },
+            {
+                "id": 76,
+                "transcript": "and as you can see, we have a quite similar um spectrum uh magnitude spectrum here. And this is to be expected because like both instruments are playing the very same note, which is this C four. And so you see I pick here on uh around like the fundamental frequency and on the first harmonic. But on a closer look, you'll see that the, the relative presence of these harmonics and the",
+                "start_time": "1402.42",
+                "end_time": "1431.16"
+            },
+            {
+                "id": 77,
+                "transcript": "fundamental is different for the violin and the saxophone. And so this is one of the reasons why we perceive this sounds as different in timer that they still have like the same frequency uh because they're both playing the same C for note, but they sound different. And one of the reasons why that's the case, it's because they, their energy content, which we can see through this power spectrum is different.",
+                "start_time": "1431.17",
+                "end_time": "1459.92"
+            },
+            {
+                "id": 78,
+                "transcript": "OK. So now let's take a look at the C five notes on uh the piano. So I'll do a piano C five and let's call this piano,",
+                "start_time": "1460.119",
+                "end_time": "1471.02"
+            },
+            {
+                "id": 79,
+                "transcript": "right? And now, obviously like the fundamental here is not 260 but it's rather 520 Hertz because we are a NCTA above C four because we are in C five and that basically doubles the um frequency of the fundamental.",
+                "start_time": "1472.989",
+                "end_time": "1491.439"
+            },
+            {
+                "id": 80,
+                "transcript": "And, but the, the cool thing here is that you can see that uh the pick is on the fundamental, then the first harmonic partial uh is kind of like less present than the fundamental",
+                "start_time": "1491.719",
+                "end_time": "1506.64"
+            },
+            {
+                "id": 81,
+                "transcript": "and then like the other like harmonics just like fade away in their presence. This is different from what happens with the violin and the saxophone where the first harmonic partial is more present than the fundamental.",
+                "start_time": "1506.859",
+                "end_time": "1523.199"
+            },
+            {
+                "id": 82,
+                "transcript": "OK. So now, uh as a final thing, let's take a look at the noise signal.",
+                "start_time": "1523.9",
+                "end_time": "1530.77"
+            },
+            {
+                "id": 83,
+                "transcript": "So we'll have like noise here and I'll put in here a noise. All right. And as you can see here, what happens is that you have uh a lot of activity, a lot of energy in all the different frequency bins.",
+                "start_time": "1531.319",
+                "end_time": "1547.614"
+            },
+            {
+                "id": 84,
+                "transcript": "For sure. We have some kind of like pick here towards like the lower frequencies. But then as you can see, like all the frequency bins have a little bit of like of energy in them. And that's what I um noisy signal looks like. OK.",
+                "start_time": "1547.625",
+                "end_time": "1565.099"
+            },
+            {
+                "id": 85,
+                "transcript": "Cool. So I think like we, we did like some cool stuff like in this video because now you should be able like to extract the um four transform with Python using NP. And then you should also be able to visualize the",
+                "start_time": "1565.3",
+                "end_time": "1582.579"
+            },
+            {
+                "id": 86,
+                "transcript": "magnitude spectrum using lip. And finally, we also now know the difference between like different instruments and what uh that uh like means in terms of like uh perceptual um characteristics lack of sound. OK. So now one thing that I want to draw your attention to before I dash off and I finish off like this video is that",
+                "start_time": "1582.589",
+                "end_time": "1608.56"
+            },
+            {
+                "id": 87,
+                "transcript": "uh each uh yeah of this magnitude spectra is a kind of like a snapshot that we take and it's a snapshot that provides us information across all the duration of a sound. It doesn't give us, give us any information about what happens",
+                "start_time": "1608.739",
+                "end_time": "1630.209"
+            },
+            {
+                "id": 88,
+                "transcript": "uh with relation to the frequency like second by second or like moment by moment, we just lose that information because we average everything across all the duration of a sound. Wouldn't it be fantastic if we could have information about the frequency and uh it as a function of time as well? Well, that would be fantastic indeed. And",
+                "start_time": "1630.42",
+                "end_time": "1654.75"
+            },
+            {
+                "id": 89,
+                "transcript": "it's going to be the topic of my next video, which is going to introduce the theory behind the short time fourier transform. And the short time fourier transform is going to enable us to extract spectra spectrum, the spectrum from an audio signal. And this is the main currency that we use in A I, audio and music information retrieval to make",
+                "start_time": "1654.76",
+                "end_time": "1679.089"
+            },
+            {
+                "id": 90,
+                "transcript": "sense of uh digital audio signals. So stay tuned for that. That's all for today. I hope you've enjoyed the video. If that's the case, please leave a like and if you haven't subscribed to the channel, please consider doing so. If you have any questions as usual, feel free to leave them in the comments section below. See you next time. Cheers.",
+                "start_time": "1679.099",
+                "end_time": "1703.439"
+            }
+        ]
+    }
+}

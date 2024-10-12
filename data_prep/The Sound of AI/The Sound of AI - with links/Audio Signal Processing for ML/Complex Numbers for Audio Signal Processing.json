@@ -1,0 +1,614 @@
+[
+    {
+        "id": "022c3ad7",
+        "text": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This time we'll pick up where we left last time where we talked about fourier transform and arrived at the point where we said, well, we need to know about complex numbers for moving forward and understand fourier transform even better than just like the intuition level. So this time, we'll look into the fundamental concepts behind numbers. And all of this information is going to be very useful for you to understand the deeper concepts behind uh audio signal processing. But before we get started, I want to remind you once again about the sound of the Ice Luck community, which is a community with people interested in all things A I music A and all your signal processing. So you can go there, hang out with very interesting people and uh network with them, ask for feedback and just share your ideas. So if you're interested and you're not signed up yet, just go check out the sign up link to the workspace Slack workspace in the description below. But now let's move on to the topic of today's video. The complex numbers. So why should we butter with complex numbers in the first place? Well,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "8b5e5771",
+        "text": "numbers. And all of this information is going to be very useful for you to understand the deeper concepts behind uh audio signal processing. But before we get started, I want to remind you once again about the sound of the Ice Luck community, which is a community with people interested in all things A I music A and all your signal processing. So you can go there, hang out with very interesting people and uh network with them, ask for feedback and just share your ideas. So if you're interested and you're not signed up yet, just go check out the sign up link to the workspace Slack workspace in the description below. But now let's move on to the topic of today's video. The complex numbers. So why should we butter with complex numbers in the first place? Well, aren't real numbers are good enough. Well, it turns out that when we are dealing with the fourier transform, if you remember from my previous video, we usually get a couple of parameters for each of the um pure turns pure frequencies that we decompose a complex sound into. And this two para",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=27s",
+        "start_time": "27.565"
+    },
+    {
+        "id": "347881a9",
+        "text": "and uh network with them, ask for feedback and just share your ideas. So if you're interested and you're not signed up yet, just go check out the sign up link to the workspace Slack workspace in the description below. But now let's move on to the topic of today's video. The complex numbers. So why should we butter with complex numbers in the first place? Well, aren't real numbers are good enough. Well, it turns out that when we are dealing with the fourier transform, if you remember from my previous video, we usually get a couple of parameters for each of the um pure turns pure frequencies that we decompose a complex sound into. And this two para are the magnitude and phase. Now magnitude is a real number. And if we are just interested into looking at the um magnitude spectrum of a complex sounds, well, we really don't need complex numbers at all. But if you are interested to have like a deeper understanding of the full four transform and we want to factor in all the phase,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=55s",
+        "start_time": "55.27"
+    },
+    {
+        "id": "d1a23335",
+        "text": "aren't real numbers are good enough. Well, it turns out that when we are dealing with the fourier transform, if you remember from my previous video, we usually get a couple of parameters for each of the um pure turns pure frequencies that we decompose a complex sound into. And this two para are the magnitude and phase. Now magnitude is a real number. And if we are just interested into looking at the um magnitude spectrum of a complex sounds, well, we really don't need complex numbers at all. But if you are interested to have like a deeper understanding of the full four transform and we want to factor in all the phase, now we have a problem and that's because we don't have a compact way of dealing with these two parameters at once. So magnitude and phase. And so wouldn't it be wonderful if we had something that we could use to deal in a handy way, both with magnitude and phase with both of these parameters at once? Well,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=80s",
+        "start_time": "80.847"
+    },
+    {
+        "id": "5525eab2",
+        "text": "are the magnitude and phase. Now magnitude is a real number. And if we are just interested into looking at the um magnitude spectrum of a complex sounds, well, we really don't need complex numbers at all. But if you are interested to have like a deeper understanding of the full four transform and we want to factor in all the phase, now we have a problem and that's because we don't have a compact way of dealing with these two parameters at once. So magnitude and phase. And so wouldn't it be wonderful if we had something that we could use to deal in a handy way, both with magnitude and phase with both of these parameters at once? Well, it turns out that we have that, that math can provide it with that and it's",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=106s",
+        "start_time": "106.424"
+    },
+    {
+        "id": "d24ef569",
+        "text": "now we have a problem and that's because we don't have a compact way of dealing with these two parameters at once. So magnitude and phase. And so wouldn't it be wonderful if we had something that we could use to deal in a handy way, both with magnitude and phase with both of these parameters at once? Well, it turns out that we have that, that math can provide it with that and it's complicated. Uh Yeah. No, it's not really complicated numbers. Well, it could be complicated the topic in itself, but it's not complicated numbers. It's actually complex numbers. And uh as I said, this topic can be a little bit uh complicated, but I'll try to make it as easy and accessible as possible for you in today's video. OK. So",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=132s",
+        "start_time": "132.001"
+    },
+    {
+        "id": "53eec23d",
+        "text": "it turns out that we have that, that math can provide it with that and it's complicated. Uh Yeah. No, it's not really complicated numbers. Well, it could be complicated the topic in itself, but it's not complicated numbers. It's actually complex numbers. And uh as I said, this topic can be a little bit uh complicated, but I'll try to make it as easy and accessible as possible for you in today's video. OK. So what's the genesis of complex numbers? So why do we need them? Well, for a long time, mathematicians have been scared of a very simple thing",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=157s",
+        "start_time": "157.74"
+    },
+    {
+        "id": "0ea2b285",
+        "text": "complicated. Uh Yeah. No, it's not really complicated numbers. Well, it could be complicated the topic in itself, but it's not complicated numbers. It's actually complex numbers. And uh as I said, this topic can be a little bit uh complicated, but I'll try to make it as easy and accessible as possible for you in today's video. OK. So what's the genesis of complex numbers? So why do we need them? Well, for a long time, mathematicians have been scared of a very simple thing and that's square root of minus one or more in general, the square root of negative numbers. So uh with real numbers, there's no way we can solve like this very simple thing like the square root of a negative number. So basically math is broken in the in terms",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=164s",
+        "start_time": "164.369"
+    },
+    {
+        "id": "5e839645",
+        "text": "what's the genesis of complex numbers? So why do we need them? Well, for a long time, mathematicians have been scared of a very simple thing and that's square root of minus one or more in general, the square root of negative numbers. So uh with real numbers, there's no way we can solve like this very simple thing like the square root of a negative number. So basically math is broken in the in terms sort of like real numbers if we want to deal with this type of things. So how do we deal with these guys? Well, mathematicians are quite creative people sometimes quite nuts and they came out with something completely made up and it was so made up that they called it the imaginary units,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=190s",
+        "start_time": "190.21"
+    },
+    {
+        "id": "18ebea8b",
+        "text": "and that's square root of minus one or more in general, the square root of negative numbers. So uh with real numbers, there's no way we can solve like this very simple thing like the square root of a negative number. So basically math is broken in the in terms sort of like real numbers if we want to deal with this type of things. So how do we deal with these guys? Well, mathematicians are quite creative people sometimes quite nuts and they came out with something completely made up and it was so made up that they called it the imaginary units, the famous I symbol. And I has the wonderful property that when it is squared, it is equal to minus one. So now all of a sudden we have a way of working with square roots with negative arguments using complex numbers. And isn't that fantastic? Yeah, I guess you bet that's fantastic. Now, this may feel",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=204s",
+        "start_time": "204.509"
+    },
+    {
+        "id": "681acfc1",
+        "text": "sort of like real numbers if we want to deal with this type of things. So how do we deal with these guys? Well, mathematicians are quite creative people sometimes quite nuts and they came out with something completely made up and it was so made up that they called it the imaginary units, the famous I symbol. And I has the wonderful property that when it is squared, it is equal to minus one. So now all of a sudden we have a way of working with square roots with negative arguments using complex numbers. And isn't that fantastic? Yeah, I guess you bet that's fantastic. Now, this may feel somewhat uh like cheating or like weird and in a sense it is, but I can assure you that complex numbers work for real. And for example, in audio processing in signal processing, they are used ubiquitously. So",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=224s",
+        "start_time": "224.1"
+    },
+    {
+        "id": "d94a414e",
+        "text": "the famous I symbol. And I has the wonderful property that when it is squared, it is equal to minus one. So now all of a sudden we have a way of working with square roots with negative arguments using complex numbers. And isn't that fantastic? Yeah, I guess you bet that's fantastic. Now, this may feel somewhat uh like cheating or like weird and in a sense it is, but I can assure you that complex numbers work for real. And for example, in audio processing in signal processing, they are used ubiquitously. So now let's just get familiar with the definition of a complex number or like just C a complex number, even if it's just like a generic complex number for the time being. So we define it as C, which is equal to A plus I times B now A and",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=243s",
+        "start_time": "243.88"
+    },
+    {
+        "id": "b0886b1c",
+        "text": "somewhat uh like cheating or like weird and in a sense it is, but I can assure you that complex numbers work for real. And for example, in audio processing in signal processing, they are used ubiquitously. So now let's just get familiar with the definition of a complex number or like just C a complex number, even if it's just like a generic complex number for the time being. So we define it as C, which is equal to A plus I times B now A and B are both real numbers. And this I is the imaginary units, right? And so the cool thing about this, we we, it's like that this complex number can be divided into two parts, the real parts that provides us information about the real",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=270s",
+        "start_time": "270.445"
+    },
+    {
+        "id": "36ef163f",
+        "text": "now let's just get familiar with the definition of a complex number or like just C a complex number, even if it's just like a generic complex number for the time being. So we define it as C, which is equal to A plus I times B now A and B are both real numbers. And this I is the imaginary units, right? And so the cool thing about this, we we, it's like that this complex number can be divided into two parts, the real parts that provides us information about the real domain of this complex number. And the so called imaginary parts that provides us information about the imaginary part. Now, given mathematicians love visualizing stuff quite a lot. So they thought that we could just take these complex numbers and put them on a plane. Because if you think of this uh the real part and imaginary part as two separate axis,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=287s",
+        "start_time": "287.54"
+    },
+    {
+        "id": "e8aedee0",
+        "text": "B are both real numbers. And this I is the imaginary units, right? And so the cool thing about this, we we, it's like that this complex number can be divided into two parts, the real parts that provides us information about the real domain of this complex number. And the so called imaginary parts that provides us information about the imaginary part. Now, given mathematicians love visualizing stuff quite a lot. So they thought that we could just take these complex numbers and put them on a plane. Because if you think of this uh the real part and imaginary part as two separate axis, why don't you put them on a plane? And that's what they do. And so they can end up plotting complex numbers onto the complex plane. So in the complex plane, the X axis is the real axis, whereas the y axis is the imaginary axis. Now let's try to pinpoint a complex number. For example, this three plus two. I.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=305s",
+        "start_time": "305.1"
+    },
+    {
+        "id": "cddc376a",
+        "text": "domain of this complex number. And the so called imaginary parts that provides us information about the imaginary part. Now, given mathematicians love visualizing stuff quite a lot. So they thought that we could just take these complex numbers and put them on a plane. Because if you think of this uh the real part and imaginary part as two separate axis, why don't you put them on a plane? And that's what they do. And so they can end up plotting complex numbers onto the complex plane. So in the complex plane, the X axis is the real axis, whereas the y axis is the imaginary axis. Now let's try to pinpoint a complex number. For example, this three plus two. I. So for thats basically both three and two can be thought of as Cartesian coordinates. So three is the Cartesian coordinate for the X axis for the real part. And it's over here. And then",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=322s",
+        "start_time": "322.91"
+    },
+    {
+        "id": "607d4ba8",
+        "text": "why don't you put them on a plane? And that's what they do. And so they can end up plotting complex numbers onto the complex plane. So in the complex plane, the X axis is the real axis, whereas the y axis is the imaginary axis. Now let's try to pinpoint a complex number. For example, this three plus two. I. So for thats basically both three and two can be thought of as Cartesian coordinates. So three is the Cartesian coordinate for the X axis for the real part. And it's over here. And then uh two is the Cartesian coordinate for the imaginary axis. And so when we just connect these two points to two coordinates, we get like this point over here, which is three plus two. I. Now, here we have another example, which is minus one minus one plus four I. And as you can see, we go down to minus one on the real axis and four I on the imaginary axis. And here we have this point. OK. So",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=349s",
+        "start_time": "349.13"
+    },
+    {
+        "id": "bc19bc7e",
+        "text": "So for thats basically both three and two can be thought of as Cartesian coordinates. So three is the Cartesian coordinate for the X axis for the real part. And it's over here. And then uh two is the Cartesian coordinate for the imaginary axis. And so when we just connect these two points to two coordinates, we get like this point over here, which is three plus two. I. Now, here we have another example, which is minus one minus one plus four I. And as you can see, we go down to minus one on the real axis and four I on the imaginary axis. And here we have this point. OK. So this is like all good and well. But uh now we are interested in another way of representing complex numbers using the so called polar coordinates. And now you'll see why this is like very handy for us in the context of audio signal processing. OK.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=375s",
+        "start_time": "375.619"
+    },
+    {
+        "id": "edc4a083",
+        "text": "uh two is the Cartesian coordinate for the imaginary axis. And so when we just connect these two points to two coordinates, we get like this point over here, which is three plus two. I. Now, here we have another example, which is minus one minus one plus four I. And as you can see, we go down to minus one on the real axis and four I on the imaginary axis. And here we have this point. OK. So this is like all good and well. But uh now we are interested in another way of representing complex numbers using the so called polar coordinates. And now you'll see why this is like very handy for us in the context of audio signal processing. OK. So here from moving from the carti coordinate representation onto the polar representation, we need a couple of parameters. The first of which is this absolute value of C which visually represents the distance of the complex number from the origin. And visually you can visually, you can see it like as a red line here.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=390s",
+        "start_time": "390.47"
+    },
+    {
+        "id": "76d09f81",
+        "text": "this is like all good and well. But uh now we are interested in another way of representing complex numbers using the so called polar coordinates. And now you'll see why this is like very handy for us in the context of audio signal processing. OK. So here from moving from the carti coordinate representation onto the polar representation, we need a couple of parameters. The first of which is this absolute value of C which visually represents the distance of the complex number from the origin. And visually you can visually, you can see it like as a red line here. Now this is one parameter that we need. The second parameter is the angle called gamma.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=419s",
+        "start_time": "419.269"
+    },
+    {
+        "id": "2402c5a5",
+        "text": "So here from moving from the carti coordinate representation onto the polar representation, we need a couple of parameters. The first of which is this absolute value of C which visually represents the distance of the complex number from the origin. And visually you can visually, you can see it like as a red line here. Now this is one parameter that we need. The second parameter is the angle called gamma. So what's gamma? Well, gamma is the angle between the positive uh real axis and the line that connects the origin with the complex number. So in other words, it's this angle over here. Now the moment we have these two parameters, we can move easily from the uh from the cars coordinate representation to the polar coordinate representation. But before we do that, we need to calculate both absolute value of C and gamma.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=440s",
+        "start_time": "440.54"
+    },
+    {
+        "id": "dead40ac",
+        "text": "Now this is one parameter that we need. The second parameter is the angle called gamma. So what's gamma? Well, gamma is the angle between the positive uh real axis and the line that connects the origin with the complex number. So in other words, it's this angle over here. Now the moment we have these two parameters, we can move easily from the uh from the cars coordinate representation to the polar coordinate representation. But before we do that, we need to calculate both absolute value of C and gamma. Let's start with absolute value of C. And here we can use like some very basic math, something that probably you, you've done like in high school, if not elementary school.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=465s",
+        "start_time": "465.73"
+    },
+    {
+        "id": "840ab6fd",
+        "text": "So what's gamma? Well, gamma is the angle between the positive uh real axis and the line that connects the origin with the complex number. So in other words, it's this angle over here. Now the moment we have these two parameters, we can move easily from the uh from the cars coordinate representation to the polar coordinate representation. But before we do that, we need to calculate both absolute value of C and gamma. Let's start with absolute value of C. And here we can use like some very basic math, something that probably you, you've done like in high school, if not elementary school. So here we, I just like reread this and added uh like these um colors, colored lines for clarity. So the purple line here is a, here we have B which is represented by this um yellow line. And obviously, we have the hypotenuse of this triangle which is absolute value of C.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=472s",
+        "start_time": "472.63"
+    },
+    {
+        "id": "4131cadf",
+        "text": "Let's start with absolute value of C. And here we can use like some very basic math, something that probably you, you've done like in high school, if not elementary school. So here we, I just like reread this and added uh like these um colors, colored lines for clarity. So the purple line here is a, here we have B which is represented by this um yellow line. And obviously, we have the hypotenuse of this triangle which is absolute value of C. Now, um as you can see, this is a right angled triangle because we have a right angle here. And given, we know I given, we know B because these are like the, this is like the um",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=500s",
+        "start_time": "500.209"
+    },
+    {
+        "id": "5b20a640",
+        "text": "So here we, I just like reread this and added uh like these um colors, colored lines for clarity. So the purple line here is a, here we have B which is represented by this um yellow line. And obviously, we have the hypotenuse of this triangle which is absolute value of C. Now, um as you can see, this is a right angled triangle because we have a right angle here. And given, we know I given, we know B because these are like the, this is like the um the real coordinate for the, yeah, the real part A and B is the coordinate for the imaginary part of the number. Then we can easily get the hypotenuse of this triangle by using",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=511s",
+        "start_time": "511.25"
+    },
+    {
+        "id": "dceb8e44",
+        "text": "Now, um as you can see, this is a right angled triangle because we have a right angle here. And given, we know I given, we know B because these are like the, this is like the um the real coordinate for the, yeah, the real part A and B is the coordinate for the imaginary part of the number. Then we can easily get the hypotenuse of this triangle by using Patreon theorem here. And so you should be familiar with this. But basically, if we square the absolute value of C, this is equal to A squared plus B squared. Now we're not interested in the square of absolute value of C. So we want to take the absolute value of C. So we have to square,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=537s",
+        "start_time": "537.429"
+    },
+    {
+        "id": "4dd254e1",
+        "text": "the real coordinate for the, yeah, the real part A and B is the coordinate for the imaginary part of the number. Then we can easily get the hypotenuse of this triangle by using Patreon theorem here. And so you should be familiar with this. But basically, if we square the absolute value of C, this is equal to A squared plus B squared. Now we're not interested in the square of absolute value of C. So we want to take the absolute value of C. So we have to square, well, we have to use the square root, sorry uh uh and apply that to A squared plus B squared. So this way we can easily get the absolute value of C great. So what about the gamma value the gamma angle? So now for calculating that we need to brush off on some trigonometry. So basic cosine and sine functions. OK. So let's get started. So here",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=552s",
+        "start_time": "552.869"
+    },
+    {
+        "id": "b4b59d89",
+        "text": "Patreon theorem here. And so you should be familiar with this. But basically, if we square the absolute value of C, this is equal to A squared plus B squared. Now we're not interested in the square of absolute value of C. So we want to take the absolute value of C. So we have to square, well, we have to use the square root, sorry uh uh and apply that to A squared plus B squared. So this way we can easily get the absolute value of C great. So what about the gamma value the gamma angle? So now for calculating that we need to brush off on some trigonometry. So basic cosine and sine functions. OK. So let's get started. So here the cosine of gamma is equal to this side. A divided by the hypotenuse absolute value of C and the sine of gamma is equal to B divided by the hypotenuse of this triangle. Once again, the absolute value of C. OK. Now,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=567s",
+        "start_time": "567.57"
+    },
+    {
+        "id": "bbdeef01",
+        "text": "well, we have to use the square root, sorry uh uh and apply that to A squared plus B squared. So this way we can easily get the absolute value of C great. So what about the gamma value the gamma angle? So now for calculating that we need to brush off on some trigonometry. So basic cosine and sine functions. OK. So let's get started. So here the cosine of gamma is equal to this side. A divided by the hypotenuse absolute value of C and the sine of gamma is equal to B divided by the hypotenuse of this triangle. Once again, the absolute value of C. OK. Now, uh we are interested in gamma. So we want to get gamma and get rid of this absolute value of C. So how can we do that? Well, we can, for example, divide the sign with the cosine of gamma and then obviously divide this guy by this guy. And if we do so we end up with this formula here. So we have sine of gamma divided by cosine of gamma, which is equal to B divided by A",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=589s",
+        "start_time": "589.02"
+    },
+    {
+        "id": "f8d0ad94",
+        "text": "the cosine of gamma is equal to this side. A divided by the hypotenuse absolute value of C and the sine of gamma is equal to B divided by the hypotenuse of this triangle. Once again, the absolute value of C. OK. Now, uh we are interested in gamma. So we want to get gamma and get rid of this absolute value of C. So how can we do that? Well, we can, for example, divide the sign with the cosine of gamma and then obviously divide this guy by this guy. And if we do so we end up with this formula here. So we have sine of gamma divided by cosine of gamma, which is equal to B divided by A and the, the, the absolute value of C has been canceled out right. Now. If you are familiar with trigonometry, I'm sure you've recognized that this sine divided by cosine is indeed the tangent of gamma.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=618s",
+        "start_time": "618.0"
+    },
+    {
+        "id": "8241f0d6",
+        "text": "uh we are interested in gamma. So we want to get gamma and get rid of this absolute value of C. So how can we do that? Well, we can, for example, divide the sign with the cosine of gamma and then obviously divide this guy by this guy. And if we do so we end up with this formula here. So we have sine of gamma divided by cosine of gamma, which is equal to B divided by A and the, the, the absolute value of C has been canceled out right. Now. If you are familiar with trigonometry, I'm sure you've recognized that this sine divided by cosine is indeed the tangent of gamma. Now, obviously we're not interested in the tangent of gamma, we are interested in gamma. So we, how do we get gamma? Well, we need to apply the inverse function of the tangent to be divided by A. And in other words, what we do to get gamma, we have to apply the arc tangent to be divided by a",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=640s",
+        "start_time": "640.0"
+    },
+    {
+        "id": "4e6451e8",
+        "text": "and the, the, the absolute value of C has been canceled out right. Now. If you are familiar with trigonometry, I'm sure you've recognized that this sine divided by cosine is indeed the tangent of gamma. Now, obviously we're not interested in the tangent of gamma, we are interested in gamma. So we, how do we get gamma? Well, we need to apply the inverse function of the tangent to be divided by A. And in other words, what we do to get gamma, we have to apply the arc tangent to be divided by a good. So this way we can get gamma or yeah, the the gamma angle directly from the Cartesian coordinates. So now I'll store this couple of parameters here. And this is like the way we can get both the angle gamma and the absolute value C starting from the Cartesian coordinates and information about A AND B.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=668s",
+        "start_time": "668.919"
+    },
+    {
+        "id": "17be07c9",
+        "text": "Now, obviously we're not interested in the tangent of gamma, we are interested in gamma. So we, how do we get gamma? Well, we need to apply the inverse function of the tangent to be divided by A. And in other words, what we do to get gamma, we have to apply the arc tangent to be divided by a good. So this way we can get gamma or yeah, the the gamma angle directly from the Cartesian coordinates. So now I'll store this couple of parameters here. And this is like the way we can get both the angle gamma and the absolute value C starting from the Cartesian coordinates and information about A AND B. That's great, but we haven't learned yet about the polar coordinates. So now how do we move to polar coordinates? Well, once again, we have to go back to some uh trigonometry. And here,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=687s",
+        "start_time": "687.679"
+    },
+    {
+        "id": "3866935a",
+        "text": "good. So this way we can get gamma or yeah, the the gamma angle directly from the Cartesian coordinates. So now I'll store this couple of parameters here. And this is like the way we can get both the angle gamma and the absolute value C starting from the Cartesian coordinates and information about A AND B. That's great, but we haven't learned yet about the polar coordinates. So now how do we move to polar coordinates? Well, once again, we have to go back to some uh trigonometry. And here, so you see that the side A is equal to the hypotenuse the absolute value of C multiplied by the cosine of gamma. And it's this guy here and then B, the side B is equal to the hypotenuse multiplied by the",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=709s",
+        "start_time": "709.27"
+    },
+    {
+        "id": "332d95f3",
+        "text": "That's great, but we haven't learned yet about the polar coordinates. So now how do we move to polar coordinates? Well, once again, we have to go back to some uh trigonometry. And here, so you see that the side A is equal to the hypotenuse the absolute value of C multiplied by the cosine of gamma. And it's this guy here and then B, the side B is equal to the hypotenuse multiplied by the line of gamma. Right. Now here we have the Cartesian representation of a complex number. So what we can do next is get A and substitute A with this formula over here because it's the same thing as we've seen",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=733s",
+        "start_time": "733.02"
+    },
+    {
+        "id": "11823486",
+        "text": "so you see that the side A is equal to the hypotenuse the absolute value of C multiplied by the cosine of gamma. And it's this guy here and then B, the side B is equal to the hypotenuse multiplied by the line of gamma. Right. Now here we have the Cartesian representation of a complex number. So what we can do next is get A and substitute A with this formula over here because it's the same thing as we've seen and then substitute B with this other formula here. And so here, basically we are getting rid of the Cartesian coordinates A and B and we are using instead the absolute value C and gamma, which is our angle. So if we do that substitution, we end up with this nice formula down here,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=748s",
+        "start_time": "748.57"
+    },
+    {
+        "id": "bb72127e",
+        "text": "line of gamma. Right. Now here we have the Cartesian representation of a complex number. So what we can do next is get A and substitute A with this formula over here because it's the same thing as we've seen and then substitute B with this other formula here. And so here, basically we are getting rid of the Cartesian coordinates A and B and we are using instead the absolute value C and gamma, which is our angle. So if we do that substitution, we end up with this nice formula down here, which is a complex number of C in polar coordinates can be expressed as the absolute value of that number multiplied by cosine of gamma plus I times sine gamma.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=765s",
+        "start_time": "765.875"
+    },
+    {
+        "id": "435a8ed1",
+        "text": "and then substitute B with this other formula here. And so here, basically we are getting rid of the Cartesian coordinates A and B and we are using instead the absolute value C and gamma, which is our angle. So if we do that substitution, we end up with this nice formula down here, which is a complex number of C in polar coordinates can be expressed as the absolute value of that number multiplied by cosine of gamma plus I times sine gamma. Nice. OK. So, but now you may be wondering, well, we are doing all of this like mental gymnastics and mathematical gymnastics. But how does this apply to our fourier transform? Well, I'm not going to give you like the mapping, the 1 to 1 mapping here because you need to know more about complex numbers. But I want to give you a little bit of a Hinch. So with the fourier transform, we are dealing with sine waves, right?",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=783s",
+        "start_time": "783.44"
+    },
+    {
+        "id": "69f36839",
+        "text": "which is a complex number of C in polar coordinates can be expressed as the absolute value of that number multiplied by cosine of gamma plus I times sine gamma. Nice. OK. So, but now you may be wondering, well, we are doing all of this like mental gymnastics and mathematical gymnastics. But how does this apply to our fourier transform? Well, I'm not going to give you like the mapping, the 1 to 1 mapping here because you need to know more about complex numbers. But I want to give you a little bit of a Hinch. So with the fourier transform, we are dealing with sine waves, right? And uh here you have a hint that still we're dealing with cosine and science. So that is somewhat uh like close in a sense, right? And so that is a little hint that perhaps this representation can be useful for the fourier transform. But more than that with the fourier transform when we decompose a sound into a single frequency pure tone.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=807s",
+        "start_time": "807.419"
+    },
+    {
+        "id": "1ebb1186",
+        "text": "Nice. OK. So, but now you may be wondering, well, we are doing all of this like mental gymnastics and mathematical gymnastics. But how does this apply to our fourier transform? Well, I'm not going to give you like the mapping, the 1 to 1 mapping here because you need to know more about complex numbers. But I want to give you a little bit of a Hinch. So with the fourier transform, we are dealing with sine waves, right? And uh here you have a hint that still we're dealing with cosine and science. So that is somewhat uh like close in a sense, right? And so that is a little hint that perhaps this representation can be useful for the fourier transform. But more than that with the fourier transform when we decompose a sound into a single frequency pure tone. Well, we get two values an absolute value and a an angle, a face, right. And",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=820s",
+        "start_time": "820.549"
+    },
+    {
+        "id": "9ef11519",
+        "text": "And uh here you have a hint that still we're dealing with cosine and science. So that is somewhat uh like close in a sense, right? And so that is a little hint that perhaps this representation can be useful for the fourier transform. But more than that with the fourier transform when we decompose a sound into a single frequency pure tone. Well, we get two values an absolute value and a an angle, a face, right. And the the hint here is that the magnitude can be somewhat mapped onto the absolute value here and the phase onto this gamma angle. So now probably you start to see here what's happening, right. So we have all of these different elements and uh like both in the fourier transform. And here in this comp the polar coordinate representation of color of complex numbers and they somewhat align",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=848s",
+        "start_time": "848.039"
+    },
+    {
+        "id": "dae59da6",
+        "text": "Well, we get two values an absolute value and a an angle, a face, right. And the the hint here is that the magnitude can be somewhat mapped onto the absolute value here and the phase onto this gamma angle. So now probably you start to see here what's happening, right. So we have all of these different elements and uh like both in the fourier transform. And here in this comp the polar coordinate representation of color of complex numbers and they somewhat align and that's great. And we can use this to our own advantage to make sense of the fourier transform with complex numbers. But this is not today's topic. We aren't done yet with complex numbers though. So there are a few other concepts that we use and that are super useful for representing in a nicer handy way our fourier transform. So let's just take a look at them. So one of this is the Euler formula,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=872s",
+        "start_time": "872.76"
+    },
+    {
+        "id": "4037e9e9",
+        "text": "the the hint here is that the magnitude can be somewhat mapped onto the absolute value here and the phase onto this gamma angle. So now probably you start to see here what's happening, right. So we have all of these different elements and uh like both in the fourier transform. And here in this comp the polar coordinate representation of color of complex numbers and they somewhat align and that's great. And we can use this to our own advantage to make sense of the fourier transform with complex numbers. But this is not today's topic. We aren't done yet with complex numbers though. So there are a few other concepts that we use and that are super useful for representing in a nicer handy way our fourier transform. So let's just take a look at them. So one of this is the Euler formula, basically what we are looking at here is E to the I times gamma, which is equal to cosine of gamma plus I sine gamma. Now, if you're wondering about e this is the base of the natural logarithm. Now this is like a very, very nice formula. And uh it's kind of looks similar to what we are looking at at our um",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=880s",
+        "start_time": "880.83"
+    },
+    {
+        "id": "2b2427d3",
+        "text": "and that's great. And we can use this to our own advantage to make sense of the fourier transform with complex numbers. But this is not today's topic. We aren't done yet with complex numbers though. So there are a few other concepts that we use and that are super useful for representing in a nicer handy way our fourier transform. So let's just take a look at them. So one of this is the Euler formula, basically what we are looking at here is E to the I times gamma, which is equal to cosine of gamma plus I sine gamma. Now, if you're wondering about e this is the base of the natural logarithm. Now this is like a very, very nice formula. And uh it's kind of looks similar to what we are looking at at our um a polar representation of the complex numbers. But let's try to visualize and understand what this is on a plot, what this exponential is on a plot. And so as you can see here, so what the exponential does, it basically traces the unit circle. So what's the unit circle is the circle that has a radius one",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=908s",
+        "start_time": "908.77"
+    },
+    {
+        "id": "2e66fa16",
+        "text": "basically what we are looking at here is E to the I times gamma, which is equal to cosine of gamma plus I sine gamma. Now, if you're wondering about e this is the base of the natural logarithm. Now this is like a very, very nice formula. And uh it's kind of looks similar to what we are looking at at our um a polar representation of the complex numbers. But let's try to visualize and understand what this is on a plot, what this exponential is on a plot. And so as you can see here, so what the exponential does, it basically traces the unit circle. So what's the unit circle is the circle that has a radius one and it traces it counter clockwise. And in order to like just trace the circle, what we do is we just increase the angle gamma. The eer formula is going to be very useful to rewrite our polar coordinates for the complex numbers. But before we get there, I want to take a little detail to show you one of the beauty, one of the jewels in mathematics and that's the Euler identity.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=936s",
+        "start_time": "936.27"
+    },
+    {
+        "id": "02126fdd",
+        "text": "a polar representation of the complex numbers. But let's try to visualize and understand what this is on a plot, what this exponential is on a plot. And so as you can see here, so what the exponential does, it basically traces the unit circle. So what's the unit circle is the circle that has a radius one and it traces it counter clockwise. And in order to like just trace the circle, what we do is we just increase the angle gamma. The eer formula is going to be very useful to rewrite our polar coordinates for the complex numbers. But before we get there, I want to take a little detail to show you one of the beauty, one of the jewels in mathematics and that's the Euler identity. So mathematicians, physicists even engineers look at this formula and they say, well, it's wonderful. It's just perfect.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=963s",
+        "start_time": "963.7"
+    },
+    {
+        "id": "311400c1",
+        "text": "and it traces it counter clockwise. And in order to like just trace the circle, what we do is we just increase the angle gamma. The eer formula is going to be very useful to rewrite our polar coordinates for the complex numbers. But before we get there, I want to take a little detail to show you one of the beauty, one of the jewels in mathematics and that's the Euler identity. So mathematicians, physicists even engineers look at this formula and they say, well, it's wonderful. It's just perfect. So let's take a look at it. So it's e to the I times pi plus one is equal to zero. So why is it so wonderful? Well, because it has all the fundamental elements of mathematics and symbols, it has zero, it has one, it has pi which is so omnipresent in mathematics, it has I this made of imaginary unit and it has E so this is just wonderful.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=992s",
+        "start_time": "992.03"
+    },
+    {
+        "id": "1b860945",
+        "text": "So mathematicians, physicists even engineers look at this formula and they say, well, it's wonderful. It's just perfect. So let's take a look at it. So it's e to the I times pi plus one is equal to zero. So why is it so wonderful? Well, because it has all the fundamental elements of mathematics and symbols, it has zero, it has one, it has pi which is so omnipresent in mathematics, it has I this made of imaginary unit and it has E so this is just wonderful. But for this to work, we need for this exponential right to be equal to minus one. So let's check out, let's see like if this actually is the case, let's start from the Euler formula here and here we can see uh that. Um so if we plug pi into like this formula, we'll see that cosine of pi is equal to one",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1020s",
+        "start_time": "1020.0"
+    },
+    {
+        "id": "e4e93657",
+        "text": "So let's take a look at it. So it's e to the I times pi plus one is equal to zero. So why is it so wonderful? Well, because it has all the fundamental elements of mathematics and symbols, it has zero, it has one, it has pi which is so omnipresent in mathematics, it has I this made of imaginary unit and it has E so this is just wonderful. But for this to work, we need for this exponential right to be equal to minus one. So let's check out, let's see like if this actually is the case, let's start from the Euler formula here and here we can see uh that. Um so if we plug pi into like this formula, we'll see that cosine of pi is equal to one equal to sorry minus one plus I times sine of pi and sine of pi is equal to zero. In other words, we are adding up minus one plus I times zero, which is zero. So all of this guy gives us back minus one. So it checks out that's great. But let's try to visualize this and see if it works. And for that, we should go back to the complex plane.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1028s",
+        "start_time": "1028.63"
+    },
+    {
+        "id": "b998fb2b",
+        "text": "But for this to work, we need for this exponential right to be equal to minus one. So let's check out, let's see like if this actually is the case, let's start from the Euler formula here and here we can see uh that. Um so if we plug pi into like this formula, we'll see that cosine of pi is equal to one equal to sorry minus one plus I times sine of pi and sine of pi is equal to zero. In other words, we are adding up minus one plus I times zero, which is zero. So all of this guy gives us back minus one. So it checks out that's great. But let's try to visualize this and see if it works. And for that, we should go back to the complex plane. And now we want to see uh E to the I times pi and that is at this point here. So it's basically the value that we are tracing on the unit circle is the one that is resting on the negative real axis. And so this is equal to minus one and again, visual it",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1055s",
+        "start_time": "1055.199"
+    },
+    {
+        "id": "b02580c9",
+        "text": "equal to sorry minus one plus I times sine of pi and sine of pi is equal to zero. In other words, we are adding up minus one plus I times zero, which is zero. So all of this guy gives us back minus one. So it checks out that's great. But let's try to visualize this and see if it works. And for that, we should go back to the complex plane. And now we want to see uh E to the I times pi and that is at this point here. So it's basically the value that we are tracing on the unit circle is the one that is resting on the negative real axis. And so this is equal to minus one and again, visual it out. So Euler, you are a great man and you were right, by the way, this chap is Leonard Euler, one of the most brilliant mathematicians to ever live on planet Earth. OK. But now let's go back to our polar coordinates for the uh complex numbers. OK. So",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1084s",
+        "start_time": "1084.53"
+    },
+    {
+        "id": "c77c1d7d",
+        "text": "And now we want to see uh E to the I times pi and that is at this point here. So it's basically the value that we are tracing on the unit circle is the one that is resting on the negative real axis. And so this is equal to minus one and again, visual it out. So Euler, you are a great man and you were right, by the way, this chap is Leonard Euler, one of the most brilliant mathematicians to ever live on planet Earth. OK. But now let's go back to our polar coordinates for the uh complex numbers. OK. So uh the top equation here gives us the port code units as we've come to know them. And here we have the Euler formula. Do you notice something interesting there that we could use to our advantage? Well, yes. So this guy here is basically our exponential here. So what we can do is take this exponential and plug it in here,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1113s",
+        "start_time": "1113.26"
+    },
+    {
+        "id": "6bee4b1d",
+        "text": "out. So Euler, you are a great man and you were right, by the way, this chap is Leonard Euler, one of the most brilliant mathematicians to ever live on planet Earth. OK. But now let's go back to our polar coordinates for the uh complex numbers. OK. So uh the top equation here gives us the port code units as we've come to know them. And here we have the Euler formula. Do you notice something interesting there that we could use to our advantage? Well, yes. So this guy here is basically our exponential here. So what we can do is take this exponential and plug it in here, right? And so we can rewrite our polar coordinates like this. So a complex number C is equal to the absolute value of C times E",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1139s",
+        "start_time": "1139.505"
+    },
+    {
+        "id": "e2e72824",
+        "text": "uh the top equation here gives us the port code units as we've come to know them. And here we have the Euler formula. Do you notice something interesting there that we could use to our advantage? Well, yes. So this guy here is basically our exponential here. So what we can do is take this exponential and plug it in here, right? And so we can rewrite our polar coordinates like this. So a complex number C is equal to the absolute value of C times E uh to the I times gamma. Great. So isn't this wonderful? It's wonderful because it's a very, very compact way of uh indicating representing a complex number. So obviously, here we have two parts of this uh complex number.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1163s",
+        "start_time": "1163.13"
+    },
+    {
+        "id": "98c6ecc5",
+        "text": "right? And so we can rewrite our polar coordinates like this. So a complex number C is equal to the absolute value of C times E uh to the I times gamma. Great. So isn't this wonderful? It's wonderful because it's a very, very compact way of uh indicating representing a complex number. So obviously, here we have two parts of this uh complex number. So we obviously have the exponential and we have the absolute value. Now, the last exercise that I want to do today is to just visualize what these two components contribute to the overall complex number in a visual way. Now, this is a suggestion for you guys. So if you're learning some math or anything",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1189s",
+        "start_time": "1189.16"
+    },
+    {
+        "id": "7bbe4b7b",
+        "text": "uh to the I times gamma. Great. So isn't this wonderful? It's wonderful because it's a very, very compact way of uh indicating representing a complex number. So obviously, here we have two parts of this uh complex number. So we obviously have the exponential and we have the absolute value. Now, the last exercise that I want to do today is to just visualize what these two components contribute to the overall complex number in a visual way. Now, this is a suggestion for you guys. So if you're learning some math or anything really, uh even like in engineering, I really suggest you to go deep and try to visualize all of this with like formulas and things because that is gonna give you give you like such an understanding, a deep understanding and it's gonna go well beyond just like memorizing like a formula without really understanding what's going on there. And this is what I'm trying to do like with my videos in general. And yeah, and this like formula in particular right now.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1200s",
+        "start_time": "1200.43"
+    },
+    {
+        "id": "6519fff8",
+        "text": "So we obviously have the exponential and we have the absolute value. Now, the last exercise that I want to do today is to just visualize what these two components contribute to the overall complex number in a visual way. Now, this is a suggestion for you guys. So if you're learning some math or anything really, uh even like in engineering, I really suggest you to go deep and try to visualize all of this with like formulas and things because that is gonna give you give you like such an understanding, a deep understanding and it's gonna go well beyond just like memorizing like a formula without really understanding what's going on there. And this is what I'm trying to do like with my videos in general. And yeah, and this like formula in particular right now. But yeah, without further ado let me just jump into this because it's so wonderful. So the this exponential component we already know it's the uh basically like traces the unit circle in the complex plane counter clockwise. And so what this component gives us to the complex number is the direction of the number in the complex plane on the unit circle.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1222s",
+        "start_time": "1222.17"
+    },
+    {
+        "id": "f0b95c3d",
+        "text": "really, uh even like in engineering, I really suggest you to go deep and try to visualize all of this with like formulas and things because that is gonna give you give you like such an understanding, a deep understanding and it's gonna go well beyond just like memorizing like a formula without really understanding what's going on there. And this is what I'm trying to do like with my videos in general. And yeah, and this like formula in particular right now. But yeah, without further ado let me just jump into this because it's so wonderful. So the this exponential component we already know it's the uh basically like traces the unit circle in the complex plane counter clockwise. And so what this component gives us to the complex number is the direction of the number in the complex plane on the unit circle. And here we have it. For example, this is like for gamma, which is equal to pi divided by four. In other words, for 4045 degrees right now, if we change a gamma and we go to gamma equal to pi well, we are just changing the direction of the number which now rests",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1244s",
+        "start_time": "1244.729"
+    },
+    {
+        "id": "1622e582",
+        "text": "But yeah, without further ado let me just jump into this because it's so wonderful. So the this exponential component we already know it's the uh basically like traces the unit circle in the complex plane counter clockwise. And so what this component gives us to the complex number is the direction of the number in the complex plane on the unit circle. And here we have it. For example, this is like for gamma, which is equal to pi divided by four. In other words, for 4045 degrees right now, if we change a gamma and we go to gamma equal to pi well, we are just changing the direction of the number which now rests on the negative real axis. Now, if we change gamma once again, we change the direction, for example, minus pi divided by two, we are resting on the negative imaginary axis. And the value of our exponential here is going to be equal to minus.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1272s",
+        "start_time": "1272.75"
+    },
+    {
+        "id": "00bb1b55",
+        "text": "And here we have it. For example, this is like for gamma, which is equal to pi divided by four. In other words, for 4045 degrees right now, if we change a gamma and we go to gamma equal to pi well, we are just changing the direction of the number which now rests on the negative real axis. Now, if we change gamma once again, we change the direction, for example, minus pi divided by two, we are resting on the negative imaginary axis. And the value of our exponential here is going to be equal to minus. So minus the imaginary unit. OK. So you get the idea of what this exponential does to our number, it just gives us the direction. Then what about uh absolute value of C? Well, this acts as a scaler basically scales the distance from the origin of our number. So if we start with a uh with the unit, so basically the absolute value of C is equal to one, well,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1300s",
+        "start_time": "1300.56"
+    },
+    {
+        "id": "67545878",
+        "text": "on the negative real axis. Now, if we change gamma once again, we change the direction, for example, minus pi divided by two, we are resting on the negative imaginary axis. And the value of our exponential here is going to be equal to minus. So minus the imaginary unit. OK. So you get the idea of what this exponential does to our number, it just gives us the direction. Then what about uh absolute value of C? Well, this acts as a scaler basically scales the distance from the origin of our number. So if we start with a uh with the unit, so basically the absolute value of C is equal to one, well, we are just resting on the unit circle obviously. But if the absolute value of C was equal to two, for example, well, what would happen is that we double the distance of the number from the origin, but we stay on the same line on the same direction.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1321s",
+        "start_time": "1321.062"
+    },
+    {
+        "id": "009c4187",
+        "text": "So minus the imaginary unit. OK. So you get the idea of what this exponential does to our number, it just gives us the direction. Then what about uh absolute value of C? Well, this acts as a scaler basically scales the distance from the origin of our number. So if we start with a uh with the unit, so basically the absolute value of C is equal to one, well, we are just resting on the unit circle obviously. But if the absolute value of C was equal to two, for example, well, what would happen is that we double the distance of the number from the origin, but we stay on the same line on the same direction. But when I say that the absolute value C so this component is a scalar, it can obviously stretch things but it can also uh shrink them. So if we had, for example, C equal to 0.5 what we would get is half",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1341s",
+        "start_time": "1341.566"
+    },
+    {
+        "id": "30655bc6",
+        "text": "we are just resting on the unit circle obviously. But if the absolute value of C was equal to two, for example, well, what would happen is that we double the distance of the number from the origin, but we stay on the same line on the same direction. But when I say that the absolute value C so this component is a scalar, it can obviously stretch things but it can also uh shrink them. So if we had, for example, C equal to 0.5 what we would get is half the distance from the origin calculated with respect to the unit circle over here.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1370s",
+        "start_time": "1370.03"
+    },
+    {
+        "id": "037af415",
+        "text": "But when I say that the absolute value C so this component is a scalar, it can obviously stretch things but it can also uh shrink them. So if we had, for example, C equal to 0.5 what we would get is half the distance from the origin calculated with respect to the unit circle over here. That's great. So yeah, this is like so fascinating, like an interesting and I, and I think like it's gonna be like very useful moving forward. Definitely, it's gonna be very useful to like understand how to map the fourier transform onto uh like the complex representation. And now, once again, I want to give you a hint into that. So",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1391s",
+        "start_time": "1391.579"
+    },
+    {
+        "id": "35b6d4ae",
+        "text": "the distance from the origin calculated with respect to the unit circle over here. That's great. So yeah, this is like so fascinating, like an interesting and I, and I think like it's gonna be like very useful moving forward. Definitely, it's gonna be very useful to like understand how to map the fourier transform onto uh like the complex representation. And now, once again, I want to give you a hint into that. So now we have a very complex way of representing complex numbers. And we are going to be using uh this absolute value as a way of mapping our magnitude that we have like in our fourier transform. And we're going to be using this exponential and specifically this gamma to talk about the face that we get out of a fourier transform for a given pure tone. And so this is the type of like",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1409s",
+        "start_time": "1409.56"
+    },
+    {
+        "id": "2e0d00b2",
+        "text": "That's great. So yeah, this is like so fascinating, like an interesting and I, and I think like it's gonna be like very useful moving forward. Definitely, it's gonna be very useful to like understand how to map the fourier transform onto uh like the complex representation. And now, once again, I want to give you a hint into that. So now we have a very complex way of representing complex numbers. And we are going to be using uh this absolute value as a way of mapping our magnitude that we have like in our fourier transform. And we're going to be using this exponential and specifically this gamma to talk about the face that we get out of a fourier transform for a given pure tone. And so this is the type of like kind of like mental exercise that we'll use in the next video where we are actually gonna put into place all of the knowledge that we've acquired today about complex numbers in order to create a complex representation of the fourier transform. And you'll be delighted by that because it's gonna look like so wonderful and so simple,",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1417s",
+        "start_time": "1417.849"
+    },
+    {
+        "id": "4f6e5ebf",
+        "text": "now we have a very complex way of representing complex numbers. And we are going to be using uh this absolute value as a way of mapping our magnitude that we have like in our fourier transform. And we're going to be using this exponential and specifically this gamma to talk about the face that we get out of a fourier transform for a given pure tone. And so this is the type of like kind of like mental exercise that we'll use in the next video where we are actually gonna put into place all of the knowledge that we've acquired today about complex numbers in order to create a complex representation of the fourier transform. And you'll be delighted by that because it's gonna look like so wonderful and so simple, good. So this was like a quite intense video film, but I hope that you've enjoyed it because now you should have a good understanding, an operational understanding of complex numbers, uh their uh representation in Cartesian coordinates in polar coordinates, the Euler formula, the exponential and all of this like nice things here.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1441s",
+        "start_time": "1441.16"
+    },
+    {
+        "id": "6129579c",
+        "text": "kind of like mental exercise that we'll use in the next video where we are actually gonna put into place all of the knowledge that we've acquired today about complex numbers in order to create a complex representation of the fourier transform. And you'll be delighted by that because it's gonna look like so wonderful and so simple, good. So this was like a quite intense video film, but I hope that you've enjoyed it because now you should have a good understanding, an operational understanding of complex numbers, uh their uh representation in Cartesian coordinates in polar coordinates, the Euler formula, the exponential and all of this like nice things here. So yeah, that's it for today. I hope you've enjoyed the video. If that's the case, please remember to leave a like and if you haven't subscribed P, please consider doing so. And as usual, if you have any questions. Please leave them in the comments section below. I'll try to answer to those and I guess that's it. I'll see you next time. Cheers.",
+        "video": "Complex Numbers for Audio Signal Processing",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "DgF4m0AWCgA",
+        "youtube_link": "https://www.youtube.com/watch?v=DgF4m0AWCgA&t=1470s",
+        "start_time": "1470.839"
+    }
+]

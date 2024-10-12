@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()
 
@@ -35,9 +36,26 @@ GRAFANA_ADMIN_PASSWORD = os.getenv("GRAFANA_ADMIN_PASSWORD")
 GRAFANA_SECRET_KEY = os.getenv("GRAFANA_SECRET_KEY")
 
 # Dataset path
-DATASET_PATH = os.getenv("DATASET_PATH", "data/Audio Signal Processing for ML - dataset.json")
+DATASET_PATH = os.getenv("DATASET_PATH", "data/dataset.json")
+
+# Logs paths
+APP_LOGS_PATH = os.getenv("APP_LOGS_PATH", "logs/app.log")
+INGESTION_LOGS_PATH = os.getenv("INGESTION_LOGS_PATH", "logs/ingestion.log")
 
 # Amazon Transcribe configuration
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION")
+
+def setup_logging(log_filename):
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(log_filename),
+            logging.StreamHandler()  # Optionally also log to console
+        ]
+    )
+    logger = logging.getLogger(__name__)
+    
+    return logger

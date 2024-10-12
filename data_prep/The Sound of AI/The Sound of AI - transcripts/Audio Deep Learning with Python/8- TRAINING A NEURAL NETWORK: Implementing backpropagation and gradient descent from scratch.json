@@ -1,0 +1,2000 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the Deep learning for audio with Python series. This time we're gonna implement back propagation and gradient descent. And to do that, we're gonna expand on the work we've done uh a couple of videos ago when we implemented a multi layer perception class, this M LP objects here. And uh in that case, we built a uh constructor where basically we built like the, the structure of the network. And then we mainly uh focused on this forward propagate method uh which is basically forward propagation which computes the inputs uh which travel uh from left to right and gives us a prediction good. So what are we gonna do specifically like this time around? Well, it's a bunch of like different things and so it's better just like to write them down so that we'll have more or less like a direction that we know we're following because by the way, this is gonna be like a quite intense view and probably quite long as well good. So uh the first thing that we want to do is to save the activations and the derivatives and derivative, right. So this is like while we to compute uh back propagation, we need information about activations and obviously about like the uh derivatives as well. When we'll compute a gradient descent, then uh what we want to do is to uh implement back propagate back propagation. So once we have it back propagation implemented, we want to implement a gradient Grady and uh descent. And once we have that it's time to go higher like from a higher level and implement a train method which will use both back propagation and gradient descent. And uh then we want to train our nets work with some dummy data set and finally make some predictions good. So this is the plan for today's video. So let's get started from the first one. So save activations and derivatives, right? So first of all, uh we need uh a representations for uh data representation for these activations and derivatives. And we need to create uh this representation here in the M LP uh construct, right? And so as we did for the weights here where we basically created some random weights, uh We should do like a similar thing uh for the activations and derivatives. So let's get started activations and we'll start with uh an empty list. I don't like that. That is uh like that nice. And now we'll do a four loop and we'll go through all the uh layers here, right? We'll go through all the layers and then we want to create a dummy uh activation array for each of the, of the layers. So how do we do that? So, it's quite simple. So it's uh we'll create an array A which is given by NP dot uh And we'll do zeros here. So it's all, it's an array of zeros. And we'll specify that we want uh an amount uh of zeros here. That's equal to the number of neurons that we have in uh each layer, right, for each layer. So then we'll do a activations dot append and we'll append uh this mono dimensional one dimensional array here to activations. So in the end activations is gonna be a list of arrays where each array in the list uh represents the activations for a given layer, right. So now we want to store all of this uh information in a instance, variable called uh activations. And so self dodge uh activations is gonna be equal to activations. Nice. So now we should do something similar with derivatives as well. So I'll just copy all of this and paste it here. So instead of um activations, we'll have like derivatives here. So we have this like empty list derivatives. And now we want to travel through so loop through the layers but all the layers like minus one. Because if you guys remember when we have, for example, a network with uh three layers, we only have two weight mattresses because the weight mattresses are in between layers, right? And so, uh in this case, we are gonna have a number of like derivatives or uh that are like equal to the weight mattresses, right? Because the derivatives are the derivatives of the error function with respect to the to the weight cool. So let's change this. So we'll call this D and now we're not expecting a mono dimensional array rather like a two dimensional array, which is basically a matrix. And uh this matrix uh is gonna have uh the, the dimensions like say for, for the rows, we expect the number of um neurons that we have in the current layer I and for the columns, we expect the number of neurons uh that we have in the subsequent layer, right? So that's that. And now we want to uh just change it, change this and we want to paint derivatives. And here these activations again should be changed into uh derivatives. Nice. OK. So now we have a nice way of storing derivatives as well good. So now that we have all like the, the representation place we should go and uh tweak our forward propagate so that we can save the activations. Why we, we, we, we create like we, well, we compute these activations for each layer. So uh what about the activation self dot uh activations for the first layer for the input layer? Well, we know that uh this is basically just like the inputs, right? So we can save uh the activations for the first layer as the inputs that we are re receiving here as an argument for forward propagate. Nice. So now there's uh the next step which is uh this forward propagate iterates through like all the network layers and calculates the activations. And now here at this point, we want to save the activations and now we're gonna save uh the activations at I plus one and this is gonna be the activations. So now you may be wondering but uh if you are currently in I right at uh why are we storing this like at I plus one? Well, uh let me show you why that's the case. So if you, you may remember that the activation, say for example, like the activation of the third layer is equal to the sigmoid function even like we are only using sigmoid functions as activations functions. Uh It's the sigmoid function of three but now three, if you guys remember um is equal c the uh matrix multiplication between A two and um and we have W two, right? And so here, basically we're saying that we are at say for example, this I is equal to two. And so here we are considering like the, the second wave matrix and then the activations connected with the second weight matrix is indeed uh the activation for the third layer. And so here we need to like add one to the current I. So in our example two plus 13, right? And so this is why we're doing this good. So nice. So now we have done basically the the the first part of the, the first uh task which is like saving activations and derivatives now uh to well saving just activations because derivatives uh we haven't saved them. We've just like created the representation for saving them, but we'll do that when we implement back propagation, which is happening right now. Cool. So now we need to implement a back a new method called back proper gauge, right? So now, first of all, we want to pass uh the an error here. So and we'll see like what this error is like in in a few seconds. But first of all, how does this work? So we, we said like in the previous video that with back propagation, the idea is to have the error and uh back propagate the error from the output layer sorry towards the uh input layer towards the left, right. So basically what this how, so the way we can translate this in code is that we can basically loop through all the layers starting from like the, the last one towards like the the previous ones, right? And so how do we do that? Well, it's quite simple. So we will do a full loop in a range uh range of the length of self dot um uh derivatives here. So, but this is just like going from left to right, right. Because we are uh incrementing I from zero, like towards like the, the number of like uh elements we have like in self dot derivatives, but we want to go the other way around from right to left. So how do we do that? Well, we just do a reversed of this guy here. Cool. And uh now, OK, let me just check. So we may have an issue with the number of parentheses here. No. Yeah, no, it's fine. Good. Uh OK. So now we are just like going through uh we are living through like the, the neural network but starting from uh right, and then moving all the way back towards the inputs. Now, what should we do? But in order to understand what we should do, we should remember uh like how back propagate uh how back propagation works. And so now I'm gonna pass in some things that I don't want to uh write from scratch because it will take too much time. But if you guys remember, uh let's assume we are like at the uh rightmost weight matrix, right? So say, for example, we are, we have like this network with three layers, then we are like a W-2 and then we want to calculate the error uh with respect the derivative of the error function with respect to uh W-2 or like in this, in this case, like if we want to keep it a general we could say Wy and this is given by this formula down here, right. So if you guys remember, it's basically like this is the error which is the difference between uh why, which is the actual outcome that we are expecting. And the prediction. And we multiply that by uh the uh derivative of the sigmoid function calculated in uh the net input I plus one. And then we do like a dot pro max multiplication of all of this with uh the activations calculated in I nice good. So the error that we are passing here, this argument is basically this guy here, this error here. So now the next thing that we want to calculate is this Sigma uh prime here, right? But uh what's this Sigma prime calculated in this uh net input here? But well, we can rewrite this like if you remember from the, the previous uh video, uh we can rewrite the Sigma prime here as the this derivative. The first derivative is the Sigma Sigma itself calculated in a point and multiplied by minus uh sorry one minus like Sigma calculated in that same point good. But uh if you remember guys this, the sigma calculated in this point here in I plus one, it's basically the activation calculated in I plus one. And so basically we can get this and just like pop it into uh like this function over here. And we'll get uh the Sigma prime uh information about Sigma prime. So all of this basically to say that we need to retrieve the activations here. But these activations, we can access them because we've uh saved them in self dot activations but not in uh in uh not the activations in I but in I plus one. So in the subsequent layer, right? And so we have this as activations nice. So now if we want to calculate uh this guy here, so the Sigma uh over here, so what we need to do is basically do like a uh Sigma uh the first derivative of the Sigma function calculated in this, in these activations, right? But to do that, we'll do like something slightly uh well, we'll, we'll do like something like uh slightly different now, which is basically calculating delta and we'll define delta as these two elements together. So the error multiplied by the uh first derivative of the Sigma function. So let's do that. So delta is gonna be equal to uh the error and that's multiplied by self dot uh let's call it seek mo uh derivative and we pass in the activations good. This is nice. But there's an issue here, which is that obviously, we don't have this uh uh function yet because we haven't like defined it. So uh let's build like this method now. So we'll build uh we'll define a new method called underscores mod uh derivative and uh we'll pass in X and we'll return uh just like look here what this should look like. And so we'll uh return X multiplied by one minus X, right? And so we have our sigmoid derivative uh function here nice. So we have delta nice. So which basically means like we have all of this. Now, the uh next step that we need to do is instead of like uh calculating the this guy here, right? So we'll need to, so in order to, to do this, uh we'll need to, to get uh this other activation uh which is the activation cal uh taken like a layer. Uh Like I, so we could call this uh current activation activations and that's equal to self dot activations. But at uh I right. Nice. So now, at least in theory, we have like all the elements to calculates the derivative in I, right. And uh the derivative in I uh is gonna be given by the dot product of current activations with delta. Nice. And so now we have like the uh the derivative but really, we don't have it yet because uh I'm gonna explain why, but we'll need to do like some trickery which uh like nun pi to organize like this two arrays in a way where we can actually perform this matrix multiplication between the current activations and delta. So uh what we uh want to do uh as the first thing is uh basically rearranging this uh array uh and rearranging it in such a way that it will become a two dimensional array where we only have like a 11 column, right? So it's gonna be basically like a vector sorry, a vertical uh matrix. So what this basically means is that we want to OK. Yeah, let me just comment this. So we want to move from uh an array. So we now have this current activations that's uh an array like this, say it could be like 0.1 and 0.2 and we want to rearrange it so that it has this structure. So you're set here o sorry, like this. OK. So basically, this is gonna be like a two D array and uh it, it's gonna be like basically like a, a vertical uh vector, right? Good. So how do we do that? Well, we need to do like some uh trickery uh with NP. So we'll do that, the current activations. Uh Let's call it uh reshaped, it's equal to current activations. And then we need to call the uh reshape method which is a native method in NPI. And, and so here we need to do this thing. So current activations dot shape uh and we take like the uh the shape like of the uh the first uh like index and then we do uh like a minus one. So doing this, we'll just move uh like we restructure our array from like this to this, right? And so, and now we just need to change this over here and we've uh like input the current activations re shape. Now, we need to do something similar for uh delta as well. So we need a delta reshaped good. But uh let's take a look at what we want to do first. So for delta, so uh let me like rewrite this like this. So we are starting with a similar uh array. So which is like a one dimensional array. And then what we want to achieve now is a ND a two dimensional array where we, well, just give me a sec here where we have this, right. So it's basically just like a two dimensional array with a single uh row. So how do we do that? Well, we can do like something very similar to this uh to what we've done with the current activations. But obviously, in, instead of uh current activations, we should use delta, we use delta. And then here we have a, obviously like after we perform this reshape until now here we have a vertical uh matrix. And so if we do dot T capital T, this will transpose the um uh the array. And so we will basically move from a structure like this one to a structure like this nice. So now we have everything in place to do uh uh our to calculate like our derivative uh here. And so yeah, this is like basically all we need to do for like the, the first parts over here like of our back propagation. So for the utmost uh uh like weight weight matrix. So when we do like the uh the derivative of the error function with respect to uh w uh calculated in I right. OK. So now we know though that uh we, we want to just like go back one step and uh do uh a another like derivative of the area of function. But this time in uh w of I minus one. So, and how do we do that uh like with a formula and we've already sent this and I'm gonna just like copy, paste it here just like because like it's, it's easier, right? And so as you see here, so when we are calculating the next um derivative towards the left, what we, what we are going to bring back uh from the previous um derivative that we've calculated is this guy here, right? So the delta itself. So delta is gonna be like moved uh to pushed back to towards like the, the first the, the previous uh layer. But along with that given like we are like at I right now, we could also calculate all of this. So basically doing um we're going to calculate a new error here, which is going to be given by the NP dots. So we want to do a matrix multiplication here between delta itself. And we want to do that with the with the weights with the weight matrix. So it's this guy here uh for the I uh layer and here we need like to do just like the transpose uh matrix for that. Uh cool. So now this error here is basically all of this guy here. So now that we are here, you'll see that we are just like gonna start another loop and we are going down with I. So if the first time it was like, I equal two, now we're going for I equal one. So we are gonna do the derivatives for W one, right? And so uh now we're just gonna do like the same thing once again. Uh But uh this time we have our error and our error is given by all of this guy here, which we calculated in the previous passage in the previous um iteration. And now we are calculating delta uh which this time around is gonna be like this guy. And then we are gonna calculate uh this derivative here by doing the matrix multiplication between the current activations and which are like which is this and the delta reshaped like over here. Nice. And so now we can go all the way back until we are like at the input level. So I know like this was like a little bit, I would say like more difficult to understand than like a simple case where we have like hard wired or like layers. But with this back propagation, we can have potentially infinite layers. And this back pro back propagate method is gonna work for all of them. Nice. So now as the final thing, we could potentially return uh the error which in this case is going to be the error back propagated all the way back to the input layer good. OK. So this was uh like back propagation. So I suggest now like we uh do uh try to like run the code up until like what we've done uh like now to see like if everything is OK? Because we may have like some bugs because we don't know. Right. So OK. So first of all, yeah, let me to this if name is equal to main. And so here we are like ensuring that we run this like as the main script uh good. So what do we want to do here? Well, uh first of all, uh we want to um create uh an M LP, it's a multi layer uh perception and then we want to Yeah. Yeah, let's just like create a dummy, data domain, inputs and targets and then we're gonna pass uh this data so to forward propagate. Uh So we, we'll do like a forward uh propagation and then we'll do a back propagation good. OK. So let's start by creating an M LP. So that's quite simple now because we already know and we have this guy here. And so let's say here we should pass the number of like um inputs, the number of hidden layers and the number of outputs. So let's do something like this. So two neurons for the input layers. So now we want only a one hidden layer which say like five neurons and then we have just one neuron for the output layer good. OK. So now let's create some dummy uh data. So we'll create uh an input and this input is going to be an array where we pass in couple of numbers, right? And why should we pass a couple of numbers here? Because we have like two neurons and basically each of these guys uh in the array is gonna uh go to one of the two different neurons, right? OK. So we have the input and now we want the, the target and the target is gonna be uh itself a a an array and uh let's say 0.3. So you probably are seeing what I'm doing here. So I'm expecting a the sum like of these two numbers, right? So I hope like my network is gonna uh like learn how to do the sum operation. And yeah, that's what we are gonna use like as a uh as a task dummy like toy task like for uh this video good. So, but here just we have just a single input and a single target. That's all we need uh for now. So what should we do now? Well, Uh First of all, we should do an M LP dot forward propagate and we want to pass the input in. And so we'll pass this guy here and then we'll do a back uh propagation here. So M LP dot back propagate and obviously, we are expecting an output over here uh which is basically like the, the uh after like all the computation has been done uh like on the inputs we're getting like the prediction, which is this output. Well, uh I forgot to mention one step here uh before doing back propagation. And you should know by now what that step should be and it's calculates uh the error, right? So, and how do we calculate the error? So, well, we calculate the error doing a target minus the oh the output. And then when we do uh back propagation, we'll just pass in the error, right? OK. So uh let's try to see if uh we get what we expect uh from uh back propagation. So I'd say what we could do here is we could uh have for the timing, a verbose argument which will set as false initially. And then we say if the boys, so if we are in verbose merge, then we want to print uh what do we want to print here? Well, we want to print the uh derivatives that we've calculated uh like uh for like a specific weight matrix. So how do we do that? Well, uh we do that by saying uh derivatives four W and then here we'll say uh I, and yeah, and I think like we are like uh uh this is, this is equal two uh uh to this uh self derivatives calculated in I good. OK. Cool. So fingers crossed, this should work until like we've made some mistakes in the process. So let's see if this works. Yeah. Well, obviously I've run this but I should pass in the verbose uh equals true. Like if you, if you want to see like something coming up. So let's say this. Oh Nice, nice. So what do we have here? So we have the derivatives for W one. And indeed, we are expecting this structure like for like this matrix which is like uh basically five by one. So it's just like a column matrix. And why is that the case? Well, because we have five neurons like in the, in this hidden layer and just like one neuron here like as the uh output layer. And so we expect like a five by one matrix there for W uh one, right? So now for W zero over here, which is gonna be like between like the input layer and the, and the first hidden layer or the only hidden layer. So we are expecting a matrix which should be and we have it here uh two by five. And indeed we have it. So as you see it here, we have like five different values for each row. And that's like what we were expecting. So we are like on, on, on the right path here, but it ain't finished yet. So we, we should keep like moving on. And so what we've done so far is we've activated. So we saved the activations and the derivatives, we've implemented back propagation. Now, we need to implement guardian descent. But I promise this is gonna be like way, way faster than back propagation because it's quite straightforward. So good. OK. So let's move on uh with uh a new method which will call gradient uh the scent. And here, so we need to pass an argument. This is called the learning rate. And we've seen this in the last video and this is like the, the size of the step we want to take against the gradient uh just like to optimize uh our uh error function, right? Uh good. So now, what should we do? Well, uh so now we should go loop through all the weights. And so we're gonna do that by doing a four loop in, we could say on a range L of self dot uh weights. So we are going through like all the uh different, sorry, different weight mattresses. And then we can say that the weight uh weight mattress matrix for bye the current layer over here. It's gonna be self weights calculated uh like N I and we can do like the the sa me thing uh with derivatives. So we'll just change this to. And so basically we are getting uh we are retrieving the weights and the relative derivatives for a given layer, right? And so what we want to do here is to update the weights and to update the weights. If you guys remember if you're good students, you may, you should know this by now because we've covered this last in the last video. But what we should do here is uh taking the weights and um we should add to the weight, the derivatives multiplied by the learning rate. Nice. So let's rewrite this in a more compact way. And so we can just like do this. It's the same thing. So we are uh oops sorry. Yeah. So we are uh adding the this color multiplication of like learning rate, um derivatives to weights. And so these are weights and derivatives are two matrices like with the uh with the same dimensions, right? And so we are just like adding them up once we've tweaked the derivatives by dec decide by applying the learning rate good. And so here we have done uh so we, we, we now have like also gradient descent which is great. So now let's go back to uh like our script here. So we've done back propagation. So the next thing we want to do is we want to apply gradient descent good. So how do we do that? Well, now that we have our uh gradient descent method, this is gonna be super simple to do. So we pass in uh a learning rate. And let's say we want to, to pass in 0.1 for example, as our learning rate good. OK. But uh let's see if gradient descent uh like is working properly. And so for doing that, uh I would come here and I would like to uh print, yeah, let's do it here. So let's do a print. We'll print the uh weights. So we'll, we'll do a w and I'll go to format and we'll pass in. I, and then here we want actually to pass the oops, sorry. So we ah damn. So I, and here we have the, the weights and so we, we want to pass this in and this is uh yeah, let's call them original. Um W so these are like the original weights and then we can take this and after. So let's, let's, let's put some new lines here because like this is becoming like a mess, right? So here we, we take the, we retrieve the weights, we print them then uh we retrieve the derivatives, we uh apply like a gradient descent to the weights. And now we have the updated oops, here we go dated uh weights and uh yeah. And so we have like these weights which now should be different. So let's say like if this is working, OK. So now I'd say we don't want um to print this because otherwise we're gonna have like a mess. So let's try this and see. OK. So uh we have, yeah. Right. There's a difference but it's so take like for example this, right? That, that's like the uh the first. So element 00 of like W zero and element 00 of like W zero here, like after we've applied it and as you can see like they are slightly different but the difference like it's quite minimal because like we have like a small learning rate. So if we change this learning rate and we put it like as one, so this should be like quite bigger. Yeah. So yeah, you, you can see it from here like w one here like the, the first element here uh like it's uh 0.8 and here uh in the updated W one like the first element is 0.76. So basically uh grading the center is working properly and this is great news nice. Uh But now we actually really don't need this like uh at all. Yeah. Yeah, because I mean like it was just like for showing whether like we this was working. So let's remove that nice. So now what's what remains to do here? So we've implemented gradient descent. Now we should implement the train method nice. So back propagate gradient descent and now let's do train. So the train method is gonna have uh oops, there's a mistake here, are you? Yeah, here we go. Uh The train method is gonna uh have a bunch of different arguments. So first of all, we want some inputs, then uh we want uh targets and uh these inputs and targets are our training set uh which uh like our X is like in Y basically. And then we want uh epics and I'll explain what an epic is in a second. And then we want the learning rate, right? Good. OK. So what should we do for training? Well, if you guys remember? So uh we, we pass all the inputs like one by one to the network, we fit it and then the network does some uh forward propagation and then back propagation. Uh But then once we've passed all of the um elements, all of the samples like in the, in the inputs uh in the training set, we've finished an epoch. So the number of epics tells us basically how many times we want to feed the whole data set to uh the uh to the neural network with the idea that the more times we do this and hopefully like the more like the network is going to be able to make better predictions. So, uh basically, what we need to do is like uh go through all the, the Epics and so look through the number of epics. And so, so let's say for i in a range Epics And so here we should do uh so we should do really like a bunch of different things. So first of all, we should take the, so we should go through like all the inputs and uh the uh the uh the targets are like one by one. So how are we gonna do this? Well, uh there's like a nice trick we can use here and we could say, uh yell at me just like write this and I'll explain what this is in a second. So for J input target in and now we do an a numerate and then we do a zip over here and we pass in the inputs and we pass in the targets. Cool. So this is like a very compact way of like getting uh like inputs targets one by one and, and, and it's like this input and target and also getting like the index that we are unpacking. So zip unpacks like this two different lists, inputs and targets and give us like elements one by one for input and for targets. And then if we apply a numeration on top of that, we both get these the values themselves and uh the index that we are unpacking good. So yeah, this is like a nice trick. Uh Cool. So now what should we do? Well, uh we've partially done a bunch of these things already. So uh let's take these guys here, right? So, and we'll uh move them here say what do we want to do? Well, first thing we want to apply some forward propagation but this is not gonna be M LP but it, this is gonna be a self. So we do forward propagate on the input, then we calculate the error and uh this is gonna be the target minus the output and then we apply some back propagation. But this again is gonna be like a self back propagate and we pass in uh the error and then we apply gradient, the sound. Uh here we go change M LP for itself and the learning rate. Uh Yeah, we already have it here. Oh By the way, I noticed there's a mistake over here. So it's not uh for I in range apex but is in the length. Oh No, sorry, I was right. I thought like for a, for a second that apex was a, was a list. It's just an integer. So it's fine, good. OK. Uh cool. So we have uh grade in the sand and we've uh applied uh grade in the sand. So now one last thing that we want to do is to report the error for each epoch so that we can see whether we are uh improving. So how do we do that? Well, first of all, we want to um initialize some error uh variable over here and we'll initialize that obviously, that's a zero. And then at the end of each um like a training session like for, for uh for each input, we are uh gonna calculate this some error and we'll add to some error. What are we gonna add? So we're gonna add self dot MS E and uh we'll pass the target and the output good. So what's this, MS E here? So this is the M squared uh error, right? And so we don't have this uh function, this method already. And so we need to build it. So let's implement it down here. So we'll do the MS E self and we'll pass in target and the output. And so, so it's not MS R, it's MS E so M squared error. So, and what is this? So how do we calculate this? Well, this is basically the average of the, the squared error, right? And so we can use a native um uh method from NP it's called average super handy. And we'll basically rewrite this uh like this. So we'll do the average of the target minus the output and we want to square this. So we'll do this, right? And so this is the or uh means squared error nice. So now we have a, an error that's accumulating like at every step that we take like in our training and, and we want to report it like at the end of an epoch, right? And so how do we uh do that? Right. So we'll um we'll do that by uh yes. So we'll just like do a print over here and uh will write uh error and we'll say error is equal to something at epoch and we'll have the epoch over here. Cool. And so we'll do a format and uh we'll pass in for the error, some error uh divided uh by the length of the inputs, right? Because this way, we are basically like uh normalizing that. And um what we also want to do is we want to pass um the number of epochs. So in this case is I, right? So let me just double check if it's all good over here. So we have this format. Yeah, this is not working. OK. So yeah, so we have the first argument. That's this one here and then we have I and this yeah, closes the format which yeah, so this should be fine now. Uh Good. OK. So now I think we have all the elements uh if I'm not uh if I'm mistaken, we have all the elements in place for doing a run of our um uh neural network good. So, but before doing that, I just want to, to, to double check of things because like, I did this like, I did like this fancy thing here, but I'm not using like j uh like anywhere. So I don't really think like we're gonna need uh like this J uh Yeah. Yeah, I didn't see a point here. So, yeah, well, at least like you've learned a trick, but it's not really needed. So we'll just like simplify this and we'll just drop this and numerate um like that, right? So now, now this uh should work properly good. OK. So, uh now uh let's go back to our tasks. So we, we basically did all of these things here. So now we want to train our nets with some dummy uh data set and then make some predictions. OK? So let's go back here. So now we are back like in the, in the scripts. OK. So we've already created uh an M LP. And uh now we want to uh train uh our M LP. And how do we do that? Well, we do M LP dot train. Uh we need to pass in the inputs, the targets, then uh we need to pass the number of epics, let's say 50 for example, and the learning rate, let's say 0.1. And uh yeah, and we need some dummy data. So for the inputs and uh for uh the targets. Now, I want to, as I mentioned earlier, I want to um train our network so that it will be able to uh to compute uh the sum operation. So I'm gonna just like copy paste a um radiation like a data set like for this. And so I, I'm not gonna like explain everything here because like this is like not the point. Uh But uh so, first of all, like we need this random function and so we need to import a random here otherwise it's not gonna uh work. So we'd say from uh random import uh random. And so we have that now down here. Uh Yeah, which is good. OK. So now we should have, but uh let's call this inputs and let's call this like uh targets, right? OK. So what's the point of this? Um Yeah, this fancy like list comprehensions like we had a raise and things like that. Well, basically this is going to be an array uh where we have uh so something like this. So this is gonna be like a nr A uh where we have this type of structure here. So say like 0.10 0.2 and then we have another are we here? And so these are like each of these guys in here is gonna be a sample that we pass to forward propagation, right? And uh then we have the targets and the targets are, it's similar to this, but it's just like the, the sum over here. So instead of having like two values, you're just gonna have one which is zero point point three in this case. And this is gonna be uh 0.7 uh right, this is items is not correct. So we'll just need to move it from inputs. And right, so this is fine now good. So now if everything is correct now we should be able to train our multi-layered perception from scratch. Let's see if it works. Whoa This is working. And that's fantastic because we have also a very nice record over here. So we started with this error at epoch uh zero. And then all the way through, we went down, down, down at each epoch until we reached this uh error over here. So as you see, the training is working because the error is going down. And so the the network is slowly learning to, to do something very simple, which is like the some operation someone could say, well, this is really like overkill to do like some, yeah, some but I'm in. Yeah, that's what it is, right. OK. So now we've uh we've implemented like all back propagation grid and descent. We have a, an amazing mop. So now what remains to do like the last thing that we said we would do is make some predictions, right? OK. So how do we do that? So, yeah, this is uh again, uh quite simple. So yeah, let's create uh create uh dummy data. And this time, let's call this input and we do NP dot uh array. And here we want to pass in uh let's say 0.3 and 0.1 good. And now we want our targets and we know that our targets should be the sum of those two numbers. So 0.4 right? And so now what we need to do is M LP, tell it mop dot forward propagate and then we want to pass in the input and then we expect some output, right? So the idea like the, the, the, the whole like train like a for here is we have like our uh training data set, we built like our mop, we train our M LP and now we create some Demi data and we pass that in uh forward propagate so that we'll get uh like a prediction out there. So let's see how this prediction is doing. And so meantime, we'll do like just a print to give us a couple of prints to, to give us like a couple of new lines and then we'll do print and we'll say um so let's say this. So let's say our network the leaves. That's this plus this is equal equal to, it's uh this right now, we need to pass all of this information in. So uh our beliefs that input, so this is input uh zero, this is input uh one. And finally, this is uh our target, right? Uh Well, no, it's not our target. Sorry, it's our output. Cool, I'll put calculation and zero, right? OK. So let's run this and see if our network is gonna be able uh to uh compute this, right? And um right. So let's do that. And let's see. Nice. Super good. So we, we have it here. Nice. So our network believes that 0.3 plus 0.1 is equal to 0.3996. Nice. So this is really close to our target, which is uh no 0.4 right? So this is like quite good actually. So we, we made it, we trained our network, we have this like network which is an absolute overkill for calculating like the same operation. But yeah, we made it. But apart from like the the toy application, I think like what we made it here like it's quite something because we made to basically build a whole neural network, fit forward neural network, multi layer perception from scratch. And now we have all of the different elements to it. We have forward propagation, we have back propagation, we have gradient descent, we know how we can train it uh everything like it's super modular because you can put like as many uh layers uh in the network as you want and you can specify as many like neurons as you want like, so that's like also like really nice. And so yeah, I think like we should just like congratulate ourselves because I guess like we know way more than most people out there uh who are also like machine learning practitioners because like we know how to build a neural network, a simple neural network from scratch good. So this was it for this very very long video. I hope you enjoyed it. And uh if you did please uh subscribe and hit the notification bell. So you'll just like get new videos when they are uploaded and then um for the next time, what we'll do is we're gonna basically build something very similar to this with tensorflow. And you'll see that all the time that we spent like doing this. It's gonna take, I don't know, like probably 1/10 like of the, of the time and the number of like uh uh lines of code for doing that. And so yeah, we'll get into tensor flow and carrots and we'll build a simple M LP from scratch. So stay tuned and like this video and I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the Deep learning for audio with Python series. This time we're gonna implement back propagation and gradient descent. And to do that, we're gonna expand on the work we've done uh a couple of videos ago when we implemented a multi layer perception class, this M LP objects here.",
+                "start_time": "0.0",
+                "end_time": "20.87"
+            },
+            {
+                "id": 1,
+                "transcript": "And uh in that case, we built a uh constructor where basically we built like the, the structure of the network. And then we mainly uh focused on this forward propagate method uh which is basically forward propagation which computes the inputs uh which travel uh from left to right and gives us a prediction good.",
+                "start_time": "21.079",
+                "end_time": "46.13"
+            },
+            {
+                "id": 2,
+                "transcript": "So what are we gonna do specifically like this time around? Well, it's a bunch of like different things and so it's better just like to write them down so that we'll have more or less like a direction that we know we're following because by the way, this is gonna be like a quite intense view and probably quite long as well good. So",
+                "start_time": "46.389",
+                "end_time": "65.919"
+            },
+            {
+                "id": 3,
+                "transcript": "uh the first thing that we want to do is to save the activations and the derivatives",
+                "start_time": "66.37",
+                "end_time": "76.459"
+            },
+            {
+                "id": 4,
+                "transcript": "and derivative, right. So this is like while we to compute uh back propagation, we need information about activations and obviously about like the uh derivatives as well. When we'll compute a gradient descent, then uh what we want to do is to uh implement back propagate back propagation.",
+                "start_time": "77.129",
+                "end_time": "103.989"
+            },
+            {
+                "id": 5,
+                "transcript": "So once we have it back propagation implemented, we want to implement a gradient",
+                "start_time": "105.11",
+                "end_time": "110.86"
+            },
+            {
+                "id": 6,
+                "transcript": "Grady and uh descent. And once we have that it's time to go higher like from a higher level and implement a train method which will use both back propagation and gradient descent. And uh then we want to train our nets work with some dummy data set",
+                "start_time": "111.65",
+                "end_time": "138.35"
+            },
+            {
+                "id": 7,
+                "transcript": "and finally make some predictions",
+                "start_time": "139.57",
+                "end_time": "142.46"
+            },
+            {
+                "id": 8,
+                "transcript": "good. So this is the plan for today's video. So let's get started from the first one. So save activations and derivatives, right? So first of all, uh we need uh a representations for uh data representation for these activations and derivatives. And we need to create uh this representation here in the M LP uh construct,",
+                "start_time": "143.289",
+                "end_time": "164.479"
+            },
+            {
+                "id": 9,
+                "transcript": "right? And so as we did for the weights here where we basically created some random weights, uh We should do like a similar thing uh for the activations and derivatives. So let's get started activations and we'll start with uh an empty list. I don't like that. That is uh like that nice. And now we'll do a four loop and we'll go through all the uh layers here,",
+                "start_time": "164.66",
+                "end_time": "194.649"
+            },
+            {
+                "id": 10,
+                "transcript": "right? We'll go through all the layers and then we want to create a dummy uh activation array for each of the, of the layers. So how do we do that? So, it's quite simple. So it's uh we'll create an array A which is given by NP dot uh And we'll do zeros here. So it's all, it's an array of zeros. And we'll specify that we want",
+                "start_time": "195.449",
+                "end_time": "224.979"
+            },
+            {
+                "id": 11,
+                "transcript": "uh an amount uh of zeros here. That's equal to the number of neurons that we have in uh each layer, right, for each layer. So then we'll do a activations dot append and we'll append uh this mono dimensional one dimensional array here to activations.",
+                "start_time": "226.669",
+                "end_time": "253.69"
+            },
+            {
+                "id": 12,
+                "transcript": "So in the end activations is gonna be a list of arrays where each array in the list uh represents the activations for a given layer, right. So now we want to store all of this uh information in a instance, variable called uh activations. And so self dodge uh activations is gonna be equal to activations. Nice.",
+                "start_time": "253.899",
+                "end_time": "279.029"
+            },
+            {
+                "id": 13,
+                "transcript": "So now we should do something similar with derivatives as well. So I'll just copy all of this and paste it here. So instead of um activations, we'll have like derivatives here. So",
+                "start_time": "279.369",
+                "end_time": "294.649"
+            },
+            {
+                "id": 14,
+                "transcript": "we have this like empty list derivatives. And now we want to travel through so loop through",
+                "start_time": "295.19",
+                "end_time": "301.399"
+            },
+            {
+                "id": 15,
+                "transcript": "the layers but all the layers like minus one. Because if you guys remember when we have, for example, a network with uh three layers, we only have two weight mattresses because the weight mattresses are in between layers, right?",
+                "start_time": "302.329",
+                "end_time": "319.39"
+            },
+            {
+                "id": 16,
+                "transcript": "And so, uh in this case, we are gonna have a number of like derivatives or uh that are like equal to the weight mattresses, right? Because the derivatives are the derivatives of the error function with respect to the to the weight cool. So let's change this. So we'll call this D",
+                "start_time": "319.679",
+                "end_time": "343.01"
+            },
+            {
+                "id": 17,
+                "transcript": "and now we're not expecting a mono dimensional array rather like a two dimensional array, which is basically a matrix. And uh this matrix uh is gonna have uh the, the dimensions like say for, for the rows, we expect the number of um neurons that we have in the current layer I and for the columns, we expect the number of neurons uh that we have in the subsequent layer, right?",
+                "start_time": "343.399",
+                "end_time": "373.359"
+            },
+            {
+                "id": 18,
+                "transcript": "So that's that. And now we want to uh just change it, change this and we want to paint derivatives. And here these activations",
+                "start_time": "374.69",
+                "end_time": "387.79"
+            },
+            {
+                "id": 19,
+                "transcript": "again should be changed into uh derivatives. Nice. OK. So now we have a nice way of storing derivatives as well good. So now that we have all like the, the representation place we should go and uh tweak our forward propagate so that we can save the activations. Why we, we, we, we create like we, well, we compute these activations for each layer. So",
+                "start_time": "388.649",
+                "end_time": "415.42"
+            },
+            {
+                "id": 20,
+                "transcript": "uh what about the activation",
+                "start_time": "415.679",
+                "end_time": "419.329"
+            },
+            {
+                "id": 21,
+                "transcript": "self dot uh activations for the first layer for the input layer? Well, we know that uh this is basically just like the inputs, right? So we can save uh the activations for the first layer as the inputs that we are re receiving here as an argument for forward propagate. Nice.",
+                "start_time": "420.0",
+                "end_time": "441.44"
+            },
+            {
+                "id": 22,
+                "transcript": "So now there's uh the next step which is uh this forward propagate iterates through like all the network layers and calculates the activations. And now here at this point, we want to save the activations and now we're gonna save uh the activations at I plus one",
+                "start_time": "441.73",
+                "end_time": "464.39"
+            },
+            {
+                "id": 23,
+                "transcript": "and this is gonna be the activations. So now you may be wondering but uh if you are currently in I right at uh why are we storing this like at I plus one? Well, uh let me show you why that's the case. So if you, you may remember that the activation, say for example, like the activation of the third layer",
+                "start_time": "464.63",
+                "end_time": "487.359"
+            },
+            {
+                "id": 24,
+                "transcript": "is equal to the sigmoid function even like we are only using sigmoid functions as activations functions. Uh It's the sigmoid function of three but now three, if you guys remember",
+                "start_time": "487.709",
+                "end_time": "503.97"
+            },
+            {
+                "id": 25,
+                "transcript": "um",
+                "start_time": "504.5",
+                "end_time": "505.45"
+            },
+            {
+                "id": 26,
+                "transcript": "is equal",
+                "start_time": "506.329",
+                "end_time": "508.13"
+            },
+            {
+                "id": 27,
+                "transcript": "c",
+                "start_time": "508.67",
+                "end_time": "509.519"
+            },
+            {
+                "id": 28,
+                "transcript": "the",
+                "start_time": "510.14",
+                "end_time": "511.51"
+            },
+            {
+                "id": 29,
+                "transcript": "uh matrix multiplication between A two and um and",
+                "start_time": "512.848",
+                "end_time": "519.57"
+            },
+            {
+                "id": 30,
+                "transcript": "we have W",
+                "start_time": "520.169",
+                "end_time": "521.859"
+            },
+            {
+                "id": 31,
+                "transcript": "two, right? And so here, basically we're saying that we are at say for example, this I is equal to two. And so here we are considering like the, the second wave matrix and then the activations connected with the second weight matrix is indeed uh the activation for the third layer. And so here we need to like add one to the current I. So in our example two plus 13, right? And so this is why we're doing this good.",
+                "start_time": "522.908",
+                "end_time": "552.419"
+            },
+            {
+                "id": 32,
+                "transcript": "So nice. So now we have done basically the the the first part of the, the first uh task which is like saving activations and derivatives now uh to well saving just activations because derivatives uh we haven't saved them. We've just like created the representation for saving them, but we'll do that when we implement back propagation, which is happening right now.",
+                "start_time": "553.299",
+                "end_time": "579.95"
+            },
+            {
+                "id": 33,
+                "transcript": "Cool. So now we need to implement a back a new method called back proper",
+                "start_time": "581.07",
+                "end_time": "589.299"
+            },
+            {
+                "id": 34,
+                "transcript": "gauge, right? So now, first of all, we want to pass uh the an error here. So and we'll see like what this error is like in in a few seconds. But first of all, how does this work? So we, we said like in the previous video that with back propagation, the idea is to have the error and uh back propagate the error from the output layer sorry",
+                "start_time": "589.9",
+                "end_time": "619.869"
+            },
+            {
+                "id": 35,
+                "transcript": "towards the uh input layer towards the left, right. So basically what this how, so the way we can translate this in code is that we can basically loop through all the layers starting from like the, the last one towards like the the previous ones, right? And so how do we do that? Well, it's quite simple. So we will do a full loop in a range",
+                "start_time": "620.44",
+                "end_time": "645.33"
+            },
+            {
+                "id": 36,
+                "transcript": "uh range of the length of self",
+                "start_time": "646.489",
+                "end_time": "652.03"
+            },
+            {
+                "id": 37,
+                "transcript": "dot um",
+                "start_time": "652.69",
+                "end_time": "654.63"
+            },
+            {
+                "id": 38,
+                "transcript": "uh derivatives here.",
+                "start_time": "655.4",
+                "end_time": "657.5"
+            },
+            {
+                "id": 39,
+                "transcript": "So, but this is just like going from left to right, right. Because we are uh incrementing I from zero, like towards like the, the number of like uh elements we have like in self dot derivatives, but we want to go the other way around from right to left. So how do we do that? Well, we just do a reversed",
+                "start_time": "658.869",
+                "end_time": "681.9"
+            },
+            {
+                "id": 40,
+                "transcript": "of this guy here.",
+                "start_time": "682.539",
+                "end_time": "685.21"
+            },
+            {
+                "id": 41,
+                "transcript": "Cool. And uh now,",
+                "start_time": "686.88",
+                "end_time": "690.09"
+            },
+            {
+                "id": 42,
+                "transcript": "OK, let me just check.",
+                "start_time": "690.919",
+                "end_time": "692.409"
+            },
+            {
+                "id": 43,
+                "transcript": "So we may have an issue with the number of parentheses here. No. Yeah, no, it's fine. Good. Uh OK. So now we are just like going through uh we are living through like the, the neural network but starting from uh right, and then moving all the way back towards the inputs.",
+                "start_time": "694.02",
+                "end_time": "715.119"
+            },
+            {
+                "id": 44,
+                "transcript": "Now, what should we do? But in order to understand what we should do, we should remember uh like how back propagate uh how back propagation works. And so now I'm gonna pass in some things that I don't want to uh write from scratch because it will take too much time. But if you guys remember,",
+                "start_time": "715.57",
+                "end_time": "736.25"
+            },
+            {
+                "id": 45,
+                "transcript": "uh let's assume we are like at the uh rightmost weight matrix, right? So say, for example, we are, we have like this network with three layers, then we are like a W-2 and then we want to calculate the error uh with respect the derivative of the error function with respect to uh W-2 or like in this, in this case, like if we want to keep it a general we could say Wy",
+                "start_time": "736.869",
+                "end_time": "765.57"
+            },
+            {
+                "id": 46,
+                "transcript": "and this is given by this formula down here, right. So if you guys remember, it's basically like this is the error which is the difference between uh why, which is the actual outcome that we are expecting. And the prediction.",
+                "start_time": "765.9",
+                "end_time": "780.59"
+            },
+            {
+                "id": 47,
+                "transcript": "And we multiply that by uh the uh derivative of the sigmoid function calculated in uh the net input I plus one. And then we do like a dot pro max multiplication of all of this with uh the activations calculated in I nice",
+                "start_time": "781.539",
+                "end_time": "800.5"
+            },
+            {
+                "id": 48,
+                "transcript": "good. So the error that we are passing here, this argument is basically this guy here, this error here. So now the next thing that we want to calculate is this Sigma",
+                "start_time": "801.03",
+                "end_time": "814.179"
+            },
+            {
+                "id": 49,
+                "transcript": "uh prime here, right? But uh what's this Sigma prime calculated in this uh net input here? But well, we can rewrite this like if you remember from the, the previous uh video,",
+                "start_time": "815.01",
+                "end_time": "828.51"
+            },
+            {
+                "id": 50,
+                "transcript": "uh we can rewrite the Sigma prime here as the this derivative. The first derivative is the Sigma Sigma itself calculated in a point and multiplied by minus uh sorry one minus like Sigma calculated in that same point good. But",
+                "start_time": "828.799",
+                "end_time": "848.95"
+            },
+            {
+                "id": 51,
+                "transcript": "uh if you remember guys this, the sigma calculated in this point here in I plus one, it's basically the activation",
+                "start_time": "850.19",
+                "end_time": "862.07"
+            },
+            {
+                "id": 52,
+                "transcript": "calculated in I plus one. And so basically we can get this and just like pop it into uh like this function over here. And we'll get uh the Sigma prime uh information about Sigma prime. So all of this basically to say that we need to retrieve the activations here.",
+                "start_time": "862.679",
+                "end_time": "885.559"
+            },
+            {
+                "id": 53,
+                "transcript": "But these activations, we can access them because we've uh saved them in self dot activations but not in uh in uh not the activations in I but in I plus one. So in the subsequent layer, right? And so",
+                "start_time": "886.75",
+                "end_time": "905.09"
+            },
+            {
+                "id": 54,
+                "transcript": "we have this as activations nice. So now if we want to calculate uh this guy here, so the Sigma",
+                "start_time": "905.799",
+                "end_time": "914.929"
+            },
+            {
+                "id": 55,
+                "transcript": "uh over here,",
+                "start_time": "916.77",
+                "end_time": "918.01"
+            },
+            {
+                "id": 56,
+                "transcript": "so what we need to do is basically do like a uh Sigma uh the first derivative of the Sigma function calculated in this,",
+                "start_time": "919.15",
+                "end_time": "929.109"
+            },
+            {
+                "id": 57,
+                "transcript": "in these activations, right? But",
+                "start_time": "929.7",
+                "end_time": "932.25"
+            },
+            {
+                "id": 58,
+                "transcript": "to do that, we'll do like something slightly uh well, we'll, we'll do like something like uh slightly different now, which is basically calculating delta and we'll define delta as these two elements together. So the error multiplied by the uh first derivative of the Sigma function. So let's do that. So delta is gonna be equal to uh the error",
+                "start_time": "932.869",
+                "end_time": "957.409"
+            },
+            {
+                "id": 59,
+                "transcript": "and that's multiplied by self dot uh let's call it seek mo",
+                "start_time": "957.969",
+                "end_time": "966.7"
+            },
+            {
+                "id": 60,
+                "transcript": "uh derivative and we pass in the activations",
+                "start_time": "967.27",
+                "end_time": "972.239"
+            },
+            {
+                "id": 61,
+                "transcript": "good. This is nice. But there's an issue here, which is that obviously, we don't have this uh uh function yet because we haven't like defined it. So uh let's build like this method now. So we'll build uh we'll define a new method called underscores mod",
+                "start_time": "972.76",
+                "end_time": "996.07"
+            },
+            {
+                "id": 62,
+                "transcript": "uh derivative",
+                "start_time": "996.799",
+                "end_time": "998.619"
+            },
+            {
+                "id": 63,
+                "transcript": "and uh we'll pass in X and we'll return uh just like look here what this should look like. And so we'll uh return",
+                "start_time": "999.26",
+                "end_time": "1011.619"
+            },
+            {
+                "id": 64,
+                "transcript": "X multiplied by",
+                "start_time": "1012.659",
+                "end_time": "1015.7"
+            },
+            {
+                "id": 65,
+                "transcript": "one",
+                "start_time": "1016.46",
+                "end_time": "1017.26"
+            },
+            {
+                "id": 66,
+                "transcript": "minus",
+                "start_time": "1019.52",
+                "end_time": "1020.84"
+            },
+            {
+                "id": 67,
+                "transcript": "X, right?",
+                "start_time": "1022.51",
+                "end_time": "1024.208"
+            },
+            {
+                "id": 68,
+                "transcript": "And so we have our sigmoid derivative uh function here nice. So we have delta nice. So which basically means like we have all of this. Now, the uh next step that we need to do is instead of like uh calculating the this guy here, right? So we'll",
+                "start_time": "1025.02",
+                "end_time": "1051.66"
+            },
+            {
+                "id": 69,
+                "transcript": "need to, so in order to, to do this, uh we'll need to, to get uh this other activation uh which is the activation cal uh taken like a layer. Uh Like I,",
+                "start_time": "1052.92",
+                "end_time": "1065.75"
+            },
+            {
+                "id": 70,
+                "transcript": "so we could call this uh current",
+                "start_time": "1066.26",
+                "end_time": "1070.05"
+            },
+            {
+                "id": 71,
+                "transcript": "activation",
+                "start_time": "1071.089",
+                "end_time": "1072.06"
+            },
+            {
+                "id": 72,
+                "transcript": "activations and that's equal to self dot activations. But",
+                "start_time": "1072.67",
+                "end_time": "1079.589"
+            },
+            {
+                "id": 73,
+                "transcript": "at uh I right.",
+                "start_time": "1080.13",
+                "end_time": "1082.339"
+            },
+            {
+                "id": 74,
+                "transcript": "Nice. So now, at least in theory, we have like all the elements to",
+                "start_time": "1083.54",
+                "end_time": "1090.3"
+            },
+            {
+                "id": 75,
+                "transcript": "calculates the derivative in I, right. And uh the derivative in I uh is gonna be given by the dot product",
+                "start_time": "1091.8",
+                "end_time": "1106.41"
+            },
+            {
+                "id": 76,
+                "transcript": "of current activations with delta.",
+                "start_time": "1106.949",
+                "end_time": "1112.31"
+            },
+            {
+                "id": 77,
+                "transcript": "Nice. And so now we have like the uh the derivative but really, we don't have it yet because uh I'm gonna explain why, but we'll need to do like some trickery which uh like nun pi to organize like this two arrays in a way where we can actually perform this matrix multiplication between the current activations and delta. So uh what we uh want to do uh as the first thing is uh",
+                "start_time": "1113.38",
+                "end_time": "1142.64"
+            },
+            {
+                "id": 78,
+                "transcript": "basically rearranging this uh array uh and rearranging it in such a way that it will become a two dimensional array where we only have like a 11 column, right? So it's gonna be basically like a vector sorry, a vertical uh matrix. So what this basically means is that we want to OK. Yeah, let me just comment this. So we want to move from",
+                "start_time": "1143.239",
+                "end_time": "1171.79"
+            },
+            {
+                "id": 79,
+                "transcript": "uh an array. So we now have",
+                "start_time": "1172.04",
+                "end_time": "1176.14"
+            },
+            {
+                "id": 80,
+                "transcript": "this current activations that's uh an array like this, say it could be like 0.1 and 0.2 and we want to rearrange it so that it has this structure.",
+                "start_time": "1176.979",
+                "end_time": "1191.989"
+            },
+            {
+                "id": 81,
+                "transcript": "So you're set here o sorry,",
+                "start_time": "1192.88",
+                "end_time": "1196.52"
+            },
+            {
+                "id": 82,
+                "transcript": "like this.",
+                "start_time": "1197.229",
+                "end_time": "1198.14"
+            },
+            {
+                "id": 83,
+                "transcript": "OK.",
+                "start_time": "1198.989",
+                "end_time": "1199.569"
+            },
+            {
+                "id": 84,
+                "transcript": "So basically, this is gonna be like a two D array and uh it, it's gonna be like basically like a, a vertical uh vector, right?",
+                "start_time": "1201.199",
+                "end_time": "1212.829"
+            },
+            {
+                "id": 85,
+                "transcript": "Good. So how do we do that? Well, we need to do like some uh trickery uh with NP. So we'll do that, the current activations. Uh Let's call it uh reshaped,",
+                "start_time": "1213.469",
+                "end_time": "1227.03"
+            },
+            {
+                "id": 86,
+                "transcript": "it's equal to current activations. And then we need to call the uh reshape method which is a native method in NPI. And, and so here we need to do this thing.",
+                "start_time": "1228.069",
+                "end_time": "1244.579"
+            },
+            {
+                "id": 87,
+                "transcript": "So current activations dot shape uh and we take like the uh the shape like of the uh the first uh like index and then we do uh like a minus one. So doing this, we'll just move uh like we restructure our array from like this",
+                "start_time": "1245.209",
+                "end_time": "1264.91"
+            },
+            {
+                "id": 88,
+                "transcript": "to this, right? And so, and now we just need to change this over here and we've uh like input the current activations re shape. Now, we need to do something similar for uh delta as well. So we need a delta",
+                "start_time": "1265.579",
+                "end_time": "1284.68"
+            },
+            {
+                "id": 89,
+                "transcript": "reshaped",
+                "start_time": "1285.209",
+                "end_time": "1287.459"
+            },
+            {
+                "id": 90,
+                "transcript": "good. But uh let's take a look at what we want to do first. So",
+                "start_time": "1289.219",
+                "end_time": "1294.319"
+            },
+            {
+                "id": 91,
+                "transcript": "for delta, so uh let me like rewrite this like this. So we are starting with a similar uh array. So which is like a one dimensional array. And then what we want to achieve now is a ND a two dimensional array where",
+                "start_time": "1294.91",
+                "end_time": "1314.479"
+            },
+            {
+                "id": 92,
+                "transcript": "we,",
+                "start_time": "1315.709",
+                "end_time": "1316.54"
+            },
+            {
+                "id": 93,
+                "transcript": "well, just give me a sec here",
+                "start_time": "1317.05",
+                "end_time": "1319.78"
+            },
+            {
+                "id": 94,
+                "transcript": "where we have this, right. So it's basically just like a two dimensional array with a single uh row. So how do we do that? Well, we can do like something very similar to this uh to what we've done with the current activations. But obviously, in, instead of uh current activations, we should use delta, we use delta. And then here we have a, obviously like after we perform this reshape",
+                "start_time": "1321.229",
+                "end_time": "1349.729"
+            },
+            {
+                "id": 95,
+                "transcript": "until now here we have a vertical uh matrix. And so if we do dot T capital T, this will transpose the um",
+                "start_time": "1349.89",
+                "end_time": "1361.239"
+            },
+            {
+                "id": 96,
+                "transcript": "uh the array. And so we will basically move from a structure",
+                "start_time": "1361.979",
+                "end_time": "1366.189"
+            },
+            {
+                "id": 97,
+                "transcript": "like this one to a structure like this",
+                "start_time": "1366.77",
+                "end_time": "1371.63"
+            },
+            {
+                "id": 98,
+                "transcript": "nice. So now we have everything in place to do uh uh our to calculate like our derivative uh here.",
+                "start_time": "1372.239",
+                "end_time": "1381.76"
+            },
+            {
+                "id": 99,
+                "transcript": "And so yeah,",
+                "start_time": "1382.31",
+                "end_time": "1383.91"
+            },
+            {
+                "id": 100,
+                "transcript": "this is like basically all we need to do for like the, the first",
+                "start_time": "1384.439",
+                "end_time": "1390.819"
+            },
+            {
+                "id": 101,
+                "transcript": "parts over here like of our back propagation. So for the utmost uh uh like weight weight matrix. So when we do like the uh the derivative of the error function with respect to uh w uh calculated in I right.",
+                "start_time": "1391.979",
+                "end_time": "1409.16"
+            },
+            {
+                "id": 102,
+                "transcript": "OK. So now we know though that uh we, we want to just like go back one step and uh do uh a another like derivative of the area of function. But this time in uh w of I minus one.",
+                "start_time": "1409.369",
+                "end_time": "1428.849"
+            },
+            {
+                "id": 103,
+                "transcript": "So, and how do we do that uh like with a formula and we've already sent this and I'm gonna just like copy, paste it here just like because like it's, it's easier,",
+                "start_time": "1429.189",
+                "end_time": "1440.339"
+            },
+            {
+                "id": 104,
+                "transcript": "right? And so as you see here, so when we are calculating the next",
+                "start_time": "1440.91",
+                "end_time": "1446.3"
+            },
+            {
+                "id": 105,
+                "transcript": "um derivative towards the left, what we, what we are going to bring back uh from the previous um derivative that we've calculated is this guy here, right? So the",
+                "start_time": "1446.91",
+                "end_time": "1462.66"
+            },
+            {
+                "id": 106,
+                "transcript": "delta itself. So delta is gonna be like moved uh to pushed back to towards like the, the first the, the previous uh layer. But along with that given like we are like at I right now, we could also calculate all of this. So basically doing um",
+                "start_time": "1463.349",
+                "end_time": "1484.689"
+            },
+            {
+                "id": 107,
+                "transcript": "we're going to calculate a new error here, which is going to be given by the NP",
+                "start_time": "1486.0",
+                "end_time": "1494.79"
+            },
+            {
+                "id": 108,
+                "transcript": "dots. So we want to do a matrix multiplication here between delta itself.",
+                "start_time": "1496.66",
+                "end_time": "1504.819"
+            },
+            {
+                "id": 109,
+                "transcript": "And",
+                "start_time": "1505.329",
+                "end_time": "1506.3"
+            },
+            {
+                "id": 110,
+                "transcript": "we want to do that with the with the weights with the weight matrix.",
+                "start_time": "1507.13",
+                "end_time": "1513.53"
+            },
+            {
+                "id": 111,
+                "transcript": "So it's this guy here",
+                "start_time": "1514.699",
+                "end_time": "1516.959"
+            },
+            {
+                "id": 112,
+                "transcript": "uh for the I uh layer and here we need like to do just like the transpose uh matrix for that.",
+                "start_time": "1517.579",
+                "end_time": "1526.239"
+            },
+            {
+                "id": 113,
+                "transcript": "Uh cool. So now this error here is basically all of this guy here.",
+                "start_time": "1527.229",
+                "end_time": "1532.979"
+            },
+            {
+                "id": 114,
+                "transcript": "So",
+                "start_time": "1534.709",
+                "end_time": "1535.51"
+            },
+            {
+                "id": 115,
+                "transcript": "now that we are here, you'll see that we are just like gonna start another loop and we are going down with I. So if the first time it was like, I equal two, now we're going for I equal one. So we are gonna do the derivatives for W one,",
+                "start_time": "1536.42",
+                "end_time": "1552.9"
+            },
+            {
+                "id": 116,
+                "transcript": "right? And so uh now we're just gonna do like the same thing once again. Uh But uh this time we have our error and our error is given by all of this guy here, which we calculated in the previous passage in the previous um iteration.",
+                "start_time": "1553.599",
+                "end_time": "1572.15"
+            },
+            {
+                "id": 117,
+                "transcript": "And now we are calculating delta uh which this time around is gonna be like this guy. And then we are gonna calculate uh this derivative here by doing the matrix multiplication between the current activations and which are like which is this and the delta reshaped like over here. Nice. And so now we can",
+                "start_time": "1572.359",
+                "end_time": "1599.739"
+            },
+            {
+                "id": 118,
+                "transcript": "go all the way back until we are like at the input level. So I know like this was like a little bit, I would say like more difficult to understand than like a simple case where we have like hard wired or like layers. But with this back propagation, we can have potentially infinite layers. And this back pro back propagate method is gonna work for all of them. Nice.",
+                "start_time": "1600.05",
+                "end_time": "1625.569"
+            },
+            {
+                "id": 119,
+                "transcript": "So now as the final thing, we could potentially return uh the error which in this case is going to be the error back propagated all the way back to the input layer",
+                "start_time": "1625.78",
+                "end_time": "1637.64"
+            },
+            {
+                "id": 120,
+                "transcript": "good.",
+                "start_time": "1638.239",
+                "end_time": "1638.89"
+            },
+            {
+                "id": 121,
+                "transcript": "OK. So this was uh like back propagation. So I suggest now like we uh do uh try to like run the code up until like what we've done uh like now to see like if everything is OK? Because we may have like some bugs because we don't know.",
+                "start_time": "1639.739",
+                "end_time": "1657.579"
+            },
+            {
+                "id": 122,
+                "transcript": "Right. So OK. So first of all,",
+                "start_time": "1658.16",
+                "end_time": "1662.739"
+            },
+            {
+                "id": 123,
+                "transcript": "yeah, let me",
+                "start_time": "1663.38",
+                "end_time": "1664.589"
+            },
+            {
+                "id": 124,
+                "transcript": "to",
+                "start_time": "1665.319",
+                "end_time": "1666.13"
+            },
+            {
+                "id": 125,
+                "transcript": "this if name is equal to main. And so here we are like ensuring that we run this like as the main script uh good. So what do we want to do here? Well, uh first of all, uh we want to um create uh an M LP,",
+                "start_time": "1667.349",
+                "end_time": "1687.77"
+            },
+            {
+                "id": 126,
+                "transcript": "it's a multi layer uh perception and then we want to Yeah. Yeah, let's just like create a dummy,",
+                "start_time": "1689.54",
+                "end_time": "1698.0"
+            },
+            {
+                "id": 127,
+                "transcript": "data domain, inputs and targets and then we're gonna pass uh this data so to forward propagate. Uh So we, we'll do like a forward uh propagation and then we'll do a back propagation",
+                "start_time": "1698.599",
+                "end_time": "1717.81"
+            },
+            {
+                "id": 128,
+                "transcript": "good.",
+                "start_time": "1718.349",
+                "end_time": "1718.949"
+            },
+            {
+                "id": 129,
+                "transcript": "OK. So let's start by creating an M LP. So that's quite simple now because we already know",
+                "start_time": "1719.489",
+                "end_time": "1727.03"
+            },
+            {
+                "id": 130,
+                "transcript": "and we have this guy here. And so let's say here we should pass the number of like um inputs, the number of hidden layers and the number of outputs. So let's do something like this. So two neurons for the input layers. So now we want only a one hidden layer which say like five neurons and then we have just one neuron for the output layer good.",
+                "start_time": "1727.41",
+                "end_time": "1751.92"
+            },
+            {
+                "id": 131,
+                "transcript": "OK. So now let's create some dummy uh data. So we'll create uh an input and this input is going to be an array where we pass in couple of numbers, right?",
+                "start_time": "1752.26",
+                "end_time": "1767.339"
+            },
+            {
+                "id": 132,
+                "transcript": "And why should we pass a couple of numbers here? Because we have like two neurons and basically each of these guys uh in the array is gonna uh go to one of the two different neurons, right? OK. So we have the input and now we want the, the target",
+                "start_time": "1768.17",
+                "end_time": "1784.42"
+            },
+            {
+                "id": 133,
+                "transcript": "and the target is gonna be",
+                "start_time": "1785.13",
+                "end_time": "1789.3"
+            },
+            {
+                "id": 134,
+                "transcript": "uh itself a a an array and uh let's say 0.3. So you probably are seeing what I'm doing here. So I'm expecting a the sum like of these two numbers, right? So I hope like my network is gonna uh like learn how to do the sum operation. And yeah, that's what we are gonna use like as a uh as a task dummy like toy task like for uh this video",
+                "start_time": "1790.01",
+                "end_time": "1817.52"
+            },
+            {
+                "id": 135,
+                "transcript": "good. So, but here just we have just a single input and a single target. That's all we need uh for now. So what should we do now? Well, Uh First of all, we should do an M LP dot forward propagate and we want to pass the input in. And so we'll pass this guy here and then we'll do a back uh propagation here. So M LP dot",
+                "start_time": "1817.959",
+                "end_time": "1846.66"
+            },
+            {
+                "id": 136,
+                "transcript": "back propagate and obviously, we are expecting an output over here",
+                "start_time": "1847.01",
+                "end_time": "1854.26"
+            },
+            {
+                "id": 137,
+                "transcript": "uh which is basically like the, the uh after like all the computation has been done uh like on the inputs we're getting like the prediction, which is this output. Well, uh I forgot to mention one step here uh before doing back propagation. And you should know by now what that step should be and it's calculates uh the error, right? So, and how do we calculate the error? So, well, we calculate the error doing a target",
+                "start_time": "1854.959",
+                "end_time": "1883.439"
+            },
+            {
+                "id": 138,
+                "transcript": "minus the oh",
+                "start_time": "1884.38",
+                "end_time": "1887.15"
+            },
+            {
+                "id": 139,
+                "transcript": "the output.",
+                "start_time": "1887.959",
+                "end_time": "1888.949"
+            },
+            {
+                "id": 140,
+                "transcript": "And then when we do uh back propagation, we'll just pass in the error, right?",
+                "start_time": "1890.219",
+                "end_time": "1898.17"
+            },
+            {
+                "id": 141,
+                "transcript": "OK.",
+                "start_time": "1899.03",
+                "end_time": "1899.76"
+            },
+            {
+                "id": 142,
+                "transcript": "So uh let's try to see if uh we get what we expect uh from uh back propagation. So",
+                "start_time": "1900.31",
+                "end_time": "1910.18"
+            },
+            {
+                "id": 143,
+                "transcript": "I'd say",
+                "start_time": "1911.18",
+                "end_time": "1912.239"
+            },
+            {
+                "id": 144,
+                "transcript": "what we could do here is we could",
+                "start_time": "1913.18",
+                "end_time": "1917.15"
+            },
+            {
+                "id": 145,
+                "transcript": "uh",
+                "start_time": "1918.04",
+                "end_time": "1918.75"
+            },
+            {
+                "id": 146,
+                "transcript": "have for the timing, a verbose",
+                "start_time": "1919.319",
+                "end_time": "1923.89"
+            },
+            {
+                "id": 147,
+                "transcript": "argument which will set as false initially. And then we say",
+                "start_time": "1925.089",
+                "end_time": "1931.339"
+            },
+            {
+                "id": 148,
+                "transcript": "if the boys,",
+                "start_time": "1932.02",
+                "end_time": "1934.229"
+            },
+            {
+                "id": 149,
+                "transcript": "so if we are in verbose merge, then we want to print",
+                "start_time": "1935.069",
+                "end_time": "1938.359"
+            },
+            {
+                "id": 150,
+                "transcript": "uh what do we want to print here? Well, we want to print the uh derivatives that we've calculated uh like uh for like a specific weight matrix. So how do we do that? Well, uh we do that by saying",
+                "start_time": "1939.849",
+                "end_time": "1956.959"
+            },
+            {
+                "id": 151,
+                "transcript": "uh derivatives",
+                "start_time": "1958.209",
+                "end_time": "1960.55"
+            },
+            {
+                "id": 152,
+                "transcript": "four",
+                "start_time": "1962.459",
+                "end_time": "1963.449"
+            },
+            {
+                "id": 153,
+                "transcript": "W",
+                "start_time": "1966.13",
+                "end_time": "1966.989"
+            },
+            {
+                "id": 154,
+                "transcript": "and then here we'll say",
+                "start_time": "1967.739",
+                "end_time": "1970.88"
+            },
+            {
+                "id": 155,
+                "transcript": "uh I,",
+                "start_time": "1971.489",
+                "end_time": "1972.65"
+            },
+            {
+                "id": 156,
+                "transcript": "and yeah, and I think like we are like uh",
+                "start_time": "1973.78",
+                "end_time": "1977.699"
+            },
+            {
+                "id": 157,
+                "transcript": "uh this is, this is equal",
+                "start_time": "1978.39",
+                "end_time": "1983.0"
+            },
+            {
+                "id": 158,
+                "transcript": "two",
+                "start_time": "1983.589",
+                "end_time": "1984.4"
+            },
+            {
+                "id": 159,
+                "transcript": "uh",
+                "start_time": "1985.93",
+                "end_time": "1986.319"
+            },
+            {
+                "id": 160,
+                "transcript": "uh to this uh self derivatives calculated in I good.",
+                "start_time": "1986.969",
+                "end_time": "1992.92"
+            },
+            {
+                "id": 161,
+                "transcript": "OK. Cool. So fingers crossed, this should work until like we've made some mistakes in the process. So let's see if this works.",
+                "start_time": "1993.729",
+                "end_time": "2003.069"
+            },
+            {
+                "id": 162,
+                "transcript": "Yeah.",
+                "start_time": "2004.91",
+                "end_time": "2005.699"
+            },
+            {
+                "id": 163,
+                "transcript": "Well, obviously I've run this but I should pass in the verbose",
+                "start_time": "2007.5",
+                "end_time": "2013.939"
+            },
+            {
+                "id": 164,
+                "transcript": "uh equals true. Like if you, if you want to see like something coming up.",
+                "start_time": "2014.55",
+                "end_time": "2018.979"
+            },
+            {
+                "id": 165,
+                "transcript": "So let's say this. Oh Nice, nice.",
+                "start_time": "2019.56",
+                "end_time": "2022.68"
+            },
+            {
+                "id": 166,
+                "transcript": "So what do we have here? So we have the derivatives for W one. And indeed, we are expecting this structure like for like this matrix which is like uh basically five by one. So it's just like a column",
+                "start_time": "2023.219",
+                "end_time": "2040.06"
+            },
+            {
+                "id": 167,
+                "transcript": "matrix. And why is that the case? Well, because we have five neurons like in the, in this hidden layer and just like one neuron here like as the uh output layer. And so we expect like a five by one matrix there for W",
+                "start_time": "2040.31",
+                "end_time": "2058.37"
+            },
+            {
+                "id": 168,
+                "transcript": "uh one, right? So now for W zero over here, which is gonna be like between like the input layer and the, and the first hidden layer or the only hidden layer. So we are expecting a matrix which should be",
+                "start_time": "2058.878",
+                "end_time": "2079.148"
+            },
+            {
+                "id": 169,
+                "transcript": "and we have it here uh two by five. And indeed we have it. So as you see it here, we have like five different values for each row. And that's like what we were expecting. So we are like on, on, on the right path here, but it ain't finished yet. So we, we should keep like moving on.",
+                "start_time": "2080.01",
+                "end_time": "2101.699"
+            },
+            {
+                "id": 170,
+                "transcript": "And so what we've done so far is we've activated. So we saved the activations and the derivatives, we've implemented back propagation. Now, we need to implement guardian descent. But I promise this is gonna be like way, way faster than back propagation because it's quite straightforward. So good. OK. So let's move on uh with uh a new method which will call gradient uh the scent.",
+                "start_time": "2102.03",
+                "end_time": "2131.79"
+            },
+            {
+                "id": 171,
+                "transcript": "And here,",
+                "start_time": "2132.26",
+                "end_time": "2133.889"
+            },
+            {
+                "id": 172,
+                "transcript": "so we need to pass an argument. This is called the learning rate. And we've seen this in the last video and this is like the, the size of the step we want to take against the gradient uh just like to optimize uh our uh error function, right?",
+                "start_time": "2134.439",
+                "end_time": "2152.51"
+            },
+            {
+                "id": 173,
+                "transcript": "Uh good. So now, what should we do?",
+                "start_time": "2153.189",
+                "end_time": "2158.62"
+            },
+            {
+                "id": 174,
+                "transcript": "Well,",
+                "start_time": "2159.57",
+                "end_time": "2160.479"
+            },
+            {
+                "id": 175,
+                "transcript": "uh so now we should go loop through all the weights.",
+                "start_time": "2160.989",
+                "end_time": "2167.35"
+            },
+            {
+                "id": 176,
+                "transcript": "And so we're gonna do that by doing a four loop in, we could say on a range L",
+                "start_time": "2167.959",
+                "end_time": "2177.6"
+            },
+            {
+                "id": 177,
+                "transcript": "of self dot uh weights. So we are going through like all the uh different, sorry, different weight mattresses. And then we can say that the weight uh weight mattress matrix for",
+                "start_time": "2178.51",
+                "end_time": "2195.409"
+            },
+            {
+                "id": 178,
+                "transcript": "bye",
+                "start_time": "2196.34",
+                "end_time": "2196.55"
+            },
+            {
+                "id": 179,
+                "transcript": "the current layer over here. It's gonna be self weights calculated uh like N I and we can do like the the sa me thing uh with derivatives. So we'll just change this to.",
+                "start_time": "2197.36",
+                "end_time": "2213.55"
+            },
+            {
+                "id": 180,
+                "transcript": "And so basically we are getting uh we are retrieving the weights and the relative derivatives for a given layer, right? And so what we want to do here is to update the weights and to update the weights. If you guys remember if you're good students, you may, you should know this by now because we've covered this last in the last video. But what we should do here is",
+                "start_time": "2214.679",
+                "end_time": "2239.929"
+            },
+            {
+                "id": 181,
+                "transcript": "uh taking the weights and um we should",
+                "start_time": "2240.209",
+                "end_time": "2245.07"
+            },
+            {
+                "id": 182,
+                "transcript": "add to the weight, the derivatives",
+                "start_time": "2245.719",
+                "end_time": "2250.54"
+            },
+            {
+                "id": 183,
+                "transcript": "multiplied by the learning rate. Nice. So let's rewrite this in a more compact way. And so we can just like",
+                "start_time": "2251.08",
+                "end_time": "2261.229"
+            },
+            {
+                "id": 184,
+                "transcript": "do this. It's the same thing. So we are uh oops sorry. Yeah. So we are uh adding the",
+                "start_time": "2261.78",
+                "end_time": "2271.05"
+            },
+            {
+                "id": 185,
+                "transcript": "this color multiplication of like learning rate, um derivatives to weights. And so these are weights and derivatives are two matrices like with the uh with the same dimensions, right? And so we are just like adding them up once we've tweaked the derivatives by dec decide by applying the learning rate",
+                "start_time": "2271.85",
+                "end_time": "2291.219"
+            },
+            {
+                "id": 186,
+                "transcript": "good. And so here we have done",
+                "start_time": "2291.739",
+                "end_time": "2294.939"
+            },
+            {
+                "id": 187,
+                "transcript": "uh so we, we, we now have like also gradient descent which is great. So now let's go back to uh like our script here. So we've done back propagation. So the next thing we want to do is we want to apply gradient descent good. So how do we do that? Well, now that we have our uh gradient descent method, this is gonna be super simple to do. So",
+                "start_time": "2295.659",
+                "end_time": "2325.179"
+            },
+            {
+                "id": 188,
+                "transcript": "we pass in",
+                "start_time": "2325.51",
+                "end_time": "2326.57"
+            },
+            {
+                "id": 189,
+                "transcript": "uh a learning rate. And let's say we want to, to pass in 0.1 for example, as our learning rate good. OK. But uh let's see if gradient descent uh like is working properly. And so for doing that, uh I would come here and I would like to",
+                "start_time": "2327.35",
+                "end_time": "2346.55"
+            },
+            {
+                "id": 190,
+                "transcript": "uh print,",
+                "start_time": "2347.81",
+                "end_time": "2349.229"
+            },
+            {
+                "id": 191,
+                "transcript": "yeah, let's do it here.",
+                "start_time": "2350.05",
+                "end_time": "2351.409"
+            },
+            {
+                "id": 192,
+                "transcript": "So let's do a print. We'll print the",
+                "start_time": "2352.07",
+                "end_time": "2356.53"
+            },
+            {
+                "id": 193,
+                "transcript": "uh weights.",
+                "start_time": "2358.01",
+                "end_time": "2360.34"
+            },
+            {
+                "id": 194,
+                "transcript": "So we'll, we'll do a w",
+                "start_time": "2363.129",
+                "end_time": "2366.629"
+            },
+            {
+                "id": 195,
+                "transcript": "and I'll go to format and we'll pass in.",
+                "start_time": "2369.1",
+                "end_time": "2375.159"
+            },
+            {
+                "id": 196,
+                "transcript": "I, and then here we want actually",
+                "start_time": "2376.159",
+                "end_time": "2380.35"
+            },
+            {
+                "id": 197,
+                "transcript": "to pass the oops, sorry. So we ah damn. So I, and here we have the, the weights and so we, we want to pass this in and this is uh yeah, let's call them original.",
+                "start_time": "2380.919",
+                "end_time": "2395.84"
+            },
+            {
+                "id": 198,
+                "transcript": "Um",
+                "start_time": "2397.08",
+                "end_time": "2397.53"
+            },
+            {
+                "id": 199,
+                "transcript": "W so these are like the original weights and then we can take this and after. So let's, let's, let's put some new lines here because like this is becoming like a mess, right? So here we, we take the, we retrieve the weights, we print them then uh we retrieve the derivatives, we uh apply like a gradient descent to the weights. And now we have the updated",
+                "start_time": "2398.879",
+                "end_time": "2425.629"
+            },
+            {
+                "id": 200,
+                "transcript": "oops, here we go dated uh weights",
+                "start_time": "2426.479",
+                "end_time": "2429.83"
+            },
+            {
+                "id": 201,
+                "transcript": "and uh yeah. And so we have like these weights which now should be different. So let's say like if this is working,",
+                "start_time": "2430.469",
+                "end_time": "2438.02"
+            },
+            {
+                "id": 202,
+                "transcript": "OK. So now I'd say we don't want um",
+                "start_time": "2438.689",
+                "end_time": "2443.37"
+            },
+            {
+                "id": 203,
+                "transcript": "to print this because otherwise we're gonna have like a mess. So let's try this and see. OK. So",
+                "start_time": "2444.889",
+                "end_time": "2453.53"
+            },
+            {
+                "id": 204,
+                "transcript": "uh we have,",
+                "start_time": "2454.07",
+                "end_time": "2455.84"
+            },
+            {
+                "id": 205,
+                "transcript": "yeah. Right. There's a difference but it's so take like for example this, right? That, that's like the uh the first. So element 00 of like W zero and element 00 of like W zero here, like after we've applied it and as you can see like they are slightly different but the difference like it's quite minimal because like we have like a small learning rate. So if we change this learning rate and we put it like as one, so",
+                "start_time": "2459.08",
+                "end_time": "2488.709"
+            },
+            {
+                "id": 206,
+                "transcript": "this should be like quite bigger.",
+                "start_time": "2489.169",
+                "end_time": "2491.56"
+            },
+            {
+                "id": 207,
+                "transcript": "Yeah. So yeah,",
+                "start_time": "2494.06",
+                "end_time": "2496.09"
+            },
+            {
+                "id": 208,
+                "transcript": "you, you can see it from here like w one here like the, the first element here uh like it's uh 0.8 and here",
+                "start_time": "2497.209",
+                "end_time": "2506.669"
+            },
+            {
+                "id": 209,
+                "transcript": "uh in the updated W one like the first element is 0.76. So basically uh grading the center is working properly and this is great news nice. Uh But now we actually really don't need this like uh at all. Yeah. Yeah, because I mean like it was just like for showing whether like we this was working. So let's remove that nice.",
+                "start_time": "2507.34",
+                "end_time": "2531.5"
+            },
+            {
+                "id": 210,
+                "transcript": "So now what's what remains to do here? So we've implemented gradient descent. Now we should implement the train method nice. So back propagate gradient descent and now let's do train.",
+                "start_time": "2531.989",
+                "end_time": "2547.82"
+            },
+            {
+                "id": 211,
+                "transcript": "So the train method is gonna have",
+                "start_time": "2548.679",
+                "end_time": "2553.879"
+            },
+            {
+                "id": 212,
+                "transcript": "uh oops, there's a mistake here,",
+                "start_time": "2555.239",
+                "end_time": "2557.29"
+            },
+            {
+                "id": 213,
+                "transcript": "are you?",
+                "start_time": "2558.05",
+                "end_time": "2558.669"
+            },
+            {
+                "id": 214,
+                "transcript": "Yeah, here we go.",
+                "start_time": "2559.27",
+                "end_time": "2560.08"
+            },
+            {
+                "id": 215,
+                "transcript": "Uh The train method is gonna uh have a bunch of different arguments. So first of all, we want some inputs, then uh we want uh targets",
+                "start_time": "2560.639",
+                "end_time": "2574.239"
+            },
+            {
+                "id": 216,
+                "transcript": "and uh these inputs and targets are our training set uh which uh like our X is like in Y basically. And then we want uh epics and I'll explain what an epic is in a second. And then we want the learning rate, right?",
+                "start_time": "2575.239",
+                "end_time": "2592.209"
+            },
+            {
+                "id": 217,
+                "transcript": "Good. OK. So what should we do for training? Well, if you guys remember? So uh we, we pass all the inputs like one by one to the network, we fit it and then the network does some uh forward propagation and then back propagation. Uh But then once we've passed all of the um elements, all of the samples like in the, in the inputs",
+                "start_time": "2593.479",
+                "end_time": "2621.229"
+            },
+            {
+                "id": 218,
+                "transcript": "uh in the training set, we've finished an epoch. So the number of epics tells us basically how many times we want to feed the whole data set to uh the uh to the neural network with the idea that the more times we do this and hopefully like the more like the network is going to be able to make better predictions. So,",
+                "start_time": "2621.489",
+                "end_time": "2646.459"
+            },
+            {
+                "id": 219,
+                "transcript": "uh basically, what we need to do is like uh go through all the, the Epics and so look through the number of epics. And so, so let's say for i in a range",
+                "start_time": "2646.679",
+                "end_time": "2659.969"
+            },
+            {
+                "id": 220,
+                "transcript": "Epics",
+                "start_time": "2660.6",
+                "end_time": "2661.479"
+            },
+            {
+                "id": 221,
+                "transcript": "And so here",
+                "start_time": "2662.989",
+                "end_time": "2665.199"
+            },
+            {
+                "id": 222,
+                "transcript": "we should do",
+                "start_time": "2666.09",
+                "end_time": "2667.939"
+            },
+            {
+                "id": 223,
+                "transcript": "uh so we should do really like a bunch of different things. So first of all, we should take",
+                "start_time": "2668.729",
+                "end_time": "2676.09"
+            },
+            {
+                "id": 224,
+                "transcript": "the,",
+                "start_time": "2677.5",
+                "end_time": "2678.33"
+            },
+            {
+                "id": 225,
+                "transcript": "so we should go through like all the inputs and uh the uh the uh the targets are like one by one. So how are we gonna do this? Well, uh there's like a nice trick we can use here and we could say,",
+                "start_time": "2679.699",
+                "end_time": "2694.29"
+            },
+            {
+                "id": 226,
+                "transcript": "uh yell at me just like write this and I'll explain what this is in a second. So for J input target in",
+                "start_time": "2695.3",
+                "end_time": "2702.59"
+            },
+            {
+                "id": 227,
+                "transcript": "and now we do an a numerate and then we do a zip over here and we pass in the inputs and we pass in the targets. Cool.",
+                "start_time": "2703.149",
+                "end_time": "2715.3"
+            },
+            {
+                "id": 228,
+                "transcript": "So this is like a very compact way of like getting uh like",
+                "start_time": "2715.939",
+                "end_time": "2722.129"
+            },
+            {
+                "id": 229,
+                "transcript": "inputs targets one by one and, and, and it's like this input and target and also getting like the index that we are unpacking. So zip unpacks like this two different lists, inputs and targets and give us like elements one by one for input and for targets. And then if we apply a numeration on top of that, we both get these the values themselves and uh the index that we are unpacking good. So",
+                "start_time": "2722.389",
+                "end_time": "2750.54"
+            },
+            {
+                "id": 230,
+                "transcript": "yeah, this is like a nice trick. Uh Cool. So now what should we do? Well, uh we've partially done a bunch of these things already. So uh let's take these guys here, right? So, and we'll uh move them",
+                "start_time": "2750.75",
+                "end_time": "2766.85"
+            },
+            {
+                "id": 231,
+                "transcript": "here",
+                "start_time": "2768.02",
+                "end_time": "2768.62"
+            },
+            {
+                "id": 232,
+                "transcript": "say",
+                "start_time": "2769.51",
+                "end_time": "2770.169"
+            },
+            {
+                "id": 233,
+                "transcript": "what do we want to do? Well,",
+                "start_time": "2770.679",
+                "end_time": "2772.28"
+            },
+            {
+                "id": 234,
+                "transcript": "first thing we want to apply some forward propagation",
+                "start_time": "2773.81",
+                "end_time": "2777.81"
+            },
+            {
+                "id": 235,
+                "transcript": "but this is not gonna be M LP but it, this is gonna be a self. So we do forward propagate on the input, then we calculate the error and uh this is gonna be the target minus the output and then we apply some back propagation. But this again is gonna be like a self back propagate and we pass in uh the error and then we apply gradient, the sound.",
+                "start_time": "2779.29",
+                "end_time": "2805.05"
+            },
+            {
+                "id": 236,
+                "transcript": "Uh here we go",
+                "start_time": "2806.86",
+                "end_time": "2809.04"
+            },
+            {
+                "id": 237,
+                "transcript": "change M LP for itself and the learning rate. Uh Yeah, we already have it here.",
+                "start_time": "2809.679",
+                "end_time": "2816.919"
+            },
+            {
+                "id": 238,
+                "transcript": "Oh By the way, I noticed there's a mistake over here. So it's not uh for I in range apex but is in the length.",
+                "start_time": "2818.419",
+                "end_time": "2827.57"
+            },
+            {
+                "id": 239,
+                "transcript": "Oh No, sorry, I was right. I thought like for a, for a second that apex was a, was a list. It's just an integer. So it's fine, good. OK. Uh cool. So we have uh grade in the sand and we've uh applied uh grade in the sand. So",
+                "start_time": "2828.75",
+                "end_time": "2847.61"
+            },
+            {
+                "id": 240,
+                "transcript": "now one last thing that we want to do is to report",
+                "start_time": "2848.36",
+                "end_time": "2853.61"
+            },
+            {
+                "id": 241,
+                "transcript": "the error for each epoch so that we can see whether we are uh improving. So how do we do that? Well, first of all, we want to um initialize some error uh variable over here and we'll initialize that obviously, that's a zero. And then at the end of each um",
+                "start_time": "2855.61",
+                "end_time": "2877.57"
+            },
+            {
+                "id": 242,
+                "transcript": "like a training session like for, for uh for each input, we are uh gonna calculate this some error and we'll add to some error. What are we gonna add? So we're gonna add",
+                "start_time": "2877.77",
+                "end_time": "2893.75"
+            },
+            {
+                "id": 243,
+                "transcript": "self dot",
+                "start_time": "2894.419",
+                "end_time": "2896.969"
+            },
+            {
+                "id": 244,
+                "transcript": "MS E",
+                "start_time": "2898.199",
+                "end_time": "2899.469"
+            },
+            {
+                "id": 245,
+                "transcript": "and uh we'll pass the target",
+                "start_time": "2900.239",
+                "end_time": "2904.399"
+            },
+            {
+                "id": 246,
+                "transcript": "and the",
+                "start_time": "2905.33",
+                "end_time": "2906.85"
+            },
+            {
+                "id": 247,
+                "transcript": "output",
+                "start_time": "2907.37",
+                "end_time": "2908.1"
+            },
+            {
+                "id": 248,
+                "transcript": "good. So what's this, MS E here? So this is the M squared uh error, right? And so we don't have this uh function, this method already. And so we need to build it. So let's implement it down here. So we'll do the MS E self and we'll pass in target",
+                "start_time": "2908.86",
+                "end_time": "2930.61"
+            },
+            {
+                "id": 249,
+                "transcript": "and the output. And so, so it's not MS R, it's MS E so M squared error. So, and what is this? So how do we calculate this? Well, this is basically the average of the, the squared error, right? And so we can use a native um uh method from NP it's called average super handy. And we'll",
+                "start_time": "2931.629",
+                "end_time": "2958.02"
+            },
+            {
+                "id": 250,
+                "transcript": "basically rewrite this uh like this. So we'll do the average of the target minus the output and we want to square this. So we'll do this, right? And so this is the",
+                "start_time": "2958.179",
+                "end_time": "2974.989"
+            },
+            {
+                "id": 251,
+                "transcript": "or",
+                "start_time": "2975.51",
+                "end_time": "2976.28"
+            },
+            {
+                "id": 252,
+                "transcript": "uh means squared error",
+                "start_time": "2977.06",
+                "end_time": "2978.669"
+            },
+            {
+                "id": 253,
+                "transcript": "nice. So now we have a, an error that's accumulating like at every step that we take like in our training and, and we want to report it like at the end of an epoch,",
+                "start_time": "2979.31",
+                "end_time": "2992.02"
+            },
+            {
+                "id": 254,
+                "transcript": "right? And so how do we uh do that? Right. So we'll",
+                "start_time": "2992.6",
+                "end_time": "3000.31"
+            },
+            {
+                "id": 255,
+                "transcript": "um we'll do that",
+                "start_time": "3001.649",
+                "end_time": "3004.219"
+            },
+            {
+                "id": 256,
+                "transcript": "by",
+                "start_time": "3006.08",
+                "end_time": "3007.149"
+            },
+            {
+                "id": 257,
+                "transcript": "uh yes. So we'll just like do a print over here",
+                "start_time": "3008.199",
+                "end_time": "3013.739"
+            },
+            {
+                "id": 258,
+                "transcript": "and uh will write uh error",
+                "start_time": "3014.459",
+                "end_time": "3019.77"
+            },
+            {
+                "id": 259,
+                "transcript": "and we'll say error is equal to something at epoch",
+                "start_time": "3023.0",
+                "end_time": "3028.86"
+            },
+            {
+                "id": 260,
+                "transcript": "and we'll have the",
+                "start_time": "3029.949",
+                "end_time": "3032.439"
+            },
+            {
+                "id": 261,
+                "transcript": "epoch over here.",
+                "start_time": "3033.79",
+                "end_time": "3035.29"
+            },
+            {
+                "id": 262,
+                "transcript": "Cool. And so we'll do a format and uh we'll pass in for the error, some",
+                "start_time": "3036.449",
+                "end_time": "3046.07"
+            },
+            {
+                "id": 263,
+                "transcript": "error",
+                "start_time": "3046.75",
+                "end_time": "3047.8"
+            },
+            {
+                "id": 264,
+                "transcript": "uh divided uh by the",
+                "start_time": "3048.79",
+                "end_time": "3052.57"
+            },
+            {
+                "id": 265,
+                "transcript": "length of the",
+                "start_time": "3053.419",
+                "end_time": "3055.27"
+            },
+            {
+                "id": 266,
+                "transcript": "inputs,",
+                "start_time": "3057.409",
+                "end_time": "3058.31"
+            },
+            {
+                "id": 267,
+                "transcript": "right? Because this way, we are basically like uh normalizing that. And um what we also want to do is we want to pass",
+                "start_time": "3059.84",
+                "end_time": "3071.399"
+            },
+            {
+                "id": 268,
+                "transcript": "um the number of epochs. So in this case is I, right? So let me just double check if it's all good over here. So we have this format. Yeah, this is not working.",
+                "start_time": "3074.36",
+                "end_time": "3090.79"
+            },
+            {
+                "id": 269,
+                "transcript": "OK. So yeah, so we have the first argument. That's this one here and then we have",
+                "start_time": "3093.669",
+                "end_time": "3099.5"
+            },
+            {
+                "id": 270,
+                "transcript": "I",
+                "start_time": "3100.03",
+                "end_time": "3100.949"
+            },
+            {
+                "id": 271,
+                "transcript": "and this yeah, closes the format which yeah, so this should be fine now.",
+                "start_time": "3101.909",
+                "end_time": "3108.01"
+            },
+            {
+                "id": 272,
+                "transcript": "Uh Good.",
+                "start_time": "3109.06",
+                "end_time": "3110.129"
+            },
+            {
+                "id": 273,
+                "transcript": "OK. So now I think we have all the elements uh if I'm not uh",
+                "start_time": "3110.679",
+                "end_time": "3117.159"
+            },
+            {
+                "id": 274,
+                "transcript": "if I'm mistaken, we have all the elements in place for doing a run",
+                "start_time": "3117.689",
+                "end_time": "3122.719"
+            },
+            {
+                "id": 275,
+                "transcript": "of our um uh neural network good. So, but before doing that, I just want to, to, to double check of things because like, I did this like, I did like this fancy thing here, but I'm not using like j uh like anywhere. So I don't really think like we're gonna need uh like this J uh Yeah. Yeah, I didn't see a point here. So, yeah,",
+                "start_time": "3123.37",
+                "end_time": "3150.899"
+            },
+            {
+                "id": 276,
+                "transcript": "well, at least like you've learned a trick, but it's not really needed. So we'll just like simplify this and we'll just drop this and numerate um like that, right? So now, now this uh should work properly good. OK. So, uh now",
+                "start_time": "3151.209",
+                "end_time": "3170.27"
+            },
+            {
+                "id": 277,
+                "transcript": "uh let's go back to our tasks. So we, we basically did all of these things here. So now we want to train our nets with some dummy uh data set and then make some predictions. OK? So let's go back here. So now we are back like in the, in the scripts. OK. So we've already created uh an M LP. And uh now we want to",
+                "start_time": "3170.469",
+                "end_time": "3195.27"
+            },
+            {
+                "id": 278,
+                "transcript": "uh train",
+                "start_time": "3196.11",
+                "end_time": "3197.59"
+            },
+            {
+                "id": 279,
+                "transcript": "uh our M LP.",
+                "start_time": "3199.979",
+                "end_time": "3201.469"
+            },
+            {
+                "id": 280,
+                "transcript": "And how do we do that? Well, we do M LP dot train.",
+                "start_time": "3202.629",
+                "end_time": "3206.889"
+            },
+            {
+                "id": 281,
+                "transcript": "Uh we need to pass in the inputs, the targets, then uh we need to pass the number of epics, let's say 50 for example, and the learning rate, let's say 0.1. And uh yeah, and we need some dummy data. So for the inputs and uh for uh the targets. Now,",
+                "start_time": "3208.51",
+                "end_time": "3235.0"
+            },
+            {
+                "id": 282,
+                "transcript": "I want to, as I mentioned earlier, I want to",
+                "start_time": "3235.28",
+                "end_time": "3239.51"
+            },
+            {
+                "id": 283,
+                "transcript": "um train our network so that it will be able to uh to compute uh the sum operation. So I'm gonna just like copy paste a um radiation like a data set like for this. And so I, I'm not gonna like explain everything here because like this is like not the point. Uh But uh so, first of all, like we need this random function",
+                "start_time": "3240.199",
+                "end_time": "3266.389"
+            },
+            {
+                "id": 284,
+                "transcript": "and so we need to import a random here otherwise it's not gonna uh work. So we'd say from uh random import uh random. And so we have that now down here.",
+                "start_time": "3266.55",
+                "end_time": "3280.469"
+            },
+            {
+                "id": 285,
+                "transcript": "Uh Yeah, which is good.",
+                "start_time": "3281.379",
+                "end_time": "3282.75"
+            },
+            {
+                "id": 286,
+                "transcript": "OK. So now we should have, but uh let's call this inputs and let's call this like uh targets, right? OK. So what's the point of this? Um",
+                "start_time": "3283.379",
+                "end_time": "3295.169"
+            },
+            {
+                "id": 287,
+                "transcript": "Yeah, this fancy like list comprehensions like we had a raise and things like that. Well, basically this is going to be an array",
+                "start_time": "3295.8",
+                "end_time": "3304.03"
+            },
+            {
+                "id": 288,
+                "transcript": "uh where we have uh so something like this. So this is gonna be like a nr A uh where we have",
+                "start_time": "3305.219",
+                "end_time": "3317.699"
+            },
+            {
+                "id": 289,
+                "transcript": "this type of structure here. So say like 0.10 0.2 and then we have another",
+                "start_time": "3319.07",
+                "end_time": "3326.639"
+            },
+            {
+                "id": 290,
+                "transcript": "are we here? And so these are like each of these guys in here is gonna be a sample that we pass to forward propagation, right? And uh then we have the targets and the targets are,",
+                "start_time": "3329.129",
+                "end_time": "3345.05"
+            },
+            {
+                "id": 291,
+                "transcript": "it's similar to this, but",
+                "start_time": "3345.82",
+                "end_time": "3348.31"
+            },
+            {
+                "id": 292,
+                "transcript": "it's just like the,",
+                "start_time": "3348.82",
+                "end_time": "3350.389"
+            },
+            {
+                "id": 293,
+                "transcript": "the sum over here. So instead of having like two values, you're just gonna have one which is zero point point three in this case. And this is gonna be uh 0.7",
+                "start_time": "3350.919",
+                "end_time": "3361.26"
+            },
+            {
+                "id": 294,
+                "transcript": "uh right, this is items is not correct. So we'll just need to move it from inputs. And right, so this is fine now good. So now if everything is correct now we should be able to train our multi-layered perception from scratch. Let's see if it works.",
+                "start_time": "3361.909",
+                "end_time": "3382.219"
+            },
+            {
+                "id": 295,
+                "transcript": "Whoa This is working. And that's fantastic because we have also a very nice record over here. So we started with this error at",
+                "start_time": "3383.33",
+                "end_time": "3396.59"
+            },
+            {
+                "id": 296,
+                "transcript": "epoch uh zero.",
+                "start_time": "3397.11",
+                "end_time": "3398.8"
+            },
+            {
+                "id": 297,
+                "transcript": "And then all the way through, we went down, down, down at each epoch until we reached this",
+                "start_time": "3399.419",
+                "end_time": "3407.34"
+            },
+            {
+                "id": 298,
+                "transcript": "uh error over here. So as you see, the training is working because the error is going down. And so the the network is slowly learning to, to do something very simple, which is like the some operation someone could say, well, this is really like overkill to do like some, yeah, some but I'm in. Yeah, that's what it is, right. OK. So now we've uh we've implemented like",
+                "start_time": "3408.34",
+                "end_time": "3435.35"
+            },
+            {
+                "id": 299,
+                "transcript": "all back propagation grid and descent. We have a, an amazing mop. So now what remains to do like the last thing that we said we would do is make some predictions, right? OK. So how do we do that? So, yeah, this is uh again, uh quite simple. So yeah, let's create uh create uh dummy data.",
+                "start_time": "3435.57",
+                "end_time": "3461.949"
+            },
+            {
+                "id": 300,
+                "transcript": "And this time, let's call this input",
+                "start_time": "3462.53",
+                "end_time": "3466.02"
+            },
+            {
+                "id": 301,
+                "transcript": "and we do NP dot uh array. And here we want to pass in",
+                "start_time": "3467.0",
+                "end_time": "3474.149"
+            },
+            {
+                "id": 302,
+                "transcript": "uh let's say 0.3 and 0.1",
+                "start_time": "3475.09",
+                "end_time": "3479.61"
+            },
+            {
+                "id": 303,
+                "transcript": "good. And now we want our targets and we know that our targets should be the sum of those two numbers. So 0.4 right? And so now what we need to do is M LP,",
+                "start_time": "3480.399",
+                "end_time": "3497.889"
+            },
+            {
+                "id": 304,
+                "transcript": "tell it",
+                "start_time": "3498.419",
+                "end_time": "3499.399"
+            },
+            {
+                "id": 305,
+                "transcript": "mop dot forward propagate and then we want to pass in the input and then we expect some output, right?",
+                "start_time": "3499.969",
+                "end_time": "3510.459"
+            },
+            {
+                "id": 306,
+                "transcript": "So the idea like the, the, the, the whole like train like a for here is we have like our uh training data set, we built like our mop, we train our M LP and now we create some Demi data and we pass that in uh forward propagate so that we'll get uh like a prediction out there. So let's see how this prediction is doing.",
+                "start_time": "3512.179",
+                "end_time": "3537.3"
+            },
+            {
+                "id": 307,
+                "transcript": "And so meantime, we'll do like just a print to give us a couple of prints to, to give us like a couple of new lines and then we'll do print and we'll say",
+                "start_time": "3537.51",
+                "end_time": "3549.429"
+            },
+            {
+                "id": 308,
+                "transcript": "um",
+                "start_time": "3550.129",
+                "end_time": "3551.07"
+            },
+            {
+                "id": 309,
+                "transcript": "so let's say",
+                "start_time": "3552.36",
+                "end_time": "3554.679"
+            },
+            {
+                "id": 310,
+                "transcript": "this. So let's say our network",
+                "start_time": "3555.28",
+                "end_time": "3560.54"
+            },
+            {
+                "id": 311,
+                "transcript": "the leaves.",
+                "start_time": "3561.449",
+                "end_time": "3563.08"
+            },
+            {
+                "id": 312,
+                "transcript": "That's",
+                "start_time": "3563.709",
+                "end_time": "3564.659"
+            },
+            {
+                "id": 313,
+                "transcript": "this plus this is",
+                "start_time": "3566.33",
+                "end_time": "3569.659"
+            },
+            {
+                "id": 314,
+                "transcript": "equal",
+                "start_time": "3570.169",
+                "end_time": "3570.989"
+            },
+            {
+                "id": 315,
+                "transcript": "equal to,",
+                "start_time": "3573.479",
+                "end_time": "3575.84"
+            },
+            {
+                "id": 316,
+                "transcript": "it's",
+                "start_time": "3577.409",
+                "end_time": "3578.01"
+            },
+            {
+                "id": 317,
+                "transcript": "uh this right now, we need to pass all of this information in. So uh our beliefs that input,",
+                "start_time": "3578.79",
+                "end_time": "3589.409"
+            },
+            {
+                "id": 318,
+                "transcript": "so this is input uh zero, this is input uh one. And finally, this is uh our target, right?",
+                "start_time": "3590.1",
+                "end_time": "3603.439"
+            },
+            {
+                "id": 319,
+                "transcript": "Uh Well, no, it's not our target. Sorry, it's our output.",
+                "start_time": "3604.199",
+                "end_time": "3608.149"
+            },
+            {
+                "id": 320,
+                "transcript": "Cool, I'll put",
+                "start_time": "3609.639",
+                "end_time": "3611.78"
+            },
+            {
+                "id": 321,
+                "transcript": "calculation and zero, right? OK. So let's run this and see if our network is gonna be able uh to uh compute this, right?",
+                "start_time": "3612.459",
+                "end_time": "3624.739"
+            },
+            {
+                "id": 322,
+                "transcript": "And um right. So let's do that. And",
+                "start_time": "3625.61",
+                "end_time": "3632.449"
+            },
+            {
+                "id": 323,
+                "transcript": "let's see.",
+                "start_time": "3633.35",
+                "end_time": "3634.1"
+            },
+            {
+                "id": 324,
+                "transcript": "Nice. Super good. So we, we have it here. Nice. So our network believes that 0.3 plus 0.1 is equal to 0.3996. Nice. So this is really close to our target, which is",
+                "start_time": "3635.379",
+                "end_time": "3654.08"
+            },
+            {
+                "id": 325,
+                "transcript": "uh no 0.4 right? So this is like quite good actually. So we, we made it, we trained our network, we have this like network which is an absolute overkill for calculating like the same operation. But yeah, we made it. But apart from like the the toy application, I think like what we",
+                "start_time": "3654.399",
+                "end_time": "3672.84"
+            },
+            {
+                "id": 326,
+                "transcript": "made it here like it's quite something because we made to basically build a whole neural network, fit forward neural network, multi layer perception from scratch. And now we have all of the different elements to it. We have forward propagation,",
+                "start_time": "3673.159",
+                "end_time": "3690.669"
+            },
+            {
+                "id": 327,
+                "transcript": "we have back propagation, we have gradient descent, we know how we can train it uh everything like it's super modular because you can put like as many uh layers uh in the network as you want and you can specify as many like neurons as you want like, so that's like also like really nice. And so yeah, I think like we should just like congratulate ourselves because I guess like we know way more than most people",
+                "start_time": "3690.8",
+                "end_time": "3716.03"
+            },
+            {
+                "id": 328,
+                "transcript": "out there uh who are also like machine learning practitioners because like we know how to build a neural network, a simple neural network from scratch",
+                "start_time": "3716.199",
+                "end_time": "3725.229"
+            },
+            {
+                "id": 329,
+                "transcript": "good. So this was it for this very very long video. I hope you enjoyed it. And uh if you did please uh subscribe and hit the notification bell. So you'll just like get new videos when they are uploaded and then um for the next time, what we'll do is we're gonna basically build something very similar to this with tensorflow. And you'll see",
+                "start_time": "3725.879",
+                "end_time": "3752.56"
+            },
+            {
+                "id": 330,
+                "transcript": "that all the time that we spent like doing this. It's gonna take, I don't know, like probably 1/10 like of the, of the time and the number of like uh uh lines of code for doing that. And so yeah, we'll get into tensor flow and carrots and we'll build a simple M LP from scratch. So stay tuned and like this video and I'll see you next time. Cheers.",
+                "start_time": "3753.189",
+                "end_time": "3779.139"
+            }
+        ]
+    }
+}

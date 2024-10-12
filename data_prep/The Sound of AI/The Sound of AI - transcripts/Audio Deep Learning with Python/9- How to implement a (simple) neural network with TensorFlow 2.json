@@ -1,0 +1,542 @@
+{
+    "jobName": "transcript-job-audio-assistant",
+    "accountId": "337909742319",
+    "status": "COMPLETED",
+    "results": {
+        "transcripts": [
+            {
+                "transcript": "Hi, everybody and welcome to a new video in the Deep learning for Rodeo with Python Series. This time, we're gonna build a neural network using tensorflow um tensorflow. Is this amazing deep learning library that's like used very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right? And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So basically, like our array is going to look something like this and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right? So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP. And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool. OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning, uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning. So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less. Good. So here what we want to do is to have an X train, an X tests, a wide train and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um data set and I'll pass in a couple of arguments. So one being number of samples and the other one being test size. So here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working. And so we'll just do a if name is equal to main and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set, this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool. Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the arithmetic sum of these two guys here. So yeah, this is working great. OK. So yeah, and we want to comment out like this guys here. And now we are at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good. OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential, right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code. And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video, um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers. And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case. And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one, a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good. So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot fit and here obviously, we want to pass in the, the training set and so we'll pass in so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split. Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes. Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now. Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah, cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function. Uh um well, the loss, the error. And as you can see starting from here, it's going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation. And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well, this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one. Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here. Good, cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK. Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example, and we'll do an NP dot array and we'll pass in like this to uh like samples here. And we would expect obviously no 0.3 and no 0.4. And so, uh let's uh make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting? Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts, which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP and we'll pass in uh data and we'll pass in predictions. And here um for each of this, what we wanna do is to print. So we want to print that this plus this is equal for our network to like this element here. And so now we want to just pass this uh values in. So we'll do D zero, so D zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results cool. So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool. So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2. It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there. But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos. And uh you it would be fantastic if you could leave a like to this video and I guess if you have any questions, you can just uh leave them in the comments section below and I'll see you next time. Cheers."
+            }
+        ],
+        "audio_segments": [
+            {
+                "id": 0,
+                "transcript": "Hi, everybody and welcome to a new video in the Deep learning for Rodeo with Python Series. This time, we're gonna build a neural network using tensorflow um tensorflow. Is this amazing deep learning library that's like used",
+                "start_time": "0.0",
+                "end_time": "14.569"
+            },
+            {
+                "id": 1,
+                "transcript": "very much in the industry and also in academia and it has its own way of building and processing information and neural networks. So obviously, we're gonna follow that. So what should we do? Well, first thing that we want to do is to build",
+                "start_time": "14.939",
+                "end_time": "30.385"
+            },
+            {
+                "id": 2,
+                "transcript": "a model. So we need to build the architecture of our network. Then once we have the architecture, we want to compile the model, which basically means passing information like the error function that we want to use or like the optimizer that we want to use uh in our training uh process. Then we indeed want to train the model",
+                "start_time": "30.395",
+                "end_time": "53.049"
+            },
+            {
+                "id": 3,
+                "transcript": "and then we want to evaluate uh the model to see how well it's doing. And finally, uh we want to make some predictions, right? But before we're gonna start building the model, we need to have a data set, right?",
+                "start_time": "53.369",
+                "end_time": "69.65"
+            },
+            {
+                "id": 4,
+                "transcript": "And so for the data set, I'm gonna use like something similar. Well, actually the same artificial data set that we built in the previous video when we built uh a neural network completely from scratch in Python. So we want to have a data set uh that will enable us to train our model to perform an incredibly difficult task, the arithmetic sum. And uh so",
+                "start_time": "69.879",
+                "end_time": "98.199"
+            },
+            {
+                "id": 5,
+                "transcript": "uh for that, we're gonna need like uh to build like the inputs and the outputs and we want the inputs to be like this. So we want them to be uh NPI arrays and uh each sample is gonna be given uh by a couple of",
+                "start_time": "98.69",
+                "end_time": "121.3"
+            },
+            {
+                "id": 6,
+                "transcript": "values like this. And so these are gonna be like our inputs for a sample. And we want to basically like adapt 0.1 to 0.2 and get the results as 0.3. So",
+                "start_time": "121.55",
+                "end_time": "133.179"
+            },
+            {
+                "id": 7,
+                "transcript": "basically, like our array is going to look something like this",
+                "start_time": "133.759",
+                "end_time": "138.059"
+            },
+            {
+                "id": 8,
+                "transcript": "and our output array uh as we said is gonna be basically like the sum. So uh at index zero, like here, for example, if we add up 0.1 and 0.2 we're gonna have no 0.3 and here we want something like no 0.4 right?",
+                "start_time": "139.27",
+                "end_time": "157.22"
+            },
+            {
+                "id": 9,
+                "transcript": "So how do we build such a data set? Well, uh I've already done that like in the previous video, so I'm not gonna uh like cover that again, but uh we're basically gonna use like this couple of lines of code here. Cool uh obviously like to have this working, we need to import a nun pi. So we'll import nun pi as NP.",
+                "start_time": "157.41",
+                "end_time": "181.41"
+            },
+            {
+                "id": 10,
+                "transcript": "And uh we also need this random function uh which comes from the random module. So we can do from random import uh random. And you guys by now should know that this random function just like samples of values between zero and one afloat. Cool.",
+                "start_time": "181.77",
+                "end_time": "200.059"
+            },
+            {
+                "id": 11,
+                "transcript": "OK. But now we have all our inputs, our exits and our uh outputs or outcomes are why? Why? Uh right. But it turns out that when you are training um a model in machine learning and obviously also deep learning,",
+                "start_time": "200.649",
+                "end_time": "218.929"
+            },
+            {
+                "id": 12,
+                "transcript": "uh what you want to do is to split your data set into a training set and the test set. So you're gonna train your model on the training set. And then once you're done with that, you're gonna use the test set to evaluate how well the model is doing on some data that uh the neural network has never seen before. And why do we do that? Well, we do that because",
+                "start_time": "219.089",
+                "end_time": "243.179"
+            },
+            {
+                "id": 13,
+                "transcript": "uh we want to see whether the neural network has been able to generalize the patterns that it has learned by uh training on a data set on the training set. And so in order to do that, we need to evaluate the um model on some data that the network has never seen before. So all we need to do here is to split our",
+                "start_time": "243.19",
+                "end_time": "267.279"
+            },
+            {
+                "id": 14,
+                "transcript": "data set into some training set. And uh a test set so we could do this like from scratch. But there's a very handy function that does this like for us. So I don't want to re invent the wheel here. And that function comes from the Psych Learn library, which is a fundamental library, super important library for traditional machine learning.",
+                "start_time": "267.29",
+                "end_time": "291.39"
+            },
+            {
+                "id": 15,
+                "transcript": "So let me import that function. So I I'll do from psychic learn dot model selection imports and that's called train test split. So if you don't have psychic learn installed on your machine, just pip install it. It's gonna take you probably 30 seconds or less.",
+                "start_time": "291.589",
+                "end_time": "314.45"
+            },
+            {
+                "id": 16,
+                "transcript": "Good. So here what we want to do is to have an X train,",
+                "start_time": "315.049",
+                "end_time": "323.95"
+            },
+            {
+                "id": 17,
+                "transcript": "an X tests, a wide train",
+                "start_time": "324.809",
+                "end_time": "329.529"
+            },
+            {
+                "id": 18,
+                "transcript": "and A Y test. And here we're gonna call the train test split function and as arguments we're gonna pass in our inputs and outputs and we are gonna specify the test size",
+                "start_time": "330.179",
+                "end_time": "345.829"
+            },
+            {
+                "id": 19,
+                "transcript": "and say we, we, we pass in 0.3. So basically what we are seeing here is that uh our training set is gonna be uh 30% of our whole data set of all the samples that we have in our inputs and outputs. Right? Cool. And so with this function, basically, we are dividing up our data set into a train set and a uh test set and we're gonna have both um",
+                "start_time": "346.109",
+                "end_time": "374.95"
+            },
+            {
+                "id": 20,
+                "transcript": "XS and Ys, right? And we can easily access them, right? But I don't like this very much because I want it to be a little bit like more modular. And in order to do that, I can define a function which I'll call, generate um",
+                "start_time": "375.54",
+                "end_time": "392.2"
+            },
+            {
+                "id": 21,
+                "transcript": "data set",
+                "start_time": "393.26",
+                "end_time": "394.359"
+            },
+            {
+                "id": 22,
+                "transcript": "and I'll pass in a couple of arguments. So one being number of samples and the other one being test size.",
+                "start_time": "395.459",
+                "end_time": "407.45"
+            },
+            {
+                "id": 23,
+                "transcript": "So",
+                "start_time": "408.279",
+                "end_time": "409.209"
+            },
+            {
+                "id": 24,
+                "transcript": "here we are gonna, this function is gonna return this nice for a ray. So Xtra X test and Y trainin white test good. And so the number of samples here, we specify how many samples we want in our whole data set. And so we should like pass it over here and the test size, we are gonna pass it over here. Good. So now let's see if this is working.",
+                "start_time": "410.7",
+                "end_time": "439.75"
+            },
+            {
+                "id": 25,
+                "transcript": "And so we'll just do a if name is equal to main",
+                "start_time": "439.989",
+                "end_time": "448.63"
+            },
+            {
+                "id": 26,
+                "transcript": "and then we'll move in here and we'll say generate data sets. And uh we'll say, yeah, let's just have 10 samples. And let's say that we only want uh two of these samples as part of the test set. Cool. And so here this function is giving us back all of these nice guys over here. And so now let's print",
+                "start_time": "449.69",
+                "end_time": "476.339"
+            },
+            {
+                "id": 27,
+                "transcript": "uh a few of this just like to see whether like this is working cool. So we can say the X test. So basically the uh inputs for the test set,",
+                "start_time": "476.559",
+                "end_time": "488.29"
+            },
+            {
+                "id": 28,
+                "transcript": "this is equal to, I'll just do like a new line there and I'll pass in uh X test nice. So here I want to see Y test and so I'll pass in Y test and this should work. So let's run this and see if it works. Cool.",
+                "start_time": "488.89",
+                "end_time": "511.92"
+            },
+            {
+                "id": 29,
+                "transcript": "Uh Yep. And it's working as expected. So over here, so for DX test, we have a two by two matrix and each sample is given by two values which are the values that we want to adopt. And for the Y test, we have the outcomes and this is a two by one matrix as we expect. And uh this guy, for example, at index zero is uh given by the",
+                "start_time": "512.59",
+                "end_time": "540.34"
+            },
+            {
+                "id": 30,
+                "transcript": "arithmetic sum of these two guys here. So yeah, this is working great.",
+                "start_time": "540.76",
+                "end_time": "545.539"
+            },
+            {
+                "id": 31,
+                "transcript": "OK. So yeah, and we want to comment out like this guys here. And now we are",
+                "start_time": "547.03",
+                "end_time": "555.25"
+            },
+            {
+                "id": 32,
+                "transcript": "at the point where we start working with tensorflow. So first of all, what we need to do is just import tensorflow. So we'll do import tensorflow. STF. Now",
+                "start_time": "556.59",
+                "end_time": "573.01"
+            },
+            {
+                "id": 33,
+                "transcript": "uh tensorflow comes in two flavors. So one is for CPU and one is for GP U. In this video, I'm using the one for CPU because like the stuff that I'll do like it's quite, I mean, it's quite cheap computationally. So I don't need to like use the, the big guns. Uh But if you, if you don't have it installed, you want to install tensorflow by doing pip install tensorflow. That way you should uh be able to install uh Yeah, this library",
+                "start_time": "573.34",
+                "end_time": "603.33"
+            },
+            {
+                "id": 34,
+                "transcript": "uh If you want to install like this CPU version that's like way easier. The GP U one is a little bit trickier, but there's a lot of resources online. Um So uh you can just like uh go like Google them and you'll find that out good.",
+                "start_time": "603.58",
+                "end_time": "618.799"
+            },
+            {
+                "id": 35,
+                "transcript": "OK. So let's build the model here. And so we want uh a model which is basically our neural network. And uh for this, we'll do a tensorflow dot Caras dot sequential,",
+                "start_time": "619.359",
+                "end_time": "636.19"
+            },
+            {
+                "id": 36,
+                "transcript": "right. So Kas is a high level library that sits on top of tensorflow. It uses tensorflow but makes tensorflow code like super easy like to build. And so as you'll see, we can build very complex neural networks with just like a few lines of code.",
+                "start_time": "636.419",
+                "end_time": "656.25"
+            },
+            {
+                "id": 37,
+                "transcript": "And now we are using sequential because because we want a network that's a sequential network. So it has an architecture where basically the input signal is moving from left to right. And specifically the model that we want is the same that we used in our previous video where we built uh the same model, the same neural network from scratch. Now, if you want to know like how that's done, just go back and watch uh our pre uh my previous video,",
+                "start_time": "656.679",
+                "end_time": "685.07"
+            },
+            {
+                "id": 38,
+                "transcript": "um you should have done this by now but you haven't just go and check that out. But again, what we want is a model where we have an input um layer where we have two neurons, then we want a hidden layer with five neurons and finally an output layer with one neuron. So let's build this nice uh network to do that. We do TF dot Kas dot layers.",
+                "start_time": "685.38",
+                "end_time": "714.07"
+            },
+            {
+                "id": 39,
+                "transcript": "And the type of layer that we want is a dense layer and a dense layer is a fully connected layer which basically connects all the neurons from the previous layer with the current layer nice. And so the uh the dense layer",
+                "start_time": "714.44",
+                "end_time": "730.299"
+            },
+            {
+                "id": 40,
+                "transcript": "uh has like a few arguments it accepts. So one which is fundamental is the number of neurons that we want. So we want five neurons and then given this is the first hidden layer, uh we want to pass the input dimension here. And so here we are specifying how many uh neurons we want in the input layer. And this is equal to two in our case.",
+                "start_time": "730.45",
+                "end_time": "754.01"
+            },
+            {
+                "id": 41,
+                "transcript": "And finally, we need to specify which activation function we want to use for this layer. And we're gonna use not surprisingly the famous sigmoid function that we've used so far good. So now let's build the output layer. So the output layer is again a dense layer. But this time it only has one,",
+                "start_time": "754.309",
+                "end_time": "776.0"
+            },
+            {
+                "id": 42,
+                "transcript": "a neuron. We don't need the input dimension here, but we definitely need the activation which we want to be a sigmoid function good. So with just these few lines of code, we've built our model",
+                "start_time": "776.2",
+                "end_time": "791.169"
+            },
+            {
+                "id": 43,
+                "transcript": "cool. The next thing that we want to do is to compile the model. So we'll do model dot compile and here, we need to pass in uh some important information. So first of all, we want to specify the optimizer, we're gonna use stochastic gradient descent uh that we've seen in the previous video. Uh But",
+                "start_time": "791.919",
+                "end_time": "816.729"
+            },
+            {
+                "id": 44,
+                "transcript": "for now, like let's leave this like uh blank, I'll just like go back in a second to this. And the second thing that we want to pass is the loss function that so far I've called the error function. So loss and error like are the same thing cool. And for the loss, we're gonna use MS C which is the min squared error. Again, if you want to know more about all of these things, I've covered them both like theoretical, theoretically and uh an implementation",
+                "start_time": "817.349",
+                "end_time": "846.619"
+            },
+            {
+                "id": 45,
+                "transcript": "uh at any implementation level in the previous videos uh cool. So we were saying uh the, we were talking about the optimizer",
+                "start_time": "846.89",
+                "end_time": "856.7"
+            },
+            {
+                "id": 46,
+                "transcript": "cool. So the optimizer is gonna be equal to TF dot K dot optimizer. And here we want SGD, which is our nice stochastic gradient descent uh optimizer. And here we can pass in the learning rate and let's say we'll give it a no 0.1 good.",
+                "start_time": "857.7",
+                "end_time": "881.039"
+            },
+            {
+                "id": 47,
+                "transcript": "So now we've compiled our model. So the next step is to train the model. So, and how do we do that? Well, it is as easy as it can be really. So we'll do a model dot",
+                "start_time": "882.0",
+                "end_time": "898.929"
+            },
+            {
+                "id": 48,
+                "transcript": "fit",
+                "start_time": "899.5",
+                "end_time": "900.489"
+            },
+            {
+                "id": 49,
+                "transcript": "and here obviously, we want to pass in the, the training set and so we'll pass in",
+                "start_time": "901.2",
+                "end_time": "907.46"
+            },
+            {
+                "id": 50,
+                "transcript": "so X underscore train and we'll pass in Y underscore train. So we are passing in the inputs and the outputs of the uh train split.",
+                "start_time": "908.32",
+                "end_time": "921.119"
+            },
+            {
+                "id": 51,
+                "transcript": "Uh and then we need to pass in the number of apex. So let's say that we want uh yeah, 100 for example, cool. And so just doing this, we train our model and now we should be able like to get uh information when we do this and let's run like all of this code. But before doing that, let's put like a viable number here. So",
+                "start_time": "921.75",
+                "end_time": "951.109"
+            },
+            {
+                "id": 52,
+                "transcript": "for the data set here, let's say we want a data set with 5000 samples and we'll do, yeah, let's say one",
+                "start_time": "951.369",
+                "end_time": "959.63"
+            },
+            {
+                "id": 53,
+                "transcript": "like 30% of that is going to make up the the test set. Cool. So now let's run this and see how it goes.",
+                "start_time": "960.21",
+                "end_time": "968.01"
+            },
+            {
+                "id": 54,
+                "transcript": "Uh Yeah, we have an error here. Uh Oh Yeah. Right. Yes, I just forgot to come over there. That's good. So let's see if it works now.",
+                "start_time": "973.369",
+                "end_time": "983.979"
+            },
+            {
+                "id": 55,
+                "transcript": "Uh Yeah, it's running, we have another error over here. Oh Yeah, I know what's happening here. Cool. Yeah,",
+                "start_time": "984.71",
+                "end_time": "992.95"
+            },
+            {
+                "id": 56,
+                "transcript": "cool. So I've never passed the optimizer here. So let's take this optimizer here and pass it to compile over there. Cool. So now if all is good, we should be able to run this smoothly. Yeah, finally it's working and as you can see it's training and it's giving us like uh a report at the end of each epoch cool. And here you'll see like the, the loss function.",
+                "start_time": "993.809",
+                "end_time": "1023.599"
+            },
+            {
+                "id": 57,
+                "transcript": "Uh um well, the loss, the error. And as you can see starting from here, it's",
+                "start_time": "1023.909",
+                "end_time": "1031.66"
+            },
+            {
+                "id": 58,
+                "transcript": "going down epoch after epoch, which is good until like we get that these results for the, for the error after 100 epochs, which is nice. Uh But you should keep in mind that all of this has been uh done also like the error has been calculated on the training set. But this is not really like what we want to do like for evaluation.",
+                "start_time": "1032.3",
+                "end_time": "1057.709"
+            },
+            {
+                "id": 59,
+                "transcript": "And this is where like the uh test set comes in when we want to evaluate uh the model. So we uh let's evaluate the model. So let's just like write this and say uh model evaluation uh con here and let's just like give it a new line. Cool. So how do we do? We evaluate this? Well,",
+                "start_time": "1058.15",
+                "end_time": "1082.439"
+            },
+            {
+                "id": 60,
+                "transcript": "this is like quite straightforward. We just do model dot evaluate and then we pass in this time, the X test and the Y test. So here we are basically evaluating the model on the test set on the test set and we are passing both the inputs and the outputs. Now, if we want to see a report here, we should do a verbose equal to one.",
+                "start_time": "1082.829",
+                "end_time": "1112.4"
+            },
+            {
+                "id": 61,
+                "transcript": "Cool. So now let's rerun uh the scripts and see whether like this is working correctly. Cool. Yeah. Again, we are getting the uh training over here and once this is done, we should see a an evaluation. Oh cool over here.",
+                "start_time": "1113.069",
+                "end_time": "1133.209"
+            },
+            {
+                "id": 62,
+                "transcript": "Good,",
+                "start_time": "1134.26",
+                "end_time": "1135.869"
+            },
+            {
+                "id": 63,
+                "transcript": "cool. So we have the evaluation which has been performed on 1500 samples, which is the test set and the loss function is seven by 10 to the minus four. And as you can see here, the loss, the error is slightly higher than the error that we have on the training set. So the test set is doing a little worse than the training set. And this is OK.",
+                "start_time": "1136.5",
+                "end_time": "1164.219"
+            },
+            {
+                "id": 64,
+                "transcript": "Uh Because uh obviously the uh model has optimized its its weight and uh its parameters on the training set. But at the same time, we don't want to have like a huge difference between the loss on the training and on the test set. Uh Because if that was the case, then it would mean that the",
+                "start_time": "1164.5",
+                "end_time": "1186.839"
+            },
+            {
+                "id": 65,
+                "transcript": "uh model hasn't been able to generalize uh the uh the learning process. So it's not able like to predict things well outside of the data that it has already sent. Cool. So now we are basically done. So the last thing that we want to do is to make predictions, right? And so, and in order to make predictions, we should create a some data. So we can just like go back over here and use this for example,",
+                "start_time": "1187.079",
+                "end_time": "1215.989"
+            },
+            {
+                "id": 66,
+                "transcript": "and we'll do an NP dot array and we'll pass in like this to",
+                "start_time": "1217.069",
+                "end_time": "1224.39"
+            },
+            {
+                "id": 67,
+                "transcript": "uh like samples here. And we would expect obviously no 0.3 and no 0.4.",
+                "start_time": "1224.92",
+                "end_time": "1231.55"
+            },
+            {
+                "id": 68,
+                "transcript": "And so, uh let's uh",
+                "start_time": "1232.089",
+                "end_time": "1235.239"
+            },
+            {
+                "id": 69,
+                "transcript": "make these predictions. Cool. So we'll do a model dots. Can you guys guess what's gonna be the name of the method like for predicting?",
+                "start_time": "1236.01",
+                "end_time": "1246.099"
+            },
+            {
+                "id": 70,
+                "transcript": "Uh Yeah, I'm quite sure you've uh you had it right? And it's just model dot predicts,",
+                "start_time": "1246.89",
+                "end_time": "1255.02"
+            },
+            {
+                "id": 71,
+                "transcript": "which is super nice and super simple to remember and then we want to pass in data cool. So now uh let's print and say uh some predictions over here. And uh yeah, let's do like a new line. And uh",
+                "start_time": "1255.65",
+                "end_time": "1277.38"
+            },
+            {
+                "id": 72,
+                "transcript": "we want to have a for loop here where we unpack the data and the predictions. And so we'll do for DP in ZIP",
+                "start_time": "1278.29",
+                "end_time": "1290.55"
+            },
+            {
+                "id": 73,
+                "transcript": "and we'll pass in uh data and we'll pass in predictions. And here",
+                "start_time": "1291.089",
+                "end_time": "1297.589"
+            },
+            {
+                "id": 74,
+                "transcript": "um for each of this, what we wanna do is to print.",
+                "start_time": "1298.099",
+                "end_time": "1304.41"
+            },
+            {
+                "id": 75,
+                "transcript": "So we want to print",
+                "start_time": "1306.089",
+                "end_time": "1307.78"
+            },
+            {
+                "id": 76,
+                "transcript": "that this plus this is equal for our network to like this element here. And so now we want to",
+                "start_time": "1308.92",
+                "end_time": "1317.489"
+            },
+            {
+                "id": 77,
+                "transcript": "just pass this uh values in. So we'll do",
+                "start_time": "1318.28",
+                "end_time": "1322.18"
+            },
+            {
+                "id": 78,
+                "transcript": "D zero, so D",
+                "start_time": "1323.02",
+                "end_time": "1325.16"
+            },
+            {
+                "id": 79,
+                "transcript": "zero, then we'll do D one and finally, we'll have a P zero. OK. So this should be right. So let's run this and see the results",
+                "start_time": "1326.099",
+                "end_time": "1342.28"
+            },
+            {
+                "id": 80,
+                "transcript": "cool.",
+                "start_time": "1343.699",
+                "end_time": "1345.14"
+            },
+            {
+                "id": 81,
+                "transcript": "So obviously, like it's taking some time for doing like this training. And that's again because I'm running tensor flow and CPU if it, if it was like a GPA, put me like way, way faster uh cool.",
+                "start_time": "1345.65",
+                "end_time": "1359.849"
+            },
+            {
+                "id": 82,
+                "transcript": "So here we have the results, so some predictions. So 0.1 plus 0.2 we are getting this 0.33. Well, I mean, it's not really no 0.3 which we would expect, but it's kind of like close to that and then 0.2 plus naught 0.2.",
+                "start_time": "1360.13",
+                "end_time": "1377.685"
+            },
+            {
+                "id": 83,
+                "transcript": "It gives us like no 0.40. Well, it's 42. Well, again, it's close but not like super close. Well, what this basically is telling us is that we probably don't have like in we haven't had like enough data uh like for like getting like better like precision there.",
+                "start_time": "1377.694",
+                "end_time": "1395.26"
+            },
+            {
+                "id": 84,
+                "transcript": "But then again, also we, we would need to like tweak all the parameters that we have in the network, like the learning rate or the type of loss function that we use or the architecture itself. So how many layers we have or how many neurons in the layer we have to get",
+                "start_time": "1395.489",
+                "end_time": "1411.979"
+            },
+            {
+                "id": 85,
+                "transcript": "like better results. But this is not the point of this video here. We just wanted to build a neural network with tensorflow and that's what we've done. And now guys, you should be super happy because you know now how to build a neural network with tensorflow. Cool. So",
+                "start_time": "1411.989",
+                "end_time": "1430.869"
+            },
+            {
+                "id": 86,
+                "transcript": "uh what are we gonna do next in the next video? Well, uh in the next video, we're finally at a moment where we can start to look at all your data. And so we'll preprocess all your data. So that we will have it in such a way that we then can use it with our deep learning algorithms, which is super nice. Cool. So this was it for this video. I hope you enjoyed it. And if that's the case, please subscribe and hit the notification bell to get more videos.",
+                "start_time": "1431.26",
+                "end_time": "1460.229"
+            },
+            {
+                "id": 87,
+                "transcript": "And uh you it would be fantastic if you could leave a like to this video and I guess if you have any questions, you can just uh leave them in the comments section below and I'll see you next time. Cheers.",
+                "start_time": "1460.54",
+                "end_time": "1476.27"
+            }
+        ]
+    }
+}

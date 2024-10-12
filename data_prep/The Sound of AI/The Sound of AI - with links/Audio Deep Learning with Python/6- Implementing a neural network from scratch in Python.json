@@ -1,0 +1,596 @@
+[
+    {
+        "id": "01006f15",
+        "text": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna implement a neural network from scratch specifically, we're gonna implement a multi layer perception. So let's get started. So the first thing that we want to do is importing numpy the nun P if you're not familiar with it is a um scientific library for Python that's used in most uh libraries if you don't have nun pie installed. So you, you just go and go to your terminal and pip install it. It's quite straightforward, right? So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "900d6924",
+        "text": "the nun P if you're not familiar with it is a um scientific library for Python that's used in most uh libraries if you don't have nun pie installed. So you, you just go and go to your terminal and pip install it. It's quite straightforward, right? So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception. So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=20s",
+        "start_time": "20.709"
+    },
+    {
+        "id": "2a1b7d7d",
+        "text": "So uh the thing that we want to build here is a class that's called M LP or multi layer perception. So here we're gonna have all the attributes and methods that we can use to actually represent a multi layer of perception. So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna have this in it over here and we want to pass it three different attributes. So one it's the number of",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=39s",
+        "start_time": "39.799"
+    },
+    {
+        "id": "eaee4b79",
+        "text": "So what's the first thing that we need to do here? Well, it's the constructor. So we want the constructor for the M LP class. And so we are gonna have this in it over here and we want to pass it three different attributes. So one it's the number of uh inputs, then we want to pass it the number of hidden layers.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=58s",
+        "start_time": "58.709"
+    },
+    {
+        "id": "e970209e",
+        "text": "have this in it over here and we want to pass it three different attributes. So one it's the number of uh inputs, then we want to pass it the number of hidden layers. And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=70s",
+        "start_time": "70.62"
+    },
+    {
+        "id": "a079442e",
+        "text": "uh inputs, then we want to pass it the number of hidden layers. And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the number of",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=82s",
+        "start_time": "82.709"
+    },
+    {
+        "id": "582637ac",
+        "text": "And finally, we want to pass it the number of outputs over here. And so we're gonna store these arguments internally in uh attributes and this not surprisingly are gonna be called uh self dots numb inputs. So, and this is gonna be the numb inputs over here. Then we're gonna have the number of hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=90s",
+        "start_time": "90.349"
+    },
+    {
+        "id": "1f981c54",
+        "text": "number of hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=119s",
+        "start_time": "119.23"
+    },
+    {
+        "id": "f1da41d2",
+        "text": "hidden layers over here and this is gonna be number of hidden and then we're gonna have this num outputs outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here. Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=121s",
+        "start_time": "121.47"
+    },
+    {
+        "id": "80e662a7",
+        "text": "outputs and we have the number of outputs over here. Well, so this way we just store internally to the instance all of this uh information about the, the number of neurons in the input layer in the uh hidden layers and the in the output layers. So we can pass in some default values over here. Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=132s",
+        "start_time": "132.71"
+    },
+    {
+        "id": "1be6ca99",
+        "text": "Uh because uh that's gonna be like easier like when we implement an M LP. So we don't need to pass all of this information every time. So we could say that our default number of inputs. So number of neurons in the input layer is gonna be three for example. And for the hidden layers, it is gonna be slightly different because we want to pass in a list and this is gonna be a list of the integers and it's integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=157s",
+        "start_time": "157.589"
+    },
+    {
+        "id": "0bc8223f",
+        "text": "integer is gonna represent the number of neurons in a hidden layer. So uh basically, in this case, we have a neuron with two hidden layers. So the first hidden layer has three neurons and the second layer has a hidden layer has five neurons. And then we finally, we have the number of outputs. And so these are the output neurons, let's say we have two, for example, right. So now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna uh cast to at least type this self",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=187s",
+        "start_time": "187.57"
+    },
+    {
+        "id": "25c9c21e",
+        "text": "now we want to create a an internal uh representation of the layers. So how do we do that? Well, we want this as a as a list. And in order to do that, we are gonna uh cast to at least type this self dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=214s",
+        "start_time": "214.38"
+    },
+    {
+        "id": "8cdb6d40",
+        "text": "uh cast to at least type this self dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=232s",
+        "start_time": "232.559"
+    },
+    {
+        "id": "d5504b62",
+        "text": "dot number of inputs over here, then we are gonna concatenate that with the number of hidden layers. And then we're gonna concatenate this with the number of output layers. So what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights. So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=238s",
+        "start_time": "238.199"
+    },
+    {
+        "id": "47c3598a",
+        "text": "what this does is basically getting a list where each item in the list represents the number of neurons in a layer. And the layers obviously move from uh like zero to, to the, to the zero index to the uh number of layers that we have. OK. So next, what do we want to do? Well, we need to initiate a random weights. So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate a,",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=256s",
+        "start_time": "256.049"
+    },
+    {
+        "id": "4a9b7543",
+        "text": "So a a neuron network is isn't a neural network if you don't have weights uh for all the connections between the neurons in a subsequent layers. So how do we do that? Well, first of all, let's initiate a, an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=285s",
+        "start_time": "285.309"
+    },
+    {
+        "id": "f3f8a3ed",
+        "text": "a, an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length uh layers minus uh one.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=302s",
+        "start_time": "302.119"
+    },
+    {
+        "id": "86ca9a86",
+        "text": "an internal like an attribute called weight. And this is gonna be an empty list for the time being. And then we want to iterate through all the layers and then create a matrix uh weight for each uh pair of layers. So how do we do that? Well, we do a full look in a range of the length uh layers minus uh one. So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=303s",
+        "start_time": "303.519"
+    },
+    {
+        "id": "12dd602f",
+        "text": "uh layers minus uh one. So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun dot random dot run.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=333s",
+        "start_time": "333.01"
+    },
+    {
+        "id": "b0e67d09",
+        "text": "So, and then at each uh step, we're gonna build this weight matrix W and W is gonna be equal to the uh nun dot random dot run. And here will pass in layers I layers I and here we have layers",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=339s",
+        "start_time": "339.269"
+    },
+    {
+        "id": "8623635c",
+        "text": "dot random dot run. And here will pass in layers I layers I and here we have layers I plus one. OK. So what have I done here? So uh I'm basically creating a matrix",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=355s",
+        "start_time": "355.82"
+    },
+    {
+        "id": "9a3039f0",
+        "text": "And here will pass in layers I layers I and here we have layers I plus one. OK. So what have I done here? So uh I'm basically creating a matrix uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=360s",
+        "start_time": "360.23"
+    },
+    {
+        "id": "518b7c9d",
+        "text": "I plus one. OK. So what have I done here? So uh I'm basically creating a matrix uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values. And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=373s",
+        "start_time": "373.239"
+    },
+    {
+        "id": "f11c8849",
+        "text": "uh which is this W here using this method uh from the numpy library which is random dot brand. And what I uh what this like um method does, it, it creates uh a random uh arrays and the arrays can have different uh dimensions. So in this case, we have like two dimensions. So and the two dimensions are given here by these values. And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer. And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=384s",
+        "start_time": "384.98"
+    },
+    {
+        "id": "91a27c41",
+        "text": "And so here, what I'm saying is that I want a two D array which is basically a matrix. And the, the, the number of rows that I want is the current uh layer I'm in. And the number of columns that I want is the uh the the number of neurons that I have in the subsequent layer. And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=412s",
+        "start_time": "412.72"
+    },
+    {
+        "id": "f3a920f3",
+        "text": "And if you remember the weight matrix, this works because on the rows, we have all the connections of a neuron from a previous layer with the subsequent layer. So we want the for the number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right. And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one,",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=435s",
+        "start_time": "435.309"
+    },
+    {
+        "id": "5ad28a56",
+        "text": "number of rows to be equal to the number of neurons that we have like in a, in a layer. And for the number of columns we want to have uh the number of neurons that we have in the subsequent layers. And we can obtain that by using this expression here. Right. And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one, right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=452s",
+        "start_time": "452.48"
+    },
+    {
+        "id": "4d34b888",
+        "text": "And so, and what this random random does is obviously it creates this uh to the uh array. So this matrix and it initiates all the elements of the, the matrix randomly between zero and one, right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=470s",
+        "start_time": "470.91"
+    },
+    {
+        "id": "e50fcc3e",
+        "text": "right. So what else remains to do? Well, we we need to store this information and say how do we do that? Well, super simple. So we get the weights and we do append W and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three,",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=485s",
+        "start_time": "485.97"
+    },
+    {
+        "id": "146e9c14",
+        "text": "and so here uh weight is gonna be a list uh with as many um items as the number of weight mattresses in the layers, which is the number of layers minus one. Because if you remember if we have a network with three layers, we're gonna have two weight mattresses because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three, right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=499s",
+        "start_time": "499.119"
+    },
+    {
+        "id": "f4f88932",
+        "text": "because the weight mattresses are always between two subsequent layers. So like the first um weight matrix is gonna be between uh layer one and layer two. And the second uh um weight matrix is gonna be between layer two and layer three, right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate. And this method uh accepts as uh as an argument the inputs.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=523s",
+        "start_time": "523.53"
+    },
+    {
+        "id": "63a99c11",
+        "text": "right. So we have the constructor and with this construct, we are able to build um a representation of a simple multi-layered perception. So what do we do need to do next. Well, we need to do the actual computation. So we need to do a forward propagation. So we'll create a new method called forward proper gate. And this method uh accepts as uh as an argument the inputs. And",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=541s",
+        "start_time": "541.869"
+    },
+    {
+        "id": "2c9ef189",
+        "text": "And this method uh accepts as uh as an argument the inputs. And what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=569s",
+        "start_time": "569.96"
+    },
+    {
+        "id": "64c3de5e",
+        "text": "And what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=579s",
+        "start_time": "579.19"
+    },
+    {
+        "id": "42b01654",
+        "text": "what do we do with this forward propagate? So if you remember um what forward propagation does it at each layer, how the the signal like travels through? Uh it does like two things. So the neurons first do like a a net input and then they do uh uh an activation. So the first part of this is going to be activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=580s",
+        "start_time": "580.909"
+    },
+    {
+        "id": "1c218889",
+        "text": "activations is equal to inputs. So the first time, so for the first layer, the activations are basically the inputs, then we want to do a full loop and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self dot waits and then here we should perform a couple of things. So first thing is to",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=609s",
+        "start_time": "609.19"
+    },
+    {
+        "id": "02dd146c",
+        "text": "and we want to loop through all the weight mattresses. And this basically means looping through all the the layers in the network. So if we do four WN self dot waits and then here we should perform a couple of things. So first thing is to um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=624s",
+        "start_time": "624.2"
+    },
+    {
+        "id": "7aba0de1",
+        "text": "dot waits and then here we should perform a couple of things. So first thing is to um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=641s",
+        "start_time": "641.01"
+    },
+    {
+        "id": "ac1859d3",
+        "text": "um do the cal calculation. So calculate the net inputs for a given layer. And then the second thing that we want to do is to uh calculate the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=651s",
+        "start_time": "651.599"
+    },
+    {
+        "id": "a7b3eb78",
+        "text": "the activations, right? So how do we do that? Yeah, with NP is quite simple because for the nets inputs, if you remember guys, what we should do is a matrix multiplication between the activations of the previous layer with the weight matrices with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication. So in this case, we pass in activations which is a vector and then we pass in the",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=668s",
+        "start_time": "668.38"
+    },
+    {
+        "id": "9b54f5d5",
+        "text": "with the weight matrix. So how do we do that? It's quite simple. So we do an N uh NP dot uh dot And this method is basically performs a uh dot product between two batches. But if we have two matrices, it performs a matrix multiplication. So in this case, we pass in activations which is a vector and then we pass in the uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that?",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=694s",
+        "start_time": "694.099"
+    },
+    {
+        "id": "e8fc6268",
+        "text": "So in this case, we pass in activations which is a vector and then we pass in the uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that? Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=712s",
+        "start_time": "712.419"
+    },
+    {
+        "id": "f89c67ca",
+        "text": "uh the weights W right. And this is a matrix. And so uh basically here and what MP dot dot does it uh performs uh this matrix multiplication between activations and weights and so we can get the net inputs. OK. So now we have the net inputs. What's the next phase? Well, we should calculate the activation. So how do we do that? Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function. Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=720s",
+        "start_time": "720.84"
+    },
+    {
+        "id": "92b386ae",
+        "text": "Yeah, it's quite straightforward because uh in this case, we want a, an M LP with a sigmoid activation function. So we just need to pass the uh net inputs to the sigmoid function. So how do we do that? Super simple? So we pass the net inputs to the Sigma function. Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations right.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=748s",
+        "start_time": "748.7"
+    },
+    {
+        "id": "01f44251",
+        "text": "Now you may be wondering but yeah, but we don't have a uh underscore Sigma uh method. Well, you, you're right, we, we need to implement that and if you remember, we already implemented this in a, in a previous video and it's quite straightforward and it will take us like two seconds to do that. OK. So now what we do is after we've gone through all of the loop, uh then we want to return the activations right. So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=772s",
+        "start_time": "772.27"
+    },
+    {
+        "id": "ab5ec0ea",
+        "text": "right. So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=802s",
+        "start_time": "802.45"
+    },
+    {
+        "id": "40241d6e",
+        "text": "So let's review this before moving forward. So with forward propagate, we start with the inputs and this is a vector. And for the first layer, the activations are basically the inputs. And then what we do, we do a forward propagation. So we just like move from one layer to the next one, from left to right. And so we, we do for doing that, we do a four, a four loop uh through all the work we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So what remains to do here? Well, we should implement this underscore sigmoid function.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=804s",
+        "start_time": "804.039"
+    },
+    {
+        "id": "c06f3fb2",
+        "text": "we iterate through all the weights. And then at each layer, we do two things, we calculate the net inputs first. And we do that with a matrix multiplication between the activation and the weights. And then we actually calculate the activations. And we do that by passing the net inputs to the sigmoid activation function. And then finally, after we are at the end of this journey, we just return the activations great. So what remains to do here? Well, we should implement this underscore sigmoid function. So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=833s",
+        "start_time": "833.085"
+    },
+    {
+        "id": "4cb7c617",
+        "text": "what remains to do here? Well, we should implement this underscore sigmoid function. So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=860s",
+        "start_time": "860.78"
+    },
+    {
+        "id": "da24398f",
+        "text": "So here we just want to pass X and this is super straightforward. We did it already. And the act the sigmoid function is basically 1/1 plus NP dot The exponential to the uh minus X right. Here we go super simple, right? So now we have all the elements it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main. So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=868s",
+        "start_time": "868.78"
+    },
+    {
+        "id": "f2afdffc",
+        "text": "it plays for our M LP class. And so now we can do a full uh forward propagation. And once we pass in some inputs, we can calculate like the outputs after like the mop has done its magic. So let's do that. And so in order to do that, let's uh ensure that uh we are running the script as like the main. So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs,",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=896s",
+        "start_time": "896.909"
+    },
+    {
+        "id": "ee2451a6",
+        "text": "So and we do that if name is equal to name and then we'll just move on down here. Cool. So what should we do here? So obviously, the first thing we want to do uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs, then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=926s",
+        "start_time": "926.679"
+    },
+    {
+        "id": "399c7700",
+        "text": "uh is to uh create an M LP. Obviously, we need a neural network. First of all, then we want to create uh some inputs, then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=943s",
+        "start_time": "943.52"
+    },
+    {
+        "id": "af417112",
+        "text": "then we want to perform the forward prop propagation. And finally, we'll just like uh print the results, print oh what's that mistake there? Print the results? Cool. Okay. So let's do this. So how do we create an M LP? Super simple? So M LP is equal to the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=957s",
+        "start_time": "957.64"
+    },
+    {
+        "id": "7725c7dc",
+        "text": "the M LP class, the we call just the M LP constructor. So if we want to change the uh number of layers that we have and the number of neurons in each layer, we can do that. Uh But we'll just use this default values here. So I'm not gonna bother. OK. So let's create some inputs here. So uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer. So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=985s",
+        "start_time": "985.929"
+    },
+    {
+        "id": "ad2fdc43",
+        "text": "uh inputs. So inputs is should be a vector and the vector should be, should have the same number of items as the number of neurons in the input layer. So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs. So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1008s",
+        "start_time": "1008.0"
+    },
+    {
+        "id": "40f11860",
+        "text": "So we're gonna create some uh random inputs here. And so how do we do that again? We know our old friend random grand from the NPI LIB library here. This is a one dimensional array. So it's a vector basically. And so the di the dimension of uh the vector should be M LP dots number of inputs. So the number of neurons in the inputs, nice. We have the inputs. So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector. And now we want to print like what we've done. OK. So let's do print uh network.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1021s",
+        "start_time": "1021.969"
+    },
+    {
+        "id": "3325b4a1",
+        "text": "So we want to get the outputs out. And so to do that, it's super simple because we will just do a forward propagate and we'll pass in all the inputs. And so by now, we should have a uh a vector, an output vector. And now we want to print like what we've done. OK. So let's do print uh network. The net work output is and will pass uh the outputs here. And",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1049s",
+        "start_time": "1049.569"
+    },
+    {
+        "id": "0b8ece4e",
+        "text": "And now we want to print like what we've done. OK. So let's do print uh network. The net work output is and will pass uh the outputs here. And OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1072s",
+        "start_time": "1072.17"
+    },
+    {
+        "id": "040ab711",
+        "text": "The net work output is and will pass uh the outputs here. And OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1081s",
+        "start_time": "1081.29"
+    },
+    {
+        "id": "37d53e86",
+        "text": "OK. Yeah, let's also pass in the, let's also print the inputs. So the network input is, and here obviously, we need to change this to inputs. And down here we have the outputs. So cool. So now everything should be in place. So we've built our uh M LP objects, we created some random inputs, we passed that to the network which uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1095s",
+        "start_time": "1095.119"
+    },
+    {
+        "id": "ea700328",
+        "text": "uh performed a forward propagation. So we have the outputs and now we've uh should be able to both uh print the inputs and the outputs. So what remains to, to do here is we should just run this and hopefully, if I've done all correctly, uh we should be able to see some results go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1120s",
+        "start_time": "1120.14"
+    },
+    {
+        "id": "04953f31",
+        "text": "go oh nice. So the network input is this three values over here. And uh it's three and it's correct because we are expecting three inputs free. Uh We, because we have three neurons in the input layers and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that?",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1140s",
+        "start_time": "1140.729"
+    },
+    {
+        "id": "873f6a19",
+        "text": "and then the output is made up of two values here. So this two values here. And again, it's correct because we are expecting two values for the outputs because we have two neurons in the upper layer. Nice. So basically, you should just like uh congratulate yourself now because you've just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that? Well, this is a huge topic in itself and it's gonna be the focus of my next video where I'm gonna basically explain the theory behind back propagation and gradient descent uh which are like the two approaches, the two techniques which we used to uh train network with uh some uh training data set.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1161s",
+        "start_time": "1161.119"
+    },
+    {
+        "id": "83c50604",
+        "text": "just finished implementing a neural network from scratch. So you now know more than most people like out there about how to actually create a neural network like from scratch. And now you may be wondering, OK, but there's an elephant in the room here and that's that we haven't uh trained like our network at all. So how do we do that? Well, this is a huge topic in itself and it's gonna be the focus of my next video where I'm gonna basically explain the theory behind back propagation and gradient descent uh which are like the two approaches, the two techniques which we used to uh train network with uh some uh training data set. So yeah, next time we're gonna do that. So I hope you enjoyed this video if you did. Uh And if you want to get like more videos, remember to subscribe and hit the notification bell. Uh because that way you're gonna get like all the videos once I upload them and if you like again the video just like also leave a like and I guess I'll see you next time. Cheers.",
+        "video": "6- Implementing a neural network from scratch in Python",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "0oWnheK-gGk",
+        "youtube_link": "https://www.youtube.com/watch?v=0oWnheK-gGk&t=1187s",
+        "start_time": "1187.339"
+    }
+]

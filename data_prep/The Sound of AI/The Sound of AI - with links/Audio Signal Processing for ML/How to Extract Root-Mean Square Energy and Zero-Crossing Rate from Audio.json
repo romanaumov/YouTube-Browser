@@ -1,0 +1,1163 @@
+[
+    {
+        "id": "70a34c7c",
+        "text": "Hi, everybody and welcome to a new exciting VND audio signal processing for machine learning series. This time we'll continue our quest into the time domain audio features and specifically we'll be extracting the root main squared energy and zero crossing rate features using uh Li Brosa. OK. So let's get started. But before that, I, yeah, I just wanted to tell you that we are going to be rehashing a lot of the code that I used in my previous video where I was extracting amplitude envelope. So yeah, let's just like grab some of this code from here. OK. So the first thing that I want to grab is just like this imports here. So as you can see, I'm importing my plot noon P Li Brosa Li Brosa display for just displaying the waveforms and then I Python display for uh playing audio directly in the Jupiter Notebook. OK. So the next thing that I want to do is just load uh some audio and today just like in the previous video, we're gonna be using three audio files that are like three",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=0s",
+        "start_time": "0.129"
+    },
+    {
+        "id": "2fde0fb5",
+        "text": "OK. So let's get started. But before that, I, yeah, I just wanted to tell you that we are going to be rehashing a lot of the code that I used in my previous video where I was extracting amplitude envelope. So yeah, let's just like grab some of this code from here. OK. So the first thing that I want to grab is just like this imports here. So as you can see, I'm importing my plot noon P Li Brosa Li Brosa display for just displaying the waveforms and then I Python display for uh playing audio directly in the Jupiter Notebook. OK. So the next thing that I want to do is just load uh some audio and today just like in the previous video, we're gonna be using three audio files that are like three music passages. One is by uh the Bey an orchestral piece. Another one is jazz piece by J Allington. And the third one is a rock song from the red hot chili peppers. OK. So let me just grab the path to these files and then as the next thing I just want to load them and again, I'm just gonna be reusing this code",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=21s",
+        "start_time": "21.12"
+    },
+    {
+        "id": "adf61340",
+        "text": "So as you can see, I'm importing my plot noon P Li Brosa Li Brosa display for just displaying the waveforms and then I Python display for uh playing audio directly in the Jupiter Notebook. OK. So the next thing that I want to do is just load uh some audio and today just like in the previous video, we're gonna be using three audio files that are like three music passages. One is by uh the Bey an orchestral piece. Another one is jazz piece by J Allington. And the third one is a rock song from the red hot chili peppers. OK. So let me just grab the path to these files and then as the next thing I just want to load them and again, I'm just gonna be reusing this code just to keep things quicker. OK. So here, the only thing that I want to change is I'm like replacing that SR sampling rate, which oncore because we don't really need the sampling rate this time around, I believe. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=43s",
+        "start_time": "43.529"
+    },
+    {
+        "id": "65100006",
+        "text": "music passages. One is by uh the Bey an orchestral piece. Another one is jazz piece by J Allington. And the third one is a rock song from the red hot chili peppers. OK. So let me just grab the path to these files and then as the next thing I just want to load them and again, I'm just gonna be reusing this code just to keep things quicker. OK. So here, the only thing that I want to change is I'm like replacing that SR sampling rate, which oncore because we don't really need the sampling rate this time around, I believe. OK. So now we should have the signals loaded for the BC, red hot and red hot peppers and Duke Ellington as a first thing, we want to extract the rin squared energy using libros. So let me write that down. So extract R MS E with Li Brosa. So how do we do that? Well, we can use,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=70s",
+        "start_time": "70.43"
+    },
+    {
+        "id": "90928cdb",
+        "text": "just to keep things quicker. OK. So here, the only thing that I want to change is I'm like replacing that SR sampling rate, which oncore because we don't really need the sampling rate this time around, I believe. OK. So now we should have the signals loaded for the BC, red hot and red hot peppers and Duke Ellington as a first thing, we want to extract the rin squared energy using libros. So let me write that down. So extract R MS E with Li Brosa. So how do we do that? Well, we can use, use a simple function coming from the browser in the featured module. But before we do that, let's just create a couple of constants or variables. So the first one is frame length and I'll put this equal to 1000 24 samples. So I'll use the same one that we used in the previous video and same thing for hop length.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=98s",
+        "start_time": "98.069"
+    },
+    {
+        "id": "a1398e28",
+        "text": "So now we should have the signals loaded for the BC, red hot and red hot peppers and Duke Ellington as a first thing, we want to extract the rin squared energy using libros. So let me write that down. So extract R MS E with Li Brosa. So how do we do that? Well, we can use, use a simple function coming from the browser in the featured module. But before we do that, let's just create a couple of constants or variables. So the first one is frame length and I'll put this equal to 1000 24 samples. So I'll use the same one that we used in the previous video and same thing for hop length. Uh Yep. And this should be equal to 512. OK. So now let's extract the R MS for the PC. And for doing this, we'll do a Lisa dot feature",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=114s",
+        "start_time": "114.25"
+    },
+    {
+        "id": "7c17d8f3",
+        "text": "use a simple function coming from the browser in the featured module. But before we do that, let's just create a couple of constants or variables. So the first one is frame length and I'll put this equal to 1000 24 samples. So I'll use the same one that we used in the previous video and same thing for hop length. Uh Yep. And this should be equal to 512. OK. So now let's extract the R MS for the PC. And for doing this, we'll do a Lisa dot feature dot uh R MS and we should pass in the signal for the BC. And then we should pass a couple of uh parameters. The first one being the frame length. And we'll set this uh equal to our frame length uh variable.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=139s",
+        "start_time": "139.559"
+    },
+    {
+        "id": "59aac0a0",
+        "text": "Uh Yep. And this should be equal to 512. OK. So now let's extract the R MS for the PC. And for doing this, we'll do a Lisa dot feature dot uh R MS and we should pass in the signal for the BC. And then we should pass a couple of uh parameters. The first one being the frame length. And we'll set this uh equal to our frame length uh variable. And then we have the hop length and we'll set this equal to hop length. Once again, let me remind you that we can uh alternatively use both like hub length and H size or frame length and frame size. We're referring to the very same concept. OK. So now let me do the same thing for um",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=165s",
+        "start_time": "165.899"
+    },
+    {
+        "id": "6d7a77d0",
+        "text": "dot uh R MS and we should pass in the signal for the BC. And then we should pass a couple of uh parameters. The first one being the frame length. And we'll set this uh equal to our frame length uh variable. And then we have the hop length and we'll set this equal to hop length. Once again, let me remind you that we can uh alternatively use both like hub length and H size or frame length and frame size. We're referring to the very same concept. OK. So now let me do the same thing for um uh the red hot sun, red hot chili pepper song. So I'll do A R MS red hot and I should pass in the signal for red hot in here. And here let me pass the signal for Duke Allington. Yeah, this was in the way of the cursor and here I should put in Duke. OK? So let me",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=181s",
+        "start_time": "181.139"
+    },
+    {
+        "id": "69aca98b",
+        "text": "And then we have the hop length and we'll set this equal to hop length. Once again, let me remind you that we can uh alternatively use both like hub length and H size or frame length and frame size. We're referring to the very same concept. OK. So now let me do the same thing for um uh the red hot sun, red hot chili pepper song. So I'll do A R MS red hot and I should pass in the signal for red hot in here. And here let me pass the signal for Duke Allington. Yeah, this was in the way of the cursor and here I should put in Duke. OK? So let me uh yeah, run dutch. It seems like it works fine. So now what do we get back from the R MS uh function? Well, you can guess it, we get a non pi array but let's take a look at the shape of this NPI array. So we'll do a R MS DC dot shape.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=197s",
+        "start_time": "197.339"
+    },
+    {
+        "id": "ea7eaaf1",
+        "text": "uh the red hot sun, red hot chili pepper song. So I'll do A R MS red hot and I should pass in the signal for red hot in here. And here let me pass the signal for Duke Allington. Yeah, this was in the way of the cursor and here I should put in Duke. OK? So let me uh yeah, run dutch. It seems like it works fine. So now what do we get back from the R MS uh function? Well, you can guess it, we get a non pi array but let's take a look at the shape of this NPI array. So we'll do a R MS DC dot shape. OK? And so as you can see, we have a couple of dimensions. So the first one is just like one and then we have like 1000 292 values, right? And so if you remember And yeah, this might be like a little bit like hard to remember because it just a number, but this is the very same number that we got when we extracted the amplitude envelope in the previous video. And that's because we were",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=219s",
+        "start_time": "219.32"
+    },
+    {
+        "id": "2bdc7789",
+        "text": "uh yeah, run dutch. It seems like it works fine. So now what do we get back from the R MS uh function? Well, you can guess it, we get a non pi array but let's take a look at the shape of this NPI array. So we'll do a R MS DC dot shape. OK? And so as you can see, we have a couple of dimensions. So the first one is just like one and then we have like 1000 292 values, right? And so if you remember And yeah, this might be like a little bit like hard to remember because it just a number, but this is the very same number that we got when we extracted the amplitude envelope in the previous video. And that's because we were using the very same H length 512 samples and we had the same duration for the audio signal. Now, what we want is this guy here. So in order to get just this, so what we can do here is just take the",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=244s",
+        "start_time": "244.039"
+    },
+    {
+        "id": "f5d922a9",
+        "text": "OK? And so as you can see, we have a couple of dimensions. So the first one is just like one and then we have like 1000 292 values, right? And so if you remember And yeah, this might be like a little bit like hard to remember because it just a number, but this is the very same number that we got when we extracted the amplitude envelope in the previous video. And that's because we were using the very same H length 512 samples and we had the same duration for the audio signal. Now, what we want is this guy here. So in order to get just this, so what we can do here is just take the index. So we, we'll just like take this guy here at index zero.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=264s",
+        "start_time": "264.709"
+    },
+    {
+        "id": "f2f224c3",
+        "text": "using the very same H length 512 samples and we had the same duration for the audio signal. Now, what we want is this guy here. So in order to get just this, so what we can do here is just take the index. So we, we'll just like take this guy here at index zero. And now if we rerun this, this is just like equal to this, which is like what we wanted. Now, why did, why did I want that? Well, because now we are gonna plot.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=294s",
+        "start_time": "294.415"
+    },
+    {
+        "id": "90ca703d",
+        "text": "index. So we, we'll just like take this guy here at index zero. And now if we rerun this, this is just like equal to this, which is like what we wanted. Now, why did, why did I want that? Well, because now we are gonna plot. So we want to uh plot the R MS E for all the music pieces. OK? So now I'm not gonna rewrite the code like for like the plot, but I'm just gonna steal it from my previous video. So not here. I'm gonna steal the one down here. OK?",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=314s",
+        "start_time": "314.739"
+    },
+    {
+        "id": "798d1244",
+        "text": "And now if we rerun this, this is just like equal to this, which is like what we wanted. Now, why did, why did I want that? Well, because now we are gonna plot. So we want to uh plot the R MS E for all the music pieces. OK? So now I'm not gonna rewrite the code like for like the plot, but I'm just gonna steal it from my previous video. So not here. I'm gonna steal the one down here. OK? So let me go back here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=320s",
+        "start_time": "320.959"
+    },
+    {
+        "id": "4241fa6b",
+        "text": "So we want to uh plot the R MS E for all the music pieces. OK? So now I'm not gonna rewrite the code like for like the plot, but I'm just gonna steal it from my previous video. So not here. I'm gonna steal the one down here. OK? So let me go back here. And so let's do this. OK? So let's see what we should change our way here. So we have like our figure. Uh we create a subplot, we create like three stats, vertically stacked subplots and we want to display the wave plots for the beauty for Rich Hart and for Duke.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=334s",
+        "start_time": "334.7"
+    },
+    {
+        "id": "9a03c78b",
+        "text": "So let me go back here. And so let's do this. OK? So let's see what we should change our way here. So we have like our figure. Uh we create a subplot, we create like three stats, vertically stacked subplots and we want to display the wave plots for the beauty for Rich Hart and for Duke. And here we want to uh display not the amplitude envelope for the BC, but rather the R MS for the BC. Here, we want to uh",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=365s",
+        "start_time": "365.459"
+    },
+    {
+        "id": "f90f0f7b",
+        "text": "And so let's do this. OK? So let's see what we should change our way here. So we have like our figure. Uh we create a subplot, we create like three stats, vertically stacked subplots and we want to display the wave plots for the beauty for Rich Hart and for Duke. And here we want to uh display not the amplitude envelope for the BC, but rather the R MS for the BC. Here, we want to uh yeah, visualize the R MS for red hot chili peppers and down here for uh jake Allinson. So now there's one thing missing. So it is just like this tea value. And again, I'm gonna just grab it over here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=368s",
+        "start_time": "368.73"
+    },
+    {
+        "id": "b3bf44bc",
+        "text": "And here we want to uh display not the amplitude envelope for the BC, but rather the R MS for the BC. Here, we want to uh yeah, visualize the R MS for red hot chili peppers and down here for uh jake Allinson. So now there's one thing missing. So it is just like this tea value. And again, I'm gonna just grab it over here. So basically like this is the X",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=387s",
+        "start_time": "387.7"
+    },
+    {
+        "id": "06176fa7",
+        "text": "yeah, visualize the R MS for red hot chili peppers and down here for uh jake Allinson. So now there's one thing missing. So it is just like this tea value. And again, I'm gonna just grab it over here. So basically like this is the X the value for all the values like on the X axis that you have like down here and here this uh the R MS red hot, for example, is the values for the Y axis for our um uh plots. And obviously what we want to do is just like move from frames like to, to time and we can do this like using the frames to time uh function that I introduced in my previous video.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=404s",
+        "start_time": "404.44"
+    },
+    {
+        "id": "5c4ead4a",
+        "text": "So basically like this is the X the value for all the values like on the X axis that you have like down here and here this uh the R MS red hot, for example, is the values for the Y axis for our um uh plots. And obviously what we want to do is just like move from frames like to, to time and we can do this like using the frames to time uh function that I introduced in my previous video. OK? So now this should do the trick unless I messed up something like in the code. So let's see if it works and indeed I messed up something.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=419s",
+        "start_time": "419.029"
+    },
+    {
+        "id": "a5d50041",
+        "text": "the value for all the values like on the X axis that you have like down here and here this uh the R MS red hot, for example, is the values for the Y axis for our um uh plots. And obviously what we want to do is just like move from frames like to, to time and we can do this like using the frames to time uh function that I introduced in my previous video. OK? So now this should do the trick unless I messed up something like in the code. So let's see if it works and indeed I messed up something. And that's Oh yeah. Right. That's because it was passing the amplitude envelope for Debussy, but we don't have that. We have that in the previous video. So let me just grab R MS for the bey. Now, uh the length for R MS DC R MS red hot and R MS D is going to be the same because we have the, these ones that have the very same duration, 30 seconds. OK. So now let's rerun this and it's",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=424s",
+        "start_time": "424.609"
+    },
+    {
+        "id": "5665180e",
+        "text": "OK? So now this should do the trick unless I messed up something like in the code. So let's see if it works and indeed I messed up something. And that's Oh yeah. Right. That's because it was passing the amplitude envelope for Debussy, but we don't have that. We have that in the previous video. So let me just grab R MS for the bey. Now, uh the length for R MS DC R MS red hot and R MS D is going to be the same because we have the, these ones that have the very same duration, 30 seconds. OK. So now let's rerun this and it's here, we have it. So in red, you can see the R MS energy in this case for the busy here, for the red hot chili peppers and here for uh J Allington. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=452s",
+        "start_time": "452.26"
+    },
+    {
+        "id": "c7772ae8",
+        "text": "And that's Oh yeah. Right. That's because it was passing the amplitude envelope for Debussy, but we don't have that. We have that in the previous video. So let me just grab R MS for the bey. Now, uh the length for R MS DC R MS red hot and R MS D is going to be the same because we have the, these ones that have the very same duration, 30 seconds. OK. So now let's rerun this and it's here, we have it. So in red, you can see the R MS energy in this case for the busy here, for the red hot chili peppers and here for uh J Allington. OK. So as you can see, uh we still have like ideas that are like more or less comparable to what like we discovered in the previous video, which the amplitude envelope. But the cool thing here is that we have like way less like variability and outliers. And that's because for the R MS, we are considering all the samples in a frame, we're not just like taking the max uh value of the amplitude for a given sample inside like the the A frame, right?",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=464s",
+        "start_time": "464.94"
+    },
+    {
+        "id": "c0022fd7",
+        "text": "here, we have it. So in red, you can see the R MS energy in this case for the busy here, for the red hot chili peppers and here for uh J Allington. OK. So as you can see, uh we still have like ideas that are like more or less comparable to what like we discovered in the previous video, which the amplitude envelope. But the cool thing here is that we have like way less like variability and outliers. And that's because for the R MS, we are considering all the samples in a frame, we're not just like taking the max uh value of the amplitude for a given sample inside like the the A frame, right? And uh now uh just like for the sake of comparison, let's just compare the amplitude envelope. So this is the amplitude envelope for the BC for red hot peppers and Duke Kington as we extracted like last time and compare that against this, the R MS. And as you can see as I was mentioning, so here like this, this just like go",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=493s",
+        "start_time": "493.339"
+    },
+    {
+        "id": "75d4dd80",
+        "text": "So as you can see, uh we still have like ideas that are like more or less comparable to what like we discovered in the previous video, which the amplitude envelope. But the cool thing here is that we have like way less like variability and outliers. And that's because for the R MS, we are considering all the samples in a frame, we're not just like taking the max uh value of the amplitude for a given sample inside like the the A frame, right? And uh now uh just like for the sake of comparison, let's just compare the amplitude envelope. So this is the amplitude envelope for the BC for red hot peppers and Duke Kington as we extracted like last time and compare that against this, the R MS. And as you can see as I was mentioning, so here like this, this just like go it goes crazy, right? We have like a lot of spikes and it's just like follows like the upper part of the envelope obviously. Uh But here everything like is toned down. And again, this is like because we are uh considering",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=511s",
+        "start_time": "511.0"
+    },
+    {
+        "id": "b3518bac",
+        "text": "And uh now uh just like for the sake of comparison, let's just compare the amplitude envelope. So this is the amplitude envelope for the BC for red hot peppers and Duke Kington as we extracted like last time and compare that against this, the R MS. And as you can see as I was mentioning, so here like this, this just like go it goes crazy, right? We have like a lot of spikes and it's just like follows like the upper part of the envelope obviously. Uh But here everything like is toned down. And again, this is like because we are uh considering aggregating the results for all the samples in a frame. OK. But um OK. So here, now you know how you can extract the R MS energy which Lisa. But wouldn't it be nice if we try to extract the R MS energy from scratch? Yes, it will be nice. So let's do that. OK. So let's create a function",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=541s",
+        "start_time": "541.08"
+    },
+    {
+        "id": "8c25bd93",
+        "text": "it goes crazy, right? We have like a lot of spikes and it's just like follows like the upper part of the envelope obviously. Uh But here everything like is toned down. And again, this is like because we are uh considering aggregating the results for all the samples in a frame. OK. But um OK. So here, now you know how you can extract the R MS energy which Lisa. But wouldn't it be nice if we try to extract the R MS energy from scratch? Yes, it will be nice. So let's do that. OK. So let's create a function that we call R MS. So what does this function get as an input? It gets the signal,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=569s",
+        "start_time": "569.0"
+    },
+    {
+        "id": "89957941",
+        "text": "aggregating the results for all the samples in a frame. OK. But um OK. So here, now you know how you can extract the R MS energy which Lisa. But wouldn't it be nice if we try to extract the R MS energy from scratch? Yes, it will be nice. So let's do that. OK. So let's create a function that we call R MS. So what does this function get as an input? It gets the signal, it also gets the frame length and it gets the hop length. Again, this function is gonna be like quite uh similar to the function that we built. Uh uh we built last time for the amplitude envelope. So,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=584s",
+        "start_time": "584.609"
+    },
+    {
+        "id": "e9a4f8d8",
+        "text": "that we call R MS. So what does this function get as an input? It gets the signal, it also gets the frame length and it gets the hop length. Again, this function is gonna be like quite uh similar to the function that we built. Uh uh we built last time for the amplitude envelope. So, but before we get in here, so what I want to do is just like show you the R MS. OK. Let me show you do. So this is like the formula that we use for getting the root mean square energy. And so we do like we, we take the R MS of all the uh samples uh like in a frame.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=613s",
+        "start_time": "613.619"
+    },
+    {
+        "id": "84be30f3",
+        "text": "it also gets the frame length and it gets the hop length. Again, this function is gonna be like quite uh similar to the function that we built. Uh uh we built last time for the amplitude envelope. So, but before we get in here, so what I want to do is just like show you the R MS. OK. Let me show you do. So this is like the formula that we use for getting the root mean square energy. And so we do like we, we take the R MS of all the uh samples uh like in a frame. And uh so here you have like the R MS calculated at frame T. And as you can see what we should see here is basically just calculating the energy first, then we should like sum the energy of all the, all the samples in a frame.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=622s",
+        "start_time": "622.169"
+    },
+    {
+        "id": "cda97f13",
+        "text": "but before we get in here, so what I want to do is just like show you the R MS. OK. Let me show you do. So this is like the formula that we use for getting the root mean square energy. And so we do like we, we take the R MS of all the uh samples uh like in a frame. And uh so here you have like the R MS calculated at frame T. And as you can see what we should see here is basically just calculating the energy first, then we should like sum the energy of all the, all the samples in a frame. And then uh once we've done that, we want to divide by the number of samples that we have in a frame or the frame size. And then we just take the square root out of that. So we should convert this into code,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=645s",
+        "start_time": "645.989"
+    },
+    {
+        "id": "6e30486a",
+        "text": "And uh so here you have like the R MS calculated at frame T. And as you can see what we should see here is basically just calculating the energy first, then we should like sum the energy of all the, all the samples in a frame. And then uh once we've done that, we want to divide by the number of samples that we have in a frame or the frame size. And then we just take the square root out of that. So we should convert this into code, let's do that. OK? So the first thing that we want to do is uh just create an empty",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=667s",
+        "start_time": "667.989"
+    },
+    {
+        "id": "6a0cc9f0",
+        "text": "And then uh once we've done that, we want to divide by the number of samples that we have in a frame or the frame size. And then we just take the square root out of that. So we should convert this into code, let's do that. OK? So the first thing that we want to do is uh just create an empty um a list and, and this is gonna contain the R MS for each frame.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=685s",
+        "start_time": "685.479"
+    },
+    {
+        "id": "cababaf1",
+        "text": "let's do that. OK? So the first thing that we want to do is uh just create an empty um a list and, and this is gonna contain the R MS for each frame. OK? And now we want to just look through all the frames in the audio signal. And so if we're doing that, we can say for I in a range and here we start from zero, we should stop at the length of the signal. And the step that we should use is the",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=704s",
+        "start_time": "704.799"
+    },
+    {
+        "id": "6d0cc3e3",
+        "text": "um a list and, and this is gonna contain the R MS for each frame. OK? And now we want to just look through all the frames in the audio signal. And so if we're doing that, we can say for I in a range and here we start from zero, we should stop at the length of the signal. And the step that we should use is the HL right.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=714s",
+        "start_time": "714.179"
+    },
+    {
+        "id": "2b68e27e",
+        "text": "OK? And now we want to just look through all the frames in the audio signal. And so if we're doing that, we can say for I in a range and here we start from zero, we should stop at the length of the signal. And the step that we should use is the HL right. So at every step we are moving the number of samples in the hop length like to the right to start like a new frame. Now, if you want to get like the details about this, I suggest you just like go check out my previous video in the amplitude envelope where I explained this like in detail. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=724s",
+        "start_time": "724.09"
+    },
+    {
+        "id": "d22067d2",
+        "text": "HL right. So at every step we are moving the number of samples in the hop length like to the right to start like a new frame. Now, if you want to get like the details about this, I suggest you just like go check out my previous video in the amplitude envelope where I explained this like in detail. OK. Now what we should do here is basically calculating the R MS for the current frame and the RM SS for the current frame is given by this formula here. So yeah, let's try like to, to put this like in, in place. So what should we do here? Well, first of all, let's take the non pi sum",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=751s",
+        "start_time": "751.729"
+    },
+    {
+        "id": "7a4fe83b",
+        "text": "So at every step we are moving the number of samples in the hop length like to the right to start like a new frame. Now, if you want to get like the details about this, I suggest you just like go check out my previous video in the amplitude envelope where I explained this like in detail. OK. Now what we should do here is basically calculating the R MS for the current frame and the RM SS for the current frame is given by this formula here. So yeah, let's try like to, to put this like in, in place. So what should we do here? Well, first of all, let's take the non pi sum and we should take the sum of the signal",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=754s",
+        "start_time": "754.52"
+    },
+    {
+        "id": "bc06c116",
+        "text": "Now what we should do here is basically calculating the R MS for the current frame and the RM SS for the current frame is given by this formula here. So yeah, let's try like to, to put this like in, in place. So what should we do here? Well, first of all, let's take the non pi sum and we should take the sum of the signal and the out of the signal, we want to slice only the samples in the current frame. And for doing that, we should do, we should like slice it between I and I plus uh frame length. And I've just discovered I have a typo if you let me",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=778s",
+        "start_time": "778.599"
+    },
+    {
+        "id": "6f6fca96",
+        "text": "and we should take the sum of the signal and the out of the signal, we want to slice only the samples in the current frame. And for doing that, we should do, we should like slice it between I and I plus uh frame length. And I've just discovered I have a typo if you let me correct that OK. Frame life over here, which is cool. And uh OK, so once we've done this, we should",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=805s",
+        "start_time": "805.45"
+    },
+    {
+        "id": "799eb79f",
+        "text": "and the out of the signal, we want to slice only the samples in the current frame. And for doing that, we should do, we should like slice it between I and I plus uh frame length. And I've just discovered I have a typo if you let me correct that OK. Frame life over here, which is cool. And uh OK, so once we've done this, we should square this volume.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=812s",
+        "start_time": "812.409"
+    },
+    {
+        "id": "27cb6abc",
+        "text": "correct that OK. Frame life over here, which is cool. And uh OK, so once we've done this, we should square this volume. So basically, I'm just doing this, I'm taking this guy here and I'm taking like the, the sum",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=834s",
+        "start_time": "834.539"
+    },
+    {
+        "id": "44deced9",
+        "text": "square this volume. So basically, I'm just doing this, I'm taking this guy here and I'm taking like the, the sum uh of all of this, of the energy. And uh once we've done that, the next step that we want to do is divide by the uh frame length. And finally,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=846s",
+        "start_time": "846.07"
+    },
+    {
+        "id": "ee8e3fba",
+        "text": "So basically, I'm just doing this, I'm taking this guy here and I'm taking like the, the sum uh of all of this, of the energy. And uh once we've done that, the next step that we want to do is divide by the uh frame length. And finally, we should",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=849s",
+        "start_time": "849.469"
+    },
+    {
+        "id": "5d1a4ae0",
+        "text": "uh of all of this, of the energy. And uh once we've done that, the next step that we want to do is divide by the uh frame length. And finally, we should do I then pi dot square root, OK. So this should work. And out of like all of this guy, we should get the R MS for the current frame and we want to append this to the R MS list. So we'll do an R MS dot uh uh pinned and we'll pass in the R MS current frame.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=858s",
+        "start_time": "858.46"
+    },
+    {
+        "id": "defc08bc",
+        "text": "we should do I then pi dot square root, OK. So this should work. And out of like all of this guy, we should get the R MS for the current frame and we want to append this to the R MS list. So we'll do an R MS dot uh uh pinned and we'll pass in the R MS current frame. Great. So now we can return R MS. But before doing that, we'll convert this bad boy to be a NPI array. So",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=872s",
+        "start_time": "872.63"
+    },
+    {
+        "id": "2eae5969",
+        "text": "do I then pi dot square root, OK. So this should work. And out of like all of this guy, we should get the R MS for the current frame and we want to append this to the R MS list. So we'll do an R MS dot uh uh pinned and we'll pass in the R MS current frame. Great. So now we can return R MS. But before doing that, we'll convert this bad boy to be a NPI array. So done this, OK? So this should work. So now let's see if it actually works.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=874s",
+        "start_time": "874.469"
+    },
+    {
+        "id": "b06ae274",
+        "text": "Great. So now we can return R MS. But before doing that, we'll convert this bad boy to be a NPI array. So done this, OK? So this should work. So now let's see if it actually works. So we'll do, I, yeah, let me just like grab this",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=898s",
+        "start_time": "898.739"
+    },
+    {
+        "id": "f5acabbe",
+        "text": "done this, OK? So this should work. So now let's see if it actually works. So we'll do, I, yeah, let me just like grab this is this guy down here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=913s",
+        "start_time": "913.369"
+    },
+    {
+        "id": "b9fca239",
+        "text": "So we'll do, I, yeah, let me just like grab this is this guy down here. We're here. So let's say R MS, one R MS, one red heart and R MS or one Duke. So now, obviously, we're not using the liberals implementation of R MS, but our own the homemade,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=920s",
+        "start_time": "920.219"
+    },
+    {
+        "id": "1e5df319",
+        "text": "is this guy down here. We're here. So let's say R MS, one R MS, one red heart and R MS or one Duke. So now, obviously, we're not using the liberals implementation of R MS, but our own the homemade, the sound of a Ir MS implementation and I think like the, the arguments are the same. The only thing is we don't want to take like the, the element zero here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=927s",
+        "start_time": "927.69"
+    },
+    {
+        "id": "177baafb",
+        "text": "We're here. So let's say R MS, one R MS, one red heart and R MS or one Duke. So now, obviously, we're not using the liberals implementation of R MS, but our own the homemade, the sound of a Ir MS implementation and I think like the, the arguments are the same. The only thing is we don't want to take like the, the element zero here. And yeah, this seems to work. But now let's see if this actually works by comparing like our implementation to the, the bras one. So how do we do that? Well, we just like get this guy here",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=930s",
+        "start_time": "930.46"
+    },
+    {
+        "id": "90ab0e1e",
+        "text": "the sound of a Ir MS implementation and I think like the, the arguments are the same. The only thing is we don't want to take like the, the element zero here. And yeah, this seems to work. But now let's see if this actually works by comparing like our implementation to the, the bras one. So how do we do that? Well, we just like get this guy here and we'll just like re plot everything but adding our implementation",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=946s",
+        "start_time": "946.08"
+    },
+    {
+        "id": "98233f24",
+        "text": "And yeah, this seems to work. But now let's see if this actually works by comparing like our implementation to the, the bras one. So how do we do that? Well, we just like get this guy here and we'll just like re plot everything but adding our implementation as well. So we'll do a plot dot uh plot and we'll pass in T then R MS one to BC and but we want to change the color and yeah, let's put it to yellow, for example here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=961s",
+        "start_time": "961.179"
+    },
+    {
+        "id": "9fe056a3",
+        "text": "and we'll just like re plot everything but adding our implementation as well. So we'll do a plot dot uh plot and we'll pass in T then R MS one to BC and but we want to change the color and yeah, let's put it to yellow, for example here. Yeah, we'll do the same thing with the red hots.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=977s",
+        "start_time": "977.63"
+    },
+    {
+        "id": "96f90ed3",
+        "text": "as well. So we'll do a plot dot uh plot and we'll pass in T then R MS one to BC and but we want to change the color and yeah, let's put it to yellow, for example here. Yeah, we'll do the same thing with the red hots. Peace",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=985s",
+        "start_time": "985.01"
+    },
+    {
+        "id": "a48063b1",
+        "text": "Yeah, we'll do the same thing with the red hots. Peace and then we'll do the same thing for Duke Ellington. OK. So now let's plot this and obviously I have an issue here and yeah,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1005s",
+        "start_time": "1005.08"
+    },
+    {
+        "id": "298f5995",
+        "text": "Peace and then we'll do the same thing for Duke Ellington. OK. So now let's plot this and obviously I have an issue here and yeah, yeah, this typos. So I was just missing this equal sign over here. Ok.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1012s",
+        "start_time": "1012.169"
+    },
+    {
+        "id": "6b54906b",
+        "text": "and then we'll do the same thing for Duke Ellington. OK. So now let's plot this and obviously I have an issue here and yeah, yeah, this typos. So I was just missing this equal sign over here. Ok. Let's go and see. Yeah. And as you can see, basically like you can kind of like see the red.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1014s",
+        "start_time": "1014.719"
+    },
+    {
+        "id": "a83608fe",
+        "text": "yeah, this typos. So I was just missing this equal sign over here. Ok. Let's go and see. Yeah. And as you can see, basically like you can kind of like see the red. Um Hello, like just like below the yellow, like R MS uh like RR MS. So basically this means that the two implementations like gave us the very same result, which is nice and it seems like Dutch like our implementation is working great. OK. So now we want to move on to another thing which is the zero crossing",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1029s",
+        "start_time": "1029.119"
+    },
+    {
+        "id": "002dbae2",
+        "text": "Let's go and see. Yeah. And as you can see, basically like you can kind of like see the red. Um Hello, like just like below the yellow, like R MS uh like RR MS. So basically this means that the two implementations like gave us the very same result, which is nice and it seems like Dutch like our implementation is working great. OK. So now we want to move on to another thing which is the zero crossing crossing",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1037s",
+        "start_time": "1037.41"
+    },
+    {
+        "id": "55939c97",
+        "text": "Um Hello, like just like below the yellow, like R MS uh like RR MS. So basically this means that the two implementations like gave us the very same result, which is nice and it seems like Dutch like our implementation is working great. OK. So now we want to move on to another thing which is the zero crossing crossing rates. OK. So how do we extract the zero crossing rate. Well, again, this is really a piece of cake because of uh li Brosa. So now I'm just gonna grab this",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1048s",
+        "start_time": "1048.109"
+    },
+    {
+        "id": "bbda8799",
+        "text": "crossing rates. OK. So how do we extract the zero crossing rate. Well, again, this is really a piece of cake because of uh li Brosa. So now I'm just gonna grab this and instead of having like R MS, we'll say ZRC. So ZRC, this is the or well, I should say ZCR, so zero crossing rate",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1072s",
+        "start_time": "1072.89"
+    },
+    {
+        "id": "fcbb88eb",
+        "text": "rates. OK. So how do we extract the zero crossing rate. Well, again, this is really a piece of cake because of uh li Brosa. So now I'm just gonna grab this and instead of having like R MS, we'll say ZRC. So ZRC, this is the or well, I should say ZCR, so zero crossing rate you OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1075s",
+        "start_time": "1075.339"
+    },
+    {
+        "id": "b6688d5a",
+        "text": "and instead of having like R MS, we'll say ZRC. So ZRC, this is the or well, I should say ZCR, so zero crossing rate you OK. So we are getting in the zero crossing range. Obviously, what we should change here is we don't want to take the R MS from the feature module, but rather the zero crossing range.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1094s",
+        "start_time": "1094.04"
+    },
+    {
+        "id": "b98c32a2",
+        "text": "you OK. So we are getting in the zero crossing range. Obviously, what we should change here is we don't want to take the R MS from the feature module, but rather the zero crossing range. OK. Let me replace this here. And then the",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1108s",
+        "start_time": "1108.869"
+    },
+    {
+        "id": "5699717b",
+        "text": "So we are getting in the zero crossing range. Obviously, what we should change here is we don't want to take the R MS from the feature module, but rather the zero crossing range. OK. Let me replace this here. And then the uh the arguments are the very, very same arguments. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1111s",
+        "start_time": "1111.3"
+    },
+    {
+        "id": "c7e1c05e",
+        "text": "OK. Let me replace this here. And then the uh the arguments are the very, very same arguments. OK. So now we can take this. OK. So now what I want to do is just plot these guys. So let's visualize",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1122s",
+        "start_time": "1122.65"
+    },
+    {
+        "id": "1ca0dace",
+        "text": "uh the arguments are the very, very same arguments. OK. So now we can take this. OK. So now what I want to do is just plot these guys. So let's visualize the zero crossing rate for all music pieces.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1129s",
+        "start_time": "1129.4"
+    },
+    {
+        "id": "2547ba3d",
+        "text": "So now we can take this. OK. So now what I want to do is just plot these guys. So let's visualize the zero crossing rate for all music pieces. OK?",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1135s",
+        "start_time": "1135.439"
+    },
+    {
+        "id": "7f1d86d2",
+        "text": "the zero crossing rate for all music pieces. OK? So how do we do that? Well, we can do, we can always use like the, the same",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1148s",
+        "start_time": "1148.15"
+    },
+    {
+        "id": "b2c60236",
+        "text": "OK? So how do we do that? Well, we can do, we can always use like the, the same kind of like templates that we've been using so far.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1155s",
+        "start_time": "1155.51"
+    },
+    {
+        "id": "cae82e25",
+        "text": "So how do we do that? Well, we can do, we can always use like the, the same kind of like templates that we've been using so far. Well, yeah, but perhaps I, yeah, I want to change it like this time. So yeah, so what I want to do here is only have a single",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1158s",
+        "start_time": "1158.25"
+    },
+    {
+        "id": "787eeae6",
+        "text": "kind of like templates that we've been using so far. Well, yeah, but perhaps I, yeah, I want to change it like this time. So yeah, so what I want to do here is only have a single uh like a figure and no subplots and then have all the different uh yeah, the graphs for the different like zero crossing rates for like the different pieces inside the same thing so that we can compare it. OK. So let me do that. So I'll do I",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1166s",
+        "start_time": "1166.079"
+    },
+    {
+        "id": "bd10367b",
+        "text": "Well, yeah, but perhaps I, yeah, I want to change it like this time. So yeah, so what I want to do here is only have a single uh like a figure and no subplots and then have all the different uh yeah, the graphs for the different like zero crossing rates for like the different pieces inside the same thing so that we can compare it. OK. So let me do that. So I'll do I plots dot plot T here. It's not R MS W BC, it's ZCRW BC. So we want this then we'll, yeah, I'll just copy this down here and I'll say ZCR and here we want the red hot and here ZCR for Duke Ellington. Ok.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1170s",
+        "start_time": "1170.979"
+    },
+    {
+        "id": "24fe09a0",
+        "text": "uh like a figure and no subplots and then have all the different uh yeah, the graphs for the different like zero crossing rates for like the different pieces inside the same thing so that we can compare it. OK. So let me do that. So I'll do I plots dot plot T here. It's not R MS W BC, it's ZCRW BC. So we want this then we'll, yeah, I'll just copy this down here and I'll say ZCR and here we want the red hot and here ZCR for Duke Ellington. Ok. So now,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1180s",
+        "start_time": "1180.719"
+    },
+    {
+        "id": "d006246d",
+        "text": "plots dot plot T here. It's not R MS W BC, it's ZCRW BC. So we want this then we'll, yeah, I'll just copy this down here and I'll say ZCR and here we want the red hot and here ZCR for Duke Ellington. Ok. So now, uh I know because I already tried it",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1206s",
+        "start_time": "1206.67"
+    },
+    {
+        "id": "33eca5c1",
+        "text": "So now, uh I know because I already tried it that we can.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1234s",
+        "start_time": "1234.03"
+    },
+    {
+        "id": "13dd1d7a",
+        "text": "uh I know because I already tried it that we can. So we are gonna get uh basically like the, the values for the zero crossing rate are gonna be normalized by the number of samples that we have in a frame. So they're normalized by the frame size so that we can get as a maximum, a value of one which would be like changing like sign at every uh value. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1238s",
+        "start_time": "1238.319"
+    },
+    {
+        "id": "e54d62d2",
+        "text": "that we can. So we are gonna get uh basically like the, the values for the zero crossing rate are gonna be normalized by the number of samples that we have in a frame. So they're normalized by the frame size so that we can get as a maximum, a value of one which would be like changing like sign at every uh value. OK. But uh so we'll,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1243s",
+        "start_time": "1243.829"
+    },
+    {
+        "id": "84136439",
+        "text": "So we are gonna get uh basically like the, the values for the zero crossing rate are gonna be normalized by the number of samples that we have in a frame. So they're normalized by the frame size so that we can get as a maximum, a value of one which would be like changing like sign at every uh value. OK. But uh so we'll, so I, I because of that, I'll put the range on the Y axis between zero and one.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1247s",
+        "start_time": "1247.489"
+    },
+    {
+        "id": "71a2b661",
+        "text": "But uh so we'll, so I, I because of that, I'll put the range on the Y axis between zero and one. OK? So I don't want a title here. I just want to do a plot show down here. So let's see if this works.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1272s",
+        "start_time": "1272.569"
+    },
+    {
+        "id": "3dea0c33",
+        "text": "so I, I because of that, I'll put the range on the Y axis between zero and one. OK? So I don't want a title here. I just want to do a plot show down here. So let's see if this works. Here we go. Yes, but there's a problem, right? So now all of them are in red. So now we could put the WC one in yellow, red, hot chili peppers.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1276s",
+        "start_time": "1276.369"
+    },
+    {
+        "id": "e89ad48e",
+        "text": "OK? So I don't want a title here. I just want to do a plot show down here. So let's see if this works. Here we go. Yes, but there's a problem, right? So now all of them are in red. So now we could put the WC one in yellow, red, hot chili peppers. You guess what color I'm gonna use that. I'm just gonna keep red there here and here for Duke Ellington and I'm gonna put blue. OK. So let's see.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1284s",
+        "start_time": "1284.27"
+    },
+    {
+        "id": "9b4625ac",
+        "text": "Here we go. Yes, but there's a problem, right? So now all of them are in red. So now we could put the WC one in yellow, red, hot chili peppers. You guess what color I'm gonna use that. I'm just gonna keep red there here and here for Duke Ellington and I'm gonna put blue. OK. So let's see. And here you have it. So",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1293s",
+        "start_time": "1293.42"
+    },
+    {
+        "id": "23808b81",
+        "text": "You guess what color I'm gonna use that. I'm just gonna keep red there here and here for Duke Ellington and I'm gonna put blue. OK. So let's see. And here you have it. So as we said in yellow, we have the bey, the zero crossing rate for the Bey in blue. We have the one for uh Duke Ellington and red the one for the red hot chili peppers. Now, is it a surprise that the red hot chili peppers have kind of like the highest zero crossing rat? No. And that's because like, they are using a lot of like, percussive instruments and usually rock music has a ZCR that's kind of like higher than classical music.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1304s",
+        "start_time": "1304.829"
+    },
+    {
+        "id": "d911053c",
+        "text": "And here you have it. So as we said in yellow, we have the bey, the zero crossing rate for the Bey in blue. We have the one for uh Duke Ellington and red the one for the red hot chili peppers. Now, is it a surprise that the red hot chili peppers have kind of like the highest zero crossing rat? No. And that's because like, they are using a lot of like, percussive instruments and usually rock music has a ZCR that's kind of like higher than classical music. And here indeed, you have, like for the, the BC zero crossing rate over time, that's like quite low. It goes up probably when we have like the climates in the music.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1315s",
+        "start_time": "1315.0"
+    },
+    {
+        "id": "6f371c1a",
+        "text": "as we said in yellow, we have the bey, the zero crossing rate for the Bey in blue. We have the one for uh Duke Ellington and red the one for the red hot chili peppers. Now, is it a surprise that the red hot chili peppers have kind of like the highest zero crossing rat? No. And that's because like, they are using a lot of like, percussive instruments and usually rock music has a ZCR that's kind of like higher than classical music. And here indeed, you have, like for the, the BC zero crossing rate over time, that's like quite low. It goes up probably when we have like the climates in the music. And perhaps because we are getting also like higher like with peach and that determines a higher like zero crossing reach. And the blue uh zero crossing rate for Duke Ellington is a little bit like all over the place and it seems to be a little bit like in between",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1320s",
+        "start_time": "1320.64"
+    },
+    {
+        "id": "023b8dfd",
+        "text": "And here indeed, you have, like for the, the BC zero crossing rate over time, that's like quite low. It goes up probably when we have like the climates in the music. And perhaps because we are getting also like higher like with peach and that determines a higher like zero crossing reach. And the blue uh zero crossing rate for Duke Ellington is a little bit like all over the place and it seems to be a little bit like in between the one from the uh for, for the classical music and for the uh rock music. Now, if you want the actual values of the zero crossing rate and not just the normalized ones. So what you could do is take this guy and multiply it by the uh frame length. OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1350s",
+        "start_time": "1350.92"
+    },
+    {
+        "id": "668b4d07",
+        "text": "And perhaps because we are getting also like higher like with peach and that determines a higher like zero crossing reach. And the blue uh zero crossing rate for Duke Ellington is a little bit like all over the place and it seems to be a little bit like in between the one from the uh for, for the classical music and for the uh rock music. Now, if you want the actual values of the zero crossing rate and not just the normalized ones. So what you could do is take this guy and multiply it by the uh frame length. OK. So we are gonna",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1364s",
+        "start_time": "1364.359"
+    },
+    {
+        "id": "c56fa402",
+        "text": "the one from the uh for, for the classical music and for the uh rock music. Now, if you want the actual values of the zero crossing rate and not just the normalized ones. So what you could do is take this guy and multiply it by the uh frame length. OK. So we are gonna multiply the vector by the frame length. And now if I remember correctly, like I, we could put like between zero and 300 the range uh and it should be fine like this. Yes.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1380s",
+        "start_time": "1380.4"
+    },
+    {
+        "id": "e07f6d52",
+        "text": "So we are gonna multiply the vector by the frame length. And now if I remember correctly, like I, we could put like between zero and 300 the range uh and it should be fine like this. Yes. Yeah. Let me just put a little bit more. Oops,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1403s",
+        "start_time": "1403.949"
+    },
+    {
+        "id": "8431beca",
+        "text": "multiply the vector by the frame length. And now if I remember correctly, like I, we could put like between zero and 300 the range uh and it should be fine like this. Yes. Yeah. Let me just put a little bit more. Oops, I mean here, let's try 500. Yes. Looks good. Ok. So, and this is the actual number of zero crossing rates, the absolute number of 00 of, of zero crossings that you have like in these different signals.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1406s",
+        "start_time": "1406.91"
+    },
+    {
+        "id": "93da96c9",
+        "text": "Yeah. Let me just put a little bit more. Oops, I mean here, let's try 500. Yes. Looks good. Ok. So, and this is the actual number of zero crossing rates, the absolute number of 00 of, of zero crossings that you have like in these different signals. Ok. So now I'm not done yet because another thing that I want to try is to see the zero crossing rates on some voice and compare that against an audio signal that only has uh white noise. Ok. So let's try that. So for train that we should just like a load",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1420s",
+        "start_time": "1420.709"
+    },
+    {
+        "id": "c9e3a998",
+        "text": "I mean here, let's try 500. Yes. Looks good. Ok. So, and this is the actual number of zero crossing rates, the absolute number of 00 of, of zero crossings that you have like in these different signals. Ok. So now I'm not done yet because another thing that I want to try is to see the zero crossing rates on some voice and compare that against an audio signal that only has uh white noise. Ok. So let's try that. So for train that we should just like a load uh a couple of things. And so we'll do a voice file",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1426s",
+        "start_time": "1426.369"
+    },
+    {
+        "id": "2d9e67b7",
+        "text": "Ok. So now I'm not done yet because another thing that I want to try is to see the zero crossing rates on some voice and compare that against an audio signal that only has uh white noise. Ok. So let's try that. So for train that we should just like a load uh a couple of things. And so we'll do a voice file and this, if I remember correctly, I should have stored it in audio inside the current uh like folder for like video nine. And it's called voice dot W OK. And then we have the noise file and this is called sorry, it's in the audio folder and then it's noise dot web.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1443s",
+        "start_time": "1443.699"
+    },
+    {
+        "id": "654cacaa",
+        "text": "uh a couple of things. And so we'll do a voice file and this, if I remember correctly, I should have stored it in audio inside the current uh like folder for like video nine. And it's called voice dot W OK. And then we have the noise file and this is called sorry, it's in the audio folder and then it's noise dot web. OK. So now let's try to",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1468s",
+        "start_time": "1468.01"
+    },
+    {
+        "id": "9466725e",
+        "text": "and this, if I remember correctly, I should have stored it in audio inside the current uh like folder for like video nine. And it's called voice dot W OK. And then we have the noise file and this is called sorry, it's in the audio folder and then it's noise dot web. OK. So now let's try to actually",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1474s",
+        "start_time": "1474.79"
+    },
+    {
+        "id": "0f291ef5",
+        "text": "OK. So now let's try to actually uh load these guys first. So I'll do a voice and then for underscore and we'll use again li browser dot uh load and I'll pass in the uh voice file.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1502s",
+        "start_time": "1502.38"
+    },
+    {
+        "id": "f2eb7919",
+        "text": "actually uh load these guys first. So I'll do a voice and then for underscore and we'll use again li browser dot uh load and I'll pass in the uh voice file. And here I'm gonna be using another really cool feature or argument that you can pass to um Libres alert, which is the duration. So you can't by passing like this argument, you, you actually tell Libres how much in terms of seconds you want of the audio uh yeah, file. OK. So we'll say, yeah, 15 seconds. OK? And I'll do the same for a noise",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1507s",
+        "start_time": "1507.68"
+    },
+    {
+        "id": "41a9305f",
+        "text": "uh load these guys first. So I'll do a voice and then for underscore and we'll use again li browser dot uh load and I'll pass in the uh voice file. And here I'm gonna be using another really cool feature or argument that you can pass to um Libres alert, which is the duration. So you can't by passing like this argument, you, you actually tell Libres how much in terms of seconds you want of the audio uh yeah, file. OK. So we'll say, yeah, 15 seconds. OK? And I'll do the same for a noise and here it's not the voice file but it's the noise file. Next thing we want to listen to this audio files directly in the Jupiter notebook. So for doing that, we can easily use IP D dot Audio. And then we'll pass in the voice file.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1510s",
+        "start_time": "1510.359"
+    },
+    {
+        "id": "a566def0",
+        "text": "And here I'm gonna be using another really cool feature or argument that you can pass to um Libres alert, which is the duration. So you can't by passing like this argument, you, you actually tell Libres how much in terms of seconds you want of the audio uh yeah, file. OK. So we'll say, yeah, 15 seconds. OK? And I'll do the same for a noise and here it's not the voice file but it's the noise file. Next thing we want to listen to this audio files directly in the Jupiter notebook. So for doing that, we can easily use IP D dot Audio. And then we'll pass in the voice file. Here we go. And here we have like our nice little player and I'll pass in the noise file.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1530s",
+        "start_time": "1530.4"
+    },
+    {
+        "id": "95a52bf8",
+        "text": "and here it's not the voice file but it's the noise file. Next thing we want to listen to this audio files directly in the Jupiter notebook. So for doing that, we can easily use IP D dot Audio. And then we'll pass in the voice file. Here we go. And here we have like our nice little player and I'll pass in the noise file. Oh, here. Ok. It should go. OK. So let's listen to the 1st 15 seconds of the voice, Jack Pepsi CD. What do you think about that? I like the TD, Pepsi logo. It's like a Pepsi logo but it says Tad instead of Pepsi. Yeah, it's pretty. Yeah. So you get it a highly philosophical discussion about Pepsi Loger and here we have some white noise.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1560s",
+        "start_time": "1560.849"
+    },
+    {
+        "id": "c87d2d40",
+        "text": "Here we go. And here we have like our nice little player and I'll pass in the noise file. Oh, here. Ok. It should go. OK. So let's listen to the 1st 15 seconds of the voice, Jack Pepsi CD. What do you think about that? I like the TD, Pepsi logo. It's like a Pepsi logo but it says Tad instead of Pepsi. Yeah, it's pretty. Yeah. So you get it a highly philosophical discussion about Pepsi Loger and here we have some white noise. Delightful, isn't it? OK.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1578s",
+        "start_time": "1578.53"
+    },
+    {
+        "id": "303ebb12",
+        "text": "Oh, here. Ok. It should go. OK. So let's listen to the 1st 15 seconds of the voice, Jack Pepsi CD. What do you think about that? I like the TD, Pepsi logo. It's like a Pepsi logo but it says Tad instead of Pepsi. Yeah, it's pretty. Yeah. So you get it a highly philosophical discussion about Pepsi Loger and here we have some white noise. Delightful, isn't it? OK. Let's get the zero crossing rate for this too. So we'll do a ZCR voice and once again, we'll do a Li Brosa dot uh feature dot A zero crossing rate. And here",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1589s",
+        "start_time": "1589.06"
+    },
+    {
+        "id": "fe668b14",
+        "text": "Delightful, isn't it? OK. Let's get the zero crossing rate for this too. So we'll do a ZCR voice and once again, we'll do a Li Brosa dot uh feature dot A zero crossing rate. And here we pass in uh the signal. So it's voice and then the frame length and opacity, our frame length and the uh hop length",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1621s",
+        "start_time": "1621.5"
+    },
+    {
+        "id": "29487e2a",
+        "text": "Let's get the zero crossing rate for this too. So we'll do a ZCR voice and once again, we'll do a Li Brosa dot uh feature dot A zero crossing rate. And here we pass in uh the signal. So it's voice and then the frame length and opacity, our frame length and the uh hop length and let me pass the H length over here and now I'll just copy, paste this because I'm too lazy to rewrite dots the ZCR noise. And here we want to pass noise. OK? Looks good. Now, let's grab this guy over here",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1625s",
+        "start_time": "1625.55"
+    },
+    {
+        "id": "80222f20",
+        "text": "we pass in uh the signal. So it's voice and then the frame length and opacity, our frame length and the uh hop length and let me pass the H length over here and now I'll just copy, paste this because I'm too lazy to rewrite dots the ZCR noise. And here we want to pass noise. OK? Looks good. Now, let's grab this guy over here just to visualize the voice and the noise in the same um",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1643s",
+        "start_time": "1643.39"
+    },
+    {
+        "id": "7c54a6de",
+        "text": "and let me pass the H length over here and now I'll just copy, paste this because I'm too lazy to rewrite dots the ZCR noise. And here we want to pass noise. OK? Looks good. Now, let's grab this guy over here just to visualize the voice and the noise in the same um uh graph. OK?",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1657s",
+        "start_time": "1657.31"
+    },
+    {
+        "id": "cad91a20",
+        "text": "just to visualize the voice and the noise in the same um uh graph. OK? To let me just",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1680s",
+        "start_time": "1680.239"
+    },
+    {
+        "id": "cd165ebf",
+        "text": "uh graph. OK? To let me just copy this voice and paste it here and then",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1688s",
+        "start_time": "1688.17"
+    },
+    {
+        "id": "d62f6790",
+        "text": "To let me just copy this voice and paste it here and then do the same thing for no. And now we'll just like keep the normalized uh version of those. So I'm just gonna, yeah, get rid of these guys and these should be in range 01. So now yeah, let me just like",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1691s",
+        "start_time": "1691.3"
+    },
+    {
+        "id": "b1874922",
+        "text": "copy this voice and paste it here and then do the same thing for no. And now we'll just like keep the normalized uh version of those. So I'm just gonna, yeah, get rid of these guys and these should be in range 01. So now yeah, let me just like put this like to 12 because before like it was like too, too high, wasn't it? OK. Yeah, we have an issue here.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1694s",
+        "start_time": "1694.43"
+    },
+    {
+        "id": "cc9c5bce",
+        "text": "do the same thing for no. And now we'll just like keep the normalized uh version of those. So I'm just gonna, yeah, get rid of these guys and these should be in range 01. So now yeah, let me just like put this like to 12 because before like it was like too, too high, wasn't it? OK. Yeah, we have an issue here. Yes,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1700s",
+        "start_time": "1700.06"
+    },
+    {
+        "id": "cffaa6cf",
+        "text": "put this like to 12 because before like it was like too, too high, wasn't it? OK. Yeah, we have an issue here. Yes, that's a good one, right? So like the mistake here is basically I passed uh like this T right. But this t was calculated on the number of frames that we had for the uh the previous, for the music passages and that was like 30 seconds worth worth of audio here, we only have like 15 seconds worth of audio. So we'll have to",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1719s",
+        "start_time": "1719.109"
+    },
+    {
+        "id": "95d69635",
+        "text": "Yes, that's a good one, right? So like the mistake here is basically I passed uh like this T right. But this t was calculated on the number of frames that we had for the uh the previous, for the music passages and that was like 30 seconds worth worth of audio here, we only have like 15 seconds worth of audio. So we'll have to uh recalculate this of T value. OK? So for doing that, we'll do I frames and here uh we should do a range between zero and the length of ZCR",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1727s",
+        "start_time": "1727.54"
+    },
+    {
+        "id": "43541bcd",
+        "text": "that's a good one, right? So like the mistake here is basically I passed uh like this T right. But this t was calculated on the number of frames that we had for the uh the previous, for the music passages and that was like 30 seconds worth worth of audio here, we only have like 15 seconds worth of audio. So we'll have to uh recalculate this of T value. OK? So for doing that, we'll do I frames and here uh we should do a range between zero and the length of ZCR voice. OK?",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1729s",
+        "start_time": "1729.119"
+    },
+    {
+        "id": "72e69e12",
+        "text": "uh recalculate this of T value. OK? So for doing that, we'll do I frames and here uh we should do a range between zero and the length of ZCR voice. OK? And then the next thing that we need to do is, yeah, just like get uh this value here. And for that we should",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1752s",
+        "start_time": "1752.989"
+    },
+    {
+        "id": "4d8be932",
+        "text": "voice. OK? And then the next thing that we need to do is, yeah, just like get uh this value here. And for that we should use,",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1773s",
+        "start_time": "1773.119"
+    },
+    {
+        "id": "df1a69c6",
+        "text": "And then the next thing that we need to do is, yeah, just like get uh this value here. And for that we should use, where is it over here? Yes, here it goes",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1776s",
+        "start_time": "1776.13"
+    },
+    {
+        "id": "d0b66823",
+        "text": "use, where is it over here? Yes, here it goes is function from Libras.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1787s",
+        "start_time": "1787.51"
+    },
+    {
+        "id": "7c485961",
+        "text": "where is it over here? Yes, here it goes is function from Libras. OK. So frames to time and we should pass in frames. Now, there's another mistake that I noticed. So here we should take uh like the, the value at index uh zero. Ok. So now let me redo this and hopefully this time it should work and indeed it does. Ok.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1790s",
+        "start_time": "1790.329"
+    },
+    {
+        "id": "7f4d7d0e",
+        "text": "is function from Libras. OK. So frames to time and we should pass in frames. Now, there's another mistake that I noticed. So here we should take uh like the, the value at index uh zero. Ok. So now let me redo this and hopefully this time it should work and indeed it does. Ok. So in a yellow, you should have the voice and in a red the noise. And as expected, usually the white noise has a zero, a number of crossing rates that's higher than voice and",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1794s",
+        "start_time": "1794.91"
+    },
+    {
+        "id": "33cd76b1",
+        "text": "OK. So frames to time and we should pass in frames. Now, there's another mistake that I noticed. So here we should take uh like the, the value at index uh zero. Ok. So now let me redo this and hopefully this time it should work and indeed it does. Ok. So in a yellow, you should have the voice and in a red the noise. And as expected, usually the white noise has a zero, a number of crossing rates that's higher than voice and that's it. Ok. So you now get the idea of how to extract zero crossing rate using Li Brosa. And we've also seen how like zero crossing rates like changes in different music styles as well when we compare it for voice and noise um audio files. So yeah, that's it. So we are basically done with the temporal",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1799s",
+        "start_time": "1799.15"
+    },
+    {
+        "id": "234d470f",
+        "text": "So in a yellow, you should have the voice and in a red the noise. And as expected, usually the white noise has a zero, a number of crossing rates that's higher than voice and that's it. Ok. So you now get the idea of how to extract zero crossing rate using Li Brosa. And we've also seen how like zero crossing rates like changes in different music styles as well when we compare it for voice and noise um audio files. So yeah, that's it. So we are basically done with the temporal audio features. So next time we'll start looking into uh frequency domain uh features and specifically, we are going to be starting looking into the fourier transfer of transform, which is going to be like our kind of like very important tool that we need for getting any information in the frequency domain.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1818s",
+        "start_time": "1818.699"
+    },
+    {
+        "id": "31b8e2b5",
+        "text": "that's it. Ok. So you now get the idea of how to extract zero crossing rate using Li Brosa. And we've also seen how like zero crossing rates like changes in different music styles as well when we compare it for voice and noise um audio files. So yeah, that's it. So we are basically done with the temporal audio features. So next time we'll start looking into uh frequency domain uh features and specifically, we are going to be starting looking into the fourier transfer of transform, which is going to be like our kind of like very important tool that we need for getting any information in the frequency domain. OK. So I hope you've really enjoyed uh this video. If that's the case, please give us, give us a thumb up. Then if you have any questions as usual, just post them like in the comments section below. One thing that I want to remind you of is the sound of the eye slack community, which is a community where you'll find",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1837s",
+        "start_time": "1837.65"
+    },
+    {
+        "id": "d7f34892",
+        "text": "audio features. So next time we'll start looking into uh frequency domain uh features and specifically, we are going to be starting looking into the fourier transfer of transform, which is going to be like our kind of like very important tool that we need for getting any information in the frequency domain. OK. So I hope you've really enjoyed uh this video. If that's the case, please give us, give us a thumb up. Then if you have any questions as usual, just post them like in the comments section below. One thing that I want to remind you of is the sound of the eye slack community, which is a community where you'll find very interesting people uh who are like interested in all things A I Audio A I music digital signal processing. So if you want to grow your skills, grow your network as well, I suggest you to go and join this community. I'll leave you the link to the community in this description section. OK? It's all for today. I hope I'll see you next time. Cheers.",
+        "video": "How to Extract Root-Mean Square Energy and Zero-Crossing Rate from Audio",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "EycaSbIRx-0",
+        "youtube_link": "https://www.youtube.com/watch?v=EycaSbIRx-0&t=1863s",
+        "start_time": "1863.739"
+    }
+]

@@ -1,0 +1,1163 @@
+[
+    {
+        "id": "ae5d74a0",
+        "text": "Hi, everybody and welcome to a new video in the audio signal processing for machine learning series. This time we'll implement the amplitude envelope feature from scratch. And in the process, we'll also get familiar with Libros, which is the audio processing library that we'll use throughout this course. And we also plot waveforms and the amplitude envelope itself. Before getting, I wanted to show you the Libres documentation here. So you can check this out. I'll leave you the link in the description below. Interesting thing is that Libres doesn't have an extractor for amplitude envelope and so we'll build one from scratch. OK. So now let's get started. And so the first thing that we want to do is to, yeah, let's start by importing uh Li Broza. And we want to also import Li Brusa dot display that has utilities for plots for plotting stuff. OK. So now what we want to do is to load",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "7c013e7e",
+        "text": "I wanted to show you the Libres documentation here. So you can check this out. I'll leave you the link in the description below. Interesting thing is that Libres doesn't have an extractor for amplitude envelope and so we'll build one from scratch. OK. So now let's get started. And so the first thing that we want to do is to, yeah, let's start by importing uh Li Broza. And we want to also import Li Brusa dot display that has utilities for plots for plotting stuff. OK. So now what we want to do is to load audio files.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=26s",
+        "start_time": "26.229"
+    },
+    {
+        "id": "aa47b9f7",
+        "text": "And we want to also import Li Brusa dot display that has utilities for plots for plotting stuff. OK. So now what we want to do is to load audio files. OK? And so what audio files are we using today? Well, I have here in the audio signal processing for machine learning uh code base here at uh in the folder eight, which is the one for this current video, have a sub folder called audio. Here we have three audio files. So one is called ABC and it's a 32nd passage of an orchestral piece by",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=52s",
+        "start_time": "52.74"
+    },
+    {
+        "id": "9afa1e01",
+        "text": "audio files. OK? And so what audio files are we using today? Well, I have here in the audio signal processing for machine learning uh code base here at uh in the folder eight, which is the one for this current video, have a sub folder called audio. Here we have three audio files. So one is called ABC and it's a 32nd passage of an orchestral piece by uh Claude the Bey. And we have 30 seconds by Duke Ellington, the jazz musician and 30 seconds from a song by the red hot chili pepper. So we have a little bit of rock, uh classical music and jazz music in there. OK. So now let's uh create uh let's um get the paths. So we'll have the Bey um we'll call this the Bey file and",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=68s",
+        "start_time": "68.94"
+    },
+    {
+        "id": "0f15d62c",
+        "text": "OK? And so what audio files are we using today? Well, I have here in the audio signal processing for machine learning uh code base here at uh in the folder eight, which is the one for this current video, have a sub folder called audio. Here we have three audio files. So one is called ABC and it's a 32nd passage of an orchestral piece by uh Claude the Bey. And we have 30 seconds by Duke Ellington, the jazz musician and 30 seconds from a song by the red hot chili pepper. So we have a little bit of rock, uh classical music and jazz music in there. OK. So now let's uh create uh let's um get the paths. So we'll have the Bey um we'll call this the Bey file and this I can get from audio and then over here",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=70s",
+        "start_time": "70.51"
+    },
+    {
+        "id": "96184823",
+        "text": "uh Claude the Bey. And we have 30 seconds by Duke Ellington, the jazz musician and 30 seconds from a song by the red hot chili pepper. So we have a little bit of rock, uh classical music and jazz music in there. OK. So now let's uh create uh let's um get the paths. So we'll have the Bey um we'll call this the Bey file and this I can get from audio and then over here BC W and then I can do the same thing for the red hot chili peppers. So I'll do audio and then I'll say red hot uh W and same thing for the Duke Ellington uh file audio and then I'll say uh Duke.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=99s",
+        "start_time": "99.319"
+    },
+    {
+        "id": "30782789",
+        "text": "this I can get from audio and then over here BC W and then I can do the same thing for the red hot chili peppers. So I'll do audio and then I'll say red hot uh W and same thing for the Duke Ellington uh file audio and then I'll say uh Duke. OK, perfect. So these are the, the paths now I can do this because I started Jupiter a notebook uh in",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=127s",
+        "start_time": "127.62"
+    },
+    {
+        "id": "16526ee7",
+        "text": "BC W and then I can do the same thing for the red hot chili peppers. So I'll do audio and then I'll say red hot uh W and same thing for the Duke Ellington uh file audio and then I'll say uh Duke. OK, perfect. So these are the, the paths now I can do this because I started Jupiter a notebook uh in here. So at this level here, so basically I then can access uh the audio uh folder and then obviously the file itself. OK. So the first thing that we want to do here is to import",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=135s",
+        "start_time": "135.63"
+    },
+    {
+        "id": "277c1b06",
+        "text": "OK, perfect. So these are the, the paths now I can do this because I started Jupiter a notebook uh in here. So at this level here, so basically I then can access uh the audio uh folder and then obviously the file itself. OK. So the first thing that we want to do here is to import from ipython display",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=160s",
+        "start_time": "160.21"
+    },
+    {
+        "id": "e5526596",
+        "text": "here. So at this level here, so basically I then can access uh the audio uh folder and then obviously the file itself. OK. So the first thing that we want to do here is to import from ipython display as IP D. And so this has this package has some interesting uh utilities that we can use to just like listen to some music here in a Jupiter no book. So lets take a look at this So we'll do IP D dot uh audio and then we'll pass in the, the BC file over here. And all of a sudden, we have our amazing",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=171s",
+        "start_time": "171.869"
+    },
+    {
+        "id": "6b8cb39f",
+        "text": "from ipython display as IP D. And so this has this package has some interesting uh utilities that we can use to just like listen to some music here in a Jupiter no book. So lets take a look at this So we'll do IP D dot uh audio and then we'll pass in the, the BC file over here. And all of a sudden, we have our amazing uh audio player here. We can listen to uh like this music, but let's load the other music first. So we'll load a red dot file over here",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=190s",
+        "start_time": "190.94"
+    },
+    {
+        "id": "69beb6bc",
+        "text": "as IP D. And so this has this package has some interesting uh utilities that we can use to just like listen to some music here in a Jupiter no book. So lets take a look at this So we'll do IP D dot uh audio and then we'll pass in the, the BC file over here. And all of a sudden, we have our amazing uh audio player here. We can listen to uh like this music, but let's load the other music first. So we'll load a red dot file over here and then we load the",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=197s",
+        "start_time": "197.25"
+    },
+    {
+        "id": "7320ce12",
+        "text": "uh audio player here. We can listen to uh like this music, but let's load the other music first. So we'll load a red dot file over here and then we load the Duke Ellington five. OK. So let's listen to this music.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=226s",
+        "start_time": "226.27"
+    },
+    {
+        "id": "28cda218",
+        "text": "and then we load the Duke Ellington five. OK. So let's listen to this music. OK. So this is a, an orchestral piece by Claude Du Bei.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=239s",
+        "start_time": "239.5"
+    },
+    {
+        "id": "4c10d531",
+        "text": "Duke Ellington five. OK. So let's listen to this music. OK. So this is a, an orchestral piece by Claude Du Bei. So loads of strings here and as you will see there is a climax here, the intensity rises up",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=244s",
+        "start_time": "244.339"
+    },
+    {
+        "id": "395200ea",
+        "text": "OK. So this is a, an orchestral piece by Claude Du Bei. So loads of strings here and as you will see there is a climax here, the intensity rises up and then it just fades away.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=253s",
+        "start_time": "253.41"
+    },
+    {
+        "id": "e9c49ddc",
+        "text": "So loads of strings here and as you will see there is a climax here, the intensity rises up and then it just fades away. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=258s",
+        "start_time": "258.869"
+    },
+    {
+        "id": "872ceeec",
+        "text": "and then it just fades away. OK. Nice. So,",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=268s",
+        "start_time": "268.019"
+    },
+    {
+        "id": "b061e3ef",
+        "text": "OK. Nice. So, OK, you get the idea and then we have some music by Duke Ellington. Very bouncy. Jazzy.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=274s",
+        "start_time": "274.279"
+    },
+    {
+        "id": "4be54883",
+        "text": "Nice. So, OK, you get the idea and then we have some music by Duke Ellington. Very bouncy. Jazzy. OK? Cool. So you have the, an idea of what we are dealing with in terms of like music or like audio cues over here. OK. So now we actually want to load these wave files using a libros. And for doing that, we can use a method, basic method uh from Li Brosa that's called load, not surprisingly. OK. So",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=275s",
+        "start_time": "275.64"
+    },
+    {
+        "id": "f21ffa5c",
+        "text": "OK, you get the idea and then we have some music by Duke Ellington. Very bouncy. Jazzy. OK? Cool. So you have the, an idea of what we are dealing with in terms of like music or like audio cues over here. OK. So now we actually want to load these wave files using a libros. And for doing that, we can use a method, basic method uh from Li Brosa that's called load, not surprisingly. OK. So um here this method gives us back uh the signal itself which in this case, we'll call just like the BC and then it gives us back the sample rate. And so we'll do a libres dot load and then we here we should pass the, the file. OK?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=290s",
+        "start_time": "290.63"
+    },
+    {
+        "id": "d183a7a0",
+        "text": "OK? Cool. So you have the, an idea of what we are dealing with in terms of like music or like audio cues over here. OK. So now we actually want to load these wave files using a libros. And for doing that, we can use a method, basic method uh from Li Brosa that's called load, not surprisingly. OK. So um here this method gives us back uh the signal itself which in this case, we'll call just like the BC and then it gives us back the sample rate. And so we'll do a libres dot load and then we here we should pass the, the file. OK? So now there are a few uh a bunch actually of parameters optional parameters that we have. One is for example, sample rate, we could uh specify a sample rate that we want uh Libres to load our uh audio file uh with.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=304s",
+        "start_time": "304.119"
+    },
+    {
+        "id": "1654c826",
+        "text": "um here this method gives us back uh the signal itself which in this case, we'll call just like the BC and then it gives us back the sample rate. And so we'll do a libres dot load and then we here we should pass the, the file. OK? So now there are a few uh a bunch actually of parameters optional parameters that we have. One is for example, sample rate, we could uh specify a sample rate that we want uh Libres to load our uh audio file uh with. And the, the basic uh case that we have here or I mean the default value that Li Brosa uses is 22,050 which is a totally fine sampling rate for uh like our needs. And so I'm not going to change that. And then we have also like another option which is called mono, which is a ball parameter. So this mono could be equal to true or false and basically deals tells Liberator of whether we want to load the",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=330s",
+        "start_time": "330.119"
+    },
+    {
+        "id": "8621ad56",
+        "text": "So now there are a few uh a bunch actually of parameters optional parameters that we have. One is for example, sample rate, we could uh specify a sample rate that we want uh Libres to load our uh audio file uh with. And the, the basic uh case that we have here or I mean the default value that Li Brosa uses is 22,050 which is a totally fine sampling rate for uh like our needs. And so I'm not going to change that. And then we have also like another option which is called mono, which is a ball parameter. So this mono could be equal to true or false and basically deals tells Liberator of whether we want to load the audio file as as is, for example, it could be a stereo file. So with two channels or like as man, the default behavior of load is to uh load the audio file as mono. And this is like totally fine and we usually work with mo mono signals because we, you really don't lose that much information when you are dealing uh like with mono a audio compared to like uh yeah, stereo audio. For example,",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=352s",
+        "start_time": "352.72"
+    },
+    {
+        "id": "6872ba1b",
+        "text": "And the, the basic uh case that we have here or I mean the default value that Li Brosa uses is 22,050 which is a totally fine sampling rate for uh like our needs. And so I'm not going to change that. And then we have also like another option which is called mono, which is a ball parameter. So this mono could be equal to true or false and basically deals tells Liberator of whether we want to load the audio file as as is, for example, it could be a stereo file. So with two channels or like as man, the default behavior of load is to uh load the audio file as mono. And this is like totally fine and we usually work with mo mono signals because we, you really don't lose that much information when you are dealing uh like with mono a audio compared to like uh yeah, stereo audio. For example, obviously, this can change from problem to problem. But uh for today, we're just gonna use the default or MO OK. So now let's uh load also the uh red hot. And here I use the underscore because we'll have like the sample ridge here and it's gonna be the same. So we don't want, we don't care about that variable now. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=370s",
+        "start_time": "370.45"
+    },
+    {
+        "id": "3d49b08a",
+        "text": "audio file as as is, for example, it could be a stereo file. So with two channels or like as man, the default behavior of load is to uh load the audio file as mono. And this is like totally fine and we usually work with mo mono signals because we, you really don't lose that much information when you are dealing uh like with mono a audio compared to like uh yeah, stereo audio. For example, obviously, this can change from problem to problem. But uh for today, we're just gonna use the default or MO OK. So now let's uh load also the uh red hot. And here I use the underscore because we'll have like the sample ridge here and it's gonna be the same. So we don't want, we don't care about that variable now. OK. So here this, the BC file becomes the uh red hot file and then we'll do a duke and we'll do once again Li Brosa dot uh load and here we'll pass in the uh duke file. Ok.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=399s",
+        "start_time": "399.19"
+    },
+    {
+        "id": "8e542102",
+        "text": "obviously, this can change from problem to problem. But uh for today, we're just gonna use the default or MO OK. So now let's uh load also the uh red hot. And here I use the underscore because we'll have like the sample ridge here and it's gonna be the same. So we don't want, we don't care about that variable now. OK. So here this, the BC file becomes the uh red hot file and then we'll do a duke and we'll do once again Li Brosa dot uh load and here we'll pass in the uh duke file. Ok. Good. OK. So now we've loaded all of these guys for timing. I'll just be working with the BC, one of these to show you like a few like things about like what we've loaded. But then when I want to compare this, obviously, I use all of these three different signals.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=428s",
+        "start_time": "428.2"
+    },
+    {
+        "id": "6f5e879d",
+        "text": "So here this, the BC file becomes the uh red hot file and then we'll do a duke and we'll do once again Li Brosa dot uh load and here we'll pass in the uh duke file. Ok. Good. OK. So now we've loaded all of these guys for timing. I'll just be working with the BC, one of these to show you like a few like things about like what we've loaded. But then when I want to compare this, obviously, I use all of these three different signals. If you're wondering how many samples we have in the uh signal. So we can just do ABC dot size. And you'll see that we have this many samples, almost 700,000 samples. OK? So now let's take a look at the uh duration of one sample.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=451s",
+        "start_time": "451.44"
+    },
+    {
+        "id": "aba917e9",
+        "text": "Good. OK. So now we've loaded all of these guys for timing. I'll just be working with the BC, one of these to show you like a few like things about like what we've loaded. But then when I want to compare this, obviously, I use all of these three different signals. If you're wondering how many samples we have in the uh signal. So we can just do ABC dot size. And you'll see that we have this many samples, almost 700,000 samples. OK? So now let's take a look at the uh duration of one sample. OK? So this uh du Samp let's call this sample duration and this is equal to the inverse of the sampling range. And let's print this so that it's nicer to see and we'll say that um duration of one sample is and here we pass in the sample duration.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=473s",
+        "start_time": "473.57"
+    },
+    {
+        "id": "71138e28",
+        "text": "If you're wondering how many samples we have in the uh signal. So we can just do ABC dot size. And you'll see that we have this many samples, almost 700,000 samples. OK? So now let's take a look at the uh duration of one sample. OK? So this uh du Samp let's call this sample duration and this is equal to the inverse of the sampling range. And let's print this so that it's nicer to see and we'll say that um duration of one sample is and here we pass in the sample duration. And then we want to specify that we only want six decimal values and this is in seconds. OK? So let's take a look at this. And so the duration of one sample is 0.0000 45 seconds. So this is like a very, very short duration.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=489s",
+        "start_time": "489.619"
+    },
+    {
+        "id": "9e9e594f",
+        "text": "OK? So this uh du Samp let's call this sample duration and this is equal to the inverse of the sampling range. And let's print this so that it's nicer to see and we'll say that um duration of one sample is and here we pass in the sample duration. And then we want to specify that we only want six decimal values and this is in seconds. OK? So let's take a look at this. And so the duration of one sample is 0.0000 45 seconds. So this is like a very, very short duration. So now why do we want this sample duration. Well, because I want to uh calculate the uh duration of the audio signal",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=515s",
+        "start_time": "515.69"
+    },
+    {
+        "id": "93e4ebed",
+        "text": "And then we want to specify that we only want six decimal values and this is in seconds. OK? So let's take a look at this. And so the duration of one sample is 0.0000 45 seconds. So this is like a very, very short duration. So now why do we want this sample duration. Well, because I want to uh calculate the uh duration of the audio signal in seconds. Ok. And so for that, we should do a duration",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=544s",
+        "start_time": "544.07"
+    },
+    {
+        "id": "6346bb26",
+        "text": "So now why do we want this sample duration. Well, because I want to uh calculate the uh duration of the audio signal in seconds. Ok. And so for that, we should do a duration and here we should do duration is equal to the sample duration. So the duration for one sample and multiply that by the total number of samples that we have in",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=564s",
+        "start_time": "564.469"
+    },
+    {
+        "id": "b286f16c",
+        "text": "in seconds. Ok. And so for that, we should do a duration and here we should do duration is equal to the sample duration. So the duration for one sample and multiply that by the total number of samples that we have in the signal, right?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=576s",
+        "start_time": "576.01"
+    },
+    {
+        "id": "cd7f847d",
+        "text": "and here we should do duration is equal to the sample duration. So the duration for one sample and multiply that by the total number of samples that we have in the signal, right? And let me grab this. So the duration of signal",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=585s",
+        "start_time": "585.359"
+    },
+    {
+        "id": "c5f4935e",
+        "text": "the signal, right? And let me grab this. So the duration of signal is and he will pass in the duration.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=604s",
+        "start_time": "604.059"
+    },
+    {
+        "id": "db40ab99",
+        "text": "And let me grab this. So the duration of signal is and he will pass in the duration. Oh, I had a type over here. OK?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=606s",
+        "start_time": "606.34"
+    },
+    {
+        "id": "96fc3273",
+        "text": "is and he will pass in the duration. Oh, I had a type over here. OK? And the duration of the signal as expected is 30 seconds. So this is the length of the uh audio files that we are dealing with right now. OK. So let me just take out a few of this",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=615s",
+        "start_time": "615.78"
+    },
+    {
+        "id": "b864bcac",
+        "text": "Oh, I had a type over here. OK? And the duration of the signal as expected is 30 seconds. So this is the length of the uh audio files that we are dealing with right now. OK. So let me just take out a few of this boxes here because otherwise a little bit too cluttered the whole thing. OK? So now we know the duration of the signal. So what, what, what I want to do really here is just like to visualize the waveforms. OK. So how do we do that? Well, given we want to do something a little bit elaborate, I want to import uh much uh plot of leap",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=623s",
+        "start_time": "623.809"
+    },
+    {
+        "id": "cb889694",
+        "text": "And the duration of the signal as expected is 30 seconds. So this is the length of the uh audio files that we are dealing with right now. OK. So let me just take out a few of this boxes here because otherwise a little bit too cluttered the whole thing. OK? So now we know the duration of the signal. So what, what, what I want to do really here is just like to visualize the waveforms. OK. So how do we do that? Well, given we want to do something a little bit elaborate, I want to import uh much uh plot of leap dot plot PLT. OK. So",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=628s",
+        "start_time": "628.39"
+    },
+    {
+        "id": "438e063f",
+        "text": "boxes here because otherwise a little bit too cluttered the whole thing. OK? So now we know the duration of the signal. So what, what, what I want to do really here is just like to visualize the waveforms. OK. So how do we do that? Well, given we want to do something a little bit elaborate, I want to import uh much uh plot of leap dot plot PLT. OK. So yeah, I have another type in here. OK. So we'll create a figure and so we'll do plot dot uh figure and we'll pass in a parameter called thick size and this is uh gonna be equal. Yeah, we'll put 15 for the width and 17 for the height.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=641s",
+        "start_time": "641.57"
+    },
+    {
+        "id": "b521abee",
+        "text": "dot plot PLT. OK. So yeah, I have another type in here. OK. So we'll create a figure and so we'll do plot dot uh figure and we'll pass in a parameter called thick size and this is uh gonna be equal. Yeah, we'll put 15 for the width and 17 for the height. And now we're gonna have three different subplots. And we want to stack the waveforms for all the different audio signals uh vertically. OK. So we'll do a plots dot soup plots. And here we'll say that we want uh three rows, one column and this plot is at index uh one.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=670s",
+        "start_time": "670.859"
+    },
+    {
+        "id": "ce063469",
+        "text": "yeah, I have another type in here. OK. So we'll create a figure and so we'll do plot dot uh figure and we'll pass in a parameter called thick size and this is uh gonna be equal. Yeah, we'll put 15 for the width and 17 for the height. And now we're gonna have three different subplots. And we want to stack the waveforms for all the different audio signals uh vertically. OK. So we'll do a plots dot soup plots. And here we'll say that we want uh three rows, one column and this plot is at index uh one. And so here we'll do a uh so here, what we can do is do a uh li browser dot display and we'll do a wave plots. OK? And so here we need to pass the uh signal",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=677s",
+        "start_time": "677.479"
+    },
+    {
+        "id": "dfd560d8",
+        "text": "And now we're gonna have three different subplots. And we want to stack the waveforms for all the different audio signals uh vertically. OK. So we'll do a plots dot soup plots. And here we'll say that we want uh three rows, one column and this plot is at index uh one. And so here we'll do a uh so here, what we can do is do a uh li browser dot display and we'll do a wave plots. OK? And so here we need to pass the uh signal and the signal in this case is the BC. So we'll have the BC first, then we'll do a plot dot uh title and the title in this case is gonna be uh the BC and given, I know that this mm waveforms are gonna be normalized between minus one and one. I want to set a range on the um",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=699s",
+        "start_time": "699.179"
+    },
+    {
+        "id": "9a84f05b",
+        "text": "And so here we'll do a uh so here, what we can do is do a uh li browser dot display and we'll do a wave plots. OK? And so here we need to pass the uh signal and the signal in this case is the BC. So we'll have the BC first, then we'll do a plot dot uh title and the title in this case is gonna be uh the BC and given, I know that this mm waveforms are gonna be normalized between minus one and one. I want to set a range on the um uh on the uh Y axis and I'll set that to",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=722s",
+        "start_time": "722.95"
+    },
+    {
+        "id": "f47c7542",
+        "text": "and the signal in this case is the BC. So we'll have the BC first, then we'll do a plot dot uh title and the title in this case is gonna be uh the BC and given, I know that this mm waveforms are gonna be normalized between minus one and one. I want to set a range on the um uh on the uh Y axis and I'll set that to uh should be minus one and one. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=743s",
+        "start_time": "743.39"
+    },
+    {
+        "id": "9029ca39",
+        "text": "uh on the uh Y axis and I'll set that to uh should be minus one and one. OK. So we repeat this a couple of times, but now this is gonna be for",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=769s",
+        "start_time": "769.409"
+    },
+    {
+        "id": "09c4a4c4",
+        "text": "uh should be minus one and one. OK. So we repeat this a couple of times, but now this is gonna be for uh red hot. And so we'll call this red chili peppers",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=777s",
+        "start_time": "777.71"
+    },
+    {
+        "id": "40b306ee",
+        "text": "So we repeat this a couple of times, but now this is gonna be for uh red hot. And so we'll call this red chili peppers and then we'll do the same thing for uh Duke Ellington and we'll call this Du uh Duke Ellington, ok. And finally, here we'll do a plot dot show.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=784s",
+        "start_time": "784.719"
+    },
+    {
+        "id": "b6478096",
+        "text": "uh red hot. And so we'll call this red chili peppers and then we'll do the same thing for uh Duke Ellington and we'll call this Du uh Duke Ellington, ok. And finally, here we'll do a plot dot show. Now, let's take a look at this. If I haven't messed up, we should see the results. And indeed, I've messed up a little bit. Uh So here you have like all of the uh different um wave plots uh like all in the same uh uh graph,",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=795s",
+        "start_time": "795.08"
+    },
+    {
+        "id": "69f3f6c9",
+        "text": "and then we'll do the same thing for uh Duke Ellington and we'll call this Du uh Duke Ellington, ok. And finally, here we'll do a plot dot show. Now, let's take a look at this. If I haven't messed up, we should see the results. And indeed, I've messed up a little bit. Uh So here you have like all of the uh different um wave plots uh like all in the same uh uh graph, right? OK. So we want to change that and, and that's why we had this subplot. So here we put this at index two and here at index three. Also another thing that I want to do is add a little bit of transparency here because it's gonna just like look nicer. So in this web plot, so we'll do this,",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=802s",
+        "start_time": "802.469"
+    },
+    {
+        "id": "0a47c41a",
+        "text": "Now, let's take a look at this. If I haven't messed up, we should see the results. And indeed, I've messed up a little bit. Uh So here you have like all of the uh different um wave plots uh like all in the same uh uh graph, right? OK. So we want to change that and, and that's why we had this subplot. So here we put this at index two and here at index three. Also another thing that I want to do is add a little bit of transparency here because it's gonna just like look nicer. So in this web plot, so we'll do this, do this. OK? Let's go. Let's see. OK. Here we go. OK. So here we have the different wave plots for the beauty, the red hot chili peppers song and Duke Ellington's piece. OK. So we can draw conclusions like already like by comparing these guys here. So as you can see over all the uh the BC wave plot",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=817s",
+        "start_time": "817.929"
+    },
+    {
+        "id": "4d380460",
+        "text": "right? OK. So we want to change that and, and that's why we had this subplot. So here we put this at index two and here at index three. Also another thing that I want to do is add a little bit of transparency here because it's gonna just like look nicer. So in this web plot, so we'll do this, do this. OK? Let's go. Let's see. OK. Here we go. OK. So here we have the different wave plots for the beauty, the red hot chili peppers song and Duke Ellington's piece. OK. So we can draw conclusions like already like by comparing these guys here. So as you can see over all the uh the BC wave plot is kind of like is very fluid in its uh like envelope, right? So it is like fairly like stable down here. Then you have like a huge rise of tension and, and, and rise of energy right over here. Here you have the climax and then it goes back down.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=836s",
+        "start_time": "836.155"
+    },
+    {
+        "id": "35643dad",
+        "text": "do this. OK? Let's go. Let's see. OK. Here we go. OK. So here we have the different wave plots for the beauty, the red hot chili peppers song and Duke Ellington's piece. OK. So we can draw conclusions like already like by comparing these guys here. So as you can see over all the uh the BC wave plot is kind of like is very fluid in its uh like envelope, right? So it is like fairly like stable down here. Then you have like a huge rise of tension and, and, and rise of energy right over here. Here you have the climax and then it goes back down. If we compare that with the red hot chili pepper song, it's quite different, right? Because here the the overall envelope tends to remain the same, right? And that's a feature that you'll always, you'll often find in popular music. And here we can talk about like rock music, pop music or EDM for example. And",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=859s",
+        "start_time": "859.479"
+    },
+    {
+        "id": "61915444",
+        "text": "is kind of like is very fluid in its uh like envelope, right? So it is like fairly like stable down here. Then you have like a huge rise of tension and, and, and rise of energy right over here. Here you have the climax and then it goes back down. If we compare that with the red hot chili pepper song, it's quite different, right? Because here the the overall envelope tends to remain the same, right? And that's a feature that you'll always, you'll often find in popular music. And here we can talk about like rock music, pop music or EDM for example. And here you'll notice also certain spikes in uh the uh waveform and these spikes as you can see are like at regular points in time. And as you guess it, these are like the kick snare. Uh So the drum k like coming in, right?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=883s",
+        "start_time": "883.34"
+    },
+    {
+        "id": "48a7e62e",
+        "text": "If we compare that with the red hot chili pepper song, it's quite different, right? Because here the the overall envelope tends to remain the same, right? And that's a feature that you'll always, you'll often find in popular music. And here we can talk about like rock music, pop music or EDM for example. And here you'll notice also certain spikes in uh the uh waveform and these spikes as you can see are like at regular points in time. And as you guess it, these are like the kick snare. Uh So the drum k like coming in, right? And uh if we compare this, like with uh Duke Ellington, you have like a little bit like of the two worlds here, right? And the classical music and the the rock music. So there's quite a lot of variability like in, in intensity, but it's more like micro is not like at the macro level.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=903s",
+        "start_time": "903.5"
+    },
+    {
+        "id": "c7fe774d",
+        "text": "here you'll notice also certain spikes in uh the uh waveform and these spikes as you can see are like at regular points in time. And as you guess it, these are like the kick snare. Uh So the drum k like coming in, right? And uh if we compare this, like with uh Duke Ellington, you have like a little bit like of the two worlds here, right? And the classical music and the the rock music. So there's quite a lot of variability like in, in intensity, but it's more like micro is not like at the macro level. And so, so basically, the point, the takeaway point here is that when you're dealing with uh classical music, which uses uh obviously a lot of like acoustic, mainly acoustic instruments, then you'll have like a lot of variability in the waveform. Whereas",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=925s",
+        "start_time": "925.77"
+    },
+    {
+        "id": "24478f33",
+        "text": "And uh if we compare this, like with uh Duke Ellington, you have like a little bit like of the two worlds here, right? And the classical music and the the rock music. So there's quite a lot of variability like in, in intensity, but it's more like micro is not like at the macro level. And so, so basically, the point, the takeaway point here is that when you're dealing with uh classical music, which uses uh obviously a lot of like acoustic, mainly acoustic instruments, then you'll have like a lot of variability in the waveform. Whereas like with popular music, which more kind of like electronic electric uh uh instruments then like the, the waveform tends to be a little bit like more stable, obviously, like this can change a lot depending on the song. But like this is like a general rule of thumb. OK. So now the next step that we want to do is to actually calculate the",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=942s",
+        "start_time": "942.539"
+    },
+    {
+        "id": "0eef40b0",
+        "text": "And so, so basically, the point, the takeaway point here is that when you're dealing with uh classical music, which uses uh obviously a lot of like acoustic, mainly acoustic instruments, then you'll have like a lot of variability in the waveform. Whereas like with popular music, which more kind of like electronic electric uh uh instruments then like the, the waveform tends to be a little bit like more stable, obviously, like this can change a lot depending on the song. But like this is like a general rule of thumb. OK. So now the next step that we want to do is to actually calculate the amplitude",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=961s",
+        "start_time": "961.669"
+    },
+    {
+        "id": "f73687d9",
+        "text": "like with popular music, which more kind of like electronic electric uh uh instruments then like the, the waveform tends to be a little bit like more stable, obviously, like this can change a lot depending on the song. But like this is like a general rule of thumb. OK. So now the next step that we want to do is to actually calculate the amplitude envelope. OK. And so I'm gonna create a function for doing that. Actually, I'm gonna create two functions. So one like is gonna be like a little bit easier to understand in some sort of like Python code the other one is a little bit fancier but the algorithm is the same. The only thing that changes is the, the, the Python code. OK. So let's start with the, with the simple one, the most uh the more intuitive the amplitude envelope.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=978s",
+        "start_time": "978.5"
+    },
+    {
+        "id": "afddbdc9",
+        "text": "amplitude envelope. OK. And so I'm gonna create a function for doing that. Actually, I'm gonna create two functions. So one like is gonna be like a little bit easier to understand in some sort of like Python code the other one is a little bit fancier but the algorithm is the same. The only thing that changes is the, the, the Python code. OK. So let's start with the, with the simple one, the most uh the more intuitive the amplitude envelope. And here we sh uh this uh function takes the uh a signal and it takes a frame size. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1001s",
+        "start_time": "1001.849"
+    },
+    {
+        "id": "5bebb81a",
+        "text": "envelope. OK. And so I'm gonna create a function for doing that. Actually, I'm gonna create two functions. So one like is gonna be like a little bit easier to understand in some sort of like Python code the other one is a little bit fancier but the algorithm is the same. The only thing that changes is the, the, the Python code. OK. So let's start with the, with the simple one, the most uh the more intuitive the amplitude envelope. And here we sh uh this uh function takes the uh a signal and it takes a frame size. OK. So",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1004s",
+        "start_time": "1004.099"
+    },
+    {
+        "id": "45f704d1",
+        "text": "And here we sh uh this uh function takes the uh a signal and it takes a frame size. OK. So uh amplitude envelope and we're gonna set this equal to a list. If you guys remember from the previous video uh the for calculating the amplitude envelope at a specific frame, what we want to do is just like take the maximum value of the amplitude calculated across all the samples in that given frame. And for getting the amplitude envelope for the whole",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1033s",
+        "start_time": "1033.75"
+    },
+    {
+        "id": "0c15250b",
+        "text": "So uh amplitude envelope and we're gonna set this equal to a list. If you guys remember from the previous video uh the for calculating the amplitude envelope at a specific frame, what we want to do is just like take the maximum value of the amplitude calculated across all the samples in that given frame. And for getting the amplitude envelope for the whole signal, we take the uh the max uh amplitude for uh each frame. And yeah, we just like uh a pen that like to get like a value for each uh frame right now. If you don't remember that I went into quite details about like the mathematics of the amplitude envelope in the previous video. So you should definitely check that out and it should be over here just like go check that out. OK. So",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1045s",
+        "start_time": "1045.3"
+    },
+    {
+        "id": "0db331ab",
+        "text": "uh amplitude envelope and we're gonna set this equal to a list. If you guys remember from the previous video uh the for calculating the amplitude envelope at a specific frame, what we want to do is just like take the maximum value of the amplitude calculated across all the samples in that given frame. And for getting the amplitude envelope for the whole signal, we take the uh the max uh amplitude for uh each frame. And yeah, we just like uh a pen that like to get like a value for each uh frame right now. If you don't remember that I went into quite details about like the mathematics of the amplitude envelope in the previous video. So you should definitely check that out and it should be over here just like go check that out. OK. So here we want to calculate, calculate the amplitude envelope for each frame. So, and for doing that, we'll do a four",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1046s",
+        "start_time": "1046.93"
+    },
+    {
+        "id": "f5ad4980",
+        "text": "signal, we take the uh the max uh amplitude for uh each frame. And yeah, we just like uh a pen that like to get like a value for each uh frame right now. If you don't remember that I went into quite details about like the mathematics of the amplitude envelope in the previous video. So you should definitely check that out and it should be over here just like go check that out. OK. So here we want to calculate, calculate the amplitude envelope for each frame. So, and for doing that, we'll do a four uh I in range",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1075s",
+        "start_time": "1075.52"
+    },
+    {
+        "id": "a6e0e871",
+        "text": "here we want to calculate, calculate the amplitude envelope for each frame. So, and for doing that, we'll do a four uh I in range and here we'll start from zero, then we'll stop at the length of the signal. But here we don't want to just uh have this eye that goes like 123 at each iteration. No, we wanted to jump and we wanted to jump by the, the frame size. So like this third uh like argument here in the range function is the step size in this case. So let's assume the frame size",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1105s",
+        "start_time": "1105.709"
+    },
+    {
+        "id": "e674a377",
+        "text": "uh I in range and here we'll start from zero, then we'll stop at the length of the signal. But here we don't want to just uh have this eye that goes like 123 at each iteration. No, we wanted to jump and we wanted to jump by the, the frame size. So like this third uh like argument here in the range function is the step size in this case. So let's assume the frame size is equal to 100. So we'll start at the first iteration I is going to be equal to zero, then it's going to be second iteration is going to be equal to 100 then 203 100 you get the idea why do we do that? Well, we do that because in this way, I is always going to be the first sample in a frame. OK?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1120s",
+        "start_time": "1120.579"
+    },
+    {
+        "id": "401efbc4",
+        "text": "and here we'll start from zero, then we'll stop at the length of the signal. But here we don't want to just uh have this eye that goes like 123 at each iteration. No, we wanted to jump and we wanted to jump by the, the frame size. So like this third uh like argument here in the range function is the step size in this case. So let's assume the frame size is equal to 100. So we'll start at the first iteration I is going to be equal to zero, then it's going to be second iteration is going to be equal to 100 then 203 100 you get the idea why do we do that? Well, we do that because in this way, I is always going to be the first sample in a frame. OK? And that's something that we definitely",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1125s",
+        "start_time": "1125.439"
+    },
+    {
+        "id": "3667b807",
+        "text": "is equal to 100. So we'll start at the first iteration I is going to be equal to zero, then it's going to be second iteration is going to be equal to 100 then 203 100 you get the idea why do we do that? Well, we do that because in this way, I is always going to be the first sample in a frame. OK? And that's something that we definitely need. And so now we could say current frame",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1151s",
+        "start_time": "1151.814"
+    },
+    {
+        "id": "72df8389",
+        "text": "And that's something that we definitely need. And so now we could say current frame unplayed ch",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1178s",
+        "start_time": "1178.069"
+    },
+    {
+        "id": "3ac17db6",
+        "text": "need. And so now we could say current frame unplayed ch envelope",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1182s",
+        "start_time": "1182.069"
+    },
+    {
+        "id": "de9f0f87",
+        "text": "unplayed ch envelope and they look and so this is equal to the max of the slice of signal that just considers the all the frames in the current, uh all the samples in the current frame. And so this is given by uh the slice of signal calculated between I and I plus",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1190s",
+        "start_time": "1190.56"
+    },
+    {
+        "id": "e25cbaf5",
+        "text": "envelope and they look and so this is equal to the max of the slice of signal that just considers the all the frames in the current, uh all the samples in the current frame. And so this is given by uh the slice of signal calculated between I and I plus frame size. OK. So we are slicing the signal considering only the samples uh for a given frame.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1192s",
+        "start_time": "1192.869"
+    },
+    {
+        "id": "e369f551",
+        "text": "and they look and so this is equal to the max of the slice of signal that just considers the all the frames in the current, uh all the samples in the current frame. And so this is given by uh the slice of signal calculated between I and I plus frame size. OK. So we are slicing the signal considering only the samples uh for a given frame. OK. So, and here we take the um amplitude envelope and we want to append the current frame amplitude envelope. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1195s",
+        "start_time": "1195.959"
+    },
+    {
+        "id": "8088d81b",
+        "text": "frame size. OK. So we are slicing the signal considering only the samples uh for a given frame. OK. So, and here we take the um amplitude envelope and we want to append the current frame amplitude envelope. OK. So we'll do this and here we can uh return the amplitude envelope but we'll return that as a N pi array. So we'll do this. OK. So this should work. But uh let me",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1218s",
+        "start_time": "1218.989"
+    },
+    {
+        "id": "9853c296",
+        "text": "OK. So, and here we take the um amplitude envelope and we want to append the current frame amplitude envelope. OK. So we'll do this and here we can uh return the amplitude envelope but we'll return that as a N pi array. So we'll do this. OK. So this should work. But uh let me just create a constant up here.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1229s",
+        "start_time": "1229.51"
+    },
+    {
+        "id": "f5420157",
+        "text": "So we'll do this and here we can uh return the amplitude envelope but we'll return that as a N pi array. So we'll do this. OK. So this should work. But uh let me just create a constant up here. So we'll put the frame size equal to 1000 and 24 which is totally legit number for frame size.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1244s",
+        "start_time": "1244.9"
+    },
+    {
+        "id": "c498a2fe",
+        "text": "just create a constant up here. So we'll put the frame size equal to 1000 and 24 which is totally legit number for frame size. OK. So now let's try to calculate the amplitude envelope for the BC signal. And so we'll do a",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1265s",
+        "start_time": "1265.089"
+    },
+    {
+        "id": "96e76f2e",
+        "text": "So we'll put the frame size equal to 1000 and 24 which is totally legit number for frame size. OK. So now let's try to calculate the amplitude envelope for the BC signal. And so we'll do a um pude envelope, we'll pass in the BC signal and we'll pass in the frame size. Now, what I want to do is show you the length of this guy. And obviously, we have an error here, which is NP because I didn't import NP. And so let me import that. So we'll do import NPI as MP.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1269s",
+        "start_time": "1269.28"
+    },
+    {
+        "id": "0c9e1e0c",
+        "text": "OK. So now let's try to calculate the amplitude envelope for the BC signal. And so we'll do a um pude envelope, we'll pass in the BC signal and we'll pass in the frame size. Now, what I want to do is show you the length of this guy. And obviously, we have an error here, which is NP because I didn't import NP. And so let me import that. So we'll do import NPI as MP. OK? Now let's go back down here and hopefully this should work. OK? Here we go.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1277s",
+        "start_time": "1277.209"
+    },
+    {
+        "id": "4086d92b",
+        "text": "um pude envelope, we'll pass in the BC signal and we'll pass in the frame size. Now, what I want to do is show you the length of this guy. And obviously, we have an error here, which is NP because I didn't import NP. And so let me import that. So we'll do import NPI as MP. OK? Now let's go back down here and hopefully this should work. OK? Here we go. So here we have uh the, the size of this array is 646. So this is the number of frames that we have in the, the BC uh signal. Now, if I change the frame size, uh let's say I have it. So I put it at 512. So now the number of frames should like double or the number of uh like",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1289s",
+        "start_time": "1289.42"
+    },
+    {
+        "id": "319583b6",
+        "text": "OK? Now let's go back down here and hopefully this should work. OK? Here we go. So here we have uh the, the size of this array is 646. So this is the number of frames that we have in the, the BC uh signal. Now, if I change the frame size, uh let's say I have it. So I put it at 512. So now the number of frames should like double or the number of uh like uh um the, the, the size of the ali envelope also should double, right. Let's see.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1314s",
+        "start_time": "1314.839"
+    },
+    {
+        "id": "8ee027ba",
+        "text": "So here we have uh the, the size of this array is 646. So this is the number of frames that we have in the, the BC uh signal. Now, if I change the frame size, uh let's say I have it. So I put it at 512. So now the number of frames should like double or the number of uh like uh um the, the, the size of the ali envelope also should double, right. Let's see. Yeah, but I should rerun this and here we go. So we have double the uh the number of frames over here. OK?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1320s",
+        "start_time": "1320.729"
+    },
+    {
+        "id": "d6442b80",
+        "text": "uh um the, the, the size of the ali envelope also should double, right. Let's see. Yeah, but I should rerun this and here we go. So we have double the uh the number of frames over here. OK? Now, this is all good and well, but it only consider the, the case, this amplitude envelope function where we have uh non overlapping frames. If we had uh overlapping uh frames, we would have, we would need to uh change like this um function. And",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1347s",
+        "start_time": "1347.569"
+    },
+    {
+        "id": "7f941b30",
+        "text": "Yeah, but I should rerun this and here we go. So we have double the uh the number of frames over here. OK? Now, this is all good and well, but it only consider the, the case, this amplitude envelope function where we have uh non overlapping frames. If we had uh overlapping uh frames, we would have, we would need to uh change like this um function. And now if you don't remember what like overlapping and non overlapping frames are, I suggest you to go check out this video to just like refresh or like learn that. But basically, when we have over uh overlapping frames, we'll still have like the, the frame size, which in this case will put equal to 1000 24. But then we have another",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1353s",
+        "start_time": "1353.66"
+    },
+    {
+        "id": "2f9f5a35",
+        "text": "Now, this is all good and well, but it only consider the, the case, this amplitude envelope function where we have uh non overlapping frames. If we had uh overlapping uh frames, we would have, we would need to uh change like this um function. And now if you don't remember what like overlapping and non overlapping frames are, I suggest you to go check out this video to just like refresh or like learn that. But basically, when we have over uh overlapping frames, we'll still have like the, the frame size, which in this case will put equal to 1000 24. But then we have another um",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1361s",
+        "start_time": "1361.839"
+    },
+    {
+        "id": "856cfe19",
+        "text": "now if you don't remember what like overlapping and non overlapping frames are, I suggest you to go check out this video to just like refresh or like learn that. But basically, when we have over uh overlapping frames, we'll still have like the, the frame size, which in this case will put equal to 1000 24. But then we have another um important like parameter that's called the hop length that tells us. So given like the current frame, how many sample samples we shift to the right for calculating the next frame. And in this case, we'll put 512 which again is a totally legit uh H length.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1383s",
+        "start_time": "1383.76"
+    },
+    {
+        "id": "93132655",
+        "text": "um important like parameter that's called the hop length that tells us. So given like the current frame, how many sample samples we shift to the right for calculating the next frame. And in this case, we'll put 512 which again is a totally legit uh H length. And here we want to change this function so that it accepts also the a new parameter called hop length. So how do we change this? Well, what the only thing that we need to change here is that instead of like jumping at each iteration by the frame size, we want to jump by the uh hop length, right?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1406s",
+        "start_time": "1406.579"
+    },
+    {
+        "id": "78d38949",
+        "text": "important like parameter that's called the hop length that tells us. So given like the current frame, how many sample samples we shift to the right for calculating the next frame. And in this case, we'll put 512 which again is a totally legit uh H length. And here we want to change this function so that it accepts also the a new parameter called hop length. So how do we change this? Well, what the only thing that we need to change here is that instead of like jumping at each iteration by the frame size, we want to jump by the uh hop length, right? So if we, if we change that now we should have like the whole thing",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1407s",
+        "start_time": "1407.89"
+    },
+    {
+        "id": "1458af8a",
+        "text": "And here we want to change this function so that it accepts also the a new parameter called hop length. So how do we change this? Well, what the only thing that we need to change here is that instead of like jumping at each iteration by the frame size, we want to jump by the uh hop length, right? So if we, if we change that now we should have like the whole thing working. OK. So let's retry this.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1427s",
+        "start_time": "1427.43"
+    },
+    {
+        "id": "1499a92c",
+        "text": "So if we, if we change that now we should have like the whole thing working. OK. So let's retry this. OK. So here I'll have to pass the H length, I'll do that And as you can see here, we have 1000 292 samples over here and which uh which is expected because we have a H length of 512",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1453s",
+        "start_time": "1453.979"
+    },
+    {
+        "id": "5a2d6f99",
+        "text": "working. OK. So let's retry this. OK. So here I'll have to pass the H length, I'll do that And as you can see here, we have 1000 292 samples over here and which uh which is expected because we have a H length of 512 which is like the same like jumping to the right at each frame that we used before when we had the frame size at 512. There's also a nicer way to calculate the amplitude envelope. I mean, the algorithm is the same. It's just like the, the Python code that's a little bit fancier. And I guess they, which showed up to you. OK. So let's call this fancy Ted",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1459s",
+        "start_time": "1459.78"
+    },
+    {
+        "id": "8357ab16",
+        "text": "OK. So here I'll have to pass the H length, I'll do that And as you can see here, we have 1000 292 samples over here and which uh which is expected because we have a H length of 512 which is like the same like jumping to the right at each frame that we used before when we had the frame size at 512. There's also a nicer way to calculate the amplitude envelope. I mean, the algorithm is the same. It's just like the, the Python code that's a little bit fancier. And I guess they, which showed up to you. OK. So let's call this fancy Ted envelope and we'll pass in the very same uh parameters over here.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1464s",
+        "start_time": "1464.01"
+    },
+    {
+        "id": "f717ed5e",
+        "text": "which is like the same like jumping to the right at each frame that we used before when we had the frame size at 512. There's also a nicer way to calculate the amplitude envelope. I mean, the algorithm is the same. It's just like the, the Python code that's a little bit fancier. And I guess they, which showed up to you. OK. So let's call this fancy Ted envelope and we'll pass in the very same uh parameters over here. And this is gonna be just a one liner. So we'll do a NP array and here we'll have a list of comprehension and here we'll take the maximum of the signal. Uh Once again, this is gonna be between I and I plus hop uh length.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1483s",
+        "start_time": "1483.05"
+    },
+    {
+        "id": "73009285",
+        "text": "envelope and we'll pass in the very same uh parameters over here. And this is gonna be just a one liner. So we'll do a NP array and here we'll have a list of comprehension and here we'll take the maximum of the signal. Uh Once again, this is gonna be between I and I plus hop uh length. And then we'll take this for I in",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1511s",
+        "start_time": "1511.13"
+    },
+    {
+        "id": "be2345dc",
+        "text": "And this is gonna be just a one liner. So we'll do a NP array and here we'll have a list of comprehension and here we'll take the maximum of the signal. Uh Once again, this is gonna be between I and I plus hop uh length. And then we'll take this for I in uh well, this is not H length, this is frame size and then we'll take the four I in uh range.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1518s",
+        "start_time": "1518.989"
+    },
+    {
+        "id": "b286961c",
+        "text": "And then we'll take this for I in uh well, this is not H length, this is frame size and then we'll take the four I in uh range. And here is gonna be between zero of the",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1541s",
+        "start_time": "1541.03"
+    },
+    {
+        "id": "010e73c9",
+        "text": "uh well, this is not H length, this is frame size and then we'll take the four I in uh range. And here is gonna be between zero of the signal",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1546s",
+        "start_time": "1546.14"
+    },
+    {
+        "id": "739b70da",
+        "text": "And here is gonna be between zero of the signal dot size and the step that we'll use. Now this is the hop length once again",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1556s",
+        "start_time": "1556.939"
+    },
+    {
+        "id": "ed71f74a",
+        "text": "signal dot size and the step that we'll use. Now this is the hop length once again uh up length. OK? So, yep, this should work. OK? So now let me calculate. Uh yeah, let's put it down here. So we'll do fancy, we'll call this Fancy amplitude envelope for the BC. And we'll do a fancy oops fancy",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1562s",
+        "start_time": "1562.849"
+    },
+    {
+        "id": "4a777450",
+        "text": "dot size and the step that we'll use. Now this is the hop length once again uh up length. OK? So, yep, this should work. OK? So now let me calculate. Uh yeah, let's put it down here. So we'll do fancy, we'll call this Fancy amplitude envelope for the BC. And we'll do a fancy oops fancy amplitude envelope and we pass in these parameters.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1565s",
+        "start_time": "1565.31"
+    },
+    {
+        "id": "55924e21",
+        "text": "uh up length. OK? So, yep, this should work. OK? So now let me calculate. Uh yeah, let's put it down here. So we'll do fancy, we'll call this Fancy amplitude envelope for the BC. And we'll do a fancy oops fancy amplitude envelope and we pass in these parameters. OK.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1572s",
+        "start_time": "1572.589"
+    },
+    {
+        "id": "320b5329",
+        "text": "amplitude envelope and we pass in these parameters. OK. Here we go attempts to work fine. Now, what we want to show is that the uh",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1598s",
+        "start_time": "1598.739"
+    },
+    {
+        "id": "19b54256",
+        "text": "OK. Here we go attempts to work fine. Now, what we want to show is that the uh the amplitude envelope calculated with this function, the amplitude envelope function with the fancy amplitude envelope function are the same. So if we're doing that, we could do I A",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1605s",
+        "start_time": "1605.859"
+    },
+    {
+        "id": "08879520",
+        "text": "Here we go attempts to work fine. Now, what we want to show is that the uh the amplitude envelope calculated with this function, the amplitude envelope function with the fancy amplitude envelope function are the same. So if we're doing that, we could do I A A E amplitude envelope. Well, let's do this. We'll do a EW PC is equal to fancy a amplitude envelope to PC for all the values.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1608s",
+        "start_time": "1608.369"
+    },
+    {
+        "id": "376ae133",
+        "text": "the amplitude envelope calculated with this function, the amplitude envelope function with the fancy amplitude envelope function are the same. So if we're doing that, we could do I A A E amplitude envelope. Well, let's do this. We'll do a EW PC is equal to fancy a amplitude envelope to PC for all the values. So let's see if this works. OK. Yeah, that's true. So basically what I've done here is compare",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1615s",
+        "start_time": "1615.569"
+    },
+    {
+        "id": "504d3052",
+        "text": "A E amplitude envelope. Well, let's do this. We'll do a EW PC is equal to fancy a amplitude envelope to PC for all the values. So let's see if this works. OK. Yeah, that's true. So basically what I've done here is compare uh like all the items in the array, one by one with the current sponge like item in the other array. And then I, I want like I wanted to have like that all of these values must be equal for all of them. And if that's the case, then we would get a tree which is like what we got. And so basically the two values are the same. In other words, we wrote like the same algorithms like in, in two different versions with Python code.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1628s",
+        "start_time": "1628.04"
+    },
+    {
+        "id": "c647dcae",
+        "text": "So let's see if this works. OK. Yeah, that's true. So basically what I've done here is compare uh like all the items in the array, one by one with the current sponge like item in the other array. And then I, I want like I wanted to have like that all of these values must be equal for all of them. And if that's the case, then we would get a tree which is like what we got. And so basically the two values are the same. In other words, we wrote like the same algorithms like in, in two different versions with Python code. OK. So this is nice. Now, the final thing that I want to do is to visualize,",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1644s",
+        "start_time": "1644.489"
+    },
+    {
+        "id": "2d678056",
+        "text": "uh like all the items in the array, one by one with the current sponge like item in the other array. And then I, I want like I wanted to have like that all of these values must be equal for all of them. And if that's the case, then we would get a tree which is like what we got. And so basically the two values are the same. In other words, we wrote like the same algorithms like in, in two different versions with Python code. OK. So this is nice. Now, the final thing that I want to do is to visualize, I want to visualize the ample envelope for uh all the audio files. OK. So how do we do that? Well, it's quite simple and, and it really relies on the, the code that we've already",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1650s",
+        "start_time": "1650.89"
+    },
+    {
+        "id": "3e2eb530",
+        "text": "OK. So this is nice. Now, the final thing that I want to do is to visualize, I want to visualize the ample envelope for uh all the audio files. OK. So how do we do that? Well, it's quite simple and, and it really relies on the, the code that we've already uh written",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1679s",
+        "start_time": "1679.56"
+    },
+    {
+        "id": "06a44174",
+        "text": "I want to visualize the ample envelope for uh all the audio files. OK. So how do we do that? Well, it's quite simple and, and it really relies on the, the code that we've already uh written over here for like visualizing like the, the, the wave form. So now the only difference here that we need is to add another plot uh like in each of these like subplots. And so we'll do a plot dot PLT dot uh plot.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1689s",
+        "start_time": "1689.15"
+    },
+    {
+        "id": "52beabeb",
+        "text": "uh written over here for like visualizing like the, the, the wave form. So now the only difference here that we need is to add another plot uh like in each of these like subplots. And so we'll do a plot dot PLT dot uh plot. Here, we'll do T and here we'll pass the A, the BC and then the color is gonna be equal to red. Now, if you're wondering about this, t uh we haven't defined it and that yet. And so I'll define that in a second. But before doing that, I just want to repeat this",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1712s",
+        "start_time": "1712.209"
+    },
+    {
+        "id": "31ed702a",
+        "text": "over here for like visualizing like the, the, the wave form. So now the only difference here that we need is to add another plot uh like in each of these like subplots. And so we'll do a plot dot PLT dot uh plot. Here, we'll do T and here we'll pass the A, the BC and then the color is gonna be equal to red. Now, if you're wondering about this, t uh we haven't defined it and that yet. And so I'll define that in a second. But before doing that, I just want to repeat this down here for uh red hots",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1714s",
+        "start_time": "1714.14"
+    },
+    {
+        "id": "a30657e1",
+        "text": "Here, we'll do T and here we'll pass the A, the BC and then the color is gonna be equal to red. Now, if you're wondering about this, t uh we haven't defined it and that yet. And so I'll define that in a second. But before doing that, I just want to repeat this down here for uh red hots and down here for Duke Ellington.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1733s",
+        "start_time": "1733.28"
+    },
+    {
+        "id": "354d5a59",
+        "text": "down here for uh red hots and down here for Duke Ellington. Oh, let's take this. OK. Now, as you know, as you probably noticed, I haven't defined the amplitude envelope",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1754s",
+        "start_time": "1754.26"
+    },
+    {
+        "id": "5e1b8188",
+        "text": "and down here for Duke Ellington. Oh, let's take this. OK. Now, as you know, as you probably noticed, I haven't defined the amplitude envelope for the red hots yet. And so we'll do that. We're here and so here I'll do a amplitude envelope and here I'll pass uh red, the red hot uh signal and then the frame size and H length and I'll do the same for Duke",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1762s",
+        "start_time": "1762.15"
+    },
+    {
+        "id": "62df4d7f",
+        "text": "Oh, let's take this. OK. Now, as you know, as you probably noticed, I haven't defined the amplitude envelope for the red hots yet. And so we'll do that. We're here and so here I'll do a amplitude envelope and here I'll pass uh red, the red hot uh signal and then the frame size and H length and I'll do the same for Duke Ellington. Yeah, let me just grab this and pass in here, Duke. OK. This should work. Now, the one thing that it's still missing here that I said is the, this key, right?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1768s",
+        "start_time": "1768.189"
+    },
+    {
+        "id": "2732db06",
+        "text": "for the red hots yet. And so we'll do that. We're here and so here I'll do a amplitude envelope and here I'll pass uh red, the red hot uh signal and then the frame size and H length and I'll do the same for Duke Ellington. Yeah, let me just grab this and pass in here, Duke. OK. This should work. Now, the one thing that it's still missing here that I said is the, this key, right? OK. So this is basically like the X axis for the plot. And here we have like the Y axis. So, and here we, we want uh time",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1779s",
+        "start_time": "1779.319"
+    },
+    {
+        "id": "73629a78",
+        "text": "Ellington. Yeah, let me just grab this and pass in here, Duke. OK. This should work. Now, the one thing that it's still missing here that I said is the, this key, right? OK. So this is basically like the X axis for the plot. And here we have like the Y axis. So, and here we, we want uh time and so for doing that, what we need to do is first of all get the frames and the frames is gonna be uh equal to a range between a zero and uh the size of the amplitude envelope.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1802s",
+        "start_time": "1802.91"
+    },
+    {
+        "id": "5444af94",
+        "text": "OK. So this is basically like the X axis for the plot. And here we have like the Y axis. So, and here we, we want uh time and so for doing that, what we need to do is first of all get the frames and the frames is gonna be uh equal to a range between a zero and uh the size of the amplitude envelope. And so this is equal to a WC dot size I could have used also a amplitude envelope uh for like Duke Ellington or red hot chili peppers because it's like the same in terms of like the its length its size. OK. So now I want to calculate tea and here for passing from",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1820s",
+        "start_time": "1820.01"
+    },
+    {
+        "id": "9ed91ad5",
+        "text": "and so for doing that, what we need to do is first of all get the frames and the frames is gonna be uh equal to a range between a zero and uh the size of the amplitude envelope. And so this is equal to a WC dot size I could have used also a amplitude envelope uh for like Duke Ellington or red hot chili peppers because it's like the same in terms of like the its length its size. OK. So now I want to calculate tea and here for passing from frames to time, we can use a, a very nice uh function by lib browser and it's called frames to time over here. And so here",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1830s",
+        "start_time": "1830.819"
+    },
+    {
+        "id": "eba35196",
+        "text": "And so this is equal to a WC dot size I could have used also a amplitude envelope uh for like Duke Ellington or red hot chili peppers because it's like the same in terms of like the its length its size. OK. So now I want to calculate tea and here for passing from frames to time, we can use a, a very nice uh function by lib browser and it's called frames to time over here. And so here we need to specify the frames and uh we uh need to also specify the, the hop length and the hop length in this case is equal to hop length over here. OK? So here we've basically got the, the time",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1850s",
+        "start_time": "1850.849"
+    },
+    {
+        "id": "1a0070a9",
+        "text": "frames to time, we can use a, a very nice uh function by lib browser and it's called frames to time over here. And so here we need to specify the frames and uh we uh need to also specify the, the hop length and the hop length in this case is equal to hop length over here. OK? So here we've basically got the, the time and uh along with the time we, we've also we also plot the amplitude envelope for um each of the different audio files. OK? So if I haven't made any mistakes, so this should work. Let's see. And here it goes and we have it in red",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1873s",
+        "start_time": "1873.77"
+    },
+    {
+        "id": "e44c09d5",
+        "text": "we need to specify the frames and uh we uh need to also specify the, the hop length and the hop length in this case is equal to hop length over here. OK? So here we've basically got the, the time and uh along with the time we, we've also we also plot the amplitude envelope for um each of the different audio files. OK? So if I haven't made any mistakes, so this should work. Let's see. And here it goes and we have it in red and yeah, not surprisingly, the amplitude envelope just like full is like the the envelope like of the wave firm. And you can see it here like in red for the BC, for the red hot chili pepper song and for uh Duke Ellington. OK?",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1888s",
+        "start_time": "1888.935"
+    },
+    {
+        "id": "a7d02144",
+        "text": "and uh along with the time we, we've also we also plot the amplitude envelope for um each of the different audio files. OK? So if I haven't made any mistakes, so this should work. Let's see. And here it goes and we have it in red and yeah, not surprisingly, the amplitude envelope just like full is like the the envelope like of the wave firm. And you can see it here like in red for the BC, for the red hot chili pepper song and for uh Duke Ellington. OK? So now one thing like that's uh obvious once again, is that like, they usually uh you have like this spikes like in rock music or like popular music more in general, which uh are determined by like the drum kit, like kicking in.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1911s",
+        "start_time": "1911.719"
+    },
+    {
+        "id": "22c0a342",
+        "text": "and yeah, not surprisingly, the amplitude envelope just like full is like the the envelope like of the wave firm. And you can see it here like in red for the BC, for the red hot chili pepper song and for uh Duke Ellington. OK? So now one thing like that's uh obvious once again, is that like, they usually uh you have like this spikes like in rock music or like popular music more in general, which uh are determined by like the drum kit, like kicking in. And then, uh usually you also have like the amplitude envelope, the mean amplitude envelope for music that's in a rock genre, pop, popular genre that's usually higher than that for like classical music or jazz music.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1931s",
+        "start_time": "1931.93"
+    },
+    {
+        "id": "104777e5",
+        "text": "So now one thing like that's uh obvious once again, is that like, they usually uh you have like this spikes like in rock music or like popular music more in general, which uh are determined by like the drum kit, like kicking in. And then, uh usually you also have like the amplitude envelope, the mean amplitude envelope for music that's in a rock genre, pop, popular genre that's usually higher than that for like classical music or jazz music. OK? But here you have it. I hope like you've enjoyed this video. Now, you know how to create uh a, how to calculate the amplitude envelope, how to visualize waveforms the amplitude envelope and play around with like basic processing features in the browser. So that's all for today.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1947s",
+        "start_time": "1947.579"
+    },
+    {
+        "id": "3697c51b",
+        "text": "And then, uh usually you also have like the amplitude envelope, the mean amplitude envelope for music that's in a rock genre, pop, popular genre that's usually higher than that for like classical music or jazz music. OK? But here you have it. I hope like you've enjoyed this video. Now, you know how to create uh a, how to calculate the amplitude envelope, how to visualize waveforms the amplitude envelope and play around with like basic processing features in the browser. So that's all for today. So if you like the video, please consider like living alike. If you haven't subscribed yet, please consider subscribing if you have any questions, leave them in the comment section below and I guess I'll see you next time. Cheers.",
+        "video": "Extracting the amplitude envelope feature from scratch in Python",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "rlypsap6Wow",
+        "youtube_link": "https://www.youtube.com/watch?v=rlypsap6Wow&t=1965s",
+        "start_time": "1965.989"
+    }
+]

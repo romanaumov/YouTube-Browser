@@ -1,0 +1,1415 @@
+[
+    {
+        "id": "d8917aa5",
+        "text": "Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. This time, we'll look into a very important audio feature. In other words, Mal frequency seal coefficient or if we use their acronym MF CCS. But before we get started with this super cool topic, I want to remind you about the sound of the Ice L community. So if you sign up there, you can get feedback, share projects and share ideas with a community of people who are interested in A I audio A I music and audio signal processing. So I really invite you to check this community out and I'll leave you the link and the sign up link to the Slack workspace in the description box below. Now let's move on to the cool stuff. But before we get to M I want just like to remind you about what we did in the previous couple of videos and we focused on male spectrograms. Now male spectrograms are going to be like an important building block to understanding MF CCS. So if you are really not that familiar with that, I highly suggest you to go check out my previous couple of videos on male spectrograms. OK? But now let's get started with MFC",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=0s",
+        "start_time": "0.0"
+    },
+    {
+        "id": "3a71bea5",
+        "text": "if you sign up there, you can get feedback, share projects and share ideas with a community of people who are interested in A I audio A I music and audio signal processing. So I really invite you to check this community out and I'll leave you the link and the sign up link to the Slack workspace in the description box below. Now let's move on to the cool stuff. But before we get to M I want just like to remind you about what we did in the previous couple of videos and we focused on male spectrograms. Now male spectrograms are going to be like an important building block to understanding MF CCS. So if you are really not that familiar with that, I highly suggest you to go check out my previous couple of videos on male spectrograms. OK? But now let's get started with MFC see that as a set built on top of the concept of male spectrum to a certain extent. OK. So now we have this audio feature, it's called male frequency seor coefficients, right? So in this feature, we have many different words. So now let's try to uh understand which word means what. OK. So male frequency, well, male frequency, as I said, refer",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=25s",
+        "start_time": "25.379"
+    },
+    {
+        "id": "228ad9fe",
+        "text": "I want just like to remind you about what we did in the previous couple of videos and we focused on male spectrograms. Now male spectrograms are going to be like an important building block to understanding MF CCS. So if you are really not that familiar with that, I highly suggest you to go check out my previous couple of videos on male spectrograms. OK? But now let's get started with MFC see that as a set built on top of the concept of male spectrum to a certain extent. OK. So now we have this audio feature, it's called male frequency seor coefficients, right? So in this feature, we have many different words. So now let's try to uh understand which word means what. OK. So male frequency, well, male frequency, as I said, refer somewhat to the concept of a male spectrogram. Basically, the idea is that we are using the male scale here, which is a a perceptually relevant uh scale for pit and there's something that has to do with male spectrograms and male scale like in MFCC. OK. So we know that and we know that what male spectrograms are from previous videos. OK. So now let's move on and the last point is coefficients.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=50s",
+        "start_time": "50.759"
+    },
+    {
+        "id": "86e69438",
+        "text": "see that as a set built on top of the concept of male spectrum to a certain extent. OK. So now we have this audio feature, it's called male frequency seor coefficients, right? So in this feature, we have many different words. So now let's try to uh understand which word means what. OK. So male frequency, well, male frequency, as I said, refer somewhat to the concept of a male spectrogram. Basically, the idea is that we are using the male scale here, which is a a perceptually relevant uh scale for pit and there's something that has to do with male spectrograms and male scale like in MFCC. OK. So we know that and we know that what male spectrograms are from previous videos. OK. So now let's move on and the last point is coefficients. Well, this isn't really like that difficult to understand because the idea that probably you may guess like from, from like this name is that out of these features, you're gonna get a number of coefficients, a number of values and those coefficients will describe some characteristic of a piece of sound, right? That's all it is, right.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=76s",
+        "start_time": "76.139"
+    },
+    {
+        "id": "fc9b6852",
+        "text": "somewhat to the concept of a male spectrogram. Basically, the idea is that we are using the male scale here, which is a a perceptually relevant uh scale for pit and there's something that has to do with male spectrograms and male scale like in MFCC. OK. So we know that and we know that what male spectrograms are from previous videos. OK. So now let's move on and the last point is coefficients. Well, this isn't really like that difficult to understand because the idea that probably you may guess like from, from like this name is that out of these features, you're gonna get a number of coefficients, a number of values and those coefficients will describe some characteristic of a piece of sound, right? That's all it is, right. OK. And finally, we have probably the most interesting part here. That's a Septra, right? So this is a weird word, right? And Septra is the adjective. But if we want to move to the noun, the noun is Septra.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=101s",
+        "start_time": "101.519"
+    },
+    {
+        "id": "94668a5a",
+        "text": "Well, this isn't really like that difficult to understand because the idea that probably you may guess like from, from like this name is that out of these features, you're gonna get a number of coefficients, a number of values and those coefficients will describe some characteristic of a piece of sound, right? That's all it is, right. OK. And finally, we have probably the most interesting part here. That's a Septra, right? So this is a weird word, right? And Septra is the adjective. But if we want to move to the noun, the noun is Septra. OK. Does this word ring a bell at all?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=131s",
+        "start_time": "131.33"
+    },
+    {
+        "id": "69f44ebb",
+        "text": "OK. And finally, we have probably the most interesting part here. That's a Septra, right? So this is a weird word, right? And Septra is the adjective. But if we want to move to the noun, the noun is Septra. OK. Does this word ring a bell at all? No, if not, I'll give you a hint.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=154s",
+        "start_time": "154.779"
+    },
+    {
+        "id": "64850c8b",
+        "text": "OK. Does this word ring a bell at all? No, if not, I'll give you a hint. Ss just like focus on this like four letters here.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=171s",
+        "start_time": "171.77"
+    },
+    {
+        "id": "0395ced2",
+        "text": "No, if not, I'll give you a hint. Ss just like focus on this like four letters here. Any idea?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=176s",
+        "start_time": "176.899"
+    },
+    {
+        "id": "f21d8838",
+        "text": "Ss just like focus on this like four letters here. Any idea? If not, I'll give you the answer.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=180s",
+        "start_time": "180.58"
+    },
+    {
+        "id": "7b8914af",
+        "text": "Any idea? If not, I'll give you the answer. It's spectrum, right? So if you, if you just like take steps and you spell it like backwards, you'll have spec and spectrum. OK. So Seps is somewhat related to spectrum. OK. So here we have clearly a wordplay and so it's gonna take us like some time to understand why this is like relevant and why researchers who came up with the idea of sere",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=186s",
+        "start_time": "186.35"
+    },
+    {
+        "id": "85998817",
+        "text": "If not, I'll give you the answer. It's spectrum, right? So if you, if you just like take steps and you spell it like backwards, you'll have spec and spectrum. OK. So Seps is somewhat related to spectrum. OK. So here we have clearly a wordplay and so it's gonna take us like some time to understand why this is like relevant and why researchers who came up with the idea of sere um used like this word and they had this kind of like wordplay on spectrum. So I suggest you just like to bear with me because this is gonna be like a quite intense and in depth session to understand ses stream. And then once we understand SEPS stream, we're gonna use like this concept to build MF CCS or to see how we can build MF ccs on top of seps.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=188s",
+        "start_time": "188.25"
+    },
+    {
+        "id": "aacf8e8a",
+        "text": "It's spectrum, right? So if you, if you just like take steps and you spell it like backwards, you'll have spec and spectrum. OK. So Seps is somewhat related to spectrum. OK. So here we have clearly a wordplay and so it's gonna take us like some time to understand why this is like relevant and why researchers who came up with the idea of sere um used like this word and they had this kind of like wordplay on spectrum. So I suggest you just like to bear with me because this is gonna be like a quite intense and in depth session to understand ses stream. And then once we understand SEPS stream, we're gonna use like this concept to build MF CCS or to see how we can build MF ccs on top of seps. OK? So now let's put subs stream and spectrum like down there. But when we are talking about sere, it's not only subst the the weird words that we, we have or that these researchers who came up with this idea came out with. So there are a bunch of other concepts there. So that's the concept of we lifting and Ramon, for example. Now, I guess like you, you, you, you, you you have an idea of how like to",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=191s",
+        "start_time": "191.199"
+    },
+    {
+        "id": "b01923a7",
+        "text": "um used like this word and they had this kind of like wordplay on spectrum. So I suggest you just like to bear with me because this is gonna be like a quite intense and in depth session to understand ses stream. And then once we understand SEPS stream, we're gonna use like this concept to build MF CCS or to see how we can build MF ccs on top of seps. OK? So now let's put subs stream and spectrum like down there. But when we are talking about sere, it's not only subst the the weird words that we, we have or that these researchers who came up with this idea came out with. So there are a bunch of other concepts there. So that's the concept of we lifting and Ramon, for example. Now, I guess like you, you, you, you, you you have an idea of how like to translating like these things into stuff that makes sense. And indeed, right. Quiery is a wordplay on a frequency lifting is connected to some sort of filtering and dr is connected to harmonic. OK. So now we are entering the world of septum where we don't have frequencies, but we have Quis, we don't have filtering, but we have lifting and we don't have harmonics, but we have Ramons",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=220s",
+        "start_time": "220.72"
+    },
+    {
+        "id": "517d56a4",
+        "text": "OK? So now let's put subs stream and spectrum like down there. But when we are talking about sere, it's not only subst the the weird words that we, we have or that these researchers who came up with this idea came out with. So there are a bunch of other concepts there. So that's the concept of we lifting and Ramon, for example. Now, I guess like you, you, you, you, you you have an idea of how like to translating like these things into stuff that makes sense. And indeed, right. Quiery is a wordplay on a frequency lifting is connected to some sort of filtering and dr is connected to harmonic. OK. So now we are entering the world of septum where we don't have frequencies, but we have Quis, we don't have filtering, but we have lifting and we don't have harmonics, but we have Ramons sounds a little bit weird, right. Yeah. And it is so bear with me to understand what all of these things like really mean. OK. So now uh let's get like a an historical understanding of the, the concept of SEPS where like it it came out from and how it developed over time.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=246s",
+        "start_time": "246.669"
+    },
+    {
+        "id": "586aa48f",
+        "text": "translating like these things into stuff that makes sense. And indeed, right. Quiery is a wordplay on a frequency lifting is connected to some sort of filtering and dr is connected to harmonic. OK. So now we are entering the world of septum where we don't have frequencies, but we have Quis, we don't have filtering, but we have lifting and we don't have harmonics, but we have Ramons sounds a little bit weird, right. Yeah. And it is so bear with me to understand what all of these things like really mean. OK. So now uh let's get like a an historical understanding of the, the concept of SEPS where like it it came out from and how it developed over time. So researchers, I believe at the mit during the sixties came out with this concept of a subst and they used it to study specifically um ecos in seismic signals. Then other researchers noticed that like this concept of subst could be nicely applied to speech processing.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=275s",
+        "start_time": "275.529"
+    },
+    {
+        "id": "33c48a5e",
+        "text": "sounds a little bit weird, right. Yeah. And it is so bear with me to understand what all of these things like really mean. OK. So now uh let's get like a an historical understanding of the, the concept of SEPS where like it it came out from and how it developed over time. So researchers, I believe at the mit during the sixties came out with this concept of a subst and they used it to study specifically um ecos in seismic signals. Then other researchers noticed that like this concept of subst could be nicely applied to speech processing. And indeed, towards the end of the sixties, uh SEPS stream started to be used like in the speech processing community. And during the seventies and onwards, it became the kind of like audio, audio feature of choice for a speech recognition, speech identification and all sorts of speech processing related uh problems. And that remained like that for a long time until I think like the advent of deep learning. So very recent stuff then.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=304s",
+        "start_time": "304.76"
+    },
+    {
+        "id": "455c37eb",
+        "text": "So researchers, I believe at the mit during the sixties came out with this concept of a subst and they used it to study specifically um ecos in seismic signals. Then other researchers noticed that like this concept of subst could be nicely applied to speech processing. And indeed, towards the end of the sixties, uh SEPS stream started to be used like in the speech processing community. And during the seventies and onwards, it became the kind of like audio, audio feature of choice for a speech recognition, speech identification and all sorts of speech processing related uh problems. And that remained like that for a long time until I think like the advent of deep learning. So very recent stuff then. OK. And in the two thousands um seps stream started to be adopted in the form of MF CCS also in music processing and specifically in music information retrieval.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=327s",
+        "start_time": "327.6"
+    },
+    {
+        "id": "2739e490",
+        "text": "And indeed, towards the end of the sixties, uh SEPS stream started to be used like in the speech processing community. And during the seventies and onwards, it became the kind of like audio, audio feature of choice for a speech recognition, speech identification and all sorts of speech processing related uh problems. And that remained like that for a long time until I think like the advent of deep learning. So very recent stuff then. OK. And in the two thousands um seps stream started to be adopted in the form of MF CCS also in music processing and specifically in music information retrieval. So as you see now we have an audio feature, a Mys mystery audio feature that can serve many different purposes or many different applications. It works well for seismic signals. It works great for audio uh I mean speech processing and it also works really well for music processing.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=351s",
+        "start_time": "351.98"
+    },
+    {
+        "id": "62779160",
+        "text": "OK. And in the two thousands um seps stream started to be adopted in the form of MF CCS also in music processing and specifically in music information retrieval. So as you see now we have an audio feature, a Mys mystery audio feature that can serve many different purposes or many different applications. It works well for seismic signals. It works great for audio uh I mean speech processing and it also works really well for music processing. OK. So now it's time to understand like this mysterious um audio feature a little bit more. So and here we'll do like uh uh uh we'll try to understand this like in a few different on a few different levels. So the first level will be a mathematical formalization of the concept",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=381s",
+        "start_time": "381.66"
+    },
+    {
+        "id": "b7f52101",
+        "text": "So as you see now we have an audio feature, a Mys mystery audio feature that can serve many different purposes or many different applications. It works well for seismic signals. It works great for audio uh I mean speech processing and it also works really well for music processing. OK. So now it's time to understand like this mysterious um audio feature a little bit more. So and here we'll do like uh uh uh we'll try to understand this like in a few different on a few different levels. So the first level will be a mathematical formalization of the concept ses stream. Then we'll look into the visualization of SEPS stream so that hopefully you can understand what's going on there for real. And finally, we'll look at SEPS stream in the context of speech and there probably you'll have like the better intuition out of all of these approaches. OK. Let's get started with the math behind it.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=395s",
+        "start_time": "395.72"
+    },
+    {
+        "id": "2dc10cf7",
+        "text": "OK. So now it's time to understand like this mysterious um audio feature a little bit more. So and here we'll do like uh uh uh we'll try to understand this like in a few different on a few different levels. So the first level will be a mathematical formalization of the concept ses stream. Then we'll look into the visualization of SEPS stream so that hopefully you can understand what's going on there for real. And finally, we'll look at SEPS stream in the context of speech and there probably you'll have like the better intuition out of all of these approaches. OK. Let's get started with the math behind it. So how do we compute the SES stream? Well, we compute it like this. So now here we have like our ses strum and we indicate that like S capital T and uh the sere is provided by like this formula here. So let's get started with XFT. Well, XFT is just like a normal uh signal in the time domain, right, it's just like normal waveform then",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=417s",
+        "start_time": "417.899"
+    },
+    {
+        "id": "26975784",
+        "text": "ses stream. Then we'll look into the visualization of SEPS stream so that hopefully you can understand what's going on there for real. And finally, we'll look at SEPS stream in the context of speech and there probably you'll have like the better intuition out of all of these approaches. OK. Let's get started with the math behind it. So how do we compute the SES stream? Well, we compute it like this. So now here we have like our ses strum and we indicate that like S capital T and uh the sere is provided by like this formula here. So let's get started with XFT. Well, XFT is just like a normal uh signal in the time domain, right, it's just like normal waveform then out of this normal waveform, what we do is we take the uh discrete fourier transform, which here I've indicated with this capital F. And so when we do that, we come up with a spectrum and we move from the time domain to the frequency domain. OK. Now the next step that we want to do is apply a logarithm to the spectrum.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=437s",
+        "start_time": "437.089"
+    },
+    {
+        "id": "8d0ffc7d",
+        "text": "So how do we compute the SES stream? Well, we compute it like this. So now here we have like our ses strum and we indicate that like S capital T and uh the sere is provided by like this formula here. So let's get started with XFT. Well, XFT is just like a normal uh signal in the time domain, right, it's just like normal waveform then out of this normal waveform, what we do is we take the uh discrete fourier transform, which here I've indicated with this capital F. And so when we do that, we come up with a spectrum and we move from the time domain to the frequency domain. OK. Now the next step that we want to do is apply a logarithm to the spectrum. And in this way, we get the log amplitude spectrum. So in other words, we are applying the logarithm on the amplitude of the spectrum. Now, uh if you if you are not familiar with the fourier transform or logarithm logarithm amplitude spectrum, all of this kind of stuff I highly suggest you to go check out my previous videos on the fourier transform",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=456s",
+        "start_time": "456.51"
+    },
+    {
+        "id": "b2abbe78",
+        "text": "out of this normal waveform, what we do is we take the uh discrete fourier transform, which here I've indicated with this capital F. And so when we do that, we come up with a spectrum and we move from the time domain to the frequency domain. OK. Now the next step that we want to do is apply a logarithm to the spectrum. And in this way, we get the log amplitude spectrum. So in other words, we are applying the logarithm on the amplitude of the spectrum. Now, uh if you if you are not familiar with the fourier transform or logarithm logarithm amplitude spectrum, all of this kind of stuff I highly suggest you to go check out my previous videos on the fourier transform because all of these things I've addressed them time and again, like in my previous videos, OK. Good. So we said we start from the signal, we take the, the fourier transform. So we, we move to a spectrum, we take the log a spectrum.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=480s",
+        "start_time": "480.57"
+    },
+    {
+        "id": "eae64cbd",
+        "text": "And in this way, we get the log amplitude spectrum. So in other words, we are applying the logarithm on the amplitude of the spectrum. Now, uh if you if you are not familiar with the fourier transform or logarithm logarithm amplitude spectrum, all of this kind of stuff I highly suggest you to go check out my previous videos on the fourier transform because all of these things I've addressed them time and again, like in my previous videos, OK. Good. So we said we start from the signal, we take the, the fourier transform. So we, we move to a spectrum, we take the log a spectrum. And finally, at this point, we do the f the kind of the key step to get to a subst which is basically applying an inverse fourier transform to a log amplitude spectrum. And when we do that, we come up with a subst",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=505s",
+        "start_time": "505.859"
+    },
+    {
+        "id": "685f28d2",
+        "text": "because all of these things I've addressed them time and again, like in my previous videos, OK. Good. So we said we start from the signal, we take the, the fourier transform. So we, we move to a spectrum, we take the log a spectrum. And finally, at this point, we do the f the kind of the key step to get to a subst which is basically applying an inverse fourier transform to a log amplitude spectrum. And when we do that, we come up with a subst well, if you think about this, what we are actually doing is we are taking a spectrum specifically a log amplitude spectrum and then we are calculating a spectrum of a spectrum, right? So and that's because we are applying the inverse for a transform at this point. OK. So we could have called",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=529s",
+        "start_time": "529.88"
+    },
+    {
+        "id": "dd3f62de",
+        "text": "And finally, at this point, we do the f the kind of the key step to get to a subst which is basically applying an inverse fourier transform to a log amplitude spectrum. And when we do that, we come up with a subst well, if you think about this, what we are actually doing is we are taking a spectrum specifically a log amplitude spectrum and then we are calculating a spectrum of a spectrum, right? So and that's because we are applying the inverse for a transform at this point. OK. So we could have called the ses stream spectrum of a spectrum, right? But that wouldn't sound really cool. So what the researchers decided to do is use like this wordplay. And so they decided to use like this sere and the reason why they, they use like this, they just like took like the first like four letters in spectrum and",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=546s",
+        "start_time": "546.989"
+    },
+    {
+        "id": "bfa8406b",
+        "text": "well, if you think about this, what we are actually doing is we are taking a spectrum specifically a log amplitude spectrum and then we are calculating a spectrum of a spectrum, right? So and that's because we are applying the inverse for a transform at this point. OK. So we could have called the ses stream spectrum of a spectrum, right? But that wouldn't sound really cool. So what the researchers decided to do is use like this wordplay. And so they decided to use like this sere and the reason why they, they use like this, they just like took like the first like four letters in spectrum and kind of like use them like backwards is gonna be clear like in a few moments. So bear with me. OK. So now we we know like that on a very high level the spectrum, well, the septum is the spectrum of a spectrum. OK? But now let's try to visualize this concept because this is gonna help us understand what's going on here. OK. So we will try to",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=567s",
+        "start_time": "567.989"
+    },
+    {
+        "id": "c7164f1e",
+        "text": "the ses stream spectrum of a spectrum, right? But that wouldn't sound really cool. So what the researchers decided to do is use like this wordplay. And so they decided to use like this sere and the reason why they, they use like this, they just like took like the first like four letters in spectrum and kind of like use them like backwards is gonna be clear like in a few moments. So bear with me. OK. So now we we know like that on a very high level the spectrum, well, the septum is the spectrum of a spectrum. OK? But now let's try to visualize this concept because this is gonna help us understand what's going on here. OK. So we will try to visualize all those different steps that we saw in the mathematical formalization. So we start with a normal waveform. We are in the time domain, we have like very short amount of sound just like 40 milliseconds, for example here. And then what we want to do here as a first step is taking the discrete fourier transform.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=593s",
+        "start_time": "593.51"
+    },
+    {
+        "id": "2b0a584d",
+        "text": "kind of like use them like backwards is gonna be clear like in a few moments. So bear with me. OK. So now we we know like that on a very high level the spectrum, well, the septum is the spectrum of a spectrum. OK? But now let's try to visualize this concept because this is gonna help us understand what's going on here. OK. So we will try to visualize all those different steps that we saw in the mathematical formalization. So we start with a normal waveform. We are in the time domain, we have like very short amount of sound just like 40 milliseconds, for example here. And then what we want to do here as a first step is taking the discrete fourier transform. And what we get out of that is our usual power spectrum where on the X axis we have frequency and on the y axis we have power. So we've seen this time and again, time and again during this uh series. And basically what we've done here is moving like from the time domain to the frequency domain. And um the values that we have for each frequency tells us",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=614s",
+        "start_time": "614.89"
+    },
+    {
+        "id": "5ae9deb1",
+        "text": "visualize all those different steps that we saw in the mathematical formalization. So we start with a normal waveform. We are in the time domain, we have like very short amount of sound just like 40 milliseconds, for example here. And then what we want to do here as a first step is taking the discrete fourier transform. And what we get out of that is our usual power spectrum where on the X axis we have frequency and on the y axis we have power. So we've seen this time and again, time and again during this uh series. And basically what we've done here is moving like from the time domain to the frequency domain. And um the values that we have for each frequency tells us how much each frequency component is present in the original signal in the original waveform, right? OK. So this is like the, the first step. Now, the other step is that of um applying logarithm to power spectrum.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=638s",
+        "start_time": "638.909"
+    },
+    {
+        "id": "a77330b6",
+        "text": "And what we get out of that is our usual power spectrum where on the X axis we have frequency and on the y axis we have power. So we've seen this time and again, time and again during this uh series. And basically what we've done here is moving like from the time domain to the frequency domain. And um the values that we have for each frequency tells us how much each frequency component is present in the original signal in the original waveform, right? OK. So this is like the, the first step. Now, the other step is that of um applying logarithm to power spectrum. And we, yeah, let me just like shift like the power spec spectrum here on the left. And now we can apply the logarithm. And so here what we do is a simple transformation. So we take like all the amplitudes and we apply like a logarithm so that we get",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=660s",
+        "start_time": "660.88"
+    },
+    {
+        "id": "0bd021d6",
+        "text": "how much each frequency component is present in the original signal in the original waveform, right? OK. So this is like the, the first step. Now, the other step is that of um applying logarithm to power spectrum. And we, yeah, let me just like shift like the power spec spectrum here on the left. And now we can apply the logarithm. And so here what we do is a simple transformation. So we take like all the amplitudes and we apply like a logarithm so that we get decibels right on the Y axis as the the unit of reference and on the X axis still we have frequency, right? Because the um transformation was only like on the y axis really. OK. So now we have the log power spectrum. Now let me shift this like onto the left once again.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=685s",
+        "start_time": "685.289"
+    },
+    {
+        "id": "bed6da37",
+        "text": "And we, yeah, let me just like shift like the power spec spectrum here on the left. And now we can apply the logarithm. And so here what we do is a simple transformation. So we take like all the amplitudes and we apply like a logarithm so that we get decibels right on the Y axis as the the unit of reference and on the X axis still we have frequency, right? Because the um transformation was only like on the y axis really. OK. So now we have the log power spectrum. Now let me shift this like onto the left once again. So what about the log power spectrum? So first of all, it is a continuous signal, right? Second point it has some periodic structures, right? And this periodic structures are present because the log power spectrum has like some harmonic components or like the original signal has some harmonic components that gets that become kind of like",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=704s",
+        "start_time": "704.28"
+    },
+    {
+        "id": "6667a62e",
+        "text": "decibels right on the Y axis as the the unit of reference and on the X axis still we have frequency, right? Because the um transformation was only like on the y axis really. OK. So now we have the log power spectrum. Now let me shift this like onto the left once again. So what about the log power spectrum? So first of all, it is a continuous signal, right? Second point it has some periodic structures, right? And this periodic structures are present because the log power spectrum has like some harmonic components or like the original signal has some harmonic components that gets that become kind of like are periodic in the spectrum. And so when we have a signal, even if it's just like a spectrum",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=721s",
+        "start_time": "721.09"
+    },
+    {
+        "id": "e0cd7c61",
+        "text": "So what about the log power spectrum? So first of all, it is a continuous signal, right? Second point it has some periodic structures, right? And this periodic structures are present because the log power spectrum has like some harmonic components or like the original signal has some harmonic components that gets that become kind of like are periodic in the spectrum. And so when we have a signal, even if it's just like a spectrum that has some uh periodicity. What we can do is apply a transformation like a fourier transform to understand like the different components and try to find like which frequencies right are present in the signal. So in other words, what we can do here is treat this log power spectrum as a signal at a time domain signal.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=739s",
+        "start_time": "739.849"
+    },
+    {
+        "id": "1aabda10",
+        "text": "are periodic in the spectrum. And so when we have a signal, even if it's just like a spectrum that has some uh periodicity. What we can do is apply a transformation like a fourier transform to understand like the different components and try to find like which frequencies right are present in the signal. So in other words, what we can do here is treat this log power spectrum as a signal at a time domain signal. And we can apply a fourier transform like transformation, right. And specifically, we'll be applying an inverse fourier transform. And what we'll get is a spectrum of this signal which is the spectrum. So in other words, it is the spectrum of a sex A spectrum which is the ses",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=766s",
+        "start_time": "766.84"
+    },
+    {
+        "id": "91e53add",
+        "text": "that has some uh periodicity. What we can do is apply a transformation like a fourier transform to understand like the different components and try to find like which frequencies right are present in the signal. So in other words, what we can do here is treat this log power spectrum as a signal at a time domain signal. And we can apply a fourier transform like transformation, right. And specifically, we'll be applying an inverse fourier transform. And what we'll get is a spectrum of this signal which is the spectrum. So in other words, it is the spectrum of a sex A spectrum which is the ses and here we go, we apply the inverse fourier transform and we get the subs which is the spectrum of a spectrum. Now the cool thing that or the thing that we should think about is what do we actually have on the X axis, right? Because now we have the spectrum of a spectrum. I mean if you",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=775s",
+        "start_time": "775.369"
+    },
+    {
+        "id": "ea78f5a7",
+        "text": "And we can apply a fourier transform like transformation, right. And specifically, we'll be applying an inverse fourier transform. And what we'll get is a spectrum of this signal which is the spectrum. So in other words, it is the spectrum of a sex A spectrum which is the ses and here we go, we apply the inverse fourier transform and we get the subs which is the spectrum of a spectrum. Now the cool thing that or the thing that we should think about is what do we actually have on the X axis, right? Because now we have the spectrum of a spectrum. I mean if you in the time domain and you and you take like a fourier transform, then you move in the frequency domain. So on the X axis, you'll have frequencies obviously. But if you start from a signal that has like frequencies on the x axis, what do you actually get on the x axis of the transformation? Right? And",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=803s",
+        "start_time": "803.489"
+    },
+    {
+        "id": "898caa49",
+        "text": "and here we go, we apply the inverse fourier transform and we get the subs which is the spectrum of a spectrum. Now the cool thing that or the thing that we should think about is what do we actually have on the X axis, right? Because now we have the spectrum of a spectrum. I mean if you in the time domain and you and you take like a fourier transform, then you move in the frequency domain. So on the X axis, you'll have frequencies obviously. But if you start from a signal that has like frequencies on the x axis, what do you actually get on the x axis of the transformation? Right? And the the answer is that we take we get like some sort of pseudo frequency axis. And this pseudo frequency axis was termed by the researchers as quiery. And the unit of reference here is milliseconds or seconds. Now let me",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=824s",
+        "start_time": "824.219"
+    },
+    {
+        "id": "e2c5e3b5",
+        "text": "in the time domain and you and you take like a fourier transform, then you move in the frequency domain. So on the X axis, you'll have frequencies obviously. But if you start from a signal that has like frequencies on the x axis, what do you actually get on the x axis of the transformation? Right? And the the answer is that we take we get like some sort of pseudo frequency axis. And this pseudo frequency axis was termed by the researchers as quiery. And the unit of reference here is milliseconds or seconds. Now let me show you why we are talking about ferency and SRE So why this word workplace makes sense? And the reason is because we are starting from the time domain originally with the way form, then we go to the frequency domain with the initial discrete fourier transform. Now we apply another",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=842s",
+        "start_time": "842.789"
+    },
+    {
+        "id": "d5f56a2e",
+        "text": "the the answer is that we take we get like some sort of pseudo frequency axis. And this pseudo frequency axis was termed by the researchers as quiery. And the unit of reference here is milliseconds or seconds. Now let me show you why we are talking about ferency and SRE So why this word workplace makes sense? And the reason is because we are starting from the time domain originally with the way form, then we go to the frequency domain with the initial discrete fourier transform. Now we apply another discrete uh we apply like an inverse discrete fourier transform at this point. And we go back to um somewhat something that resembles like a frequency domain, but it's not really a frequency domain, right? And so they just like decided to take like the opposite of that. So it's not frequency, it's queer and this is not a spectrum. This is a subs, right. OK. So here you have like the intuition,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=862s",
+        "start_time": "862.75"
+    },
+    {
+        "id": "4bae3745",
+        "text": "show you why we are talking about ferency and SRE So why this word workplace makes sense? And the reason is because we are starting from the time domain originally with the way form, then we go to the frequency domain with the initial discrete fourier transform. Now we apply another discrete uh we apply like an inverse discrete fourier transform at this point. And we go back to um somewhat something that resembles like a frequency domain, but it's not really a frequency domain, right? And so they just like decided to take like the opposite of that. So it's not frequency, it's queer and this is not a spectrum. This is a subs, right. OK. So here you have like the intuition, OK. So what are like all of these values here? Right. So in the ses stream um visualization, right, we have certain peaks and here we have like a very high peak there. So what do they represent? Right. And so",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=883s",
+        "start_time": "883.859"
+    },
+    {
+        "id": "6de45185",
+        "text": "discrete uh we apply like an inverse discrete fourier transform at this point. And we go back to um somewhat something that resembles like a frequency domain, but it's not really a frequency domain, right? And so they just like decided to take like the opposite of that. So it's not frequency, it's queer and this is not a spectrum. This is a subs, right. OK. So here you have like the intuition, OK. So what are like all of these values here? Right. So in the ses stream um visualization, right, we have certain peaks and here we have like a very high peak there. So what do they represent? Right. And so these basically represent how present these different preferences are in the log power spectrum, right. OK. So here we have like this huge pick and that is the first harmonic. Uh I bet like you guess you, you realize this like yourself, this is like the equivalent of a harmonic, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=903s",
+        "start_time": "903.719"
+    },
+    {
+        "id": "054d129d",
+        "text": "OK. So what are like all of these values here? Right. So in the ses stream um visualization, right, we have certain peaks and here we have like a very high peak there. So what do they represent? Right. And so these basically represent how present these different preferences are in the log power spectrum, right. OK. So here we have like this huge pick and that is the first harmonic. Uh I bet like you guess you, you realize this like yourself, this is like the equivalent of a harmonic, right? And this is the a Raonic that provides us informa or this is like, let's put it this way, this is the quefrency where uh that is associated with the fundamental frequency of the original signal of the original waveform. And indeed, one way of using uh SEPS, seps I should say is one application is for pitch detection",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=932s",
+        "start_time": "932.51"
+    },
+    {
+        "id": "96c4b2f2",
+        "text": "these basically represent how present these different preferences are in the log power spectrum, right. OK. So here we have like this huge pick and that is the first harmonic. Uh I bet like you guess you, you realize this like yourself, this is like the equivalent of a harmonic, right? And this is the a Raonic that provides us informa or this is like, let's put it this way, this is the quefrency where uh that is associated with the fundamental frequency of the original signal of the original waveform. And indeed, one way of using uh SEPS, seps I should say is one application is for pitch detection because you take like the log power spectrum and then you take the se the se stream and the peak that you're gonna have like this is gonna be like the first Ramon. And you can use that to then move back to the frequency domain and then understand where you have like the fundamental uh",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=948s",
+        "start_time": "948.619"
+    },
+    {
+        "id": "93521942",
+        "text": "And this is the a Raonic that provides us informa or this is like, let's put it this way, this is the quefrency where uh that is associated with the fundamental frequency of the original signal of the original waveform. And indeed, one way of using uh SEPS, seps I should say is one application is for pitch detection because you take like the log power spectrum and then you take the se the se stream and the peak that you're gonna have like this is gonna be like the first Ramon. And you can use that to then move back to the frequency domain and then understand where you have like the fundamental uh f in the original signal. And so, and why is this like such a peak? Well, this is a peak because this reflects the harmonic structure of the original signal that gets some that gets like represented in a periodic way here in the log power spectrum. So this is like the the key idea there, right? OK. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=975s",
+        "start_time": "975.559"
+    },
+    {
+        "id": "96271a1b",
+        "text": "because you take like the log power spectrum and then you take the se the se stream and the peak that you're gonna have like this is gonna be like the first Ramon. And you can use that to then move back to the frequency domain and then understand where you have like the fundamental uh f in the original signal. And so, and why is this like such a peak? Well, this is a peak because this reflects the harmonic structure of the original signal that gets some that gets like represented in a periodic way here in the log power spectrum. So this is like the the key idea there, right? OK. So I guess like now we have a uh an understanding of the math behind the Seps stream and we also have an understanding of what the septum looks like, but I think like what's what still is missing here is understanding. So having like an intuition of the septum. So and why it is so important? Why should we butter taking the inverse this grid fourier transform of the log power spectrum? Why should we butter?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1004s",
+        "start_time": "1004.979"
+    },
+    {
+        "id": "9ecf6bca",
+        "text": "f in the original signal. And so, and why is this like such a peak? Well, this is a peak because this reflects the harmonic structure of the original signal that gets some that gets like represented in a periodic way here in the log power spectrum. So this is like the the key idea there, right? OK. So I guess like now we have a uh an understanding of the math behind the Seps stream and we also have an understanding of what the septum looks like, but I think like what's what still is missing here is understanding. So having like an intuition of the septum. So and why it is so important? Why should we butter taking the inverse this grid fourier transform of the log power spectrum? Why should we butter? Right? OK. So for understanding that we have to take a little detour into how speech works and into speech processing really? Ok. And so I want to context contextualize seps stream in",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1024s",
+        "start_time": "1024.109"
+    },
+    {
+        "id": "ebdeb101",
+        "text": "I guess like now we have a uh an understanding of the math behind the Seps stream and we also have an understanding of what the septum looks like, but I think like what's what still is missing here is understanding. So having like an intuition of the septum. So and why it is so important? Why should we butter taking the inverse this grid fourier transform of the log power spectrum? Why should we butter? Right? OK. So for understanding that we have to take a little detour into how speech works and into speech processing really? Ok. And so I want to context contextualize seps stream in within speech. And so the first thing that we need to do is understand how we produce speech. And a key element to understanding how humans produce speech is the vocal tract. So the vocal tract is kind of a very complex systems that has like multiple elements. So it has like the tongue, it has the teeth, it has the nasal cavity, your throat. And the basic idea is that",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1050s",
+        "start_time": "1050.64"
+    },
+    {
+        "id": "fbda3148",
+        "text": "Right? OK. So for understanding that we have to take a little detour into how speech works and into speech processing really? Ok. And so I want to context contextualize seps stream in within speech. And so the first thing that we need to do is understand how we produce speech. And a key element to understanding how humans produce speech is the vocal tract. So the vocal tract is kind of a very complex systems that has like multiple elements. So it has like the tongue, it has the teeth, it has the nasal cavity, your throat. And the basic idea is that uh depending on how you shape your vocal tract, you're gonna produce different sounds different. What like linguist, linguists, I believe it's called like call uh phones or like different constants, different vowels. It really depends on how you put your tongue, how you, you stretch your throat or you contract it, right? And",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1080s",
+        "start_time": "1080.28"
+    },
+    {
+        "id": "92c2cde3",
+        "text": "within speech. And so the first thing that we need to do is understand how we produce speech. And a key element to understanding how humans produce speech is the vocal tract. So the vocal tract is kind of a very complex systems that has like multiple elements. So it has like the tongue, it has the teeth, it has the nasal cavity, your throat. And the basic idea is that uh depending on how you shape your vocal tract, you're gonna produce different sounds different. What like linguist, linguists, I believe it's called like call uh phones or like different constants, different vowels. It really depends on how you put your tongue, how you, you stretch your throat or you contract it, right? And but if we think about this, uh that in terms of like digital signal processing, we can think of the vocal tract as a filter. In other words, words, the vocal tract acts as a filter. So how do we actually generate, produce speech? Well, this is like quite fascinating and I'll give you like a, a simplification of what like the real thing is, but it's gonna be instrumental to understand sere fully. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1096s",
+        "start_time": "1096.875"
+    },
+    {
+        "id": "cba32321",
+        "text": "uh depending on how you shape your vocal tract, you're gonna produce different sounds different. What like linguist, linguists, I believe it's called like call uh phones or like different constants, different vowels. It really depends on how you put your tongue, how you, you stretch your throat or you contract it, right? And but if we think about this, uh that in terms of like digital signal processing, we can think of the vocal tract as a filter. In other words, words, the vocal tract acts as a filter. So how do we actually generate, produce speech? Well, this is like quite fascinating and I'll give you like a, a simplification of what like the real thing is, but it's gonna be instrumental to understand sere fully. OK. So speech generation acts in a kind of like pipeline form. So initially you have what we call a glottal pulse and this is like a signal noisy signal, high pitched signal that gets generated by the vocal folds, right? And that signal passes through the vocal tracks and the vocal track acts as a filter on",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1125s",
+        "start_time": "1125.3"
+    },
+    {
+        "id": "d53e31d0",
+        "text": "but if we think about this, uh that in terms of like digital signal processing, we can think of the vocal tract as a filter. In other words, words, the vocal tract acts as a filter. So how do we actually generate, produce speech? Well, this is like quite fascinating and I'll give you like a, a simplification of what like the real thing is, but it's gonna be instrumental to understand sere fully. OK. So speech generation acts in a kind of like pipeline form. So initially you have what we call a glottal pulse and this is like a signal noisy signal, high pitched signal that gets generated by the vocal folds, right? And that signal passes through the vocal tracks and the vocal track acts as a filter on the glottal pulse. And by filtering like the initial signal, it creates the speech signal. Now, the basic idea once again is that depending on how you shape your vocal tract, then you're gonna have like a different speech signal starting from the more or less the same glottal pulse. Now, the the intuition here is that the glottal pulse carries information",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1149s",
+        "start_time": "1149.64"
+    },
+    {
+        "id": "ba3fddf8",
+        "text": "So speech generation acts in a kind of like pipeline form. So initially you have what we call a glottal pulse and this is like a signal noisy signal, high pitched signal that gets generated by the vocal folds, right? And that signal passes through the vocal tracks and the vocal track acts as a filter on the glottal pulse. And by filtering like the initial signal, it creates the speech signal. Now, the basic idea once again is that depending on how you shape your vocal tract, then you're gonna have like a different speech signal starting from the more or less the same glottal pulse. Now, the the intuition here is that the glottal pulse carries information about pitch or a high frequency kind of like information. Whereas like the vocal tracks or I should say like the the the frequency response provided by the vocal tracks by this filter",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1179s",
+        "start_time": "1179.079"
+    },
+    {
+        "id": "5f449f47",
+        "text": "the glottal pulse. And by filtering like the initial signal, it creates the speech signal. Now, the basic idea once again is that depending on how you shape your vocal tract, then you're gonna have like a different speech signal starting from the more or less the same glottal pulse. Now, the the intuition here is that the glottal pulse carries information about pitch or a high frequency kind of like information. Whereas like the vocal tracks or I should say like the the the frequency response provided by the vocal tracks by this filter pro is gonna kind of like carry information about the, the tre of, of the sound of the speech and specifically the timbre when we talk about speech is like the actual phones that you utter that you produce, right, the different consonants or the different um uh vowels that you can produce. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1205s",
+        "start_time": "1205.449"
+    },
+    {
+        "id": "d663726f",
+        "text": "about pitch or a high frequency kind of like information. Whereas like the vocal tracks or I should say like the the the frequency response provided by the vocal tracks by this filter pro is gonna kind of like carry information about the, the tre of, of the sound of the speech and specifically the timbre when we talk about speech is like the actual phones that you utter that you produce, right, the different consonants or the different um uh vowels that you can produce. OK. So this is kind of like the high level idea. Now, let's take a look at a kind of visualization of all of this. So we start with a speech signal that looks like this, right? OK. So, and here we are like uh representing like this. Well, it's not really like a speech signal in the time domain is a speech is the log spectrum log amplitude spectrum of a short amount of speech. OK. And it looks like this. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1235s",
+        "start_time": "1235.209"
+    },
+    {
+        "id": "b32957df",
+        "text": "pro is gonna kind of like carry information about the, the tre of, of the sound of the speech and specifically the timbre when we talk about speech is like the actual phones that you utter that you produce, right, the different consonants or the different um uh vowels that you can produce. OK. So this is kind of like the high level idea. Now, let's take a look at a kind of visualization of all of this. So we start with a speech signal that looks like this, right? OK. So, and here we are like uh representing like this. Well, it's not really like a speech signal in the time domain is a speech is the log spectrum log amplitude spectrum of a short amount of speech. OK. And it looks like this. So we can think of this like as a, as a search like as a log amplitude spectrum. But now one thing that we could do is kind of like try to smoothen the this signal here, right? And so how can we do that? Well, we can take the envelope. And what we actually do is we take the so called spectral envelope. And now we already say like a similar idea in the time domain when we,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1248s",
+        "start_time": "1248.969"
+    },
+    {
+        "id": "002de93a",
+        "text": "So this is kind of like the high level idea. Now, let's take a look at a kind of visualization of all of this. So we start with a speech signal that looks like this, right? OK. So, and here we are like uh representing like this. Well, it's not really like a speech signal in the time domain is a speech is the log spectrum log amplitude spectrum of a short amount of speech. OK. And it looks like this. So we can think of this like as a, as a search like as a log amplitude spectrum. But now one thing that we could do is kind of like try to smoothen the this signal here, right? And so how can we do that? Well, we can take the envelope. And what we actually do is we take the so called spectral envelope. And now we already say like a similar idea in the time domain when we, I discuss the amplitude envelope and I have a couple of videos on that one is like fully theoretical. So you can understand what the amplitude and so how to calculate the amplitude envelope. And then I have another video where I actually implement the amplitude envelope obviously in the time domain uh with Python from scratch.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1271s",
+        "start_time": "1271.52"
+    },
+    {
+        "id": "4e452f4a",
+        "text": "we can think of this like as a, as a search like as a log amplitude spectrum. But now one thing that we could do is kind of like try to smoothen the this signal here, right? And so how can we do that? Well, we can take the envelope. And what we actually do is we take the so called spectral envelope. And now we already say like a similar idea in the time domain when we, I discuss the amplitude envelope and I have a couple of videos on that one is like fully theoretical. So you can understand what the amplitude and so how to calculate the amplitude envelope. And then I have another video where I actually implement the amplitude envelope obviously in the time domain uh with Python from scratch. But, but basically like we, we take that idea and we put it here like in the spectral domain in the frequency domain. And so here we have like the spectral envelope basically like movements like all the complexity or like the the the quickly changing like information like here like in this signal, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1300s",
+        "start_time": "1300.849"
+    },
+    {
+        "id": "154fc0cb",
+        "text": "I discuss the amplitude envelope and I have a couple of videos on that one is like fully theoretical. So you can understand what the amplitude and so how to calculate the amplitude envelope. And then I have another video where I actually implement the amplitude envelope obviously in the time domain uh with Python from scratch. But, but basically like we, we take that idea and we put it here like in the spectral domain in the frequency domain. And so here we have like the spectral envelope basically like movements like all the complexity or like the the the quickly changing like information like here like in this signal, right? OK. Now what's cool about this? Well, it turns out that there's like something that's extremely important in how we perceive speech and sound that the spectral envelope captures. And it's these peaks in red that you see there. So those peaks are called for months.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1330s",
+        "start_time": "1330.88"
+    },
+    {
+        "id": "57c43306",
+        "text": "But, but basically like we, we take that idea and we put it here like in the spectral domain in the frequency domain. And so here we have like the spectral envelope basically like movements like all the complexity or like the the the quickly changing like information like here like in this signal, right? OK. Now what's cool about this? Well, it turns out that there's like something that's extremely important in how we perceive speech and sound that the spectral envelope captures. And it's these peaks in red that you see there. So those peaks are called for months. Now, foreman are responsible for, for kind of like ID for carrying the identity of sound. So yeah, identity of sound sounds really wishy washy. So what's that? Well, that is like the timer.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1349s",
+        "start_time": "1349.729"
+    },
+    {
+        "id": "596bb15e",
+        "text": "OK. Now what's cool about this? Well, it turns out that there's like something that's extremely important in how we perceive speech and sound that the spectral envelope captures. And it's these peaks in red that you see there. So those peaks are called for months. Now, foreman are responsible for, for kind of like ID for carrying the identity of sound. So yeah, identity of sound sounds really wishy washy. So what's that? Well, that is like the timer. So depending on the performance that you have in a speech signal, then you're gonna perceive certain phones instead of others. In other words, the spectral envelope provides us information about timer about the uh the different like phones that we have in speech. So this is extremely important because like this is like a feature that we want to isolate to do speech processing. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1368s",
+        "start_time": "1368.88"
+    },
+    {
+        "id": "ef279ef3",
+        "text": "Now, foreman are responsible for, for kind of like ID for carrying the identity of sound. So yeah, identity of sound sounds really wishy washy. So what's that? Well, that is like the timer. So depending on the performance that you have in a speech signal, then you're gonna perceive certain phones instead of others. In other words, the spectral envelope provides us information about timer about the uh the different like phones that we have in speech. So this is extremely important because like this is like a feature that we want to isolate to do speech processing. OK. OK. So the spectral envelope turns out is something like very similar to the vocal tract frequency response, right? So and this is like the the the input response like of the vocal tract depending on how we shape the vocal tract. And it's gonna give us like a signal like this",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1392s",
+        "start_time": "1392.319"
+    },
+    {
+        "id": "a1685319",
+        "text": "So depending on the performance that you have in a speech signal, then you're gonna perceive certain phones instead of others. In other words, the spectral envelope provides us information about timer about the uh the different like phones that we have in speech. So this is extremely important because like this is like a feature that we want to isolate to do speech processing. OK. OK. So the spectral envelope turns out is something like very similar to the vocal tract frequency response, right? So and this is like the the the input response like of the vocal tract depending on how we shape the vocal tract. And it's gonna give us like a signal like this that resembles like this spectral envelope here, right? And depending on how you shape your vocal tract, uh you're gonna have a slightly different vocal tract frequency response with different forms, right? And that is gonna determine uh different tres, different identities of sound. OK. So this iii I hope like you're starting to understand how important like this is, right? And now",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1407s",
+        "start_time": "1407.8"
+    },
+    {
+        "id": "80504159",
+        "text": "OK. So the spectral envelope turns out is something like very similar to the vocal tract frequency response, right? So and this is like the the the input response like of the vocal tract depending on how we shape the vocal tract. And it's gonna give us like a signal like this that resembles like this spectral envelope here, right? And depending on how you shape your vocal tract, uh you're gonna have a slightly different vocal tract frequency response with different forms, right? And that is gonna determine uh different tres, different identities of sound. OK. So this iii I hope like you're starting to understand how important like this is, right? And now if we think about like uh if we take like this uh initial signal, so now we have like the this modern version of the signal, right? So now we can kind of like subtract the two and what remains is something like this, right? And it's a lot like a quickly change, changing",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1438s",
+        "start_time": "1438.01"
+    },
+    {
+        "id": "ac2968a5",
+        "text": "that resembles like this spectral envelope here, right? And depending on how you shape your vocal tract, uh you're gonna have a slightly different vocal tract frequency response with different forms, right? And that is gonna determine uh different tres, different identities of sound. OK. So this iii I hope like you're starting to understand how important like this is, right? And now if we think about like uh if we take like this uh initial signal, so now we have like the this modern version of the signal, right? So now we can kind of like subtract the two and what remains is something like this, right? And it's a lot like a quickly change, changing information here and we can call this like the spectral detail. And the cool thing is that the spectral detail maps really nicely into the glut of pulse. Ok.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1460s",
+        "start_time": "1460.75"
+    },
+    {
+        "id": "64709d42",
+        "text": "if we think about like uh if we take like this uh initial signal, so now we have like the this modern version of the signal, right? So now we can kind of like subtract the two and what remains is something like this, right? And it's a lot like a quickly change, changing information here and we can call this like the spectral detail. And the cool thing is that the spectral detail maps really nicely into the glut of pulse. Ok. Wow, that, that, that, that this is like really fascinating stuff. So we have like an initial speech signal and so we can decompose that like into two parts. So one carries information about four months and slowly changing spectral features. And that is like the vocal tract frequency response. And it's basically like the filter that we have with our vocal tract or the response of that filter.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1489s",
+        "start_time": "1489.069"
+    },
+    {
+        "id": "63e525ec",
+        "text": "information here and we can call this like the spectral detail. And the cool thing is that the spectral detail maps really nicely into the glut of pulse. Ok. Wow, that, that, that, that this is like really fascinating stuff. So we have like an initial speech signal and so we can decompose that like into two parts. So one carries information about four months and slowly changing spectral features. And that is like the vocal tract frequency response. And it's basically like the filter that we have with our vocal tract or the response of that filter. And then the remaining part of the signal is the initial blot of pulse. OK. So the carrier of pitch information and yeah. OK. So now what should we do? So let's move on and try to formalize a speech. Um And, and we can say that speech",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1509s",
+        "start_time": "1509.219"
+    },
+    {
+        "id": "d9616f53",
+        "text": "Wow, that, that, that, that this is like really fascinating stuff. So we have like an initial speech signal and so we can decompose that like into two parts. So one carries information about four months and slowly changing spectral features. And that is like the vocal tract frequency response. And it's basically like the filter that we have with our vocal tract or the response of that filter. And then the remaining part of the signal is the initial blot of pulse. OK. So the carrier of pitch information and yeah. OK. So now what should we do? So let's move on and try to formalize a speech. Um And, and we can say that speech uh can be interpreted as a convolution of the vocal tracts frequency response with the glottal pulse. So this is kind of like",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1524s",
+        "start_time": "1524.369"
+    },
+    {
+        "id": "d46f4d15",
+        "text": "And then the remaining part of the signal is the initial blot of pulse. OK. So the carrier of pitch information and yeah. OK. So now what should we do? So let's move on and try to formalize a speech. Um And, and we can say that speech uh can be interpreted as a convolution of the vocal tracts frequency response with the glottal pulse. So this is kind of like formalization of what we just said in a qualitative way like up until now. So now let's take a look at the math behind this because like this is very important to understanding why. For example, we take like the logarithm, right. OK. So let's start. So XFT is our speech signal. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1548s",
+        "start_time": "1548.339"
+    },
+    {
+        "id": "4d8e44a5",
+        "text": "uh can be interpreted as a convolution of the vocal tracts frequency response with the glottal pulse. So this is kind of like formalization of what we just said in a qualitative way like up until now. So now let's take a look at the math behind this because like this is very important to understanding why. For example, we take like the logarithm, right. OK. So let's start. So XFT is our speech signal. OK. And here we have like this convolution. So we are uh convolving the uh vocal tracks of frequency response with the glottal pulse. And here we are in the time domain. So these, these are all like waveforms. OK. So now if we move to the frequency domain and we do this obviously by applying a fourier transform,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1571s",
+        "start_time": "1571.069"
+    },
+    {
+        "id": "5b5102f3",
+        "text": "formalization of what we just said in a qualitative way like up until now. So now let's take a look at the math behind this because like this is very important to understanding why. For example, we take like the logarithm, right. OK. So let's start. So XFT is our speech signal. OK. And here we have like this convolution. So we are uh convolving the uh vocal tracks of frequency response with the glottal pulse. And here we are in the time domain. So these, these are all like waveforms. OK. So now if we move to the frequency domain and we do this obviously by applying a fourier transform, uh so what we know is that the, the, the spectrum, the speech or I should say the spectrum associated to the speech signal is equal to the multiplication of these two spectra. The one that comes out of the glottal pulse and the other one that comes out from the vocal tract frequency response. OK. So let's put this one up there. What we can do is now",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1583s",
+        "start_time": "1583.319"
+    },
+    {
+        "id": "a78a9361",
+        "text": "And here we have like this convolution. So we are uh convolving the uh vocal tracks of frequency response with the glottal pulse. And here we are in the time domain. So these, these are all like waveforms. OK. So now if we move to the frequency domain and we do this obviously by applying a fourier transform, uh so what we know is that the, the, the spectrum, the speech or I should say the spectrum associated to the speech signal is equal to the multiplication of these two spectra. The one that comes out of the glottal pulse and the other one that comes out from the vocal tract frequency response. OK. So let's put this one up there. What we can do is now take the logarithm and so we'll apply the logarithm to both sides of this equation. OK? Like this. Now we can use the properties of the logarithm and rewrite this formula like this",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1605s",
+        "start_time": "1605.489"
+    },
+    {
+        "id": "6695a686",
+        "text": "uh so what we know is that the, the, the spectrum, the speech or I should say the spectrum associated to the speech signal is equal to the multiplication of these two spectra. The one that comes out of the glottal pulse and the other one that comes out from the vocal tract frequency response. OK. So let's put this one up there. What we can do is now take the logarithm and so we'll apply the logarithm to both sides of this equation. OK? Like this. Now we can use the properties of the logarithm and rewrite this formula like this good. So, and what's the advantage of this? Well, the great advantage now is that we can treat the vocal tract frequency response as separate from the glottal pulse, right? There are two separate elements that we are just adding up. So using the logarithm has the advantage of treating like these two elements as separate. So we can just like add them up and then we get the speech or we can just like focus on one of these two things alone. OK?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1631s",
+        "start_time": "1631.02"
+    },
+    {
+        "id": "febea675",
+        "text": "take the logarithm and so we'll apply the logarithm to both sides of this equation. OK? Like this. Now we can use the properties of the logarithm and rewrite this formula like this good. So, and what's the advantage of this? Well, the great advantage now is that we can treat the vocal tract frequency response as separate from the glottal pulse, right? There are two separate elements that we are just adding up. So using the logarithm has the advantage of treating like these two elements as separate. So we can just like add them up and then we get the speech or we can just like focus on one of these two things alone. OK? I hope you're getting now why we use like the log amplitude spectrum and not just the, the, the normal like spectrum uh when we, we get the, when we calculate the subs, OK. So now we should um yeah, now, yeah, let's let's take a look like at this different elements. So now let's try to map them to the different elements of speech that we talked about. So again,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1659s",
+        "start_time": "1659.55"
+    },
+    {
+        "id": "c4d883b9",
+        "text": "good. So, and what's the advantage of this? Well, the great advantage now is that we can treat the vocal tract frequency response as separate from the glottal pulse, right? There are two separate elements that we are just adding up. So using the logarithm has the advantage of treating like these two elements as separate. So we can just like add them up and then we get the speech or we can just like focus on one of these two things alone. OK? I hope you're getting now why we use like the log amplitude spectrum and not just the, the, the normal like spectrum uh when we, we get the, when we calculate the subs, OK. So now we should um yeah, now, yeah, let's let's take a look like at this different elements. So now let's try to map them to the different elements of speech that we talked about. So again, so this is like the uh this first element here is just like the, the speech or we, we should say it's the log spectrum of the the speech signal. Then we have here like in orange, the vocal tract frequency response here and here we have the glottal pulse. And so these are like all the different elements. Now, what we should ask is",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1675s",
+        "start_time": "1675.339"
+    },
+    {
+        "id": "7fea3942",
+        "text": "I hope you're getting now why we use like the log amplitude spectrum and not just the, the, the normal like spectrum uh when we, we get the, when we calculate the subs, OK. So now we should um yeah, now, yeah, let's let's take a look like at this different elements. So now let's try to map them to the different elements of speech that we talked about. So again, so this is like the uh this first element here is just like the, the speech or we, we should say it's the log spectrum of the the speech signal. Then we have here like in orange, the vocal tract frequency response here and here we have the glottal pulse. And so these are like all the different elements. Now, what we should ask is uh what's the goal like a speech processing? So what should we",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1705s",
+        "start_time": "1705.369"
+    },
+    {
+        "id": "326c6b55",
+        "text": "so this is like the uh this first element here is just like the, the speech or we, we should say it's the log spectrum of the the speech signal. Then we have here like in orange, the vocal tract frequency response here and here we have the glottal pulse. And so these are like all the different elements. Now, what we should ask is uh what's the goal like a speech processing? So what should we should we do? So what, what, what should we achieve to get like from a speech signal? And the point is really is that like when we",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1732s",
+        "start_time": "1732.38"
+    },
+    {
+        "id": "7ce08526",
+        "text": "uh what's the goal like a speech processing? So what should we should we do? So what, what, what should we achieve to get like from a speech signal? And the point is really is that like when we work with speech signal, we really don't have the luxury of having the vocal tract frequency response separated from the glottal pulse, right? Because we just get the speech signal and the speech signal is this massive signal like this, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1759s",
+        "start_time": "1759.64"
+    },
+    {
+        "id": "4b052fce",
+        "text": "should we do? So what, what, what should we achieve to get like from a speech signal? And the point is really is that like when we work with speech signal, we really don't have the luxury of having the vocal tract frequency response separated from the glottal pulse, right? Because we just get the speech signal and the speech signal is this massive signal like this, right? And so the ultimate goal, so the one thing that we want to achieve is to separate the initial speech uh signal into two components. The one that's connected with the vocal tract frequency response and the other one that's just connected with the uh glottal pulse, right? OK. But are we really interested in the glottal pulse?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1765s",
+        "start_time": "1765.239"
+    },
+    {
+        "id": "ead1ce07",
+        "text": "work with speech signal, we really don't have the luxury of having the vocal tract frequency response separated from the glottal pulse, right? Because we just get the speech signal and the speech signal is this massive signal like this, right? And so the ultimate goal, so the one thing that we want to achieve is to separate the initial speech uh signal into two components. The one that's connected with the vocal tract frequency response and the other one that's just connected with the uh glottal pulse, right? OK. But are we really interested in the glottal pulse? Well, really not that much in terms of uh audio, well, speech processing. And that's because yeah, pitch is important but not really that important. What we really care about is the identity of sound. So it's the Forys is the timer is the formance, right? And the formance and all of this stuff is carried by this component of the speech signal. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1773s",
+        "start_time": "1773.91"
+    },
+    {
+        "id": "a47c7ec7",
+        "text": "And so the ultimate goal, so the one thing that we want to achieve is to separate the initial speech uh signal into two components. The one that's connected with the vocal tract frequency response and the other one that's just connected with the uh glottal pulse, right? OK. But are we really interested in the glottal pulse? Well, really not that much in terms of uh audio, well, speech processing. And that's because yeah, pitch is important but not really that important. What we really care about is the identity of sound. So it's the Forys is the timer is the formance, right? And the formance and all of this stuff is carried by this component of the speech signal. So what we want to get at is a set of features that enables us to work only with this part of the speech so that we can just like throw out the glottal port because we don't need that for audio process for speech processing or speech recognition, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1788s",
+        "start_time": "1788.31"
+    },
+    {
+        "id": "18c08338",
+        "text": "Well, really not that much in terms of uh audio, well, speech processing. And that's because yeah, pitch is important but not really that important. What we really care about is the identity of sound. So it's the Forys is the timer is the formance, right? And the formance and all of this stuff is carried by this component of the speech signal. So what we want to get at is a set of features that enables us to work only with this part of the speech so that we can just like throw out the glottal port because we don't need that for audio process for speech processing or speech recognition, right? OK. So we should find a um process through which we can start from a speech signal like this or log spectrum speech like this and then move and isolate the vocal tract frequency response component. How can we achieve that? Well, septum comes to rescue",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1815s",
+        "start_time": "1815.89"
+    },
+    {
+        "id": "3ff0cb37",
+        "text": "what we want to get at is a set of features that enables us to work only with this part of the speech so that we can just like throw out the glottal port because we don't need that for audio process for speech processing or speech recognition, right? OK. So we should find a um process through which we can start from a speech signal like this or log spectrum speech like this and then move and isolate the vocal tract frequency response component. How can we achieve that? Well, septum comes to rescue here guys, we have the visualization for a three log spectra. So uh up here you have the log spectral relative to uh speech and then down here you have like the two different components. OK. So now if we want to take the the ses stream, what we should do is apply the inverse discrete fourier transform to this speech spectral signal. So if we do, so we move from the frequency domain to the quefrency domain. But if we want to like",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1843s",
+        "start_time": "1843.16"
+    },
+    {
+        "id": "0b123dd5",
+        "text": "OK. So we should find a um process through which we can start from a speech signal like this or log spectrum speech like this and then move and isolate the vocal tract frequency response component. How can we achieve that? Well, septum comes to rescue here guys, we have the visualization for a three log spectra. So uh up here you have the log spectral relative to uh speech and then down here you have like the two different components. OK. So now if we want to take the the ses stream, what we should do is apply the inverse discrete fourier transform to this speech spectral signal. So if we do, so we move from the frequency domain to the quefrency domain. But if we want to like see like the details of how to do that. Well, basically what we do is we take like sine waves uh with different frequencies and we try to feed them onto the spectral signal up here. And basically what we are, what we want to do is try to decompose uh that signal into its quefrency components and see how present the different QF components are. OK. So we start with low frequency sine waves. And",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1863s",
+        "start_time": "1863.89"
+    },
+    {
+        "id": "449bb055",
+        "text": "here guys, we have the visualization for a three log spectra. So uh up here you have the log spectral relative to uh speech and then down here you have like the two different components. OK. So now if we want to take the the ses stream, what we should do is apply the inverse discrete fourier transform to this speech spectral signal. So if we do, so we move from the frequency domain to the quefrency domain. But if we want to like see like the details of how to do that. Well, basically what we do is we take like sine waves uh with different frequencies and we try to feed them onto the spectral signal up here. And basically what we are, what we want to do is try to decompose uh that signal into its quefrency components and see how present the different QF components are. OK. So we start with low frequency sine waves. And uh if you like for example, like take a look at this speech spectral signal here, right? You see and that you we have like four peaks here. And it's easier to see down here in the spectral relative spectral envelope. So you have a peak 1234. So probably a sine wave that has a frequency of four hands is gonna do a pretty good job at approximating this uh spectral signal. And so",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1885s",
+        "start_time": "1885.91"
+    },
+    {
+        "id": "c3b8fe43",
+        "text": "see like the details of how to do that. Well, basically what we do is we take like sine waves uh with different frequencies and we try to feed them onto the spectral signal up here. And basically what we are, what we want to do is try to decompose uh that signal into its quefrency components and see how present the different QF components are. OK. So we start with low frequency sine waves. And uh if you like for example, like take a look at this speech spectral signal here, right? You see and that you we have like four peaks here. And it's easier to see down here in the spectral relative spectral envelope. So you have a peak 1234. So probably a sine wave that has a frequency of four hands is gonna do a pretty good job at approximating this uh spectral signal. And so what that means is that when we move to the quefrency domain, we're gonna get a high value with respect to the frequency that is at four Hertz right now. The cool thing here is that the um like all the Lowrey values are gonna represent the slowly changing spectral information",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1915s",
+        "start_time": "1915.555"
+    },
+    {
+        "id": "0526197c",
+        "text": "uh if you like for example, like take a look at this speech spectral signal here, right? You see and that you we have like four peaks here. And it's easier to see down here in the spectral relative spectral envelope. So you have a peak 1234. So probably a sine wave that has a frequency of four hands is gonna do a pretty good job at approximating this uh spectral signal. And so what that means is that when we move to the quefrency domain, we're gonna get a high value with respect to the frequency that is at four Hertz right now. The cool thing here is that the um like all the Lowrey values are gonna represent the slowly changing spectral information in the the speech spectral signal here. In other words, like here in the low end of the frequency axis, we're gonna get all the values that are relative and all the information that's relative to the spectral envelope. So it's gonna carry information about foreman, the relative phones and timbre. Now the moment we go up, we increase the, the Hertz and we get up like uh here like on the prey",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1945s",
+        "start_time": "1945.349"
+    },
+    {
+        "id": "b39588f1",
+        "text": "what that means is that when we move to the quefrency domain, we're gonna get a high value with respect to the frequency that is at four Hertz right now. The cool thing here is that the um like all the Lowrey values are gonna represent the slowly changing spectral information in the the speech spectral signal here. In other words, like here in the low end of the frequency axis, we're gonna get all the values that are relative and all the information that's relative to the spectral envelope. So it's gonna carry information about foreman, the relative phones and timbre. Now the moment we go up, we increase the, the Hertz and we get up like uh here like on the prey uh axis. What's gonna happen is that we are gonna start to approximate the the spectral detail. So the fast uh changing information on the speech spectral signal.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1972s",
+        "start_time": "1972.086"
+    },
+    {
+        "id": "b9e6718c",
+        "text": "in the the speech spectral signal here. In other words, like here in the low end of the frequency axis, we're gonna get all the values that are relative and all the information that's relative to the spectral envelope. So it's gonna carry information about foreman, the relative phones and timbre. Now the moment we go up, we increase the, the Hertz and we get up like uh here like on the prey uh axis. What's gonna happen is that we are gonna start to approximate the the spectral detail. So the fast uh changing information on the speech spectral signal. So here, for example, we could say that a sine wave at 100 Hertz perhaps is going to do a good job at approximating this spectral details here that are obviously part of this speech spectral signal up here. And so in other words, the great thing of moving from the frequency domain from the log spectrum to the qui",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=1998s",
+        "start_time": "1998.822"
+    },
+    {
+        "id": "4df68b88",
+        "text": "uh axis. What's gonna happen is that we are gonna start to approximate the the spectral detail. So the fast uh changing information on the speech spectral signal. So here, for example, we could say that a sine wave at 100 Hertz perhaps is going to do a good job at approximating this spectral details here that are obviously part of this speech spectral signal up here. And so in other words, the great thing of moving from the frequency domain from the log spectrum to the qui domain. In other words, the subs stream is that we're gonna have a natural physical separation of the information that's relative to the spectral envelope. Or in other words, the uh vocal trapped um frequency response and the information that's connected to the spectral details or glottal pulse. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2025s",
+        "start_time": "2025.729"
+    },
+    {
+        "id": "86cd2a12",
+        "text": "So here, for example, we could say that a sine wave at 100 Hertz perhaps is going to do a good job at approximating this spectral details here that are obviously part of this speech spectral signal up here. And so in other words, the great thing of moving from the frequency domain from the log spectrum to the qui domain. In other words, the subs stream is that we're gonna have a natural physical separation of the information that's relative to the spectral envelope. Or in other words, the uh vocal trapped um frequency response and the information that's connected to the spectral details or glottal pulse. So on the frequency uh axis, all the information relative to the spectral envelope is in the low and and the information relative to the spectral details is in the higher part of the frequency axis, we can capture all of this information through the mathematical formalization. And here you can see that the SES which is capsule X of T is given by the sum of two components. So all the SES coefficients that are relative to the glottal pools",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2039s",
+        "start_time": "2039.64"
+    },
+    {
+        "id": "65a29132",
+        "text": "domain. In other words, the subs stream is that we're gonna have a natural physical separation of the information that's relative to the spectral envelope. Or in other words, the uh vocal trapped um frequency response and the information that's connected to the spectral details or glottal pulse. So on the frequency uh axis, all the information relative to the spectral envelope is in the low and and the information relative to the spectral details is in the higher part of the frequency axis, we can capture all of this information through the mathematical formalization. And here you can see that the SES which is capsule X of T is given by the sum of two components. So all the SES coefficients that are relative to the glottal pools uh added to all the ses coefficients that are connected to the spectral envelope. Now, if you remember our goal and the reason why we moved to the spectrum and to the SES is because we want to just focus on the features relative to the spectral envelope. So how do we do that? Well, here comes the last weird words that we introduced",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2061s",
+        "start_time": "2061.353"
+    },
+    {
+        "id": "8416027d",
+        "text": "on the frequency uh axis, all the information relative to the spectral envelope is in the low and and the information relative to the spectral details is in the higher part of the frequency axis, we can capture all of this information through the mathematical formalization. And here you can see that the SES which is capsule X of T is given by the sum of two components. So all the SES coefficients that are relative to the glottal pools uh added to all the ses coefficients that are connected to the spectral envelope. Now, if you remember our goal and the reason why we moved to the spectrum and to the SES is because we want to just focus on the features relative to the spectral envelope. So how do we do that? Well, here comes the last weird words that we introduced earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2083s",
+        "start_time": "2083.064"
+    },
+    {
+        "id": "1e0511fc",
+        "text": "uh added to all the ses coefficients that are connected to the spectral envelope. Now, if you remember our goal and the reason why we moved to the spectrum and to the SES is because we want to just focus on the features relative to the spectral envelope. So how do we do that? Well, here comes the last weird words that we introduced earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2112s",
+        "start_time": "2112.969"
+    },
+    {
+        "id": "3a8fadfd",
+        "text": "earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2138s",
+        "start_time": "2138.939"
+    },
+    {
+        "id": "cf516287",
+        "text": "if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum. And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2164s",
+        "start_time": "2164.909"
+    },
+    {
+        "id": "48ee3631",
+        "text": "And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum. And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along my series, you should be familiar with this image because I've used it in the previous couple of videos when we were talking about male spectrums. Now, if you're not familiar about with like male spectrograms or male scale, I highly suggest you once again to go check out my previous videos. But",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2191s",
+        "start_time": "2191.07"
+    },
+    {
+        "id": "26d35bf2",
+        "text": "And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along my series, you should be familiar with this image because I've used it in the previous couple of videos when we were talking about male spectrums. Now, if you're not familiar about with like male spectrograms or male scale, I highly suggest you once again to go check out my previous videos. But at the end of the this step, we have now a male spectrum, we now enter the final step for getting MF CCS which is instead of applying the equivalent of an inverse uh discrete fourier transform for the SES. And in this case, that one transformation is the discrete cosine transform.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2216s",
+        "start_time": "2216.899"
+    },
+    {
+        "id": "44f87231",
+        "text": "my series, you should be familiar with this image because I've used it in the previous couple of videos when we were talking about male spectrums. Now, if you're not familiar about with like male spectrograms or male scale, I highly suggest you once again to go check out my previous videos. But at the end of the this step, we have now a male spectrum, we now enter the final step for getting MF CCS which is instead of applying the equivalent of an inverse uh discrete fourier transform for the SES. And in this case, that one transformation is the discrete cosine transform. Now, I'm not gonna get into the details of why we're using the discrete cosine transform instead of the inverse fourier transform. I'll do that like in a few moments. But for now, all you need to understand is that once we apply the discrete cosine cosine transform is that we get a number of coefficients, a number of values or MF CCS which are the ones that we are interested in. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2243s",
+        "start_time": "2243.475"
+    },
+    {
+        "id": "8c74382e",
+        "text": "at the end of the this step, we have now a male spectrum, we now enter the final step for getting MF CCS which is instead of applying the equivalent of an inverse uh discrete fourier transform for the SES. And in this case, that one transformation is the discrete cosine transform. Now, I'm not gonna get into the details of why we're using the discrete cosine transform instead of the inverse fourier transform. I'll do that like in a few moments. But for now, all you need to understand is that once we apply the discrete cosine cosine transform is that we get a number of coefficients, a number of values or MF CCS which are the ones that we are interested in. OK. So one thing I want to draw your attention to is the type of transformations or the type of like steps that we are uh using like in this multi step process for getting MF CCS. And the cool thing about",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2262s",
+        "start_time": "2262.489"
+    },
+    {
+        "id": "32c038bd",
+        "text": "Now, I'm not gonna get into the details of why we're using the discrete cosine transform instead of the inverse fourier transform. I'll do that like in a few moments. But for now, all you need to understand is that once we apply the discrete cosine cosine transform is that we get a number of coefficients, a number of values or MF CCS which are the ones that we are interested in. OK. So one thing I want to draw your attention to is the type of transformations or the type of like steps that we are uh using like in this multi step process for getting MF CCS. And the cool thing about is that at each step, we have a process that's somewhat perceptually informed, it's perceptually relevant. So let me explain what I mean by that. So we start with the signal away from, OK. At that point, we get the, we apply a group for transform so that we can move to the time domain all good. And well, at this point, we apply a logarithm",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2286s",
+        "start_time": "2286.1"
+    },
+    {
+        "id": "26fed299",
+        "text": "So one thing I want to draw your attention to is the type of transformations or the type of like steps that we are uh using like in this multi step process for getting MF CCS. And the cool thing about is that at each step, we have a process that's somewhat perceptually informed, it's perceptually relevant. So let me explain what I mean by that. So we start with the signal away from, OK. At that point, we get the, we apply a group for transform so that we can move to the time domain all good. And well, at this point, we apply a logarithm on the amplitude. And this is something that's perceptually relevant. And that's because you may be familiar with this because like you, you've seen it like in earlier videos that I had on this on this series. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2309s",
+        "start_time": "2309.939"
+    },
+    {
+        "id": "71796896",
+        "text": "is that at each step, we have a process that's somewhat perceptually informed, it's perceptually relevant. So let me explain what I mean by that. So we start with the signal away from, OK. At that point, we get the, we apply a group for transform so that we can move to the time domain all good. And well, at this point, we apply a logarithm on the amplitude. And this is something that's perceptually relevant. And that's because you may be familiar with this because like you, you've seen it like in earlier videos that I had on this on this series. So we don't perceive amplitude or loudness linearly but rather logarithmically. So by applying a logarithm at this point, we're putting like a step that's like perceptually relevant. The next step is similar to that, right? Because when",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2325s",
+        "start_time": "2325.645"
+    },
+    {
+        "id": "f106d5b0",
+        "text": "on the amplitude. And this is something that's perceptually relevant. And that's because you may be familiar with this because like you, you've seen it like in earlier videos that I had on this on this series. So we don't perceive amplitude or loudness linearly but rather logarithmically. So by applying a logarithm at this point, we're putting like a step that's like perceptually relevant. The next step is similar to that, right? Because when we apply male scaling, we are basically passing from a linear frequency representation to a male based uh representation which is perceptually relevant in the realm of frequencies, right.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2351s",
+        "start_time": "2351.639"
+    },
+    {
+        "id": "5ef19568",
+        "text": "we don't perceive amplitude or loudness linearly but rather logarithmically. So by applying a logarithm at this point, we're putting like a step that's like perceptually relevant. The next step is similar to that, right? Because when we apply male scaling, we are basically passing from a linear frequency representation to a male based uh representation which is perceptually relevant in the realm of frequencies, right. And finally, when we apply the discrete cosine transform, that's kind of similar to applying the inverse fourier transform uh to get the subs stream, what we get out of that is information about the uh different values that kind of uh",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2366s",
+        "start_time": "2366.649"
+    },
+    {
+        "id": "a3c9c0dd",
+        "text": "we apply male scaling, we are basically passing from a linear frequency representation to a male based uh representation which is perceptually relevant in the realm of frequencies, right. And finally, when we apply the discrete cosine transform, that's kind of similar to applying the inverse fourier transform uh to get the subs stream, what we get out of that is information about the uh different values that kind of uh construct like form the the different formats or the timer or like the basic information about the spectrum that we need in order to understand uh like speech, understand full names and just like recognize speech. Really. The question we should now ask is",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2386s",
+        "start_time": "2386.129"
+    },
+    {
+        "id": "60bc90e4",
+        "text": "And finally, when we apply the discrete cosine transform, that's kind of similar to applying the inverse fourier transform uh to get the subs stream, what we get out of that is information about the uh different values that kind of uh construct like form the the different formats or the timer or like the basic information about the spectrum that we need in order to understand uh like speech, understand full names and just like recognize speech. Really. The question we should now ask is why using the discrete cosine transform, can we just use the inverse fourier transform? Well, it turns out there are a bunch of reasons why we prefer to use a discrete cosine transform for getting MF CS. So the first one is that a discrete cosine transform is a simplified version of a fourier transform. And one of the reasons is that",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2399s",
+        "start_time": "2399.739"
+    },
+    {
+        "id": "92391d41",
+        "text": "construct like form the the different formats or the timer or like the basic information about the spectrum that we need in order to understand uh like speech, understand full names and just like recognize speech. Really. The question we should now ask is why using the discrete cosine transform, can we just use the inverse fourier transform? Well, it turns out there are a bunch of reasons why we prefer to use a discrete cosine transform for getting MF CS. So the first one is that a discrete cosine transform is a simplified version of a fourier transform. And one of the reasons is that the discrete cosine transform gives us back real valued coefficients. And this is different from what a fourier transform does. So if you're not familiar with the fourier transform, I highly suggest you to go check out this video there. You'll find that a fourier transform returns complex numbers, but we don't really need complex coefficients here. Real value coefficients are more than enough for our purposes with MFTC. So discrete cost and transform is way",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2417s",
+        "start_time": "2417.75"
+    },
+    {
+        "id": "83710d46",
+        "text": "why using the discrete cosine transform, can we just use the inverse fourier transform? Well, it turns out there are a bunch of reasons why we prefer to use a discrete cosine transform for getting MF CS. So the first one is that a discrete cosine transform is a simplified version of a fourier transform. And one of the reasons is that the discrete cosine transform gives us back real valued coefficients. And this is different from what a fourier transform does. So if you're not familiar with the fourier transform, I highly suggest you to go check out this video there. You'll find that a fourier transform returns complex numbers, but we don't really need complex coefficients here. Real value coefficients are more than enough for our purposes with MFTC. So discrete cost and transform is way simpler to handle with than a fourier transform. OK. So now one thing that I want to show you guys is how we move, how we can apply this group cosine transform and move from the logarithm spectrum to the NF CCS. And basically like here, the idea is that we get like cosines like with different free",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2435s",
+        "start_time": "2435.935"
+    },
+    {
+        "id": "68b5bcb4",
+        "text": "the discrete cosine transform gives us back real valued coefficients. And this is different from what a fourier transform does. So if you're not familiar with the fourier transform, I highly suggest you to go check out this video there. You'll find that a fourier transform returns complex numbers, but we don't really need complex coefficients here. Real value coefficients are more than enough for our purposes with MFTC. So discrete cost and transform is way simpler to handle with than a fourier transform. OK. So now one thing that I want to show you guys is how we move, how we can apply this group cosine transform and move from the logarithm spectrum to the NF CCS. And basically like here, the idea is that we get like cosines like with different free frequencies and we try to fit them to uh the the lock spectrum, right? And uh each cosine is gonna have like a different frequency and it's gonna basically come up with a value that value is how well like that cosine with that specific frequency",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2456s",
+        "start_time": "2456.409"
+    },
+    {
+        "id": "7bc7d302",
+        "text": "simpler to handle with than a fourier transform. OK. So now one thing that I want to show you guys is how we move, how we can apply this group cosine transform and move from the logarithm spectrum to the NF CCS. And basically like here, the idea is that we get like cosines like with different free frequencies and we try to fit them to uh the the lock spectrum, right? And uh each cosine is gonna have like a different frequency and it's gonna basically come up with a value that value is how well like that cosine with that specific frequency um fits the original log spectrum. And that value is an MFC, the higher like the index of the MFC and the higher like the, the signal, the cosine signal that we pass that we try to fit to the log spectrum. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2485s",
+        "start_time": "2485.35"
+    },
+    {
+        "id": "f4281d8c",
+        "text": "frequencies and we try to fit them to uh the the lock spectrum, right? And uh each cosine is gonna have like a different frequency and it's gonna basically come up with a value that value is how well like that cosine with that specific frequency um fits the original log spectrum. And that value is an MFC, the higher like the index of the MFC and the higher like the, the signal, the cosine signal that we pass that we try to fit to the log spectrum. OK. Good. So now I hope like you have like this idea of how to apply like this district cosine transform. Now, moving on another advantage of uh the district cosine transform is that it enables us to the correlate energy in different male bands. OK. So what's this all about? OK. And here we have once again the male filter bands and these are like triangular filters. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2508s",
+        "start_time": "2508.889"
+    },
+    {
+        "id": "cbac4ca3",
+        "text": "um fits the original log spectrum. And that value is an MFC, the higher like the index of the MFC and the higher like the, the signal, the cosine signal that we pass that we try to fit to the log spectrum. OK. Good. So now I hope like you have like this idea of how to apply like this district cosine transform. Now, moving on another advantage of uh the district cosine transform is that it enables us to the correlate energy in different male bands. OK. So what's this all about? OK. And here we have once again the male filter bands and these are like triangular filters. So you can see like the center like of a male bench, for example, like this one here, right, which is we can say like this is mel bench number two is somewhat correlated with what comes after it, the subsequent mail bench and the previous mail bench, right? And you can see it here like there's some overlap. And that means that information is somewhat like correlation",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2528s",
+        "start_time": "2528.35"
+    },
+    {
+        "id": "888f1075",
+        "text": "Good. So now I hope like you have like this idea of how to apply like this district cosine transform. Now, moving on another advantage of uh the district cosine transform is that it enables us to the correlate energy in different male bands. OK. So what's this all about? OK. And here we have once again the male filter bands and these are like triangular filters. So you can see like the center like of a male bench, for example, like this one here, right, which is we can say like this is mel bench number two is somewhat correlated with what comes after it, the subsequent mail bench and the previous mail bench, right? And you can see it here like there's some overlap. And that means that information is somewhat like correlation it is shared across multiple um male bands. Now, when we apply the discrete cosine transform, what we do is we correlate the energy in the different male bands, which is a really good thing to have because with machine learning algorithms, we want uh features that are as least correlated as possible. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2549s",
+        "start_time": "2549.33"
+    },
+    {
+        "id": "521f5c60",
+        "text": "you can see like the center like of a male bench, for example, like this one here, right, which is we can say like this is mel bench number two is somewhat correlated with what comes after it, the subsequent mail bench and the previous mail bench, right? And you can see it here like there's some overlap. And that means that information is somewhat like correlation it is shared across multiple um male bands. Now, when we apply the discrete cosine transform, what we do is we correlate the energy in the different male bands, which is a really good thing to have because with machine learning algorithms, we want uh features that are as least correlated as possible. OK. So one final thing that comes with the discrete cosine transform is that it reduces the number of dimensions that we use to represent the log spectrum. In other words, we can think of the discrete cosine transform as a dimension",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2575s",
+        "start_time": "2575.889"
+    },
+    {
+        "id": "3067b017",
+        "text": "it is shared across multiple um male bands. Now, when we apply the discrete cosine transform, what we do is we correlate the energy in the different male bands, which is a really good thing to have because with machine learning algorithms, we want uh features that are as least correlated as possible. OK. So one final thing that comes with the discrete cosine transform is that it reduces the number of dimensions that we use to represent the log spectrum. In other words, we can think of the discrete cosine transform as a dimension reduction algorithm that takes like the input which is this log spectrum and it provides us back with um like a a feature or set of features like that is that has like a smaller dimensional less dimensions. OK. Good. So now I guess like one important question that you may have is how many coefficients should that take? How many MF CCS?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2599s",
+        "start_time": "2599.54"
+    },
+    {
+        "id": "4ed527c6",
+        "text": "So one final thing that comes with the discrete cosine transform is that it reduces the number of dimensions that we use to represent the log spectrum. In other words, we can think of the discrete cosine transform as a dimension reduction algorithm that takes like the input which is this log spectrum and it provides us back with um like a a feature or set of features like that is that has like a smaller dimensional less dimensions. OK. Good. So now I guess like one important question that you may have is how many coefficients should that take? How many MF CCS? Now traditionally, we focus on the first, we consider the 1st 12 to 13 coefficients. Why do we take this? Right? We take the first coefficients because these are the ones that keep the most relevant information, which is the information about performance and spectral envelope. This is like the same stuff that we had with the SEPS. If you recall on the qui",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2624s",
+        "start_time": "2624.6"
+    },
+    {
+        "id": "df70ce3c",
+        "text": "reduction algorithm that takes like the input which is this log spectrum and it provides us back with um like a a feature or set of features like that is that has like a smaller dimensional less dimensions. OK. Good. So now I guess like one important question that you may have is how many coefficients should that take? How many MF CCS? Now traditionally, we focus on the first, we consider the 1st 12 to 13 coefficients. Why do we take this? Right? We take the first coefficients because these are the ones that keep the most relevant information, which is the information about performance and spectral envelope. This is like the same stuff that we had with the SEPS. If you recall on the qui access the equivalency values like that are like on the lower end are the ones that provide information about like the spectral envelope, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2642s",
+        "start_time": "2642.594"
+    },
+    {
+        "id": "4554ee13",
+        "text": "Now traditionally, we focus on the first, we consider the 1st 12 to 13 coefficients. Why do we take this? Right? We take the first coefficients because these are the ones that keep the most relevant information, which is the information about performance and spectral envelope. This is like the same stuff that we had with the SEPS. If you recall on the qui access the equivalency values like that are like on the lower end are the ones that provide information about like the spectral envelope, right? The quiery values on the higher end are the ones that provide information about the the glottal pulse we're not interested in the glottal pulse we are interested in the spectral envelope or in other words, interested in the vocal trait um frequency response because that provides us information about the the stuff that perceptually the most relevant the phones, the foreman. OK. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2669s",
+        "start_time": "2669.479"
+    },
+    {
+        "id": "6464ab09",
+        "text": "access the equivalency values like that are like on the lower end are the ones that provide information about like the spectral envelope, right? The quiery values on the higher end are the ones that provide information about the the glottal pulse we're not interested in the glottal pulse we are interested in the spectral envelope or in other words, interested in the vocal trait um frequency response because that provides us information about the the stuff that perceptually the most relevant the phones, the foreman. OK. So the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2695s",
+        "start_time": "2695.87"
+    },
+    {
+        "id": "944df337",
+        "text": "The quiery values on the higher end are the ones that provide information about the the glottal pulse we're not interested in the glottal pulse we are interested in the spectral envelope or in other words, interested in the vocal trait um frequency response because that provides us information about the the stuff that perceptually the most relevant the phones, the foreman. OK. So the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2707s",
+        "start_time": "2707.709"
+    },
+    {
+        "id": "91385019",
+        "text": "the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS. What is this? Well,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2736s",
+        "start_time": "2736.449"
+    },
+    {
+        "id": "b519b3a0",
+        "text": "it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS. What is this? Well, let's think about like MF CCS. So if you remember like the pipeline for extracting them, so multi step that one is used for each frame in a signal,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2765s",
+        "start_time": "2765.989"
+    },
+    {
+        "id": "89db8a7f",
+        "text": "What is this? Well, let's think about like MF CCS. So if you remember like the pipeline for extracting them, so multi step that one is used for each frame in a signal, which basically means if we have like a 12th long signal, we are gonna have like a ton like of frames. And at each frame you're gonna get a handful of MFCC. Now, if you want to take like the delta MFCC is what you do is you take all the values of MFCC values at one frame and you subtract the values from the previous frame so that you get the delta. Now, if you want to get like the",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2786s",
+        "start_time": "2786.83"
+    },
+    {
+        "id": "5a05190d",
+        "text": "let's think about like MF CCS. So if you remember like the pipeline for extracting them, so multi step that one is used for each frame in a signal, which basically means if we have like a 12th long signal, we are gonna have like a ton like of frames. And at each frame you're gonna get a handful of MFCC. Now, if you want to take like the delta MFCC is what you do is you take all the values of MFCC values at one frame and you subtract the values from the previous frame so that you get the delta. Now, if you want to get like the delta delta, you do the same thing. But you start like with all the delta MF CCS and then you subtract the values for the delta MF CCS um for one frame and you subtract to that like the delta MF CCS from the previous uh frame. And in that way, you get the delta delta MF CCS if you think about this, this is equivalent to taking more or less the first and the second derivative of this MF CCS.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2788s",
+        "start_time": "2788.969"
+    },
+    {
+        "id": "7daca892",
+        "text": "which basically means if we have like a 12th long signal, we are gonna have like a ton like of frames. And at each frame you're gonna get a handful of MFCC. Now, if you want to take like the delta MFCC is what you do is you take all the values of MFCC values at one frame and you subtract the values from the previous frame so that you get the delta. Now, if you want to get like the delta delta, you do the same thing. But you start like with all the delta MF CCS and then you subtract the values for the delta MF CCS um for one frame and you subtract to that like the delta MF CCS from the previous uh frame. And in that way, you get the delta delta MF CCS if you think about this, this is equivalent to taking more or less the first and the second derivative of this MF CCS. OK. So this is gonna, it's usually used in music and audio um speech processing really. And what this basically means like in terms of coefficients is that we start with 13 coefficients but then we take like the delta coefficient. So we, we add another 13",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2799s",
+        "start_time": "2799.659"
+    },
+    {
+        "id": "0d5f77c1",
+        "text": "delta delta, you do the same thing. But you start like with all the delta MF CCS and then you subtract the values for the delta MF CCS um for one frame and you subtract to that like the delta MF CCS from the previous uh frame. And in that way, you get the delta delta MF CCS if you think about this, this is equivalent to taking more or less the first and the second derivative of this MF CCS. OK. So this is gonna, it's usually used in music and audio um speech processing really. And what this basically means like in terms of coefficients is that we start with 13 coefficients but then we take like the delta coefficient. So we, we add another 13 and then we take the delta delta which is another 13 on top of that. So the, the whole figure there is probably like something like 39 coefficients. And remember this is like for each single frame,",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2829s",
+        "start_time": "2829.32"
+    },
+    {
+        "id": "837e1b85",
+        "text": "OK. So this is gonna, it's usually used in music and audio um speech processing really. And what this basically means like in terms of coefficients is that we start with 13 coefficients but then we take like the delta coefficient. So we, we add another 13 and then we take the delta delta which is another 13 on top of that. So the, the whole figure there is probably like something like 39 coefficients. And remember this is like for each single frame, OK. So now",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2859s",
+        "start_time": "2859.399"
+    },
+    {
+        "id": "4f654bb0",
+        "text": "and then we take the delta delta which is another 13 on top of that. So the, the whole figure there is probably like something like 39 coefficients. And remember this is like for each single frame, OK. So now I think like it's we are at a point where we want to actually visualize like this MF CCS. And as you can see like when we visualize them like the the kind of impact that we have is very similar to a spectrogram that we saw in earlier videos, right? And that's because we have like MF CCS, like we can think of them like as a, as a matrix, right? In the",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2878s",
+        "start_time": "2878.429"
+    },
+    {
+        "id": "e50a18db",
+        "text": "OK. So now I think like it's we are at a point where we want to actually visualize like this MF CCS. And as you can see like when we visualize them like the the kind of impact that we have is very similar to a spectrogram that we saw in earlier videos, right? And that's because we have like MF CCS, like we can think of them like as a, as a matrix, right? In the uh rows, we have like the different indexes, like the different MFC, the different coefficients. And on uh here, like on the columns, we have the different frames. OK. And so we can use a hit map like this and as the one that we use for visualizing spectrograms to visualize MF CCS. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2892s",
+        "start_time": "2892.199"
+    },
+    {
+        "id": "c4f19585",
+        "text": "I think like it's we are at a point where we want to actually visualize like this MF CCS. And as you can see like when we visualize them like the the kind of impact that we have is very similar to a spectrogram that we saw in earlier videos, right? And that's because we have like MF CCS, like we can think of them like as a, as a matrix, right? In the uh rows, we have like the different indexes, like the different MFC, the different coefficients. And on uh here, like on the columns, we have the different frames. OK. And so we can use a hit map like this and as the one that we use for visualizing spectrograms to visualize MF CCS. So what happens here is that like the time is uh discrete and we have like as many uh like uh kind of like discrete section segments as the number of frames that we have in a given uh chunk of signal audio signal. And here we have like as many um",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2894s",
+        "start_time": "2894.679"
+    },
+    {
+        "id": "3ebcdb9f",
+        "text": "uh rows, we have like the different indexes, like the different MFC, the different coefficients. And on uh here, like on the columns, we have the different frames. OK. And so we can use a hit map like this and as the one that we use for visualizing spectrograms to visualize MF CCS. So what happens here is that like the time is uh discrete and we have like as many uh like uh kind of like discrete section segments as the number of frames that we have in a given uh chunk of signal audio signal. And here we have like as many um discrete like segments here as the number of coefficients that we have. So for example, in this case, you can count them, I believe like we take 16 male frequency subs coefficients. And so we at each point",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2921s",
+        "start_time": "2921.879"
+    },
+    {
+        "id": "a4f2c7a8",
+        "text": "what happens here is that like the time is uh discrete and we have like as many uh like uh kind of like discrete section segments as the number of frames that we have in a given uh chunk of signal audio signal. And here we have like as many um discrete like segments here as the number of coefficients that we have. So for example, in this case, you can count them, I believe like we take 16 male frequency subs coefficients. And so we at each point like in this metrics, we have the value for a given coefficient at a given point in time or at a given frame. And that value is expressed visually through some kind of like color coding here, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2945s",
+        "start_time": "2945.229"
+    },
+    {
+        "id": "f02c7baf",
+        "text": "discrete like segments here as the number of coefficients that we have. So for example, in this case, you can count them, I believe like we take 16 male frequency subs coefficients. And so we at each point like in this metrics, we have the value for a given coefficient at a given point in time or at a given frame. And that value is expressed visually through some kind of like color coding here, right? And this is very similar to what we did with the spectrograms as well. Cool.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2967s",
+        "start_time": "2967.79"
+    },
+    {
+        "id": "e52c71f7",
+        "text": "like in this metrics, we have the value for a given coefficient at a given point in time or at a given frame. And that value is expressed visually through some kind of like color coding here, right? And this is very similar to what we did with the spectrograms as well. Cool. OK. So now uh I want to talk about like a couple of like things just like to wrap up like this very long video. And I want to talk about some of the MF CCS advantages. So some of the benefits that come with MF CCS, some of the shortcomings and finally, the applications of MF CCS. So let's start, let's start with the good stuff, the MFCC advantages. So",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2983s",
+        "start_time": "2983.169"
+    },
+    {
+        "id": "b0055d59",
+        "text": "And this is very similar to what we did with the spectrograms as well. Cool. OK. So now uh I want to talk about like a couple of like things just like to wrap up like this very long video. And I want to talk about some of the MF CCS advantages. So some of the benefits that come with MF CCS, some of the shortcomings and finally, the applications of MF CCS. So let's start, let's start with the good stuff, the MFCC advantages. So a great thing about MFCC is that they are able to describe the large structures of the spectrum. And we saw this and we, we, we, we said this like multiple times. So the moment like we take like the first MF CCS, we are mainly focusing on the spectral envelope on the forms. And so like the different coefficients MFCC coefficients are basically",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2999s",
+        "start_time": "2999.11"
+    },
+    {
+        "id": "fbcc29d0",
+        "text": "OK. So now uh I want to talk about like a couple of like things just like to wrap up like this very long video. And I want to talk about some of the MF CCS advantages. So some of the benefits that come with MF CCS, some of the shortcomings and finally, the applications of MF CCS. So let's start, let's start with the good stuff, the MFCC advantages. So a great thing about MFCC is that they are able to describe the large structures of the spectrum. And we saw this and we, we, we, we said this like multiple times. So the moment like we take like the first MF CCS, we are mainly focusing on the spectral envelope on the forms. And so like the different coefficients MFCC coefficients are basically uh providing us information about the performance about the phone names. And this is all we really need. We're just like cutting out the details and the noise that comes with the spec with the spectral details and focus on the main stuff on the phone names on the forms. OK. Uh And yeah, so the second point we ignore the fine spectral structures which we really don't care that much. So we don't care about pitch when we do",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3005s",
+        "start_time": "3005.11"
+    },
+    {
+        "id": "bc71db23",
+        "text": "a great thing about MFCC is that they are able to describe the large structures of the spectrum. And we saw this and we, we, we, we said this like multiple times. So the moment like we take like the first MF CCS, we are mainly focusing on the spectral envelope on the forms. And so like the different coefficients MFCC coefficients are basically uh providing us information about the performance about the phone names. And this is all we really need. We're just like cutting out the details and the noise that comes with the spec with the spectral details and focus on the main stuff on the phone names on the forms. OK. Uh And yeah, so the second point we ignore the fine spectral structures which we really don't care that much. So we don't care about pitch when we do mostly when we do uh speech recognition. Uh for example, OK. So uh and the great thing about MFCC is is that like they've been tested for a long time both in speech and music processing and they work quite well. That's the point. And they've been like the, the audio uh feature of choice for speech and music processing for a long time, right.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3030s",
+        "start_time": "3030.01"
+    },
+    {
+        "id": "07398d5e",
+        "text": "uh providing us information about the performance about the phone names. And this is all we really need. We're just like cutting out the details and the noise that comes with the spec with the spectral details and focus on the main stuff on the phone names on the forms. OK. Uh And yeah, so the second point we ignore the fine spectral structures which we really don't care that much. So we don't care about pitch when we do mostly when we do uh speech recognition. Uh for example, OK. So uh and the great thing about MFCC is is that like they've been tested for a long time both in speech and music processing and they work quite well. That's the point. And they've been like the, the audio uh feature of choice for speech and music processing for a long time, right. OK. Now, let's take a look at some of the disadvantages. So first of all, an esthesis are really not that robust with respect to additive noise. And then the second point I think like it's at the same time, a great thing and it's also like a shortcoming. So as we say to come up with MS CCS, we have to put a lot of like knowledge regarding like the way also we humans perceive speech or music. Um",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3059s",
+        "start_time": "3059.83"
+    },
+    {
+        "id": "5cd12db0",
+        "text": "mostly when we do uh speech recognition. Uh for example, OK. So uh and the great thing about MFCC is is that like they've been tested for a long time both in speech and music processing and they work quite well. That's the point. And they've been like the, the audio uh feature of choice for speech and music processing for a long time, right. OK. Now, let's take a look at some of the disadvantages. So first of all, an esthesis are really not that robust with respect to additive noise. And then the second point I think like it's at the same time, a great thing and it's also like a shortcoming. So as we say to come up with MS CCS, we have to put a lot of like knowledge regarding like the way also we humans perceive speech or music. Um And that can be a shortcoming. And why is that? Well, that's because we are somewhat biasing this audio feature based on biases like that we have and we are not letting the machine decide for itself. What's the what are like the most relevant elements, for example, in a, in a rare audio file or in a spectrogram, right?",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3086s",
+        "start_time": "3086.969"
+    },
+    {
+        "id": "d0df03c1",
+        "text": "OK. Now, let's take a look at some of the disadvantages. So first of all, an esthesis are really not that robust with respect to additive noise. And then the second point I think like it's at the same time, a great thing and it's also like a shortcoming. So as we say to come up with MS CCS, we have to put a lot of like knowledge regarding like the way also we humans perceive speech or music. Um And that can be a shortcoming. And why is that? Well, that's because we are somewhat biasing this audio feature based on biases like that we have and we are not letting the machine decide for itself. What's the what are like the most relevant elements, for example, in a, in a rare audio file or in a spectrogram, right? And some of these decisions, arbitrary decisions that we take is like the, for example, the the the male um the the the the male",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3113s",
+        "start_time": "3113.229"
+    },
+    {
+        "id": "d2ff74ff",
+        "text": "And that can be a shortcoming. And why is that? Well, that's because we are somewhat biasing this audio feature based on biases like that we have and we are not letting the machine decide for itself. What's the what are like the most relevant elements, for example, in a, in a rare audio file or in a spectrogram, right? And some of these decisions, arbitrary decisions that we take is like the, for example, the the the male um the the the the male scaling like that we do on the spectrogram. So when we move from the spectrum to the male spectrogram. So for example, there we use the male scale, right? And the male scale is definitely like a valid like informed p perceptually informed pitch scale, but it's not the only one we could have used another one that's called bach, for example, right? Or even like when we are dealing with like the filters, the male filter bands, there we are using",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3143s",
+        "start_time": "3143.76"
+    },
+    {
+        "id": "f3947860",
+        "text": "And some of these decisions, arbitrary decisions that we take is like the, for example, the the the male um the the the the male scaling like that we do on the spectrogram. So when we move from the spectrum to the male spectrogram. So for example, there we use the male scale, right? And the male scale is definitely like a valid like informed p perceptually informed pitch scale, but it's not the only one we could have used another one that's called bach, for example, right? Or even like when we are dealing with like the filters, the male filter bands, there we are using um triangular filters but that is like an arbitrary decision. So right, we are injecting some level of bias in there. So and the machine may not need that. It could just like use row um data like spectrograms for example, and figure out what it needs learning it directly from data without us biasing the data. OK.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3166s",
+        "start_time": "3166.919"
+    },
+    {
+        "id": "b2cfc93f",
+        "text": "scaling like that we do on the spectrogram. So when we move from the spectrum to the male spectrogram. So for example, there we use the male scale, right? And the male scale is definitely like a valid like informed p perceptually informed pitch scale, but it's not the only one we could have used another one that's called bach, for example, right? Or even like when we are dealing with like the filters, the male filter bands, there we are using um triangular filters but that is like an arbitrary decision. So right, we are injecting some level of bias in there. So and the machine may not need that. It could just like use row um data like spectrograms for example, and figure out what it needs learning it directly from data without us biasing the data. OK. And finally, a a major disadvantage is that MS CCS are great for analysis. We can do like all types of like analytical stuff like speech recognition, music genre classification, but they're not great for synthesis because we don't really have a an inverse. So we're not capable of moving from MS CCS back to audio in in a perfect like manner. So we only have approximation of that. So you can't really use MF CCS for synthesizing Aio",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3177s",
+        "start_time": "3177.989"
+    },
+    {
+        "id": "107bfc4e",
+        "text": "um triangular filters but that is like an arbitrary decision. So right, we are injecting some level of bias in there. So and the machine may not need that. It could just like use row um data like spectrograms for example, and figure out what it needs learning it directly from data without us biasing the data. OK. And finally, a a major disadvantage is that MS CCS are great for analysis. We can do like all types of like analytical stuff like speech recognition, music genre classification, but they're not great for synthesis because we don't really have a an inverse. So we're not capable of moving from MS CCS back to audio in in a perfect like manner. So we only have approximation of that. So you can't really use MF CCS for synthesizing Aio cool. OK. So now the final step is esthesis applications as I promised. And so",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3208s",
+        "start_time": "3208.1"
+    },
+    {
+        "id": "1f92818c",
+        "text": "And finally, a a major disadvantage is that MS CCS are great for analysis. We can do like all types of like analytical stuff like speech recognition, music genre classification, but they're not great for synthesis because we don't really have a an inverse. So we're not capable of moving from MS CCS back to audio in in a perfect like manner. So we only have approximation of that. So you can't really use MF CCS for synthesizing Aio cool. OK. So now the final step is esthesis applications as I promised. And so as I said, MS CCS are an extremely, have been an extremely important audio feature now a little bit less. So because the trend with deep learning has been to move towards audio data that are like as rare as possible. So we are now using spectrograms or male spectrograms most of the time and",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3231s",
+        "start_time": "3231.27"
+    },
+    {
+        "id": "3a484ad4",
+        "text": "cool. OK. So now the final step is esthesis applications as I promised. And so as I said, MS CCS are an extremely, have been an extremely important audio feature now a little bit less. So because the trend with deep learning has been to move towards audio data that are like as rare as possible. So we are now using spectrograms or male spectrograms most of the time and of MF CCS. But still it's very important to have like a deep understanding of MF CCS because like they provide us like with a clear, I don't know like a clear example of how you can create like something really cool in terms and relevant in terms of like audio features using a bunch of different transformations. And also to understand what",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3261s",
+        "start_time": "3261.199"
+    },
+    {
+        "id": "2503256f",
+        "text": "as I said, MS CCS are an extremely, have been an extremely important audio feature now a little bit less. So because the trend with deep learning has been to move towards audio data that are like as rare as possible. So we are now using spectrograms or male spectrograms most of the time and of MF CCS. But still it's very important to have like a deep understanding of MF CCS because like they provide us like with a clear, I don't know like a clear example of how you can create like something really cool in terms and relevant in terms of like audio features using a bunch of different transformations. And also to understand what time before the deep learning wave like with all applications in speech and music processing. And of this, I want to talk so we can use MF CCS for speech processing. And here we can use them for uh as the main and only features for doing speech recognition, speaker recognition, speaker diar.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3269s",
+        "start_time": "3269.34"
+    },
+    {
+        "id": "d80b52c1",
+        "text": "of MF CCS. But still it's very important to have like a deep understanding of MF CCS because like they provide us like with a clear, I don't know like a clear example of how you can create like something really cool in terms and relevant in terms of like audio features using a bunch of different transformations. And also to understand what time before the deep learning wave like with all applications in speech and music processing. And of this, I want to talk so we can use MF CCS for speech processing. And here we can use them for uh as the main and only features for doing speech recognition, speaker recognition, speaker diar. And also we can use them extensively for music processing. So you can use it for music genre classification, mood classification, automatic tagging because it turns out that a sis are very good describers for music as well and because they're capable of capturing the timer of instruments. So all of the um tasks in music processing that have to deal with timer features",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3290s",
+        "start_time": "3290.853"
+    },
+    {
+        "id": "67de019c",
+        "text": "time before the deep learning wave like with all applications in speech and music processing. And of this, I want to talk so we can use MF CCS for speech processing. And here we can use them for uh as the main and only features for doing speech recognition, speaker recognition, speaker diar. And also we can use them extensively for music processing. So you can use it for music genre classification, mood classification, automatic tagging because it turns out that a sis are very good describers for music as well and because they're capable of capturing the timer of instruments. So all of the um tasks in music processing that have to deal with timer features are a good candidate for using MF CCS. And that's because MF CCS are mainly time centric and they are more or less like pitch in variant, right? But obviously you wouldn't use uh MF CCS for, for example, like for identifying codes, right? Because you're not really getting that much of a uh that much pitch information",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3312s",
+        "start_time": "3312.365"
+    },
+    {
+        "id": "e732eaf8",
+        "text": "And also we can use them extensively for music processing. So you can use it for music genre classification, mood classification, automatic tagging because it turns out that a sis are very good describers for music as well and because they're capable of capturing the timer of instruments. So all of the um tasks in music processing that have to deal with timer features are a good candidate for using MF CCS. And that's because MF CCS are mainly time centric and they are more or less like pitch in variant, right? But obviously you wouldn't use uh MF CCS for, for example, like for identifying codes, right? Because you're not really getting that much of a uh that much pitch information good. So I think like you should really, really congratulate like yourself because uh we've done a lot of work like in this video. So we looked at the subs, we looked like at the math behind subst, we looked at the visualization of the subs how we can interpret subst in the context of speech. And then we moved on to male frequency subs coefficients.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3334s",
+        "start_time": "3334.12"
+    },
+    {
+        "id": "69524e5c",
+        "text": "are a good candidate for using MF CCS. And that's because MF CCS are mainly time centric and they are more or less like pitch in variant, right? But obviously you wouldn't use uh MF CCS for, for example, like for identifying codes, right? Because you're not really getting that much of a uh that much pitch information good. So I think like you should really, really congratulate like yourself because uh we've done a lot of work like in this video. So we looked at the subs, we looked like at the math behind subst, we looked at the visualization of the subs how we can interpret subst in the context of speech. And then we moved on to male frequency subs coefficients. But up until up until now, we've just uh dealt with theory. So as it is usually the case in this series, uh the next step is gonna be that of implementation or just like playing around with Python.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3361s",
+        "start_time": "3361.81"
+    },
+    {
+        "id": "78ed7505",
+        "text": "good. So I think like you should really, really congratulate like yourself because uh we've done a lot of work like in this video. So we looked at the subs, we looked like at the math behind subst, we looked at the visualization of the subs how we can interpret subst in the context of speech. And then we moved on to male frequency subs coefficients. But up until up until now, we've just uh dealt with theory. So as it is usually the case in this series, uh the next step is gonna be that of implementation or just like playing around with Python. So in the next video, we'll use all of the information that we've used here in this video to extract MF CCS with Python and Lisa. And we'll also visualize MF CCS for different audio files. OK. So I really hope that you enjoyed this video",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3384s",
+        "start_time": "3384.419"
+    },
+    {
+        "id": "d83d0f67",
+        "text": "But up until up until now, we've just uh dealt with theory. So as it is usually the case in this series, uh the next step is gonna be that of implementation or just like playing around with Python. So in the next video, we'll use all of the information that we've used here in this video to extract MF CCS with Python and Lisa. And we'll also visualize MF CCS for different audio files. OK. So I really hope that you enjoyed this video and if you found it useful, yeah, please leave a like if you haven't subscribed and you want to have more um videos like this, please do remember to subscribe and I guess that's it for today. I'll see you next time. Cheers.",
+        "video": "Mel-Frequency Cepstral Coefficients Explained Easily",
+        "playlist": "Audio Signal Processing for ML",
+        "youtube_video_id": "4_SH2nfbQZ8",
+        "youtube_link": "https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=3411s",
+        "start_time": "3411.229"
+    }
+]

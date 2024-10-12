@@ -1,0 +1,731 @@
+[
+    {
+        "id": "28c11836",
+        "text": "Hi, everybody and welcome to a new video in the Deep Learning for Rode with Python series. In this video, we're gonna have an overview at artificial intelligence, machine learning and deep learning. These are some of the uh topics that we're gonna be covering during the video. So we're gonna define artificial intelligence and see the relationship with machine learning and deep learning. And then we're going to talk about a number of different machine learning flavors or paradigms like supervised, unsupervised and reinforcement learning. Then we're gonna get into de defining deep learning and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=7s",
+        "start_time": "7.73"
+    },
+    {
+        "id": "61664dd0",
+        "text": "define artificial intelligence and see the relationship with machine learning and deep learning. And then we're going to talk about a number of different machine learning flavors or paradigms like supervised, unsupervised and reinforcement learning. Then we're gonna get into de defining deep learning and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=24s",
+        "start_time": "24.459"
+    },
+    {
+        "id": "f7d2d266",
+        "text": "and then we're gonna see the difference between traditional machine learning and deep learning. And finally, we're gonna be talking a little bit about possible applications of deep learning in audio and music technology. Cool. So let's get started with uh the relationship between artificial intelligence, machine learning and deep learning. Usually uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=44s",
+        "start_time": "44.38"
+    },
+    {
+        "id": "bf519e7c",
+        "text": "uh you'll hear like this terms or sometimes you'll hear these terms like interchangeably like artificial intelligence or machine learning, but actually artificial intelligence like is the, the bigger set machine learning is just a part of the A I and then deep learning is a subset of machine learning. So A I like is the big thing machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=68s",
+        "start_time": "68.98"
+    },
+    {
+        "id": "6590fcef",
+        "text": "machine learning is but one technique or one series of algorithms that you use inside the A I field, which is like bigger than machine learning. And then you have deep learning that then again is one subset of machine learning. So, but how do we define artificial intelligence? Well, there's a fantastic definition uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=91s",
+        "start_time": "91.36"
+    },
+    {
+        "id": "765758d3",
+        "text": "uh given by Russell and Norvig in a book that's basically a Bible for artificial intelligence. And the book is called Artificial Intelligence and modern approach. And so the two scholars define A I as the the designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=113s",
+        "start_time": "113.93"
+    },
+    {
+        "id": "b70aa659",
+        "text": "designing and building of intelligent agents that receive percept from the environment and take actions that affect the environment. So basically for the, for these guys for Russell and Norvig A I is just like the the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=130s",
+        "start_time": "130.104"
+    },
+    {
+        "id": "a763a399",
+        "text": "the creation, the science and the art of building like these intelligent agents. But then obviously one could ask but wait a minute, what's an intelligent agent? So here it seems that we are shifting the definition of artificial intelligence towards that of like an intelligence agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well, rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=147s",
+        "start_time": "147.059"
+    },
+    {
+        "id": "d7769fce",
+        "text": "agent. So what's an intelligent agent? And so an intelligent agent in the in the field of A I is basically a rational agent, right? But now it seems like that we are still shifting like the definition of like A I once more. OK. So an intelligent agent is a rational agent. But what's rationality, what's a rational agent? Well, rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right?",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=163s",
+        "start_time": "163.529"
+    },
+    {
+        "id": "feb7ae40",
+        "text": "rationality basically means that you are, if you are rational, you are being, you are acting to achieve your own goals, given your beliefs. So you're basically building like the best strategies possible to achieve your goals, given like your beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right? So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=188s",
+        "start_time": "188.699"
+    },
+    {
+        "id": "c209d28c",
+        "text": "beliefs. So basically all like the situation and the context like you find yourself like in so in that sense, a rational agent is an agent that's able to optimize his actions in order to achieve its goals, right? So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=206s",
+        "start_time": "206.22"
+    },
+    {
+        "id": "d36d15af",
+        "text": "So we were saying that artificial intelligence is more than machine learning. So there are many A I techniques and algorithms out there. So here I want just to mention just like a few but there are way more than this. So for example, evolutionary algorithms that exploit ideas that come a little bit I would say like from biology and it's kind of like using like genetic algorithms or like things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=225s",
+        "start_time": "225.0"
+    },
+    {
+        "id": "550d2903",
+        "text": "things that come from biology but using them like in a a kind of like computer science in their context, then we have expert systems which are systems that use rules uh to, to, to make decisions and just like to solve problems. Then we have like other types of like algorithms like search algorithms, like one that's like very popular, it's called a star. And this is used a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right. So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=250s",
+        "start_time": "250.24"
+    },
+    {
+        "id": "e1d74869",
+        "text": "a lot for example, in video games like for path finding, so to just like move uh characters around, for example, and for solving problems as well. And then obviously we have machine learning, which is one of this but then again, artificial intelligence has loads and loads of different techniques and algorithms and machine learning is one category like it's one subset of artificial intelligence, right. So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program, uh the ML program to figure the rules by itself using data.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=275s",
+        "start_time": "275.48"
+    },
+    {
+        "id": "03bd1a93",
+        "text": "So now let's focus on machine learning or ML. So what's machine learning? Well, in machine learning, you have a computer that performs task without using explicit instructions. So basically the computer is able to learn from data. So as developers or as researchers, we don't instruct the computer with specific rules to solve a problem. Rather we let the computer or like the program, uh the ML program to figure the rules by itself using data. Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=300s",
+        "start_time": "300.89"
+    },
+    {
+        "id": "3b9346bd",
+        "text": "uh the ML program to figure the rules by itself using data. Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection. And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=330s",
+        "start_time": "330.459"
+    },
+    {
+        "id": "0683ea4a",
+        "text": "Now, let's take a look at the difference between like machine learning and other types of like A I systems, more traditional systems like expert systems. And so if we're doing this, we're gonna look at a task that uh is, is used like in audio um like analysis or like A I music. It's, it's, it's quite common and it's called onset detection. And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=336s",
+        "start_time": "336.649"
+    },
+    {
+        "id": "63aee632",
+        "text": "And basically the onset detection task is quite simple to understand because all you need to do is to identify the start of a musical note. Imagine you have a melody, so a series of different musical notes and you want to identify when that melody starts. And here you have a waveform and it's kind of like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=362s",
+        "start_time": "362.279"
+    },
+    {
+        "id": "3c33603a",
+        "text": "like very simple to understand where, like where we have like all the different nodes because it's basically a burst in energy which is like a P that you have like on the y axis. So here, obviously, we have a waveform and then here you can see that like in with these picks on the y axis you have and on such, you have a note as remember here, like on the X axis, you have time. Whereas on the y axis, you have the amplitude or like loudness if you will and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=384s",
+        "start_time": "384.049"
+    },
+    {
+        "id": "c29964c6",
+        "text": "and then when you have like this burst uh in energy here, it means that, that there's an event. And so there's an onset more likely. So uh let's take a look at how you, we would solve this problem with machine learning and expert system. So identifying the uh the onsets like in this wave form, right? Let's start with the expert system. So for an expert system, what we would do is like we would uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right. So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=413s",
+        "start_time": "413.459"
+    },
+    {
+        "id": "c135e8c3",
+        "text": "uh hardwire certain rules into the uh the system. And then the system would be able to identify the onsets by relying on rules that we as developers have provided it with, right. So in this case, so what could be like a rule that we could use here? Right. So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here, like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=440s",
+        "start_time": "440.23"
+    },
+    {
+        "id": "507aed4e",
+        "text": "So if you look at this, you could say, well, if we have here like on the y axis, so like the amplitude is more than 0.2 or less than minus 0.2 then probably have an onset, right? And so we could use just like this very basic rule and then we would end up with this uh results. So we would be able to identify all of these guys like here, like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=462s",
+        "start_time": "462.029"
+    },
+    {
+        "id": "d29045b1",
+        "text": "like vertical bars in red. And obviously, as you can see here, there are certain things that uh can't be identified and are like this smaller uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do, right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=490s",
+        "start_time": "490.489"
+    },
+    {
+        "id": "d85ac15e",
+        "text": "uh outbursts of energy here because like they are less than 0.2 or uh like in, in terms of like amplitude. And so we, we don't cover those with our simple rule, right? But this is like a an expert based approach. So we provided the rules to the system and the system has learned uh basically just like by what we we told it, told it to do, right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here, we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=504s",
+        "start_time": "504.44"
+    },
+    {
+        "id": "57cbdeed",
+        "text": "right. So now let's take another way to solving the same problem. Let's take the machine learning uh route here. So, and how do we approach this problem? Well, it's kind of relatively simple, like on a very high level here. So, because basically the idea is that we provide to the machine learning system, which is like this nice robot over here, we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=531s",
+        "start_time": "531.45"
+    },
+    {
+        "id": "7c641b71",
+        "text": "we we provide a bunch of uh data with samples regarding um um where we have a lot of like this wave forms with um onsets that have been identified. So they are labeled. So we know that we have onsets uh like for example, here, here, here and here. And so we pass all of this information to the machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules. And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=554s",
+        "start_time": "554.71"
+    },
+    {
+        "id": "329e8fa5",
+        "text": "machine learning uh system and then the machine learning system is able to abstract from all of that data and derive the rules by itself. So basically, we're not uh providing the machine learning system any rule uh beforehand. Rather, we're passing only a bunch of data. And we hope that the machine learning uh system is going to be able to recognize those rules. And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=581s",
+        "start_time": "581.494"
+    },
+    {
+        "id": "a795c6f6",
+        "text": "And so this process is called learning. And we, and it's only like uh half of the whole like machine learning, like process and workflow. So we train a machine learning uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=608s",
+        "start_time": "608.539"
+    },
+    {
+        "id": "3659a167",
+        "text": "uh system first and then we use it for inference. And then in, in a kind of like inference setting, what we do is we provide the system with the new waveform that the uh machine learning system has never seen before. And then hopefully the machine learning model will be able to identify in this case, all the onsets that we uh need, right? So this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three, but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=620s",
+        "start_time": "620.369"
+    },
+    {
+        "id": "6ed058d7",
+        "text": "this is like more or less like the the difference between a machine learning based approach and a more traditional A I approach based on uh expert rules. But now in machine learning, we have a bunch of different paradigms or flavors if you will. So here, I'm gonna just like refer to three, but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning. So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=650s",
+        "start_time": "650.26"
+    },
+    {
+        "id": "eb378766",
+        "text": "but there are a little bit more. So like the first one is obviously like supervised learning. And it's the one that will be mainly focusing on throughout the whole series. Then we have unsupervised learning and then a reinforcement learning. So let's get started from uh supervised learning. So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=669s",
+        "start_time": "669.14"
+    },
+    {
+        "id": "6ab810e8",
+        "text": "So in supervised learning, so when we provide the training data set, so the the the data that the machine learning model will will learn from, we pass it with lab labeled data. So basically what we give the uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=689s",
+        "start_time": "689.405"
+    },
+    {
+        "id": "f1792e31",
+        "text": "uh the system is a bunch of data where all the uh in this case, the onsets are annotated. So there's a solution there to to the problem along with the data itself. So we pass the waveform and we also pass all the onsets so that the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm. But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=710s",
+        "start_time": "710.09"
+    },
+    {
+        "id": "0d7bfc35",
+        "text": "the machine learning system is able like to match the row data against the solution or the identification of the different onsets. And so this way, the system is able to, to learn the rules and to tweak all of its weights uh based on uh samples, right. So this is supervised learning in a nutshell. And as I said, we'll be focusing a lot uh on this uh paradigm. But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you, yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right?",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=730s",
+        "start_time": "730.955"
+    },
+    {
+        "id": "bcb7c313",
+        "text": "But then you have another paradigm that's very hand handy when you don't have uh label data and that's called unsupervised learning. And in this case, the model draws inferences from unstructured data or uh data that's not labeled. So say for example, here we had a data set where we have both like apples like in oranges, obviously like this is like a an abstract, like an example. But uh you, yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right? And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=760s",
+        "start_time": "760.4"
+    },
+    {
+        "id": "6af06949",
+        "text": "yeah, but it's easy like to understand. So the algorithm is uh only past all of this data. So both like apples and oranges, but we don't say we don't tell the algorithm uh that uh like these red fruits here are apples, whereas the orange ones are oranges, right? And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=787s",
+        "start_time": "787.38"
+    },
+    {
+        "id": "2cadf065",
+        "text": "And so using unser certain unsupervised uh algorithms, uh the system will be able to divide up this unstructured data and hopefully create clusters, create uh like differentiations between apples and oranges. So in other words, the um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=810s",
+        "start_time": "810.27"
+    },
+    {
+        "id": "431c4afd",
+        "text": "um the algorithm is able to learn to separate uh this data without knowing the uh the labels like of this different data beforehand. And this can be like very handy if you have a lot of data, but this data like it is not labeled, right. So, and a third type of machine learning is the so called reinforcement learning. In this case, we have an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning, uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=833s",
+        "start_time": "833.09"
+    },
+    {
+        "id": "91cd0671",
+        "text": "an agent, a rational agent as we defined it that takes actions in virtual environments and learns through rewards and punishment. So in other words, like here, we have an agent that's um put like in a virtual environment and that goes through a series of uh long simulations. So, and to understand a little bit more about reinforcement learning, uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=862s",
+        "start_time": "862.5"
+    },
+    {
+        "id": "9658c010",
+        "text": "uh we can look at alpha zero which is an amazing rein reinforcement learning model that has been developed by Google Deep mind. And the the fantastic thing about this model is that they trained this model only playing chess or shoy or go against itself. So you have the agent that plays against itself and then by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=890s",
+        "start_time": "890.88"
+    },
+    {
+        "id": "90e48ed1",
+        "text": "by playing loads and loads and loads of uh chess games, for example, uh against itself. Uh the system has been able to learn chess from scratch without giving it any knowledge about chess, apart from how the different pieces move. And then uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=918s",
+        "start_time": "918.659"
+    },
+    {
+        "id": "3fcfcfde",
+        "text": "uh in a matter of like probably less than a day or something like that, the alpha zero was able to master chess to superhuman level. And the amazing thing is that the very same algorithm has been used by deep mind for cracking chess shoy. That's also like another uh board game and go. And as you can see here, you have a little bit like of the results of the um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=938s",
+        "start_time": "938.4"
+    },
+    {
+        "id": "4d301f6c",
+        "text": "um of Alpha zero competing against other top notch A I systems that play chess shoy and go. And for example, here in chess, you can see that Alpha zero completely destroyed stockfish. That was the at the time I believe the the um the world chess champion like for uh for software uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=967s",
+        "start_time": "967.58"
+    },
+    {
+        "id": "9e279f08",
+        "text": "uh like playing chess, right? So if you want to know more about alpha zero, you can take a look at this article. It's great shedding new light on chess shoy and go and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=995s",
+        "start_time": "995.13"
+    },
+    {
+        "id": "867390a5",
+        "text": "and you have a link to this article in the description below. But basically the takeaway point here is that with reinforcement learning, you have an agent, the agent uh is trained in an environment. And in order to learn how to behave to in order to learn like the different strategies to use the the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly, right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1007s",
+        "start_time": "1007.19"
+    },
+    {
+        "id": "052e0f4c",
+        "text": "the the agent uh goes through a series of rewards if it does well and of punishment if it does like uh poorly, right? But as I said, we will be focusing on a supervised learning mainly, right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1029s",
+        "start_time": "1029.65"
+    },
+    {
+        "id": "708bfb8b",
+        "text": "right? So machine learning itself uh has a bunch of different algorithms so that there's really a ton of these. But like some of the ones like that are are I would say like the most popular are logistic regression, linear regression random forest KNN or K nearest neighbor and support veteran machines. And obviously uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1046s",
+        "start_time": "1046.448"
+    },
+    {
+        "id": "f54b9354",
+        "text": "uh another algorithm that's like very, very fashionable, like at this moment in time, it's uh neural networks or artificial neural networks I I should say, right? So in this case, a neural network is a an algorithm uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1073s",
+        "start_time": "1073.06"
+    },
+    {
+        "id": "3cbd90ed",
+        "text": "uh that relies on a bunch of neurons. We I won't be getting into the details because like we'll, we'll, we'll do that like over the next few videos. But for the time being, what it, what it's important for you to understand is that a neural network is structured in a series of layer um neuronal layers and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1091s",
+        "start_time": "1091.829"
+    },
+    {
+        "id": "8fbdb8fe",
+        "text": "and the different neurons act as computational units, right. So here we have in this neural network, a bunch of different layers. So there's like the first layer that's called input layer, which is the one that we use for actually providing the uh different data into the neural network, then we have the hidden layer which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning. So deep learning itself is a subset of machine learning as we've seen",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1114s",
+        "start_time": "1114.65"
+    },
+    {
+        "id": "ac4ba95b",
+        "text": "which process the information. And finally, we have the last layer that's called the output layer that we usually use to, to get like the inferences from a neural network, right. So it's important to understand that uh uh neural networks are machine learning algorithms because they are the algorithms of choice of deep learning. So deep learning itself is a subset of machine learning as we've seen and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1139s",
+        "start_time": "1139.694"
+    },
+    {
+        "id": "d8f1da31",
+        "text": "So deep learning itself is a subset of machine learning as we've seen and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1165s",
+        "start_time": "1165.05"
+    },
+    {
+        "id": "158eb1be",
+        "text": "and it uses deep neural networks. So what's a deep neural network is a neural network that has more than one hidden layer? So that's it. So this is deep learning basically. So using deep neural nets for solving all sorts of like very complicated problems and basically, throughout this series of videos, we're gonna be uh just like coding um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering. Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1170s",
+        "start_time": "1170.92"
+    },
+    {
+        "id": "13acb91d",
+        "text": "um uh deep neural nets and we're gonna be seeing like different flavors of like neural nets. Cool. So now let's take a look at the actual differences between traditional machine learning and deep learning. So the the main one that comes to mind is that in traditional machine learning, you have, you do a lot of feature engineering. Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1198s",
+        "start_time": "1198.099"
+    },
+    {
+        "id": "6c2ef266",
+        "text": "Whereas in deep learning, you have another type of approach which is more end to end. So what do you mean by that? So let me explain because it could be like a little bit like tough, like to understand. So uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1222s",
+        "start_time": "1222.31"
+    },
+    {
+        "id": "58c39ebb",
+        "text": "uh let's let's focus a little bit like on feature engineering. So as we said, like in supervised learning. What we usually do is like we pass a lot of like label data to uh a machine learning algorithm and the algorithm uh learns and extracts like the rules from the data. But uh when I, when I mentioned supervised learning, uh first I ignored on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1236s",
+        "start_time": "1236.229"
+    },
+    {
+        "id": "0f519ba4",
+        "text": "on purpose, obviously a an important part of this that happens in traditional machine learning, which is like feature engineering. So let's go back to the idea uh to the example of like extracting onsets or identifying onsets from waveforms. So in that case, what we want to do if we are using, for example, super vector machines or like this more traditional um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1263s",
+        "start_time": "1263.689"
+    },
+    {
+        "id": "59893ef5",
+        "text": "um ML algorithms is we extract features from the data itself. So in this case, for example, from a waveform, we can extract certain features like zero crossing rates or spectral flux or a bunch of other features. So we extract these features first and then we pass those features into uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1290s",
+        "start_time": "1290.719"
+    },
+    {
+        "id": "b003171a",
+        "text": "uh the machine learning algorithm and then the machine algorithm uh uh at the ML algorithm, hopefully we'll be able to uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1316s",
+        "start_time": "1316.849"
+    },
+    {
+        "id": "f7fe25cc",
+        "text": "uh extracts the rules, figure out the rules for doing like this classification problem now. So like in feature engineering like and traditional machine learning, it's very important to understand which features are important for describing a certain problem. So we start from the road data, we extract certain features and we use those features for doing training and then inference obviously. So in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1325s",
+        "start_time": "1325.56"
+    },
+    {
+        "id": "8c95593b",
+        "text": "in deep learning, it's a little bit different. We have an end to end approach. What do you mean by that? Well, it's uh on a an intuitive level. It's, it's kind of very simple to grasp because basically all we do with deep learning is we pass on raw data directly to the machine learning algorithm. And then without any feature extraction, the deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1355s",
+        "start_time": "1355.8"
+    },
+    {
+        "id": "276708d6",
+        "text": "deep learning model hopefully will be able to figure out the different rules and change all the different weights uh so that it can do like its classification or regression uh tasks properly. So again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system. And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data,",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1383s",
+        "start_time": "1383.989"
+    },
+    {
+        "id": "6435d4f3",
+        "text": "again, in with feature engineering and traditional machine learning, we just extract features and then we pass features to the uh machine learning algorithm. Whereas uh with uh deep learning, we just pass the road data itself, we don't extract any features. And in the case of onset detection as we, as we sow we just pass the whole waveform directly into the system. And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data, right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1399s",
+        "start_time": "1399.81"
+    },
+    {
+        "id": "f2405848",
+        "text": "And, and so this is why this is a an end to end uh approach because basically you just like provide raw data and hopefully you'll get the rules and uh the system, the model is gonna learn directly from that data, discovering the different patterns directly in the data, right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1428s",
+        "start_time": "1428.219"
+    },
+    {
+        "id": "ba3ce1f1",
+        "text": "right. So, so feature engineering uh versus end to end uh is just like one difference between traditional machine learning versus deep learning. There are a bunch of others. So usually with traditional machine learning, you, you can, you can you can make it with a relatively small data set. And here at least we're talking about like thousands of samples. But for deep learning, you really need large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right?",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1448s",
+        "start_time": "1448.579"
+    },
+    {
+        "id": "7c145487",
+        "text": "large data sets. And so here we're talking about hundreds of thousands, if not millions because uh traditional machine learning is way less computational intensive, whereas deep learning is very resource intensive. And so all of these like differences like mm make it like ideal for traditional machine learning to tackle relatively simple problems. Whereas for deep learning, um its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right? So and",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1478s",
+        "start_time": "1478.505"
+    },
+    {
+        "id": "3a4b8255",
+        "text": "its ideal application is with complex problems, deep learning works really really well. For example, with problems that with traditional machine learning, like it's very difficult like to to to tackle like for example, like um image recognition or a bunch of like audio uh A I problems uh like speech recognition or like genre classification and all of this kind of uh of things, right? So and so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1508s",
+        "start_time": "1508.689"
+    },
+    {
+        "id": "301b027f",
+        "text": "So and so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1537s",
+        "start_time": "1537.489"
+    },
+    {
+        "id": "74ed9632",
+        "text": "so we've seen the differences between machine traditional machine learning and deep learning. So a question that may arise is when should you use deep learning? Well, deep learning isn't always the solution. Well, I would say if you can, you should go with like traditional machine learning approaches first because like they are cheaper and they are quicker all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1539s",
+        "start_time": "1539.9"
+    },
+    {
+        "id": "dde7de6a",
+        "text": "all around. So when should you use deep learning? So if you have a very large data set, then probably it makes sense like to have deep learning algorithms algorithms instead of machine traditional machine learning ones. And then if you are tackling a complex problem where traditional machine learning fails, then it, it's advisable to move on and try to use deep learning. And then you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1563s",
+        "start_time": "1563.339"
+    },
+    {
+        "id": "3af17f91",
+        "text": "you should have access to extensive computational resources, uh specifically uh GP us that you use deep learning. And one last thing that I would add here is that obviously you should have the expertise to tackle uh deep problems with deep learning because like they are uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1590s",
+        "start_time": "1590.65"
+    },
+    {
+        "id": "3ce3bf64",
+        "text": "uh it's kind of like quite com it can get complicated and you want to have a very good understanding of how to like tweak parameters so that your deep learning like models are gonna work decently, right? Cool. So um given like, as I mentioned in my previous video, I'm gonna be focusing on audio like in music. So applications in deep learning uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition. And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song?",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1610s",
+        "start_time": "1610.77"
+    },
+    {
+        "id": "5a700b8b",
+        "text": "uh for audio music. So here I just wanted to give you a little bit of an idea of what we can do with deep learning in audio. So we can use deep learning for uh tasks like speech recognition for uh classifying emotions just by looking at or analyzing voice or for doing things like no recognition. And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song? And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1638s",
+        "start_time": "1638.5"
+    },
+    {
+        "id": "8479a243",
+        "text": "And in the music side of things that sometimes gets called music information retrieval. We can use deep learning to extract or to classify music genre to understand the different types of instruments that we have in a song and then also for doing mood classification. So we have a bunch of different songs and we should decide, is this a happy song or is this a sad song? And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive. So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1662s",
+        "start_time": "1662.109"
+    },
+    {
+        "id": "e1127bb9",
+        "text": "And then we can use deep learning for doing music tagging. So basically to, to, to put tags onto different songs. And then the thing like, that's the most exciting for me and the work that I've also done like at Melo Drive. So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1687s",
+        "start_time": "1687.819"
+    },
+    {
+        "id": "ad87569f",
+        "text": "So it's the application of deep learning for music generation. So you use system, you, you train a model that can generate music by itself and that's like super exciting stuff. And hopefully we'll be seeing like a little bit of this like down the line uh during uh the series, right? So we're almost at the end of this quite long video and I want just like to leave you with a few takeaway points. So first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in. So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1703s",
+        "start_time": "1703.81"
+    },
+    {
+        "id": "e7e7ce2b",
+        "text": "first of all, what's artificial intelligence? Well, artificial intelligence is the art and science of building a rational agents that acts to achieve their goals, given the environment and the beliefs they are in. So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning. Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1733s",
+        "start_time": "1733.15"
+    },
+    {
+        "id": "39fc5a27",
+        "text": "So machine learning is a subset of artificial intelligence, don't make the mistake that many people do. And it's so annoying when they say yeah A I and they use it interchangeably with ML. It's not true A I is way more than just machine learning. And machine learning is a subset of A I. Then there are different flavors of machine learning. Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1749s",
+        "start_time": "1749.849"
+    },
+    {
+        "id": "36fff0bd",
+        "text": "Uh And within three here. So one is supervised learning, which we'll be focusing on the most, then we have unsupervised learning and then we have reinforcement learning and then machine learning has a ton of different algorithms. So linear regression support vector machines, but mainly at least like for us, neural networks and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning. And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1771s",
+        "start_time": "1771.66"
+    },
+    {
+        "id": "4d4bec7b",
+        "text": "and neural networks are used by deep learning. And in deep learning, we use deep neural networks which are neural networks that have more than one hidden layer. And remember, deep learning is a subset of machine learning. And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So uh this was it like for this video. So in the next video, we're gonna talk about neurons which are the units which make up neural networks and we are gonna be",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1797s",
+        "start_time": "1797.729"
+    },
+    {
+        "id": "aef1caf3",
+        "text": "And finally, so even though deep learning is super fashionable nowadays, deep learning isn't always the way to go try the simple things first and then if they fail. So if super vector machines fail, if a simple logistic regression fails then move on to deep learning. But don't use it like as a as a go to solution, right? So uh this was it like for this video. So in the next video, we're gonna talk about neurons which are the units which make up neural networks and we are gonna be coding a neuron from scratch ourselves. So thank you very much for watching this video. And if you liked it, you can subscribe and please like it and I'll see you next time. Cheers.",
+        "video": "2- AI, machine learning and deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "1LLxZ35ru_g",
+        "youtube_link": "https://www.youtube.com/watch?v=1LLxZ35ru_g&t=1814s",
+        "start_time": "1814.81"
+    }
+]

@@ -1,0 +1,812 @@
+[
+    {
+        "id": "9a2c8766",
+        "text": "Hi, everybody and welcome to a new video in the Deep Learning for audio with Python series. This time we're gonna introduce basic concepts about audio data and signal processing. Specifically, we're gonna look into waveforms, sound concepts like pitch loudness and things that are a little bit more advanced, like spectrograms, fourier transform and MF CCS. And we're gonna need all of these elements because these are the bases we'll need for implementing audio and music, deep learning models. Cool. So a disclaimer is needed here. So I'm not, this is not a comprehensive video on audio, digital signal processing rather. It, it will give you just like the the basic foundations you'll need for like deep learning in this field. But if you want to know more about this fascinating topic, like let me know in the comments section and I may make a few videos on the topic moving forward. Cool. So let's get started. So first question. So what sound well,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=0s",
+        "start_time": "0.23"
+    },
+    {
+        "id": "fd6e6b5e",
+        "text": "Specifically, we're gonna look into waveforms, sound concepts like pitch loudness and things that are a little bit more advanced, like spectrograms, fourier transform and MF CCS. And we're gonna need all of these elements because these are the bases we'll need for implementing audio and music, deep learning models. Cool. So a disclaimer is needed here. So I'm not, this is not a comprehensive video on audio, digital signal processing rather. It, it will give you just like the the basic foundations you'll need for like deep learning in this field. But if you want to know more about this fascinating topic, like let me know in the comments section and I may make a few videos on the topic moving forward. Cool. So let's get started. So first question. So what sound well, sound is produced when there's an object that vibrates and these vibrations and determine the oscillation of air molecules, which basically creates an alternation of air pressure. And this high pressure alternated with low pressure causes a wave and we can represent this wave using a nice wave form.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=11s",
+        "start_time": "11.5"
+    },
+    {
+        "id": "483a7833",
+        "text": "So a disclaimer is needed here. So I'm not, this is not a comprehensive video on audio, digital signal processing rather. It, it will give you just like the the basic foundations you'll need for like deep learning in this field. But if you want to know more about this fascinating topic, like let me know in the comments section and I may make a few videos on the topic moving forward. Cool. So let's get started. So first question. So what sound well, sound is produced when there's an object that vibrates and these vibrations and determine the oscillation of air molecules, which basically creates an alternation of air pressure. And this high pressure alternated with low pressure causes a wave and we can represent this wave using a nice wave form. And in this case, we have like a very nice wave that oscillates. And we can represent it using an amplitude and a time because at the end of the day, this is a wave is just like a, a point that oscillates with different like amplitude in different points cool. So",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=38s",
+        "start_time": "38.159"
+    },
+    {
+        "id": "92e094a9",
+        "text": "sound is produced when there's an object that vibrates and these vibrations and determine the oscillation of air molecules, which basically creates an alternation of air pressure. And this high pressure alternated with low pressure causes a wave and we can represent this wave using a nice wave form. And in this case, we have like a very nice wave that oscillates. And we can represent it using an amplitude and a time because at the end of the day, this is a wave is just like a, a point that oscillates with different like amplitude in different points cool. So uh there are like a few important uh elements of a wave or a sound wave. So one is the period and the period uh gives us an idea when we have like the same, the starts like of the same uh wave. So for example, here, like we have a peak and then we go back like to the next peak. And this is like the, the period which is like the interval before like we see uh that peak again.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=67s",
+        "start_time": "67.51"
+    },
+    {
+        "id": "c5ca9786",
+        "text": "And in this case, we have like a very nice wave that oscillates. And we can represent it using an amplitude and a time because at the end of the day, this is a wave is just like a, a point that oscillates with different like amplitude in different points cool. So uh there are like a few important uh elements of a wave or a sound wave. So one is the period and the period uh gives us an idea when we have like the same, the starts like of the same uh wave. So for example, here, like we have a peak and then we go back like to the next peak. And this is like the, the period which is like the interval before like we see uh that peak again. Now um the period is strictly correlated with a frequency. Indeed a frequency is the inverse of period. So the higher uh the period, the lower the frequency and the lower the period, the higher uh the frequency",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=94s",
+        "start_time": "94.36"
+    },
+    {
+        "id": "12a77a6f",
+        "text": "uh there are like a few important uh elements of a wave or a sound wave. So one is the period and the period uh gives us an idea when we have like the same, the starts like of the same uh wave. So for example, here, like we have a peak and then we go back like to the next peak. And this is like the, the period which is like the interval before like we see uh that peak again. Now um the period is strictly correlated with a frequency. Indeed a frequency is the inverse of period. So the higher uh the period, the lower the frequency and the lower the period, the higher uh the frequency now to uh describe uh a sound wave, we also need another uh information about another thing which is indeed a amplitude and amplitude is given by the distance uh of a point uh from like zero amplitude, right? In this case, we can represent this sound wave as with a, with a sine function.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=117s",
+        "start_time": "117.319"
+    },
+    {
+        "id": "9c964fed",
+        "text": "Now um the period is strictly correlated with a frequency. Indeed a frequency is the inverse of period. So the higher uh the period, the lower the frequency and the lower the period, the higher uh the frequency now to uh describe uh a sound wave, we also need another uh information about another thing which is indeed a amplitude and amplitude is given by the distance uh of a point uh from like zero amplitude, right? In this case, we can represent this sound wave as with a, with a sine function. And here we have a mathematical representation of this a sound wave and it's given by the A, by A which is the amplitude multiplied by the sine function uh calculated in two pi F which stands for frequency time",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=145s",
+        "start_time": "145.32"
+    },
+    {
+        "id": "6436b90b",
+        "text": "now to uh describe uh a sound wave, we also need another uh information about another thing which is indeed a amplitude and amplitude is given by the distance uh of a point uh from like zero amplitude, right? In this case, we can represent this sound wave as with a, with a sine function. And here we have a mathematical representation of this a sound wave and it's given by the A, by A which is the amplitude multiplied by the sine function uh calculated in two pi F which stands for frequency time uh plus P. This phi is a Greek letter which stands for phase well phase. Uh what phase does to a waveform? It's basically like it shifts it to the right or to the left",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=164s",
+        "start_time": "164.11"
+    },
+    {
+        "id": "0858e5ca",
+        "text": "And here we have a mathematical representation of this a sound wave and it's given by the A, by A which is the amplitude multiplied by the sine function uh calculated in two pi F which stands for frequency time uh plus P. This phi is a Greek letter which stands for phase well phase. Uh what phase does to a waveform? It's basically like it shifts it to the right or to the left uh cool. OK. So now we have like a simple mathematical representation of a of a, of a waveform. So now let's look at how like sound wave uh like these two fundamental elements like of sound waves are like frequency and amplitude are connected with pitch and loudness. So frequency and pitch are connected together.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=189s",
+        "start_time": "189.6"
+    },
+    {
+        "id": "d01d8986",
+        "text": "uh plus P. This phi is a Greek letter which stands for phase well phase. Uh what phase does to a waveform? It's basically like it shifts it to the right or to the left uh cool. OK. So now we have like a simple mathematical representation of a of a, of a waveform. So now let's look at how like sound wave uh like these two fundamental elements like of sound waves are like frequency and amplitude are connected with pitch and loudness. So frequency and pitch are connected together. Uh basically what happens is that higher frequencies are perceived as higher pitch, but pitch is not a physical uh observable. It is like a perceptual is the way we perceive uh like a frequency and we process it right. And so uh basically, the idea here is that, and you can see it here with this two sound waves like in red.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=206s",
+        "start_time": "206.179"
+    },
+    {
+        "id": "542b854a",
+        "text": "uh cool. OK. So now we have like a simple mathematical representation of a of a, of a waveform. So now let's look at how like sound wave uh like these two fundamental elements like of sound waves are like frequency and amplitude are connected with pitch and loudness. So frequency and pitch are connected together. Uh basically what happens is that higher frequencies are perceived as higher pitch, but pitch is not a physical uh observable. It is like a perceptual is the way we perceive uh like a frequency and we process it right. And so uh basically, the idea here is that, and you can see it here with this two sound waves like in red. So when you have uh like a longer periods, you have basically lower frequencies and here with shorter periods, you have like higher frequencies. So basically, we would perceive these um sound wave on the bottom left as higher pitch than the one like on uh like on the top part.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=220s",
+        "start_time": "220.33"
+    },
+    {
+        "id": "ad703d2f",
+        "text": "Uh basically what happens is that higher frequencies are perceived as higher pitch, but pitch is not a physical uh observable. It is like a perceptual is the way we perceive uh like a frequency and we process it right. And so uh basically, the idea here is that, and you can see it here with this two sound waves like in red. So when you have uh like a longer periods, you have basically lower frequencies and here with shorter periods, you have like higher frequencies. So basically, we would perceive these um sound wave on the bottom left as higher pitch than the one like on uh like on the top part. OK. So now let's move on to amplitude and loudness. Well, um there's a correlation, obviously, there's a connection between amplitude and loudness, but it's by no means like linear and it's very complicated. But all in all uh larger amplitudes uh are perceived as louder, right? So for example, if we compare uh these two sound waves like on the right. So these two blue sound waves like the one on the top",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=245s",
+        "start_time": "245.339"
+    },
+    {
+        "id": "88d21fb7",
+        "text": "So when you have uh like a longer periods, you have basically lower frequencies and here with shorter periods, you have like higher frequencies. So basically, we would perceive these um sound wave on the bottom left as higher pitch than the one like on uh like on the top part. OK. So now let's move on to amplitude and loudness. Well, um there's a correlation, obviously, there's a connection between amplitude and loudness, but it's by no means like linear and it's very complicated. But all in all uh larger amplitudes uh are perceived as louder, right? So for example, if we compare uh these two sound waves like on the right. So these two blue sound waves like the one on the top uh is quieter than the one like on the bottom.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=272s",
+        "start_time": "272.119"
+    },
+    {
+        "id": "b09bd560",
+        "text": "OK. So now let's move on to amplitude and loudness. Well, um there's a correlation, obviously, there's a connection between amplitude and loudness, but it's by no means like linear and it's very complicated. But all in all uh larger amplitudes uh are perceived as louder, right? So for example, if we compare uh these two sound waves like on the right. So these two blue sound waves like the one on the top uh is quieter than the one like on the bottom. Cool. So now a thing that I think like it's important to strike here is that when we talk about uh like acoustic sound waves. So for example, like the sound of my voice or the sound of a of a piano playing, these are continuous wave forms, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=295s",
+        "start_time": "295.619"
+    },
+    {
+        "id": "281112da",
+        "text": "uh is quieter than the one like on the bottom. Cool. So now a thing that I think like it's important to strike here is that when we talk about uh like acoustic sound waves. So for example, like the sound of my voice or the sound of a of a piano playing, these are continuous wave forms, right? So, so they are analog waveforms, but obviously, we can't really store analog waveforms. We need a way of digitalis those. And for doing that, we have this analog digital conversion uh process or a DC. So when we do analog digital conversion,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=325s",
+        "start_time": "325.559"
+    },
+    {
+        "id": "acda75d3",
+        "text": "Cool. So now a thing that I think like it's important to strike here is that when we talk about uh like acoustic sound waves. So for example, like the sound of my voice or the sound of a of a piano playing, these are continuous wave forms, right? So, so they are analog waveforms, but obviously, we can't really store analog waveforms. We need a way of digitalis those. And for doing that, we have this analog digital conversion uh process or a DC. So when we do analog digital conversion, uh we basically do perform two steps. The first one is called uh sampling and the second one is called quantization. So during a sampling, uh what we do is we just like sample the signal at specific uh time intervals and then we quantize the amplitude given and, and we represent that with a limited number of bits. So let's see this in action with this example here.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=330s",
+        "start_time": "330.5"
+    },
+    {
+        "id": "76ad36e5",
+        "text": "So, so they are analog waveforms, but obviously, we can't really store analog waveforms. We need a way of digitalis those. And for doing that, we have this analog digital conversion uh process or a DC. So when we do analog digital conversion, uh we basically do perform two steps. The first one is called uh sampling and the second one is called quantization. So during a sampling, uh what we do is we just like sample the signal at specific uh time intervals and then we quantize the amplitude given and, and we represent that with a limited number of bits. So let's see this in action with this example here. So as you'll see, we haven't read a nice continuous analog uh sound wave and now we're gonna sample it at these like blue points here which are all at the same interval. And the interval is given by the sample rate, which is basically uh the amount of like samples that we have like in a uh in a second. Cool. Uh So",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=347s",
+        "start_time": "347.779"
+    },
+    {
+        "id": "4f9fe2fb",
+        "text": "uh we basically do perform two steps. The first one is called uh sampling and the second one is called quantization. So during a sampling, uh what we do is we just like sample the signal at specific uh time intervals and then we quantize the amplitude given and, and we represent that with a limited number of bits. So let's see this in action with this example here. So as you'll see, we haven't read a nice continuous analog uh sound wave and now we're gonna sample it at these like blue points here which are all at the same interval. And the interval is given by the sample rate, which is basically uh the amount of like samples that we have like in a uh in a second. Cool. Uh So um what we do like at each uh sample is we project the, the value of the amplitude of the analog uh sound wave to the closer quantized uh bit we have here like on the left, right.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=370s",
+        "start_time": "370.959"
+    },
+    {
+        "id": "62907c35",
+        "text": "So as you'll see, we haven't read a nice continuous analog uh sound wave and now we're gonna sample it at these like blue points here which are all at the same interval. And the interval is given by the sample rate, which is basically uh the amount of like samples that we have like in a uh in a second. Cool. Uh So um what we do like at each uh sample is we project the, the value of the amplitude of the analog uh sound wave to the closer quantized uh bit we have here like on the left, right. So for example, if you, if you look at this point here,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=399s",
+        "start_time": "399.23"
+    },
+    {
+        "id": "36fb3fbb",
+        "text": "um what we do like at each uh sample is we project the, the value of the amplitude of the analog uh sound wave to the closer quantized uh bit we have here like on the left, right. So for example, if you, if you look at this point here, so as you'll see, so like the amplitude, it's probably like around 6.6 something like that. But we, we don't have 6.6 right? And so we're just gonna project that to the closer bit we have, which is seven. And so we'll store this information here like with, with a seven, right. So now the",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=427s",
+        "start_time": "427.38"
+    },
+    {
+        "id": "d731c427",
+        "text": "So for example, if you, if you look at this point here, so as you'll see, so like the amplitude, it's probably like around 6.6 something like that. But we, we don't have 6.6 right? And so we're just gonna project that to the closer bit we have, which is seven. And so we'll store this information here like with, with a seven, right. So now the uh obviously, as you'll see here, there are, there are gonna be like quite some like errors that accumulate throughout uh like the A DC process because of like the, the sampling process itself and the quantization. But the more bits we have to store the amplitude and the better the quality of the sound uh will be. So we have two,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=446s",
+        "start_time": "446.589"
+    },
+    {
+        "id": "10d54ab8",
+        "text": "so as you'll see, so like the amplitude, it's probably like around 6.6 something like that. But we, we don't have 6.6 right? And so we're just gonna project that to the closer bit we have, which is seven. And so we'll store this information here like with, with a seven, right. So now the uh obviously, as you'll see here, there are, there are gonna be like quite some like errors that accumulate throughout uh like the A DC process because of like the, the sampling process itself and the quantization. But the more bits we have to store the amplitude and the better the quality of the sound uh will be. So we have two, I would say like matrix here when we do a DC. So one is called sample rate. And the other one is called bit F. For example, with the CD RM, we have a sample rate of 44,000 and 100 heads, which basically means that we take more than 40,000 amplitude points in a second, right? And the bit depth is given by 16 bits uh for each channel, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=450s",
+        "start_time": "450.619"
+    },
+    {
+        "id": "70b726a1",
+        "text": "uh obviously, as you'll see here, there are, there are gonna be like quite some like errors that accumulate throughout uh like the A DC process because of like the, the sampling process itself and the quantization. But the more bits we have to store the amplitude and the better the quality of the sound uh will be. So we have two, I would say like matrix here when we do a DC. So one is called sample rate. And the other one is called bit F. For example, with the CD RM, we have a sample rate of 44,000 and 100 heads, which basically means that we take more than 40,000 amplitude points in a second, right? And the bit depth is given by 16 bits uh for each channel, right? Uh So the more like nostalgic uh like if you guys are who like really love like video game music or video games, like retro games may remember the so called eight bit music like Super Mario or Final Fantasy, like the first ones, right? And so that music is called eight bit because the bit depth was eight bit.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=472s",
+        "start_time": "472.769"
+    },
+    {
+        "id": "90aa2e7e",
+        "text": "I would say like matrix here when we do a DC. So one is called sample rate. And the other one is called bit F. For example, with the CD RM, we have a sample rate of 44,000 and 100 heads, which basically means that we take more than 40,000 amplitude points in a second, right? And the bit depth is given by 16 bits uh for each channel, right? Uh So the more like nostalgic uh like if you guys are who like really love like video game music or video games, like retro games may remember the so called eight bit music like Super Mario or Final Fantasy, like the first ones, right? And so that music is called eight bit because the bit depth was eight bit. And obviously the quality of that sound was kind of like not that that great compared to what with what we have now, but still like it was like really, really nice, cool. So this is a DC. So now let's move on and let's take a look at Real World sound waves. So",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=498s",
+        "start_time": "498.2"
+    },
+    {
+        "id": "9a1bab78",
+        "text": "Uh So the more like nostalgic uh like if you guys are who like really love like video game music or video games, like retro games may remember the so called eight bit music like Super Mario or Final Fantasy, like the first ones, right? And so that music is called eight bit because the bit depth was eight bit. And obviously the quality of that sound was kind of like not that that great compared to what with what we have now, but still like it was like really, really nice, cool. So this is a DC. So now let's move on and let's take a look at Real World sound waves. So it turns out the Real World sound waves are not as simple as like the sine wave that we've seen before. So here, for example, we have a, a waveform for a piano key. So we just like strike uh a piano key and we, we wait until like the sound fades out basically here after nine seconds. Cool. So this is like a messy uh sound",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=527s",
+        "start_time": "527.94"
+    },
+    {
+        "id": "325a543e",
+        "text": "And obviously the quality of that sound was kind of like not that that great compared to what with what we have now, but still like it was like really, really nice, cool. So this is a DC. So now let's move on and let's take a look at Real World sound waves. So it turns out the Real World sound waves are not as simple as like the sine wave that we've seen before. So here, for example, we have a, a waveform for a piano key. So we just like strike uh a piano key and we, we wait until like the sound fades out basically here after nine seconds. Cool. So this is like a messy uh sound that there's a lot of like complexity in it. So the question we could ask and which is like super legitimate is like, what can we know about this sound cause like,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=551s",
+        "start_time": "551.609"
+    },
+    {
+        "id": "2c24f80f",
+        "text": "it turns out the Real World sound waves are not as simple as like the sine wave that we've seen before. So here, for example, we have a, a waveform for a piano key. So we just like strike uh a piano key and we, we wait until like the sound fades out basically here after nine seconds. Cool. So this is like a messy uh sound that there's a lot of like complexity in it. So the question we could ask and which is like super legitimate is like, what can we know about this sound cause like, I mean, it doesn't seem like we can know much, but actually, it turns out that nature has given us like an incredible way of knowing quite a lot about complex sounds. And that's given through a fourier transform.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=570s",
+        "start_time": "570.869"
+    },
+    {
+        "id": "c4a40c99",
+        "text": "that there's a lot of like complexity in it. So the question we could ask and which is like super legitimate is like, what can we know about this sound cause like, I mean, it doesn't seem like we can know much, but actually, it turns out that nature has given us like an incredible way of knowing quite a lot about complex sounds. And that's given through a fourier transform. And basically what we do with a fourier transform is like the process of decomposing a periodic sound into a sum of sine waves which all vibrate oscillate like at different frequencies.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=593s",
+        "start_time": "593.83"
+    },
+    {
+        "id": "1dbef76e",
+        "text": "I mean, it doesn't seem like we can know much, but actually, it turns out that nature has given us like an incredible way of knowing quite a lot about complex sounds. And that's given through a fourier transform. And basically what we do with a fourier transform is like the process of decomposing a periodic sound into a sum of sine waves which all vibrate oscillate like at different frequencies. So think about that, this is like quite incredible. So we can describe a very complex sound as long as it's periodic",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=604s",
+        "start_time": "604.559"
+    },
+    {
+        "id": "5282e1a8",
+        "text": "And basically what we do with a fourier transform is like the process of decomposing a periodic sound into a sum of sine waves which all vibrate oscillate like at different frequencies. So think about that, this is like quite incredible. So we can describe a very complex sound as long as it's periodic as a sum as the super imposition of a bunch of different sine waves and different frequencies. Like it's quite remarkable, isn't it cool? So, but let's like try to like uh visualize this because this could feel I know a little bit abstract. So let's start like with this uh sound wave over here.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=620s",
+        "start_time": "620.799"
+    },
+    {
+        "id": "d3bcbd2e",
+        "text": "So think about that, this is like quite incredible. So we can describe a very complex sound as long as it's periodic as a sum as the super imposition of a bunch of different sine waves and different frequencies. Like it's quite remarkable, isn't it cool? So, but let's like try to like uh visualize this because this could feel I know a little bit abstract. So let's start like with this uh sound wave over here. Now this uh sound wave is given by the super imposition of these two sine waves, right? So if we sum them, we're gonna get this, which is quite cool. So let's see this like uh mathematically.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=637s",
+        "start_time": "637.82"
+    },
+    {
+        "id": "9f1b1c53",
+        "text": "as a sum as the super imposition of a bunch of different sine waves and different frequencies. Like it's quite remarkable, isn't it cool? So, but let's like try to like uh visualize this because this could feel I know a little bit abstract. So let's start like with this uh sound wave over here. Now this uh sound wave is given by the super imposition of these two sine waves, right? So if we sum them, we're gonna get this, which is quite cool. So let's see this like uh mathematically. So over here, so if we call this sound wave, uh the red sound wave s then we see that that is given by the uh the sine wave relative like to, to this guy here plus the sound wave, the wave like relative to this",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=648s",
+        "start_time": "648.469"
+    },
+    {
+        "id": "f70bdaef",
+        "text": "Now this uh sound wave is given by the super imposition of these two sine waves, right? So if we sum them, we're gonna get this, which is quite cool. So let's see this like uh mathematically. So over here, so if we call this sound wave, uh the red sound wave s then we see that that is given by the uh the sine wave relative like to, to this guy here plus the sound wave, the wave like relative to this guy over here,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=666s",
+        "start_time": "666.94"
+    },
+    {
+        "id": "bfb94056",
+        "text": "So over here, so if we call this sound wave, uh the red sound wave s then we see that that is given by the uh the sine wave relative like to, to this guy here plus the sound wave, the wave like relative to this guy over here, which is quite cool. And if we, if we take a look over here. So we can describe, as we said before, like this two sine waves like with the amplitude with the frequency and with the phase which in this case is zero cool. But uh when we do uh a fourier transform, we are particularly interested in the amplitudes themselves. And why is that the case? Because like the amplitude tells us how much",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=684s",
+        "start_time": "684.08"
+    },
+    {
+        "id": "89c37aa1",
+        "text": "guy over here, which is quite cool. And if we, if we take a look over here. So we can describe, as we said before, like this two sine waves like with the amplitude with the frequency and with the phase which in this case is zero cool. But uh when we do uh a fourier transform, we are particularly interested in the amplitudes themselves. And why is that the case? Because like the amplitude tells us how much uh a specific frequency contributes to the complex sound, right? So the higher the amplitude and the more I know that that specific uh frequency is contributing to the complex sound, I want to decompose, right. So in this case, we see that uh the frequency uh 1.5 is the one that contributes the most to this sound over here.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=702s",
+        "start_time": "702.64"
+    },
+    {
+        "id": "be833182",
+        "text": "which is quite cool. And if we, if we take a look over here. So we can describe, as we said before, like this two sine waves like with the amplitude with the frequency and with the phase which in this case is zero cool. But uh when we do uh a fourier transform, we are particularly interested in the amplitudes themselves. And why is that the case? Because like the amplitude tells us how much uh a specific frequency contributes to the complex sound, right? So the higher the amplitude and the more I know that that specific uh frequency is contributing to the complex sound, I want to decompose, right. So in this case, we see that uh the frequency uh 1.5 is the one that contributes the most to this sound over here. Uh which is because like the amplitude is 1.5 which is way more than 0.5 like for the case of frequency four, right? And so, so you may be wondering, but what's the great thing about this? Well, it, it's fantastic because now we know like the different",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=704s",
+        "start_time": "704.549"
+    },
+    {
+        "id": "d1a82ea5",
+        "text": "uh a specific frequency contributes to the complex sound, right? So the higher the amplitude and the more I know that that specific uh frequency is contributing to the complex sound, I want to decompose, right. So in this case, we see that uh the frequency uh 1.5 is the one that contributes the most to this sound over here. Uh which is because like the amplitude is 1.5 which is way more than 0.5 like for the case of frequency four, right? And so, so you may be wondering, but what's the great thing about this? Well, it, it's fantastic because now we know like the different elements which uh kind of like contribute to create a complex sound. It's as if like you think of like for example, like a dish say for example, like you have a uh some pasta spaghetti like tomato spaghetti, right? So the waveform is just like that",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=735s",
+        "start_time": "735.419"
+    },
+    {
+        "id": "6b762765",
+        "text": "Uh which is because like the amplitude is 1.5 which is way more than 0.5 like for the case of frequency four, right? And so, so you may be wondering, but what's the great thing about this? Well, it, it's fantastic because now we know like the different elements which uh kind of like contribute to create a complex sound. It's as if like you think of like for example, like a dish say for example, like you have a uh some pasta spaghetti like tomato spaghetti, right? So the waveform is just like that dish in itself. And it's difficult like to understand like all the different uh parts of it. But then with a fourier transform, we can divide those um elements, those ingredients and understand that probably we had like 200 g of spaghetti. Then we had like a little bit of garlic. We had",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=765s",
+        "start_time": "765.479"
+    },
+    {
+        "id": "fbfd261a",
+        "text": "elements which uh kind of like contribute to create a complex sound. It's as if like you think of like for example, like a dish say for example, like you have a uh some pasta spaghetti like tomato spaghetti, right? So the waveform is just like that dish in itself. And it's difficult like to understand like all the different uh parts of it. But then with a fourier transform, we can divide those um elements, those ingredients and understand that probably we had like 200 g of spaghetti. Then we had like a little bit of garlic. We had uh five leaves for example of uh basilica, a basil, right? And we had 100 g of tomatoes, right? So basically, we can decompose the whole dish in it, in its ingredients. And it's the same thing we can do with the fourier transform, we can decompose a complex sound and understand how different frequencies are contributing to that,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=785s",
+        "start_time": "785.32"
+    },
+    {
+        "id": "f7e50558",
+        "text": "dish in itself. And it's difficult like to understand like all the different uh parts of it. But then with a fourier transform, we can divide those um elements, those ingredients and understand that probably we had like 200 g of spaghetti. Then we had like a little bit of garlic. We had uh five leaves for example of uh basilica, a basil, right? And we had 100 g of tomatoes, right? So basically, we can decompose the whole dish in it, in its ingredients. And it's the same thing we can do with the fourier transform, we can decompose a complex sound and understand how different frequencies are contributing to that, right? So let's go back to the waveform of our piano key and perform a fourier transform here. And so what you'll get if you perform a fourier transform is this guy over here which is called a power spectrum. So and the spectrum basically gives us the magnitude as a function of frequency. So here we know that there's a peak",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=804s",
+        "start_time": "804.799"
+    },
+    {
+        "id": "18c8ad4b",
+        "text": "uh five leaves for example of uh basilica, a basil, right? And we had 100 g of tomatoes, right? So basically, we can decompose the whole dish in it, in its ingredients. And it's the same thing we can do with the fourier transform, we can decompose a complex sound and understand how different frequencies are contributing to that, right? So let's go back to the waveform of our piano key and perform a fourier transform here. And so what you'll get if you perform a fourier transform is this guy over here which is called a power spectrum. So and the spectrum basically gives us the magnitude as a function of frequency. So here we know that there's a peak of like magnitude of power around 3000. Yeah, I would say like 500 like over here. So the uh the uh this frequency is very much represented like in this sound over here, right? So now,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=829s",
+        "start_time": "829.239"
+    },
+    {
+        "id": "f9bb553c",
+        "text": "right? So let's go back to the waveform of our piano key and perform a fourier transform here. And so what you'll get if you perform a fourier transform is this guy over here which is called a power spectrum. So and the spectrum basically gives us the magnitude as a function of frequency. So here we know that there's a peak of like magnitude of power around 3000. Yeah, I would say like 500 like over here. So the uh the uh this frequency is very much represented like in this sound over here, right? So now, so when we do like this fourier transfer, basically we move from the time domain towards the frequency domain. What does that mean? Well, if you take a look at this waveform here, so you'll see that here we have the amplitude as a function of time. So we are in the time domain. But then when we apply the fourier transform, we move in the frequency domain because here we have on the x axis, the frequency",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=856s",
+        "start_time": "856.63"
+    },
+    {
+        "id": "251ec459",
+        "text": "of like magnitude of power around 3000. Yeah, I would say like 500 like over here. So the uh the uh this frequency is very much represented like in this sound over here, right? So now, so when we do like this fourier transfer, basically we move from the time domain towards the frequency domain. What does that mean? Well, if you take a look at this waveform here, so you'll see that here we have the amplitude as a function of time. So we are in the time domain. But then when we apply the fourier transform, we move in the frequency domain because here we have on the x axis, the frequency and the magnitude is a function of the frequency itself, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=880s",
+        "start_time": "880.659"
+    },
+    {
+        "id": "744a656e",
+        "text": "so when we do like this fourier transfer, basically we move from the time domain towards the frequency domain. What does that mean? Well, if you take a look at this waveform here, so you'll see that here we have the amplitude as a function of time. So we are in the time domain. But then when we apply the fourier transform, we move in the frequency domain because here we have on the x axis, the frequency and the magnitude is a function of the frequency itself, right? Cool. And so if, because this happens, we lose information about uh time. So it's as if uh this spectrum power spectrum here was a snapshot of all the elements uh which concur to form this sound over this like nine seconds, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=898s",
+        "start_time": "898.099"
+    },
+    {
+        "id": "ba789a18",
+        "text": "and the magnitude is a function of the frequency itself, right? Cool. And so if, because this happens, we lose information about uh time. So it's as if uh this spectrum power spectrum here was a snapshot of all the elements uh which concur to form this sound over this like nine seconds, right? And so basically what this uh spectrum is telling us is telling us that uh these different frequencies have different uh powers. But throughout all of the, all of the um all of the sound here. So it's a snapshot, it's static which could be seen like as a problem because obviously audio and music data like it is a time series, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=924s",
+        "start_time": "924.89"
+    },
+    {
+        "id": "eee698c8",
+        "text": "Cool. And so if, because this happens, we lose information about uh time. So it's as if uh this spectrum power spectrum here was a snapshot of all the elements uh which concur to form this sound over this like nine seconds, right? And so basically what this uh spectrum is telling us is telling us that uh these different frequencies have different uh powers. But throughout all of the, all of the um all of the sound here. So it's a snapshot, it's static which could be seen like as a problem because obviously audio and music data like it is a time series, right? So things change in time. And so we want to know about how things change in time and it seems that with the fourier transform, we, we can't really do that. So we are missing on a lot of information, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=931s",
+        "start_time": "931.099"
+    },
+    {
+        "id": "f0cabbf3",
+        "text": "And so basically what this uh spectrum is telling us is telling us that uh these different frequencies have different uh powers. But throughout all of the, all of the um all of the sound here. So it's a snapshot, it's static which could be seen like as a problem because obviously audio and music data like it is a time series, right? So things change in time. And so we want to know about how things change in time and it seems that with the fourier transform, we, we can't really do that. So we are missing on a lot of information, right? But obviously, there's a solution to that and the solution it's called the short time fourier transform or SDFT. And so what the short time fourier transform does, it computes several fourier transforms at different intervals. And in doing so it preserves information about uh time and the way",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=955s",
+        "start_time": "955.83"
+    },
+    {
+        "id": "8ca352b6",
+        "text": "So things change in time. And so we want to know about how things change in time and it seems that with the fourier transform, we, we can't really do that. So we are missing on a lot of information, right? But obviously, there's a solution to that and the solution it's called the short time fourier transform or SDFT. And so what the short time fourier transform does, it computes several fourier transforms at different intervals. And in doing so it preserves information about uh time and the way uh sounds uh like evolves like over time, right? And so the different intervals at which we perform uh the fourier transform uh is given by the frame size. And so a frame is a bunch of samples. And so we fix the number of samples. And we say, OK, so let's consider only like for example, 202 hun 2048 samples",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=984s",
+        "start_time": "984.479"
+    },
+    {
+        "id": "3f4bb783",
+        "text": "But obviously, there's a solution to that and the solution it's called the short time fourier transform or SDFT. And so what the short time fourier transform does, it computes several fourier transforms at different intervals. And in doing so it preserves information about uh time and the way uh sounds uh like evolves like over time, right? And so the different intervals at which we perform uh the fourier transform uh is given by the frame size. And so a frame is a bunch of samples. And so we fix the number of samples. And we say, OK, so let's consider only like for example, 202 hun 2048 samples and do the, the fourier transform there. And then let's move on to let's shift and move on like to, to the rest like of the waveform. And what happens here is that we are given a spectrogram which is",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=997s",
+        "start_time": "997.15"
+    },
+    {
+        "id": "c0c233c6",
+        "text": "uh sounds uh like evolves like over time, right? And so the different intervals at which we perform uh the fourier transform uh is given by the frame size. And so a frame is a bunch of samples. And so we fix the number of samples. And we say, OK, so let's consider only like for example, 202 hun 2048 samples and do the, the fourier transform there. And then let's move on to let's shift and move on like to, to the rest like of the waveform. And what happens here is that we are given a spectrogram which is a representation that gives us information about uh like magnitude as a, as a function of frequency and time. So let's take a look at the spectrogram of the um piano key that we, we say like uh before, right? So like that sound wave cool. So here, as you can see we are",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1024s",
+        "start_time": "1024.3"
+    },
+    {
+        "id": "50ee3f0c",
+        "text": "and do the, the fourier transform there. And then let's move on to let's shift and move on like to, to the rest like of the waveform. And what happens here is that we are given a spectrogram which is a representation that gives us information about uh like magnitude as a, as a function of frequency and time. So let's take a look at the spectrogram of the um piano key that we, we say like uh before, right? So like that sound wave cool. So here, as you can see we are back in business because we have time now here on the, on the uh x axis. But we also have frequency on the y axis and we have a third axis which is basically given by the color and the color is telling us how much a given frequence like is present uh in uh the sound at a given time. So for example, here we see that like towards like the beginning",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1051s",
+        "start_time": "1051.489"
+    },
+    {
+        "id": "3f7e8168",
+        "text": "a representation that gives us information about uh like magnitude as a, as a function of frequency and time. So let's take a look at the spectrogram of the um piano key that we, we say like uh before, right? So like that sound wave cool. So here, as you can see we are back in business because we have time now here on the, on the uh x axis. But we also have frequency on the y axis and we have a third axis which is basically given by the color and the color is telling us how much a given frequence like is present uh in uh the sound at a given time. So for example, here we see that like towards like the beginning uh above like 4000 Hertz, we really don't have like much uh uh contribution like at all. So it seems like that the, the energy is kind of like um",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1067s",
+        "start_time": "1067.31"
+    },
+    {
+        "id": "26891aa9",
+        "text": "back in business because we have time now here on the, on the uh x axis. But we also have frequency on the y axis and we have a third axis which is basically given by the color and the color is telling us how much a given frequence like is present uh in uh the sound at a given time. So for example, here we see that like towards like the beginning uh above like 4000 Hertz, we really don't have like much uh uh contribution like at all. So it seems like that the, the energy is kind of like um I would say like uh around",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1089s",
+        "start_time": "1089.469"
+    },
+    {
+        "id": "6d353371",
+        "text": "uh above like 4000 Hertz, we really don't have like much uh uh contribution like at all. So it seems like that the, the energy is kind of like um I would say like uh around a very like low frequency here could be like 500 something like that like Hertz, right? And as you see here, uh this uh spectrogram resembles a little bit of the waveform of the piano key as well because as you see, like in time, like all of these frequencies are kind of like fading out like the energy for these frequencies because like the time the the sound",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1118s",
+        "start_time": "1118.619"
+    },
+    {
+        "id": "fc34aae3",
+        "text": "I would say like uh around a very like low frequency here could be like 500 something like that like Hertz, right? And as you see here, uh this uh spectrogram resembles a little bit of the waveform of the piano key as well because as you see, like in time, like all of these frequencies are kind of like fading out like the energy for these frequencies because like the time the the sound of the piano key is just like fading out uh all the time cool. OK. So now we have like an idea of like what a spectrogram is, but let's see how we perform a short time fourier transform a little bit like more in detail. Um just like to understand like how this works. So here we start obviously from a um a waveform like the the mm",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1133s",
+        "start_time": "1133.27"
+    },
+    {
+        "id": "ae22d86d",
+        "text": "a very like low frequency here could be like 500 something like that like Hertz, right? And as you see here, uh this uh spectrogram resembles a little bit of the waveform of the piano key as well because as you see, like in time, like all of these frequencies are kind of like fading out like the energy for these frequencies because like the time the the sound of the piano key is just like fading out uh all the time cool. OK. So now we have like an idea of like what a spectrogram is, but let's see how we perform a short time fourier transform a little bit like more in detail. Um just like to understand like how this works. So here we start obviously from a um a waveform like the the mm sound wave. And then what we do next is we basically like focus only on uh one frame which is given by a number of samples here. And then what we do next is we calculate the, the fourier transform over here. And then we take this information and we just project it in the spectrogram.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1137s",
+        "start_time": "1137.709"
+    },
+    {
+        "id": "4a101b37",
+        "text": "of the piano key is just like fading out uh all the time cool. OK. So now we have like an idea of like what a spectrogram is, but let's see how we perform a short time fourier transform a little bit like more in detail. Um just like to understand like how this works. So here we start obviously from a um a waveform like the the mm sound wave. And then what we do next is we basically like focus only on uh one frame which is given by a number of samples here. And then what we do next is we calculate the, the fourier transform over here. And then we take this information and we just project it in the spectrogram. So we, we put it like in the, in the first interval here in the spectrogram uh at, at time zero basically. And then we, we pass like the, the frequency here and then we pass the, the magnitude here. Uh And basically, we, we can visualize it like as a, as a function of, of color.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1166s",
+        "start_time": "1166.66"
+    },
+    {
+        "id": "a2b2beeb",
+        "text": "sound wave. And then what we do next is we basically like focus only on uh one frame which is given by a number of samples here. And then what we do next is we calculate the, the fourier transform over here. And then we take this information and we just project it in the spectrogram. So we, we put it like in the, in the first interval here in the spectrogram uh at, at time zero basically. And then we, we pass like the, the frequency here and then we pass the, the magnitude here. Uh And basically, we, we can visualize it like as a, as a function of, of color. So now two things here. So here I'm using like decibels and uh like with decibels, basically, we, we apply like a logarithmic like a function like to, to the magnitude itself.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1195s",
+        "start_time": "1195.469"
+    },
+    {
+        "id": "1aaeffcb",
+        "text": "So we, we put it like in the, in the first interval here in the spectrogram uh at, at time zero basically. And then we, we pass like the, the frequency here and then we pass the, the magnitude here. Uh And basically, we, we can visualize it like as a, as a function of, of color. So now two things here. So here I'm using like decibels and uh like with decibels, basically, we, we apply like a logarithmic like a function like to, to the magnitude itself. And uh the other thing that I wanted to say is that uh when we uh perform the fourier transform, what we actually perform is the FFT which is the fast fourier transform, which is a kind of like a uh a variation of the fourier transform which is used for performing um like the fourier transform like way faster, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1222s",
+        "start_time": "1222.579"
+    },
+    {
+        "id": "dece09f9",
+        "text": "So now two things here. So here I'm using like decibels and uh like with decibels, basically, we, we apply like a logarithmic like a function like to, to the magnitude itself. And uh the other thing that I wanted to say is that uh when we uh perform the fourier transform, what we actually perform is the FFT which is the fast fourier transform, which is a kind of like a uh a variation of the fourier transform which is used for performing um like the fourier transform like way faster, right? OK. So now we are at the end of the, of the first uh iteration. So what do we do next? Well, we just like slide here um like on the, on the sound wave. And now we take like the second like the same like uh the same uh kind of like interval but the second frame. So we are like shifting to the right.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1245s",
+        "start_time": "1245.63"
+    },
+    {
+        "id": "7a68f260",
+        "text": "And uh the other thing that I wanted to say is that uh when we uh perform the fourier transform, what we actually perform is the FFT which is the fast fourier transform, which is a kind of like a uh a variation of the fourier transform which is used for performing um like the fourier transform like way faster, right? OK. So now we are at the end of the, of the first uh iteration. So what do we do next? Well, we just like slide here um like on the, on the sound wave. And now we take like the second like the same like uh the same uh kind of like interval but the second frame. So we are like shifting to the right. And now we do the same thing. So we calculate the spectrum there through the fast fourier transform and then we project that into the spectrogram and then we move on. So we have the third, the fourth until we get to the end. And once we are at the end, we have our own spectrogram which is fantastic news.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1262s",
+        "start_time": "1262.489"
+    },
+    {
+        "id": "817971c6",
+        "text": "OK. So now we are at the end of the, of the first uh iteration. So what do we do next? Well, we just like slide here um like on the, on the sound wave. And now we take like the second like the same like uh the same uh kind of like interval but the second frame. So we are like shifting to the right. And now we do the same thing. So we calculate the spectrum there through the fast fourier transform and then we project that into the spectrogram and then we move on. So we have the third, the fourth until we get to the end. And once we are at the end, we have our own spectrogram which is fantastic news. Cool. So now you may be wondering well, but why did we have to learn about uh like spectrograms like in all of this? Well, it turns out like that spectrograms are fundamental uh for uh performing like deep learning uh like applications like on audio data",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1287s",
+        "start_time": "1287.77"
+    },
+    {
+        "id": "855fb5f1",
+        "text": "And now we do the same thing. So we calculate the spectrum there through the fast fourier transform and then we project that into the spectrogram and then we move on. So we have the third, the fourth until we get to the end. And once we are at the end, we have our own spectrogram which is fantastic news. Cool. So now you may be wondering well, but why did we have to learn about uh like spectrograms like in all of this? Well, it turns out like that spectrograms are fundamental uh for uh performing like deep learning uh like applications like on audio data well. And actually uh like the whole preprocessing pipeline for audio data for deep learning is based on spectrograms. So not surprisingly, uh when we have a data set, we start with a bunch of wave files. So basically of like a wave forms or like sound waves, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1312s",
+        "start_time": "1312.459"
+    },
+    {
+        "id": "c631f6e7",
+        "text": "Cool. So now you may be wondering well, but why did we have to learn about uh like spectrograms like in all of this? Well, it turns out like that spectrograms are fundamental uh for uh performing like deep learning uh like applications like on audio data well. And actually uh like the whole preprocessing pipeline for audio data for deep learning is based on spectrograms. So not surprisingly, uh when we have a data set, we start with a bunch of wave files. So basically of like a wave forms or like sound waves, right? And then we pass those in into a short time fourier transform and we get a spectrogram and then we use that spectrogram as an input for our deep learning model over here. Nice. So this is a super nice way of getting uh like a valuable representation for our like deep learning uh model. So we just like focus on the spectrogram. Now",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1335s",
+        "start_time": "1335.91"
+    },
+    {
+        "id": "ed69ba2b",
+        "text": "well. And actually uh like the whole preprocessing pipeline for audio data for deep learning is based on spectrograms. So not surprisingly, uh when we have a data set, we start with a bunch of wave files. So basically of like a wave forms or like sound waves, right? And then we pass those in into a short time fourier transform and we get a spectrogram and then we use that spectrogram as an input for our deep learning model over here. Nice. So this is a super nice way of getting uh like a valuable representation for our like deep learning uh model. So we just like focus on the spectrogram. Now this is like very different from uh what used to happen in the past when we were focusing more on uh traditional machine learning um like algorithms like a logistic regression or super machines, like in those cases, like the preprocessing pipeline for audio data was quite different. So let's take a look at that. So the whole thing was way more about feature engineering. So",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1357s",
+        "start_time": "1357.63"
+    },
+    {
+        "id": "fd8005ba",
+        "text": "And then we pass those in into a short time fourier transform and we get a spectrogram and then we use that spectrogram as an input for our deep learning model over here. Nice. So this is a super nice way of getting uh like a valuable representation for our like deep learning uh model. So we just like focus on the spectrogram. Now this is like very different from uh what used to happen in the past when we were focusing more on uh traditional machine learning um like algorithms like a logistic regression or super machines, like in those cases, like the preprocessing pipeline for audio data was quite different. So let's take a look at that. So the whole thing was way more about feature engineering. So it turns out that from a from uh like a waveform, you can take a lot of like different features like uh from those. And so what we used to do before was like taking like those features. And um and for doing that, uh we would basically use either a directly like a waveform or perform a fourier transform. And then using like the the spectrum",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1377s",
+        "start_time": "1377.42"
+    },
+    {
+        "id": "70d36afc",
+        "text": "this is like very different from uh what used to happen in the past when we were focusing more on uh traditional machine learning um like algorithms like a logistic regression or super machines, like in those cases, like the preprocessing pipeline for audio data was quite different. So let's take a look at that. So the whole thing was way more about feature engineering. So it turns out that from a from uh like a waveform, you can take a lot of like different features like uh from those. And so what we used to do before was like taking like those features. And um and for doing that, uh we would basically use either a directly like a waveform or perform a fourier transform. And then using like the the spectrum and you would use like a waveform for extracting a time domain features. And you would use a spectrogram for extracting uh frequency uh domain features. An example of like a time domain feature is amplitude envelope. An example of like frequency domain feature like spectral center or like spectral flux.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1406s",
+        "start_time": "1406.79"
+    },
+    {
+        "id": "84f4d41b",
+        "text": "it turns out that from a from uh like a waveform, you can take a lot of like different features like uh from those. And so what we used to do before was like taking like those features. And um and for doing that, uh we would basically use either a directly like a waveform or perform a fourier transform. And then using like the the spectrum and you would use like a waveform for extracting a time domain features. And you would use a spectrogram for extracting uh frequency uh domain features. An example of like a time domain feature is amplitude envelope. An example of like frequency domain feature like spectral center or like spectral flux. But the point that I want to make here is that we start from a waveform and then we, we get a bunch of features we and we should decide which features we want to get. And then we combine these features, we aggregate them somehow using like some statistical means or even like some unsupervised learning uh like models. And then we, we use those",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1434s",
+        "start_time": "1434.219"
+    },
+    {
+        "id": "6935dfa5",
+        "text": "and you would use like a waveform for extracting a time domain features. And you would use a spectrogram for extracting uh frequency uh domain features. An example of like a time domain feature is amplitude envelope. An example of like frequency domain feature like spectral center or like spectral flux. But the point that I want to make here is that we start from a waveform and then we, we get a bunch of features we and we should decide which features we want to get. And then we combine these features, we aggregate them somehow using like some statistical means or even like some unsupervised learning uh like models. And then we, we use those and we fed those features into an ML algorithm like logistic regression or like super vector machine. So with the advance of like deep learning, the whole process became a little bit more straightforward because we don't need to uh like a concern that much about feature engineering because we just use the spectrum right. And so we don't use like all of these other things. This is why like a deep learning",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1463s",
+        "start_time": "1463.209"
+    },
+    {
+        "id": "324648fb",
+        "text": "But the point that I want to make here is that we start from a waveform and then we, we get a bunch of features we and we should decide which features we want to get. And then we combine these features, we aggregate them somehow using like some statistical means or even like some unsupervised learning uh like models. And then we, we use those and we fed those features into an ML algorithm like logistic regression or like super vector machine. So with the advance of like deep learning, the whole process became a little bit more straightforward because we don't need to uh like a concern that much about feature engineering because we just use the spectrum right. And so we don't use like all of these other things. This is why like a deep learning uh model uh like for audio, like in this case, it's called like an end to end model because basically you just use some basic information without",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1482s",
+        "start_time": "1482.625"
+    },
+    {
+        "id": "5d080392",
+        "text": "and we fed those features into an ML algorithm like logistic regression or like super vector machine. So with the advance of like deep learning, the whole process became a little bit more straightforward because we don't need to uh like a concern that much about feature engineering because we just use the spectrum right. And so we don't use like all of these other things. This is why like a deep learning uh model uh like for audio, like in this case, it's called like an end to end model because basically you just use some basic information without uh worrying too much about extracting specific features. Cool. Now I want to introduce the another feature which is fundamental for deep learning. And this is like as important if not more important than the spectrogram itself. And this feature is called the mal frequency subs subs coefficients. Now",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1506s",
+        "start_time": "1506.42"
+    },
+    {
+        "id": "32239cdf",
+        "text": "uh model uh like for audio, like in this case, it's called like an end to end model because basically you just use some basic information without uh worrying too much about extracting specific features. Cool. Now I want to introduce the another feature which is fundamental for deep learning. And this is like as important if not more important than the spectrogram itself. And this feature is called the mal frequency subs subs coefficients. Now uh to extract like this features like it's quite complicated and I'm not gonna get like into the details because again, we we don't need them. So we need to understand like the intuition between like a spectrogram and MF CCS. But we don't need to like understand the implementation details here. But what we need to do however, is to",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1533s",
+        "start_time": "1533.689"
+    },
+    {
+        "id": "2bffcb0b",
+        "text": "uh worrying too much about extracting specific features. Cool. Now I want to introduce the another feature which is fundamental for deep learning. And this is like as important if not more important than the spectrogram itself. And this feature is called the mal frequency subs subs coefficients. Now uh to extract like this features like it's quite complicated and I'm not gonna get like into the details because again, we we don't need them. So we need to understand like the intuition between like a spectrogram and MF CCS. But we don't need to like understand the implementation details here. But what we need to do however, is to understands like what uh the MF CCS are and how we can like use them from a very high level perspective. Well, MF CCS capture timbrel and textural aspects of sound. So if you have, for example, like a piano and a violin uh playing like the same melody, uh you would have potentially like the, the same like peach content, the same frequency and same like rhythm",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1542s",
+        "start_time": "1542.979"
+    },
+    {
+        "id": "b2435a99",
+        "text": "uh to extract like this features like it's quite complicated and I'm not gonna get like into the details because again, we we don't need them. So we need to understand like the intuition between like a spectrogram and MF CCS. But we don't need to like understand the implementation details here. But what we need to do however, is to understands like what uh the MF CCS are and how we can like use them from a very high level perspective. Well, MF CCS capture timbrel and textural aspects of sound. So if you have, for example, like a piano and a violin uh playing like the same melody, uh you would have potentially like the, the same like peach content, the same frequency and same like rhythm um more or less there depending on the performance. But what would change is like timbre the quality of sound and the MF CCS are capable of capturing that information.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1565s",
+        "start_time": "1565.67"
+    },
+    {
+        "id": "c13ff130",
+        "text": "understands like what uh the MF CCS are and how we can like use them from a very high level perspective. Well, MF CCS capture timbrel and textural aspects of sound. So if you have, for example, like a piano and a violin uh playing like the same melody, uh you would have potentially like the, the same like peach content, the same frequency and same like rhythm um more or less there depending on the performance. But what would change is like timbre the quality of sound and the MF CCS are capable of capturing that information. And for uh extracting MF CCS, we, we perform uh a fourier transform and we move like from the time domain into like the frequency domain. So MF CCS are basically like frequency domain uh feature. But the great thing, the great advantage of MF CCS over spectrograms is that they approximate the human auditory system that try to model the way",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1587s",
+        "start_time": "1587.859"
+    },
+    {
+        "id": "8c157b79",
+        "text": "um more or less there depending on the performance. But what would change is like timbre the quality of sound and the MF CCS are capable of capturing that information. And for uh extracting MF CCS, we, we perform uh a fourier transform and we move like from the time domain into like the frequency domain. So MF CCS are basically like frequency domain uh feature. But the great thing, the great advantage of MF CCS over spectrograms is that they approximate the human auditory system that try to model the way we perceive like frequency, right? And so that's like very important. Like if you then want to do like deep learning stuff to have like some data that represents the way we uh kind of like process like audio.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1615s",
+        "start_time": "1615.91"
+    },
+    {
+        "id": "3fe2382f",
+        "text": "And for uh extracting MF CCS, we, we perform uh a fourier transform and we move like from the time domain into like the frequency domain. So MF CCS are basically like frequency domain uh feature. But the great thing, the great advantage of MF CCS over spectrograms is that they approximate the human auditory system that try to model the way we perceive like frequency, right? And so that's like very important. Like if you then want to do like deep learning stuff to have like some data that represents the way we uh kind of like process like audio. Now, uh the results like of uh extracting MF CCS is a bunch of coefficients. It's an MFCC vector. And so you can specify a number of like different coefficients. Usually in all your music applications you want to use between 13 to 40 coefficients. And then again, you are gonna calculate all of these coefficients at each frame. So that you have um an idea of how like the MF CCS are evolving over time,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1628s",
+        "start_time": "1628.42"
+    },
+    {
+        "id": "5cb8388e",
+        "text": "we perceive like frequency, right? And so that's like very important. Like if you then want to do like deep learning stuff to have like some data that represents the way we uh kind of like process like audio. Now, uh the results like of uh extracting MF CCS is a bunch of coefficients. It's an MFCC vector. And so you can specify a number of like different coefficients. Usually in all your music applications you want to use between 13 to 40 coefficients. And then again, you are gonna calculate all of these coefficients at each frame. So that you have um an idea of how like the MF CCS are evolving over time, right? Cool. So now let's take a look at uh like uh an MFCC like representation here and this is like very similar to a spectrogram, isn't it? Right? So here on uh the AX ax axis, we have time. And then again, this is the MF CCS calculated for the same uh sound wave like that we, so up until now, so like the, the uh the piano key, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1656s",
+        "start_time": "1656.76"
+    },
+    {
+        "id": "7f5a53a6",
+        "text": "Now, uh the results like of uh extracting MF CCS is a bunch of coefficients. It's an MFCC vector. And so you can specify a number of like different coefficients. Usually in all your music applications you want to use between 13 to 40 coefficients. And then again, you are gonna calculate all of these coefficients at each frame. So that you have um an idea of how like the MF CCS are evolving over time, right? Cool. So now let's take a look at uh like uh an MFCC like representation here and this is like very similar to a spectrogram, isn't it? Right? So here on uh the AX ax axis, we have time. And then again, this is the MF CCS calculated for the same uh sound wave like that we, so up until now, so like the, the uh the piano key, right? OK. So here we have time. So it is nine seconds. And here on the Y axis, we have the different MFCC coefficients. And here you see, so this is one, this is two, this is three. And here I think I have like 13 coefficients. And now again, like the value of the coefficient is represented with this",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1670s",
+        "start_time": "1670.43"
+    },
+    {
+        "id": "8b91d6d8",
+        "text": "right? Cool. So now let's take a look at uh like uh an MFCC like representation here and this is like very similar to a spectrogram, isn't it? Right? So here on uh the AX ax axis, we have time. And then again, this is the MF CCS calculated for the same uh sound wave like that we, so up until now, so like the, the uh the piano key, right? OK. So here we have time. So it is nine seconds. And here on the Y axis, we have the different MFCC coefficients. And here you see, so this is one, this is two, this is three. And here I think I have like 13 coefficients. And now again, like the value of the coefficient is represented with this uh like uh colors over here and as usual, like the, the more red, the redder, the um a value like over here and like the, the, the, the, the bigger, like the value itself, right? Cool. So",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1700s",
+        "start_time": "1700.66"
+    },
+    {
+        "id": "967cd216",
+        "text": "OK. So here we have time. So it is nine seconds. And here on the Y axis, we have the different MFCC coefficients. And here you see, so this is one, this is two, this is three. And here I think I have like 13 coefficients. And now again, like the value of the coefficient is represented with this uh like uh colors over here and as usual, like the, the more red, the redder, the um a value like over here and like the, the, the, the, the bigger, like the value itself, right? Cool. So uh what can we say about MF CCS? So where do we use them? Well, it turns out that uh MF CCS are fantastic for a number of different audio applications. So they've originally been introduced for speech recognition and they are still used like for speech recognition today quite extensively. And but around the 2000, they've also been introduced in music analysis. And so",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1725s",
+        "start_time": "1725.939"
+    },
+    {
+        "id": "08d1e3e3",
+        "text": "uh like uh colors over here and as usual, like the, the more red, the redder, the um a value like over here and like the, the, the, the, the bigger, like the value itself, right? Cool. So uh what can we say about MF CCS? So where do we use them? Well, it turns out that uh MF CCS are fantastic for a number of different audio applications. So they've originally been introduced for speech recognition and they are still used like for speech recognition today quite extensively. And but around the 2000, they've also been introduced in music analysis. And so uh we can use MF CCS for music genre classification and music instrument classification as well. So regarding music genre classification in a few videos, I think a couple of videos we are gonna use MF CCS for classifying uh a bunch of like different uh tracks that we'll have and decide which genres like they are and we'll use MF CCS for that.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1744s",
+        "start_time": "1744.38"
+    },
+    {
+        "id": "68d8cf19",
+        "text": "uh what can we say about MF CCS? So where do we use them? Well, it turns out that uh MF CCS are fantastic for a number of different audio applications. So they've originally been introduced for speech recognition and they are still used like for speech recognition today quite extensively. And but around the 2000, they've also been introduced in music analysis. And so uh we can use MF CCS for music genre classification and music instrument classification as well. So regarding music genre classification in a few videos, I think a couple of videos we are gonna use MF CCS for classifying uh a bunch of like different uh tracks that we'll have and decide which genres like they are and we'll use MF CCS for that. Cool. So now again, so as you've seen, I haven't gone into like the deep mathematical details or implementation details, both of like the fourier transform and MF CCS because we don't need them. But again, if you are like interested in knowing more, just like let me know in the comments section. And once I'm done like with the series,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1763s",
+        "start_time": "1763.68"
+    },
+    {
+        "id": "3a12ac52",
+        "text": "uh we can use MF CCS for music genre classification and music instrument classification as well. So regarding music genre classification in a few videos, I think a couple of videos we are gonna use MF CCS for classifying uh a bunch of like different uh tracks that we'll have and decide which genres like they are and we'll use MF CCS for that. Cool. So now again, so as you've seen, I haven't gone into like the deep mathematical details or implementation details, both of like the fourier transform and MF CCS because we don't need them. But again, if you are like interested in knowing more, just like let me know in the comments section. And once I'm done like with the series, uh I could actually like make a few videos about this and if you are very interested in that I could actually create a series about all your digital signal processing, which is a fascinating topic in itself and very complex.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1791s",
+        "start_time": "1791.64"
+    },
+    {
+        "id": "07a3e7ee",
+        "text": "Cool. So now again, so as you've seen, I haven't gone into like the deep mathematical details or implementation details, both of like the fourier transform and MF CCS because we don't need them. But again, if you are like interested in knowing more, just like let me know in the comments section. And once I'm done like with the series, uh I could actually like make a few videos about this and if you are very interested in that I could actually create a series about all your digital signal processing, which is a fascinating topic in itself and very complex. Cool. OK. So now how do we use like MF CCS like in the uh preprocessing pipeline? Like for a data? Well, it's basically the same thing that we do like for a spectrogram. So we start from a, a waveform, a sound form",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1816s",
+        "start_time": "1816.67"
+    },
+    {
+        "id": "0eeda75b",
+        "text": "uh I could actually like make a few videos about this and if you are very interested in that I could actually create a series about all your digital signal processing, which is a fascinating topic in itself and very complex. Cool. OK. So now how do we use like MF CCS like in the uh preprocessing pipeline? Like for a data? Well, it's basically the same thing that we do like for a spectrogram. So we start from a, a waveform, a sound form a sound wave, then we extract MF CCS. Now we have these MF CCS and we pass the MF CCS directly into our deep learning um uh network, right?",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1838s",
+        "start_time": "1838.26"
+    },
+    {
+        "id": "8149e568",
+        "text": "Cool. OK. So now how do we use like MF CCS like in the uh preprocessing pipeline? Like for a data? Well, it's basically the same thing that we do like for a spectrogram. So we start from a, a waveform, a sound form a sound wave, then we extract MF CCS. Now we have these MF CCS and we pass the MF CCS directly into our deep learning um uh network, right? So again, using MF CCS is another way of like doing end to end uh deep learning with audio and it's like a very efficient one, effective one cool. So this was it for this video. So what's up next? Well,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1851s",
+        "start_time": "1851.88"
+    },
+    {
+        "id": "74e82e38",
+        "text": "a sound wave, then we extract MF CCS. Now we have these MF CCS and we pass the MF CCS directly into our deep learning um uh network, right? So again, using MF CCS is another way of like doing end to end uh deep learning with audio and it's like a very efficient one, effective one cool. So this was it for this video. So what's up next? Well, uh it turns out that like in this video, we spent quite a lot of time talking about theoretical stuff. And now as usual, so as we usually do, we, we want just like to turn like this theoretical uh information into like implementation. So in the next video, we'll perform fast fourier transforms a short term,",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1871s",
+        "start_time": "1871.89"
+    },
+    {
+        "id": "c188c033",
+        "text": "So again, using MF CCS is another way of like doing end to end uh deep learning with audio and it's like a very efficient one, effective one cool. So this was it for this video. So what's up next? Well, uh it turns out that like in this video, we spent quite a lot of time talking about theoretical stuff. And now as usual, so as we usually do, we, we want just like to turn like this theoretical uh information into like implementation. So in the next video, we'll perform fast fourier transforms a short term, short time via transform. Uh with Python, we'll look at spectrograms at spectra and we'll extract MF CCS. But again, we won't implement uh these extractors like from scratch. But R will get familiar with a fantastic audio library in Python that's called uh Li Brosa. And that's like a library that you really want to know if you want to use if you want to like do stuff like in um audio",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1886s",
+        "start_time": "1886.0"
+    },
+    {
+        "id": "48765e3e",
+        "text": "uh it turns out that like in this video, we spent quite a lot of time talking about theoretical stuff. And now as usual, so as we usually do, we, we want just like to turn like this theoretical uh information into like implementation. So in the next video, we'll perform fast fourier transforms a short term, short time via transform. Uh with Python, we'll look at spectrograms at spectra and we'll extract MF CCS. But again, we won't implement uh these extractors like from scratch. But R will get familiar with a fantastic audio library in Python that's called uh Li Brosa. And that's like a library that you really want to know if you want to use if you want to like do stuff like in um audio with deep learning, right? To prepare your data. Cool. So this is it for this video? Yeah, I really hope you enjoyed it. And if that's the case, as usual, just uh subscribe and hit the notification bell and if you have any questions, feel free like to to post them in the comments section below and I'll see you the next time. Cheers.",
+        "video": "10 - Understanding audio data for deep learning",
+        "playlist": "Audio Deep Learning with Python",
+        "youtube_video_id": "m3XbqfIij_Y",
+        "youtube_link": "https://www.youtube.com/watch?v=m3XbqfIij_Y&t=1902s",
+        "start_time": "1902.27"
+    }
+]
