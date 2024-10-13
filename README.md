@@ -196,7 +196,7 @@ There were developed the following dashboards:
     * [ ] 1 point: Some instructions are provided but are incomplete, OR instructions are clear and complete, the code works, but the data is missing
     * [x] 2 points: Instructions are clear, the dataset is accessible, it's easy to run the code, and it works. The versions for all dependencies are specified.
 * Best practices
-    * [x] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
+    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
     * [ ] Document re-ranking (1 point)
     * [ ] User query rewriting (1 point)
 * Bonus points (not covered in the course)
@@ -218,7 +218,6 @@ The entire YouTube Browser project was developed as a part of LLM Zoomcamp. The 
 
 ## Future tasks
 
-- Add evaluation metrics to have more precise criteria for evaluation ranking documents and answers from LLM.
 - Try Hybrid search: combining both text and vector search and evaluate it.
 - Deploy to the cloud.
 - Re-design UI.
