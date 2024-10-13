@@ -55,7 +55,7 @@ def knn_search(query_vector, playlist, num_results=5):
     logger.info("Starting the sending KNN search query .....")
     
     knn = {
-        "field": "text_video_vector",     # options: "text_vector", "video_vector", "text_video_vector"
+        "field": "text_vector",     # options: "text_vector", "video_vector", "text_video_vector"
         "query_vector": query_vector,
         "k": num_results,
         "num_candidates": 10000, 

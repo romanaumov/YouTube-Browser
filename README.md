@@ -168,9 +168,9 @@ There were developed the following dashboards:
     * [ ] 1 point: No knowledge base is used, and the LLM is queried directly
     * [x] 2 points: Both a knowledge base and an LLM are used in the RAG flow 
 * Retrieval evaluation
-    * [x] 0 points: No evaluation of retrieval is provided
+    * [ ] 0 points: No evaluation of retrieval is provided
     * [ ] 1 point: Only one retrieval approach is evaluated
-    * [ ] 2 points: Multiple retrieval approaches are evaluated, and the best one is used
+    * [x] 2 points: Multiple retrieval approaches are evaluated, and the best one is used
 * RAG evaluation
     * [ ] 0 points: No evaluation of RAG is provided
     * [x] 1 point: Only one RAG approach (e.g., one prompt) is evaluated
@@ -196,7 +196,7 @@ There were developed the following dashboards:
     * [ ] 1 point: Some instructions are provided but are incomplete, OR instructions are clear and complete, the code works, but the data is missing
     * [x] 2 points: Instructions are clear, the dataset is accessible, it's easy to run the code, and it works. The versions for all dependencies are specified.
 * Best practices
-    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
+    * [x] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
     * [ ] Document re-ranking (1 point)
     * [ ] User query rewriting (1 point)
 * Bonus points (not covered in the course)

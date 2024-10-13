@@ -23,7 +23,7 @@ def get_db_connection():
 def init_db():
     conn = get_db_connection()
     try:
-        logger.info("Trying to create table conversations and feedback...")
+        logger.info("Executing scripts for creating conversations and feedback tables ...")
         with conn.cursor() as cur:
             # cur.execute("DROP TABLE IF EXISTS feedback")
             # cur.execute("DROP TABLE IF EXISTS conversations")
@@ -57,9 +57,8 @@ def init_db():
                 );
             """)
         conn.commit()
-        logger.info("Tables was successfully created.")
+        logger.info("Scripts for tables creating were successfully completed.")
     finally:
-        logger.error("Creation of tables failed.")
         conn.close()
 
 # Save conversations into Postgres DB
@@ -98,9 +97,8 @@ def save_conversation(conversation_id, question, answer_data, playlist, timestam
                 ),
             )
         conn.commit()
-        logger.info("Conversations was successfully saved.")
+        logger.info("Scripts for saving conversations were successfully completed.")
     finally:
-        logger.error("Saving of the conversation failed.")
         conn.close()
 
 # Save feedback into Postgres DB
@@ -133,9 +131,8 @@ def save_feedback(conversation_id, feedback, timestamp=None):
                 ),
             )
         conn.commit()
-        logger.info("Feedback was successfully saved.")
+        logger.info("Scripts for saving feedbacks were successfully completed.")
     finally:
-        logger.error("Saving of the feedback failed.")
         conn.close()
 
 # Get up to 5 recent conversations from Postgres DB       
@@ -155,9 +152,8 @@ def get_recent_conversations(limit=5, relevance=None):
 
             cur.execute(query, (limit,))
             return cur.fetchall()
-        logger.info("Conversations were successfully extracted.")
+        logger.info("Scripts for extracting conversations were successfully completed.")
     finally:
-        logger.error("Getting the conversations failed.")
         conn.close()
 
 # Get feedback statistics from Postgres DB
@@ -173,8 +169,7 @@ def get_feedback_stats():
                 FROM feedback
             """)
             return cur.fetchone()
-        logger.info("Feedbacks were successfully extracted.")
+        logger.info("Scripts for extracting feedbacks were successfully completed.")
     finally:
-        logger.error("Getting the Feedbacks failed.")
         conn.close()
     

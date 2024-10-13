@@ -25,6 +25,7 @@ services:
     depends_on:
       - postgres
       - elasticsearch
+      - ingestion
   
   # Elasticsearch
   elasticsearch:
