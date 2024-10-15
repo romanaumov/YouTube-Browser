@@ -23,10 +23,7 @@ As part of the project, code was developed that allows you to download audio tra
 
 ## Demo of the YouTube Browser application
 
-<video width="640" height="360" controls>
-    <source src="./images/demo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/3f87e972-b5d0-423c-bfc4-d8e999713038
 
 
 ## Files and directory description
