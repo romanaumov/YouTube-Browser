@@ -90,7 +90,7 @@ git clone https://github.com/romanaumov/YouTube-Browser.git
 ```
 ### 2. Set up environmental variables
 
-Set up environmental variables in file `.env`. Example of this file you can find in the main directory of the project with name `.env.example`.
+Rename `.env.example` file to `.env` and set up environmental variables. Example of this file you can find in the main directory of the project `.env.example`.
 
 ### 3. Install Docker and  Docker-compose
 
@@ -199,6 +199,5 @@ The entire YouTube Browser project was developed as a part of LLM Zoomcamp. The 
 
 - Try Hybrid search: combining both text and vector search and evaluate it.
 - Deploy to the cloud.
-- Re-design UI.
 
 If you have any questions, please feel free to ask me.
