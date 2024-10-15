@@ -16631,3 +16631,1351 @@ YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
 2024-10-15 08:30:20,757 - config - INFO - Trying to get feedbacks ...
 2024-10-15 08:30:20,769 - config - INFO - The following method has been selected: Text
 2024-10-15 08:30:20,778 - config - INFO - YouTube Browser app completed
+2024-10-15 08:36:45,870 - config - INFO - YouTube Browser app started
+2024-10-15 08:36:45,870 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:36:45,871 - config - INFO - New conversation started with ID: 8b5d52f6-2479-4246-bb10-d5c8e6f5414e
+2024-10-15 08:36:45,874 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:36:45,880 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:36:45,889 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:36:45,910 - config - INFO - The following method has been selected: Text
+2024-10-15 08:36:45,930 - config - INFO - YouTube Browser app completed
+2024-10-15 08:37:10,555 - config - INFO - YouTube Browser app started
+2024-10-15 08:37:10,555 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:37:10,567 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:37:10,574 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:37:10,586 - config - INFO - The following method has been selected: Text
+2024-10-15 08:37:10,596 - config - INFO - YouTube Browser app completed
+2024-10-15 08:37:10,759 - config - INFO - YouTube Browser app started
+2024-10-15 08:37:10,760 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:37:10,768 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:37:10,777 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:37:10,792 - config - INFO - The following method has been selected: Text
+2024-10-15 08:37:10,796 - config - INFO - User asked: 'What author of the course think about Universe?'
+2024-10-15 08:37:10,798 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:37:10,799 - config - INFO - Starting the RAG query .....
+2024-10-15 08:37:10,800 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:37:10,801 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:37:10,816 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.015s]
+2024-10-15 08:37:10,821 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:37:10,822 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:37:10,822 - config - INFO - Starting the build prompt .....
+2024-10-15 08:37:10,822 - config - INFO - Building prompt was completed.
+2024-10-15 08:37:10,822 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What author of the course think about Universe?
+
+    CONTEXT: Answer: the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS. What is this? Well,
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2736s
+
+Answer: for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity,
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=516s
+
+Answer: OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So let me just write some mark down here just to keep things neat. So we'll say spectral
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=548s
+
+Answer: the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=539s
+
+Answer: So now we're not summing an infinite number of samples, but rather we uh constrain we consider only an N number of samples and this is great. Now, we wave our magic when once, once again, and we finally get to the definition of the discrete fourier transform as is used like throughout the world and perhaps the universe and it's this one over here. And as you can see like the last bit that we changed was this, instead of having the frequency F, we have this K divided by N or capital N. Now we changed it here and we obviously changed it here as well because we had F here previously. OK. But what is this K thing? Well, to understand what is K,
+    Video Title: Discrete Fourier Transform Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=898s
+2024-10-15 08:37:10,822 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:37:14,477 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:37:14,479 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:37:14,479 - config - INFO - Answer from OpenAI: The author of the course seems to imply a universal aspect to the discrete Fourier transform, suggesting that it is used "throughout the world and perhaps the universe." 
+
+Video Title: Discrete Fourier Transform Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=ZUi_jdOyxIQ&t=898s 
+2024-10-15 08:37:14,479 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:37:14,479 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:37:18,162 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:37:18,165 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:37:18,165 - config - INFO - Answer from OpenAI: {
+    "Relevance": "PARTICULARLY_RELEVANT",
+    "Explanation": "The generated answer directly addresses the question regarding the author's perspective on the universe by referencing a statement made in the course about the universal applicability of the discrete Fourier transform. This indicates the author sees a significant connection between the mathematical concept and the universe, thus making the answer particularly relevant to the question."
+} 
+2024-10-15 08:37:18,165 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:37:18,166 - config - INFO - Relevance: PARTICULARLY_RELEVANT, Explanation: The generated answer directly addresses the question regarding the author's perspective on the universe by referencing a statement made in the course about the universal applicability of the discrete Fourier transform. This indicates the author sees a significant connection between the mathematical concept and the universe, thus making the answer particularly relevant to the question.
+2024-10-15 08:37:18,166 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:37:18,166 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:37:18,167 - config - INFO - RAG query was completed.
+2024-10-15 08:37:18,167 - config - INFO - Answer received in 7.37 seconds.
+2024-10-15 08:37:18,179 - config - INFO - Trying to save conversation...
+2024-10-15 08:37:18,184 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:37:18,191 - config - INFO - YouTube Browser app completed
+2024-10-15 08:37:23,316 - config - INFO - YouTube Browser app started
+2024-10-15 08:37:23,317 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:37:23,330 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:37:23,340 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:37:23,350 - config - INFO - The following method has been selected: Text
+2024-10-15 08:37:23,355 - config - INFO - Negative feedback received. New count: -1
+2024-10-15 08:37:23,362 - config - INFO - Trying to save feedback...
+2024-10-15 08:37:23,375 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:37:23,376 - config - INFO - Negative feedback saved to database
+2024-10-15 08:37:23,378 - config - INFO - YouTube Browser app completed
+2024-10-15 08:37:58,505 - config - INFO - YouTube Browser app started
+2024-10-15 08:37:58,505 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:37:58,521 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:37:58,529 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:37:58,538 - config - INFO - The following method has been selected: Text
+2024-10-15 08:37:58,545 - config - INFO - YouTube Browser app completed
+2024-10-15 08:38:04,983 - config - INFO - YouTube Browser app started
+2024-10-15 08:38:04,984 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:38:04,985 - config - INFO - New conversation started with ID: 1a153c66-f02d-45df-b32d-5e9cd8e2b0d8
+2024-10-15 08:38:04,985 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:38:04,993 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:38:05,002 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:38:05,020 - config - INFO - The following method has been selected: Text
+2024-10-15 08:38:05,030 - config - INFO - YouTube Browser app completed
+2024-10-15 08:40:22,109 - config - INFO - YouTube Browser app started
+2024-10-15 08:40:22,110 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:40:22,118 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:40:22,130 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:40:22,147 - config - INFO - The following method has been selected: Text
+2024-10-15 08:40:22,156 - config - INFO - YouTube Browser app completed
+2024-10-15 08:40:25,093 - config - INFO - YouTube Browser app started
+2024-10-15 08:40:25,095 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:40:25,099 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:40:25,106 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:40:25,118 - config - INFO - The following method has been selected: Text
+2024-10-15 08:40:25,136 - config - INFO - YouTube Browser app completed
+2024-10-15 08:40:30,947 - config - INFO - YouTube Browser app started
+2024-10-15 08:40:30,949 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:40:30,955 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:40:30,963 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:40:30,975 - config - INFO - The following method has been selected: Text
+2024-10-15 08:40:30,985 - config - INFO - YouTube Browser app completed
+2024-10-15 08:40:31,149 - config - INFO - YouTube Browser app started
+2024-10-15 08:40:31,149 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:40:31,154 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:40:31,162 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:40:31,176 - config - INFO - The following method has been selected: Text
+2024-10-15 08:40:31,178 - config - INFO - User asked: 'How Mel-Spectrogram can be used in applications?'
+2024-10-15 08:40:31,183 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:40:31,184 - config - INFO - Starting the RAG query .....
+2024-10-15 08:40:31,184 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:40:31,185 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:40:31,205 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.019s]
+2024-10-15 08:40:31,211 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:40:31,213 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:40:31,213 - config - INFO - Starting the build prompt .....
+2024-10-15 08:40:31,213 - config - INFO - Building prompt was completed.
+2024-10-15 08:40:31,213 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: How Mel-Spectrogram can be used in applications?
+
+    CONTEXT: Answer: Hey everybody and welcome to a new exciting video and the audio signal processing for machine learning series. This time we'll be looking into mel spectrograms. This is a flavor of spectrograms that is extensively used in A I audio research and A I audio real world applications. But before we get started into mel spectrograms, I want to give you an overview of what we did over the last couple of videos and that is the short time fourier transform. And we also looked into extracting and visualizing spectrograms. Now, if you're not familiar with this concept, I highly suggest you to go check out my previous two videos, cos what I'm going to say next in the video builds on top of this two notions extensively. Now without further ado let's move on to this visualization of a spectrogram. And as you can see here on the X axis, we have time on the Y axis. As usual we have uh frequency and each point which is represented by a color in this two D representation uh tells us how present a certain frequency is at each point in time.
+    Video Title: Mel Spectrograms Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s
+
+Answer: So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=358s
+
+Answer: uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s
+
+Answer: we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=383s
+
+Answer: is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today
+    Video Title: Frequency-Domain Audio Features
+    YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s
+2024-10-15 08:40:31,213 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:40:34,372 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:40:34,374 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:40:34,374 - config - INFO - Answer from OpenAI: Mel-Spectrogram can be used in applications such as music processing, including problems like music genre classification and mood classification. 
+
+Video Title: Frequency-Domain Audio Features  
+YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s 
+2024-10-15 08:40:34,374 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:40:34,374 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:40:36,829 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:40:36,831 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:40:36,834 - config - INFO - Answer from OpenAI: {
+    "Relevance": "PARTICULARLY_RELEVANT",
+    "Explanation": "The generated answer specifically addresses the application of Mel-Spectrogram in music processing, directly relating to the question about its use in applications. It provides concrete examples like music genre classification and mood classification, which enhances its relevance."
+} 
+2024-10-15 08:40:36,834 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:40:36,834 - config - INFO - Relevance: PARTICULARLY_RELEVANT, Explanation: The generated answer specifically addresses the application of Mel-Spectrogram in music processing, directly relating to the question about its use in applications. It provides concrete examples like music genre classification and mood classification, which enhances its relevance.
+2024-10-15 08:40:36,835 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:40:36,836 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:40:36,836 - config - INFO - RAG query was completed.
+2024-10-15 08:40:36,837 - config - INFO - Answer received in 5.65 seconds.
+2024-10-15 08:40:36,846 - config - INFO - Trying to save conversation...
+2024-10-15 08:40:36,858 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:40:36,869 - config - INFO - YouTube Browser app completed
+2024-10-15 08:41:03,386 - config - INFO - YouTube Browser app started
+2024-10-15 08:41:03,387 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:41:03,402 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:41:03,413 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:41:03,426 - config - INFO - The following method has been selected: Text
+2024-10-15 08:41:03,432 - config - INFO - Positive feedback received. New count: 1
+2024-10-15 08:41:03,437 - config - INFO - Trying to save feedback...
+2024-10-15 08:41:03,451 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:41:03,455 - config - INFO - Positive feedback saved to database
+2024-10-15 08:41:03,458 - config - INFO - YouTube Browser app completed
+2024-10-15 08:41:15,812 - config - INFO - YouTube Browser app started
+2024-10-15 08:41:15,813 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:41:15,823 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:41:15,832 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:41:15,849 - config - INFO - The following method has been selected: Text
+2024-10-15 08:41:15,863 - config - INFO - YouTube Browser app completed
+2024-10-15 08:41:16,031 - config - INFO - YouTube Browser app started
+2024-10-15 08:41:16,032 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:41:16,038 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:41:16,049 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:41:16,059 - config - INFO - The following method has been selected: Text
+2024-10-15 08:41:16,061 - config - INFO - User asked: 'What author of the course think about Aliens?'
+2024-10-15 08:41:16,063 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:41:16,065 - config - INFO - Starting the RAG query .....
+2024-10-15 08:41:16,066 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:41:16,066 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:41:16,095 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.028s]
+2024-10-15 08:41:16,102 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:41:16,106 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:41:16,106 - config - INFO - Starting the build prompt .....
+2024-10-15 08:41:16,106 - config - INFO - Building prompt was completed.
+2024-10-15 08:41:16,107 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What author of the course think about Aliens?
+
+    CONTEXT: Answer: the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS. What is this? Well,
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2736s
+
+Answer: for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity,
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=516s
+
+Answer: OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So let me just write some mark down here just to keep things neat. So we'll say spectral
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=548s
+
+Answer: the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=539s
+
+Answer: access the equivalency values like that are like on the lower end are the ones that provide information about like the spectral envelope, right? The quiery values on the higher end are the ones that provide information about the the glottal pulse we're not interested in the glottal pulse we are interested in the spectral envelope or in other words, interested in the vocal trait um frequency response because that provides us information about the the stuff that perceptually the most relevant the phones, the foreman. OK. So the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2695s
+2024-10-15 08:41:16,107 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:41:18,406 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:41:18,408 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:41:18,408 - config - INFO - Answer from OpenAI: Answer: The context does not provide any information about the author's thoughts on aliens.
+
+Video Title: N/A  
+YouTube Link: N/A 
+2024-10-15 08:41:18,409 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:41:18,409 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:41:20,146 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:41:20,148 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:41:20,148 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer states that there is no information available regarding the author's thoughts on aliens, which does not address the question about the author's views. Therefore, it is considered not relevant." 
+} 
+2024-10-15 08:41:20,148 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:41:20,149 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer states that there is no information available regarding the author's thoughts on aliens, which does not address the question about the author's views. Therefore, it is considered not relevant.
+2024-10-15 08:41:20,149 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:41:20,149 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:41:20,149 - config - INFO - RAG query was completed.
+2024-10-15 08:41:20,149 - config - INFO - Answer received in 4.08 seconds.
+2024-10-15 08:41:20,157 - config - INFO - Trying to save conversation...
+2024-10-15 08:41:20,169 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:41:20,177 - config - INFO - YouTube Browser app completed
+2024-10-15 08:41:24,020 - config - INFO - YouTube Browser app started
+2024-10-15 08:41:24,020 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:41:24,025 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:41:24,034 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:41:24,048 - config - INFO - The following method has been selected: Text
+2024-10-15 08:41:24,054 - config - INFO - Positive feedback received. New count: 2
+2024-10-15 08:41:24,063 - config - INFO - Trying to save feedback...
+2024-10-15 08:41:24,080 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:41:24,081 - config - INFO - Positive feedback saved to database
+2024-10-15 08:41:24,083 - config - INFO - YouTube Browser app completed
+2024-10-15 08:41:50,662 - config - INFO - YouTube Browser app started
+2024-10-15 08:41:50,665 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:41:50,673 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:41:50,688 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:41:50,704 - config - INFO - The following method has been selected: Text
+2024-10-15 08:41:50,720 - config - INFO - Trying to get recent conversations ...
+2024-10-15 08:41:50,738 - config - INFO - YouTube Browser app completed
+2024-10-15 08:42:00,519 - config - INFO - YouTube Browser app started
+2024-10-15 08:42:00,519 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:42:00,526 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:42:00,537 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:42:00,549 - config - INFO - The following method has been selected: Text
+2024-10-15 08:42:00,571 - config - INFO - Trying to get recent conversations ...
+2024-10-15 08:42:00,594 - config - INFO - YouTube Browser app completed
+2024-10-15 08:49:26,066 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+2024-10-15 08:49:30,966 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-10-15 08:49:31,030 - config - INFO - YouTube Browser app started
+2024-10-15 08:49:31,031 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:49:31,031 - config - INFO - New conversation started with ID: 2c3d6afc-c642-4299-971a-c5c78ad04261
+2024-10-15 08:49:31,032 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:49:31,036 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:49:31,045 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:49:31,057 - config - INFO - The following method has been selected: Text
+2024-10-15 08:49:31,067 - config - INFO - YouTube Browser app completed
+2024-10-15 08:52:17,740 - config - INFO - YouTube Browser app started
+2024-10-15 08:52:17,741 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:52:17,755 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:52:17,766 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:52:17,789 - config - INFO - The following method has been selected: Text
+2024-10-15 08:52:17,797 - config - INFO - YouTube Browser app completed
+2024-10-15 08:52:20,052 - config - INFO - YouTube Browser app started
+2024-10-15 08:52:20,053 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:52:20,064 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:52:20,081 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:52:20,096 - config - INFO - The following method has been selected: Text
+2024-10-15 08:52:20,108 - config - INFO - YouTube Browser app completed
+2024-10-15 08:52:29,485 - config - INFO - YouTube Browser app started
+2024-10-15 08:52:29,485 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:52:29,498 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:52:29,509 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:52:29,528 - config - INFO - The following method has been selected: Text
+2024-10-15 08:52:29,536 - config - INFO - YouTube Browser app completed
+2024-10-15 08:52:29,749 - config - INFO - YouTube Browser app started
+2024-10-15 08:52:29,750 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:52:29,763 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:52:29,774 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:52:29,796 - config - INFO - The following method has been selected: Text
+2024-10-15 08:52:29,799 - config - INFO - User asked: 'What is a frequency?'
+2024-10-15 08:52:29,800 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:52:29,800 - config - INFO - Starting the RAG query .....
+2024-10-15 08:52:29,801 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:52:29,802 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:52:29,825 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.023s]
+2024-10-15 08:52:29,832 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:52:29,832 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:52:29,832 - config - INFO - Starting the build prompt .....
+2024-10-15 08:52:29,832 - config - INFO - Building prompt was completed.
+2024-10-15 08:52:29,833 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is a frequency?
+
+    CONTEXT: Answer: OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.
+    Video Title: Short-Time Fourier Transform Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s
+
+Answer: obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates. What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
+
+Answer: uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s
+
+Answer: the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=231s
+
+Answer: What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second. Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=544s
+2024-10-15 08:52:29,833 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:52:34,567 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:52:34,570 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:52:34,570 - config - INFO - Answer from OpenAI: A frequency is a split frequency given in Hertz, which is divided by the frequency delta per bin. It represents how continuous frequencies are mapped onto discrete frequency bins in a spectrogram.
+
+Video Title: Implementing Band Energy Ratio in Python from Scratch  
+YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s 
+2024-10-15 08:52:34,571 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:52:34,571 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:52:37,880 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:52:37,882 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:52:37,882 - config - INFO - Answer from OpenAI: {
+    "Relevance": "PARTICULARLY_RELEVANT",
+    "Explanation": "The generated answer provides a definition of frequency in terms of Hertz and its relation to discrete frequency bins in a spectrogram, which is relevant to the concept of frequency. However, it could benefit from a more general explanation of frequency beyond the context of spectrograms to be fully comprehensive."
+} 
+2024-10-15 08:52:37,882 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:52:37,882 - config - INFO - Relevance: PARTICULARLY_RELEVANT, Explanation: The generated answer provides a definition of frequency in terms of Hertz and its relation to discrete frequency bins in a spectrogram, which is relevant to the concept of frequency. However, it could benefit from a more general explanation of frequency beyond the context of spectrograms to be fully comprehensive.
+2024-10-15 08:52:37,883 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:52:37,883 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:52:37,883 - config - INFO - RAG query was completed.
+2024-10-15 08:52:37,883 - config - INFO - Answer received in 8.08 seconds.
+2024-10-15 08:52:37,890 - config - INFO - Trying to save conversation...
+2024-10-15 08:52:37,903 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:52:37,912 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:12,667 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:12,672 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:12,685 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:12,696 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:12,716 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:12,728 - config - INFO - Negative feedback received. New count: -1
+2024-10-15 08:53:12,737 - config - INFO - Trying to save feedback...
+2024-10-15 08:53:12,750 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:53:12,751 - config - INFO - Negative feedback saved to database
+2024-10-15 08:53:12,754 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:22,125 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:22,126 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:22,138 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:22,149 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:22,166 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:22,177 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:22,403 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:22,404 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:22,420 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:22,434 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:22,452 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:22,458 - config - INFO - User asked: 'How Mel-Spectrogram can be used in applications?'
+2024-10-15 08:53:22,462 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:53:22,463 - config - INFO - Starting the RAG query .....
+2024-10-15 08:53:22,465 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:53:22,466 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:53:22,481 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.015s]
+2024-10-15 08:53:22,489 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:53:22,490 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:53:22,490 - config - INFO - Starting the build prompt .....
+2024-10-15 08:53:22,491 - config - INFO - Building prompt was completed.
+2024-10-15 08:53:22,491 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: How Mel-Spectrogram can be used in applications?
+
+    CONTEXT: Answer: Hey everybody and welcome to a new exciting video and the audio signal processing for machine learning series. This time we'll be looking into mel spectrograms. This is a flavor of spectrograms that is extensively used in A I audio research and A I audio real world applications. But before we get started into mel spectrograms, I want to give you an overview of what we did over the last couple of videos and that is the short time fourier transform. And we also looked into extracting and visualizing spectrograms. Now, if you're not familiar with this concept, I highly suggest you to go check out my previous two videos, cos what I'm going to say next in the video builds on top of this two notions extensively. Now without further ado let's move on to this visualization of a spectrogram. And as you can see here on the X axis, we have time on the Y axis. As usual we have uh frequency and each point which is represented by a color in this two D representation uh tells us how present a certain frequency is at each point in time.
+    Video Title: Mel Spectrograms Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s
+
+Answer: So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=358s
+
+Answer: uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s
+
+Answer: we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=383s
+
+Answer: is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today
+    Video Title: Frequency-Domain Audio Features
+    YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s
+2024-10-15 08:53:22,492 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:53:25,460 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:53:25,461 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:53:25,462 - config - INFO - Answer from OpenAI: Mel-Spectrograms are extensively used in AI audio research and real-world applications, particularly in music processing tasks such as music genre classification and mood classification. 
+
+Video Title: Mel Spectrograms Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s 
+2024-10-15 08:53:25,462 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:53:25,462 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:53:27,610 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:53:27,611 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:53:27,611 - config - INFO - Answer from OpenAI: {
+    "Relevance": "RELEVANT",
+    "Explanation": "The generated answer directly addresses the question by explaining how Mel-Spectrograms are used in applications, specifically in AI audio research and music processing tasks like genre and mood classification. This demonstrates a clear understanding of the practical applications of Mel-Spectrograms." 
+} 
+2024-10-15 08:53:27,612 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:53:27,612 - config - INFO - Relevance: RELEVANT, Explanation: The generated answer directly addresses the question by explaining how Mel-Spectrograms are used in applications, specifically in AI audio research and music processing tasks like genre and mood classification. This demonstrates a clear understanding of the practical applications of Mel-Spectrograms.
+2024-10-15 08:53:27,612 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:53:27,612 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:53:27,612 - config - INFO - RAG query was completed.
+2024-10-15 08:53:27,612 - config - INFO - Answer received in 5.15 seconds.
+2024-10-15 08:53:27,620 - config - INFO - Trying to save conversation...
+2024-10-15 08:53:27,625 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:53:27,635 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:48,142 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:48,142 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:48,159 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:48,167 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:48,185 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:48,205 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:48,426 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:48,428 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:48,441 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:48,450 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:48,471 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:48,477 - config - ERROR - Please enter a question before submitting.
+2024-10-15 08:53:48,478 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:53,109 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:53,111 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:53,128 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:53,137 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:53,156 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:53,172 - config - INFO - YouTube Browser app completed
+2024-10-15 08:53:53,387 - config - INFO - YouTube Browser app started
+2024-10-15 08:53:53,388 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:53:53,398 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:53:53,409 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:53:53,430 - config - INFO - The following method has been selected: Text
+2024-10-15 08:53:53,432 - config - INFO - User asked: 'What is a frequency?'
+2024-10-15 08:53:53,435 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:53:53,437 - config - INFO - Starting the RAG query .....
+2024-10-15 08:53:53,437 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:53:53,438 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:53:53,457 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.018s]
+2024-10-15 08:53:53,463 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:53:53,464 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:53:53,464 - config - INFO - Starting the build prompt .....
+2024-10-15 08:53:53,464 - config - INFO - Building prompt was completed.
+2024-10-15 08:53:53,465 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is a frequency?
+
+    CONTEXT: Answer: OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.
+    Video Title: Short-Time Fourier Transform Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s
+
+Answer: obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates. What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
+
+Answer: uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s
+
+Answer: the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=231s
+
+Answer: What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second. Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=544s
+2024-10-15 08:53:53,466 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:53:57,206 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:53:57,208 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:53:57,209 - config - INFO - Answer from OpenAI: A frequency is defined as the split frequency, which is given in Hertz and is divided by the frequency delta per bin. This means that we are mapping a continuous frequency onto the closest frequency bin available, rounding to the nearest integer since frequency bins must be discrete values.
+
+Video Title: Implementing Band Energy Ratio in Python from Scratch  
+YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s 
+2024-10-15 08:53:57,209 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:53:57,209 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:54:00,572 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:54:00,574 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:54:00,575 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer does not accurately define 'frequency' in a general sense. Instead, it focuses on specific technical details related to frequency bins and their mapping, which may not be relevant for someone seeking a basic understanding of the term 'frequency'. A more general definition would include aspects such as frequency being the number of occurrences of a repeating event per unit of time, typically measured in Hertz."
+} 
+2024-10-15 08:54:00,575 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:54:00,575 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer does not accurately define 'frequency' in a general sense. Instead, it focuses on specific technical details related to frequency bins and their mapping, which may not be relevant for someone seeking a basic understanding of the term 'frequency'. A more general definition would include aspects such as frequency being the number of occurrences of a repeating event per unit of time, typically measured in Hertz.
+2024-10-15 08:54:00,575 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:54:00,576 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:54:00,576 - config - INFO - RAG query was completed.
+2024-10-15 08:54:00,576 - config - INFO - Answer received in 7.14 seconds.
+2024-10-15 08:54:00,584 - config - INFO - Trying to save conversation...
+2024-10-15 08:54:00,596 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:54:00,605 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:03,117 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:03,118 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:03,129 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:03,138 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:03,150 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:03,161 - config - INFO - Positive feedback received. New count: 0
+2024-10-15 08:54:03,168 - config - INFO - Trying to save feedback...
+2024-10-15 08:54:03,182 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:54:03,182 - config - INFO - Positive feedback saved to database
+2024-10-15 08:54:03,187 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:08,629 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:08,631 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:08,633 - config - INFO - New conversation started with ID: 344322b4-3129-45b0-93ef-4d153e4998fb
+2024-10-15 08:54:08,636 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:54:08,649 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:08,663 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:08,688 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:08,708 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:21,176 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:21,177 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:21,192 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:21,203 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:21,215 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:21,230 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:23,967 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:23,968 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:23,979 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:23,988 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:24,002 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:24,011 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:34,317 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:34,317 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:34,330 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:34,343 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:34,358 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:34,374 - config - INFO - YouTube Browser app completed
+2024-10-15 08:54:34,597 - config - INFO - YouTube Browser app started
+2024-10-15 08:54:34,598 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:54:34,606 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:54:34,620 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:54:34,637 - config - INFO - The following method has been selected: Text
+2024-10-15 08:54:34,641 - config - INFO - User asked: 'How Mel-Spectrogram can be used in applications?'
+2024-10-15 08:54:34,644 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:54:34,646 - config - INFO - Starting the RAG query .....
+2024-10-15 08:54:34,646 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:54:34,648 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:54:34,663 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.013s]
+2024-10-15 08:54:34,669 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:54:34,670 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:54:34,670 - config - INFO - Starting the build prompt .....
+2024-10-15 08:54:34,670 - config - INFO - Building prompt was completed.
+2024-10-15 08:54:34,671 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: How Mel-Spectrogram can be used in applications?
+
+    CONTEXT: Answer: Hey everybody and welcome to a new exciting video and the audio signal processing for machine learning series. This time we'll be looking into mel spectrograms. This is a flavor of spectrograms that is extensively used in A I audio research and A I audio real world applications. But before we get started into mel spectrograms, I want to give you an overview of what we did over the last couple of videos and that is the short time fourier transform. And we also looked into extracting and visualizing spectrograms. Now, if you're not familiar with this concept, I highly suggest you to go check out my previous two videos, cos what I'm going to say next in the video builds on top of this two notions extensively. Now without further ado let's move on to this visualization of a spectrogram. And as you can see here on the X axis, we have time on the Y axis. As usual we have uh frequency and each point which is represented by a color in this two D representation uh tells us how present a certain frequency is at each point in time.
+    Video Title: Mel Spectrograms Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s
+
+Answer: So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=358s
+
+Answer: uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s
+
+Answer: we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=383s
+
+Answer: is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today
+    Video Title: Frequency-Domain Audio Features
+    YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s
+2024-10-15 08:54:34,671 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:54:37,959 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:54:37,962 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:54:37,963 - config - INFO - Answer from OpenAI: Mel-Spectrograms are extensively used in AI audio research and real-world applications such as music genre classification and mood classification. They help in analyzing and visualizing audio signals effectively.
+
+Video Title: Mel Spectrograms Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s 
+2024-10-15 08:54:37,963 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:54:37,963 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:54:40,622 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:54:40,625 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:54:40,625 - config - INFO - Answer from OpenAI: {
+    "Relevance": "RELEVANT",
+    "Explanation": "The generated answer directly addresses the question by explaining how Mel-Spectrograms are utilized in specific applications, such as music genre classification and mood classification. This demonstrates their practical use in analyzing and visualizing audio signals, which is relevant to the inquiry about applications of Mel-Spectrograms."
+} 
+2024-10-15 08:54:40,626 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:54:40,626 - config - INFO - Relevance: RELEVANT, Explanation: The generated answer directly addresses the question by explaining how Mel-Spectrograms are utilized in specific applications, such as music genre classification and mood classification. This demonstrates their practical use in analyzing and visualizing audio signals, which is relevant to the inquiry about applications of Mel-Spectrograms.
+2024-10-15 08:54:40,626 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:54:40,626 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:54:40,627 - config - INFO - RAG query was completed.
+2024-10-15 08:54:40,627 - config - INFO - Answer received in 5.98 seconds.
+2024-10-15 08:54:40,637 - config - INFO - Trying to save conversation...
+2024-10-15 08:54:40,649 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:54:40,660 - config - INFO - YouTube Browser app completed
+2024-10-15 08:55:10,499 - config - INFO - YouTube Browser app started
+2024-10-15 08:55:10,500 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:55:10,502 - config - INFO - New conversation started with ID: 46b1894c-86e3-4810-97e7-738ccbfacdbb
+2024-10-15 08:55:10,502 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:55:10,517 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:55:10,532 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:55:10,563 - config - INFO - The following method has been selected: Text
+2024-10-15 08:55:10,587 - config - INFO - YouTube Browser app completed
+2024-10-15 08:55:24,219 - config - INFO - YouTube Browser app started
+2024-10-15 08:55:24,221 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:55:24,235 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:55:24,249 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:55:24,260 - config - INFO - The following method has been selected: Text
+2024-10-15 08:55:24,270 - config - INFO - YouTube Browser app completed
+2024-10-15 08:55:27,500 - config - INFO - YouTube Browser app started
+2024-10-15 08:55:27,500 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:55:27,511 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:55:27,522 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:55:27,538 - config - INFO - The following method has been selected: Text
+2024-10-15 08:55:27,552 - config - INFO - YouTube Browser app completed
+2024-10-15 08:55:38,208 - config - INFO - YouTube Browser app started
+2024-10-15 08:55:38,208 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:55:38,219 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:55:38,236 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:55:38,251 - config - INFO - The following method has been selected: Text
+2024-10-15 08:55:38,260 - config - INFO - YouTube Browser app completed
+2024-10-15 08:55:38,493 - config - INFO - YouTube Browser app started
+2024-10-15 08:55:38,493 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:55:38,503 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:55:38,516 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:55:38,531 - config - INFO - The following method has been selected: Text
+2024-10-15 08:55:38,538 - config - INFO - User asked: 'How to extract frequency from audio file?'
+2024-10-15 08:55:38,541 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:55:38,541 - config - INFO - Starting the RAG query .....
+2024-10-15 08:55:38,542 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:55:38,542 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:55:38,555 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.012s]
+2024-10-15 08:55:38,563 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:55:38,564 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:55:38,564 - config - INFO - Starting the build prompt .....
+2024-10-15 08:55:38,564 - config - INFO - Building prompt was completed.
+2024-10-15 08:55:38,564 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: How to extract frequency from audio file?
+
+    CONTEXT: Answer: Hi, everybody and welcome to a new exciting video in the audio signal processing for machine learning series. Last time we looked at mad frequency CEPT coefficients from a theoretical standpoint. In this video, I want to show you how you can extract MF CCS using Python and Libros. So let's get started with this Jupiter notebook. So the first thing I want to do is just import a bunch of libraries that we'll be using. So I'll import Li Brosa Libros dot display, ipython dot display, uh Pylot and then pie. So let's do that. Next thing we want to load uh an audio file. So which file are we gonna load? So it's a file that we, you should be familiar with by. Now it's a, a short passage of a piece from clothes, the Bey. So we're talking about classical music here.
+    Video Title: Extracting Mel-Frequency Cepstral Coefficients with Python
+    YouTube Link: https://www.youtube.com/watch?v=WJI-17MNpdE&t=0s
+
+Answer: OK. So next up what we wanna do is just like a uh yeah load uh this audio file in Li Brosa. And so for that, and you should be familiar with this right now. We do a Li Brosa dot load and we pass in the path to the file. What we get back is a signal uh which is just like an empire array and then ad sample rate and the default sample rate with libros is 22,050 Hertz. OK. So uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=68s
+
+Answer: OK. Simple C major scale uh with a piano. OK. So next up what we wanna do is just like a uh yeah load uh this audio file in Li Brosa. And so for that, and you should be familiar with this right now. We do a Li Brosa dot load and we pass in the path to the file. What we get back is a signal uh which is just like an empire array and then ad sample rate and the default sample rate with libros is 22,050 Hertz. OK. So uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file.
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=63s
+
+Answer: uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s
+
+Answer: uh we have a deep knowledge of fourier transform, short term fourier transform. And so we know how to move to the frequency domain today, we'll be looking into three frequency domain audio features specifically, these are the band energy ratio, the spectral centr and the bandwidth. I just want to say that there are a lot more frequency domain features. But for today, we'll just be focusing on these ones. OK. So um I just want to remind you about how we can extract frequent frequency domain uh features in a nutshell in a very simplistic way. What we do is we start from the waveform, then we apply a short time fourier transform and so that we get a spectrogram. And then at this point, we can compute a feature computation so that we can arrive at a feature. Now, as I said, this is a simplification of the whole process and I have a whole video that details how to extract audio features in general and the frequency domain audio features specifically. So I highly suggest you to go check out that video. Then another thing that is gonna be a
+    Video Title: Frequency-Domain Audio Features
+    YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=59s
+2024-10-15 08:55:38,565 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:55:42,637 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:55:42,639 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:55:42,639 - config - INFO - Answer from OpenAI: To extract frequency from an audio file, start by applying a short-time Fourier transform (STFT) to the audio waveform to obtain a spectrogram. From this spectrogram, you can then compute various frequency domain features. This process involves transitioning from the time domain to the frequency domain, allowing for the analysis of the audio signal's frequency components.
+
+Video Title: Frequency-Domain Audio Features  
+YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=59s 
+2024-10-15 08:55:42,639 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:55:42,639 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:55:45,885 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:55:45,887 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:55:45,888 - config - INFO - Answer from OpenAI: {
+    "Relevance": "PARTICULARLY_RELEVANT",
+    "Explanation": "The generated answer directly addresses the question by explaining the process of extracting frequency from an audio file using short-time Fourier transform (STFT) and spectrogram analysis. It provides relevant technical details that are crucial for understanding the frequency extraction process."
+} 
+2024-10-15 08:55:45,888 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:55:45,888 - config - INFO - Relevance: PARTICULARLY_RELEVANT, Explanation: The generated answer directly addresses the question by explaining the process of extracting frequency from an audio file using short-time Fourier transform (STFT) and spectrogram analysis. It provides relevant technical details that are crucial for understanding the frequency extraction process.
+2024-10-15 08:55:45,888 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:55:45,888 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:55:45,889 - config - INFO - RAG query was completed.
+2024-10-15 08:55:45,890 - config - INFO - Answer received in 7.35 seconds.
+2024-10-15 08:55:45,897 - config - INFO - Trying to save conversation...
+2024-10-15 08:55:45,909 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:55:45,919 - config - INFO - YouTube Browser app completed
+2024-10-15 08:56:28,010 - config - INFO - YouTube Browser app started
+2024-10-15 08:56:28,011 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:56:28,021 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:56:28,032 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:56:28,049 - config - INFO - The following method has been selected: Text
+2024-10-15 08:56:28,056 - config - INFO - Positive feedback received. New count: 1
+2024-10-15 08:56:28,063 - config - INFO - Trying to save feedback...
+2024-10-15 08:56:28,076 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:56:28,077 - config - INFO - Positive feedback saved to database
+2024-10-15 08:56:28,084 - config - INFO - YouTube Browser app completed
+2024-10-15 08:56:41,310 - config - INFO - YouTube Browser app started
+2024-10-15 08:56:41,311 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:56:41,327 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:56:41,339 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:56:41,358 - config - INFO - The following method has been selected: Text
+2024-10-15 08:56:41,366 - config - INFO - YouTube Browser app completed
+2024-10-15 08:56:41,586 - config - INFO - YouTube Browser app started
+2024-10-15 08:56:41,588 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:56:41,602 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:56:41,616 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:56:41,633 - config - INFO - The following method has been selected: Text
+2024-10-15 08:56:41,638 - config - INFO - User asked: 'What author of the course think about Aliens?'
+2024-10-15 08:56:41,642 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:56:41,648 - config - INFO - Starting the RAG query .....
+2024-10-15 08:56:41,650 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:56:41,651 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:56:41,672 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.018s]
+2024-10-15 08:56:41,677 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:56:41,678 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:56:41,678 - config - INFO - Starting the build prompt .....
+2024-10-15 08:56:41,679 - config - INFO - Building prompt was completed.
+2024-10-15 08:56:41,679 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What author of the course think about Aliens?
+
+    CONTEXT: Answer: the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that it's not necessarily gonna improve the quality of your algorithms like that much. But there's another strategy that's probably gonna like boost the accuracy of your ML uh machine learning algorithms quite a lot and it's taking the 1st and 2nd derivatives of MF CCS or in other words, taking the delta and the delta delta of MF CCS. What is this? Well,
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2736s
+
+Answer: for uh the Beau C which is like this curve in blue. And for the Duke Ellington piece, uh now, uh this is something that is usually the case. So usually like which rock music you or like EDM popular music, you tend to have spectral cent rates that are like a little bit higher than uh the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity,
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=516s
+
+Answer: OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So let me just write some mark down here just to keep things neat. So we'll say spectral
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=548s
+
+Answer: the other like pieces that are that use tend to use like acoustic instruments like classical music or like jazz. OK. So uh now, of course, like if you don't remember like what the spectral cent is, I highly suggest you to Coche couch like this video will explain like what the spectral centro is. But in a nutshell, we are talking about the center of gravity, see the frequency, that's the main center of gravity for a piece and it's calculated like for each frame. And so here we have just like a curve that goes through the whole duration of the signal. And at each frame we're getting a value for the spectral Centroid. OK. So now we can move on uh to the spectral bandwidth and we can calculate it with uh libros. So
+    Video Title: Extracting Spectral Centroid and Bandwidth with Python and Librosa
+    YouTube Link: https://www.youtube.com/watch?v=j6NTatoi928&t=539s
+
+Answer: access the equivalency values like that are like on the lower end are the ones that provide information about like the spectral envelope, right? The quiery values on the higher end are the ones that provide information about the the glottal pulse we're not interested in the glottal pulse we are interested in the spectral envelope or in other words, interested in the vocal trait um frequency response because that provides us information about the the stuff that perceptually the most relevant the phones, the foreman. OK. So the moment you take like the the the initial coefficients you are taking information about like those forms, higher coefficients provide us information about uh fast changing spectral uh details information, right. And we don't really need that that much for a speech recognition. We're more interested in cellular performance as we said multiple times. So all of this to say that of course, you can take more anesthesia but that
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2695s
+2024-10-15 08:56:41,680 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:56:44,731 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:56:44,733 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:56:44,734 - config - INFO - Answer from OpenAI: Answer: The provided context does not contain any information regarding the author's thoughts about aliens. 
+
+Video Title: Mel-Frequency Cepstral Coefficients Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2736s 
+2024-10-15 08:56:44,734 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:56:44,735 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:56:47,798 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:56:47,800 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:56:47,800 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer states that there is no information about the author's thoughts on aliens in the provided context, which directly addresses the question but fails to provide any relevant information or insight regarding the topic of aliens. Therefore, it does not contribute to answering the question."
+} 
+2024-10-15 08:56:47,801 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:56:47,801 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer states that there is no information about the author's thoughts on aliens in the provided context, which directly addresses the question but fails to provide any relevant information or insight regarding the topic of aliens. Therefore, it does not contribute to answering the question.
+2024-10-15 08:56:47,801 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:56:47,801 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:56:47,801 - config - INFO - RAG query was completed.
+2024-10-15 08:56:47,802 - config - INFO - Answer received in 6.15 seconds.
+2024-10-15 08:56:47,812 - config - INFO - Trying to save conversation...
+2024-10-15 08:56:47,826 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:56:47,836 - config - INFO - YouTube Browser app completed
+2024-10-15 08:57:10,796 - config - INFO - YouTube Browser app started
+2024-10-15 08:57:10,796 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:57:10,817 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:57:10,824 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:57:10,840 - config - INFO - The following method has been selected: Text
+2024-10-15 08:57:10,855 - config - INFO - YouTube Browser app completed
+2024-10-15 08:57:40,822 - config - INFO - YouTube Browser app started
+2024-10-15 08:57:40,825 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:57:40,841 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:57:40,852 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:57:40,874 - config - INFO - The following method has been selected: Text
+2024-10-15 08:57:40,881 - config - INFO - YouTube Browser app completed
+2024-10-15 08:57:59,061 - config - INFO - YouTube Browser app started
+2024-10-15 08:57:59,066 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:57:59,079 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:57:59,095 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:57:59,109 - config - INFO - The following method has been selected: Text
+2024-10-15 08:57:59,122 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:06,664 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:06,665 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:06,674 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:06,684 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:06,701 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:06,704 - config - INFO - User asked: 'What is the best way to get to Antarctica?'
+2024-10-15 08:58:06,705 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:58:06,706 - config - INFO - Starting the RAG query .....
+2024-10-15 08:58:06,707 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:58:06,709 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:58:06,726 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.016s]
+2024-10-15 08:58:06,732 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:58:06,733 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:58:06,733 - config - INFO - Starting the build prompt .....
+2024-10-15 08:58:06,733 - config - INFO - Building prompt was completed.
+2024-10-15 08:58:06,734 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is the best way to get to Antarctica?
+
+    CONTEXT: Answer: spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=902s
+
+Answer: earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum.
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2138s
+
+Answer: if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum. And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2164s
+
+Answer: dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram.
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=904s
+
+Answer: the thing here is that, so now let's go back to one here. Uh The cool thing here is that we can think of the complex fourier transform coefficient as this point in the complex plane, right? And so now you get a kind of like idea of how we get to that single point uh taking the foreign transform and basically going through the hassle of calculating all of this best, right.
+    Video Title: Defining the Fourier Transform with Complex Numbers
+    YouTube Link: https://www.youtube.com/watch?v=KxRmbtJWUzI&t=1544s
+2024-10-15 08:58:06,734 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:58:08,919 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:58:08,921 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:58:08,921 - config - INFO - Answer from OpenAI: Answer: The context does not provide information on the best way to get to Antarctica.
+
+Video Title: N/A
+YouTube Link: N/A 
+2024-10-15 08:58:08,921 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:58:08,922 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:58:11,084 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:58:11,086 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:58:11,086 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer does not provide any information or guidance regarding the best way to get to Antarctica, as it states that the context does not offer such information. Therefore, it does not address the question at all."
+} 
+2024-10-15 08:58:11,086 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:58:11,086 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer does not provide any information or guidance regarding the best way to get to Antarctica, as it states that the context does not offer such information. Therefore, it does not address the question at all.
+2024-10-15 08:58:11,086 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:58:11,086 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:58:11,087 - config - INFO - RAG query was completed.
+2024-10-15 08:58:11,087 - config - INFO - Answer received in 4.38 seconds.
+2024-10-15 08:58:11,097 - config - INFO - Trying to save conversation...
+2024-10-15 08:58:11,109 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:58:11,121 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:14,608 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:14,609 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:14,614 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:14,624 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:14,640 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:14,649 - config - INFO - Positive feedback received. New count: 2
+2024-10-15 08:58:14,657 - config - INFO - Trying to save feedback...
+2024-10-15 08:58:14,672 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:58:14,673 - config - INFO - Positive feedback saved to database
+2024-10-15 08:58:14,675 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:30,623 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:30,624 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:30,636 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:30,647 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:30,668 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:30,679 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:33,556 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:33,557 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:33,564 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:33,573 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:33,591 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:33,612 - config - INFO - Trying to get recent conversations ...
+2024-10-15 08:58:33,633 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:43,865 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:43,866 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:43,874 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:43,885 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:43,901 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:43,910 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:47,758 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:47,760 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:47,761 - config - INFO - New conversation started with ID: 91856aa8-f44e-4252-867d-8a41c3ad6527
+2024-10-15 08:58:47,762 - config - INFO - Feedback count initialized to zero.
+2024-10-15 08:58:47,772 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:47,783 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:47,803 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:47,820 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:56,410 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:56,410 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:56,422 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:56,434 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:56,457 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:56,469 - config - INFO - YouTube Browser app completed
+2024-10-15 08:58:58,317 - config - INFO - YouTube Browser app started
+2024-10-15 08:58:58,318 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:58:58,332 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:58:58,345 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:58:58,357 - config - INFO - The following method has been selected: Text
+2024-10-15 08:58:58,370 - config - INFO - YouTube Browser app completed
+2024-10-15 08:59:12,901 - config - INFO - YouTube Browser app started
+2024-10-15 08:59:12,904 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:59:12,920 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:59:12,933 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:59:12,946 - config - INFO - The following method has been selected: Text
+2024-10-15 08:59:12,960 - config - INFO - YouTube Browser app completed
+2024-10-15 08:59:13,190 - config - INFO - YouTube Browser app started
+2024-10-15 08:59:13,191 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:59:13,207 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:59:13,215 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:59:13,235 - config - INFO - The following method has been selected: Text
+2024-10-15 08:59:13,240 - config - INFO - User asked: 'How Mel-Spectrogram can be used in applications?'
+2024-10-15 08:59:13,242 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 08:59:13,243 - config - INFO - Starting the RAG query .....
+2024-10-15 08:59:13,243 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 08:59:13,243 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 08:59:13,271 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.027s]
+2024-10-15 08:59:13,278 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 08:59:13,279 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 08:59:13,279 - config - INFO - Starting the build prompt .....
+2024-10-15 08:59:13,279 - config - INFO - Building prompt was completed.
+2024-10-15 08:59:13,280 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: How Mel-Spectrogram can be used in applications?
+
+    CONTEXT: Answer: Hey everybody and welcome to a new exciting video and the audio signal processing for machine learning series. This time we'll be looking into mel spectrograms. This is a flavor of spectrograms that is extensively used in A I audio research and A I audio real world applications. But before we get started into mel spectrograms, I want to give you an overview of what we did over the last couple of videos and that is the short time fourier transform. And we also looked into extracting and visualizing spectrograms. Now, if you're not familiar with this concept, I highly suggest you to go check out my previous two videos, cos what I'm going to say next in the video builds on top of this two notions extensively. Now without further ado let's move on to this visualization of a spectrogram. And as you can see here on the X axis, we have time on the Y axis. As usual we have uh frequency and each point which is represented by a color in this two D representation uh tells us how present a certain frequency is at each point in time.
+    Video Title: Mel Spectrograms Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s
+
+Answer: So for example, let's analyze like this second uh mel band over here. So this is like the kind of like the the center point, the center frequency where we have which that's equal to one. And then the farther we move from the center frequency of this mel band and like the the lower the weights, which basically means like that the colors tend to fade out and then uh outside of the extremity we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=358s
+
+Answer: uh moving on, uh I want to show you the male filter banks before we extract the mel spectrogram from this audio file. So if you remember from my previous video on mel spectrograms, male filter banks are really the key to getting to male spectrograms because what we do is we extract the spectrogram kind of like a vanilla spectrogram and then we apply a male filter bank to it. In other words, we do a matrix multiplication between the male filter banks and the vanilla spectrogram. And what we get is the uh male spectrogram. OK. So now let's take a look at the at how we can extract this uh filter banks. Well, if you remember I gave you like all the the five different steps we we we should put into place to, to create a male filter bank. But the great thing about Libras is that we have a utility function that does all of that for us so that we
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=96s
+
+Answer: we have like pitch black, which basically means that which is always like equal to zero. And then here you can actually see induction like this filter, um triangular filters, right? Uh for all of this uh different male bands. So yeah, um let's move on now to extracting mouse spectrograms now that we know, yeah, how to extract male filter banks and how to, yeah, just visualize them. OK. So extracting mel spectrograms is as easy in Libres as running libros dot T dash mel spectrogram. Now, if you remember uh from my previous video, well, extracting or calculating me spectrograms, uh it's kind of like quite convoluted process because what you should do is actually extracting spectrogram first vanilla spectrograms then uh uh creating a male filter bank and then apply mail filter banks to the spectrograms. And that's actually what these uh libre dot feature dot males spectrogram function does under the hood. And indeed what you should do here is pass information for both extracting um
+    Video Title: Extracting Mel Spectrograms with Python
+    YouTube Link: https://www.youtube.com/watch?v=TdnVE5m3o_0&t=383s
+
+Answer: is going to go down. And as you can see here, this is somewhat correlated with the idea of variance, right. So if the energy is spread across the spectrogram across the different sorry across the different frequency bands, then we have like a higher Varian for the energy. And if it's not, if it's just concentrated, we then have like a AAA low uh variant. And now uh the bandwidth can also be called spectral spread. So this is just another way of calling uh bandwidth. And you can now understand why that's the case, right? Because spectral spread is yeah, that idea of like where, how much the energy is spread across the frequency bands. OK. So let's take a look at the applications of the uh bandwidth. Well, uh bandwidth just like the banter and duration spectral centric has been extensively used for music processing, for example, in problems like music, genre, classification of music, mood uh classification. Now all of these features we've talked about today
+    Video Title: Frequency-Domain Audio Features
+    YouTube Link: https://www.youtube.com/watch?v=3-bjAoAxQ9o&t=822s
+2024-10-15 08:59:13,280 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:59:17,819 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:59:17,822 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:59:17,822 - config - INFO - Answer from OpenAI: Mel-Spectrograms are extensively used in AI audio research and real-world applications such as music genre classification and mood classification. 
+
+Video Title: Mel Spectrograms Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=9GHCiiDLHQ4&t=0s 
+2024-10-15 08:59:17,823 - config - INFO - Starting RAG evaluation .....
+2024-10-15 08:59:17,824 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 08:59:19,865 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 08:59:19,867 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 08:59:19,867 - config - INFO - Answer from OpenAI: {
+    "Relevance": "PARTICULARLY_RELEVANT",
+    "Explanation": "The generated answer directly addresses the question by specifying applications of Mel-Spectrograms, such as music genre classification and mood classification, which are relevant examples in the context of AI audio research."
+} 
+2024-10-15 08:59:19,868 - config - INFO - RAG evaluation was completed.
+2024-10-15 08:59:19,868 - config - INFO - Relevance: PARTICULARLY_RELEVANT, Explanation: The generated answer directly addresses the question by specifying applications of Mel-Spectrograms, such as music genre classification and mood classification, which are relevant examples in the context of AI audio research.
+2024-10-15 08:59:19,868 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 08:59:19,868 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 08:59:19,868 - config - INFO - RAG query was completed.
+2024-10-15 08:59:19,869 - config - INFO - Answer received in 6.63 seconds.
+2024-10-15 08:59:19,878 - config - INFO - Trying to save conversation...
+2024-10-15 08:59:19,891 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 08:59:19,903 - config - INFO - YouTube Browser app completed
+2024-10-15 08:59:39,828 - config - INFO - YouTube Browser app started
+2024-10-15 08:59:39,829 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:59:39,838 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:59:39,847 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:59:39,864 - config - INFO - The following method has been selected: Text
+2024-10-15 08:59:39,878 - config - INFO - Positive feedback received. New count: 1
+2024-10-15 08:59:39,889 - config - INFO - Trying to save feedback...
+2024-10-15 08:59:39,905 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 08:59:39,906 - config - INFO - Positive feedback saved to database
+2024-10-15 08:59:39,911 - config - INFO - YouTube Browser app completed
+2024-10-15 08:59:44,911 - config - INFO - YouTube Browser app started
+2024-10-15 08:59:44,911 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:59:44,925 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:59:44,936 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:59:44,956 - config - INFO - The following method has been selected: Text
+2024-10-15 08:59:44,974 - config - INFO - Trying to get recent conversations ...
+2024-10-15 08:59:45,002 - config - INFO - YouTube Browser app completed
+2024-10-15 08:59:53,278 - config - INFO - YouTube Browser app started
+2024-10-15 08:59:53,278 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 08:59:53,288 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 08:59:53,301 - config - INFO - Trying to get feedbacks ...
+2024-10-15 08:59:53,320 - config - INFO - The following method has been selected: Text
+2024-10-15 08:59:53,334 - config - INFO - YouTube Browser app completed
+2024-10-15 09:00:00,525 - config - INFO - YouTube Browser app started
+2024-10-15 09:00:00,526 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:00:00,762 - config - INFO - YouTube Browser app started
+2024-10-15 09:00:00,764 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:00:00,783 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:00:00,792 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:00:00,810 - config - INFO - The following method has been selected: Text
+2024-10-15 09:00:00,815 - config - INFO - User asked: 'What is the best way to get to Antarctica?'
+2024-10-15 09:00:00,817 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 09:00:00,817 - config - INFO - Starting the RAG query .....
+2024-10-15 09:00:00,817 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 09:00:00,818 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 09:00:00,842 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.022s]
+2024-10-15 09:00:00,848 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 09:00:00,848 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 09:00:00,849 - config - INFO - Starting the build prompt .....
+2024-10-15 09:00:00,849 - config - INFO - Building prompt was completed.
+2024-10-15 09:00:00,849 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is the best way to get to Antarctica?
+
+    CONTEXT: Answer: spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=902s
+
+Answer: earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum.
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2138s
+
+Answer: if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum. And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2164s
+
+Answer: dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram.
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=904s
+
+Answer: the thing here is that, so now let's go back to one here. Uh The cool thing here is that we can think of the complex fourier transform coefficient as this point in the complex plane, right? And so now you get a kind of like idea of how we get to that single point uh taking the foreign transform and basically going through the hassle of calculating all of this best, right.
+    Video Title: Defining the Fourier Transform with Complex Numbers
+    YouTube Link: https://www.youtube.com/watch?v=KxRmbtJWUzI&t=1544s
+2024-10-15 09:00:00,849 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:00:03,412 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:00:03,414 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:00:03,415 - config - INFO - Answer from OpenAI: Answer: The context does not provide information on the best way to get to Antarctica.
+
+Video Title: N/A  
+YouTube Link: N/A 
+2024-10-15 09:00:03,415 - config - INFO - Starting RAG evaluation .....
+2024-10-15 09:00:03,416 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:00:05,433 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:00:05,435 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:00:05,435 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer states that the context does not provide information on the best way to get to Antarctica, which does not address the question at all. It fails to provide any relevant information or alternative suggestions."
+} 
+2024-10-15 09:00:05,435 - config - INFO - RAG evaluation was completed.
+2024-10-15 09:00:05,435 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer states that the context does not provide information on the best way to get to Antarctica, which does not address the question at all. It fails to provide any relevant information or alternative suggestions.
+2024-10-15 09:00:05,435 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 09:00:05,435 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 09:00:05,435 - config - INFO - RAG query was completed.
+2024-10-15 09:00:05,436 - config - INFO - Answer received in 4.62 seconds.
+2024-10-15 09:00:05,443 - config - INFO - Trying to save conversation...
+2024-10-15 09:00:05,455 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 09:00:05,469 - config - INFO - YouTube Browser app completed
+2024-10-15 09:00:10,267 - config - INFO - YouTube Browser app started
+2024-10-15 09:00:10,267 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:00:10,279 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:00:10,289 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:00:10,303 - config - INFO - The following method has been selected: Text
+2024-10-15 09:00:10,309 - config - INFO - Positive feedback received. New count: 2
+2024-10-15 09:00:10,318 - config - INFO - Trying to save feedback...
+2024-10-15 09:00:10,333 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 09:00:10,334 - config - INFO - Positive feedback saved to database
+2024-10-15 09:00:10,337 - config - INFO - YouTube Browser app completed
+2024-10-15 09:06:15,501 - config - INFO - YouTube Browser app started
+2024-10-15 09:06:15,502 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:06:15,503 - config - INFO - New conversation started with ID: 039cedf9-4ae1-45e8-b132-a935296366b1
+2024-10-15 09:06:15,504 - config - INFO - Feedback count initialized to zero.
+2024-10-15 09:06:15,515 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:06:15,530 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:06:15,565 - config - INFO - The following method has been selected: Text
+2024-10-15 09:06:15,578 - config - INFO - YouTube Browser app completed
+2024-10-15 09:06:53,577 - config - INFO - YouTube Browser app started
+2024-10-15 09:06:53,578 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:06:53,585 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:06:53,595 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:06:53,618 - config - INFO - The following method has been selected: Text
+2024-10-15 09:06:53,625 - config - INFO - YouTube Browser app completed
+2024-10-15 09:06:55,839 - config - INFO - YouTube Browser app started
+2024-10-15 09:06:55,841 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:06:55,855 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:06:55,865 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:06:55,884 - config - INFO - The following method has been selected: Text
+2024-10-15 09:06:55,892 - config - INFO - YouTube Browser app completed
+2024-10-15 09:07:09,527 - config - INFO - YouTube Browser app started
+2024-10-15 09:07:09,528 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:07:09,543 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:07:09,554 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:07:09,570 - config - INFO - The following method has been selected: Text
+2024-10-15 09:07:09,584 - config - INFO - YouTube Browser app completed
+2024-10-15 09:07:09,813 - config - INFO - YouTube Browser app started
+2024-10-15 09:07:09,814 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:07:09,823 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:07:09,836 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:07:09,859 - config - INFO - The following method has been selected: Text
+2024-10-15 09:07:09,865 - config - INFO - User asked: 'What is a frequency?'
+2024-10-15 09:07:09,869 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 09:07:09,871 - config - INFO - Starting the RAG query .....
+2024-10-15 09:07:09,872 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 09:07:09,873 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 09:07:09,888 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.012s]
+2024-10-15 09:07:09,896 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 09:07:09,898 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 09:07:09,899 - config - INFO - Starting the build prompt .....
+2024-10-15 09:07:09,900 - config - INFO - Building prompt was completed.
+2024-10-15 09:07:09,900 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is a frequency?
+
+    CONTEXT: Answer: OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.
+    Video Title: Short-Time Fourier Transform Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s
+
+Answer: obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates. What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
+
+Answer: uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s
+
+Answer: the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=231s
+
+Answer: What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second. Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=544s
+2024-10-15 09:07:09,901 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:07:14,039 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:07:14,041 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:07:14,042 - config - INFO - Answer from OpenAI: A frequency is the number of occurrences of a repeating event per unit of time, typically measured in Hertz (Hz). In the context of digital signals, it refers to the split frequency which is given in Hertz and is divided by the frequency delta per bin.
+
+Video Title: Short-Time Fourier Transform Explained Easily  
+YouTube Link: https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s 
+2024-10-15 09:07:14,042 - config - INFO - Starting RAG evaluation .....
+2024-10-15 09:07:14,043 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:07:16,742 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:07:16,745 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:07:16,745 - config - INFO - Answer from OpenAI: {
+    "Relevance": "RELEVANT",
+    "Explanation": "The generated answer accurately defines 'frequency' as the number of occurrences of a repeating event per unit of time, which is a fundamental concept in various fields, including physics and engineering. It also mentions the typical measurement unit, Hertz (Hz), making the definition comprehensive. The reference to digital signals and split frequency adds context that is relevant to applications of the concept, particularly in signal processing, which aligns with the topic of the video."
+} 
+2024-10-15 09:07:16,746 - config - INFO - RAG evaluation was completed.
+2024-10-15 09:07:16,747 - config - INFO - Relevance: RELEVANT, Explanation: The generated answer accurately defines 'frequency' as the number of occurrences of a repeating event per unit of time, which is a fundamental concept in various fields, including physics and engineering. It also mentions the typical measurement unit, Hertz (Hz), making the definition comprehensive. The reference to digital signals and split frequency adds context that is relevant to applications of the concept, particularly in signal processing, which aligns with the topic of the video.
+2024-10-15 09:07:16,747 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 09:07:16,747 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 09:07:16,748 - config - INFO - RAG query was completed.
+2024-10-15 09:07:16,748 - config - INFO - Answer received in 6.88 seconds.
+2024-10-15 09:07:16,757 - config - INFO - Trying to save conversation...
+2024-10-15 09:07:16,765 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 09:07:16,785 - config - INFO - YouTube Browser app completed
+2024-10-15 09:07:42,528 - config - INFO - YouTube Browser app started
+2024-10-15 09:07:42,529 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:07:42,539 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:07:42,552 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:07:42,569 - config - INFO - The following method has been selected: Text
+2024-10-15 09:07:42,576 - config - INFO - Positive feedback received. New count: 1
+2024-10-15 09:07:42,584 - config - INFO - Trying to save feedback...
+2024-10-15 09:07:42,600 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 09:07:42,601 - config - INFO - Positive feedback saved to database
+2024-10-15 09:07:42,606 - config - INFO - YouTube Browser app completed
+2024-10-15 09:07:47,635 - config - INFO - YouTube Browser app started
+2024-10-15 09:07:47,636 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:07:47,650 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:07:47,660 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:07:47,681 - config - INFO - The following method has been selected: Text
+2024-10-15 09:07:47,701 - config - INFO - Trying to get recent conversations ...
+2024-10-15 09:07:47,725 - config - INFO - YouTube Browser app completed
+2024-10-15 09:07:54,862 - config - INFO - YouTube Browser app started
+2024-10-15 09:07:54,863 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:07:54,875 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:07:54,885 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:07:54,902 - config - INFO - The following method has been selected: Text
+2024-10-15 09:07:54,910 - config - INFO - YouTube Browser app completed
+2024-10-15 09:08:02,658 - config - INFO - YouTube Browser app started
+2024-10-15 09:08:02,660 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:08:02,673 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:08:02,687 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:08:02,701 - config - INFO - The following method has been selected: Text
+2024-10-15 09:08:02,714 - config - INFO - YouTube Browser app completed
+2024-10-15 09:08:02,940 - config - INFO - YouTube Browser app started
+2024-10-15 09:08:02,942 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:08:02,953 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:08:02,966 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:08:02,986 - config - INFO - The following method has been selected: Text
+2024-10-15 09:08:02,992 - config - INFO - User asked: 'What is the best way to get to Antarctica?'
+2024-10-15 09:08:02,997 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-15 09:08:02,997 - config - INFO - Starting the RAG query .....
+2024-10-15 09:08:02,998 - config - INFO - Starting the sending search query with the type: Text
+2024-10-15 09:08:02,998 - config - INFO - Starting the sending Keyword search query .....
+2024-10-15 09:08:03,018 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.019s]
+2024-10-15 09:08:03,023 - config - INFO - Keyword search query returned 5 results.
+2024-10-15 09:08:03,024 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-15 09:08:03,024 - config - INFO - Starting the build prompt .....
+2024-10-15 09:08:03,025 - config - INFO - Building prompt was completed.
+2024-10-15 09:08:03,025 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is the best way to get to Antarctica?
+
+    CONTEXT: Answer: spec dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=902s
+
+Answer: earlier. In other words, the lifting or a lifter, what we want to use here is a low pass lifter, which is basically a nice way of saying that we want a low pass filter that's just gonna remove all the values are related to the high uh equivalences. OK. And so once we do that, we remain only if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum.
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2138s
+
+Answer: if the SES coefficients connected to the spectral envelope, which is the stuff that we wanted. Now that we know about the subs we can move on and understand what male frequency subs coefficients are. The cool thing is that MFCC is built on top of sere. So that is gonna be a piece of cake for us. The best way we can understand how MFC work is by looking at how we can compute them. And this is a multi step process. Many of the steps are shared by how we compute SERE and MFCC. So let's get started. We begin with a simple waveform. So signal in the time domain, as usual we apply the full transform and we get a spectrum out of that. Next step is to apply a logarithm to the amplitude so that we get a log spectrum. And up until this point, the process for getting subs stream and male frequency subst coefficients is actually the same right. But here we have the first divergence. So what we do next is applying mel scaling. What this means is that we take the log spectrum and we apply the mall filter banks which are these triangular filters like this, right? So if you followed along
+    Video Title: Mel-Frequency Cepstral Coefficients Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=4_SH2nfbQZ8&t=2164s
+
+Answer: dot capital T. And so this way we just get the transfer of the power uh spectrum. OK? So now let's create a variable like this. So an empty list like this and this is where we'll cash the band energy ratio for each frame. And remember the band energy ratio as as a feature is is a frame best frame based feature. So we're going to have a value a band energy ratio for each frame. So and we'll be cashing it for each frame here like in this variable called band energy ratio here. OK. So we'll do now I will iterate through all the frames in the power spectrogram.
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=904s
+
+Answer: the thing here is that, so now let's go back to one here. Uh The cool thing here is that we can think of the complex fourier transform coefficient as this point in the complex plane, right? And so now you get a kind of like idea of how we get to that single point uh taking the foreign transform and basically going through the hassle of calculating all of this best, right.
+    Video Title: Defining the Fourier Transform with Complex Numbers
+    YouTube Link: https://www.youtube.com/watch?v=KxRmbtJWUzI&t=1544s
+2024-10-15 09:08:03,026 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:08:05,382 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:08:05,384 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:08:05,384 - config - INFO - Answer from OpenAI: Answer: The context does not provide any information on how to get to Antarctica.
+
+Video Title: N/A
+YouTube Link: N/A 
+2024-10-15 09:08:05,384 - config - INFO - Starting RAG evaluation .....
+2024-10-15 09:08:05,384 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-15 09:08:07,636 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-15 09:08:07,638 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-15 09:08:07,638 - config - INFO - Answer from OpenAI: {
+    "Relevance": "NOT_RELEVANT",
+    "Explanation": "The generated answer states that there is no information provided on how to get to Antarctica, which does not address the question about the best way to reach the location. Therefore, it is not relevant to the query." 
+} 
+2024-10-15 09:08:07,638 - config - INFO - RAG evaluation was completed.
+2024-10-15 09:08:07,638 - config - INFO - Relevance: NOT_RELEVANT, Explanation: The generated answer states that there is no information provided on how to get to Antarctica, which does not address the question about the best way to reach the location. Therefore, it is not relevant to the query.
+2024-10-15 09:08:07,638 - config - INFO - OpenAI costs calculation started ...
+2024-10-15 09:08:07,638 - config - INFO - OpenAI costs calculation was completed.
+2024-10-15 09:08:07,638 - config - INFO - RAG query was completed.
+2024-10-15 09:08:07,639 - config - INFO - Answer received in 4.64 seconds.
+2024-10-15 09:08:07,650 - config - INFO - Trying to save conversation...
+2024-10-15 09:08:07,662 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-15 09:08:07,675 - config - INFO - YouTube Browser app completed
+2024-10-15 09:08:11,915 - config - INFO - YouTube Browser app started
+2024-10-15 09:08:11,915 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-15 09:08:11,921 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-15 09:08:11,932 - config - INFO - Trying to get feedbacks ...
+2024-10-15 09:08:11,951 - config - INFO - The following method has been selected: Text
+2024-10-15 09:08:11,962 - config - INFO - Positive feedback received. New count: 2
+2024-10-15 09:08:11,971 - config - INFO - Trying to save feedback...
+2024-10-15 09:08:11,985 - config - INFO - Scripts for saving feedbacks were successfully completed.
+2024-10-15 09:08:11,985 - config - INFO - Positive feedback saved to database
+2024-10-15 09:08:11,988 - config - INFO - YouTube Browser app completed

@@ -21,6 +21,10 @@ The information in the YouTube Browser knowledge base contains transcribed audio
 
 As part of the project, code was developed that allows you to download audio tracks from YouTube video playlists and transcribe them using the Amazon Transcribe service. As a result, transcripts of the video content were obtained with time codes, as well as broken down into chunks. However, one chunk does not always contain complete information to answer a question. For this reason, the resulting dataset was transformed so that each chunk also contained information from the two following chunks as well. In addition, 10 questions were generated for the contents of each chunk using LLM OPenAI ChatGPT and also added to the dataset. Based on the search for the generated questions, as well as the contents of the chunks, the ranking of answers will be performed using ElasticSearch. The Context was formed based on the answer from ElasticSearch. At the final stage, LLM get the context and question from our system and generate human-readable answer based only on relevant information from out knowledge database (the samples of relevant and un-relevant answers you can see below). 
 
+## Demo of the YouTube Browser application
+
+![Demo](images/demo.mp4 "Demo")
+
 ## Files and directory description
 
 
@@ -112,32 +116,6 @@ In addition you can check the status and problems with the system via logging. T
 
 1. Use command in terminal `docker logs -f <name_of_container>`. `-f` means see logs in real-time.
 2. See logs.
-
-
-## Examples of questions and answers from RAG system
-
-**Firstly, the question which is relevant to the playlist information (Text and Vector search).**
-
-
-### How to extract frequency from audio file? - Text search
-
-![How to extract frequency from audio file? - Text search](images/frequency_text.png "How to extract frequency from audio file? - Text search")
-
-### How to extract frequency from audio file? - Vector search
-
-![How to extract frequency from audio file? - Vector search](images/frequency_vector.png "How to extract frequency from audio file? - Vector search")
-
-
-**Secondly, the question which author didn't cover in his videos (Text and Vector search).**
-
-
-### What is the best way to get to Antarctica? - Text search
-
-![What is the best way to get to Antarctica? - Text search](images/antarctica_text.png "What is the best way to get to Antarctica? - Text search")
-
-### What is the best way to get to Antarctica? - Vector search
-
-![What is the best way to get to Antarctica? - Vector search](images/antarctica_vector.png "What is the best way to get to Antarctica? - Vector search")
 
 
 ## Examples of Monitoring using Grafana
