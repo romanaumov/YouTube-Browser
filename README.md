@@ -21,7 +21,7 @@ The information in the YouTube Browser knowledge base contains transcribed audio
 
 As part of the project, code was developed that allows you to download audio tracks from YouTube video playlists and transcribe them using the Amazon Transcribe service. As a result, transcripts of the video content were obtained with time codes, as well as broken down into chunks. However, one chunk does not always contain complete information to answer a question. For this reason, the resulting dataset was transformed so that each chunk also contained information from the two following chunks as well. In addition, 10 questions were generated for the contents of each chunk using LLM OPenAI ChatGPT and also added to the dataset. Based on the search for the generated questions, as well as the contents of the chunks, the ranking of answers will be performed using ElasticSearch. The Context was formed based on the answer from ElasticSearch. At the final stage, LLM get the context and question from our system and generate human-readable answer based only on relevant information from out knowledge database (the samples of relevant and un-relevant answers you can see below). 
 
-## Demo of the YouTube Browser application
+## Demo of the YouTube Browser application (https://youtu.be/wVxdlERF5-E)
 
 
 [![YouTube Browser app demo](images/app_demo.png)](https://youtu.be/wVxdlERF5-E)
@@ -103,7 +103,7 @@ Rename `.env.example` file to `.env` and set up environmental variables. Example
 ### 3. Install Docker and  Docker-compose
 
 You need install Docker and Docker-compose to run docker containers. 
-So, it's very standard procedure. If you don't know how to install this software, please ask ChatGPT to get step-by-step instructions.
+So, it's very standard procedure, but you can ask ChatGPT or see step-by-step instructions here [How to install docker?](install_docker.md)
 
 ### 4. Run Dockers
 
@@ -119,12 +119,14 @@ docker-compose up -d
 
 After starting dockers you the streamlit application will be available at the address: `http://localhost:8501/`
 
+You can import and see Grafana dashboards at the address: `http://localhost:3000/`
+
 You can see PostgreSQL database using pgAdmin at the address: `http://localhost:8080/browser/`
 
 In addition you can check the status and problems with the system via logging. There are two ways to check:
 
 1. Use command in terminal `docker logs -f <name_of_container>`. `-f` means see logs in real-time.
-2. See logs.
+2. See logs in files locally.
 
 
 ## Examples of Monitoring using Grafana
