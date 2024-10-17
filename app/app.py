@@ -99,7 +99,7 @@ def main():
         
         st.subheader("YouTube Browser statistics")
         st.markdown('''
-                    [Dashboard](http://localhost:3000/d/adc5a433-4aa1-4226-b590-6a4b98529ae0/response-time?orgId=1&from=1728709200000&to=1729000800000)
+                    [Dashboard](http://localhost:3000/d/adc5a433-4aa1-4226-b590-6a4b98529ae0/response-time?orgId=1&from=1728709200000&to=1729141200000)
                     ''', unsafe_allow_html=True)
 
         st.write("")

@@ -23,45 +23,45 @@ As part of the project, code was developed that allows you to download audio tra
 
 ## Demo of the YouTube Browser application
 
-https://github.com/user-attachments/assets/3f87e972-b5d0-423c-bfc4-d8e999713038
+https://youtu.be/wVxdlERF5-E
 
 
 ## Files and directory description
 
 
 `app` - RAG application
-
-    `app.py` - Streamlit app (UI interface)
-
-    `db.py` - Postgres app (all queries to DB)
-
-    `es.py` - ElasticSearch app (all queries to ElasticSearch to search info)
-
-    `rag.py` - RAG app (build prompt, send queries to LLM)
-
-    `data_ingestion.py` - Ingestion app (Creating, ingestion, indexing documents)
-
-    `config.py` - Reading environmental params into variables
-
-    `data` - Directory with datasets. Contain two transcribed playlists in json format. 
-
-    `logs` - Directory with logs. The system save logs for each container.
+ |
+ ├── `app.py` - Streamlit app (UI interface)
+ |
+ ├── `db.py` - Postgres app (all queries to DB)
+ |
+ ├── `es.py` - ElasticSearch app (all queries to ElasticSearch to search info)
+ |
+ ├── `rag.py` - RAG app (build prompt, send queries to LLM)
+ |
+ ├── `data_ingestion.py` - Ingestion app (Creating, ingestion, indexing documents)
+ |
+ ├── `config.py` - Reading environmental params into variables
+ |
+ ├── `data` - Directory with datasets. Contain two transcribed playlists in json format. 
+ |
+ ├── `logs` - Directory with logs. The system save logs for each container.
 
 `data_prep` - Directory for creating dataset
-
-    `The Sound of AI` - Directory with transcripts of separate videos, temporary files, and final datasets as well.
-
-    `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
-
-    `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
-
-    `create_ground_truth_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
-
-    `download_audio.py` - Script for downloading audio tracks from YouTube.
-
-    `credentials.py` - Config to run queries to Amazon Transcribe service.
-
-    `text_helpers.py` - Some additional operations with text.
+ |
+ ├── `The Sound of AI` - Directory with transcripts of separate videos, temporary files, and final datasets as well.
+ |
+ ├── `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
+ |
+ ├── `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+ |
+ ├── `create_ground_truth_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+ |
+ ├── `download_audio.py` - Script for downloading audio tracks from YouTube.
+ |
+ ├── `credentials.py` - Config to run queries to Amazon Transcribe service.
+ |
+ ├── `text_helpers.py` - Some additional operations with text.
 
 `docker-compose.yaml` - Docker compose to run several containers.
 
@@ -76,6 +76,8 @@ https://github.com/user-attachments/assets/3f87e972-b5d0-423c-bfc4-d8e999713038
 `.env` - File with environment variables, which will be exported to the system while application starting.
 
 `dashboard.json` - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
+
+`demo` - Files to prepare demo with application description.
 
 
 ## How to reproduce the project
@@ -200,4 +202,4 @@ The entire YouTube Browser project was developed as a part of LLM Zoomcamp. The 
 - Try Hybrid search: combining both text and vector search and evaluate it.
 - Deploy to the cloud.
 
-If you have any questions, please feel free to ask me.
+If you have any questions, please feel free to ask me. I'll be very happy if you liked my project and will be grateful for a fork and a star. Also add me to follow to track new projects and changes.
