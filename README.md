@@ -77,8 +77,6 @@ https://youtu.be/wVxdlERF5-E
 
 `dashboard.json` - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
 
-`demo` - Files to prepare demo with application description.
-
 
 ## How to reproduce the project
 
