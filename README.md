@@ -50,13 +50,17 @@ app - RAG application
 
 data_prep - Directory for creating dataset
  |
- ├── The Sound of AI - Directory with transcripts of separate videos, temporary files, and final datasets as well.
+ ├── The Sound of AI - Directory with transcripts of separate videos, temporary files, 
+                            and final datasets as well.
  |
- ├── amazon_stt.py - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
+ ├── amazon_stt.py - Script to send queries to Amazon Transcribe service for 
+                            transcribing each video from playlist.
  |
- ├── create_dataset.py - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+ ├── create_dataset.py - Script for creating dataset (some operations for merging, 
+                            asking LLM to generate questions, etc.)
  |
- ├── create_ground_truth_dataset.py - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
+ ├── create_ground_truth_dataset.py - Script for creating dataset (some operations 
+                            for merging, asking LLM to generate questions, etc.)
  |
  ├── download_audio.py - Script for downloading audio tracks from YouTube.
  |
@@ -68,15 +72,18 @@ docker-compose.yaml - Docker compose to run several containers.
 
 Dockerfile.streamlit - Docker file to run Streamlit app.
 
-Dockerfile.ingestion - Docker file to run Ingestion in automatic mode while all containers starting.
+Dockerfile.ingestion - Docker file to run Ingestion in automatic mode while all 
+                            containers starting.
 
 requirements.txt - File with list of Python libraries which used in the system.
 
 grafana.md - SQL queries to PostgreSQL database for using in Grafana UI.
 
-.env - File with environment variables, which will be exported to the system while application starting.
+.env - File with environment variables, which will be exported to the system while 
+                            application starting.
 
-dashboard.json - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
+dashboard.json - Exported file with dashboard description from Grafana. To see panels 
+                            from dashboard, just need to import this file via Grafana UI.
 ```
 
 ## How to reproduce the project
