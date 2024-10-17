@@ -23170,3 +23170,84 @@ YouTube Link: N/A
 2024-10-17 04:20:39,839 - config - INFO - Trying to get feedbacks ...
 2024-10-17 04:20:39,861 - config - INFO - The following method has been selected: Text
 2024-10-17 04:20:39,871 - config - INFO - YouTube Browser app completed
+2024-10-17 04:59:17,291 - config - INFO - YouTube Browser app started
+2024-10-17 04:59:17,292 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-17 04:59:17,293 - config - INFO - New conversation started with ID: 937ae059-9bcb-4c41-b576-cca7ca50b57a
+2024-10-17 04:59:17,294 - config - INFO - Feedback count initialized to zero.
+2024-10-17 04:59:17,300 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-17 04:59:17,307 - config - INFO - Trying to get feedbacks ...
+2024-10-17 04:59:17,317 - config - INFO - The following method has been selected: Text
+2024-10-17 04:59:17,328 - config - INFO - YouTube Browser app completed
+2024-10-17 04:59:31,990 - config - INFO - YouTube Browser app started
+2024-10-17 04:59:31,990 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-17 04:59:31,996 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-17 04:59:32,010 - config - INFO - Trying to get feedbacks ...
+2024-10-17 04:59:32,017 - config - INFO - The following method has been selected: Text
+2024-10-17 04:59:32,023 - config - INFO - YouTube Browser app completed
+2024-10-17 04:59:32,187 - config - INFO - YouTube Browser app started
+2024-10-17 04:59:32,187 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-17 04:59:32,192 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-17 04:59:32,200 - config - INFO - Trying to get feedbacks ...
+2024-10-17 04:59:32,208 - config - INFO - The following method has been selected: Text
+2024-10-17 04:59:32,211 - config - INFO - User asked: 'What is a frequency?'
+2024-10-17 04:59:32,213 - config - INFO - Getting answer from YouTube Browser using Text search
+2024-10-17 04:59:32,216 - config - INFO - Starting the RAG query .....
+2024-10-17 04:59:32,217 - config - INFO - Starting the sending search query with the type: Text
+2024-10-17 04:59:32,217 - config - INFO - Starting the sending Keyword search query .....
+2024-10-17 04:59:32,228 - elastic_transport.transport - INFO - POST http://elasticsearch:9200/youtube-questions/_search [status:200 duration:0.011s]
+2024-10-17 04:59:32,234 - config - INFO - Keyword search query returned 5 results.
+2024-10-17 04:59:32,235 - config - INFO - Sending search query with the type: Text was completed.
+2024-10-17 04:59:32,235 - config - INFO - Starting the build prompt .....
+2024-10-17 04:59:32,235 - config - INFO - Building prompt was completed.
+2024-10-17 04:59:32,236 - config - INFO - The prompt to OpenAI is: You're a teaching assistant. Answer the QUESTION based on the CONTEXT from the video transcripts database.
+        Use only the facts from the CONTEXT when answering the QUESTION. 
+        If you find the answer in CONTEXT, provide to user youtube video link and the video title from the CONTEXT below.
+        If you didn't find any answer in CONTEXT, don't ask user to provide additional information and don't provide any links and video titles, just return only answer.
+        Format of the answer should be an answer firstly, and then provide video title and youtube link to the video from CONTEXT.
+        
+
+    QUESTION: What is a frequency?
+
+    CONTEXT: Answer: OK? But I know this can feel a little bit abstract. So let's go move on with an example. So here we have like a bunch of like uh STFT uh parameters and we want to find the actual output shape. So we have a signal with 10,000 samples, we have a frame size which is equal to 1000 samples and we have a H size of 500 samples. So uh for the number of frequency bins, so we take the frame size, we divided it by two, we add one and we get 501 frequency bins. OK? But these are frequency bins and we know that uh they divide a certain frequency range um equally. And so we have like a frequency range that's divided in 501 bins in this case. Uh Now what, what, what is that range? Well, that range and the frequency range is between zero Hertz and the sampling range divided by two Hertz. And that is the NS frequency once again.
+    Video Title: Short-Time Fourier Transform Explained Easily
+    YouTube Link: https://www.youtube.com/watch?v=-Yxj3yfvY-4&t=1305s
+
+Answer: obviously there's a certain level uh of like, I mean, it's arbitrary to a certain extent, but then there's like some reasoning behind it. And to understand what the reasoning is, we need to introduce another concept, which is the nest frequency that comes from the NWS theorem. We can um indicate this which are F or then and the NIST frequency is given by half the sampling rates. What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
+
+Answer: uh is equal to the uh split frequency. And this is given in Hertz and that's divided by the frequency delta per bin. In other words, what we are doing is we are mapping this continuous um frequency, that's the split frequency onto the, the closest frequency uh bin available. And uh but uh you, you may see here that uh given like we have two numbers. So the frequency to frequency delta per bin, it's likely that we're gonna get like some kind of a float number. And obviously the the frequency bins that we have are the script and that, that's the whole point of having like this critic here. So we can't take a frequency bin that's equal to 10.4. It doesn't make sense, right? So we have to move to uh an integer number. So we have to round up the numbers. So what, what can we do to round this round this number? So we can use the NP dot uh floor function
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=434s
+
+Answer: the spectrogram has discrete values, right? So it has discrete frequency bins. So we need to create a function that maps a continuous frequency onto the discrete frequency bins that we have. And so that's what we want to build now. So we'll uh define a function and we'll cal we'll call it, calculate uh split frequency bin like this and this uh function accepts a few parameters. So first of all, it, it accepts a spectrogram, then the split frequency and finally the sample rate. OK. So now let's uh see what we should do here like all the different steps. So as the first thing, what we want to calculate is the frequency range that we have in the spectrogram. In other words, so we want to ask ourselves. So how uh what's the frequency range that we are capturing in the spectrogram? And now to show you what I mean here, let me just go back and take a look at the, for example, at the, the BC spectrogram. So
+    Video Title: Implementing Band Energy Ratio in Python from Scratch
+    YouTube Link: https://www.youtube.com/watch?v=8UJ8ZDR7yUs&t=231s
+
+Answer: What the liquid frequency tells us is basically the upper bound frequency that we can have in a digital signal that's not going to recreate any artifacts, right? So basically up until the nus frequency, we can reconstruct a signal. OK. But if we go above the nus frequency in our signal, we are gonna start to have artifacts and we'll see what those artifacts are in a second. Now, if we move back to the uh to the CD example, and we take a look at the nucleus frequency for the CD, that's 44.1 K divided by two, which gives us 22,050 Hertz. This is the nucleus frequency for a CD. Now this number should ring a bell for you.
+    Video Title: Understanding Audio Signals for Machine Learning
+    YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=544s
+2024-10-17 04:59:32,236 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-17 04:59:37,350 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-17 04:59:37,353 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-17 04:59:37,353 - config - INFO - Answer from OpenAI: A frequency is defined as the split frequency, which is measured in Hertz and represents how often a periodic event occurs in a unit of time. In the context of digital signals, it indicates the upper bound frequency that can be accurately reconstructed without introducing artifacts, which is known as the Nyquist frequency.
+
+Video Title: Understanding Audio Signals for Machine Learning  
+YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s 
+2024-10-17 04:59:37,354 - config - INFO - Starting RAG evaluation .....
+2024-10-17 04:59:37,355 - config - INFO - Starting the sending the query to OpenAI .....
+2024-10-17 04:59:40,114 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-17 04:59:40,116 - config - INFO - Sending the query to OpenAI was completed.
+2024-10-17 04:59:40,116 - config - INFO - Answer from OpenAI: {
+    "Relevance": "RELEVANT",
+    "Explanation": "The generated answer accurately defines frequency as a measure of how often a periodic event occurs, specifically in Hertz. It also provides additional relevant information about the Nyquist frequency in the context of digital signals, which enhances the understanding of the concept. Overall, the answer is directly related to the question about what frequency is."
+} 
+2024-10-17 04:59:40,117 - config - INFO - RAG evaluation was completed.
+2024-10-17 04:59:40,117 - config - INFO - Relevance: RELEVANT, Explanation: The generated answer accurately defines frequency as a measure of how often a periodic event occurs, specifically in Hertz. It also provides additional relevant information about the Nyquist frequency in the context of digital signals, which enhances the understanding of the concept. Overall, the answer is directly related to the question about what frequency is.
+2024-10-17 04:59:40,118 - config - INFO - OpenAI costs calculation started ...
+2024-10-17 04:59:40,118 - config - INFO - OpenAI costs calculation was completed.
+2024-10-17 04:59:40,119 - config - INFO - RAG query was completed.
+2024-10-17 04:59:40,120 - config - INFO - Answer received in 7.90 seconds.
+2024-10-17 04:59:40,127 - config - INFO - Trying to save conversation...
+2024-10-17 04:59:40,141 - config - INFO - Scripts for saving conversations were successfully completed.
+2024-10-17 04:59:40,151 - config - INFO - YouTube Browser app completed

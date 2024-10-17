@@ -23,60 +23,61 @@ As part of the project, code was developed that allows you to download audio tra
 
 ## Demo of the YouTube Browser application
 
-https://youtu.be/wVxdlERF5-E
+
+[![YouTube Browser app demo](images/app_demo.png)](https://youtu.be/wVxdlERF5-E)
 
 
 ## Files and directory description
 
+```
+app - RAG application
+ |
+ ├── app.py - Streamlit app (UI interface)
+ |
+ ├── db.py - Postgres app (all queries to DB)
+ |
+ ├── es.py - ElasticSearch app (all queries to ElasticSearch to search info)
+ |
+ ├── rag.py - RAG app (build prompt, send queries to LLM)
+ |
+ ├── data_ingestion.py - Ingestion app (Creating, ingestion, indexing documents)
+ |
+ ├── config.py - Reading environmental params into variables
+ |
+ ├── data - Directory with datasets. Contain two transcribed playlists in json format. 
+ |
+ ├── logs - Directory with logs. The system save logs for each container.
 
-`app` - RAG application
+data_prep - Directory for creating dataset
  |
- ├── `app.py` - Streamlit app (UI interface)
+ ├── The Sound of AI - Directory with transcripts of separate videos, temporary files, and final datasets as well.
  |
- ├── `db.py` - Postgres app (all queries to DB)
+ ├── amazon_stt.py - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
  |
- ├── `es.py` - ElasticSearch app (all queries to ElasticSearch to search info)
+ ├── create_dataset.py - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
  |
- ├── `rag.py` - RAG app (build prompt, send queries to LLM)
+ ├── create_ground_truth_dataset.py - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
  |
- ├── `data_ingestion.py` - Ingestion app (Creating, ingestion, indexing documents)
+ ├── download_audio.py - Script for downloading audio tracks from YouTube.
  |
- ├── `config.py` - Reading environmental params into variables
+ ├── credentials.py - Config to run queries to Amazon Transcribe service.
  |
- ├── `data` - Directory with datasets. Contain two transcribed playlists in json format. 
- |
- ├── `logs` - Directory with logs. The system save logs for each container.
+ ├── text_helpers.py - Some additional operations with text.
 
-`data_prep` - Directory for creating dataset
- |
- ├── `The Sound of AI` - Directory with transcripts of separate videos, temporary files, and final datasets as well.
- |
- ├── `amazon_stt.py` - Script to send queries to Amazon Transcribe service for transcribing each video from playlist.
- |
- ├── `create_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
- |
- ├── `create_ground_truth_dataset.py` - Script for creating dataset (some operations for merging, asking LLM to generate questions, etc.)
- |
- ├── `download_audio.py` - Script for downloading audio tracks from YouTube.
- |
- ├── `credentials.py` - Config to run queries to Amazon Transcribe service.
- |
- ├── `text_helpers.py` - Some additional operations with text.
+docker-compose.yaml - Docker compose to run several containers.
 
-`docker-compose.yaml` - Docker compose to run several containers.
+Dockerfile.streamlit - Docker file to run Streamlit app.
 
-`Dockerfile.streamlit` - Docker file to run Streamlit app.
+Dockerfile.ingestion - Docker file to run Ingestion in automatic mode while all containers starting.
 
-`Dockerfile.ingestion` - Docker file to run Ingestion in automatic mode while all containers starting.
+requirements.txt - File with list of Python libraries which used in the system.
 
-`requirements.txt` - File with list of Python libraries which used in the system.
+grafana.md - SQL queries to PostgreSQL database for using in Grafana UI.
 
-`grafana.md` - SQL queries to PostgreSQL database for using in Grafana UI.
+.env - File with environment variables, which will be exported to the system while application starting.
 
-`.env` - File with environment variables, which will be exported to the system while application starting.
-
-`dashboard.json` - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
-
+dashboard.json - Exported file with dashboard description from Grafana. To see panels from dashboard, just need to import this file via Grafana UI.
+```
 
 ## How to reproduce the project
 
