@@ -1,6 +1,7 @@
 data_prep/config/AMAZON_APPLICATION_CREDENTIALS.json
 cloud/
 demo/
+evaluation/old/
 
 
 # Byte-compiled / optimized / DLL files

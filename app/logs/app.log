@@ -23251,3 +23251,43 @@ YouTube Link: https://www.youtube.com/watch?v=daB9naGBVv4&t=515s
 2024-10-17 04:59:40,127 - config - INFO - Trying to save conversation...
 2024-10-17 04:59:40,141 - config - INFO - Scripts for saving conversations were successfully completed.
 2024-10-17 04:59:40,151 - config - INFO - YouTube Browser app completed
+2024-10-17 09:30:54,148 - config - INFO - YouTube Browser app started
+2024-10-17 09:30:54,149 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-17 09:30:54,151 - config - INFO - New conversation started with ID: 9ba3ed6f-8b9e-4c00-b9a2-44c74ee23d6a
+2024-10-17 09:30:54,153 - config - INFO - Feedback count initialized to zero.
+2024-10-17 09:30:54,160 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-17 09:30:54,175 - config - INFO - Trying to get feedbacks ...
+2024-10-17 09:30:54,199 - config - INFO - The following method has been selected: Text
+2024-10-17 09:30:54,213 - config - INFO - YouTube Browser app completed
+2024-10-18 03:51:49,314 - config - INFO - YouTube Browser app started
+2024-10-18 03:51:49,314 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-18 03:51:49,316 - config - INFO - New conversation started with ID: 33d944d4-4b47-4b74-b5cb-483144568ea8
+2024-10-18 03:51:49,316 - config - INFO - Feedback count initialized to zero.
+2024-10-18 03:51:49,322 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-18 03:51:49,333 - config - INFO - Trying to get feedbacks ...
+2024-10-18 03:51:49,352 - config - INFO - The following method has been selected: Text
+2024-10-18 03:51:49,360 - config - INFO - YouTube Browser app completed
+2024-10-18 04:08:22,196 - config - INFO - YouTube Browser app started
+2024-10-18 04:08:22,198 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-18 04:08:22,200 - config - INFO - New conversation started with ID: 7cd99d8a-a09a-417f-8844-70c574836716
+2024-10-18 04:08:22,201 - config - INFO - Feedback count initialized to zero.
+2024-10-18 04:08:22,208 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-18 04:08:22,216 - config - INFO - Trying to get feedbacks ...
+2024-10-18 04:08:22,235 - config - INFO - The following method has been selected: Text
+2024-10-18 04:08:22,247 - config - INFO - YouTube Browser app completed
+2024-10-18 08:08:54,905 - config - INFO - YouTube Browser app started
+2024-10-18 08:08:54,905 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-18 08:08:54,906 - config - INFO - New conversation started with ID: 2f97d4ee-e404-450a-84c7-14c091968380
+2024-10-18 08:08:54,907 - config - INFO - Feedback count initialized to zero.
+2024-10-18 08:08:54,916 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-18 08:08:54,934 - config - INFO - Trying to get feedbacks ...
+2024-10-18 08:08:54,953 - config - INFO - The following method has been selected: Text
+2024-10-18 08:08:54,976 - config - INFO - YouTube Browser app completed
+2024-10-19 23:44:22,115 - config - INFO - YouTube Browser app started
+2024-10-19 23:44:22,116 - config - INFO - Starting YouTube Browser streamlit app .....
+2024-10-19 23:44:22,120 - config - INFO - New conversation started with ID: aecb7bce-f50a-499e-89ab-4c9c49cae658
+2024-10-19 23:44:22,120 - config - INFO - Feedback count initialized to zero.
+2024-10-19 23:44:22,130 - config - INFO - The following playlist has been selected: Audio Signal Processing for ML
+2024-10-19 23:44:22,142 - config - INFO - Trying to get feedbacks ...
+2024-10-19 23:44:22,159 - config - INFO - The following method has been selected: Text
+2024-10-19 23:44:22,170 - config - INFO - YouTube Browser app completed

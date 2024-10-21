@@ -68,6 +68,12 @@ data_prep - Directory for creating dataset
  |
  ├── text_helpers.py - Some additional operations with text.
 
+evaluation - Directory for retrieval and RAG evaluation
+ |
+ ├── results.csv - file with retrieval evaluation results.
+ |
+ ├── retrieval-evaluation.ipynb - Jupyter Notebook to carry out retrieval evaluation.
+
 docker-compose.yaml - Docker compose to run several containers.
 
 Dockerfile.streamlit - Docker file to run Streamlit app.
@@ -142,8 +148,37 @@ There were developed the following dashboards:
 5. Recent Conversations
 6. Feedback Statistics
 
-
 ![Grafana dashboard](images/grafana_dashboard.png "Grafana dashboard")
+
+
+## Evaluation of retrieval from knowledge database
+
+To assess the quality of the document retrieval from the knowledge base, the following metrics were used:
+
+- hit-rate (recall)
+- Mean Reciprocal Rank (mrr)
+
+The following were used as retrieval methods:
+
+- Keyword ElasticSearch
+- Keyword MinSearch
+- Vector KNN search
+- Hybrid (Keyword + Vector) search
+- Re-ranking (based on Hybrid search)
+
+The best results that have been obtained for each method were the following:
+
+|     search method     | num results |       boost parameters          | hit\_rate |   mrr  |
+|:----------------------|:------------|:--------------------------------|:----------|:-------|
+| Keyword ElasticSearch |     10      | "text": 5;    "video_title": 1  | 0.6951    | 0.363  |
+| Keyword MinSearch     |     10      | "text": 5;    "video_title": 1  | 0.5985    | 0.302  |
+| Vector KNN search     |             | -                               | 0.4105    | 0.2556 |
+| Hybrid search         |     10      | "text": 5;    "video_title": 1  | 0.6978    | 0.2556 |
+| Re-ranking            |     5       | "text": 5;    "video_title": 1  | 0.5607    | 0.3326 |
+
+Notebook with the retrieval evaluation you can find here: [Retrieval Evaluation Notebook](evaluation/retrieval-evaluation.ipynb)
+
+The full results of retrieval evaluation research you can see here: [Evaluation results](evaluation/results.csv)
 
 
 ## Meet the Project Evaluation Criteria
@@ -185,8 +220,8 @@ There were developed the following dashboards:
     * [ ] 1 point: Some instructions are provided but are incomplete, OR instructions are clear and complete, the code works, but the data is missing
     * [x] 2 points: Instructions are clear, the dataset is accessible, it's easy to run the code, and it works. The versions for all dependencies are specified.
 * Best practices
-    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
-    * [ ] Document re-ranking (1 point)
+    * [x] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
+    * [x] Document re-ranking (1 point)
     * [ ] User query rewriting (1 point)
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
@@ -207,7 +242,6 @@ The entire YouTube Browser project was developed as a part of LLM Zoomcamp. The 
 
 ## Future tasks
 
-- Try Hybrid search: combining both text and vector search and evaluate it.
 - Deploy to the cloud.
 
 If you have any questions, please feel free to ask me. I'll be very happy if you liked my project and will be grateful for a fork and a star. Also add me to follow to track new projects and changes.
